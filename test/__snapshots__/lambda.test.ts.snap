@@ -1,0 +1,1055 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "LambdaD247545B": Object {
+      "DependsOn": Array [
+        "LambdaServiceRoleA8ED4D3B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "exports.handler = async (event) => { console.log(event); }",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "LambdaServiceRoleA8ED4D3B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectConcurrentExecutionsAlarm40633818": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps to monitor if the concurrency of the function is approaching the Region-level concurrency limit of your account. A function starts to be throttled if it reaches the concurrency limit.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - ConcurrentExecutions",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "MetricName": "ConcurrentExecutions",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 900,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectDurationAlarm90406D20": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects long duration times for processing an event by a Lambda function. Long durations might be because of changes in function code making the function take longer to execute, or the function's dependencies taking longer.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Duration",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "Duration",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 15,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectErrorsAlarm44478EB0": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Errors",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "Errors",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectThrottlesAlarm66DBCB32": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects a high number of throttled invocation requests. Throttling occurs when there is no concurrency is available for scale up. There are several approaches to resolve this issue. 1) Request a concurrency increase from AWS Support in this Region. 2) Identify performance issues in the function to improve the speed of processing and therefore improve throughput. 3) Increase the batch size of the function, so that more messages are processed by each function invocation.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Throttles",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "Throttles",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaServiceRoleA8ED4D3B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`SnapshotDefaultActionsInUse 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "LambdaD247545B": Object {
+      "DependsOn": Array [
+        "LambdaServiceRoleA8ED4D3B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "exports.handler = async (event) => { console.log(event); }",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "LambdaServiceRoleA8ED4D3B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "LambdaLambdaRecommendedAlarmsConcurrentExecutionsAlarmB5FB4C25": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps to monitor if the concurrency of the function is approaching the Region-level concurrency limit of your account. A function starts to be throttled if it reaches the concurrency limit.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - ConcurrentExecutions",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "MetricName": "ConcurrentExecutions",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 900,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsDurationAlarm5EEF8188": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects long duration times for processing an event by a Lambda function. Long durations might be because of changes in function code making the function take longer to execute, or the function's dependencies taking longer.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Duration",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "Duration",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 15,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsErrorsAlarm09735583": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Errors",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "Errors",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsThrottlesAlarm21DBB25A": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects a high number of throttled invocation requests. Throttling occurs when there is no concurrency is available for scale up. There are several approaches to resolve this issue. 1) Request a concurrency increase from AWS Support in this Region. 2) Identify performance issues in the function to improve the speed of processing and therefore improve throughput. 3) Increase the batch size of the function, so that more messages are processed by each function invocation.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Throttles",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "Throttles",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaServiceRoleA8ED4D3B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "TopicBFC7AF6E": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "lambdaAlarmsConcurrentExecutionsAlarm1B0D726C": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm helps to monitor if the concurrency of the function is approaching the Region-level concurrency limit of your account. A function starts to be throttled if it reaches the concurrency limit.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - ConcurrentExecutions",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ConcurrentExecutions",
+        "Namespace": "AWS/Lambda",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 900,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "lambdaAlarmsDurationAlarmA3C56CB0": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm detects long duration times for processing an event by a Lambda function. Long durations might be because of changes in function code making the function take longer to execute, or the function's dependencies taking longer.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Duration",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "Duration",
+        "Namespace": "AWS/Lambda",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 15,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "lambdaAlarmsErrorsAlarm3E008CC0": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Errors",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "Errors",
+        "Namespace": "AWS/Lambda",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "lambdaAlarmsThrottlesAlarmF7074F2E": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm detects a high number of throttled invocation requests. Throttling occurs when there is no concurrency is available for scale up. There are several approaches to resolve this issue. 1) Request a concurrency increase from AWS Support in this Region. 2) Identify performance issues in the function to improve the speed of processing and therefore improve throughput. 3) Increase the batch size of the function, so that more messages are processed by each function invocation.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Throttles",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "Throttles",
+        "Namespace": "AWS/Lambda",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`SnapshotForBucketConstruct 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "LambdaD247545B": Object {
+      "DependsOn": Array [
+        "LambdaServiceRoleA8ED4D3B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "exports.handler = async (event) => { console.log(event); }",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "LambdaServiceRoleA8ED4D3B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "LambdaLambdaRecommendedAlarmsConcurrentExecutionsAlarmB5FB4C25": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps to monitor if the concurrency of the function is approaching the Region-level concurrency limit of your account. A function starts to be throttled if it reaches the concurrency limit.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - ConcurrentExecutions",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "MetricName": "ConcurrentExecutions",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 900,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsDurationAlarm5EEF8188": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects long duration times for processing an event by a Lambda function. Long durations might be because of changes in function code making the function take longer to execute, or the function's dependencies taking longer.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Duration",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "Duration",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 15,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsErrorsAlarm09735583": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Errors",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "Errors",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsThrottlesAlarm21DBB25A": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects a high number of throttled invocation requests. Throttling occurs when there is no concurrency is available for scale up. There are several approaches to resolve this issue. 1) Request a concurrency increase from AWS Support in this Region. 2) Identify performance issues in the function to improve the speed of processing and therefore improve throughput. 3) Increase the batch size of the function, so that more messages are processed by each function invocation.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Throttles",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "Throttles",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaServiceRoleA8ED4D3B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`SnapshotWithExclusion 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "LambdaD247545B": Object {
+      "DependsOn": Array [
+        "LambdaServiceRoleA8ED4D3B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "exports.handler = async (event) => { console.log(event); }",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "LambdaServiceRoleA8ED4D3B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectConcurrentExecutionsAlarm40633818": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps to monitor if the concurrency of the function is approaching the Region-level concurrency limit of your account. A function starts to be throttled if it reaches the concurrency limit.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - ConcurrentExecutions",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "MetricName": "ConcurrentExecutions",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 900,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectErrorsAlarm44478EB0": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Errors",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "Errors",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectThrottlesAlarm66DBCB32": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm detects a high number of throttled invocation requests. Throttling occurs when there is no concurrency is available for scale up. There are several approaches to resolve this issue. 1) Request a concurrency increase from AWS Support in this Region. 2) Identify performance issues in the function to improve the speed of processing and therefore improve throughput. 3) Increase the batch size of the function, so that more messages are processed by each function invocation.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "LambdaD247545B",
+              },
+              " - Throttles",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "FunctionName",
+            "Value": Object {
+              "Ref": "LambdaD247545B",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "Throttles",
+        "Namespace": "AWS/Lambda",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaServiceRoleA8ED4D3B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

@@ -1,17 +1,57 @@
-import { awscdk } from 'projen';
+import { awscdk, javascript } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
-  author: 'Brandon Miller',
-  authorAddress: 'bmiller@renovo1.com',
-  cdkVersion: '2.1.0',
-  defaultReleaseBranch: 'main',
-  jsiiVersion: '~5.4.0',
-  name: 'cdk-library-cloudwatch-autoalarm',
+  author: 'Renovo Solutions',
+  authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/bmiller/cdk-library-cloudwatch-autoalarm.git',
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  cdkVersion: '2.151.0',
+  defaultReleaseBranch: 'master',
+  majorVersion: 2,
+  name: '@renovosolutions/cdk-library-cloudwatch-alarms',
+  description: 'AWS CDK Construct Library to automatically create CloudWatch Alarms for resources in a CDK app based on resource type.',
+  repositoryUrl: 'https://github.com/RenovoSolutions/cdk-library-cloudwatch-alarms.git',
+  keywords: [
+    'cloudwatch',
+    'alarms',
+    'cdk',
+    'aws-cdk',
+    'aws-cdk-construct',
+    'projen',
+  ],
+  depsUpgrade: true,
+  depsUpgradeOptions: {
+    workflow: false,
+    exclude: ['projen'],
+  },
+  githubOptions: {
+    mergify: false,
+    pullRequestLintOptions: {
+      semanticTitle: false,
+    },
+  },
+  stale: false,
+  releaseToNpm: true,
+  release: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
+  docgen: true,
+  eslint: true,
+  publishToPypi: {
+    distName: 'renovosolutions.aws-cdk-cloudwatch-alarms',
+    module: 'certbot',
+  },
+  jestOptions: {
+    jestConfig: {
+      timers: 'fake',
+    },
+  },
 });
+
+new javascript.UpgradeDependencies(project, {
+  include: ['projen'],
+  taskName: 'upgrade-projen',
+  workflow: true,
+  workflowOptions: {
+    schedule: javascript.UpgradeDependenciesSchedule.WEEKLY,
+  },
+});
+
 project.synth();
