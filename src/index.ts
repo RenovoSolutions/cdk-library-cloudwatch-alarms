@@ -1,5 +1,5 @@
-export class Hello {
-  public sayHello() {
-    return 'hello, world!';
-  }
-}
+export * from './common';
+export * from './lambda';
+export * from './s3';
+export * from './sns';
+export * from './sqs';
