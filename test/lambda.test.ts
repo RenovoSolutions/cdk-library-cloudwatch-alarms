@@ -213,13 +213,13 @@ test('stack should contain recommended alarms for each function if recommended a
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
-  ['Lambda1', 'Lambda2'].forEach(bucketName => {
+  ['Lambda1', 'Lambda2'].forEach(functionName => {
     Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(bucketName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(functionName) && resourceProperties.MetricName === metricName;
       });
 
       expect(alarms.length).toBe(1);
@@ -273,13 +273,13 @@ test('stack should not include an alarm if its excluded when aspect is applied',
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
-  ['Lambda1', 'Lambda2'].forEach(bucketName => {
+  ['Lambda1', 'Lambda2'].forEach(functionName => {
     Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(bucketName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(functionName) && resourceProperties.MetricName === metricName;
       });
 
       if (metricName === lambdaAlarms.LambdaRecommendedAlarmsMetrics.DURATION) {
@@ -816,5 +816,69 @@ Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName =>
     }).toThrowError('The period (86400) over which'),
 
     Template.fromStack(stack);
+  });
+});
+
+test('when a resource is excluded from the aspect config it should not have alarms', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new lambdaAlarms.LambdaRecommendedAlarmsAspect({
+      excludeResources: ['Lambda1'],
+      configDurationAlarm: {
+        threshold: 15,
+      },
+      configErrorsAlarm: {
+        threshold: 1,
+      },
+      configThrottlesAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  new lambda.Function(stack, 'Lambda1', {
+    runtime: lambda.Runtime.NODEJS_20_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+  });
+
+  new lambda.Function(stack, 'Lambda2', {
+    runtime: lambda.Runtime.NODEJS_20_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+  });
+
+  const template = Template.fromStack(stack);
+
+  const numAlarms = Object.keys(lambdaAlarms.LambdaRecommendedAlarmsMetrics).length;
+
+  template.resourceCountIs('AWS::CloudWatch::Alarm', numAlarms);
+
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+
+  ['Lambda1', 'Lambda2'].forEach(functionName => {
+    Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName => {
+      const alarms = Object.keys(resources).filter(resourceName => {
+        const resource = resources[resourceName];
+        const resourceProperties = resource.Properties;
+
+        return resourceName.startsWith(functionName) && resourceProperties.MetricName === metricName;
+      });
+
+      if (functionName === 'Lambda1') {
+        expect(alarms.length).toBe(0);
+      } else {
+        expect(alarms.length).toBe(1);
+      }
+    });
   });
 });

@@ -386,6 +386,12 @@ export interface SqsRecommendedAlarmsConfig {
    */
   readonly excludeAlarms?: SqsRecommendedAlarmsMetrics[];
   /**
+   * The resources to exclude from the recommended alarms.
+   *
+   * Use a resources id to exclude a specific resource.
+   */
+  readonly excludeResources?: string[];
+  /**
    * The configuration for the approximate age of oldest message alarm.
    */
   readonly configApproximateAgeOfOldestMessageAlarm: SqsApproximateAgeOfOldestMessageAlarmConfig;
@@ -585,12 +591,16 @@ export class SqsRecommendedAlarmsAspect implements IAspect {
 
   public visit(node: IConstruct): void {
     if (node instanceof sqs.Queue) {
-      const queue = node as sqs.Queue;
+      if (this.props.excludeResources && this.props.excludeResources.includes(node.node.id)) {
+        return;
+      } else {
+        const queue = node as sqs.Queue;
 
-      new SqsRecommendedAlarms(queue, 'SqsRecommendedAlarmsFromAspect', {
-        queue,
-        ...this.props,
-      });
+        new SqsRecommendedAlarms(queue, 'SqsRecommendedAlarmsFromAspect', {
+          queue,
+          ...this.props,
+        });
+      }
     }
   }
 };

@@ -442,6 +442,12 @@ export interface LambdaRecommendedAlarmsConfig {
    */
   readonly excludeAlarms?: LambdaRecommendedAlarmsMetrics[];
   /**
+   * The resources to exclude from the recommended alarms.
+   *
+   * Use a resources id to exclude a specific resource.
+   */
+  readonly excludeResources?: string[];
+  /**
    * The configuration for the Errors alarm.
    */
   readonly configErrorsAlarm: LambdaErrorsAlarmConfig;
@@ -642,12 +648,16 @@ export class LambdaRecommendedAlarmsAspect implements IAspect {
 
   public visit(node: IConstruct): void {
     if (node instanceof lambda.Function) {
-      const lambdaFunction = node as lambda.IFunction;
+      if (this.props.excludeResources && this.props.excludeResources.includes(node.node.id)) {
+        return;
+      } else {
+        const lambdaFunction = node as lambda.IFunction;
 
-      new LambdaRecommendedAlarms(node, 'LambdaRecommendedAlarmsFromAspect', {
-        lambdaFunction,
-        ...this.props,
-      });
+        new LambdaRecommendedAlarms(node, 'LambdaRecommendedAlarmsFromAspect', {
+          lambdaFunction,
+          ...this.props,
+        });
+      }
     }
   }
 }

@@ -606,3 +606,54 @@ Object.values(s3alarms.S3RecommendedAlarmsMetrics).forEach(metricName => {
     Template.fromStack(stack);
   });
 });
+
+test('when a resource is excluded from the aspect config it should not have alarms', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new s3alarms.S3RecommendedAlarmsAspect({
+      excludeResources: ['Bucket1'],
+    }),
+  );
+
+  new s3.Bucket(stack, 'Bucket1', {
+    bucketName: 'bucket1',
+  });
+
+  new s3.Bucket(stack, 'Bucket2', {
+    bucketName: 'bucket2',
+  });
+
+  const template = Template.fromStack(stack);
+
+  const numAlarms = Object.keys(s3alarms.S3RecommendedAlarmsMetrics).length;
+
+  template.resourceCountIs('AWS::CloudWatch::Alarm', numAlarms);
+
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+
+  ['Bucket1', 'Bucket2'].forEach(bucketName => {
+    Object.values(s3alarms.S3RecommendedAlarmsMetrics).forEach(metricName => {
+      const alarms = Object.keys(resources).filter(resourceName => {
+        const resource = resources[resourceName];
+        const resourceProperties = resource.Properties;
+
+        return resourceName.startsWith(bucketName) && resourceProperties.MetricName === metricName;
+      });
+
+      if (bucketName === 'Bucket1') {
+        expect(alarms.length).toBe(0);
+      } else {
+        expect(alarms.length).toBe(1);
+      }
+    });
+  });
+});

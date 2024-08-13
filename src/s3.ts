@@ -243,6 +243,12 @@ export interface S3RecommendedAlarmsConfig {
    */
   readonly excludeAlarms?: S3RecommendedAlarmsMetrics[];
   /**
+   * The resources to exclude from the recommended alarms.
+   *
+   * Use a resources id to exclude a specific resource.
+   */
+  readonly excludeResources?: string[];
+  /**
    * The configuration for the 4xx errors alarm.
    */
   readonly config4xxErrorsAlarm?: S3Bucket4xxErrorsAlarmConfig;
@@ -369,12 +375,16 @@ export class S3RecommendedAlarmsAspect implements IAspect {
 
   public visit(node: IConstruct): void {
     if (node instanceof s3.Bucket) {
-      const bucket = node as s3.Bucket;
+      if (this.props?.excludeResources && this.props.excludeResources.includes(node.node.id)) {
+        return;
+      } else {
+        const bucket = node as s3.Bucket;
 
-      new S3RecommendedAlarms(bucket, 'S3RecommendedAlarmsFromAspect', {
-        bucket,
-        ...this.props,
-      });
+        new S3RecommendedAlarms(bucket, 'S3RecommendedAlarmsFromAspect', {
+          bucket,
+          ...this.props,
+        });
+      }
     }
   }
 }

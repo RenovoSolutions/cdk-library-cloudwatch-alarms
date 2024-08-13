@@ -39,7 +39,14 @@ test('Snapshot', () => {
     }),
   );
 
-  new sqs.Queue(stack, 'Queue');
+  const dlq = new sqs.Queue(stack, 'dlq');
+
+  new sqs.Queue(stack, 'Queue', {
+    deadLetterQueue: {
+      queue: dlq,
+      maxReceiveCount: 1,
+    },
+  });
 
   const template = Template.fromStack(stack);
 
@@ -190,13 +197,13 @@ test('stack should contain recommended alarms for each queue if recommended alar
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
-  ['Queue1', 'Queue2'].forEach(bucketName => {
+  ['Queue1', 'Queue2'].forEach(queueName => {
     Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(bucketName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(queueName) && resourceProperties.MetricName === metricName;
       });
 
       expect(alarms.length).toBe(1);
@@ -242,13 +249,13 @@ test('stack should not include an alarm if its excluded when aspect is applied',
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
-  ['Queue1', 'Queue2'].forEach(bucketName => {
+  ['Queue1', 'Queue2'].forEach(queueName => {
     Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(bucketName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(queueName) && resourceProperties.MetricName === metricName;
       });
 
       if (metricName === sqsAlarms.SqsRecommendedAlarmsMetrics.APPROXIMATE_AGE_OF_OLDEST_MESSAGE) {
@@ -751,5 +758,61 @@ Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
     }).toThrowError('The period (86400) over which'),
 
     Template.fromStack(stack);
+  });
+});
+
+test('when a resource is excluded from the aspect config it should not have alarms', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new sqsAlarms.SqsRecommendedAlarmsAspect({
+      excludeResources: ['Queue1'],
+      configApproximateAgeOfOldestMessageAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesNotVisibleAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesVisibleAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  new sqs.Queue(stack, 'Queue1');
+
+  new sqs.Queue(stack, 'Queue2');
+
+  const template = Template.fromStack(stack);
+
+  const numAlarms = Object.keys(sqsAlarms.SqsRecommendedAlarmsMetrics).length;
+
+  template.resourceCountIs('AWS::CloudWatch::Alarm', numAlarms);
+
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+
+  ['Queue1', 'Queue2'].forEach(queueName => {
+    Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
+      const alarms = Object.keys(resources).filter(resourceName => {
+        const resource = resources[resourceName];
+        const resourceProperties = resource.Properties;
+
+        return resourceName.startsWith(queueName) && resourceProperties.MetricName === metricName;
+      });
+
+      if (queueName === 'Queue1') {
+        expect(alarms.length).toBe(0);
+      } else {
+        expect(alarms.length).toBe(1);
+      }
+    });
   });
 });
