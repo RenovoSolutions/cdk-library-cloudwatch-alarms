@@ -12163,6 +12163,7 @@ const lambdaRecommendedAlarmsConfig: LambdaRecommendedAlarmsConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics">LambdaRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 
 ---
 
@@ -12266,6 +12267,20 @@ Alarm metrics to exclude from the recommended alarms.
 
 ---
 
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
 ### LambdaRecommendedAlarmsProps <a name="LambdaRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps"></a>
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.Initializer"></a>
@@ -12288,6 +12303,7 @@ const lambdaRecommendedAlarmsProps: LambdaRecommendedAlarmsProps = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics">LambdaRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The lambda function to apply the recommended alarms. |
 
 ---
@@ -12389,6 +12405,20 @@ public readonly excludeAlarms: LambdaRecommendedAlarmsMetrics[];
 - *Default:* None
 
 Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
 
 ---
 
@@ -13463,6 +13493,7 @@ const s3RecommendedAlarmsConfig: S3RecommendedAlarmsConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsMetrics">S3RecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 
 ---
 
@@ -13542,6 +13573,20 @@ Alarm metrics to exclude from the recommended alarms.
 
 ---
 
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
 ### S3RecommendedAlarmsProps <a name="S3RecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsProps"></a>
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsProps.Initializer"></a>
@@ -13562,6 +13607,7 @@ const s3RecommendedAlarmsProps: S3RecommendedAlarmsProps = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsMetrics">S3RecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | The S3 bucket to apply the recommended alarms to. |
 
 ---
@@ -13639,6 +13685,20 @@ public readonly excludeAlarms: S3RecommendedAlarmsMetrics[];
 - *Default:* None
 
 Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
 
 ---
 
@@ -15959,6 +16019,7 @@ const snsRecommendedAlarmsConfig: SnsRecommendedAlarmsConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsMetrics">SnsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 
 ---
 
@@ -16098,6 +16159,20 @@ Alarm metrics to exclude from the recommended alarms.
 
 ---
 
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
 ### SnsRecommendedAlarmsProps <a name="SnsRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsProps"></a>
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsProps.Initializer"></a>
@@ -16123,6 +16198,7 @@ const snsRecommendedAlarmsProps: SnsRecommendedAlarmsProps = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsMetrics">SnsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsProps.property.topic">topic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The SNS topic for which to create the alarms. |
 
 ---
@@ -16260,6 +16336,20 @@ public readonly excludeAlarms: SnsRecommendedAlarmsMetrics[];
 - *Default:* None
 
 Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
 
 ---
 
@@ -17642,6 +17732,7 @@ const sqsRecommendedAlarmsConfig: SqsRecommendedAlarmsConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsMetrics">SqsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 
 ---
 
@@ -17745,6 +17836,20 @@ Alarm metrics to exclude from the recommended alarms.
 
 ---
 
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
 ### SqsRecommendedAlarmsProps <a name="SqsRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps"></a>
 
 Properties for the SqsRecommendedAlarms construct.
@@ -17769,6 +17874,7 @@ const sqsRecommendedAlarmsProps: SqsRecommendedAlarmsProps = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsMetrics">SqsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.queue">queue</a></code> | <code>aws-cdk-lib.aws_sqs.IQueue</code> | The SQS queue for which to create the alarms. |
 
 ---
@@ -17870,6 +17976,20 @@ public readonly excludeAlarms: SqsRecommendedAlarmsMetrics[];
 - *Default:* None
 
 Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
 
 ---
 

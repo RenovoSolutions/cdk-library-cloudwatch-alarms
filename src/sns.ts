@@ -651,6 +651,12 @@ export interface SnsRecommendedAlarmsConfig {
    */
   readonly excludeAlarms?: SnsRecommendedAlarmsMetrics[];
   /**
+   * The resources to exclude from the recommended alarms.
+   *
+   * Use a resources id to exclude a specific resource.
+   */
+  readonly excludeResources?: string[];
+  /**
    * The configuration for the NumberOfMessagesPublished alarm.
    */
   readonly configNumberOfMessagesPublishedAlarm: SnsNumberOfMessagesPublishedAlarmConfig;
@@ -976,12 +982,16 @@ export class SnsRecommendedAlarmsAspect implements IAspect {
 
   public visit(node: IConstruct): void {
     if (node instanceof sns.Topic) {
-      const topic = node as sns.Topic;
+      if (this.props.excludeResources && this.props.excludeResources.includes(node.node.id)) {
+        return;
+      } else {
+        const topic = node as sns.Topic;
 
-      new SnsRecommendedAlarms(node, 'SnsRecommendedAlarmsFromAspect', {
-        topic,
-        ...this.props,
-      });
+        new SnsRecommendedAlarms(node, 'SnsRecommendedAlarmsFromAspect', {
+          topic,
+          ...this.props,
+        });
+      }
     }
   }
 }

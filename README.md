@@ -215,6 +215,54 @@ new lambda.Function(stack2, 'Lambda2', {
 });
 ```
 
+### Exclusions
+
+You can exclude specific alarms or specific resources. Alarms use the available metrics enums and resources use the string used for a resources id. For example below Lambda1 will not have alarms created and there will be no alarm for the Duration metric for either lambda function.
+
+```typescript
+import { App, Stack, Aspects, aws_lambda as lambda } from 'aws-cdk-lib';
+import * as recommendedalarms from '@renovosolutions/cdk-library-cloudwatch-alarms';
+
+const app = new App();
+const stack = new Stack(app, 'TestStack', {
+  env: {
+    account: '123456789012', // not a real account
+    region: 'us-east-1',
+  },
+});
+
+const appAspects = Aspects.of(app);
+
+appAspects.add(
+  new recommendedalarms.LambdaRecommendedAlarmsAspect({
+    excludeResources: ['Lambda1'],
+    excludeAlarms: [recommendedalarms.LambdaRecommendedAlarmsMetrics.DURATION]
+    exclude 
+    configDurationAlarm: {
+      threshold: 15,
+    },
+    configErrorsAlarm: {
+      threshold: 1,
+    },
+    configThrottlesAlarm: {
+      threshold: 0,
+    },
+  }),
+);
+
+new lambda.Function(stack, 'Lambda1', {
+  runtime: lambda.Runtime.NODEJS_20_X,
+  handler: 'index.handler',
+  code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+});
+
+new lambda.Function(stack, 'Lambda2', {
+  runtime: lambda.Runtime.NODEJS_20_X,
+  handler: 'index.handler',
+  code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+});
+```
+
 ## References
 
 - [AWS Recommended Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html)

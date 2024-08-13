@@ -189,13 +189,13 @@ test('stack should contain recommended alarms for each topic if recommended alar
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
-  ['Topic1', 'Topic2'].forEach(bucketName => {
+  ['Topic1', 'Topic2'].forEach(topicName => {
     Object.values(snsAlarms.SnsRecommendedAlarmsMetrics).forEach(metricName => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(bucketName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(topicName) && resourceProperties.MetricName === metricName;
       });
 
       expect(alarms.length).toBe(1);
@@ -241,13 +241,13 @@ test('stack should not include an alarm if its excluded when aspect is applied',
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
-  ['Topic1', 'Topic2'].forEach(bucketName => {
+  ['Topic1', 'Topic2'].forEach(topicName => {
     Object.values(snsAlarms.SnsRecommendedAlarmsMetrics).forEach(metricName => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(bucketName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(topicName) && resourceProperties.MetricName === metricName;
       });
 
       if (metricName === snsAlarms.SnsRecommendedAlarmsMetrics.NUMBER_OF_MESSAGES_PUBLISHED) {
@@ -833,5 +833,61 @@ Object.values(snsAlarms.SnsRecommendedAlarmsMetrics).forEach(metricName => {
     }).toThrowError('The period (86400) over which'),
 
     Template.fromStack(stack);
+  });
+});
+
+test('when a resource is excluded from the aspect config it should not have alarms', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new snsAlarms.SnsRecommendedAlarmsAspect({
+      excludeResources: ['Topic1'],
+      configNumberOfMessagesPublishedAlarm: {
+        threshold: 1,
+      },
+      configNumberOfNotificationsDeliveredAlarm: {
+        threshold: 1,
+      },
+      configNumberOfNotificationsFailedAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  new sns.Topic(stack, 'Topic1');
+
+  new sns.Topic(stack, 'Topic2');
+
+  const template = Template.fromStack(stack);
+
+  const numAlarms = Object.keys(snsAlarms.SnsRecommendedAlarmsMetrics).length;
+
+  template.resourceCountIs('AWS::CloudWatch::Alarm', numAlarms);
+
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+
+  ['Topic1', 'Topic2'].forEach(topicName => {
+    Object.values(snsAlarms.SnsRecommendedAlarmsMetrics).forEach(metricName => {
+      const alarms = Object.keys(resources).filter(resourceName => {
+        const resource = resources[resourceName];
+        const resourceProperties = resource.Properties;
+
+        return resourceName.startsWith(topicName) && resourceProperties.MetricName === metricName;
+      });
+
+      if (topicName === 'Topic1') {
+        expect(alarms.length).toBe(0);
+      } else {
+        expect(alarms.length).toBe(1);
+      }
+    });
   });
 });
