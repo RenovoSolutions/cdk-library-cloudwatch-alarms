@@ -30,7 +30,7 @@ If its not shown it hasn't been worked on.
 | S3  | <ul><li>[x] 4xxErrors</li><li>[x] 5xxErrors</li><li>[ ] OperationsFailedReplication</li></ul> | Replication errors are difficult to set up in CDK at the moment due to rule properties being IResolvables and replication rules not being available on the L2 Bucket construct |
 | SQS | <ul><li>[x] ApproximateAgeOfOldestMessage</li><li>[x] ApproximateNumberOfMessagesNotVisible</li><li>[x] ApproximateNumberOfMessagesVisible</li><li>[x] NumberOfMessagesSent | All alarms with the exception of number of messages sent require a user defined threshold because its very usecase specific |
 | SNS | <ul><li>[x] NumberOfMessagesPublished</li><li>[x] NumberOfNotificationsDelivered</li><li>[x] NumberOfNotificationsFailed</li><li>[x] NumberOfNotificationsFilteredOut-InvalidAttributes</li><li>[x] NumberOfNotificationsFilteredOut-InvalidMessageBody</li><li>[x] NumberOfNotificationsRedrivenToDlq</li><li>[x] NumberOfNotificationsFailedToRedriveToDlq</li><li>[ ] SMSMonthToDateSpentUSD</li><li>[ ] SMSSuccessRate</li></ul> | Some alarms require a threshold to be defined. SMS alarms are not implememented.
-| Lambda | <ul><li>[ ] ClaimedAccountCurrency</li><li>[x] Errors</li><li>[x] Throttles</li><li>[x] Duration</li><li>[x] ConcurrentExecutions</li></ul> | ClaimedAccountCurrency is account wide and one time so not covered by this library at this time |
+| Lambda | <ul><li>[ ] ClaimedAccountConcurrency</li><li>[x] Errors</li><li>[x] Throttles</li><li>[x] Duration</li><li>[x] ConcurrentExecutions</li></ul> | ClaimedAccountConcurrency is account wide and one time so not covered by this library at this time |
 
 ### Aspects
 
@@ -102,7 +102,7 @@ const stack = new Stack(app, 'TestStack', {
 
 const bucket = new s3.Bucket(stack, 'Bucket', {});
 
-recommendedalarms.S3RecommendedAlarms(stack, 'RecommendedAlarms', {
+new recommendedalarms.S3RecommendedAlarms(stack, 'RecommendedAlarms', {
   bucket,
 });
 ```
@@ -125,7 +125,7 @@ const stack = new Stack(app, 'TestStack', {
 
 const bucket = new s3.Bucket(stack, 'Bucket', {});
 
-recommendedalarms.S3Bucket5xxErrorsAlarm(stack, 'RecommendedAlarms', {
+new recommendedalarms.S3Bucket5xxErrorsAlarm(stack, 'RecommendedAlarms', {
   bucket,
   threshold: 0.10,
 });
@@ -236,8 +236,7 @@ const appAspects = Aspects.of(app);
 appAspects.add(
   new recommendedalarms.LambdaRecommendedAlarmsAspect({
     excludeResources: ['Lambda1'],
-    excludeAlarms: [recommendedalarms.LambdaRecommendedAlarmsMetrics.DURATION]
-    exclude 
+    excludeAlarms: [recommendedalarms.LambdaRecommendedAlarmsMetrics.DURATION],
     configDurationAlarm: {
       threshold: 15,
     },
