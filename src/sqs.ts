@@ -108,6 +108,7 @@ export class SqsApproximateAgeOfOldestMessageAlarm extends cloudwatch.Alarm {
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 15,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm watches the age of the oldest message in the queue. '
         + 'You can use this alarm to monitor if your consumers are processing SQS messages at the desired speed. '
@@ -196,6 +197,7 @@ export class SqsApproximateNumberOfMessagesNotVisibleAlarm extends cloudwatch.Al
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 15,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps to detect a high number of in-flight '
         + 'messages with respect to QueueName. For troubleshooting, check message backlog decreasing '
@@ -274,6 +276,7 @@ export class SqsApproximateNumberOfMessagesVisibleAlarm extends cloudwatch.Alarm
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 15,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm watches for the message queue backlog to be bigger '
       + 'than expected, indicating that consumers are too slow or there are not enough consumers.',
@@ -347,6 +350,7 @@ export class SqsNumberOfMessagesSentAlarm extends cloudwatch.Alarm {
       threshold: props.threshold ?? 0,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 15,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_OR_EQUAL_TO_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps to detect if there are no messages being sent from a producer with respect to QueueName.',
     });
@@ -379,6 +383,12 @@ export interface SqsRecommendedAlarmsConfig {
    * @default - None
    */
   readonly defaultInsufficientDataAction?: cloudwatch.IAlarmAction;
+  /**
+   * How to handle missing data for this alarm.
+   *
+   * @default TreatMissingData.MISSING
+   */
+  readonly treatMissingData?: cloudwatch.TreatMissingData;
   /**
    * Alarm metrics to exclude from the recommended alarms.
    *
@@ -443,6 +453,7 @@ export class SqsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SqsRecommendedAlarmsMetrics.APPROXIMATE_AGE_OF_OLDEST_MESSAGE)) {
       this.alarmApproximateAgeOfOldestMessage = new SqsApproximateAgeOfOldestMessageAlarm(this, 'ApproximateAgeOfOldestMessageAlarm', {
         queue: props.queue,
+        treatMissingData: props.treatMissingData,
         ...props.configApproximateAgeOfOldestMessageAlarm,
       });
 
@@ -462,6 +473,7 @@ export class SqsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SqsRecommendedAlarmsMetrics.APPROXIMATE_NUMBER_OF_MESSAGES_NOT_VISIBLE)) {
       this.alarmApproximateNumberOfMessagesNotVisible = new SqsApproximateNumberOfMessagesNotVisibleAlarm(this, 'ApproximateNumberOfMessagesNotVisibleAlarm', {
         queue: props.queue,
+        treatMissingData: props.treatMissingData,
         ...props.configApproximateNumberOfMessagesNotVisibleAlarm,
       });
 
@@ -481,6 +493,7 @@ export class SqsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SqsRecommendedAlarmsMetrics.APPROXIMATE_NUMBER_OF_MESSAGES_VISIBLE)) {
       this.alarmApproximateNumberOfMessagesVisible = new SqsApproximateNumberOfMessagesVisibleAlarm(this, 'ApproximateNumberOfMessagesVisibleAlarm', {
         queue: props.queue,
+        treatMissingData: props.treatMissingData,
         ...props.configApproximateNumberOfMessagesVisibleAlarm,
       });
 
@@ -500,6 +513,7 @@ export class SqsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SqsRecommendedAlarmsMetrics.NUMBER_OF_MESSAGES_SENT)) {
       this.alarmNumberOfMessagesSent = new SqsNumberOfMessagesSentAlarm(this, 'NumberOfMessagesSentAlarm', {
         queue: props.queue,
+        treatMissingData: props.treatMissingData,
         ...props.configNumberOfMessagesSentAlarm,
       });
 

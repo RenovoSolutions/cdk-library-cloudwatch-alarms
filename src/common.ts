@@ -26,6 +26,12 @@ export interface AlarmBaseProps {
    * @default - None
    */
   readonly insufficientDataAction?: cloudwatch.IAlarmAction;
+  /**
+   * How to handle missing data for this alarm.
+   *
+   * @default TreatMissingData.MISSING
+   */
+  readonly treatMissingData?: cloudwatch.TreatMissingData;
 }
 
 export function validateTotalAlarmPeriod(period: Duration, evaluationPeriods: number, alarmName: string) {

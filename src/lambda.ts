@@ -113,6 +113,7 @@ export class LambdaErrorsAlarm extends cloudwatch.Alarm {
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 3,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm detects high error counts. Errors includes the exceptions '
         + 'thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the '
@@ -204,6 +205,7 @@ export class LambdaThrottlesAlarm extends cloudwatch.Alarm {
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm detects a high number of throttled invocation requests. '
         + 'Throttling occurs when there is no concurrency is available for scale up. There are several approaches to '
@@ -301,6 +303,7 @@ export class LambdaDurationAlarm extends cloudwatch.Alarm {
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 15,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm detects long duration times for processing an event by a '
       + 'Lambda function. Long durations might be because of changes in function code making the function take longer to '
@@ -398,6 +401,7 @@ export class LambdaConcurrentExecutionsAlarm extends cloudwatch.Alarm {
       threshold: props.threshold ?? 900,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 10,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps to monitor if the concurrency of the function is '
         + 'approaching the Region-level concurrency limit of your account. A function starts to be throttled if it '
@@ -435,6 +439,12 @@ export interface LambdaRecommendedAlarmsConfig {
    * @default - None
    */
   readonly defaultInsufficientDataAction?: cloudwatch.IAlarmAction;
+  /**
+   * How to handle missing data for this alarm.
+   *
+   * @default TreatMissingData.MISSING
+   */
+  readonly treatMissingData?: cloudwatch.TreatMissingData;
   /**
    * Alarm metrics to exclude from the recommended alarms.
    *
@@ -501,6 +511,7 @@ export class LambdaRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(LambdaRecommendedAlarmsMetrics.ERRORS)) {
       this.alarmErrors = new LambdaErrorsAlarm(this, 'ErrorsAlarm', {
         lambdaFunction: props.lambdaFunction,
+        treatMissingData: props.treatMissingData,
         ...props.configErrorsAlarm,
       });
 
@@ -520,6 +531,7 @@ export class LambdaRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(LambdaRecommendedAlarmsMetrics.THROTTLES)) {
       this.alarmThrottles = new LambdaThrottlesAlarm(this, 'ThrottlesAlarm', {
         lambdaFunction: props.lambdaFunction,
+        treatMissingData: props.treatMissingData,
         ...props.configThrottlesAlarm,
       });
 
@@ -539,6 +551,7 @@ export class LambdaRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(LambdaRecommendedAlarmsMetrics.DURATION)) {
       this.alarmDuration = new LambdaDurationAlarm(this, 'DurationAlarm', {
         lambdaFunction: props.lambdaFunction,
+        treatMissingData: props.treatMissingData,
         ...props.configDurationAlarm,
       });
 
@@ -558,6 +571,7 @@ export class LambdaRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(LambdaRecommendedAlarmsMetrics.CONCURRENT_EXECUTIONS)) {
       this.alarmConcurrentExecutions = new LambdaConcurrentExecutionsAlarm(this, 'ConcurrentExecutionsAlarm', {
         lambdaFunction: props.lambdaFunction,
+        treatMissingData: props.treatMissingData,
         ...props.configConcurrentExecutionsAlarm,
       });
 
