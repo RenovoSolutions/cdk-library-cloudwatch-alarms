@@ -200,7 +200,7 @@ export class S3Bucket5xxErrorsAlarm extends cloudwatch.Alarm {
       treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps you detect a high number of server-side errors. '
-        + 'These errors indicate that a client made a request that the server couldn’t complete. This can help you '
+        + 'These errors indicate that a client made a request that the server couldn\'t complete. This can help you '
         + 'correlate the issue your application is facing because of S3. For more information to help you efficiently '
         + 'handle or reduce errors, see Optimizing performance design patterns '
         + '(https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). '
