@@ -117,6 +117,7 @@ export class S3Bucket4xxErrorsAlarm extends cloudwatch.Alarm {
       threshold: props.threshold ?? 0.05,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 15,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps us report the total number of 4xx error status '
       + 'codes that are made in response to client requests. 403 error codes might indicate an incorrect IAM policy, '
@@ -196,9 +197,10 @@ export class S3Bucket5xxErrorsAlarm extends cloudwatch.Alarm {
       threshold: props.threshold ?? 0.05,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 15,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps you detect a high number of server-side errors. '
-        + 'These errors indicate that a client made a request that the server couldn’t complete. This can help you '
+        + 'These errors indicate that a client made a request that the server couldn\'t complete. This can help you '
         + 'correlate the issue your application is facing because of S3. For more information to help you efficiently '
         + 'handle or reduce errors, see Optimizing performance design patterns '
         + '(https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). '
@@ -236,6 +238,12 @@ export interface S3RecommendedAlarmsConfig {
    * @default - None
    */
   readonly defaultInsufficientDataAction?: cloudwatch.IAlarmAction;
+  /**
+   * How to handle missing data for this alarm.
+   *
+   * @default TreatMissingData.MISSING
+   */
+  readonly treatMissingData?: cloudwatch.TreatMissingData;
   /**
    * Alarm metrics to exclude from the recommended alarms.
    *
@@ -286,6 +294,7 @@ export class S3RecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(S3RecommendedAlarmsMetrics.ERRORS_4XX)) {
       this.alarm4xxErrors = new S3Bucket4xxErrorsAlarm(this, `${props.bucket.node.id}_4xxErrorsAlarm`, {
         bucket: props.bucket,
+        treatMissingData: props.treatMissingData,
         ...props.config4xxErrorsAlarm,
       });
 
@@ -305,6 +314,7 @@ export class S3RecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(S3RecommendedAlarmsMetrics.ERRORS_5XX)) {
       this.alarm5xxErrors = new S3Bucket5xxErrorsAlarm(this, `${props.bucket.node.id}_5xxErrorsAlarm`, {
         bucket: props.bucket,
+        treatMissingData: props.treatMissingData,
         ...props.config5xxErrorsAlarm,
       });
 

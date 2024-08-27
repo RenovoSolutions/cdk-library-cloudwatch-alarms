@@ -128,6 +128,7 @@ export class SnsNumberOfMessagesPublishedAlarm extends cloudwatch.Alarm {
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm can detect when the number of SNS messages published is too low. For troubleshooting, check why the publishers are sending less traffic.',
     });
@@ -202,6 +203,7 @@ export class SnsNumberOfNotificationsDeliveredAlarm extends cloudwatch.Alarm {
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm can detect when the number of SNS messages delivered is too low. This could be because of unintentional unsubscribing of an endpoint, or because of an SNS event that causes messages to experience delay.',
     });
@@ -278,6 +280,7 @@ export class SnsNumberOfNotificationsFailedAlarm extends cloudwatch.Alarm {
       threshold: props.threshold,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm can detect when the number of failed SNS messages is too high.'
         + ' To troubleshoot failed notifications, enable logging to CloudWatch Logs. Checking the logs can help you find which'
@@ -357,6 +360,7 @@ export class SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm extends c
       threshold: props.threshold ?? 0,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps to monitor and resolve potential problems with the publisher or '
         + 'subscribers. Check if a publisher is publishing messages with invalid attributes or if an inappropriate filter is applied '
@@ -443,6 +447,7 @@ export class SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm extends 
       threshold: props.threshold ?? 0,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps to monitor and resolve potential problems with the publisher or subscribers. '
         + 'Check if a publisher is publishing messages with invalid message bodies, or if an inappropriate filter is applied to a subscriber. You '
@@ -528,6 +533,7 @@ export class SnsNumberOfNotificationsRedrivenToDlqAlarm extends cloudwatch.Alarm
       threshold: props.threshold ?? 0,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps to monitor the number of messages that are moved to a dead-letter queue.',
     });
@@ -612,6 +618,7 @@ export class SnsNumberOfNotificationsFailedToRedriveToDlqAlarm extends cloudwatc
       threshold: props.threshold ?? 0,
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
+      treatMissingData: props.treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm helps to monitor messages that couldn\'t be moved to a dead-letter '
         + 'queue. Check whether your dead-letter queue exists and that it\'s configured correctly. Also, verify that SNS has '
@@ -644,6 +651,12 @@ export interface SnsRecommendedAlarmsConfig {
    * @default - None
    */
   readonly defaultInsufficientDataAction?: cloudwatch.IAlarmAction;
+  /**
+   * How to handle missing data for this alarm.
+   *
+   * @default TreatMissingData.MISSING
+   */
+  readonly treatMissingData?: cloudwatch.TreatMissingData;
   /**
    * Alarm metrics to exclude from the recommended alarms.
    *
@@ -734,6 +747,7 @@ export class SnsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SnsRecommendedAlarmsMetrics.NUMBER_OF_MESSAGES_PUBLISHED)) {
       this.alarmNumberOfMessagesPublished = new SnsNumberOfMessagesPublishedAlarm(this, `${id}_NumberOfMessagesPublishedAlarm`, {
         topic: props.topic,
+        treatMissingData: props.treatMissingData,
         ...props.configNumberOfMessagesPublishedAlarm,
       });
 
@@ -753,6 +767,7 @@ export class SnsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SnsRecommendedAlarmsMetrics.NUMBER_OF_NOTIFICATIONS_DELIVERED)) {
       this.alarmNumberOfNotificationsDelivered = new SnsNumberOfNotificationsDeliveredAlarm(this, `${id}_NumberOfNotificationsDeliveredAlarm`, {
         topic: props.topic,
+        treatMissingData: props.treatMissingData,
         ...props.configNumberOfNotificationsDeliveredAlarm,
       });
 
@@ -772,6 +787,7 @@ export class SnsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SnsRecommendedAlarmsMetrics.NUMBER_OF_NOTIFICATIONS_FAILED)) {
       this.alarmNumberOfNotificationsFailed = new SnsNumberOfNotificationsFailedAlarm(this, `${id}_NumberOfNotificationsFailedAlarm`, {
         topic: props.topic,
+        treatMissingData: props.treatMissingData,
         ...props.configNumberOfNotificationsFailedAlarm,
       });
 
@@ -791,6 +807,7 @@ export class SnsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SnsRecommendedAlarmsMetrics.NUMBER_OF_NOTIFICATIONS_FILTERED_OUT_INVALID_ATTRIBUTES)) {
       this.alarmNumberOfNotificationsFilteredOutInvalidAttributes = new SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm(this, `${id}_NumberOfNotificationsFilteredOutInvalidAttributesAlarm`, {
         topic: props.topic,
+        treatMissingData: props.treatMissingData,
         ...props.configNumberOfNotificationsFilteredOutInvalidAttributesAlarm,
       });
 
@@ -810,6 +827,7 @@ export class SnsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SnsRecommendedAlarmsMetrics.NUMBER_OF_NOTIFICATIONS_FILTERED_OUT_INVALID_MESSAGE_BODY)) {
       this.alarmNumberOfNotificationsFilteredOutInvalidMessageBody = new SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm(this, `${id}_NumberOfNotificationsFilteredOutInvalidMessageBodyAlarm`, {
         topic: props.topic,
+        treatMissingData: props.treatMissingData,
         ...props.configNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm,
       });
 
@@ -829,6 +847,7 @@ export class SnsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SnsRecommendedAlarmsMetrics.NUMBER_OF_NOTIFICATIONS_REDRIVEN_TO_DLQ)) {
       this.alarmNumberOfNotificationsRedrivenToDlq = new SnsNumberOfNotificationsRedrivenToDlqAlarm(this, `${id}_NumberOfNotificationsRedrivenToDlqAlarm`, {
         topic: props.topic,
+        treatMissingData: props.treatMissingData,
         ...props.configNumberOfNotificationsRedrivenToDlqAlarm,
       });
 
@@ -848,6 +867,7 @@ export class SnsRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SnsRecommendedAlarmsMetrics.NUMBER_OF_NOTIFICATIONS_FAILED_TO_REDRIVE_TO_DLQ)) {
       this.alarmNumberOfNotificationsFailedToRedriveToDlq = new SnsNumberOfNotificationsFailedToRedriveToDlqAlarm(this, `${id}_NumberOfNotificationsFailedToRedriveToDlqAlarm`, {
         topic: props.topic,
+        treatMissingData: props.treatMissingData,
         ...props.configNumberOfNotificationsFailedToRedriveToDlqAlarm,
       });
 

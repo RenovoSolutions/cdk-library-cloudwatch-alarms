@@ -54,7 +54,7 @@ Object {
     },
     "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": Object {
       "Properties": Object {
-        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn’t complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
+        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
         "AlarmName": Object {
           "Fn::Join": Array [
             "",
@@ -197,7 +197,7 @@ Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn’t complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
+        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
         "AlarmName": Object {
           "Fn::Join": Array [
             "",
@@ -330,7 +330,7 @@ Object {
     },
     "BucketS3RecommendedAlarmsBucket5xxErrorsAlarmD050FFC7": Object {
       "Properties": Object {
-        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn’t complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
+        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
         "AlarmName": Object {
           "Fn::Join": Array [
             "",
@@ -413,7 +413,7 @@ Object {
     },
     "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": Object {
       "Properties": Object {
-        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn’t complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
+        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
         "AlarmName": Object {
           "Fn::Join": Array [
             "",
@@ -533,7 +533,7 @@ Object {
     },
     "Bucket2S3RecommendedAlarmsFromAspectBucket25xxErrorsAlarm058F0BBE": Object {
       "Properties": Object {
-        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn’t complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
+        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
         "AlarmName": Object {
           "Fn::Join": Array [
             "",
@@ -612,7 +612,7 @@ Object {
     },
     "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": Object {
       "Properties": Object {
-        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn’t complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
+        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
         "AlarmName": Object {
           "Fn::Join": Array [
             "",
