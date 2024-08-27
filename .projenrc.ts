@@ -3,7 +3,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  cdkVersion: '2.151.0',
+  cdkVersion: '2.154.1',
   defaultReleaseBranch: 'master',
   name: '@renovosolutions/cdk-library-cloudwatch-alarms',
   description: 'AWS CDK Construct Library to automatically create CloudWatch Alarms for resources in a CDK app based on resource type.',
