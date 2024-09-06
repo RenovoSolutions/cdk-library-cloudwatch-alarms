@@ -11926,7 +11926,7 @@ const lambdaErrorsAlarmConfig: LambdaErrorsAlarmConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statictis is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistics is compared. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
@@ -12007,7 +12007,7 @@ public readonly threshold: number;
 
 - *Type:* number
 
-The value against which the specified statictis is compared.
+The value against which the specified statistics is compared.
 
 Set the threshold to a number greater than zero. The exact
 value can depend on the tolerance for errors in your
@@ -12091,7 +12091,7 @@ const lambdaErrorsAlarmProps: LambdaErrorsAlarmProps = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statictis is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistics is compared. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
@@ -12173,7 +12173,7 @@ public readonly threshold: number;
 
 - *Type:* number
 
-The value against which the specified statictis is compared.
+The value against which the specified statistics is compared.
 
 Set the threshold to a number greater than zero. The exact
 value can depend on the tolerance for errors in your

@@ -43,7 +43,7 @@ export interface LambdaAlarmBaseConfig extends AlarmBaseProps {
  */
 export interface LambdaErrorsAlarmConfig extends LambdaAlarmBaseConfig {
   /**
-   * The value against which the specified statictis is compared.
+   * The value against which the specified statistics is compared.
    *
    * Set the threshold to a number greater than zero. The exact
    * value can depend on the tolerance for errors in your
@@ -515,15 +515,15 @@ export class LambdaRecommendedAlarms extends Construct {
         ...props.configErrorsAlarm,
       });
 
-      if (props.defaultAlarmAction && !props.configThrottlesAlarm.alarmAction) {
+      if (props.defaultAlarmAction && !props.configErrorsAlarm.alarmAction) {
         this.alarmErrors.addAlarmAction(props.defaultAlarmAction);
       }
 
-      if (props.defaultOkAction && !props.configThrottlesAlarm.okAction) {
+      if (props.defaultOkAction && !props.configErrorsAlarm.okAction) {
         this.alarmErrors.addOkAction(props.defaultOkAction);
       }
 
-      if (props.defaultInsufficientDataAction && !props.configThrottlesAlarm.insufficientDataAction) {
+      if (props.defaultInsufficientDataAction && !props.configErrorsAlarm.insufficientDataAction) {
         this.alarmErrors.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
@@ -555,15 +555,15 @@ export class LambdaRecommendedAlarms extends Construct {
         ...props.configDurationAlarm,
       });
 
-      if (props.defaultAlarmAction && !props.configThrottlesAlarm.alarmAction) {
+      if (props.defaultAlarmAction && !props.configDurationAlarm.alarmAction) {
         this.alarmDuration.addAlarmAction(props.defaultAlarmAction);
       }
 
-      if (props.defaultOkAction && !props.configThrottlesAlarm.okAction) {
+      if (props.defaultOkAction && !props.configDurationAlarm.okAction) {
         this.alarmDuration.addOkAction(props.defaultOkAction);
       }
 
-      if (props.defaultInsufficientDataAction && !props.configThrottlesAlarm.insufficientDataAction) {
+      if (props.defaultInsufficientDataAction && !props.configDurationAlarm.insufficientDataAction) {
         this.alarmDuration.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
@@ -575,15 +575,15 @@ export class LambdaRecommendedAlarms extends Construct {
         ...props.configConcurrentExecutionsAlarm,
       });
 
-      if (props.defaultAlarmAction && !props.configThrottlesAlarm.alarmAction) {
+      if (props.defaultAlarmAction && !props.configConcurrentExecutionsAlarm?.alarmAction) {
         this.alarmConcurrentExecutions.addAlarmAction(props.defaultAlarmAction);
       }
 
-      if (props.defaultOkAction && !props.configThrottlesAlarm.okAction) {
+      if (props.defaultOkAction && !props.configConcurrentExecutionsAlarm?.okAction) {
         this.alarmConcurrentExecutions.addOkAction(props.defaultOkAction);
       }
 
-      if (props.defaultInsufficientDataAction && !props.configThrottlesAlarm.insufficientDataAction) {
+      if (props.defaultInsufficientDataAction && !props.configConcurrentExecutionsAlarm?.insufficientDataAction) {
         this.alarmConcurrentExecutions.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }

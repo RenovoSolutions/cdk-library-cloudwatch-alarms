@@ -391,7 +391,7 @@ test('No alarm actions are used when none provided in configuration', () => {
   });
 });
 
-test('default alarm actions are overriden when individual alarm actions are provided in configuration', () => {
+test('default alarm actions are overridden when individual alarm actions are provided in configuration', () => {
   const app = new App({
     context: {
       '@aws-cdk/aws-cloudwatch-actions:changeLambdaPermissionLogicalIdForLambdaAction': true,
