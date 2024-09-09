@@ -751,15 +751,15 @@ export class SnsRecommendedAlarms extends Construct {
         ...props.configNumberOfMessagesPublishedAlarm,
       });
 
-      if (props.defaultAlarmAction && !props.configNumberOfNotificationsDeliveredAlarm.alarmAction) {
+      if (props.defaultAlarmAction && !props.configNumberOfMessagesPublishedAlarm.alarmAction) {
         this.alarmNumberOfMessagesPublished.addAlarmAction(props.defaultAlarmAction);
       }
 
-      if (props.defaultOkAction && !props.configNumberOfNotificationsDeliveredAlarm.okAction) {
+      if (props.defaultOkAction && !props.configNumberOfMessagesPublishedAlarm.okAction) {
         this.alarmNumberOfMessagesPublished.addOkAction(props.defaultOkAction);
       }
 
-      if (props.defaultInsufficientDataAction && !props.configNumberOfNotificationsDeliveredAlarm.insufficientDataAction) {
+      if (props.defaultInsufficientDataAction && !props.configNumberOfMessagesPublishedAlarm.insufficientDataAction) {
         this.alarmNumberOfMessagesPublished.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
