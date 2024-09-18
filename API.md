@@ -1182,6 +1182,1622 @@ first call to addToResourcePolicy(s).
 ---
 
 
+### DatabaseCluster <a name="DatabaseCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster"></a>
+
+An extension of the database cluster construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.Initializer"></a>
+
+```typescript
+import { DatabaseCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DatabaseCluster(scope: Construct, id: string, props: DatabaseClusterProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_rds.DatabaseClusterProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseClusterProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addProxy">addProxy</a></code> | Add a new db proxy to this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.asSecretAttachmentTarget">asSecretAttachmentTarget</a></code> | Renders the secret attachment target specifications. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantConnect">grantConnect</a></code> | Grant the given identity connection access to the Cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantDataApiAccess">grantDataApiAccess</a></code> | Grant the given identity to access the Data API. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metric">metric</a></code> | Return the given named metric for this DBCluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricCPUUtilization">metricCPUUtilization</a></code> | The percentage of CPU utilization. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricDatabaseConnections">metricDatabaseConnections</a></code> | The number of database connections in use. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricDeadlocks">metricDeadlocks</a></code> | The average number of deadlocks in the database per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricEngineUptime">metricEngineUptime</a></code> | The amount of time that the instance has been running, in seconds. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricFreeableMemory">metricFreeableMemory</a></code> | The amount of available random access memory, in bytes. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricFreeLocalStorage">metricFreeLocalStorage</a></code> | The amount of local storage available, in bytes. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkReceiveThroughput">metricNetworkReceiveThroughput</a></code> | The amount of network throughput received from clients by each instance, in bytes per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkThroughput">metricNetworkThroughput</a></code> | The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkTransmitThroughput">metricNetworkTransmitThroughput</a></code> | The amount of network throughput sent to clients by each instance, in bytes per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricSnapshotStorageUsed">metricSnapshotStorageUsed</a></code> | The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricTotalBackupStorageBilled">metricTotalBackupStorageBilled</a></code> | The total amount of backup storage in bytes for which you are billed. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeBytesUsed">metricVolumeBytesUsed</a></code> | The amount of storage used by your Aurora DB instance, in bytes. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeReadIOPs">metricVolumeReadIOPs</a></code> | The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeWriteIOPs">metricVolumeWriteIOPs</a></code> | The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationMultiUser">addRotationMultiUser</a></code> | Adds the multi user rotation to this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationSingleUser">addRotationSingleUser</a></code> | Adds the single user rotation of the master password to this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricACUUtilization">metricACUUtilization</a></code> | This value is represented as a percentage. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricServerlessDatabaseCapacity">metricServerlessDatabaseCapacity</a></code> | As a cluster-level metric, it represents the average of the ServerlessDatabaseCapacity values of all the Aurora Serverless v2 DB instances in the cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraBinLogReplicationLag">alarmAuroraBinLogReplicationLag</a></code> | Creates an alarm that monitors the Bin Log Replication lag. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraVolumeBytesLeftTotal">alarmAuroraVolumeBytesLeftTotal</a></code> | Creates an alarm that monitors the AuroraVolumeBytesLeftTotal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates recommended alarms for the database cluster. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addProxy` <a name="addProxy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addProxy"></a>
+
+```typescript
+public addProxy(id: string, options: DatabaseProxyOptions): DatabaseProxy
+```
+
+Add a new db proxy to this cluster.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addProxy.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addProxy.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseProxyOptions
+
+---
+
+##### `asSecretAttachmentTarget` <a name="asSecretAttachmentTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.asSecretAttachmentTarget"></a>
+
+```typescript
+public asSecretAttachmentTarget(): SecretAttachmentTargetProps
+```
+
+Renders the secret attachment target specifications.
+
+##### `grantConnect` <a name="grantConnect" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantConnect"></a>
+
+```typescript
+public grantConnect(grantee: IGrantable, dbUser: string): Grant
+```
+
+Grant the given identity connection access to the Cluster.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantConnect.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `dbUser`<sup>Required</sup> <a name="dbUser" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantConnect.parameter.dbUser"></a>
+
+- *Type:* string
+
+---
+
+##### `grantDataApiAccess` <a name="grantDataApiAccess" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantDataApiAccess"></a>
+
+```typescript
+public grantDataApiAccess(grantee: IGrantable): Grant
+```
+
+Grant the given identity to access the Data API.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantDataApiAccess.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `metric` <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this DBCluster.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricCPUUtilization` <a name="metricCPUUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricCPUUtilization"></a>
+
+```typescript
+public metricCPUUtilization(props?: MetricOptions): Metric
+```
+
+The percentage of CPU utilization.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricCPUUtilization.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricDatabaseConnections` <a name="metricDatabaseConnections" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricDatabaseConnections"></a>
+
+```typescript
+public metricDatabaseConnections(props?: MetricOptions): Metric
+```
+
+The number of database connections in use.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricDatabaseConnections.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricDeadlocks` <a name="metricDeadlocks" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricDeadlocks"></a>
+
+```typescript
+public metricDeadlocks(props?: MetricOptions): Metric
+```
+
+The average number of deadlocks in the database per second.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricDeadlocks.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricEngineUptime` <a name="metricEngineUptime" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricEngineUptime"></a>
+
+```typescript
+public metricEngineUptime(props?: MetricOptions): Metric
+```
+
+The amount of time that the instance has been running, in seconds.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricEngineUptime.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricFreeableMemory` <a name="metricFreeableMemory" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricFreeableMemory"></a>
+
+```typescript
+public metricFreeableMemory(props?: MetricOptions): Metric
+```
+
+The amount of available random access memory, in bytes.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricFreeableMemory.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricFreeLocalStorage` <a name="metricFreeLocalStorage" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricFreeLocalStorage"></a>
+
+```typescript
+public metricFreeLocalStorage(props?: MetricOptions): Metric
+```
+
+The amount of local storage available, in bytes.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricFreeLocalStorage.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricNetworkReceiveThroughput` <a name="metricNetworkReceiveThroughput" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkReceiveThroughput"></a>
+
+```typescript
+public metricNetworkReceiveThroughput(props?: MetricOptions): Metric
+```
+
+The amount of network throughput received from clients by each instance, in bytes per second.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkReceiveThroughput.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricNetworkThroughput` <a name="metricNetworkThroughput" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkThroughput"></a>
+
+```typescript
+public metricNetworkThroughput(props?: MetricOptions): Metric
+```
+
+The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkThroughput.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricNetworkTransmitThroughput` <a name="metricNetworkTransmitThroughput" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkTransmitThroughput"></a>
+
+```typescript
+public metricNetworkTransmitThroughput(props?: MetricOptions): Metric
+```
+
+The amount of network throughput sent to clients by each instance, in bytes per second.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricNetworkTransmitThroughput.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricSnapshotStorageUsed` <a name="metricSnapshotStorageUsed" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricSnapshotStorageUsed"></a>
+
+```typescript
+public metricSnapshotStorageUsed(props?: MetricOptions): Metric
+```
+
+The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricSnapshotStorageUsed.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTotalBackupStorageBilled` <a name="metricTotalBackupStorageBilled" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricTotalBackupStorageBilled"></a>
+
+```typescript
+public metricTotalBackupStorageBilled(props?: MetricOptions): Metric
+```
+
+The total amount of backup storage in bytes for which you are billed.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricTotalBackupStorageBilled.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricVolumeBytesUsed` <a name="metricVolumeBytesUsed" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeBytesUsed"></a>
+
+```typescript
+public metricVolumeBytesUsed(props?: MetricOptions): Metric
+```
+
+The amount of storage used by your Aurora DB instance, in bytes.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeBytesUsed.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricVolumeReadIOPs` <a name="metricVolumeReadIOPs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeReadIOPs"></a>
+
+```typescript
+public metricVolumeReadIOPs(props?: MetricOptions): Metric
+```
+
+The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeReadIOPs.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricVolumeWriteIOPs` <a name="metricVolumeWriteIOPs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeWriteIOPs"></a>
+
+```typescript
+public metricVolumeWriteIOPs(props?: MetricOptions): Metric
+```
+
+The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeWriteIOPs.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `addRotationMultiUser` <a name="addRotationMultiUser" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationMultiUser"></a>
+
+```typescript
+public addRotationMultiUser(id: string, options: RotationMultiUserOptions): SecretRotation
+```
+
+Adds the multi user rotation to this cluster.
+
+See [Alternating users rotation strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users)
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationMultiUser.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationMultiUser.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.RotationMultiUserOptions
+
+---
+
+##### `addRotationSingleUser` <a name="addRotationSingleUser" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationSingleUser"></a>
+
+```typescript
+public addRotationSingleUser(options?: RotationSingleUserOptions): SecretRotation
+```
+
+Adds the single user rotation of the master password to this cluster.
+
+See [Single user rotation strategy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-one-user-one-password)
+
+###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationSingleUser.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.RotationSingleUserOptions
+
+---
+
+##### `metricACUUtilization` <a name="metricACUUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricACUUtilization"></a>
+
+```typescript
+public metricACUUtilization(props?: MetricOptions): Metric
+```
+
+This value is represented as a percentage.
+
+It's calculated as the value of the
+ServerlessDatabaseCapacity metric divided by the maximum ACU value of the DB cluster.
+
+If this metric approaches a value of 100.0, the DB instance has scaled up as high as it can.
+Consider increasing the maximum ACU setting for the cluster.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricACUUtilization.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricServerlessDatabaseCapacity` <a name="metricServerlessDatabaseCapacity" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricServerlessDatabaseCapacity"></a>
+
+```typescript
+public metricServerlessDatabaseCapacity(props?: MetricOptions): Metric
+```
+
+As a cluster-level metric, it represents the average of the ServerlessDatabaseCapacity values of all the Aurora Serverless v2 DB instances in the cluster.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricServerlessDatabaseCapacity.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `alarmAuroraBinLogReplicationLag` <a name="alarmAuroraBinLogReplicationLag" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraBinLogReplicationLag"></a>
+
+```typescript
+public alarmAuroraBinLogReplicationLag(props?: RdsAuroraBinLogReplicationLagAlarmConfig): RdsAuroraBinLogReplicationLagAlarm
+```
+
+Creates an alarm that monitors the Bin Log Replication lag.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraBinLogReplicationLag.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig">RdsAuroraBinLogReplicationLagAlarmConfig</a>
+
+---
+
+##### `alarmAuroraVolumeBytesLeftTotal` <a name="alarmAuroraVolumeBytesLeftTotal" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraVolumeBytesLeftTotal"></a>
+
+```typescript
+public alarmAuroraVolumeBytesLeftTotal(props: RdsAuroraVolumeBytesLeftTotalAlarmConfig): RdsAuroraVolumeBytesLeftTotalAlarm
+```
+
+Creates an alarm that monitors the AuroraVolumeBytesLeftTotal.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraVolumeBytesLeftTotal.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: RdsAuroraRecommendedAlarmsConfig): RdsAuroraRecommendedAlarms
+```
+
+Creates recommended alarms for the database cluster.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig">RdsAuroraRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromDatabaseClusterAttributes">fromDatabaseClusterAttributes</a></code> | Import an existing DatabaseCluster from properties. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isConstruct"></a>
+
+```typescript
+import { DatabaseCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseCluster.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isOwnedResource"></a>
+
+```typescript
+import { DatabaseCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseCluster.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isResource"></a>
+
+```typescript
+import { DatabaseCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseCluster.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromDatabaseClusterAttributes` <a name="fromDatabaseClusterAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromDatabaseClusterAttributes"></a>
+
+```typescript
+import { DatabaseCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseCluster.fromDatabaseClusterAttributes(scope: Construct, id: string, attrs: DatabaseClusterAttributes)
+```
+
+Import an existing DatabaseCluster from properties.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromDatabaseClusterAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromDatabaseClusterAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromDatabaseClusterAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseClusterAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterArn">clusterArn</a></code> | <code>string</code> | The ARN of the cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterEndpoint">clusterEndpoint</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint</code> | The endpoint to use for read/write operations. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterIdentifier">clusterIdentifier</a></code> | <code>string</code> | Identifier of the cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterReadEndpoint">clusterReadEndpoint</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint</code> | Endpoint to use for load-balanced read-only operations. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterResourceIdentifier">clusterResourceIdentifier</a></code> | <code>string</code> | The immutable identifier for the cluster; for example: cluster-ABCD1234EFGH5678IJKL90MNOP. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access to the network connections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.instanceEndpoints">instanceEndpoints</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint[]</code> | Endpoints which address each individual replica. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.instanceIdentifiers">instanceIdentifiers</a></code> | <code>string[]</code> | Identifiers of the replicas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.engine">engine</a></code> | <code>aws-cdk-lib.aws_rds.IClusterEngine</code> | The engine for this Cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The secret attached to this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.cloudwatchLogGroups">cloudwatchLogGroups</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_logs.ILogGroup}</code> | The log group is created when `cloudwatchLogsExports` is set. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.multiUserRotationApplication">multiUserRotationApplication</a></code> | <code>aws-cdk-lib.aws_secretsmanager.SecretRotationApplication</code> | Application for multi user rotation to this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.singleUserRotationApplication">singleUserRotationApplication</a></code> | <code>aws-cdk-lib.aws_secretsmanager.SecretRotationApplication</code> | Application for single user rotation of the master password to this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC network to place the cluster in. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The cluster's subnets. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `clusterArn`<sup>Required</sup> <a name="clusterArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterArn"></a>
+
+```typescript
+public readonly clusterArn: string;
+```
+
+- *Type:* string
+
+The ARN of the cluster.
+
+---
+
+##### `clusterEndpoint`<sup>Required</sup> <a name="clusterEndpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterEndpoint"></a>
+
+```typescript
+public readonly clusterEndpoint: Endpoint;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.Endpoint
+
+The endpoint to use for read/write operations.
+
+---
+
+##### `clusterIdentifier`<sup>Required</sup> <a name="clusterIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterIdentifier"></a>
+
+```typescript
+public readonly clusterIdentifier: string;
+```
+
+- *Type:* string
+
+Identifier of the cluster.
+
+---
+
+##### `clusterReadEndpoint`<sup>Required</sup> <a name="clusterReadEndpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterReadEndpoint"></a>
+
+```typescript
+public readonly clusterReadEndpoint: Endpoint;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.Endpoint
+
+Endpoint to use for load-balanced read-only operations.
+
+---
+
+##### `clusterResourceIdentifier`<sup>Required</sup> <a name="clusterResourceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterResourceIdentifier"></a>
+
+```typescript
+public readonly clusterResourceIdentifier: string;
+```
+
+- *Type:* string
+
+The immutable identifier for the cluster; for example: cluster-ABCD1234EFGH5678IJKL90MNOP.
+
+This AWS Region-unique identifier is used in things like IAM authentication policies.
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+Access to the network connections.
+
+---
+
+##### `instanceEndpoints`<sup>Required</sup> <a name="instanceEndpoints" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.instanceEndpoints"></a>
+
+```typescript
+public readonly instanceEndpoints: Endpoint[];
+```
+
+- *Type:* aws-cdk-lib.aws_rds.Endpoint[]
+
+Endpoints which address each individual replica.
+
+---
+
+##### `instanceIdentifiers`<sup>Required</sup> <a name="instanceIdentifiers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.instanceIdentifiers"></a>
+
+```typescript
+public readonly instanceIdentifiers: string[];
+```
+
+- *Type:* string[]
+
+Identifiers of the replicas.
+
+---
+
+##### `engine`<sup>Optional</sup> <a name="engine" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.engine"></a>
+
+```typescript
+public readonly engine: IClusterEngine;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IClusterEngine
+
+The engine for this Cluster.
+
+Never undefined.
+
+---
+
+##### `secret`<sup>Optional</sup> <a name="secret" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.secret"></a>
+
+```typescript
+public readonly secret: ISecret;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+The secret attached to this cluster.
+
+---
+
+##### `cloudwatchLogGroups`<sup>Required</sup> <a name="cloudwatchLogGroups" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.cloudwatchLogGroups"></a>
+
+```typescript
+public readonly cloudwatchLogGroups: {[ key: string ]: ILogGroup};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_logs.ILogGroup}
+
+The log group is created when `cloudwatchLogsExports` is set.
+
+Each export value will create a separate log group.
+
+---
+
+##### `multiUserRotationApplication`<sup>Required</sup> <a name="multiUserRotationApplication" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.multiUserRotationApplication"></a>
+
+```typescript
+public readonly multiUserRotationApplication: SecretRotationApplication;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.SecretRotationApplication
+
+Application for multi user rotation to this cluster.
+
+---
+
+##### `singleUserRotationApplication`<sup>Required</sup> <a name="singleUserRotationApplication" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.singleUserRotationApplication"></a>
+
+```typescript
+public readonly singleUserRotationApplication: SecretRotationApplication;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.SecretRotationApplication
+
+Application for single user rotation of the master password to this cluster.
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC network to place the cluster in.
+
+---
+
+##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.vpcSubnets"></a>
+
+```typescript
+public readonly vpcSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The cluster's subnets.
+
+---
+
+
+### DatabaseInstance <a name="DatabaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance"></a>
+
+An extension of the rds instance (database or cluster instance) construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.Initializer"></a>
+
+```typescript
+import { DatabaseInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DatabaseInstance(scope: Construct, id: string, props: DatabaseInstanceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_rds.DatabaseInstanceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseInstanceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addProxy">addProxy</a></code> | Add a new db proxy to this instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.asSecretAttachmentTarget">asSecretAttachmentTarget</a></code> | Renders the secret attachment target specifications. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.grantConnect">grantConnect</a></code> | Grant the given identity connection access to the database. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metric">metric</a></code> | Return the given named metric for this DBInstance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricCPUUtilization">metricCPUUtilization</a></code> | The percentage of CPU utilization. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricDatabaseConnections">metricDatabaseConnections</a></code> | The number of database connections in use. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricFreeableMemory">metricFreeableMemory</a></code> | The amount of available random access memory. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricFreeStorageSpace">metricFreeStorageSpace</a></code> | The amount of available storage space. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricReadIOPS">metricReadIOPS</a></code> | The average number of disk write I/O operations per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricWriteIOPS">metricWriteIOPS</a></code> | The average number of disk read I/O operations per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.onEvent">onEvent</a></code> | Defines a CloudWatch event rule which triggers for instance events. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationMultiUser">addRotationMultiUser</a></code> | Adds the multi user rotation to this instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationSingleUser">addRotationSingleUser</a></code> | Adds the single user rotation of the master password to this instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmCpuUtilization">alarmCpuUtilization</a></code> | Creates an alarm that monitors the CpuUtilization. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmDatabaseConnections">alarmDatabaseConnections</a></code> | Creates an alarm that monitors the DatabaseConnections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmDbLoad">alarmDbLoad</a></code> | Creates an alarm that monitors the DbLoad. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeableMemory">alarmFreeableMemory</a></code> | Creates an alarm that monitors the FreeableMemory. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeLocalStorage">alarmFreeLocalStorage</a></code> | Creates an alarm that monitors the FreeLocalStorage. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeStorageSpace">alarmFreeStorageSpace</a></code> | Creates an alarm that monitors the FreeStorageSpace. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmReadLatency">alarmReadLatency</a></code> | Creates an alarm that monitors the ReadLatency. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmWriteLatency">alarmWriteLatency</a></code> | Creates an alarm that monitors the WriteLatency. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates recommended alarms for the database cluster. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addProxy` <a name="addProxy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addProxy"></a>
+
+```typescript
+public addProxy(id: string, options: DatabaseProxyOptions): DatabaseProxy
+```
+
+Add a new db proxy to this instance.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addProxy.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addProxy.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseProxyOptions
+
+---
+
+##### `asSecretAttachmentTarget` <a name="asSecretAttachmentTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.asSecretAttachmentTarget"></a>
+
+```typescript
+public asSecretAttachmentTarget(): SecretAttachmentTargetProps
+```
+
+Renders the secret attachment target specifications.
+
+##### `grantConnect` <a name="grantConnect" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.grantConnect"></a>
+
+```typescript
+public grantConnect(grantee: IGrantable, dbUser?: string): Grant
+```
+
+Grant the given identity connection access to the database.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.grantConnect.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+the Principal to grant the permissions to.
+
+---
+
+###### `dbUser`<sup>Optional</sup> <a name="dbUser" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.grantConnect.parameter.dbUser"></a>
+
+- *Type:* string
+
+the name of the database user to allow connecting as to the db instance, or the default database user, obtained from the Secret, if not specified.
+
+---
+
+##### `metric` <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this DBInstance.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricCPUUtilization` <a name="metricCPUUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricCPUUtilization"></a>
+
+```typescript
+public metricCPUUtilization(props?: MetricOptions): Metric
+```
+
+The percentage of CPU utilization.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricCPUUtilization.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricDatabaseConnections` <a name="metricDatabaseConnections" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricDatabaseConnections"></a>
+
+```typescript
+public metricDatabaseConnections(props?: MetricOptions): Metric
+```
+
+The number of database connections in use.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricDatabaseConnections.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricFreeableMemory` <a name="metricFreeableMemory" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricFreeableMemory"></a>
+
+```typescript
+public metricFreeableMemory(props?: MetricOptions): Metric
+```
+
+The amount of available random access memory.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricFreeableMemory.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricFreeStorageSpace` <a name="metricFreeStorageSpace" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricFreeStorageSpace"></a>
+
+```typescript
+public metricFreeStorageSpace(props?: MetricOptions): Metric
+```
+
+The amount of available storage space.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricFreeStorageSpace.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricReadIOPS` <a name="metricReadIOPS" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricReadIOPS"></a>
+
+```typescript
+public metricReadIOPS(props?: MetricOptions): Metric
+```
+
+The average number of disk write I/O operations per second.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricReadIOPS.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricWriteIOPS` <a name="metricWriteIOPS" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricWriteIOPS"></a>
+
+```typescript
+public metricWriteIOPS(props?: MetricOptions): Metric
+```
+
+The average number of disk read I/O operations per second.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricWriteIOPS.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `onEvent` <a name="onEvent" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.onEvent"></a>
+
+```typescript
+public onEvent(id: string, options?: OnEventOptions): Rule
+```
+
+Defines a CloudWatch event rule which triggers for instance events.
+
+Use
+`rule.addEventPattern(pattern)` to specify a filter.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.onEvent.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.onEvent.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_events.OnEventOptions
+
+---
+
+##### `addRotationMultiUser` <a name="addRotationMultiUser" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationMultiUser"></a>
+
+```typescript
+public addRotationMultiUser(id: string, options: RotationMultiUserOptions): SecretRotation
+```
+
+Adds the multi user rotation to this instance.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationMultiUser.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationMultiUser.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.RotationMultiUserOptions
+
+---
+
+##### `addRotationSingleUser` <a name="addRotationSingleUser" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationSingleUser"></a>
+
+```typescript
+public addRotationSingleUser(options?: RotationSingleUserOptions): SecretRotation
+```
+
+Adds the single user rotation of the master password to this instance.
+
+###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationSingleUser.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.RotationSingleUserOptions
+
+the options for the rotation, if you want to override the defaults.
+
+---
+
+##### `alarmCpuUtilization` <a name="alarmCpuUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmCpuUtilization"></a>
+
+```typescript
+public alarmCpuUtilization(props?: RdsCpuUtilizationAlarmConfig): RdsInstanceCpuUtilizationAlarm
+```
+
+Creates an alarm that monitors the CpuUtilization.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmCpuUtilization.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a>
+
+---
+
+##### `alarmDatabaseConnections` <a name="alarmDatabaseConnections" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmDatabaseConnections"></a>
+
+```typescript
+public alarmDatabaseConnections(props: RdsDatabaseConnectionsAlarmConfig): RdsInstanceDatabaseConnectionsAlarm
+```
+
+Creates an alarm that monitors the DatabaseConnections.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmDatabaseConnections.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a>
+
+---
+
+##### `alarmDbLoad` <a name="alarmDbLoad" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmDbLoad"></a>
+
+```typescript
+public alarmDbLoad(props: RdsDbLoadAlarmConfig): RdsInstanceDbLoadAlarm
+```
+
+Creates an alarm that monitors the DbLoad.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmDbLoad.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a>
+
+---
+
+##### `alarmFreeableMemory` <a name="alarmFreeableMemory" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeableMemory"></a>
+
+```typescript
+public alarmFreeableMemory(props: RdsFreeableMemoryAlarmConfig): RdsInstanceFreeableMemoryAlarm
+```
+
+Creates an alarm that monitors the FreeableMemory.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeableMemory.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a>
+
+---
+
+##### `alarmFreeLocalStorage` <a name="alarmFreeLocalStorage" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeLocalStorage"></a>
+
+```typescript
+public alarmFreeLocalStorage(props: RdsFreeLocalStorageAlarmConfig): RdsInstanceFreeLocalStorageAlarm
+```
+
+Creates an alarm that monitors the FreeLocalStorage.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeLocalStorage.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a>
+
+---
+
+##### `alarmFreeStorageSpace` <a name="alarmFreeStorageSpace" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeStorageSpace"></a>
+
+```typescript
+public alarmFreeStorageSpace(props: RdsFreeStorageSpaceAlarmConfig): RdsInstanceFreeStorageSpaceAlarm
+```
+
+Creates an alarm that monitors the FreeStorageSpace.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeStorageSpace.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a>
+
+---
+
+##### `alarmReadLatency` <a name="alarmReadLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmReadLatency"></a>
+
+```typescript
+public alarmReadLatency(props: RdsReadLatencyAlarmConfig): RdsInstanceReadLatencyAlarm
+```
+
+Creates an alarm that monitors the ReadLatency.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmReadLatency.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a>
+
+---
+
+##### `alarmWriteLatency` <a name="alarmWriteLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmWriteLatency"></a>
+
+```typescript
+public alarmWriteLatency(props: RdsWriteLatencyAlarmConfig): RdsInstanceWriteLatencyAlarm
+```
+
+Creates an alarm that monitors the WriteLatency.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmWriteLatency.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: RdsInstanceRecommendedAlarmsConfig): RdsInstanceRecommendedAlarms
+```
+
+Creates recommended alarms for the database cluster.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig">RdsInstanceRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromDatabaseInstanceAttributes">fromDatabaseInstanceAttributes</a></code> | Import an existing database instance. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isConstruct"></a>
+
+```typescript
+import { DatabaseInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseInstance.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isOwnedResource"></a>
+
+```typescript
+import { DatabaseInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseInstance.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isResource"></a>
+
+```typescript
+import { DatabaseInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseInstance.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromDatabaseInstanceAttributes` <a name="fromDatabaseInstanceAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromDatabaseInstanceAttributes"></a>
+
+```typescript
+import { DatabaseInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseInstance.fromDatabaseInstanceAttributes(scope: Construct, id: string, attrs: DatabaseInstanceAttributes)
+```
+
+Import an existing database instance.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromDatabaseInstanceAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromDatabaseInstanceAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromDatabaseInstanceAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseInstanceAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access to network connections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.dbInstanceEndpointAddress">dbInstanceEndpointAddress</a></code> | <code>string</code> | The instance endpoint address. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.dbInstanceEndpointPort">dbInstanceEndpointPort</a></code> | <code>string</code> | The instance endpoint port. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceArn">instanceArn</a></code> | <code>string</code> | The instance arn. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceEndpoint">instanceEndpoint</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint</code> | The instance endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The instance identifier. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.engine">engine</a></code> | <code>aws-cdk-lib.aws_rds.IInstanceEngine</code> | The engine of this database Instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceResourceId">instanceResourceId</a></code> | <code>string</code> | The AWS Region-unique, immutable identifier for the DB instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.cloudwatchLogGroups">cloudwatchLogGroups</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_logs.ILogGroup}</code> | The log group is created when `cloudwatchLogsExports` is set. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC where this database instance is deployed. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The AWS Secrets Manager secret attached to the instance. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+Access to network connections.
+
+---
+
+##### `dbInstanceEndpointAddress`<sup>Required</sup> <a name="dbInstanceEndpointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.dbInstanceEndpointAddress"></a>
+
+```typescript
+public readonly dbInstanceEndpointAddress: string;
+```
+
+- *Type:* string
+
+The instance endpoint address.
+
+---
+
+##### `dbInstanceEndpointPort`<sup>Required</sup> <a name="dbInstanceEndpointPort" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.dbInstanceEndpointPort"></a>
+
+```typescript
+public readonly dbInstanceEndpointPort: string;
+```
+
+- *Type:* string
+
+The instance endpoint port.
+
+---
+
+##### `instanceArn`<sup>Required</sup> <a name="instanceArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceArn"></a>
+
+```typescript
+public readonly instanceArn: string;
+```
+
+- *Type:* string
+
+The instance arn.
+
+---
+
+##### `instanceEndpoint`<sup>Required</sup> <a name="instanceEndpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceEndpoint"></a>
+
+```typescript
+public readonly instanceEndpoint: Endpoint;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.Endpoint
+
+The instance endpoint.
+
+---
+
+##### `instanceIdentifier`<sup>Required</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The instance identifier.
+
+---
+
+##### `engine`<sup>Optional</sup> <a name="engine" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.engine"></a>
+
+```typescript
+public readonly engine: IInstanceEngine;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IInstanceEngine
+
+The engine of this database Instance.
+
+May be not known for imported Instances if it wasn't provided explicitly,
+or for read replicas.
+
+---
+
+##### `instanceResourceId`<sup>Optional</sup> <a name="instanceResourceId" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceResourceId"></a>
+
+```typescript
+public readonly instanceResourceId: string;
+```
+
+- *Type:* string
+
+The AWS Region-unique, immutable identifier for the DB instance.
+
+This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+
+---
+
+##### `cloudwatchLogGroups`<sup>Required</sup> <a name="cloudwatchLogGroups" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.cloudwatchLogGroups"></a>
+
+```typescript
+public readonly cloudwatchLogGroups: {[ key: string ]: ILogGroup};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_logs.ILogGroup}
+
+The log group is created when `cloudwatchLogsExports` is set.
+
+Each export value will create a separate log group.
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC where this database instance is deployed.
+
+---
+
+##### `secret`<sup>Optional</sup> <a name="secret" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.secret"></a>
+
+```typescript
+public readonly secret: ISecret;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+The AWS Secrets Manager secret attached to the instance.
+
+---
+
+
 ### Function <a name="Function" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function"></a>
 
 An extension of the Lambda function construct that provides methods to create recommended alarms.
@@ -4801,6 +6417,4213 @@ public readonly deadLetterQueue: DeadLetterQueue;
 - *Type:* aws-cdk-lib.aws_sqs.DeadLetterQueue
 
 If this queue is configured with a dead-letter queue, this is the dead-letter queue settings.
+
+---
+
+
+### RdsAuroraBinLogReplicationLagAlarm <a name="RdsAuroraBinLogReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm"></a>
+
+An alarm that monitors the error state of Aurora writer instance replication.
+
+This alarm is used to detect whether the writer instance is in an error state and can’t replicate the source.
+
+The alarm is triggered when the value is less than or equal to threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.Initializer"></a>
+
+```typescript
+import { RdsAuroraBinLogReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsAuroraBinLogReplicationLagAlarm(scope: Construct, id: string, props: RdsAuroraBinLogReplicationLagAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps">RdsAuroraBinLogReplicationLagAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps">RdsAuroraBinLogReplicationLagAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isConstruct"></a>
+
+```typescript
+import { RdsAuroraBinLogReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraBinLogReplicationLagAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsAuroraBinLogReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraBinLogReplicationLagAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isResource"></a>
+
+```typescript
+import { RdsAuroraBinLogReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraBinLogReplicationLagAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsAuroraBinLogReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraBinLogReplicationLagAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsAuroraBinLogReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraBinLogReplicationLagAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsAuroraRecommendedAlarms <a name="RdsAuroraRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms"></a>
+
+A construct that creates recommended alarms for an RDS cluster.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { RdsAuroraRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsAuroraRecommendedAlarms(scope: Construct, id: string, props: RdsAuroraRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps">RdsAuroraRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps">RdsAuroraRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { RdsAuroraRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.alarmAuroraBinLogReplicationLag">alarmAuroraBinLogReplicationLag</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm">RdsAuroraBinLogReplicationLagAlarm</a></code> | The Bin Log Replication lag alarm for the database cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.alarmAuroraVolumeBytesLeftTotal">alarmAuroraVolumeBytesLeftTotal</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm">RdsAuroraVolumeBytesLeftTotalAlarm</a></code> | The AuroraVolumeBytesLeftTotal alarm for the database cluster. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmAuroraBinLogReplicationLag`<sup>Optional</sup> <a name="alarmAuroraBinLogReplicationLag" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.alarmAuroraBinLogReplicationLag"></a>
+
+```typescript
+public readonly alarmAuroraBinLogReplicationLag: RdsAuroraBinLogReplicationLagAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm">RdsAuroraBinLogReplicationLagAlarm</a>
+
+The Bin Log Replication lag alarm for the database cluster.
+
+---
+
+##### `alarmAuroraVolumeBytesLeftTotal`<sup>Optional</sup> <a name="alarmAuroraVolumeBytesLeftTotal" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.alarmAuroraVolumeBytesLeftTotal"></a>
+
+```typescript
+public readonly alarmAuroraVolumeBytesLeftTotal: RdsAuroraVolumeBytesLeftTotalAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm">RdsAuroraVolumeBytesLeftTotalAlarm</a>
+
+The AuroraVolumeBytesLeftTotal alarm for the database cluster.
+
+---
+
+
+### RdsAuroraVolumeBytesLeftTotalAlarm <a name="RdsAuroraVolumeBytesLeftTotalAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm"></a>
+
+An alarm that monitors the remaining available space (in bytes) for the cluster volume.
+
+This alarm is used to detect how close the Aurora cluster is to the volume size limit. This
+alarm can prevent an out-of-space error that occurs when your cluster runs out of space.
+
+The alarm is triggered when the remaining available space (in bytes) is less than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.Initializer"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesLeftTotalAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsAuroraVolumeBytesLeftTotalAlarm(scope: Construct, id: string, props: RdsAuroraVolumeBytesLeftTotalAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps">RdsAuroraVolumeBytesLeftTotalAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps">RdsAuroraVolumeBytesLeftTotalAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isConstruct"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesLeftTotalAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesLeftTotalAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesLeftTotalAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesLeftTotalAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isResource"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesLeftTotalAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesLeftTotalAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesLeftTotalAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesLeftTotalAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsInstanceCpuUtilizationAlarm <a name="RdsInstanceCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm"></a>
+
+An alarm that monitors CPU utilization for an RDS instance.
+
+This alarm is used to detect consistent high CPU utilization in order to prevent very
+high response time and time-outs.
+
+The alarm is triggered when the CPU utilization exceeds the % threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.Initializer"></a>
+
+```typescript
+import { RdsInstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceCpuUtilizationAlarm(scope: Construct, id: string, props: RdsInstanceCpuUtilizationAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps">RdsInstanceCpuUtilizationAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps">RdsInstanceCpuUtilizationAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isConstruct"></a>
+
+```typescript
+import { RdsInstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceCpuUtilizationAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsInstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceCpuUtilizationAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isResource"></a>
+
+```typescript
+import { RdsInstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceCpuUtilizationAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsInstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceCpuUtilizationAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsInstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceCpuUtilizationAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsInstanceDatabaseConnectionsAlarm <a name="RdsInstanceDatabaseConnectionsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm"></a>
+
+An alarm that monitors the number of client network connections to the database instance.
+
+This alarm is used to help prevent rejected connections when the maximum number of DB
+connections is reached.
+
+The alarm is triggered when number of connections is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.Initializer"></a>
+
+```typescript
+import { RdsInstanceDatabaseConnectionsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceDatabaseConnectionsAlarm(scope: Construct, id: string, props: RdsInstanceDatabaseConnectionsAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps">RdsInstanceDatabaseConnectionsAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps">RdsInstanceDatabaseConnectionsAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isConstruct"></a>
+
+```typescript
+import { RdsInstanceDatabaseConnectionsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDatabaseConnectionsAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsInstanceDatabaseConnectionsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDatabaseConnectionsAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isResource"></a>
+
+```typescript
+import { RdsInstanceDatabaseConnectionsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDatabaseConnectionsAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsInstanceDatabaseConnectionsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDatabaseConnectionsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsInstanceDatabaseConnectionsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDatabaseConnectionsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsInstanceDbLoadAlarm <a name="RdsInstanceDbLoadAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm"></a>
+
+An alarm that monitors the number of concurrent active sessions on the database.
+
+This alarm helps to monitor high DB load. If the number of processes exceed the number of vCPUs,
+the processes start queuing. When the queuing increases, the performance is impacted.
+
+The alarm is triggered when the number of active sessions for the database is
+greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.Initializer"></a>
+
+```typescript
+import { RdsInstanceDbLoadAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceDbLoadAlarm(scope: Construct, id: string, props: RdsInstanceDbLoadAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps">RdsInstanceDbLoadAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps">RdsInstanceDbLoadAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isConstruct"></a>
+
+```typescript
+import { RdsInstanceDbLoadAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDbLoadAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsInstanceDbLoadAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDbLoadAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isResource"></a>
+
+```typescript
+import { RdsInstanceDbLoadAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDbLoadAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsInstanceDbLoadAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDbLoadAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsInstanceDbLoadAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceDbLoadAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsInstanceFreeableMemoryAlarm <a name="RdsInstanceFreeableMemoryAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm"></a>
+
+An alarm that monitors the amount of available memory (RAM) on the RDS instance.
+
+This alarm is used to help prevent running out of memory which can result in rejected connections.
+
+The alarm is triggered when the percentage of available memory is less than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.Initializer"></a>
+
+```typescript
+import { RdsInstanceFreeableMemoryAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceFreeableMemoryAlarm(scope: Construct, id: string, props: RdsInstanceFreeableMemoryAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps">RdsInstanceFreeableMemoryAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps">RdsInstanceFreeableMemoryAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isConstruct"></a>
+
+```typescript
+import { RdsInstanceFreeableMemoryAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeableMemoryAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsInstanceFreeableMemoryAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeableMemoryAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isResource"></a>
+
+```typescript
+import { RdsInstanceFreeableMemoryAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeableMemoryAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsInstanceFreeableMemoryAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeableMemoryAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsInstanceFreeableMemoryAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeableMemoryAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsInstanceFreeLocalStorageAlarm <a name="RdsInstanceFreeLocalStorageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm"></a>
+
+An alarm that monitors the amount of available local storage space for an Aurora instance used for temporary files.
+
+This alarm is used to detect how close the Aurora DB instance is to reaching the local storage limit.
+This alarm can prevent an out-of-space error that occurs when your DB instance runs out of local storage.
+
+The alarm is triggered when the amount of available local storage space (bytes) is less than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.Initializer"></a>
+
+```typescript
+import { RdsInstanceFreeLocalStorageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceFreeLocalStorageAlarm(scope: Construct, id: string, props: RdsInstanceFreeLocalStorageAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps">RdsInstanceFreeLocalStorageAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps">RdsInstanceFreeLocalStorageAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isConstruct"></a>
+
+```typescript
+import { RdsInstanceFreeLocalStorageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeLocalStorageAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsInstanceFreeLocalStorageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeLocalStorageAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isResource"></a>
+
+```typescript
+import { RdsInstanceFreeLocalStorageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeLocalStorageAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsInstanceFreeLocalStorageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeLocalStorageAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsInstanceFreeLocalStorageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeLocalStorageAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsInstanceFreeStorageSpaceAlarm <a name="RdsInstanceFreeStorageSpaceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm"></a>
+
+An alarm that monitors the amount of available storage space for an Aurora instance.
+
+This alarm helps prevent storage full issues. This can prevent downtime that occurs when your database
+instance runs out of storage.
+
+The alarm is triggered when the amount of available storage space (bytes) is less than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.Initializer"></a>
+
+```typescript
+import { RdsInstanceFreeStorageSpaceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceFreeStorageSpaceAlarm(scope: Construct, id: string, props: RdsInstanceFreeStorageSpaceAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps">RdsInstanceFreeStorageSpaceAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps">RdsInstanceFreeStorageSpaceAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isConstruct"></a>
+
+```typescript
+import { RdsInstanceFreeStorageSpaceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeStorageSpaceAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsInstanceFreeStorageSpaceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeStorageSpaceAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isResource"></a>
+
+```typescript
+import { RdsInstanceFreeStorageSpaceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeStorageSpaceAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsInstanceFreeStorageSpaceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeStorageSpaceAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsInstanceFreeStorageSpaceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceFreeStorageSpaceAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsInstanceReadLatencyAlarm <a name="RdsInstanceReadLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm"></a>
+
+An alarm that monitors the average amount of time taken per disk read I/O operation.
+
+This alarm is used to detect high read latency. Database disks normally have a low read/write latency,
+but they can have issues that can cause high latency operations.
+
+The alarm is triggered when the average amount of time per disk read operation (in milliseconds) is
+greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.Initializer"></a>
+
+```typescript
+import { RdsInstanceReadLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceReadLatencyAlarm(scope: Construct, id: string, props: RdsInstanceReadLatencyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps">RdsInstanceReadLatencyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps">RdsInstanceReadLatencyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isConstruct"></a>
+
+```typescript
+import { RdsInstanceReadLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceReadLatencyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsInstanceReadLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceReadLatencyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isResource"></a>
+
+```typescript
+import { RdsInstanceReadLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceReadLatencyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsInstanceReadLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceReadLatencyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsInstanceReadLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceReadLatencyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### RdsInstanceRecommendedAlarms <a name="RdsInstanceRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms"></a>
+
+A construct that creates recommended alarms for an RDS cluster instance.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { RdsInstanceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceRecommendedAlarms(scope: Construct, id: string, props: RdsInstanceRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps">RdsInstanceRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps">RdsInstanceRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { RdsInstanceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmCpuUtilization">alarmCpuUtilization</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm">RdsInstanceCpuUtilizationAlarm</a></code> | The CpuUtilization alarm for the database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmDatabaseConnections">alarmDatabaseConnections</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm">RdsInstanceDatabaseConnectionsAlarm</a></code> | The DatabaseConnections alarm for the database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmDbLoad">alarmDbLoad</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm">RdsInstanceDbLoadAlarm</a></code> | The DbLoad alarm for the database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmFreeableMemory">alarmFreeableMemory</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm">RdsInstanceFreeableMemoryAlarm</a></code> | The FreeableMemory alarm for the database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmFreeLocalStorage">alarmFreeLocalStorage</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm">RdsInstanceFreeLocalStorageAlarm</a></code> | The FreeLocalStorage alarm for the database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmFreeStorageSpace">alarmFreeStorageSpace</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm">RdsInstanceFreeStorageSpaceAlarm</a></code> | The FreeStorageSpace alarm for the database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmReadLatency">alarmReadLatency</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm">RdsInstanceReadLatencyAlarm</a></code> | The ReadLatency alarm for the database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmWriteLatency">alarmWriteLatency</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm">RdsInstanceWriteLatencyAlarm</a></code> | The WriteLatency alarm for the database instance. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmCpuUtilization`<sup>Optional</sup> <a name="alarmCpuUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmCpuUtilization"></a>
+
+```typescript
+public readonly alarmCpuUtilization: RdsInstanceCpuUtilizationAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm">RdsInstanceCpuUtilizationAlarm</a>
+
+The CpuUtilization alarm for the database instance.
+
+---
+
+##### `alarmDatabaseConnections`<sup>Optional</sup> <a name="alarmDatabaseConnections" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmDatabaseConnections"></a>
+
+```typescript
+public readonly alarmDatabaseConnections: RdsInstanceDatabaseConnectionsAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm">RdsInstanceDatabaseConnectionsAlarm</a>
+
+The DatabaseConnections alarm for the database instance.
+
+---
+
+##### `alarmDbLoad`<sup>Optional</sup> <a name="alarmDbLoad" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmDbLoad"></a>
+
+```typescript
+public readonly alarmDbLoad: RdsInstanceDbLoadAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm">RdsInstanceDbLoadAlarm</a>
+
+The DbLoad alarm for the database instance.
+
+---
+
+##### `alarmFreeableMemory`<sup>Optional</sup> <a name="alarmFreeableMemory" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmFreeableMemory"></a>
+
+```typescript
+public readonly alarmFreeableMemory: RdsInstanceFreeableMemoryAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm">RdsInstanceFreeableMemoryAlarm</a>
+
+The FreeableMemory alarm for the database instance.
+
+---
+
+##### `alarmFreeLocalStorage`<sup>Optional</sup> <a name="alarmFreeLocalStorage" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmFreeLocalStorage"></a>
+
+```typescript
+public readonly alarmFreeLocalStorage: RdsInstanceFreeLocalStorageAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm">RdsInstanceFreeLocalStorageAlarm</a>
+
+The FreeLocalStorage alarm for the database instance.
+
+---
+
+##### `alarmFreeStorageSpace`<sup>Optional</sup> <a name="alarmFreeStorageSpace" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmFreeStorageSpace"></a>
+
+```typescript
+public readonly alarmFreeStorageSpace: RdsInstanceFreeStorageSpaceAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm">RdsInstanceFreeStorageSpaceAlarm</a>
+
+The FreeStorageSpace alarm for the database instance.
+
+---
+
+##### `alarmReadLatency`<sup>Optional</sup> <a name="alarmReadLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmReadLatency"></a>
+
+```typescript
+public readonly alarmReadLatency: RdsInstanceReadLatencyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm">RdsInstanceReadLatencyAlarm</a>
+
+The ReadLatency alarm for the database instance.
+
+---
+
+##### `alarmWriteLatency`<sup>Optional</sup> <a name="alarmWriteLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.property.alarmWriteLatency"></a>
+
+```typescript
+public readonly alarmWriteLatency: RdsInstanceWriteLatencyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm">RdsInstanceWriteLatencyAlarm</a>
+
+The WriteLatency alarm for the database instance.
+
+---
+
+
+### RdsInstanceWriteLatencyAlarm <a name="RdsInstanceWriteLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm"></a>
+
+An alarm that monitors the average amount of time taken per disk write I/O operation.
+
+This alarm is used to detect high write latency. Database disks normally have a low read/write latency,
+but they can have issues that can cause high latency operations.
+
+The alarm is triggered when the average amount of time per disk write operation (in milliseconds) is
+greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.Initializer"></a>
+
+```typescript
+import { RdsInstanceWriteLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceWriteLatencyAlarm(scope: Construct, id: string, props: RdsInstanceWriteLatencyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps">RdsInstanceWriteLatencyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps">RdsInstanceWriteLatencyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isConstruct"></a>
+
+```typescript
+import { RdsInstanceWriteLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceWriteLatencyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsInstanceWriteLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceWriteLatencyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isResource"></a>
+
+```typescript
+import { RdsInstanceWriteLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceWriteLatencyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsInstanceWriteLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceWriteLatencyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsInstanceWriteLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsInstanceWriteLatencyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
 
 ---
 
@@ -12913,6 +18736,4657 @@ The Lambda function to monitor.
 
 ---
 
+### RdsAlarmBaseConfig <a name="RdsAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { RdsAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAlarmBaseConfig: RdsAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### RdsAuroraBinLogReplicationLagAlarmConfig <a name="RdsAuroraBinLogReplicationLagAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig"></a>
+
+Configuration for the AuroraBinLogReplicationLag alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsAuroraBinLogReplicationLagAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAuroraBinLogReplicationLagAlarmConfig: RdsAuroraBinLogReplicationLagAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect whether the writer instance is in an error state and can’t replicate the source. This alarm is recommended only for Aurora MySQL.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - AuroraBinLogReplicationLag'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The value against which the specified statistic is compared.
+
+We recommend that you use -1 as the threshold value because Aurora MySQL publishes
+this value if the replica is in an error state.
+
+---
+
+### RdsAuroraBinLogReplicationLagAlarmProps <a name="RdsAuroraBinLogReplicationLagAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps"></a>
+
+The properties for the RdsAuroraBinLogReplicationLag construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsAuroraBinLogReplicationLagAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAuroraBinLogReplicationLagAlarmProps: RdsAuroraBinLogReplicationLagAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.databaseCluster">databaseCluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster</code> | The database cluster to monitor. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect whether the writer instance is in an error state and can’t replicate the source. This alarm is recommended only for Aurora MySQL.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - AuroraBinLogReplicationLag'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The value against which the specified statistic is compared.
+
+We recommend that you use -1 as the threshold value because Aurora MySQL publishes
+this value if the replica is in an error state.
+
+---
+
+##### `databaseCluster`<sup>Required</sup> <a name="databaseCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmProps.property.databaseCluster"></a>
+
+```typescript
+public readonly databaseCluster: IDatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster
+
+The database cluster to monitor.
+
+---
+
+### RdsAuroraRecommendedAlarmsConfig <a name="RdsAuroraRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig"></a>
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { RdsAuroraRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAuroraRecommendedAlarmsConfig: RdsAuroraRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configDatabaseConnectionsAlarm">configDatabaseConnectionsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a></code> | The configuration for the DatabaseConnections alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configDbLoadAlarm">configDbLoadAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a></code> | The configuration for the DbLoad alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configFreeableMemoryAlarm">configFreeableMemoryAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a></code> | The configuration for the FreeableMemory alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configFreeLocalStorageAlarm">configFreeLocalStorageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a></code> | The configuration for the FreeLocalStorage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configFreeStorageSpaceAlarm">configFreeStorageSpaceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a></code> | The configuration for the FreeStorageSpace alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configReadLatencyAlarm">configReadLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a></code> | The configuration for the ReadLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configWriteLatencyAlarm">configWriteLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a></code> | The configuration for the WriteLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configCpuUtilizationAlarm">configCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a></code> | The configuration for the CpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configAuroraBinLogReplicationLagAlarm">configAuroraBinLogReplicationLagAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig">RdsAuroraBinLogReplicationLagAlarmConfig</a></code> | The configuration for the AuroraBinLogReplicationLag alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configAuroraVolumeBytesLeftTotalAlarm">configAuroraVolumeBytesLeftTotalAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a></code> | The configuration for the AuroraVolumeBytesLeftTotal alarm. |
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: RdsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `configDatabaseConnectionsAlarm`<sup>Required</sup> <a name="configDatabaseConnectionsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configDatabaseConnectionsAlarm"></a>
+
+```typescript
+public readonly configDatabaseConnectionsAlarm: RdsDatabaseConnectionsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a>
+
+The configuration for the DatabaseConnections alarm.
+
+---
+
+##### `configDbLoadAlarm`<sup>Required</sup> <a name="configDbLoadAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configDbLoadAlarm"></a>
+
+```typescript
+public readonly configDbLoadAlarm: RdsDbLoadAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a>
+
+The configuration for the DbLoad alarm.
+
+---
+
+##### `configFreeableMemoryAlarm`<sup>Required</sup> <a name="configFreeableMemoryAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configFreeableMemoryAlarm"></a>
+
+```typescript
+public readonly configFreeableMemoryAlarm: RdsFreeableMemoryAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a>
+
+The configuration for the FreeableMemory alarm.
+
+---
+
+##### `configFreeLocalStorageAlarm`<sup>Required</sup> <a name="configFreeLocalStorageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configFreeLocalStorageAlarm"></a>
+
+```typescript
+public readonly configFreeLocalStorageAlarm: RdsFreeLocalStorageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a>
+
+The configuration for the FreeLocalStorage alarm.
+
+---
+
+##### `configFreeStorageSpaceAlarm`<sup>Required</sup> <a name="configFreeStorageSpaceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configFreeStorageSpaceAlarm"></a>
+
+```typescript
+public readonly configFreeStorageSpaceAlarm: RdsFreeStorageSpaceAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a>
+
+The configuration for the FreeStorageSpace alarm.
+
+---
+
+##### `configReadLatencyAlarm`<sup>Required</sup> <a name="configReadLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configReadLatencyAlarm"></a>
+
+```typescript
+public readonly configReadLatencyAlarm: RdsReadLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a>
+
+The configuration for the ReadLatency alarm.
+
+---
+
+##### `configWriteLatencyAlarm`<sup>Required</sup> <a name="configWriteLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configWriteLatencyAlarm"></a>
+
+```typescript
+public readonly configWriteLatencyAlarm: RdsWriteLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a>
+
+The configuration for the WriteLatency alarm.
+
+---
+
+##### `configCpuUtilizationAlarm`<sup>Optional</sup> <a name="configCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configCpuUtilizationAlarm"></a>
+
+```typescript
+public readonly configCpuUtilizationAlarm: RdsCpuUtilizationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a>
+
+The configuration for the CpuUtilization alarm.
+
+---
+
+##### `configAuroraBinLogReplicationLagAlarm`<sup>Optional</sup> <a name="configAuroraBinLogReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configAuroraBinLogReplicationLagAlarm"></a>
+
+```typescript
+public readonly configAuroraBinLogReplicationLagAlarm: RdsAuroraBinLogReplicationLagAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig">RdsAuroraBinLogReplicationLagAlarmConfig</a>
+
+The configuration for the AuroraBinLogReplicationLag alarm.
+
+---
+
+##### `configAuroraVolumeBytesLeftTotalAlarm`<sup>Optional</sup> <a name="configAuroraVolumeBytesLeftTotalAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configAuroraVolumeBytesLeftTotalAlarm"></a>
+
+```typescript
+public readonly configAuroraVolumeBytesLeftTotalAlarm: RdsAuroraVolumeBytesLeftTotalAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a>
+
+The configuration for the AuroraVolumeBytesLeftTotal alarm.
+
+---
+
+### RdsAuroraRecommendedAlarmsProps <a name="RdsAuroraRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps"></a>
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { RdsAuroraRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAuroraRecommendedAlarmsProps: RdsAuroraRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configDatabaseConnectionsAlarm">configDatabaseConnectionsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a></code> | The configuration for the DatabaseConnections alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configDbLoadAlarm">configDbLoadAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a></code> | The configuration for the DbLoad alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configFreeableMemoryAlarm">configFreeableMemoryAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a></code> | The configuration for the FreeableMemory alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configFreeLocalStorageAlarm">configFreeLocalStorageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a></code> | The configuration for the FreeLocalStorage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configFreeStorageSpaceAlarm">configFreeStorageSpaceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a></code> | The configuration for the FreeStorageSpace alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configReadLatencyAlarm">configReadLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a></code> | The configuration for the ReadLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configWriteLatencyAlarm">configWriteLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a></code> | The configuration for the WriteLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configCpuUtilizationAlarm">configCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a></code> | The configuration for the CpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configAuroraBinLogReplicationLagAlarm">configAuroraBinLogReplicationLagAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig">RdsAuroraBinLogReplicationLagAlarmConfig</a></code> | The configuration for the AuroraBinLogReplicationLag alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configAuroraVolumeBytesLeftTotalAlarm">configAuroraVolumeBytesLeftTotalAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a></code> | The configuration for the AuroraVolumeBytesLeftTotal alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.databaseCluster">databaseCluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster</code> | The database cluster to apply the recommended alarms. |
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: RdsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `configDatabaseConnectionsAlarm`<sup>Required</sup> <a name="configDatabaseConnectionsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configDatabaseConnectionsAlarm"></a>
+
+```typescript
+public readonly configDatabaseConnectionsAlarm: RdsDatabaseConnectionsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a>
+
+The configuration for the DatabaseConnections alarm.
+
+---
+
+##### `configDbLoadAlarm`<sup>Required</sup> <a name="configDbLoadAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configDbLoadAlarm"></a>
+
+```typescript
+public readonly configDbLoadAlarm: RdsDbLoadAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a>
+
+The configuration for the DbLoad alarm.
+
+---
+
+##### `configFreeableMemoryAlarm`<sup>Required</sup> <a name="configFreeableMemoryAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configFreeableMemoryAlarm"></a>
+
+```typescript
+public readonly configFreeableMemoryAlarm: RdsFreeableMemoryAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a>
+
+The configuration for the FreeableMemory alarm.
+
+---
+
+##### `configFreeLocalStorageAlarm`<sup>Required</sup> <a name="configFreeLocalStorageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configFreeLocalStorageAlarm"></a>
+
+```typescript
+public readonly configFreeLocalStorageAlarm: RdsFreeLocalStorageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a>
+
+The configuration for the FreeLocalStorage alarm.
+
+---
+
+##### `configFreeStorageSpaceAlarm`<sup>Required</sup> <a name="configFreeStorageSpaceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configFreeStorageSpaceAlarm"></a>
+
+```typescript
+public readonly configFreeStorageSpaceAlarm: RdsFreeStorageSpaceAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a>
+
+The configuration for the FreeStorageSpace alarm.
+
+---
+
+##### `configReadLatencyAlarm`<sup>Required</sup> <a name="configReadLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configReadLatencyAlarm"></a>
+
+```typescript
+public readonly configReadLatencyAlarm: RdsReadLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a>
+
+The configuration for the ReadLatency alarm.
+
+---
+
+##### `configWriteLatencyAlarm`<sup>Required</sup> <a name="configWriteLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configWriteLatencyAlarm"></a>
+
+```typescript
+public readonly configWriteLatencyAlarm: RdsWriteLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a>
+
+The configuration for the WriteLatency alarm.
+
+---
+
+##### `configCpuUtilizationAlarm`<sup>Optional</sup> <a name="configCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configCpuUtilizationAlarm"></a>
+
+```typescript
+public readonly configCpuUtilizationAlarm: RdsCpuUtilizationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a>
+
+The configuration for the CpuUtilization alarm.
+
+---
+
+##### `configAuroraBinLogReplicationLagAlarm`<sup>Optional</sup> <a name="configAuroraBinLogReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configAuroraBinLogReplicationLagAlarm"></a>
+
+```typescript
+public readonly configAuroraBinLogReplicationLagAlarm: RdsAuroraBinLogReplicationLagAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig">RdsAuroraBinLogReplicationLagAlarmConfig</a>
+
+The configuration for the AuroraBinLogReplicationLag alarm.
+
+---
+
+##### `configAuroraVolumeBytesLeftTotalAlarm`<sup>Optional</sup> <a name="configAuroraVolumeBytesLeftTotalAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configAuroraVolumeBytesLeftTotalAlarm"></a>
+
+```typescript
+public readonly configAuroraVolumeBytesLeftTotalAlarm: RdsAuroraVolumeBytesLeftTotalAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a>
+
+The configuration for the AuroraVolumeBytesLeftTotal alarm.
+
+---
+
+##### `databaseCluster`<sup>Required</sup> <a name="databaseCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.databaseCluster"></a>
+
+```typescript
+public readonly databaseCluster: IDatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster
+
+The database cluster to apply the recommended alarms.
+
+---
+
+### RdsAuroraVolumeBytesLeftTotalAlarmConfig <a name="RdsAuroraVolumeBytesLeftTotalAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig"></a>
+
+Configuration for the AuroraVolumeBytesLeftTotal alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesLeftTotalAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAuroraVolumeBytesLeftTotalAlarmConfig: RdsAuroraVolumeBytesLeftTotalAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value in bytes against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect how close the Aurora cluster is to the volume size limit. This alarm can prevent an out-of-space error that occurs when your cluster runs out of space. This alarm is recommended only for Aurora MySQL.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - AuroraVolumeBytesLeftTotal'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The value in bytes against which the specified statistic is compared.
+
+You should calculate 10%-20% of the actual size limit based on velocity and
+trend of volume usage increase, and then use that result as the threshold value
+to proactively take action before the volume reaches its limit.
+
+---
+
+### RdsAuroraVolumeBytesLeftTotalAlarmProps <a name="RdsAuroraVolumeBytesLeftTotalAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps"></a>
+
+The properties for the RdsAuroraVolumeBytesLeftTotal construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesLeftTotalAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAuroraVolumeBytesLeftTotalAlarmProps: RdsAuroraVolumeBytesLeftTotalAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value in bytes against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.databaseCluster">databaseCluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster</code> | The database cluster to monitor. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect how close the Aurora cluster is to the volume size limit. This alarm can prevent an out-of-space error that occurs when your cluster runs out of space. This alarm is recommended only for Aurora MySQL.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - AuroraVolumeBytesLeftTotal'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The value in bytes against which the specified statistic is compared.
+
+You should calculate 10%-20% of the actual size limit based on velocity and
+trend of volume usage increase, and then use that result as the threshold value
+to proactively take action before the volume reaches its limit.
+
+---
+
+##### `databaseCluster`<sup>Required</sup> <a name="databaseCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.databaseCluster"></a>
+
+```typescript
+public readonly databaseCluster: IDatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster
+
+The database cluster to monitor.
+
+---
+
+### RdsCpuUtilizationAlarmConfig <a name="RdsCpuUtilizationAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig"></a>
+
+Configuration for the CpuUtilization alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsCpuUtilizationAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsCpuUtilizationAlarmConfig: RdsCpuUtilizationAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The percentage (0-100) value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect consistent high CPU utilization in order to prevent very high response time and time-outs. If you want to check micro-bursting of CPU utilization you can set a lower alarm evaluation time.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - CpuUtilization'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 90
+
+The percentage (0-100) value against which the specified statistic is compared.
+
+Random spikes in CPU consumption might not hamper database performance, but sustained
+high CPU can hinder upcoming database requests. Depending on the overall database
+workload, high CPU at your RDS/Aurora instance can degrade the overall performance.
+
+---
+
+### RdsDatabaseConnectionsAlarmConfig <a name="RdsDatabaseConnectionsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig"></a>
+
+Configuration for the DatabaseConnections alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsDatabaseConnectionsAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsDatabaseConnectionsAlarmConfig: RdsDatabaseConnectionsAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The number of connections against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The number of connections against which the specified statistic is compared.
+
+The number of connections allowed depends on the size of your DB instance class and
+database engine-specific parameters related to processes/connections. You should
+calculate a value between 90-95% of the maximum number of connections for your database
+and use that result as the threshold value.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to help prevent rejected connections when the maximum number of DB connections is reached. This alarm is not recommended if you frequently change DB instance class, because doing so changes the memory and default maximum number of connections.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - DatabaseConnections'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsDbLoadAlarmConfig <a name="RdsDbLoadAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig"></a>
+
+Configuration for the DbLoad alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsDbLoadAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsDbLoadAlarmConfig: RdsDbLoadAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The value against which the specified statistic is compared.
+
+The maximum vCPU value is determined by the number of vCPU (virtual CPU) cores
+for your DB instance. Depending on the maximum vCPU, different values for the
+threshold can be appropriate. Ideally, DB load should not go above vCPU line.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect a high DB load. High DB load can cause performance issues in the DB instance. This alarm is not applicable to serverless DB instances.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - DBLoad'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsFreeableMemoryAlarmConfig <a name="RdsFreeableMemoryAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig"></a>
+
+Configuration for the FreeableMemory alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsFreeableMemoryAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsFreeableMemoryAlarmConfig: RdsFreeableMemoryAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The percentage value (0-100) against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The percentage value (0-100) against which the specified statistic is compared.
+
+Depending on the workload and instance class, different values for the threshold
+can be appropriate. Ideally, available memory should not go below 25% of total
+memory for prolonged periods. For Aurora, you can set the threshold close to 5%,
+because the metric approaching 0 means that the DB instance has scaled up as much
+as it can. You can analyze the historical behavior of this metric to determine
+sensible threshold levels.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to help prevent running out of memory which can result in rejected connections.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - FreeableMemory'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsFreeLocalStorageAlarmConfig <a name="RdsFreeLocalStorageAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig"></a>
+
+Configuration for the FreeLocalStorage alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsFreeLocalStorageAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsFreeLocalStorageAlarmConfig: RdsFreeLocalStorageAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The percentage value (0-100) against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The percentage value (0-100) against which the specified statistic is compared.
+
+You should calculate about 10%-20% of the amount of storage available based on
+velocity and trend of volume usage, and then use that result as the threshold value
+to proactively take action before the volume reaches its limit.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect how close the Aurora DB instance is to reaching the local storage limit, if you do not use Aurora Serverless v2 or higher. Local storage can reach capacity when you store non-persistent data, such as temporary table and log files, in the local storage. This alarm can prevent an out-of-space error that occurs when your DB instance runs out of local storage.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - FreeLocalStorage'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsFreeStorageSpaceAlarmConfig <a name="RdsFreeStorageSpaceAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig"></a>
+
+Configuration for the FreeStorageSpace alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsFreeStorageSpaceAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsFreeStorageSpaceAlarmConfig: RdsFreeStorageSpaceAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The percentage value (0-100) against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The percentage value (0-100) against which the specified statistic is compared.
+
+The threshold value will depend on the currently allocated storage space. Typically,
+you should calculate the value of 10 percent of the allocated storage space and use
+that result as the threshold value.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm helps prevent storage full issues. This can prevent downtime that occurs when your database instance runs out of storage. We do not recommend using this alarm if you have storage auto scaling enabled, or if you frequently change the storage capacity of the database instance.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - FreeStorageSpace'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsInstanceAlarmProps <a name="RdsInstanceAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceAlarmProps"></a>
+
+The common properties for the instance alarms.
+
+The alarm should receive either
+instanceIdentifier or databaseInstance.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceAlarmProps: RdsInstanceAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+### RdsInstanceCpuUtilizationAlarmProps <a name="RdsInstanceCpuUtilizationAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps"></a>
+
+The properties for the RdsInstanceCpuUtilizationAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceCpuUtilizationAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceCpuUtilizationAlarmProps: RdsInstanceCpuUtilizationAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The percentage (0-100) value against which the specified statistic is compared. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect consistent high CPU utilization in order to prevent very high response time and time-outs. If you want to check micro-bursting of CPU utilization you can set a lower alarm evaluation time.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - CpuUtilization'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 90
+
+The percentage (0-100) value against which the specified statistic is compared.
+
+Random spikes in CPU consumption might not hamper database performance, but sustained
+high CPU can hinder upcoming database requests. Depending on the overall database
+workload, high CPU at your RDS/Aurora instance can degrade the overall performance.
+
+---
+
+### RdsInstanceDatabaseConnectionsAlarmProps <a name="RdsInstanceDatabaseConnectionsAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps"></a>
+
+The properties for the RdsInstanceDatabaseConnectionsAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceDatabaseConnectionsAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceDatabaseConnectionsAlarmProps: RdsInstanceDatabaseConnectionsAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The number of connections against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The number of connections against which the specified statistic is compared.
+
+The number of connections allowed depends on the size of your DB instance class and
+database engine-specific parameters related to processes/connections. You should
+calculate a value between 90-95% of the maximum number of connections for your database
+and use that result as the threshold value.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to help prevent rejected connections when the maximum number of DB connections is reached. This alarm is not recommended if you frequently change DB instance class, because doing so changes the memory and default maximum number of connections.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - DatabaseConnections'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsInstanceDbLoadAlarmProps <a name="RdsInstanceDbLoadAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps"></a>
+
+The properties for the RdsInstanceDbLoadAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceDbLoadAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceDbLoadAlarmProps: RdsInstanceDbLoadAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The value against which the specified statistic is compared.
+
+The maximum vCPU value is determined by the number of vCPU (virtual CPU) cores
+for your DB instance. Depending on the maximum vCPU, different values for the
+threshold can be appropriate. Ideally, DB load should not go above vCPU line.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect a high DB load. High DB load can cause performance issues in the DB instance. This alarm is not applicable to serverless DB instances.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - DBLoad'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsInstanceFreeableMemoryAlarmProps <a name="RdsInstanceFreeableMemoryAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps"></a>
+
+The properties for the RdsInstanceFreeableMemoryAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceFreeableMemoryAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceFreeableMemoryAlarmProps: RdsInstanceFreeableMemoryAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The percentage value (0-100) against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The percentage value (0-100) against which the specified statistic is compared.
+
+Depending on the workload and instance class, different values for the threshold
+can be appropriate. Ideally, available memory should not go below 25% of total
+memory for prolonged periods. For Aurora, you can set the threshold close to 5%,
+because the metric approaching 0 means that the DB instance has scaled up as much
+as it can. You can analyze the historical behavior of this metric to determine
+sensible threshold levels.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to help prevent running out of memory which can result in rejected connections.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - FreeableMemory'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsInstanceFreeLocalStorageAlarmProps <a name="RdsInstanceFreeLocalStorageAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps"></a>
+
+The properties for the RdsInstanceFreeLocalStorageAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceFreeLocalStorageAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceFreeLocalStorageAlarmProps: RdsInstanceFreeLocalStorageAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The percentage value (0-100) against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The percentage value (0-100) against which the specified statistic is compared.
+
+You should calculate about 10%-20% of the amount of storage available based on
+velocity and trend of volume usage, and then use that result as the threshold value
+to proactively take action before the volume reaches its limit.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect how close the Aurora DB instance is to reaching the local storage limit, if you do not use Aurora Serverless v2 or higher. Local storage can reach capacity when you store non-persistent data, such as temporary table and log files, in the local storage. This alarm can prevent an out-of-space error that occurs when your DB instance runs out of local storage.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - FreeLocalStorage'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsInstanceFreeStorageSpaceAlarmProps <a name="RdsInstanceFreeStorageSpaceAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps"></a>
+
+The properties for the RdsInstanceFreeStorageSpaceAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceFreeStorageSpaceAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceFreeStorageSpaceAlarmProps: RdsInstanceFreeStorageSpaceAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The percentage value (0-100) against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The percentage value (0-100) against which the specified statistic is compared.
+
+The threshold value will depend on the currently allocated storage space. Typically,
+you should calculate the value of 10 percent of the allocated storage space and use
+that result as the threshold value.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm helps prevent storage full issues. This can prevent downtime that occurs when your database instance runs out of storage. We do not recommend using this alarm if you have storage auto scaling enabled, or if you frequently change the storage capacity of the database instance.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - FreeStorageSpace'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsInstanceReadLatencyAlarmProps <a name="RdsInstanceReadLatencyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps"></a>
+
+The properties for the RdsInstanceReadLatencyAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceReadLatencyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceReadLatencyAlarmProps: RdsInstanceReadLatencyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value in milliseconds against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The value in milliseconds against which the specified statistic is compared.
+
+The recommended threshold value for this alarm is highly dependent on your use case.
+Read latencies higher than 20 milliseconds are likely a cause for investigation.
+You can also set a higher threshold if your application can have higher latency for
+read operations. Review the criticality and requirements of read latency and analyze
+the historical behavior of this metric to determine sensible threshold levels.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high read latency. Database disks normally have a low read/write latency, but they can have issues that can cause high latency operations.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - ReadLatency'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsInstanceRecommendedAlarmsConfig <a name="RdsInstanceRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig"></a>
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { RdsInstanceRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceRecommendedAlarmsConfig: RdsInstanceRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configDatabaseConnectionsAlarm">configDatabaseConnectionsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a></code> | The configuration for the DatabaseConnections alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configDbLoadAlarm">configDbLoadAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a></code> | The configuration for the DbLoad alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configFreeableMemoryAlarm">configFreeableMemoryAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a></code> | The configuration for the FreeableMemory alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configFreeLocalStorageAlarm">configFreeLocalStorageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a></code> | The configuration for the FreeLocalStorage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configFreeStorageSpaceAlarm">configFreeStorageSpaceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a></code> | The configuration for the FreeStorageSpace alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configReadLatencyAlarm">configReadLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a></code> | The configuration for the ReadLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configWriteLatencyAlarm">configWriteLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a></code> | The configuration for the WriteLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configCpuUtilizationAlarm">configCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a></code> | The configuration for the CpuUtilization alarm. |
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: RdsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `configDatabaseConnectionsAlarm`<sup>Required</sup> <a name="configDatabaseConnectionsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configDatabaseConnectionsAlarm"></a>
+
+```typescript
+public readonly configDatabaseConnectionsAlarm: RdsDatabaseConnectionsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a>
+
+The configuration for the DatabaseConnections alarm.
+
+---
+
+##### `configDbLoadAlarm`<sup>Required</sup> <a name="configDbLoadAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configDbLoadAlarm"></a>
+
+```typescript
+public readonly configDbLoadAlarm: RdsDbLoadAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a>
+
+The configuration for the DbLoad alarm.
+
+---
+
+##### `configFreeableMemoryAlarm`<sup>Required</sup> <a name="configFreeableMemoryAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configFreeableMemoryAlarm"></a>
+
+```typescript
+public readonly configFreeableMemoryAlarm: RdsFreeableMemoryAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a>
+
+The configuration for the FreeableMemory alarm.
+
+---
+
+##### `configFreeLocalStorageAlarm`<sup>Required</sup> <a name="configFreeLocalStorageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configFreeLocalStorageAlarm"></a>
+
+```typescript
+public readonly configFreeLocalStorageAlarm: RdsFreeLocalStorageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a>
+
+The configuration for the FreeLocalStorage alarm.
+
+---
+
+##### `configFreeStorageSpaceAlarm`<sup>Required</sup> <a name="configFreeStorageSpaceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configFreeStorageSpaceAlarm"></a>
+
+```typescript
+public readonly configFreeStorageSpaceAlarm: RdsFreeStorageSpaceAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a>
+
+The configuration for the FreeStorageSpace alarm.
+
+---
+
+##### `configReadLatencyAlarm`<sup>Required</sup> <a name="configReadLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configReadLatencyAlarm"></a>
+
+```typescript
+public readonly configReadLatencyAlarm: RdsReadLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a>
+
+The configuration for the ReadLatency alarm.
+
+---
+
+##### `configWriteLatencyAlarm`<sup>Required</sup> <a name="configWriteLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configWriteLatencyAlarm"></a>
+
+```typescript
+public readonly configWriteLatencyAlarm: RdsWriteLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a>
+
+The configuration for the WriteLatency alarm.
+
+---
+
+##### `configCpuUtilizationAlarm`<sup>Optional</sup> <a name="configCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig.property.configCpuUtilizationAlarm"></a>
+
+```typescript
+public readonly configCpuUtilizationAlarm: RdsCpuUtilizationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a>
+
+The configuration for the CpuUtilization alarm.
+
+---
+
+### RdsInstanceRecommendedAlarmsProps <a name="RdsInstanceRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps"></a>
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceRecommendedAlarmsProps: RdsInstanceRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configDatabaseConnectionsAlarm">configDatabaseConnectionsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a></code> | The configuration for the DatabaseConnections alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configDbLoadAlarm">configDbLoadAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a></code> | The configuration for the DbLoad alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configFreeableMemoryAlarm">configFreeableMemoryAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a></code> | The configuration for the FreeableMemory alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configFreeLocalStorageAlarm">configFreeLocalStorageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a></code> | The configuration for the FreeLocalStorage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configFreeStorageSpaceAlarm">configFreeStorageSpaceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a></code> | The configuration for the FreeStorageSpace alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configReadLatencyAlarm">configReadLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a></code> | The configuration for the ReadLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configWriteLatencyAlarm">configWriteLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a></code> | The configuration for the WriteLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configCpuUtilizationAlarm">configCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a></code> | The configuration for the CpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The cluster instance to apply the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The cluster instance identifier to apply the recommended alarms. |
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: RdsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `configDatabaseConnectionsAlarm`<sup>Required</sup> <a name="configDatabaseConnectionsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configDatabaseConnectionsAlarm"></a>
+
+```typescript
+public readonly configDatabaseConnectionsAlarm: RdsDatabaseConnectionsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDatabaseConnectionsAlarmConfig">RdsDatabaseConnectionsAlarmConfig</a>
+
+The configuration for the DatabaseConnections alarm.
+
+---
+
+##### `configDbLoadAlarm`<sup>Required</sup> <a name="configDbLoadAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configDbLoadAlarm"></a>
+
+```typescript
+public readonly configDbLoadAlarm: RdsDbLoadAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsDbLoadAlarmConfig">RdsDbLoadAlarmConfig</a>
+
+The configuration for the DbLoad alarm.
+
+---
+
+##### `configFreeableMemoryAlarm`<sup>Required</sup> <a name="configFreeableMemoryAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configFreeableMemoryAlarm"></a>
+
+```typescript
+public readonly configFreeableMemoryAlarm: RdsFreeableMemoryAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeableMemoryAlarmConfig">RdsFreeableMemoryAlarmConfig</a>
+
+The configuration for the FreeableMemory alarm.
+
+---
+
+##### `configFreeLocalStorageAlarm`<sup>Required</sup> <a name="configFreeLocalStorageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configFreeLocalStorageAlarm"></a>
+
+```typescript
+public readonly configFreeLocalStorageAlarm: RdsFreeLocalStorageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeLocalStorageAlarmConfig">RdsFreeLocalStorageAlarmConfig</a>
+
+The configuration for the FreeLocalStorage alarm.
+
+---
+
+##### `configFreeStorageSpaceAlarm`<sup>Required</sup> <a name="configFreeStorageSpaceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configFreeStorageSpaceAlarm"></a>
+
+```typescript
+public readonly configFreeStorageSpaceAlarm: RdsFreeStorageSpaceAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsFreeStorageSpaceAlarmConfig">RdsFreeStorageSpaceAlarmConfig</a>
+
+The configuration for the FreeStorageSpace alarm.
+
+---
+
+##### `configReadLatencyAlarm`<sup>Required</sup> <a name="configReadLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configReadLatencyAlarm"></a>
+
+```typescript
+public readonly configReadLatencyAlarm: RdsReadLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig">RdsReadLatencyAlarmConfig</a>
+
+The configuration for the ReadLatency alarm.
+
+---
+
+##### `configWriteLatencyAlarm`<sup>Required</sup> <a name="configWriteLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configWriteLatencyAlarm"></a>
+
+```typescript
+public readonly configWriteLatencyAlarm: RdsWriteLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig">RdsWriteLatencyAlarmConfig</a>
+
+The configuration for the WriteLatency alarm.
+
+---
+
+##### `configCpuUtilizationAlarm`<sup>Optional</sup> <a name="configCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.configCpuUtilizationAlarm"></a>
+
+```typescript
+public readonly configCpuUtilizationAlarm: RdsCpuUtilizationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a>
+
+The configuration for the CpuUtilization alarm.
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The cluster instance to apply the recommended alarms.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The cluster instance identifier to apply the recommended alarms.
+
+---
+
+### RdsInstanceWriteLatencyAlarmProps <a name="RdsInstanceWriteLatencyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps"></a>
+
+The properties for the RdsInstanceWriteLatencyAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsInstanceWriteLatencyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsInstanceWriteLatencyAlarmProps: RdsInstanceWriteLatencyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.databaseInstance">databaseInstance</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseInstance</code> | The database instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The database instance identifier to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value in milliseconds against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `databaseInstance`<sup>Optional</sup> <a name="databaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.databaseInstance"></a>
+
+```typescript
+public readonly databaseInstance: IDatabaseInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseInstance
+
+The database instance to monitor.
+
+---
+
+##### `instanceIdentifier`<sup>Optional</sup> <a name="instanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.instanceIdentifier"></a>
+
+```typescript
+public readonly instanceIdentifier: string;
+```
+
+- *Type:* string
+
+The database instance identifier to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The value in milliseconds against which the specified statistic is compared.
+
+The recommended threshold value for this alarm is highly dependent on your use case.
+Write latencies higher than 20 milliseconds are likely a cause for investigation.
+You can also set a higher threshold if your application can have a higher latency
+for write operations. Review the criticality and requirements of write latency and
+analyze the historical behavior of this metric to determine sensible threshold levels.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high write latency. Although database disks typically have low read/write latency, they may experience problems that cause high latency operations. Monitoring this will assure you the disk latency is as low as expected.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - WriteLatency'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsReadLatencyAlarmConfig <a name="RdsReadLatencyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig"></a>
+
+Configuration for the ReadLatency alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsReadLatencyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsReadLatencyAlarmConfig: RdsReadLatencyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value in milliseconds against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The value in milliseconds against which the specified statistic is compared.
+
+The recommended threshold value for this alarm is highly dependent on your use case.
+Read latencies higher than 20 milliseconds are likely a cause for investigation.
+You can also set a higher threshold if your application can have higher latency for
+read operations. Review the criticality and requirements of read latency and analyze
+the historical behavior of this metric to determine sensible threshold levels.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high read latency. Database disks normally have a low read/write latency, but they can have issues that can cause high latency operations.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - ReadLatency'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadLatencyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### RdsRecommendedAlarmsConfig <a name="RdsRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig"></a>
+
+Configuration for RDS recommended alarms.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { RdsRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsRecommendedAlarmsConfig: RdsRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: RdsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics">RdsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### RdsWriteLatencyAlarmConfig <a name="RdsWriteLatencyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig"></a>
+
+Configuration for the WriteLatency alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsWriteLatencyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsWriteLatencyAlarmConfig: RdsWriteLatencyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value in milliseconds against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The value in milliseconds against which the specified statistic is compared.
+
+The recommended threshold value for this alarm is highly dependent on your use case.
+Write latencies higher than 20 milliseconds are likely a cause for investigation.
+You can also set a higher threshold if your application can have a higher latency
+for write operations. Review the criticality and requirements of write latency and
+analyze the historical behavior of this metric to determine sensible threshold levels.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high write latency. Although database disks typically have low read/write latency, they may experience problems that cause high latency operations. Monitoring this will assure you the disk latency is as low as expected.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* database.instanceIdentifiers[*] + ' - WriteLatency'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsWriteLatencyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
 ### S3Bucket4xxErrorsAlarmConfig <a name="S3Bucket4xxErrorsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarmConfig"></a>
 
 Configuration for the 4xx errors alarm.
@@ -18718,6 +29192,112 @@ All aspects can visit an IConstruct.
 
 
 
+### RdsAuroraRecommendedAlarmsAspect <a name="RdsAuroraRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+An aspect that applies recommended alarms for RDS clusters.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { RdsAuroraRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsAuroraRecommendedAlarmsAspect(props: RdsAuroraRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig">RdsAuroraRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig">RdsAuroraRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
+### RdsInstanceRecommendedAlarmsAspect <a name="RdsInstanceRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+An aspect that applies recommended alarms for RDS database instances.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { RdsInstanceRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsInstanceRecommendedAlarmsAspect(props: RdsInstanceRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig">RdsInstanceRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsConfig">RdsInstanceRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### S3RecommendedAlarmsAspect <a name="S3RecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
@@ -18921,6 +29501,97 @@ Duration is the time taken for the function to process an event.
 ##### `CONCURRENT_EXECUTIONS` <a name="CONCURRENT_EXECUTIONS" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.CONCURRENT_EXECUTIONS"></a>
 
 ConcurrentExecutions is the number of concurrent executions of the function.
+
+---
+
+
+### RdsRecommendedAlarmsMetrics <a name="RdsRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for RDS alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_CPU_UTILIZATION">INSTANCE_CPU_UTILIZATION</a></code> | The percentage of CPU utilization for an RDS instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_DATABASE_CONNECTIONS">INSTANCE_DATABASE_CONNECTIONS</a></code> | The number of client network connections to the database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_FREEABLE_MEMORY">INSTANCE_FREEABLE_MEMORY</a></code> | The amount of available memory (RAM) on the RDS instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_FREE_LOCAL_STORAGE">INSTANCE_FREE_LOCAL_STORAGE</a></code> | The amount of available local storage space for an Aurora instance used for temporary files. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_FREE_STORAGE_SPACE">INSTANCE_FREE_STORAGE_SPACE</a></code> | The amount of available storage space for an Aurora instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_READ_LATENCY">INSTANCE_READ_LATENCY</a></code> | The average amount of time taken per disk read I/O operation. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_WRITE_LATENCY">INSTANCE_WRITE_LATENCY</a></code> | The average amount of time taken per disk write I/O operation. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_DB_LOAD">INSTANCE_DB_LOAD</a></code> | The average active sessions (AAS) for the DB instance which shows how many sessions are concurrently active on the database. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_LEFT_TOTAL">AURORA_VOLUME_BYTES_LEFT_TOTAL</a></code> | The remaining available space for the cluster volume. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_BIN_LOG_REPLICATION_LAG">AURORA_BIN_LOG_REPLICATION_LAG</a></code> | The amount of time that a binary log replica DB cluster running on Aurora MySQL lags behind the binary log replication source. |
+
+---
+
+##### `INSTANCE_CPU_UTILIZATION` <a name="INSTANCE_CPU_UTILIZATION" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_CPU_UTILIZATION"></a>
+
+The percentage of CPU utilization for an RDS instance.
+
+---
+
+
+##### `INSTANCE_DATABASE_CONNECTIONS` <a name="INSTANCE_DATABASE_CONNECTIONS" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_DATABASE_CONNECTIONS"></a>
+
+The number of client network connections to the database instance.
+
+---
+
+
+##### `INSTANCE_FREEABLE_MEMORY` <a name="INSTANCE_FREEABLE_MEMORY" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_FREEABLE_MEMORY"></a>
+
+The amount of available memory (RAM) on the RDS instance.
+
+---
+
+
+##### `INSTANCE_FREE_LOCAL_STORAGE` <a name="INSTANCE_FREE_LOCAL_STORAGE" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_FREE_LOCAL_STORAGE"></a>
+
+The amount of available local storage space for an Aurora instance used for temporary files.
+
+---
+
+
+##### `INSTANCE_FREE_STORAGE_SPACE` <a name="INSTANCE_FREE_STORAGE_SPACE" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_FREE_STORAGE_SPACE"></a>
+
+The amount of available storage space for an Aurora instance.
+
+---
+
+
+##### `INSTANCE_READ_LATENCY` <a name="INSTANCE_READ_LATENCY" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_READ_LATENCY"></a>
+
+The average amount of time taken per disk read I/O operation.
+
+---
+
+
+##### `INSTANCE_WRITE_LATENCY` <a name="INSTANCE_WRITE_LATENCY" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_WRITE_LATENCY"></a>
+
+The average amount of time taken per disk write I/O operation.
+
+---
+
+
+##### `INSTANCE_DB_LOAD` <a name="INSTANCE_DB_LOAD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_DB_LOAD"></a>
+
+The average active sessions (AAS) for the DB instance which shows how many sessions are concurrently active on the database.
+
+---
+
+
+##### `AURORA_VOLUME_BYTES_LEFT_TOTAL` <a name="AURORA_VOLUME_BYTES_LEFT_TOTAL" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_LEFT_TOTAL"></a>
+
+The remaining available space for the cluster volume.
+
+---
+
+
+##### `AURORA_BIN_LOG_REPLICATION_LAG` <a name="AURORA_BIN_LOG_REPLICATION_LAG" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_BIN_LOG_REPLICATION_LAG"></a>
+
+The amount of time that a binary log replica DB cluster running on Aurora MySQL lags behind the binary log replication source.
 
 ---
 
