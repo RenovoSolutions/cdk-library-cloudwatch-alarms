@@ -33,6 +33,7 @@ If its not shown it hasn't been worked on.
 | Lambda | <ul><li>[ ] ClaimedAccountConcurrency</li><li>[x] Errors</li><li>[x] Throttles</li><li>[x] Duration</li><li>[x] ConcurrentExecutions</li></ul> | ClaimedAccountConcurrency is account wide and one time so not covered by this library at this time |
 | RDS | <b>For database & cluster instances</b><br/><ul><li>[x] CPUUtilization</li><li>[x] DatabaseConnections</li><li>[x] FreeableMemory</li><li>[x] FreeLocalStorage</li><li>[x] FreeStorageSpace</li><li>[x] ReadLatency</li><li>[x] WriteLatency</li><li>[x] DBLoad</li></ul><b>For clusters</b><br/><ul><li>[x] AuroraVolumeBytesLeftTotal</li><li>[x] AuroraBinlogReplicaLag</li></ul> | Some alarms require a `threshold` to be defined. `AuroraVolumeBytesLeftTotal` and `AuroraBinlogReplicaLag` alarms are created only for Aurora MySQL clusters. |
 | ECS | <ul><li>[x] CPUUtilization</li><li>[x] MemoryUtilization</li><li>[x] EphemeralStorageUtilized</li><li>[x] RunningTaskCount</li></ul> | The alarms are applied to `FargateService` constructs only. `EphemeralStorageUtilized` requires a `threshold` to be defined. |
+| EFS | <ul><li>[x] PercentIOLimit</li><li>[x] BurstCreditBalance</li></ul> | The alarms are applied to `FileSystem` constructs. |
 
 ### Aspects
 

@@ -4504,6 +4504,910 @@ The metric object this alarm was based on.
 ---
 
 
+### EfsFileSystemBurstCreditBalanceAlarm <a name="EfsFileSystemBurstCreditBalanceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm"></a>
+
+This alarm helps in ensuring that there is available burst credit balance for the file system usage.
+
+When there is no available burst credit, applications access to the the file system will be limited due to low throughput.
+If the metric drops to 0 consistently, consider changing the throughput mode to Elastic or Provisioned throughput mode.
+
+The alarm is triggered when the percentage is lower or equals the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.Initializer"></a>
+
+```typescript
+import { EfsFileSystemBurstCreditBalanceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EfsFileSystemBurstCreditBalanceAlarm(scope: IConstruct, id: string, props: EfsFileSystemBurstCreditBalanceAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps">EfsFileSystemBurstCreditBalanceAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps">EfsFileSystemBurstCreditBalanceAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isConstruct"></a>
+
+```typescript
+import { EfsFileSystemBurstCreditBalanceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemBurstCreditBalanceAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isOwnedResource"></a>
+
+```typescript
+import { EfsFileSystemBurstCreditBalanceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemBurstCreditBalanceAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isResource"></a>
+
+```typescript
+import { EfsFileSystemBurstCreditBalanceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemBurstCreditBalanceAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EfsFileSystemBurstCreditBalanceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemBurstCreditBalanceAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmName"></a>
+
+```typescript
+import { EfsFileSystemBurstCreditBalanceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemBurstCreditBalanceAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### EfsFileSystemPercentIOLimitAlarm <a name="EfsFileSystemPercentIOLimitAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm"></a>
+
+This alarm helps in ensuring that the workload stays within the I/O limit available to the file system.
+
+If the metric reaches its I/O limit consistently, consider moving the application to a file system that
+uses Max I/O performance as mode. For troubleshooting, check clients that are connected to the file system
+and applications of the clients that throttles the file system.
+
+The alarm is triggered when the percentage exceed or equals % threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.Initializer"></a>
+
+```typescript
+import { EfsFileSystemPercentIOLimitAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EfsFileSystemPercentIOLimitAlarm(scope: IConstruct, id: string, props: EfsFileSystemPercentIOLimitAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps">EfsFileSystemPercentIOLimitAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps">EfsFileSystemPercentIOLimitAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isConstruct"></a>
+
+```typescript
+import { EfsFileSystemPercentIOLimitAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemPercentIOLimitAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isOwnedResource"></a>
+
+```typescript
+import { EfsFileSystemPercentIOLimitAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemPercentIOLimitAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isResource"></a>
+
+```typescript
+import { EfsFileSystemPercentIOLimitAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemPercentIOLimitAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EfsFileSystemPercentIOLimitAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemPercentIOLimitAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmName"></a>
+
+```typescript
+import { EfsFileSystemPercentIOLimitAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemPercentIOLimitAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### EfsFileSystemRecommendedAlarms <a name="EfsFileSystemRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an EFS FileSystem.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#EFS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#EFS)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { EfsFileSystemRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EfsFileSystemRecommendedAlarms(scope: Construct, id: string, props: EfsFileSystemRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps">EfsFileSystemRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps">EfsFileSystemRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { EfsFileSystemRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EfsFileSystemRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.property.alarmBurstCreditBalance">alarmBurstCreditBalance</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm">EfsFileSystemBurstCreditBalanceAlarm</a></code> | The BurstCreditBalance alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.property.alarmPercentIOLimit">alarmPercentIOLimit</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm">EfsFileSystemPercentIOLimitAlarm</a></code> | The PercentIOLimit alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmBurstCreditBalance`<sup>Optional</sup> <a name="alarmBurstCreditBalance" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.property.alarmBurstCreditBalance"></a>
+
+```typescript
+public readonly alarmBurstCreditBalance: EfsFileSystemBurstCreditBalanceAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm">EfsFileSystemBurstCreditBalanceAlarm</a>
+
+The BurstCreditBalance alarm.
+
+---
+
+##### `alarmPercentIOLimit`<sup>Optional</sup> <a name="alarmPercentIOLimit" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.property.alarmPercentIOLimit"></a>
+
+```typescript
+public readonly alarmPercentIOLimit: EfsFileSystemPercentIOLimitAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm">EfsFileSystemPercentIOLimitAlarm</a>
+
+The PercentIOLimit alarm.
+
+---
+
+
 ### FargateService <a name="FargateService" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService"></a>
 
 An extension for the FargateService construct that provides methods to create recommended alarms.
@@ -5225,6 +6129,462 @@ The CloudMap service created for this service, if any.
 
 ---
 
+
+### FileSystem <a name="FileSystem" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem"></a>
+
+An extension for the FileSystem construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.Initializer"></a>
+
+```typescript
+import { FileSystem } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new FileSystem(scope: Construct, id: string, props: FileSystemProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_efs.FileSystemProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_efs.FileSystemProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addAccessPoint">addAccessPoint</a></code> | create access point from this filesystem. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this file system. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grant">grant</a></code> | Grant the actions defined in actions to the given grantee on this File System resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantRead">grantRead</a></code> | Grant read permissions for this file system to an IAM principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantReadWrite">grantReadWrite</a></code> | Grant read and write permissions for this file system to an IAM principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantRootAccess">grantRootAccess</a></code> | As root user, grant read and write permissions for this file system to an IAM principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.alarmBurstCreditBalance">alarmBurstCreditBalance</a></code> | Creates an alarm that monitors the BurstCreditBalance for the EFS fileSystem. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.alarmPercentIOLimit">alarmPercentIOLimit</a></code> | Creates an alarm that monitors the PercentIOLimit for the EFS fileSystem. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the EFS FileSystem. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAccessPoint` <a name="addAccessPoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addAccessPoint"></a>
+
+```typescript
+public addAccessPoint(id: string, accessPointOptions?: AccessPointOptions): AccessPoint
+```
+
+create access point from this filesystem.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addAccessPoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `accessPointOptions`<sup>Optional</sup> <a name="accessPointOptions" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addAccessPoint.parameter.accessPointOptions"></a>
+
+- *Type:* aws-cdk-lib.aws_efs.AccessPointOptions
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(statement: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy associated with this file system.
+
+A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+
+Note that this does not work with imported file systems.
+
+###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addToResourcePolicy.parameter.statement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+The policy statement to add.
+
+---
+
+##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grant"></a>
+
+```typescript
+public grant(grantee: IGrantable, actions: string): Grant
+```
+
+Grant the actions defined in actions to the given grantee on this File System resource.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grant.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+Principal to grant right to.
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grant.parameter.actions"></a>
+
+- *Type:* string
+
+The actions to grant.
+
+---
+
+##### `grantRead` <a name="grantRead" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantRead"></a>
+
+```typescript
+public grantRead(grantee: IGrantable): Grant
+```
+
+Grant read permissions for this file system to an IAM principal.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantRead.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant read to.
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(grantee: IGrantable): Grant
+```
+
+Grant read and write permissions for this file system to an IAM principal.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantReadWrite.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant read and write to.
+
+---
+
+##### `grantRootAccess` <a name="grantRootAccess" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantRootAccess"></a>
+
+```typescript
+public grantRootAccess(grantee: IGrantable): Grant
+```
+
+As root user, grant read and write permissions for this file system to an IAM principal.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantRootAccess.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant root access to.
+
+---
+
+##### `alarmBurstCreditBalance` <a name="alarmBurstCreditBalance" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.alarmBurstCreditBalance"></a>
+
+```typescript
+public alarmBurstCreditBalance(props?: EfsBurstCreditBalanceAlarmConfig): EfsFileSystemBurstCreditBalanceAlarm
+```
+
+Creates an alarm that monitors the BurstCreditBalance for the EFS fileSystem.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.alarmBurstCreditBalance.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig">EfsBurstCreditBalanceAlarmConfig</a>
+
+---
+
+##### `alarmPercentIOLimit` <a name="alarmPercentIOLimit" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.alarmPercentIOLimit"></a>
+
+```typescript
+public alarmPercentIOLimit(props?: EfsPercentIOLimitAlarmConfig): EfsFileSystemPercentIOLimitAlarm
+```
+
+Creates an alarm that monitors the PercentIOLimit for the EFS fileSystem.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.alarmPercentIOLimit.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig">EfsPercentIOLimitAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props?: EfsFileSystemRecommendedAlarmsConfig): EfsFileSystemRecommendedAlarms
+```
+
+Creates the recommended alarms for the EFS FileSystem.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#EFS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#EFS)
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig">EfsFileSystemRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.fromFileSystemAttributes">fromFileSystemAttributes</a></code> | Import an existing File System from the given properties. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isConstruct"></a>
+
+```typescript
+import { FileSystem } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+FileSystem.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isOwnedResource"></a>
+
+```typescript
+import { FileSystem } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+FileSystem.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isResource"></a>
+
+```typescript
+import { FileSystem } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+FileSystem.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromFileSystemAttributes` <a name="fromFileSystemAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.fromFileSystemAttributes"></a>
+
+```typescript
+import { FileSystem } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+FileSystem.fromFileSystemAttributes(scope: Construct, id: string, attrs: FileSystemAttributes)
+```
+
+Import an existing File System from the given properties.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.fromFileSystemAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.fromFileSystemAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.fromFileSystemAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_efs.FileSystemAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The security groups/rules used to allow network connections to the file system. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.fileSystemArn">fileSystemArn</a></code> | <code>string</code> | The ARN of the file system. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.fileSystemId">fileSystemId</a></code> | <code>string</code> | The ID of the file system, assigned by Amazon EFS. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.mountTargetsAvailable">mountTargetsAvailable</a></code> | <code>constructs.IDependable</code> | Dependable that can be depended upon to ensure the mount targets of the filesystem are ready. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+The security groups/rules used to allow network connections to the file system.
+
+---
+
+##### `fileSystemArn`<sup>Required</sup> <a name="fileSystemArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.fileSystemArn"></a>
+
+```typescript
+public readonly fileSystemArn: string;
+```
+
+- *Type:* string
+
+The ARN of the file system.
+
+---
+
+##### `fileSystemId`<sup>Required</sup> <a name="fileSystemId" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.fileSystemId"></a>
+
+```typescript
+public readonly fileSystemId: string;
+```
+
+- *Type:* string
+
+The ID of the file system, assigned by Amazon EFS.
+
+---
+
+##### `mountTargetsAvailable`<sup>Required</sup> <a name="mountTargetsAvailable" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.mountTargetsAvailable"></a>
+
+```typescript
+public readonly mountTargetsAvailable: IDependable;
+```
+
+- *Type:* constructs.IDependable
+
+Dependable that can be depended upon to ensure the mount targets of the filesystem are ready.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.DEFAULT_PORT">DEFAULT_PORT</a></code> | <code>number</code> | The default port File System listens on. |
+
+---
+
+##### `DEFAULT_PORT`<sup>Required</sup> <a name="DEFAULT_PORT" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.DEFAULT_PORT"></a>
+
+```typescript
+public readonly DEFAULT_PORT: number;
+```
+
+- *Type:* number
+
+The default port File System listens on.
+
+---
 
 ### Function <a name="Function" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function"></a>
 
@@ -21180,6 +22540,1081 @@ service. If the running task count is 0, the Amazon ECS service will be unavaila
 
 ---
 
+### EfsAlarmBaseConfig <a name="EfsAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { EfsAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const efsAlarmBaseConfig: EfsAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### EfsBurstCreditBalanceAlarmConfig <a name="EfsBurstCreditBalanceAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig"></a>
+
+Configuration for the BurstCreditBalance alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.Initializer"></a>
+
+```typescript
+import { EfsBurstCreditBalanceAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const efsBurstCreditBalanceAlarmConfig: EfsBurstCreditBalanceAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | When the file system run out of burst credits and even if the baseline throughput rate is lower, EFS continues to provide a metered throughput of 1 MiBps to all file systems. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect low burst credit balance of the file system. Consistent low burst credit balance can be an indicator of the slowing down in throughput and increase in I/O latency.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* fileSystemId + ' - BurstCreditBalance'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+When the file system run out of burst credits and even if the baseline throughput rate is lower, EFS continues to provide a metered throughput of 1 MiBps to all file systems.
+
+However, it is recommended
+that the metric is monitored for low burst credit balance to avoid the file system acting as resource
+bottleneck for the applications. The threshold can be set around 0 bytes.
+
+---
+
+### EfsFileSystemAlarmProps <a name="EfsFileSystemAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemAlarmProps"></a>
+
+The common properties for the EFS FileSystem alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemAlarmProps.Initializer"></a>
+
+```typescript
+import { EfsFileSystemAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const efsFileSystemAlarmProps: EfsFileSystemAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemAlarmProps.property.fileSystem">fileSystem</a></code> | <code>aws-cdk-lib.aws_efs.FileSystem</code> | The EFS FileSystem to monitor. |
+
+---
+
+##### `fileSystem`<sup>Required</sup> <a name="fileSystem" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemAlarmProps.property.fileSystem"></a>
+
+```typescript
+public readonly fileSystem: FileSystem;
+```
+
+- *Type:* aws-cdk-lib.aws_efs.FileSystem
+
+The EFS FileSystem to monitor.
+
+---
+
+### EfsFileSystemBurstCreditBalanceAlarmProps <a name="EfsFileSystemBurstCreditBalanceAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps"></a>
+
+The properties for the EfsFileSystemBurstCreditBalanceAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.Initializer"></a>
+
+```typescript
+import { EfsFileSystemBurstCreditBalanceAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const efsFileSystemBurstCreditBalanceAlarmProps: EfsFileSystemBurstCreditBalanceAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.fileSystem">fileSystem</a></code> | <code>aws-cdk-lib.aws_efs.FileSystem</code> | The EFS FileSystem to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | When the file system run out of burst credits and even if the baseline throughput rate is lower, EFS continues to provide a metered throughput of 1 MiBps to all file systems. |
+
+---
+
+##### `fileSystem`<sup>Required</sup> <a name="fileSystem" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.fileSystem"></a>
+
+```typescript
+public readonly fileSystem: FileSystem;
+```
+
+- *Type:* aws-cdk-lib.aws_efs.FileSystem
+
+The EFS FileSystem to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect low burst credit balance of the file system. Consistent low burst credit balance can be an indicator of the slowing down in throughput and increase in I/O latency.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* fileSystemId + ' - BurstCreditBalance'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+When the file system run out of burst credits and even if the baseline throughput rate is lower, EFS continues to provide a metered throughput of 1 MiBps to all file systems.
+
+However, it is recommended
+that the metric is monitored for low burst credit balance to avoid the file system acting as resource
+bottleneck for the applications. The threshold can be set around 0 bytes.
+
+---
+
+### EfsFileSystemPercentIOLimitAlarmProps <a name="EfsFileSystemPercentIOLimitAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps"></a>
+
+The properties for the EfsFileSystemPercentIOLimitAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.Initializer"></a>
+
+```typescript
+import { EfsFileSystemPercentIOLimitAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const efsFileSystemPercentIOLimitAlarmProps: EfsFileSystemPercentIOLimitAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.fileSystem">fileSystem</a></code> | <code>aws-cdk-lib.aws_efs.FileSystem</code> | The EFS FileSystem to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | When the file system reaches its I/O limit, it may respond to read and write requests slower. |
+
+---
+
+##### `fileSystem`<sup>Required</sup> <a name="fileSystem" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.fileSystem"></a>
+
+```typescript
+public readonly fileSystem: FileSystem;
+```
+
+- *Type:* aws-cdk-lib.aws_efs.FileSystem
+
+The EFS FileSystem to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect how close the file system is to reach the I/O limit of the General Purpose performance mode. Consistent high I/O percentage can be an indicator of the file system cannot scale with respect to I/O requests enough and the file system can be a resource bottleneck for the applications that use the file system.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* fileSystemId + ' - PercentIOLimit'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 100
+
+When the file system reaches its I/O limit, it may respond to read and write requests slower.
+
+Therefore, it is recommended that the metric is monitored to avoid impacting applications that
+use the file system. The threshold can be set around 100%. However, this value can be adjusted
+to a lower value based on file system characteristics.
+
+---
+
+### EfsFileSystemRecommendedAlarmsConfig <a name="EfsFileSystemRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an EFS Service.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { EfsFileSystemRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const efsFileSystemRecommendedAlarmsConfig: EfsFileSystemRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.configBurstCreditBalanceAlarm">configBurstCreditBalanceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig">EfsBurstCreditBalanceAlarmConfig</a></code> | The configuration for the BurstCreditBalance alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.configPercentIOLimitAlarm">configPercentIOLimitAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig">EfsPercentIOLimitAlarmConfig</a></code> | The configuration for the PercentIOLimit alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics">EfsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configBurstCreditBalanceAlarm`<sup>Optional</sup> <a name="configBurstCreditBalanceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.configBurstCreditBalanceAlarm"></a>
+
+```typescript
+public readonly configBurstCreditBalanceAlarm: EfsBurstCreditBalanceAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig">EfsBurstCreditBalanceAlarmConfig</a>
+
+The configuration for the BurstCreditBalance alarm.
+
+---
+
+##### `configPercentIOLimitAlarm`<sup>Optional</sup> <a name="configPercentIOLimitAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.configPercentIOLimitAlarm"></a>
+
+```typescript
+public readonly configPercentIOLimitAlarm: EfsPercentIOLimitAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig">EfsPercentIOLimitAlarmConfig</a>
+
+The configuration for the PercentIOLimit alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: EfsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics">EfsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### EfsFileSystemRecommendedAlarmsProps <a name="EfsFileSystemRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps"></a>
+
+Properties for the EfsFileSystemRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { EfsFileSystemRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const efsFileSystemRecommendedAlarmsProps: EfsFileSystemRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.configBurstCreditBalanceAlarm">configBurstCreditBalanceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig">EfsBurstCreditBalanceAlarmConfig</a></code> | The configuration for the BurstCreditBalance alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.configPercentIOLimitAlarm">configPercentIOLimitAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig">EfsPercentIOLimitAlarmConfig</a></code> | The configuration for the PercentIOLimit alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics">EfsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.fileSystem">fileSystem</a></code> | <code>aws-cdk-lib.aws_efs.FileSystem</code> | The EFS FileSystem to monitor. |
+
+---
+
+##### `configBurstCreditBalanceAlarm`<sup>Optional</sup> <a name="configBurstCreditBalanceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.configBurstCreditBalanceAlarm"></a>
+
+```typescript
+public readonly configBurstCreditBalanceAlarm: EfsBurstCreditBalanceAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsBurstCreditBalanceAlarmConfig">EfsBurstCreditBalanceAlarmConfig</a>
+
+The configuration for the BurstCreditBalance alarm.
+
+---
+
+##### `configPercentIOLimitAlarm`<sup>Optional</sup> <a name="configPercentIOLimitAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.configPercentIOLimitAlarm"></a>
+
+```typescript
+public readonly configPercentIOLimitAlarm: EfsPercentIOLimitAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig">EfsPercentIOLimitAlarmConfig</a>
+
+The configuration for the PercentIOLimit alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: EfsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics">EfsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `fileSystem`<sup>Required</sup> <a name="fileSystem" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsProps.property.fileSystem"></a>
+
+```typescript
+public readonly fileSystem: FileSystem;
+```
+
+- *Type:* aws-cdk-lib.aws_efs.FileSystem
+
+The EFS FileSystem to monitor.
+
+---
+
+### EfsPercentIOLimitAlarmConfig <a name="EfsPercentIOLimitAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig"></a>
+
+Configuration for the PercentIOLimit alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.Initializer"></a>
+
+```typescript
+import { EfsPercentIOLimitAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const efsPercentIOLimitAlarmConfig: EfsPercentIOLimitAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | When the file system reaches its I/O limit, it may respond to read and write requests slower. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect how close the file system is to reach the I/O limit of the General Purpose performance mode. Consistent high I/O percentage can be an indicator of the file system cannot scale with respect to I/O requests enough and the file system can be a resource bottleneck for the applications that use the file system.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* fileSystemId + ' - PercentIOLimit'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsPercentIOLimitAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 100
+
+When the file system reaches its I/O limit, it may respond to read and write requests slower.
+
+Therefore, it is recommended that the metric is monitored to avoid impacting applications that
+use the file system. The threshold can be set around 100%. However, this value can be adjusted
+to a lower value based on file system characteristics.
+
+---
+
 ### LambdaAlarmBaseConfig <a name="LambdaAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAlarmBaseConfig"></a>
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAlarmBaseConfig.Initializer"></a>
@@ -33425,6 +35860,59 @@ All aspects can visit an IConstruct.
 
 
 
+### EfsRecommendedAlarmsAspect <a name="EfsRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the recommended alarms for an EFS FileSystem.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#EFS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#EFS)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { EfsRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EfsRecommendedAlarmsAspect(props?: EfsFileSystemRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig">EfsFileSystemRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarmsConfig">EfsFileSystemRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### LambdaRecommendedAlarmsAspect <a name="LambdaRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
@@ -33787,6 +36275,36 @@ The ephemeral storage in GB that is used by the cluster or service.
 ##### `RUNNING_TASK_COUNT` <a name="RUNNING_TASK_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsRecommendedAlarmsMetrics.RUNNING_TASK_COUNT"></a>
 
 The number of tasks in your services that are in the RUNNING state.
+
+---
+
+
+### EfsRecommendedAlarmsMetrics <a name="EfsRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for EFS alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics.PERCENT_IO_LIMIT">PERCENT_IO_LIMIT</a></code> | Percentage of how close a file system is to reaching the I/O limit of the General Purpose performance mode. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics.BURST_CREDIT_BALANCE">BURST_CREDIT_BALANCE</a></code> | The number of burst credits that a file system has. |
+
+---
+
+##### `PERCENT_IO_LIMIT` <a name="PERCENT_IO_LIMIT" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics.PERCENT_IO_LIMIT"></a>
+
+Percentage of how close a file system is to reaching the I/O limit of the General Purpose performance mode.
+
+---
+
+
+##### `BURST_CREDIT_BALANCE` <a name="BURST_CREDIT_BALANCE" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsRecommendedAlarmsMetrics.BURST_CREDIT_BALANCE"></a>
+
+The number of burst credits that a file system has.
+
+Burst credits allow a file system to burst
+to throughput levels above a file system's baseline level for periods of time.
 
 ---
 
