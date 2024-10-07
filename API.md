@@ -2798,6 +2798,2521 @@ The AWS Secrets Manager secret attached to the instance.
 ---
 
 
+### DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm <a name="DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm"></a>
+
+This alarm detects the delay in replication to a Kinesis data stream.
+
+Under normal operation, `AgeOfOldestUnreplicatedRecord` should be only milliseconds.
+This number grows based on unsuccessful replication attempts caused by customer-controlled
+configuration choices. Customer-controlled configuration examples that lead to unsuccessful
+replication attempts are an under-provisioned Kinesis data stream capacity that leads to
+excessive throttling. or a manual update to the Kinesis data stream's access policies that
+prevents DynamoDB from adding data to the data stream. To keep this metric as low as possible,
+you need to ensure the right provisioning of Kinesis data stream capacity and make sure that
+DynamoDB's permissions are unchanged.
+
+The alarm is triggered when the elapsed time since a record yet to be replicated exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.Initializer"></a>
+
+```typescript
+import { DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm(scope: IConstruct, id: string, props: DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps">DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps">DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isConstruct"></a>
+
+```typescript
+import { DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isOwnedResource"></a>
+
+```typescript
+import { DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isResource"></a>
+
+```typescript
+import { DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmArn"></a>
+
+```typescript
+import { DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmName"></a>
+
+```typescript
+import { DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### DynamoDbTableFailedToReplicateRecordCountAlarm <a name="DynamoDbTableFailedToReplicateRecordCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm"></a>
+
+This alarm detects the number of records that DynamoDB failed to replicate to your Kinesis data stream.
+
+Certain items larger than 34 KB might expand in size to change data records that are larger than the 1 MB
+item size limit of Kinesis Data Streams. This size expansion occurs when these larger than 34 KB items include
+a large number of Boolean or empty attribute values. Boolean and empty attribute values are stored as 1 byte
+in DynamoDB, but expand up to 5 bytes when they're serialized using standard JSON for Kinesis Data Streams
+replication. DynamoDB can't replicate such change records to your Kinesis data stream. DynamoDB skips these
+change data records, and automatically continues replicating subsequent records.
+
+The alarm is triggered when the the number of records failed to be replicated exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.Initializer"></a>
+
+```typescript
+import { DynamoDbTableFailedToReplicateRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DynamoDbTableFailedToReplicateRecordCountAlarm(scope: IConstruct, id: string, props: DynamoDbTableFailedToReplicateRecordCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps">DynamoDbTableFailedToReplicateRecordCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps">DynamoDbTableFailedToReplicateRecordCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isConstruct"></a>
+
+```typescript
+import { DynamoDbTableFailedToReplicateRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableFailedToReplicateRecordCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { DynamoDbTableFailedToReplicateRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableFailedToReplicateRecordCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isResource"></a>
+
+```typescript
+import { DynamoDbTableFailedToReplicateRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableFailedToReplicateRecordCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { DynamoDbTableFailedToReplicateRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { DynamoDbTableFailedToReplicateRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### DynamoDbTableReadThrottleEventsAlarm <a name="DynamoDbTableReadThrottleEventsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm"></a>
+
+This alarm detects if there are high number of read requests getting throttled for the DynamoDB table.
+
+To troubleshoot the issue, see {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TroubleshootingThrottling.html|Troubleshooting throttling issues in Amazon DynamoDB}.
+
+The alarm is triggered when the number of read requests exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.Initializer"></a>
+
+```typescript
+import { DynamoDbTableReadThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DynamoDbTableReadThrottleEventsAlarm(scope: IConstruct, id: string, props: DynamoDbTableReadThrottleEventsAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps">DynamoDbTableReadThrottleEventsAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps">DynamoDbTableReadThrottleEventsAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isConstruct"></a>
+
+```typescript
+import { DynamoDbTableReadThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableReadThrottleEventsAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isOwnedResource"></a>
+
+```typescript
+import { DynamoDbTableReadThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableReadThrottleEventsAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isResource"></a>
+
+```typescript
+import { DynamoDbTableReadThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableReadThrottleEventsAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmArn"></a>
+
+```typescript
+import { DynamoDbTableReadThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableReadThrottleEventsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmName"></a>
+
+```typescript
+import { DynamoDbTableReadThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableReadThrottleEventsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### DynamoDbTableRecommendedAlarms <a name="DynamoDbTableRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an DynamoDb Table.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { DynamoDbTableRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DynamoDbTableRecommendedAlarms(scope: Construct, id: string, props: DynamoDbTableRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps">DynamoDbTableRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps">DynamoDbTableRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { DynamoDbTableRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmAgeOfOldestUnreplicatedRecord">alarmAgeOfOldestUnreplicatedRecord</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm">DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm</a></code> | The AgeOfOldestUnreplicatedRecord alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmFailedToReplicateRecordCount">alarmFailedToReplicateRecordCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm">DynamoDbTableFailedToReplicateRecordCountAlarm</a></code> | The FailedToReplicateRecordCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmReadThrottleEvents">alarmReadThrottleEvents</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm">DynamoDbTableReadThrottleEventsAlarm</a></code> | The ReadThrottleEvents alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmSystemErrors">alarmSystemErrors</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm">DynamoDbTableSystemErrorsAlarm</a></code> | The SystemErrors alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmThrottledPutRecordCount">alarmThrottledPutRecordCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm">DynamoDbTableThrottledPutRecordCountAlarm</a></code> | The ThrottledPutRecordCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmWriteThrottleEvents">alarmWriteThrottleEvents</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm">DynamoDbTableWriteThrottleEventsAlarm</a></code> | The WriteThrottleEvents alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmAgeOfOldestUnreplicatedRecord`<sup>Optional</sup> <a name="alarmAgeOfOldestUnreplicatedRecord" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmAgeOfOldestUnreplicatedRecord"></a>
+
+```typescript
+public readonly alarmAgeOfOldestUnreplicatedRecord: DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm">DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm</a>
+
+The AgeOfOldestUnreplicatedRecord alarm.
+
+---
+
+##### `alarmFailedToReplicateRecordCount`<sup>Optional</sup> <a name="alarmFailedToReplicateRecordCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmFailedToReplicateRecordCount"></a>
+
+```typescript
+public readonly alarmFailedToReplicateRecordCount: DynamoDbTableFailedToReplicateRecordCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm">DynamoDbTableFailedToReplicateRecordCountAlarm</a>
+
+The FailedToReplicateRecordCount alarm.
+
+---
+
+##### `alarmReadThrottleEvents`<sup>Optional</sup> <a name="alarmReadThrottleEvents" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmReadThrottleEvents"></a>
+
+```typescript
+public readonly alarmReadThrottleEvents: DynamoDbTableReadThrottleEventsAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm">DynamoDbTableReadThrottleEventsAlarm</a>
+
+The ReadThrottleEvents alarm.
+
+---
+
+##### `alarmSystemErrors`<sup>Optional</sup> <a name="alarmSystemErrors" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmSystemErrors"></a>
+
+```typescript
+public readonly alarmSystemErrors: DynamoDbTableSystemErrorsAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm">DynamoDbTableSystemErrorsAlarm</a>
+
+The SystemErrors alarm.
+
+---
+
+##### `alarmThrottledPutRecordCount`<sup>Optional</sup> <a name="alarmThrottledPutRecordCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmThrottledPutRecordCount"></a>
+
+```typescript
+public readonly alarmThrottledPutRecordCount: DynamoDbTableThrottledPutRecordCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm">DynamoDbTableThrottledPutRecordCountAlarm</a>
+
+The ThrottledPutRecordCount alarm.
+
+---
+
+##### `alarmWriteThrottleEvents`<sup>Optional</sup> <a name="alarmWriteThrottleEvents" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.property.alarmWriteThrottleEvents"></a>
+
+```typescript
+public readonly alarmWriteThrottleEvents: DynamoDbTableWriteThrottleEventsAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm">DynamoDbTableWriteThrottleEventsAlarm</a>
+
+The WriteThrottleEvents alarm.
+
+---
+
+
+### DynamoDbTableSystemErrorsAlarm <a name="DynamoDbTableSystemErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm"></a>
+
+This alarm detects a sustained high number of system errors for the DynamoDB table requests.
+
+If you continue to get 5xx errors, open the {@link https://status.aws.amazon.com/|AWS Service Health Dashboard}
+to check for operational issues with the service. You can use this alarm to get notified in case there is a prolonged
+internal service issue from DynamoDB and it helps you correlate with the issue your client application is facing.
+Refer {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.MessagesAndCodes.http5xx|Error handling for DynamoDB} for more information.
+
+The alarm is triggered when the number of system errors exceeds threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.Initializer"></a>
+
+```typescript
+import { DynamoDbTableSystemErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DynamoDbTableSystemErrorsAlarm(scope: IConstruct, id: string, props: DynamoDbTableSystemErrorsAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps">DynamoDbTableSystemErrorsAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps">DynamoDbTableSystemErrorsAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isConstruct"></a>
+
+```typescript
+import { DynamoDbTableSystemErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableSystemErrorsAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isOwnedResource"></a>
+
+```typescript
+import { DynamoDbTableSystemErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableSystemErrorsAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isResource"></a>
+
+```typescript
+import { DynamoDbTableSystemErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableSystemErrorsAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmArn"></a>
+
+```typescript
+import { DynamoDbTableSystemErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableSystemErrorsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmName"></a>
+
+```typescript
+import { DynamoDbTableSystemErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableSystemErrorsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### DynamoDbTableThrottledPutRecordCountAlarm <a name="DynamoDbTableThrottledPutRecordCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm"></a>
+
+This alarm detects the records getting throttled by your Kinesis data stream during the replication of change data capture to Kinesis.
+
+This throttling happens because of insufficient Kinesis data stream capacity. If you experience excessive
+and regular throttling, you might need to increase the number of Kinesis stream shards proportionally to
+the observed write throughput of your table. To learn more about determining the size of a Kinesis data stream,
+see {@link https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html#how-do-i-size-a-stream|Determining the Initial Size of a Kinesis Data Stream}.
+
+The alarm is triggered when the number or records that were throttled exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.Initializer"></a>
+
+```typescript
+import { DynamoDbTableThrottledPutRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DynamoDbTableThrottledPutRecordCountAlarm(scope: IConstruct, id: string, props: DynamoDbTableThrottledPutRecordCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps">DynamoDbTableThrottledPutRecordCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps">DynamoDbTableThrottledPutRecordCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isConstruct"></a>
+
+```typescript
+import { DynamoDbTableThrottledPutRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableThrottledPutRecordCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { DynamoDbTableThrottledPutRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableThrottledPutRecordCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isResource"></a>
+
+```typescript
+import { DynamoDbTableThrottledPutRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableThrottledPutRecordCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { DynamoDbTableThrottledPutRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { DynamoDbTableThrottledPutRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### DynamoDbTableWriteThrottleEventsAlarm <a name="DynamoDbTableWriteThrottleEventsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm"></a>
+
+This alarm detects if there are high number of read requests getting throttled for the DynamoDB table.
+
+To troubleshoot the issue, see {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TroubleshootingThrottling.html|Troubleshooting throttling issues in Amazon DynamoDB}.
+
+The alarm is triggered when the number of read requests exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.Initializer"></a>
+
+```typescript
+import { DynamoDbTableWriteThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DynamoDbTableWriteThrottleEventsAlarm(scope: IConstruct, id: string, props: DynamoDbTableWriteThrottleEventsAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps">DynamoDbTableWriteThrottleEventsAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps">DynamoDbTableWriteThrottleEventsAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isConstruct"></a>
+
+```typescript
+import { DynamoDbTableWriteThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableWriteThrottleEventsAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isOwnedResource"></a>
+
+```typescript
+import { DynamoDbTableWriteThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableWriteThrottleEventsAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isResource"></a>
+
+```typescript
+import { DynamoDbTableWriteThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableWriteThrottleEventsAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmArn"></a>
+
+```typescript
+import { DynamoDbTableWriteThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableWriteThrottleEventsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmName"></a>
+
+```typescript
+import { DynamoDbTableWriteThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DynamoDbTableWriteThrottleEventsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
 ### EcsServiceCpuUtilizationAlarm <a name="EcsServiceCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm"></a>
 
 This alarm is used to detect high CPU utilization for the ECS service.
@@ -19953,6 +22468,1005 @@ The number of messages sent alarm.
 ---
 
 
+### Table <a name="Table" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table"></a>
+
+An extension for the Table construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.Initializer"></a>
+
+```typescript
+import { Table } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new Table(scope: Construct, id: string, props: TableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_dynamodb.TableProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.TableProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this file system. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant">grant</a></code> | Adds an IAM policy statement associated with this table to an IAM principal's policy. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantFullAccess">grantFullAccess</a></code> | Permits all DynamoDB operations ("dynamodb:*") to an IAM principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadData">grantReadData</a></code> | Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan, DescribeTable. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadWriteData">grantReadWriteData</a></code> | Permits an IAM principal to all data read/write operations to this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStream">grantStream</a></code> | Adds an IAM policy statement associated with this table's stream to an IAM principal's policy. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStreamRead">grantStreamRead</a></code> | Permits an IAM principal all stream data read operations for this table's stream: DescribeStream, GetRecords, GetShardIterator, ListStreams. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantTableListStreams">grantTableListStreams</a></code> | Permits an IAM Principal to list streams attached to current dynamodb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantWriteData">grantWriteData</a></code> | Permits an IAM principal all data write operations to this table: BatchWriteItem, PutItem, UpdateItem, DeleteItem, DescribeTable. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metric">metric</a></code> | Return the given named metric for this Table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConditionalCheckFailedRequests">metricConditionalCheckFailedRequests</a></code> | Metric for the conditional check failed requests this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConsumedReadCapacityUnits">metricConsumedReadCapacityUnits</a></code> | Metric for the consumed read capacity units this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConsumedWriteCapacityUnits">metricConsumedWriteCapacityUnits</a></code> | Metric for the consumed write capacity units this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSuccessfulRequestLatency">metricSuccessfulRequestLatency</a></code> | Metric for the successful request latency this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSystemErrors">metricSystemErrors</a></code> | Metric for the system errors this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSystemErrorsForOperations">metricSystemErrorsForOperations</a></code> | Metric for the system errors this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequests">metricThrottledRequests</a></code> | How many requests are throttled on this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequestsForOperation">metricThrottledRequestsForOperation</a></code> | How many requests are throttled on this table, for the given operation. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequestsForOperations">metricThrottledRequestsForOperations</a></code> | How many requests are throttled on this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricUserErrors">metricUserErrors</a></code> | Metric for the user errors. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.addGlobalSecondaryIndex">addGlobalSecondaryIndex</a></code> | Add a global secondary index of table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.addLocalSecondaryIndex">addLocalSecondaryIndex</a></code> | Add a local secondary index of table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleGlobalSecondaryIndexReadCapacity">autoScaleGlobalSecondaryIndexReadCapacity</a></code> | Enable read capacity scaling for the given GSI. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleGlobalSecondaryIndexWriteCapacity">autoScaleGlobalSecondaryIndexWriteCapacity</a></code> | Enable write capacity scaling for the given GSI. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleReadCapacity">autoScaleReadCapacity</a></code> | Enable read capacity scaling for this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleWriteCapacity">autoScaleWriteCapacity</a></code> | Enable write capacity scaling for this table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.schema">schema</a></code> | Get schema attributes of table or index. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmAgeOfOldestUnreplicatedRecord">alarmAgeOfOldestUnreplicatedRecord</a></code> | Creates an alarm that monitors the AgeOfOldestUnreplicatedRecord for the DynamoDb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmFailedToReplicateRecordCount">alarmFailedToReplicateRecordCount</a></code> | Creates an alarm that monitors the FailedToReplicateRecordCount for the DynamoDb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmReadThrottleEvents">alarmReadThrottleEvents</a></code> | Creates an alarm that monitors the ReadThrottleEvents for the DynamoDb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmSystemErrors">alarmSystemErrors</a></code> | Creates an alarm that monitors the SystemErrors for the DynamoDb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmThrottledPutRecordCount">alarmThrottledPutRecordCount</a></code> | Creates an alarm that monitors the ThrottledPutRecordCount for the DynamoDb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmWriteThrottleEvents">alarmWriteThrottleEvents</a></code> | Creates an alarm that monitors the WriteThrottleEvents for the DynamoDb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the DynamoDb Table. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(statement: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy associated with this file system.
+
+A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+
+Note that this does not work with imported file systems.
+
+###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.addToResourcePolicy.parameter.statement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+The policy statement to add.
+
+---
+
+##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant"></a>
+
+```typescript
+public grant(grantee: IGrantable, actions: string): Grant
+```
+
+Adds an IAM policy statement associated with this table to an IAM principal's policy.
+
+If `encryptionKey` is present, appropriate grants to the key needs to be added
+separately using the `table.encryptionKey.grant*` methods.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal (no-op if undefined).
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant.parameter.actions"></a>
+
+- *Type:* string
+
+The set of actions to allow (i.e. "dynamodb:PutItem", "dynamodb:GetItem", ...).
+
+---
+
+##### `grantFullAccess` <a name="grantFullAccess" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantFullAccess"></a>
+
+```typescript
+public grantFullAccess(grantee: IGrantable): Grant
+```
+
+Permits all DynamoDB operations ("dynamodb:*") to an IAM principal.
+
+Appropriate grants will also be added to the customer-managed KMS key
+if one was configured.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantFullAccess.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant access to.
+
+---
+
+##### `grantReadData` <a name="grantReadData" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadData"></a>
+
+```typescript
+public grantReadData(grantee: IGrantable): Grant
+```
+
+Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan, DescribeTable.
+
+Appropriate grants will also be added to the customer-managed KMS key
+if one was configured.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadData.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant access to.
+
+---
+
+##### `grantReadWriteData` <a name="grantReadWriteData" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadWriteData"></a>
+
+```typescript
+public grantReadWriteData(grantee: IGrantable): Grant
+```
+
+Permits an IAM principal to all data read/write operations to this table.
+
+BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan,
+BatchWriteItem, PutItem, UpdateItem, DeleteItem, DescribeTable
+
+Appropriate grants will also be added to the customer-managed KMS key
+if one was configured.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadWriteData.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant access to.
+
+---
+
+##### `grantStream` <a name="grantStream" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStream"></a>
+
+```typescript
+public grantStream(grantee: IGrantable, actions: string): Grant
+```
+
+Adds an IAM policy statement associated with this table's stream to an IAM principal's policy.
+
+If `encryptionKey` is present, appropriate grants to the key needs to be added
+separately using the `table.encryptionKey.grant*` methods.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStream.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal (no-op if undefined).
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStream.parameter.actions"></a>
+
+- *Type:* string
+
+The set of actions to allow (i.e. "dynamodb:DescribeStream", "dynamodb:GetRecords", ...).
+
+---
+
+##### `grantStreamRead` <a name="grantStreamRead" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStreamRead"></a>
+
+```typescript
+public grantStreamRead(grantee: IGrantable): Grant
+```
+
+Permits an IAM principal all stream data read operations for this table's stream: DescribeStream, GetRecords, GetShardIterator, ListStreams.
+
+Appropriate grants will also be added to the customer-managed KMS key
+if one was configured.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStreamRead.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant access to.
+
+---
+
+##### `grantTableListStreams` <a name="grantTableListStreams" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantTableListStreams"></a>
+
+```typescript
+public grantTableListStreams(grantee: IGrantable): Grant
+```
+
+Permits an IAM Principal to list streams attached to current dynamodb table.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantTableListStreams.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal (no-op if undefined).
+
+---
+
+##### `grantWriteData` <a name="grantWriteData" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantWriteData"></a>
+
+```typescript
+public grantWriteData(grantee: IGrantable): Grant
+```
+
+Permits an IAM principal all data write operations to this table: BatchWriteItem, PutItem, UpdateItem, DeleteItem, DescribeTable.
+
+Appropriate grants will also be added to the customer-managed KMS key
+if one was configured.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantWriteData.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant access to.
+
+---
+
+##### `metric` <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this Table.
+
+By default, the metric will be calculated as a sum over a period of 5 minutes.
+You can customize this by using the `statistic` and `period` properties.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricConditionalCheckFailedRequests` <a name="metricConditionalCheckFailedRequests" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConditionalCheckFailedRequests"></a>
+
+```typescript
+public metricConditionalCheckFailedRequests(props?: MetricOptions): Metric
+```
+
+Metric for the conditional check failed requests this table.
+
+By default, the metric will be calculated as a sum over a period of 5 minutes.
+You can customize this by using the `statistic` and `period` properties.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConditionalCheckFailedRequests.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricConsumedReadCapacityUnits` <a name="metricConsumedReadCapacityUnits" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConsumedReadCapacityUnits"></a>
+
+```typescript
+public metricConsumedReadCapacityUnits(props?: MetricOptions): Metric
+```
+
+Metric for the consumed read capacity units this table.
+
+By default, the metric will be calculated as a sum over a period of 5 minutes.
+You can customize this by using the `statistic` and `period` properties.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConsumedReadCapacityUnits.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricConsumedWriteCapacityUnits` <a name="metricConsumedWriteCapacityUnits" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConsumedWriteCapacityUnits"></a>
+
+```typescript
+public metricConsumedWriteCapacityUnits(props?: MetricOptions): Metric
+```
+
+Metric for the consumed write capacity units this table.
+
+By default, the metric will be calculated as a sum over a period of 5 minutes.
+You can customize this by using the `statistic` and `period` properties.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricConsumedWriteCapacityUnits.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricSuccessfulRequestLatency` <a name="metricSuccessfulRequestLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSuccessfulRequestLatency"></a>
+
+```typescript
+public metricSuccessfulRequestLatency(props?: MetricOptions): Metric
+```
+
+Metric for the successful request latency this table.
+
+By default, the metric will be calculated as an average over a period of 5 minutes.
+You can customize this by using the `statistic` and `period` properties.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSuccessfulRequestLatency.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricSystemErrors`~~ <a name="metricSystemErrors" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSystemErrors"></a>
+
+```typescript
+public metricSystemErrors(props?: MetricOptions): Metric
+```
+
+Metric for the system errors this table.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSystemErrors.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricSystemErrorsForOperations` <a name="metricSystemErrorsForOperations" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSystemErrorsForOperations"></a>
+
+```typescript
+public metricSystemErrorsForOperations(props?: SystemErrorsForOperationsMetricOptions): IMetric
+```
+
+Metric for the system errors this table.
+
+This will sum errors across all possible operations.
+Note that by default, each individual metric will be calculated as a sum over a period of 5 minutes.
+You can customize this by using the `statistic` and `period` properties.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricSystemErrorsForOperations.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.SystemErrorsForOperationsMetricOptions
+
+---
+
+##### ~~`metricThrottledRequests`~~ <a name="metricThrottledRequests" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequests"></a>
+
+```typescript
+public metricThrottledRequests(props?: MetricOptions): Metric
+```
+
+How many requests are throttled on this table.
+
+Default: sum over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequests.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricThrottledRequestsForOperation` <a name="metricThrottledRequestsForOperation" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequestsForOperation"></a>
+
+```typescript
+public metricThrottledRequestsForOperation(operation: string, props?: MetricOptions): Metric
+```
+
+How many requests are throttled on this table, for the given operation.
+
+Default: sum over 5 minutes
+
+###### `operation`<sup>Required</sup> <a name="operation" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequestsForOperation.parameter.operation"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequestsForOperation.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricThrottledRequestsForOperations` <a name="metricThrottledRequestsForOperations" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequestsForOperations"></a>
+
+```typescript
+public metricThrottledRequestsForOperations(props?: OperationsMetricOptions): IMetric
+```
+
+How many requests are throttled on this table.
+
+This will sum errors across all possible operations.
+Note that by default, each individual metric will be calculated as a sum over a period of 5 minutes.
+You can customize this by using the `statistic` and `period` properties.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricThrottledRequestsForOperations.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.OperationsMetricOptions
+
+---
+
+##### `metricUserErrors` <a name="metricUserErrors" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricUserErrors"></a>
+
+```typescript
+public metricUserErrors(props?: MetricOptions): Metric
+```
+
+Metric for the user errors.
+
+Note that this metric reports user errors across all
+the tables in the account and region the table resides in.
+
+By default, the metric will be calculated as a sum over a period of 5 minutes.
+You can customize this by using the `statistic` and `period` properties.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.metricUserErrors.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `addGlobalSecondaryIndex` <a name="addGlobalSecondaryIndex" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.addGlobalSecondaryIndex"></a>
+
+```typescript
+public addGlobalSecondaryIndex(props: GlobalSecondaryIndexProps): void
+```
+
+Add a global secondary index of table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.addGlobalSecondaryIndex.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.GlobalSecondaryIndexProps
+
+the property of global secondary index.
+
+---
+
+##### `addLocalSecondaryIndex` <a name="addLocalSecondaryIndex" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.addLocalSecondaryIndex"></a>
+
+```typescript
+public addLocalSecondaryIndex(props: LocalSecondaryIndexProps): void
+```
+
+Add a local secondary index of table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.addLocalSecondaryIndex.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.LocalSecondaryIndexProps
+
+the property of local secondary index.
+
+---
+
+##### `autoScaleGlobalSecondaryIndexReadCapacity` <a name="autoScaleGlobalSecondaryIndexReadCapacity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleGlobalSecondaryIndexReadCapacity"></a>
+
+```typescript
+public autoScaleGlobalSecondaryIndexReadCapacity(indexName: string, props: EnableScalingProps): IScalableTableAttribute
+```
+
+Enable read capacity scaling for the given GSI.
+
+###### `indexName`<sup>Required</sup> <a name="indexName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleGlobalSecondaryIndexReadCapacity.parameter.indexName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleGlobalSecondaryIndexReadCapacity.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.EnableScalingProps
+
+---
+
+##### `autoScaleGlobalSecondaryIndexWriteCapacity` <a name="autoScaleGlobalSecondaryIndexWriteCapacity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleGlobalSecondaryIndexWriteCapacity"></a>
+
+```typescript
+public autoScaleGlobalSecondaryIndexWriteCapacity(indexName: string, props: EnableScalingProps): IScalableTableAttribute
+```
+
+Enable write capacity scaling for the given GSI.
+
+###### `indexName`<sup>Required</sup> <a name="indexName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleGlobalSecondaryIndexWriteCapacity.parameter.indexName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleGlobalSecondaryIndexWriteCapacity.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.EnableScalingProps
+
+---
+
+##### `autoScaleReadCapacity` <a name="autoScaleReadCapacity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleReadCapacity"></a>
+
+```typescript
+public autoScaleReadCapacity(props: EnableScalingProps): IScalableTableAttribute
+```
+
+Enable read capacity scaling for this table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleReadCapacity.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.EnableScalingProps
+
+---
+
+##### `autoScaleWriteCapacity` <a name="autoScaleWriteCapacity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleWriteCapacity"></a>
+
+```typescript
+public autoScaleWriteCapacity(props: EnableScalingProps): IScalableTableAttribute
+```
+
+Enable write capacity scaling for this table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleWriteCapacity.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.EnableScalingProps
+
+---
+
+##### `schema` <a name="schema" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.schema"></a>
+
+```typescript
+public schema(indexName?: string): SchemaOptions
+```
+
+Get schema attributes of table or index.
+
+###### `indexName`<sup>Optional</sup> <a name="indexName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.schema.parameter.indexName"></a>
+
+- *Type:* string
+
+---
+
+##### `alarmAgeOfOldestUnreplicatedRecord` <a name="alarmAgeOfOldestUnreplicatedRecord" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmAgeOfOldestUnreplicatedRecord"></a>
+
+```typescript
+public alarmAgeOfOldestUnreplicatedRecord(props: DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig): DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm
+```
+
+Creates an alarm that monitors the AgeOfOldestUnreplicatedRecord for the DynamoDb table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmAgeOfOldestUnreplicatedRecord.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig">DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig</a>
+
+---
+
+##### `alarmFailedToReplicateRecordCount` <a name="alarmFailedToReplicateRecordCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmFailedToReplicateRecordCount"></a>
+
+```typescript
+public alarmFailedToReplicateRecordCount(props: DynamoDbFailedToReplicateRecordCountAlarmConfig): DynamoDbTableFailedToReplicateRecordCountAlarm
+```
+
+Creates an alarm that monitors the FailedToReplicateRecordCount for the DynamoDb table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmFailedToReplicateRecordCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig">DynamoDbFailedToReplicateRecordCountAlarmConfig</a>
+
+---
+
+##### `alarmReadThrottleEvents` <a name="alarmReadThrottleEvents" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmReadThrottleEvents"></a>
+
+```typescript
+public alarmReadThrottleEvents(props: DynamoDbReadThrottleEventsAlarmConfig): DynamoDbTableReadThrottleEventsAlarm
+```
+
+Creates an alarm that monitors the ReadThrottleEvents for the DynamoDb table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmReadThrottleEvents.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig">DynamoDbReadThrottleEventsAlarmConfig</a>
+
+---
+
+##### `alarmSystemErrors` <a name="alarmSystemErrors" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmSystemErrors"></a>
+
+```typescript
+public alarmSystemErrors(props: DynamoDbSystemErrorsAlarmConfig): DynamoDbTableSystemErrorsAlarm
+```
+
+Creates an alarm that monitors the SystemErrors for the DynamoDb table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmSystemErrors.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig">DynamoDbSystemErrorsAlarmConfig</a>
+
+---
+
+##### `alarmThrottledPutRecordCount` <a name="alarmThrottledPutRecordCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmThrottledPutRecordCount"></a>
+
+```typescript
+public alarmThrottledPutRecordCount(props: DynamoDbThrottledPutRecordCountAlarmConfig): DynamoDbTableThrottledPutRecordCountAlarm
+```
+
+Creates an alarm that monitors the ThrottledPutRecordCount for the DynamoDb table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmThrottledPutRecordCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig">DynamoDbThrottledPutRecordCountAlarmConfig</a>
+
+---
+
+##### `alarmWriteThrottleEvents` <a name="alarmWriteThrottleEvents" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmWriteThrottleEvents"></a>
+
+```typescript
+public alarmWriteThrottleEvents(props: DynamoDbWriteThrottleEventsAlarmConfig): DynamoDbTableWriteThrottleEventsAlarm
+```
+
+Creates an alarm that monitors the WriteThrottleEvents for the DynamoDb table.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmWriteThrottleEvents.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig">DynamoDbWriteThrottleEventsAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: DynamoDbTableRecommendedAlarmsConfig): DynamoDbTableRecommendedAlarms
+```
+
+Creates the recommended alarms for the DynamoDb Table.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig">DynamoDbTableRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableArn">fromTableArn</a></code> | Creates a Table construct that represents an external table via table arn. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableAttributes">fromTableAttributes</a></code> | Creates a Table construct that represents an external table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableName">fromTableName</a></code> | Creates a Table construct that represents an external table via table name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isConstruct"></a>
+
+```typescript
+import { Table } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Table.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isOwnedResource"></a>
+
+```typescript
+import { Table } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Table.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isResource"></a>
+
+```typescript
+import { Table } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Table.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromTableArn` <a name="fromTableArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableArn"></a>
+
+```typescript
+import { Table } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Table.fromTableArn(scope: Construct, id: string, tableArn: string)
+```
+
+Creates a Table construct that represents an external table via table arn.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `tableArn`<sup>Required</sup> <a name="tableArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableArn.parameter.tableArn"></a>
+
+- *Type:* string
+
+The table's ARN.
+
+---
+
+##### `fromTableAttributes` <a name="fromTableAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableAttributes"></a>
+
+```typescript
+import { Table } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Table.fromTableAttributes(scope: Construct, id: string, attrs: TableAttributes)
+```
+
+Creates a Table construct that represents an external table.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableAttributes.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_dynamodb.TableAttributes
+
+A `TableAttributes` object.
+
+---
+
+##### `fromTableName` <a name="fromTableName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableName"></a>
+
+```typescript
+import { Table } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Table.fromTableName(scope: Construct, id: string, tableName: string)
+```
+
+Creates a Table construct that represents an external table via table name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `tableName`<sup>Required</sup> <a name="tableName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.fromTableName.parameter.tableName"></a>
+
+- *Type:* string
+
+The table's name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableArn">tableArn</a></code> | <code>string</code> | Arn of the dynamodb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableName">tableName</a></code> | <code>string</code> | Table name of the dynamodb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | KMS encryption key, if this table uses a customer-managed encryption key. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableStreamArn">tableStreamArn</a></code> | <code>string</code> | ARN of the table's stream, if there is one. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.resourcePolicy">resourcePolicy</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | Resource policy to assign to DynamoDB Table. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `tableArn`<sup>Required</sup> <a name="tableArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableArn"></a>
+
+```typescript
+public readonly tableArn: string;
+```
+
+- *Type:* string
+
+Arn of the dynamodb table.
+
+---
+
+##### `tableName`<sup>Required</sup> <a name="tableName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+Table name of the dynamodb table.
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+KMS encryption key, if this table uses a customer-managed encryption key.
+
+---
+
+##### `tableStreamArn`<sup>Optional</sup> <a name="tableStreamArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableStreamArn"></a>
+
+```typescript
+public readonly tableStreamArn: string;
+```
+
+- *Type:* string
+
+ARN of the table's stream, if there is one.
+
+---
+
+##### `resourcePolicy`<sup>Optional</sup> <a name="resourcePolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.resourcePolicy"></a>
+
+```typescript
+public readonly resourcePolicy: PolicyDocument;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyDocument
+- *Default:* No resource policy statements are added to the created table.
+
+Resource policy to assign to DynamoDB Table.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html)
+
+---
+
+
 ### Topic <a name="Topic" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic"></a>
 
 An extension of the SNS topic construct that provides helper methods to create recommended alarms.
@@ -20732,6 +24246,2535 @@ public readonly treatMissingData: TreatMissingData;
 - *Default:* TreatMissingData.MISSING
 
 How to handle missing data for this alarm.
+
+---
+
+### DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig <a name="DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig"></a>
+
+Configuration for the AgeOfOldestUnreplicatedRecord alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.Initializer"></a>
+
+```typescript
+import { DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig: DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the desired replication delay measured in milliseconds. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the desired replication delay measured in milliseconds.
+
+This value depends on your workload's requirements and expected performance.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - AgeOfOldestUnreplicatedRecord'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbAlarmBaseConfig <a name="DynamoDbAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { DynamoDbAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbAlarmBaseConfig: DynamoDbAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### DynamoDbFailedToReplicateRecordCountAlarmConfig <a name="DynamoDbFailedToReplicateRecordCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig"></a>
+
+Configuration for the FailedToReplicateRecordCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { DynamoDbFailedToReplicateRecordCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbFailedToReplicateRecordCountAlarmConfig: DynamoDbFailedToReplicateRecordCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold to 0 to detect any records that DynamoDB failed to replicate. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can monitor the number of records that DynamoDB failed to replicate to your Kinesis data stream because of the item size limit of Kinesis Data Streams.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - FailedToReplicateRecordCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold to 0 to detect any records that DynamoDB failed to replicate.
+
+---
+
+### DynamoDbReadThrottleEventsAlarmConfig <a name="DynamoDbReadThrottleEventsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig"></a>
+
+Configuration for the ReadThrottleEvents alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.Initializer"></a>
+
+```typescript
+import { DynamoDbReadThrottleEventsAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbReadThrottleEventsAlarmConfig: DynamoDbReadThrottleEventsAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the expected read traffic for the DynamoDB table, accounting for an acceptable level of throttling. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the expected read traffic for the DynamoDB table, accounting for an acceptable level of throttling.
+
+It is important to monitor whether
+you are under provisioned and not causing consistent throttling. You can also analyze
+historical data to find the acceptable throttling level for the application workload,
+and then tune the threshold to be higher than your usual throttling level. Throttled
+requests should be retried by the application or service as they are transient. Therefore,
+a very low threshold may cause the alarm to be too sensitive, causing unwanted state transitions.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - ReadThrottleEvents'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbSystemErrorsAlarmConfig <a name="DynamoDbSystemErrorsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig"></a>
+
+Configuration for the SystemErrors alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.Initializer"></a>
+
+```typescript
+import { DynamoDbSystemErrorsAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbSystemErrorsAlarmConfig: DynamoDbSystemErrorsAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the expected traffic, accounting for an acceptable level of system errors. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the expected traffic, accounting for an acceptable level of system errors.
+
+You can also analyze historical data to find the acceptable error count for the application workload, and
+then tune the threshold accordingly. System errors should be retried by the application/service as they are
+transient. Therefore, a very low threshold might cause the alarm to be too sensitive, causing unwanted state
+transitions.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - SystemErrors'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps <a name="DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps"></a>
+
+The properties for the DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.Initializer"></a>
+
+```typescript
+import { DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps: DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the desired replication delay measured in milliseconds. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.table"></a>
+
+```typescript
+public readonly table: Table;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.Table
+
+The DynamoDb Table to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the desired replication delay measured in milliseconds.
+
+This value depends on your workload's requirements and expected performance.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - AgeOfOldestUnreplicatedRecord'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbTableAlarmProps <a name="DynamoDbTableAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAlarmProps"></a>
+
+The common properties for the DynamoDb Table alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAlarmProps.Initializer"></a>
+
+```typescript
+import { DynamoDbTableAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableAlarmProps: DynamoDbTableAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAlarmProps.property.table"></a>
+
+```typescript
+public readonly table: Table;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.Table
+
+The DynamoDb Table to monitor.
+
+---
+
+### DynamoDbTableFailedToReplicateRecordCountAlarmProps <a name="DynamoDbTableFailedToReplicateRecordCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps"></a>
+
+The properties for the DynamoDbTableFailedToReplicateRecordCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.Initializer"></a>
+
+```typescript
+import { DynamoDbTableFailedToReplicateRecordCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableFailedToReplicateRecordCountAlarmProps: DynamoDbTableFailedToReplicateRecordCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold to 0 to detect any records that DynamoDB failed to replicate. |
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.table"></a>
+
+```typescript
+public readonly table: Table;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.Table
+
+The DynamoDb Table to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can monitor the number of records that DynamoDB failed to replicate to your Kinesis data stream because of the item size limit of Kinesis Data Streams.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - FailedToReplicateRecordCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold to 0 to detect any records that DynamoDB failed to replicate.
+
+---
+
+### DynamoDbTableReadThrottleEventsAlarmProps <a name="DynamoDbTableReadThrottleEventsAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps"></a>
+
+The properties for the DynamoDbTableReadThrottleEventsAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.Initializer"></a>
+
+```typescript
+import { DynamoDbTableReadThrottleEventsAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableReadThrottleEventsAlarmProps: DynamoDbTableReadThrottleEventsAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the expected read traffic for the DynamoDB table, accounting for an acceptable level of throttling. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.table"></a>
+
+```typescript
+public readonly table: Table;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.Table
+
+The DynamoDb Table to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the expected read traffic for the DynamoDB table, accounting for an acceptable level of throttling.
+
+It is important to monitor whether
+you are under provisioned and not causing consistent throttling. You can also analyze
+historical data to find the acceptable throttling level for the application workload,
+and then tune the threshold to be higher than your usual throttling level. Throttled
+requests should be retried by the application or service as they are transient. Therefore,
+a very low threshold may cause the alarm to be too sensitive, causing unwanted state transitions.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - ReadThrottleEvents'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbTableRecommendedAlarmsConfig <a name="DynamoDbTableRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an DynamoDb Service.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { DynamoDbTableRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableRecommendedAlarmsConfig: DynamoDbTableRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configReadThrottleEventsAlarm">configReadThrottleEventsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig">DynamoDbReadThrottleEventsAlarmConfig</a></code> | The configuration for the ReadThrottleEvents alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configSystemErrorsAlarm">configSystemErrorsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig">DynamoDbSystemErrorsAlarmConfig</a></code> | The configuration for the SystemErrors alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configWriteThrottleEventsAlarm">configWriteThrottleEventsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig">DynamoDbWriteThrottleEventsAlarmConfig</a></code> | The configuration for the WriteThrottleEvents alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configAgeOfOldestUnreplicatedRecordAlarm">configAgeOfOldestUnreplicatedRecordAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig">DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig</a></code> | The configuration for the AgeOfOldestUnreplicatedRecord alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configFailedToReplicateRecordCountAlarm">configFailedToReplicateRecordCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig">DynamoDbFailedToReplicateRecordCountAlarmConfig</a></code> | The configuration for the FailedToReplicateRecordCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configThrottledPutRecordCountAlarm">configThrottledPutRecordCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig">DynamoDbThrottledPutRecordCountAlarmConfig</a></code> | The configuration for the ThrottledPutRecordCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics">DynamoDbRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configReadThrottleEventsAlarm`<sup>Required</sup> <a name="configReadThrottleEventsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configReadThrottleEventsAlarm"></a>
+
+```typescript
+public readonly configReadThrottleEventsAlarm: DynamoDbReadThrottleEventsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig">DynamoDbReadThrottleEventsAlarmConfig</a>
+
+The configuration for the ReadThrottleEvents alarm.
+
+---
+
+##### `configSystemErrorsAlarm`<sup>Required</sup> <a name="configSystemErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configSystemErrorsAlarm"></a>
+
+```typescript
+public readonly configSystemErrorsAlarm: DynamoDbSystemErrorsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig">DynamoDbSystemErrorsAlarmConfig</a>
+
+The configuration for the SystemErrors alarm.
+
+---
+
+##### `configWriteThrottleEventsAlarm`<sup>Required</sup> <a name="configWriteThrottleEventsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configWriteThrottleEventsAlarm"></a>
+
+```typescript
+public readonly configWriteThrottleEventsAlarm: DynamoDbWriteThrottleEventsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig">DynamoDbWriteThrottleEventsAlarmConfig</a>
+
+The configuration for the WriteThrottleEvents alarm.
+
+---
+
+##### `configAgeOfOldestUnreplicatedRecordAlarm`<sup>Optional</sup> <a name="configAgeOfOldestUnreplicatedRecordAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configAgeOfOldestUnreplicatedRecordAlarm"></a>
+
+```typescript
+public readonly configAgeOfOldestUnreplicatedRecordAlarm: DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig">DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig</a>
+
+The configuration for the AgeOfOldestUnreplicatedRecord alarm.
+
+---
+
+##### `configFailedToReplicateRecordCountAlarm`<sup>Optional</sup> <a name="configFailedToReplicateRecordCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configFailedToReplicateRecordCountAlarm"></a>
+
+```typescript
+public readonly configFailedToReplicateRecordCountAlarm: DynamoDbFailedToReplicateRecordCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig">DynamoDbFailedToReplicateRecordCountAlarmConfig</a>
+
+The configuration for the FailedToReplicateRecordCount alarm.
+
+---
+
+##### `configThrottledPutRecordCountAlarm`<sup>Optional</sup> <a name="configThrottledPutRecordCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.configThrottledPutRecordCountAlarm"></a>
+
+```typescript
+public readonly configThrottledPutRecordCountAlarm: DynamoDbThrottledPutRecordCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig">DynamoDbThrottledPutRecordCountAlarmConfig</a>
+
+The configuration for the ThrottledPutRecordCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: DynamoDbRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics">DynamoDbRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### DynamoDbTableRecommendedAlarmsProps <a name="DynamoDbTableRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps"></a>
+
+Properties for the DynamoDbTableRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { DynamoDbTableRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableRecommendedAlarmsProps: DynamoDbTableRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configReadThrottleEventsAlarm">configReadThrottleEventsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig">DynamoDbReadThrottleEventsAlarmConfig</a></code> | The configuration for the ReadThrottleEvents alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configSystemErrorsAlarm">configSystemErrorsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig">DynamoDbSystemErrorsAlarmConfig</a></code> | The configuration for the SystemErrors alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configWriteThrottleEventsAlarm">configWriteThrottleEventsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig">DynamoDbWriteThrottleEventsAlarmConfig</a></code> | The configuration for the WriteThrottleEvents alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configAgeOfOldestUnreplicatedRecordAlarm">configAgeOfOldestUnreplicatedRecordAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig">DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig</a></code> | The configuration for the AgeOfOldestUnreplicatedRecord alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configFailedToReplicateRecordCountAlarm">configFailedToReplicateRecordCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig">DynamoDbFailedToReplicateRecordCountAlarmConfig</a></code> | The configuration for the FailedToReplicateRecordCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configThrottledPutRecordCountAlarm">configThrottledPutRecordCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig">DynamoDbThrottledPutRecordCountAlarmConfig</a></code> | The configuration for the ThrottledPutRecordCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics">DynamoDbRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+
+---
+
+##### `configReadThrottleEventsAlarm`<sup>Required</sup> <a name="configReadThrottleEventsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configReadThrottleEventsAlarm"></a>
+
+```typescript
+public readonly configReadThrottleEventsAlarm: DynamoDbReadThrottleEventsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbReadThrottleEventsAlarmConfig">DynamoDbReadThrottleEventsAlarmConfig</a>
+
+The configuration for the ReadThrottleEvents alarm.
+
+---
+
+##### `configSystemErrorsAlarm`<sup>Required</sup> <a name="configSystemErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configSystemErrorsAlarm"></a>
+
+```typescript
+public readonly configSystemErrorsAlarm: DynamoDbSystemErrorsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbSystemErrorsAlarmConfig">DynamoDbSystemErrorsAlarmConfig</a>
+
+The configuration for the SystemErrors alarm.
+
+---
+
+##### `configWriteThrottleEventsAlarm`<sup>Required</sup> <a name="configWriteThrottleEventsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configWriteThrottleEventsAlarm"></a>
+
+```typescript
+public readonly configWriteThrottleEventsAlarm: DynamoDbWriteThrottleEventsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig">DynamoDbWriteThrottleEventsAlarmConfig</a>
+
+The configuration for the WriteThrottleEvents alarm.
+
+---
+
+##### `configAgeOfOldestUnreplicatedRecordAlarm`<sup>Optional</sup> <a name="configAgeOfOldestUnreplicatedRecordAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configAgeOfOldestUnreplicatedRecordAlarm"></a>
+
+```typescript
+public readonly configAgeOfOldestUnreplicatedRecordAlarm: DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig">DynamoDbAgeOfOldestUnreplicatedRecordAlarmConfig</a>
+
+The configuration for the AgeOfOldestUnreplicatedRecord alarm.
+
+---
+
+##### `configFailedToReplicateRecordCountAlarm`<sup>Optional</sup> <a name="configFailedToReplicateRecordCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configFailedToReplicateRecordCountAlarm"></a>
+
+```typescript
+public readonly configFailedToReplicateRecordCountAlarm: DynamoDbFailedToReplicateRecordCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbFailedToReplicateRecordCountAlarmConfig">DynamoDbFailedToReplicateRecordCountAlarmConfig</a>
+
+The configuration for the FailedToReplicateRecordCount alarm.
+
+---
+
+##### `configThrottledPutRecordCountAlarm`<sup>Optional</sup> <a name="configThrottledPutRecordCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.configThrottledPutRecordCountAlarm"></a>
+
+```typescript
+public readonly configThrottledPutRecordCountAlarm: DynamoDbThrottledPutRecordCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig">DynamoDbThrottledPutRecordCountAlarmConfig</a>
+
+The configuration for the ThrottledPutRecordCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: DynamoDbRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics">DynamoDbRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.table"></a>
+
+```typescript
+public readonly table: Table;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.Table
+
+The DynamoDb Table to monitor.
+
+---
+
+### DynamoDbTableSystemErrorsAlarmProps <a name="DynamoDbTableSystemErrorsAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps"></a>
+
+The properties for the DynamoDbTableSystemErrorsAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.Initializer"></a>
+
+```typescript
+import { DynamoDbTableSystemErrorsAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableSystemErrorsAlarmProps: DynamoDbTableSystemErrorsAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the expected traffic, accounting for an acceptable level of system errors. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.table"></a>
+
+```typescript
+public readonly table: Table;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.Table
+
+The DynamoDb Table to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the expected traffic, accounting for an acceptable level of system errors.
+
+You can also analyze historical data to find the acceptable error count for the application workload, and
+then tune the threshold accordingly. System errors should be retried by the application/service as they are
+transient. Therefore, a very low threshold might cause the alarm to be too sensitive, causing unwanted state
+transitions.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - SystemErrors'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbTableThrottledPutRecordCountAlarmProps <a name="DynamoDbTableThrottledPutRecordCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps"></a>
+
+The properties for the DynamoDbTableThrottledPutRecordCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.Initializer"></a>
+
+```typescript
+import { DynamoDbTableThrottledPutRecordCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableThrottledPutRecordCountAlarmProps: DynamoDbTableThrottledPutRecordCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | You might experience some throttling during exceptional usage peaks, but throttled records should remain as low as possible to avoid higher replication latency (DynamoDB retries sending throttled records to the Kinesis data stream). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.table"></a>
+
+```typescript
+public readonly table: Table;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.Table
+
+The DynamoDb Table to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+You might experience some throttling during exceptional usage peaks, but throttled records should remain as low as possible to avoid higher replication latency (DynamoDB retries sending throttled records to the Kinesis data stream).
+
+Set the threshold to a number which can help you
+catch regular excessive throttling. You can also analyze historical data of this metric to find
+the acceptable throttling rates for the application workload. Tune the threshold to a value that
+the application can tolerate based on your use case.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can monitor the number of records that that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - ThrottledPutRecordCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 10
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 10
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbTableWriteThrottleEventsAlarmProps <a name="DynamoDbTableWriteThrottleEventsAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps"></a>
+
+The properties for the DynamoDbTableWriteThrottleEventsAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.Initializer"></a>
+
+```typescript
+import { DynamoDbTableWriteThrottleEventsAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbTableWriteThrottleEventsAlarmProps: DynamoDbTableWriteThrottleEventsAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the expected write traffic for the DynamoDB table, accounting for an acceptable level of throttling. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.table"></a>
+
+```typescript
+public readonly table: Table;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.Table
+
+The DynamoDb Table to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the expected write traffic for the DynamoDB table, accounting for an acceptable level of throttling.
+
+It is important to monitor if you
+are under provisioned and not causing consistent throttling. You can also analyze
+historical data to find the acceptable level of throttling for the application workload,
+and then tune the threshold to a value higher than your usual acceptable throttling level.
+Throttled requests should be retried by the application/service as they are transient.
+Therefore, a very low threshold might cause the alarm to be too sensitive, causing
+unwanted state transitions.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - WriteThrottleEvents'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbThrottledPutRecordCountAlarmConfig <a name="DynamoDbThrottledPutRecordCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig"></a>
+
+Configuration for the ThrottledPutRecordCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { DynamoDbThrottledPutRecordCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbThrottledPutRecordCountAlarmConfig: DynamoDbThrottledPutRecordCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | You might experience some throttling during exceptional usage peaks, but throttled records should remain as low as possible to avoid higher replication latency (DynamoDB retries sending throttled records to the Kinesis data stream). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+You might experience some throttling during exceptional usage peaks, but throttled records should remain as low as possible to avoid higher replication latency (DynamoDB retries sending throttled records to the Kinesis data stream).
+
+Set the threshold to a number which can help you
+catch regular excessive throttling. You can also analyze historical data of this metric to find
+the acceptable throttling rates for the application workload. Tune the threshold to a value that
+the application can tolerate based on your use case.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can monitor the number of records that that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - ThrottledPutRecordCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 10
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbThrottledPutRecordCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 10
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### DynamoDbWriteThrottleEventsAlarmConfig <a name="DynamoDbWriteThrottleEventsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig"></a>
+
+Configuration for the WriteThrottleEvents alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.Initializer"></a>
+
+```typescript
+import { DynamoDbWriteThrottleEventsAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dynamoDbWriteThrottleEventsAlarmConfig: DynamoDbWriteThrottleEventsAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the expected write traffic for the DynamoDB table, accounting for an acceptable level of throttling. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the expected write traffic for the DynamoDB table, accounting for an acceptable level of throttling.
+
+It is important to monitor if you
+are under provisioned and not causing consistent throttling. You can also analyze
+historical data to find the acceptable level of throttling for the application workload,
+and then tune the threshold to a value higher than your usual acceptable throttling level.
+Throttled requests should be retried by the application/service as they are transient.
+Therefore, a very low threshold might cause the alarm to be too sensitive, causing
+unwanted state transitions.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* tableName + ' - WriteThrottleEvents'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbWriteThrottleEventsAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
 
 ---
 
@@ -35807,6 +41850,59 @@ The SQS queue for which to create the alarms.
 
 ## Classes <a name="Classes" id="Classes"></a>
 
+### DynamoDbRecommendedAlarmsAspect <a name="DynamoDbRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the recommended alarms for an DynamoDb Table.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { DynamoDbRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DynamoDbRecommendedAlarmsAspect(props: DynamoDbTableRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig">DynamoDbTableRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsConfig">DynamoDbTableRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### EcsRecommendedAlarmsAspect <a name="EcsRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsRecommendedAlarmsAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
@@ -36235,6 +42331,67 @@ All aspects can visit an IConstruct.
 
 
 ## Enums <a name="Enums" id="Enums"></a>
+
+### DynamoDbRecommendedAlarmsMetrics <a name="DynamoDbRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for DynamoDb alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.READ_THROTTLE_EVENTS">READ_THROTTLE_EVENTS</a></code> | Requests to DynamoDB that exceed the provisioned read capacity units for a table or a global secondary index. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.SYSTEM_ERRORS">SYSTEM_ERRORS</a></code> | The requests to DynamoDB or Amazon DynamoDB Streams that generate an HTTP 500 status code during the specified time period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.WRITE_THROTTLE_EVENTS">WRITE_THROTTLE_EVENTS</a></code> | Requests to DynamoDB that exceed the provisioned write capacity units for a table or a global secondary index. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.AGE_OF_OLDEST_UNREPLICATED_RECORD">AGE_OF_OLDEST_UNREPLICATED_RECORD</a></code> | The elapsed time since a record yet to be replicated to the Kinesis data stream first appeared in the DynamoDB table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.FAILED_TO_REPLICATE_RECORD_COUNT">FAILED_TO_REPLICATE_RECORD_COUNT</a></code> | The number of records that DynamoDB failed to replicate to your Kinesis data stream. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.THROTTLED_PUT_RECORD_COUNT">THROTTLED_PUT_RECORD_COUNT</a></code> | The number of records that were throttled by your Kinesis data stream due to insufficient Kinesis Data Streams capacity. |
+
+---
+
+##### `READ_THROTTLE_EVENTS` <a name="READ_THROTTLE_EVENTS" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.READ_THROTTLE_EVENTS"></a>
+
+Requests to DynamoDB that exceed the provisioned read capacity units for a table or a global secondary index.
+
+---
+
+
+##### `SYSTEM_ERRORS` <a name="SYSTEM_ERRORS" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.SYSTEM_ERRORS"></a>
+
+The requests to DynamoDB or Amazon DynamoDB Streams that generate an HTTP 500 status code during the specified time period.
+
+An HTTP 500 usually indicates an internal service error.
+
+---
+
+
+##### `WRITE_THROTTLE_EVENTS` <a name="WRITE_THROTTLE_EVENTS" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.WRITE_THROTTLE_EVENTS"></a>
+
+Requests to DynamoDB that exceed the provisioned write capacity units for a table or a global secondary index.
+
+---
+
+
+##### `AGE_OF_OLDEST_UNREPLICATED_RECORD` <a name="AGE_OF_OLDEST_UNREPLICATED_RECORD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.AGE_OF_OLDEST_UNREPLICATED_RECORD"></a>
+
+The elapsed time since a record yet to be replicated to the Kinesis data stream first appeared in the DynamoDB table.
+
+---
+
+
+##### `FAILED_TO_REPLICATE_RECORD_COUNT` <a name="FAILED_TO_REPLICATE_RECORD_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.FAILED_TO_REPLICATE_RECORD_COUNT"></a>
+
+The number of records that DynamoDB failed to replicate to your Kinesis data stream.
+
+---
+
+
+##### `THROTTLED_PUT_RECORD_COUNT` <a name="THROTTLED_PUT_RECORD_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics.THROTTLED_PUT_RECORD_COUNT"></a>
+
+The number of records that were throttled by your Kinesis data stream due to insufficient Kinesis Data Streams capacity.
+
+---
+
 
 ### EcsRecommendedAlarmsMetrics <a name="EcsRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsRecommendedAlarmsMetrics"></a>
 
