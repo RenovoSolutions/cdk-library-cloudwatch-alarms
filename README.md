@@ -34,6 +34,7 @@ If its not shown it hasn't been worked on.
 | RDS | <b>For database & cluster instances</b><br/><ul><li>[x] CPUUtilization</li><li>[x] DatabaseConnections</li><li>[x] FreeableMemory</li><li>[x] FreeLocalStorage</li><li>[x] FreeStorageSpace</li><li>[x] ReadLatency</li><li>[x] WriteLatency</li><li>[x] DBLoad</li></ul><b>For clusters</b><br/><ul><li>[x] AuroraVolumeBytesLeftTotal</li><li>[x] AuroraBinlogReplicaLag</li></ul> | Some alarms require a `threshold` to be defined. `AuroraVolumeBytesLeftTotal` and `AuroraBinlogReplicaLag` alarms are created only for Aurora MySQL clusters. |
 | ECS | <ul><li>[x] CPUUtilization</li><li>[x] MemoryUtilization</li><li>[x] EphemeralStorageUtilized</li><li>[x] RunningTaskCount</li></ul> | The alarms are applied to `FargateService` constructs only. `EphemeralStorageUtilized` requires a `threshold` to be defined. |
 | EFS | <ul><li>[x] PercentIOLimit</li><li>[x] BurstCreditBalance</li></ul> | The alarms are applied to `FileSystem` constructs. |
+| ApiGateway | <ul><li>[x] 4XXError</li><li>[x] 5XXError</li><li>[x] Count</li><li>[x] Latency</li></ul> | The alarms are applied to `RestApi` constructs only. `Count` requires a `threshold` to be defined. Alarms are automatically created using the `ApiName` and `Stage` dimensions. To create `Count` or `Latency` alarms using the `Resource` and `Method` dimensions, the corresponding properties must be explicitly specified. |
 
 ### Aspects
 
