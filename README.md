@@ -34,6 +34,7 @@ If its not shown it hasn't been worked on.
 | RDS | <b>For database & cluster instances</b><br/><ul><li>[x] CPUUtilization</li><li>[x] DatabaseConnections</li><li>[x] FreeableMemory</li><li>[x] FreeLocalStorage</li><li>[x] FreeStorageSpace</li><li>[x] ReadLatency</li><li>[x] WriteLatency</li><li>[x] DBLoad</li></ul><b>For clusters</b><br/><ul><li>[x] AuroraVolumeBytesLeftTotal</li><li>[x] AuroraBinlogReplicaLag</li></ul> | Some alarms require a `threshold` to be defined. `AuroraVolumeBytesLeftTotal` and `AuroraBinlogReplicaLag` alarms are created only for Aurora MySQL clusters. |
 | ECS | <ul><li>[x] CPUUtilization</li><li>[x] MemoryUtilization</li><li>[x] EphemeralStorageUtilized</li><li>[x] RunningTaskCount</li></ul> | The alarms are applied to `FargateService` constructs only. `EphemeralStorageUtilized` requires a `threshold` to be defined. |
 | EFS | <ul><li>[x] PercentIOLimit</li><li>[x] BurstCreditBalance</li></ul> | The alarms are applied to `FileSystem` constructs. |
+| CloudFront | <ul><li>[x] 5xxErrorRate</li><li>[x] OriginLatency</li><li>[x] FunctionValidationErrors</li><li>[x] FunctionExecutionErrors</li><li>[x] FunctionThrottles</li></ul> | The alarms are applied to `Distribution` constructs only. Both `5xxErrorRate` and `OriginLatency` require a `threshold` to be defined. To create `Function` level alarms using the `FunctionName` dimension, the corresponding properties must be explicitly specified. |
 
 ### Aspects
 
