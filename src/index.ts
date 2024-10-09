@@ -1,4 +1,6 @@
+export * from './autoscaling';
 export * from './common';
+export * from './ec2';
 export * from './ecs';
 export * from './efs';
 export * from './lambda';
