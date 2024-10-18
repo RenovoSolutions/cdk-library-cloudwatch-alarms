@@ -6,6 +6,7 @@ export * from './dynamodb';
 export * from './ec2';
 export * from './ecs';
 export * from './efs';
+export * from './elasticache';
 export * from './lambda';
 export * from './rds';
 export * from './s3';
