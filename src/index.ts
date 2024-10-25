@@ -8,6 +8,7 @@ export * from './ecs';
 export * from './efs';
 export * from './elasticache';
 export * from './lambda';
+export * from './privatelink';
 export * from './rds';
 export * from './s3';
 export * from './sns';
