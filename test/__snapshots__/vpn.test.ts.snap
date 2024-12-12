@@ -1,0 +1,5871 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SnapshotForVpnConnectionConstruct 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnConnectionVpnConnectionRecommendedAlarmsVpnConnectionTunnelStateC0144401": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect if at least one tunnel is in the DOWN state for this VPN, so that you can troubleshoot the impacted VPN. This alarm will always be in the ALARM state for networks that only have a single tunnel configured.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "VpnConnection",
+              },
+              " - TunnelState",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "VpnId",
+            "Value": Object {
+              "Ref": "VpnConnection",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "TunnelState",
+        "Namespace": "AWS/VPN",
+        "Period": 300,
+        "Statistic": "Minimum",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`VpnConnectionSnapshot 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnConnectionVpnConnectionRecommendedAlarmsFromAspectVpnConnectionTunnelState661B0CFE": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect if at least one tunnel is in the DOWN state for this VPN, so that you can troubleshoot the impacted VPN. This alarm will always be in the ALARM state for networks that only have a single tunnel configured.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "VpnConnection",
+              },
+              " - TunnelState",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "VpnId",
+            "Value": Object {
+              "Ref": "VpnConnection",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "TunnelState",
+        "Namespace": "AWS/VPN",
+        "Period": 300,
+        "Statistic": "Minimum",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`VpnConnectionSnapshotDefaultActionsInUse 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "TopicBFC7AF6E": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+    "vpnConnectionAlarmsVpnConnectionTunnelState9D8CAF49": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect if at least one tunnel is in the DOWN state for this VPN, so that you can troubleshoot the impacted VPN. This alarm will always be in the ALARM state for networks that only have a single tunnel configured.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "VpnConnection",
+              },
+              " - TunnelState",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "VpnId",
+            "Value": Object {
+              "Ref": "VpnConnection",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "TunnelState",
+        "Namespace": "AWS/VPN",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Minimum",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`VpnConnectionSnapshotWithExclusion 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`alarms can be applied individually to resources using extended construct 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnConnectionTunnelStateAlarmFD0BD80F": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect if at least one tunnel is in the DOWN state for this VPN, so that you can troubleshoot the impacted VPN. This alarm will always be in the ALARM state for networks that only have a single tunnel configured.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "VpnConnection",
+              },
+              " - TunnelState",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "VpnId",
+            "Value": Object {
+              "Ref": "VpnConnection",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "TunnelState",
+        "Namespace": "AWS/VPN",
+        "Period": 300,
+        "Statistic": "Minimum",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`default alarm actions are overridden when individual alarm actions are provided in configuration 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "LambdaD247545B": Object {
+      "DependsOn": Array [
+        "LambdaServiceRoleA8ED4D3B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "exports.handler = async (event) => { console.log(event); }",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "LambdaServiceRoleA8ED4D3B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "LambdaServiceRoleA8ED4D3B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "LambdaVpnConnectionTunnelStateAlarmPermission5D813E2C": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "LambdaD247545B",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "vpnConnectionAlarmsVpnConnectionTunnelState9D8CAF49",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "TopicBFC7AF6E": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+    "vpnConnectionAlarmsVpnConnectionTunnelState9D8CAF49": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect if at least one tunnel is in the DOWN state for this VPN, so that you can troubleshoot the impacted VPN. This alarm will always be in the ALARM state for networks that only have a single tunnel configured.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "VpnConnection",
+              },
+              " - TunnelState",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "VpnId",
+            "Value": Object {
+              "Ref": "VpnConnection",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "MetricName": "TunnelState",
+        "Namespace": "AWS/VPN",
+        "OKActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Minimum",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`optional alarm configurations can be overwritten 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "TopicBFC7AF6E": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnConnectionVpnConnectionRecommendedAlarmsFromAspectVpnConnectionTunnelState661B0CFE": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomPercentIOLimitAlarm",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 25,
+        "Dimensions": Array [
+          Object {
+            "Name": "VpnId",
+            "Value": Object {
+              "Ref": "VpnConnection",
+            },
+          },
+        ],
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "TunnelState",
+        "Namespace": "AWS/VPN",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Minimum",
+        "Threshold": 10,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`stack should contain vpnConnection recommended alarms if recommended alarms aspect is applied with no exclusions 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnConnectionVpnConnectionRecommendedAlarmsFromAspectVpnConnectionTunnelState661B0CFE": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect if at least one tunnel is in the DOWN state for this VPN, so that you can troubleshoot the impacted VPN. This alarm will always be in the ALARM state for networks that only have a single tunnel configured.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "VpnConnection",
+              },
+              " - TunnelState",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "VpnId",
+            "Value": Object {
+              "Ref": "VpnConnection",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "TunnelState",
+        "Namespace": "AWS/VPN",
+        "Period": 300,
+        "Statistic": "Minimum",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`when an resource is excluded from the aspect config it should not have alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "CustomerGateway1": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.12",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "CustomerGateway2": Object {
+      "Properties": Object {
+        "BgpAsn": 65000,
+        "IpAddress": "203.0.113.13",
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::CustomerGateway",
+    },
+    "VPCB9E5F0B4": Object {
+      "Properties": Object {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VPCIGWB7E252D3": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VPCPrivateSubnet1DefaultRouteAE1D6490": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet1NATGatewayE0556630",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet1RouteTableAssociation347902D1": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet1RouteTableBE8A6027",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet1Subnet8BCA10E0",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet1RouteTableBE8A6027": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet1Subnet8BCA10E0": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.96.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet2DefaultRouteF4F5CFD2": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet2NATGateway3C070193",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet2RouteTable0A19E10E": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet2RouteTableAssociation0C73D413": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet2RouteTable0A19E10E",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet2SubnetCFCDAA7A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet2SubnetCFCDAA7A": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.128.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPrivateSubnet3DefaultRoute27F311AE": Object {
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": Object {
+          "Ref": "VPCPublicSubnet3NATGatewayD3048F5C",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPrivateSubnet3RouteTable192186F8": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPrivateSubnet3RouteTableAssociationC28D144E": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPrivateSubnet3RouteTable192186F8",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPrivateSubnet3Subnet3EDCD457",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPrivateSubnet3Subnet3EDCD457": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.160.0/19",
+        "MapPublicIpOnLaunch": false,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PrivateSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet1DefaultRoute91CEF279": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet1EIP6AD938E8": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet1NATGatewayE0556630": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet1DefaultRoute91CEF279",
+        "VPCPublicSubnet1RouteTableAssociation0B0896DC",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet1EIP6AD938E8",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet1RouteTableAssociation0B0896DC": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet1RouteTableFEE4B781",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet1SubnetB4246D30",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet1RouteTableFEE4B781": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet1SubnetB4246D30": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet2DefaultRouteB7481BBA": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet2EIP4947BC00": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet2NATGateway3C070193": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet2DefaultRouteB7481BBA",
+        "VPCPublicSubnet2RouteTableAssociation5A808732",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet2EIP4947BC00",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet2RouteTable6F1A15F1": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet2RouteTableAssociation5A808732": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet2RouteTable6F1A15F1",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet2Subnet74179F39",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet2Subnet74179F39": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.32.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet2",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCPublicSubnet3DefaultRouteA0D29D46": Object {
+      "DependsOn": Array [
+        "VPCVPCGW99B986DC",
+      ],
+      "Properties": Object {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VPCPublicSubnet3EIPAD4BC883": Object {
+      "Properties": Object {
+        "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VPCPublicSubnet3NATGatewayD3048F5C": Object {
+      "DependsOn": Array [
+        "VPCPublicSubnet3DefaultRouteA0D29D46",
+        "VPCPublicSubnet3RouteTableAssociation427FE0C6",
+      ],
+      "Properties": Object {
+        "AllocationId": Object {
+          "Fn::GetAtt": Array [
+            "VPCPublicSubnet3EIPAD4BC883",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VPCPublicSubnet3RouteTable98AE0E14": Object {
+      "Properties": Object {
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VPCPublicSubnet3RouteTableAssociation427FE0C6": Object {
+      "Properties": Object {
+        "RouteTableId": Object {
+          "Ref": "VPCPublicSubnet3RouteTable98AE0E14",
+        },
+        "SubnetId": Object {
+          "Ref": "VPCPublicSubnet3Subnet631C5E25",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VPCPublicSubnet3Subnet631C5E25": Object {
+      "Properties": Object {
+        "AvailabilityZone": "dummy1c",
+        "CidrBlock": "10.0.64.0/19",
+        "MapPublicIpOnLaunch": true,
+        "Tags": Array [
+          Object {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          Object {
+            "Key": "Name",
+            "Value": "TestStack/VPC/PublicSubnet3",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VPCVPCGW99B986DC": Object {
+      "Properties": Object {
+        "InternetGatewayId": Object {
+          "Ref": "VPCIGWB7E252D3",
+        },
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpcGatewayAttachment": Object {
+      "Properties": Object {
+        "VpcId": Object {
+          "Ref": "VPCB9E5F0B4",
+        },
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "VpnConnection1": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway1",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnConnection2": Object {
+      "Properties": Object {
+        "CustomerGatewayId": Object {
+          "Ref": "CustomerGateway2",
+        },
+        "StaticRoutesOnly": true,
+        "Type": "ipsec.1",
+        "VpnGatewayId": Object {
+          "Ref": "VpnGateway",
+        },
+      },
+      "Type": "AWS::EC2::VPNConnection",
+    },
+    "VpnConnection2VpnConnectionRecommendedAlarmsFromAspectVpnConnection2TunnelState34D8A91F": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect if at least one tunnel is in the DOWN state for this VPN, so that you can troubleshoot the impacted VPN. This alarm will always be in the ALARM state for networks that only have a single tunnel configured.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "VpnConnection2",
+              },
+              " - TunnelState",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "VpnId",
+            "Value": Object {
+              "Ref": "VpnConnection2",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "TunnelState",
+        "Namespace": "AWS/VPN",
+        "Period": 300,
+        "Statistic": "Minimum",
+        "Threshold": 1,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "VpnGateway": Object {
+      "Properties": Object {
+        "AmazonSideAsn": 65000,
+        "Type": "ipsec.1",
+      },
+      "Type": "AWS::EC2::VPNGateway",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
