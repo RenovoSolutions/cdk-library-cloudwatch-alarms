@@ -1,6 +1,7 @@
 export * from './apigateway';
 export * from './common';
 export * from './cloudfront';
+export * from './dynamodb';
 export * from './ecs';
 export * from './efs';
 export * from './lambda';
