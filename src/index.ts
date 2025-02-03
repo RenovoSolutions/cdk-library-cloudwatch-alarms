@@ -1,3 +1,4 @@
+export * from './apigateway';
 export * from './common';
 export * from './ecs';
 export * from './efs';
