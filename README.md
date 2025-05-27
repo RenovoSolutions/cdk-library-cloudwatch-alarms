@@ -42,6 +42,7 @@ If its not shown it hasn't been worked on.
 | ElastiCache | <ul><li>[x] DatabaseMemoryUsagePercentage</li><li>[x] EngineCPUUtilization</li><li>[x] ReplicationLag</li></ul> | The alarms are applied to `CfnCacheCluster` and `CfnReplicationGroup` constructs. `DatabaseMemoryUsagePercentage` and `ReplicationLag` require a `threshold` to be defined.|
 | PrivateLink | <b>Endpoints</b><br/><ul><li>[x] PacketsDropped</li></ul><b>Endpoint Services</b><br/><ul><li>[x] RstPacketsSent</li></ul> | The alarms are applied to `InterfaceVpcEndpoint` and `VpcEndpointService` constructs. Because these objects do not expose the attributes required by alarms, they cannot be implemented using the `Aspect`. In all cases, the `threshold` must be defined. |
 | VPN | <ul><li>[x] TunnelState</li></ul> | The alarms are applied to `CfnVPNConnection` constructs. |
+| ELBv2 | **For ApplicationLoadBalancer**<br>- [x] RejectedConnectionCount<br>- [x] HTTPCode_ELB_4XX_Count<br>- [x] HTTPCode_ELB_5XX_Count<br>- [x] HTTPCode_Target_5XX_Count<br><br>**For ApplicationTargetGroup**<br>- [x] HealthyHostCount<br>- [x] UnHealthyHostCount<br><br>**For NetworkLoadBalancer**<br>- [x] TCP_ELB_Reset_Count<br>- [x] TCP_Target_Reset_Count<br><br>**For NetworkTargetGroup**<br>- [x] HealthyHostCount<br>- [x] UnHealthyHostCount | For target groups, `HealthyHostCount` alarm triggers when count falls below threshold (default: 1) and `UnHealthyHostCount` alarm triggers when count exceeds threshold (default: 0). For load balancers, all alarms trigger when count exceeds threshold (default: 0). |
 
 ### Aspects
 

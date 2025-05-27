@@ -3936,6 +3936,4486 @@ The GroupInServiceCapacity alarm.
 ---
 
 
+### ApplicationLoadBalancer <a name="ApplicationLoadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer"></a>
+
+An extension for the ApplicationLoadBalancer construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationLoadBalancer(scope: Construct, id: string, props: ApplicationLoadBalancerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logAccessLogs">logAccessLogs</a></code> | Enable access logging for this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.removeAttribute">removeAttribute</a></code> | Remove an attribute from the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.setAttribute">setAttribute</a></code> | Set a non-standard attribute on the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addListener">addListener</a></code> | Add a new listener to this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addRedirect">addRedirect</a></code> | Add a redirection listener to this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addSecurityGroup">addSecurityGroup</a></code> | Add a security group to this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logConnectionLogs">logConnectionLogs</a></code> | Enable connection logging for this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metric">metric</a></code> | Return the given named metric for this Application Load Balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricActiveConnectionCount">metricActiveConnectionCount</a></code> | The total number of concurrent TCP connections active from clients to the load balancer and from the load balancer to targets. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricClientTlsNegotiationErrorCount">metricClientTlsNegotiationErrorCount</a></code> | The number of TLS connections initiated by the client that did not establish a session with the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricConsumedLCUs">metricConsumedLCUs</a></code> | The number of load balancer capacity units (LCU) used by your load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthError">metricElbAuthError</a></code> | The number of user authentications that could not be completed. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthFailure">metricElbAuthFailure</a></code> | The number of user authentications that could not be completed because the IdP denied access to the user or an authorization code was used more than once. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthLatency">metricElbAuthLatency</a></code> | The time elapsed, in milliseconds, to query the IdP for the ID token and user info. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthSuccess">metricElbAuthSuccess</a></code> | The number of authenticate actions that were successful. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpCodeElb">metricHttpCodeElb</a></code> | The number of HTTP 3xx/4xx/5xx codes that originate from the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpCodeTarget">metricHttpCodeTarget</a></code> | The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpFixedResponseCount">metricHttpFixedResponseCount</a></code> | The number of fixed-response actions that were successful. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpRedirectCount">metricHttpRedirectCount</a></code> | The number of redirect actions that were successful. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpRedirectUrlLimitExceededCount">metricHttpRedirectUrlLimitExceededCount</a></code> | The number of redirect actions that couldn't be completed because the URL in the response location header is larger than 8K. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricIpv6ProcessedBytes">metricIpv6ProcessedBytes</a></code> | The total number of bytes processed by the load balancer over IPv6. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricIpv6RequestCount">metricIpv6RequestCount</a></code> | The number of IPv6 requests received by the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricNewConnectionCount">metricNewConnectionCount</a></code> | The total number of new TCP connections established from clients to the load balancer and from the load balancer to targets. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricProcessedBytes">metricProcessedBytes</a></code> | The total number of bytes processed by the load balancer over IPv4 and IPv6. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRejectedConnectionCount">metricRejectedConnectionCount</a></code> | The number of connections that were rejected because the load balancer had reached its maximum number of connections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRequestCount">metricRequestCount</a></code> | The number of requests processed over IPv4 and IPv6. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRuleEvaluations">metricRuleEvaluations</a></code> | The number of rules processed by the load balancer given a request rate averaged over an hour. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetConnectionErrorCount">metricTargetConnectionErrorCount</a></code> | The number of connections that were not successfully established between the load balancer and target. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetResponseTime">metricTargetResponseTime</a></code> | The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetTLSNegotiationErrorCount">metricTargetTLSNegotiationErrorCount</a></code> | The number of TLS connections initiated by the load balancer that did not establish a session with the target. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCode4xxCount">alarmHttpCode4xxCount</a></code> | Creates an alarm that monitors the HTTP 4XX error count for the ApplicationLoadBalancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCode5xxCount">alarmHttpCode5xxCount</a></code> | Creates an alarm that monitors the HTTP 5XX error count for the ApplicationLoadBalancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCodeTarget5xxCount">alarmHttpCodeTarget5xxCount</a></code> | Creates an alarm that monitors the HTTP 5XX error count from targets for the ApplicationLoadBalancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmRejectedConnectionCount">alarmRejectedConnectionCount</a></code> | Creates an alarm that monitors the rejected connection count for the ApplicationLoadBalancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the ApplicationLoadBalancer. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `logAccessLogs` <a name="logAccessLogs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logAccessLogs"></a>
+
+```typescript
+public logAccessLogs(bucket: IBucket, prefix?: string): void
+```
+
+Enable access logging for this load balancer.
+
+A region must be specified on the stack containing the load balancer; you cannot enable logging on
+environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
+
+###### `bucket`<sup>Required</sup> <a name="bucket" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logAccessLogs.parameter.bucket"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+###### `prefix`<sup>Optional</sup> <a name="prefix" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logAccessLogs.parameter.prefix"></a>
+
+- *Type:* string
+
+---
+
+##### `removeAttribute` <a name="removeAttribute" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.removeAttribute"></a>
+
+```typescript
+public removeAttribute(key: string): void
+```
+
+Remove an attribute from the load balancer.
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.removeAttribute.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+##### `setAttribute` <a name="setAttribute" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.setAttribute"></a>
+
+```typescript
+public setAttribute(key: string, value?: string): void
+```
+
+Set a non-standard attribute on the load balancer.
+
+> [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes)
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.setAttribute.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Optional</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.setAttribute.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addListener` <a name="addListener" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addListener"></a>
+
+```typescript
+public addListener(id: string, props: BaseApplicationListenerProps): ApplicationListener
+```
+
+Add a new listener to this load balancer.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addListener.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addListener.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.BaseApplicationListenerProps
+
+---
+
+##### `addRedirect` <a name="addRedirect" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addRedirect"></a>
+
+```typescript
+public addRedirect(props?: ApplicationLoadBalancerRedirectConfig): ApplicationListener
+```
+
+Add a redirection listener to this load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addRedirect.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancerRedirectConfig
+
+---
+
+##### `addSecurityGroup` <a name="addSecurityGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addSecurityGroup"></a>
+
+```typescript
+public addSecurityGroup(securityGroup: ISecurityGroup): void
+```
+
+Add a security group to this load balancer.
+
+###### `securityGroup`<sup>Required</sup> <a name="securityGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.addSecurityGroup.parameter.securityGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup
+
+---
+
+##### `logConnectionLogs` <a name="logConnectionLogs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logConnectionLogs"></a>
+
+```typescript
+public logConnectionLogs(bucket: IBucket, prefix?: string): void
+```
+
+Enable connection logging for this load balancer.
+
+A region must be specified on the stack containing the load balancer; you cannot enable logging on
+environment-agnostic stacks.
+
+> [https://docs.aws.amazon.com/cdk/latest/guide/environments.html](https://docs.aws.amazon.com/cdk/latest/guide/environments.html)
+
+###### `bucket`<sup>Required</sup> <a name="bucket" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logConnectionLogs.parameter.bucket"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+###### `prefix`<sup>Optional</sup> <a name="prefix" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logConnectionLogs.parameter.prefix"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`metric`~~ <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this Application Load Balancer.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricActiveConnectionCount`~~ <a name="metricActiveConnectionCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricActiveConnectionCount"></a>
+
+```typescript
+public metricActiveConnectionCount(props?: MetricOptions): Metric
+```
+
+The total number of concurrent TCP connections active from clients to the load balancer and from the load balancer to targets.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricActiveConnectionCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricClientTlsNegotiationErrorCount`~~ <a name="metricClientTlsNegotiationErrorCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricClientTlsNegotiationErrorCount"></a>
+
+```typescript
+public metricClientTlsNegotiationErrorCount(props?: MetricOptions): Metric
+```
+
+The number of TLS connections initiated by the client that did not establish a session with the load balancer.
+
+Possible causes include a
+mismatch of ciphers or protocols.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricClientTlsNegotiationErrorCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricConsumedLCUs`~~ <a name="metricConsumedLCUs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricConsumedLCUs"></a>
+
+```typescript
+public metricConsumedLCUs(props?: MetricOptions): Metric
+```
+
+The number of load balancer capacity units (LCU) used by your load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricConsumedLCUs.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricElbAuthError`~~ <a name="metricElbAuthError" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthError"></a>
+
+```typescript
+public metricElbAuthError(props?: MetricOptions): Metric
+```
+
+The number of user authentications that could not be completed.
+
+Because an authenticate action was misconfigured, the load balancer
+couldn't establish a connection with the IdP, or the load balancer
+couldn't complete the authentication flow due to an internal error.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthError.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricElbAuthFailure`~~ <a name="metricElbAuthFailure" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthFailure"></a>
+
+```typescript
+public metricElbAuthFailure(props?: MetricOptions): Metric
+```
+
+The number of user authentications that could not be completed because the IdP denied access to the user or an authorization code was used more than once.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthFailure.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricElbAuthLatency`~~ <a name="metricElbAuthLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthLatency"></a>
+
+```typescript
+public metricElbAuthLatency(props?: MetricOptions): Metric
+```
+
+The time elapsed, in milliseconds, to query the IdP for the ID token and user info.
+
+If one or more of these operations fail, this is the time to failure.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthLatency.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricElbAuthSuccess`~~ <a name="metricElbAuthSuccess" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthSuccess"></a>
+
+```typescript
+public metricElbAuthSuccess(props?: MetricOptions): Metric
+```
+
+The number of authenticate actions that were successful.
+
+This metric is incremented at the end of the authentication workflow,
+after the load balancer has retrieved the user claims from the IdP.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricElbAuthSuccess.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricHttpCodeElb`~~ <a name="metricHttpCodeElb" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpCodeElb"></a>
+
+```typescript
+public metricHttpCodeElb(code: HttpCodeElb, props?: MetricOptions): Metric
+```
+
+The number of HTTP 3xx/4xx/5xx codes that originate from the load balancer.
+
+This does not include any response codes generated by the targets.
+
+###### `code`<sup>Required</sup> <a name="code" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpCodeElb.parameter.code"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.HttpCodeElb
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpCodeElb.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricHttpCodeTarget`~~ <a name="metricHttpCodeTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpCodeTarget"></a>
+
+```typescript
+public metricHttpCodeTarget(code: HttpCodeTarget, props?: MetricOptions): Metric
+```
+
+The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in the load balancer.
+
+This does not include any response codes generated by the load balancer.
+
+###### `code`<sup>Required</sup> <a name="code" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpCodeTarget.parameter.code"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.HttpCodeTarget
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpCodeTarget.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricHttpFixedResponseCount`~~ <a name="metricHttpFixedResponseCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpFixedResponseCount"></a>
+
+```typescript
+public metricHttpFixedResponseCount(props?: MetricOptions): Metric
+```
+
+The number of fixed-response actions that were successful.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpFixedResponseCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricHttpRedirectCount`~~ <a name="metricHttpRedirectCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpRedirectCount"></a>
+
+```typescript
+public metricHttpRedirectCount(props?: MetricOptions): Metric
+```
+
+The number of redirect actions that were successful.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpRedirectCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricHttpRedirectUrlLimitExceededCount`~~ <a name="metricHttpRedirectUrlLimitExceededCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpRedirectUrlLimitExceededCount"></a>
+
+```typescript
+public metricHttpRedirectUrlLimitExceededCount(props?: MetricOptions): Metric
+```
+
+The number of redirect actions that couldn't be completed because the URL in the response location header is larger than 8K.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricHttpRedirectUrlLimitExceededCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricIpv6ProcessedBytes`~~ <a name="metricIpv6ProcessedBytes" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricIpv6ProcessedBytes"></a>
+
+```typescript
+public metricIpv6ProcessedBytes(props?: MetricOptions): Metric
+```
+
+The total number of bytes processed by the load balancer over IPv6.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricIpv6ProcessedBytes.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricIpv6RequestCount`~~ <a name="metricIpv6RequestCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricIpv6RequestCount"></a>
+
+```typescript
+public metricIpv6RequestCount(props?: MetricOptions): Metric
+```
+
+The number of IPv6 requests received by the load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricIpv6RequestCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricNewConnectionCount`~~ <a name="metricNewConnectionCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricNewConnectionCount"></a>
+
+```typescript
+public metricNewConnectionCount(props?: MetricOptions): Metric
+```
+
+The total number of new TCP connections established from clients to the load balancer and from the load balancer to targets.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricNewConnectionCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricProcessedBytes`~~ <a name="metricProcessedBytes" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricProcessedBytes"></a>
+
+```typescript
+public metricProcessedBytes(props?: MetricOptions): Metric
+```
+
+The total number of bytes processed by the load balancer over IPv4 and IPv6.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricProcessedBytes.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricRejectedConnectionCount`~~ <a name="metricRejectedConnectionCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRejectedConnectionCount"></a>
+
+```typescript
+public metricRejectedConnectionCount(props?: MetricOptions): Metric
+```
+
+The number of connections that were rejected because the load balancer had reached its maximum number of connections.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRejectedConnectionCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricRequestCount`~~ <a name="metricRequestCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRequestCount"></a>
+
+```typescript
+public metricRequestCount(props?: MetricOptions): Metric
+```
+
+The number of requests processed over IPv4 and IPv6.
+
+This count includes only the requests with a response generated by a target of the load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRequestCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricRuleEvaluations`~~ <a name="metricRuleEvaluations" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRuleEvaluations"></a>
+
+```typescript
+public metricRuleEvaluations(props?: MetricOptions): Metric
+```
+
+The number of rules processed by the load balancer given a request rate averaged over an hour.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricRuleEvaluations.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTargetConnectionErrorCount`~~ <a name="metricTargetConnectionErrorCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetConnectionErrorCount"></a>
+
+```typescript
+public metricTargetConnectionErrorCount(props?: MetricOptions): Metric
+```
+
+The number of connections that were not successfully established between the load balancer and target.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetConnectionErrorCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTargetResponseTime`~~ <a name="metricTargetResponseTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetResponseTime"></a>
+
+```typescript
+public metricTargetResponseTime(props?: MetricOptions): Metric
+```
+
+The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetResponseTime.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTargetTLSNegotiationErrorCount`~~ <a name="metricTargetTLSNegotiationErrorCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetTLSNegotiationErrorCount"></a>
+
+```typescript
+public metricTargetTLSNegotiationErrorCount(props?: MetricOptions): Metric
+```
+
+The number of TLS connections initiated by the load balancer that did not establish a session with the target.
+
+Possible causes include a mismatch of ciphers or protocols.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.metricTargetTLSNegotiationErrorCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `alarmHttpCode4xxCount` <a name="alarmHttpCode4xxCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCode4xxCount"></a>
+
+```typescript
+public alarmHttpCode4xxCount(props?: ApplicationLoadBalancerHttpCode4xxCountAlarmConfig): ApplicationLoadBalancerHttpCode4xxCountAlarm
+```
+
+Creates an alarm that monitors the HTTP 4XX error count for the ApplicationLoadBalancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCode4xxCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig">ApplicationLoadBalancerHttpCode4xxCountAlarmConfig</a>
+
+---
+
+##### `alarmHttpCode5xxCount` <a name="alarmHttpCode5xxCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCode5xxCount"></a>
+
+```typescript
+public alarmHttpCode5xxCount(props?: ApplicationLoadBalancerHttpCode5xxCountAlarmConfig): ApplicationLoadBalancerHttpCode5xxCountAlarm
+```
+
+Creates an alarm that monitors the HTTP 5XX error count for the ApplicationLoadBalancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCode5xxCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig">ApplicationLoadBalancerHttpCode5xxCountAlarmConfig</a>
+
+---
+
+##### `alarmHttpCodeTarget5xxCount` <a name="alarmHttpCodeTarget5xxCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCodeTarget5xxCount"></a>
+
+```typescript
+public alarmHttpCodeTarget5xxCount(props?: ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig): ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm
+```
+
+Creates an alarm that monitors the HTTP 5XX error count from targets for the ApplicationLoadBalancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmHttpCodeTarget5xxCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig</a>
+
+---
+
+##### `alarmRejectedConnectionCount` <a name="alarmRejectedConnectionCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmRejectedConnectionCount"></a>
+
+```typescript
+public alarmRejectedConnectionCount(props?: ApplicationLoadBalancerRejectedConnectionCountAlarmConfig): ApplicationLoadBalancerRejectedConnectionCountAlarm
+```
+
+Creates an alarm that monitors the rejected connection count for the ApplicationLoadBalancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.alarmRejectedConnectionCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig">ApplicationLoadBalancerRejectedConnectionCountAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: ApplicationLoadBalancerRecommendedAlarmsConfig): ApplicationLoadBalancerRecommendedAlarms
+```
+
+Creates the recommended alarms for the ApplicationLoadBalancer.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig">ApplicationLoadBalancerRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromApplicationLoadBalancerAttributes">fromApplicationLoadBalancerAttributes</a></code> | Import an existing Application Load Balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromLookup">fromLookup</a></code> | Look up an application load balancer. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isConstruct"></a>
+
+```typescript
+import { ApplicationLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancer.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isOwnedResource"></a>
+
+```typescript
+import { ApplicationLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancer.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isResource"></a>
+
+```typescript
+import { ApplicationLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancer.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromApplicationLoadBalancerAttributes` <a name="fromApplicationLoadBalancerAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromApplicationLoadBalancerAttributes"></a>
+
+```typescript
+import { ApplicationLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancer.fromApplicationLoadBalancerAttributes(scope: Construct, id: string, attrs: ApplicationLoadBalancerAttributes)
+```
+
+Import an existing Application Load Balancer.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromApplicationLoadBalancerAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromApplicationLoadBalancerAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromApplicationLoadBalancerAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancerAttributes
+
+---
+
+##### `fromLookup` <a name="fromLookup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromLookup"></a>
+
+```typescript
+import { ApplicationLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancer.fromLookup(scope: Construct, id: string, options: ApplicationLoadBalancerLookupOptions)
+```
+
+Look up an application load balancer.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromLookup.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromLookup.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.fromLookup.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancerLookupOptions
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerArn">loadBalancerArn</a></code> | <code>string</code> | The ARN of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerCanonicalHostedZoneId">loadBalancerCanonicalHostedZoneId</a></code> | <code>string</code> | The canonical hosted zone ID of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerDnsName">loadBalancerDnsName</a></code> | <code>string</code> | The DNS name of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerFullName">loadBalancerFullName</a></code> | <code>string</code> | The full name of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerName">loadBalancerName</a></code> | <code>string</code> | The name of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerSecurityGroups">loadBalancerSecurityGroups</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC this load balancer has been created in. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.listeners">listeners</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener[]</code> | A list of listeners that have been added to the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancerMetrics</code> | All metrics available for this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.ipAddressType">ipAddressType</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IpAddressType</code> | The IP Address Type for this load balancer. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `loadBalancerArn`<sup>Required</sup> <a name="loadBalancerArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerArn"></a>
+
+```typescript
+public readonly loadBalancerArn: string;
+```
+
+- *Type:* string
+
+The ARN of this load balancer.
+
+Example value: `arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/50dc6c495c0c9188`
+
+---
+
+##### `loadBalancerCanonicalHostedZoneId`<sup>Required</sup> <a name="loadBalancerCanonicalHostedZoneId" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerCanonicalHostedZoneId"></a>
+
+```typescript
+public readonly loadBalancerCanonicalHostedZoneId: string;
+```
+
+- *Type:* string
+
+The canonical hosted zone ID of this load balancer.
+
+Example value: `Z2P70J7EXAMPLE`
+
+---
+
+##### `loadBalancerDnsName`<sup>Required</sup> <a name="loadBalancerDnsName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerDnsName"></a>
+
+```typescript
+public readonly loadBalancerDnsName: string;
+```
+
+- *Type:* string
+
+The DNS name of this load balancer.
+
+Example value: `my-load-balancer-424835706.us-west-2.elb.amazonaws.com`
+
+---
+
+##### `loadBalancerFullName`<sup>Required</sup> <a name="loadBalancerFullName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerFullName"></a>
+
+```typescript
+public readonly loadBalancerFullName: string;
+```
+
+- *Type:* string
+
+The full name of this load balancer.
+
+Example value: `app/my-load-balancer/50dc6c495c0c9188`
+
+---
+
+##### `loadBalancerName`<sup>Required</sup> <a name="loadBalancerName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerName"></a>
+
+```typescript
+public readonly loadBalancerName: string;
+```
+
+- *Type:* string
+
+The name of this load balancer.
+
+Example value: `my-load-balancer`
+
+---
+
+##### `loadBalancerSecurityGroups`<sup>Required</sup> <a name="loadBalancerSecurityGroups" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerSecurityGroups"></a>
+
+```typescript
+public readonly loadBalancerSecurityGroups: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC this load balancer has been created in.
+
+This property is always defined (not `null` or `undefined`) for sub-classes of `BaseLoadBalancer`.
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+The network connections associated with this resource.
+
+---
+
+##### `listeners`<sup>Required</sup> <a name="listeners" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.listeners"></a>
+
+```typescript
+public readonly listeners: ApplicationListener[];
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener[]
+
+A list of listeners that have been added to the load balancer.
+
+This list is only valid for owned constructs.
+
+---
+
+##### `metrics`<sup>Required</sup> <a name="metrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.metrics"></a>
+
+```typescript
+public readonly metrics: IApplicationLoadBalancerMetrics;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancerMetrics
+
+All metrics available for this load balancer.
+
+---
+
+##### `ipAddressType`<sup>Optional</sup> <a name="ipAddressType" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.ipAddressType"></a>
+
+```typescript
+public readonly ipAddressType: IpAddressType;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IpAddressType
+
+The IP Address Type for this load balancer.
+
+If the `@aws-cdk/aws-elasticloadbalancingV2:albDualstackWithoutPublicIpv4SecurityGroupRulesDefault`
+feature flag is set (the default for new projects), and `addListener()` is called with `open: true`,
+the load balancer's security group will automatically include both IPv4 and IPv6 ingress rules
+when using `IpAddressType.DUAL_STACK_WITHOUT_PUBLIC_IPV4`.
+
+For existing projects that only have IPv4 rules, you can opt-in to IPv6 ingress rules
+by enabling the feature flag in your cdk.json file. Note that enabling this feature flag
+will modify existing security group rules.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### ApplicationLoadBalancerHttpCode4xxCountAlarm <a name="ApplicationLoadBalancerHttpCode4xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm"></a>
+
+This alarm is used to detect when the load balancer is generating 4XX errors.
+
+A high number of 4XX errors can indicate client-side issues or misconfigured requests.
+
+The alarm is triggered when the number of 4XX errors is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode4xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationLoadBalancerHttpCode4xxCountAlarm(scope: IConstruct, id: string, props: ApplicationLoadBalancerHttpCode4xxCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps">ApplicationLoadBalancerHttpCode4xxCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps">ApplicationLoadBalancerHttpCode4xxCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isConstruct"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode4xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode4xxCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode4xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode4xxCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isResource"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode4xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode4xxCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode4xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode4xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### ApplicationLoadBalancerHttpCode5xxCountAlarm <a name="ApplicationLoadBalancerHttpCode5xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm"></a>
+
+This alarm is used to detect when the load balancer is generating 5XX errors.
+
+A high number of 5XX errors can indicate issues with the load balancer itself.
+
+The alarm is triggered when the number of 5XX errors is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationLoadBalancerHttpCode5xxCountAlarm(scope: IConstruct, id: string, props: ApplicationLoadBalancerHttpCode5xxCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps">ApplicationLoadBalancerHttpCode5xxCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps">ApplicationLoadBalancerHttpCode5xxCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isConstruct"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode5xxCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode5xxCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isResource"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode5xxCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm <a name="ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm"></a>
+
+This alarm is used to detect when the targets are generating 5XX errors.
+
+A high number of 5XX errors can indicate issues with the application or backend services.
+
+The alarm is triggered when the number of 5XX errors from targets is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm(scope: IConstruct, id: string, props: ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isConstruct"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isResource"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### ApplicationLoadBalancerRecommendedAlarms <a name="ApplicationLoadBalancerRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an ApplicationLoadBalancer.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationLoadBalancerRecommendedAlarms(scope: Construct, id: string, props: ApplicationLoadBalancerRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps">ApplicationLoadBalancerRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps">ApplicationLoadBalancerRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { ApplicationLoadBalancerRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.alarmHttpCode4xxCount">alarmHttpCode4xxCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm">ApplicationLoadBalancerHttpCode4xxCountAlarm</a></code> | The HTTPCode_ELB_4XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.alarmHttpCode5xxCount">alarmHttpCode5xxCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm">ApplicationLoadBalancerHttpCode5xxCountAlarm</a></code> | The HTTPCode_ELB_5XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.alarmHttpCodeTarget5xxCount">alarmHttpCodeTarget5xxCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm</a></code> | The HTTPCode_Target_5XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.alarmRejectedConnectionCount">alarmRejectedConnectionCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm">ApplicationLoadBalancerRejectedConnectionCountAlarm</a></code> | The RejectedConnectionCount alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmHttpCode4xxCount`<sup>Optional</sup> <a name="alarmHttpCode4xxCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.alarmHttpCode4xxCount"></a>
+
+```typescript
+public readonly alarmHttpCode4xxCount: ApplicationLoadBalancerHttpCode4xxCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm">ApplicationLoadBalancerHttpCode4xxCountAlarm</a>
+
+The HTTPCode_ELB_4XX_Count alarm.
+
+---
+
+##### `alarmHttpCode5xxCount`<sup>Optional</sup> <a name="alarmHttpCode5xxCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.alarmHttpCode5xxCount"></a>
+
+```typescript
+public readonly alarmHttpCode5xxCount: ApplicationLoadBalancerHttpCode5xxCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm">ApplicationLoadBalancerHttpCode5xxCountAlarm</a>
+
+The HTTPCode_ELB_5XX_Count alarm.
+
+---
+
+##### `alarmHttpCodeTarget5xxCount`<sup>Optional</sup> <a name="alarmHttpCodeTarget5xxCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.alarmHttpCodeTarget5xxCount"></a>
+
+```typescript
+public readonly alarmHttpCodeTarget5xxCount: ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm</a>
+
+The HTTPCode_Target_5XX_Count alarm.
+
+---
+
+##### `alarmRejectedConnectionCount`<sup>Optional</sup> <a name="alarmRejectedConnectionCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.property.alarmRejectedConnectionCount"></a>
+
+```typescript
+public readonly alarmRejectedConnectionCount: ApplicationLoadBalancerRejectedConnectionCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm">ApplicationLoadBalancerRejectedConnectionCountAlarm</a>
+
+The RejectedConnectionCount alarm.
+
+---
+
+
+### ApplicationLoadBalancerRejectedConnectionCountAlarm <a name="ApplicationLoadBalancerRejectedConnectionCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm"></a>
+
+This alarm is used to detect when the load balancer is rejecting connections.
+
+Rejected connections can indicate that the load balancer has reached its maximum connection limit.
+
+The alarm is triggered when the number of rejected connections is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerRejectedConnectionCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationLoadBalancerRejectedConnectionCountAlarm(scope: IConstruct, id: string, props: ApplicationLoadBalancerRejectedConnectionCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps">ApplicationLoadBalancerRejectedConnectionCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps">ApplicationLoadBalancerRejectedConnectionCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isConstruct"></a>
+
+```typescript
+import { ApplicationLoadBalancerRejectedConnectionCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerRejectedConnectionCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApplicationLoadBalancerRejectedConnectionCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerRejectedConnectionCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isResource"></a>
+
+```typescript
+import { ApplicationLoadBalancerRejectedConnectionCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerRejectedConnectionCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApplicationLoadBalancerRejectedConnectionCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApplicationLoadBalancerRejectedConnectionCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### ApplicationTargetGroup <a name="ApplicationTargetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup"></a>
+
+An extension for the ApplicationTargetGroup construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationTargetGroup(scope: Construct, id: string, props: ApplicationTargetGroupProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroupProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroupProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.configureHealthCheck">configureHealthCheck</a></code> | Set/replace the target group's health check. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.setAttribute">setAttribute</a></code> | Set a non-standard attribute on the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.addTarget">addTarget</a></code> | Add a load balancing target to this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.enableCookieStickiness">enableCookieStickiness</a></code> | Enable sticky routing via a cookie to members of this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metric">metric</a></code> | Return the given named metric for this Application Load Balancer Target Group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricHealthyHostCount">metricHealthyHostCount</a></code> | The number of healthy hosts in the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricHttpCodeTarget">metricHttpCodeTarget</a></code> | The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricIpv6RequestCount">metricIpv6RequestCount</a></code> | The number of IPv6 requests received by the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricRequestCount">metricRequestCount</a></code> | The number of requests processed over IPv4 and IPv6. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricRequestCountPerTarget">metricRequestCountPerTarget</a></code> | The average number of requests received by each target in a target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetConnectionErrorCount">metricTargetConnectionErrorCount</a></code> | The number of connections that were not successfully established between the load balancer and target. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetResponseTime">metricTargetResponseTime</a></code> | The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetTLSNegotiationErrorCount">metricTargetTLSNegotiationErrorCount</a></code> | The number of TLS connections initiated by the load balancer that did not establish a session with the target. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricUnhealthyHostCount">metricUnhealthyHostCount</a></code> | The number of unhealthy hosts in the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.registerConnectable">registerConnectable</a></code> | Register a connectable as a member of this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.registerListener">registerListener</a></code> | Register a listener that is load balancing to this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.alarmHealthyHostCount">alarmHealthyHostCount</a></code> | Creates an alarm that monitors the healthy host count for the ApplicationTargetGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.alarmUnHealthyHostCount">alarmUnHealthyHostCount</a></code> | Creates an alarm that monitors the unhealthy host count for the ApplicationTargetGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the ApplicationTargetGroup. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `configureHealthCheck` <a name="configureHealthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.configureHealthCheck"></a>
+
+```typescript
+public configureHealthCheck(healthCheck: HealthCheck): void
+```
+
+Set/replace the target group's health check.
+
+###### `healthCheck`<sup>Required</sup> <a name="healthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.configureHealthCheck.parameter.healthCheck"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck
+
+---
+
+##### `setAttribute` <a name="setAttribute" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.setAttribute"></a>
+
+```typescript
+public setAttribute(key: string, value?: string): void
+```
+
+Set a non-standard attribute on the target group.
+
+> [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes)
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.setAttribute.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Optional</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.setAttribute.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addTarget` <a name="addTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.addTarget"></a>
+
+```typescript
+public addTarget(targets: ...IApplicationLoadBalancerTarget[]): void
+```
+
+Add a load balancing target to this target group.
+
+###### `targets`<sup>Required</sup> <a name="targets" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.addTarget.parameter.targets"></a>
+
+- *Type:* ...aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancerTarget[]
+
+---
+
+##### `enableCookieStickiness` <a name="enableCookieStickiness" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.enableCookieStickiness"></a>
+
+```typescript
+public enableCookieStickiness(duration: Duration, cookieName?: string): void
+```
+
+Enable sticky routing via a cookie to members of this target group.
+
+Note: If the `cookieName` parameter is set, application-based stickiness will be applied,
+otherwise it defaults to duration-based stickiness attributes (`lb_cookie`).
+
+> [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html)
+
+###### `duration`<sup>Required</sup> <a name="duration" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.enableCookieStickiness.parameter.duration"></a>
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+###### `cookieName`<sup>Optional</sup> <a name="cookieName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.enableCookieStickiness.parameter.cookieName"></a>
+
+- *Type:* string
+
+---
+
+##### `metric` <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this Application Load Balancer Target Group.
+
+Returns the metric for this target group from the point of view of the first
+load balancer load balancing to it. If you have multiple load balancers load
+sending traffic to the same target group, you will have to override the dimensions
+on this metric.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricHealthyHostCount`~~ <a name="metricHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricHealthyHostCount"></a>
+
+```typescript
+public metricHealthyHostCount(props?: MetricOptions): Metric
+```
+
+The number of healthy hosts in the target group.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricHealthyHostCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricHttpCodeTarget`~~ <a name="metricHttpCodeTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricHttpCodeTarget"></a>
+
+```typescript
+public metricHttpCodeTarget(code: HttpCodeTarget, props?: MetricOptions): Metric
+```
+
+The number of HTTP 2xx/3xx/4xx/5xx response codes generated by all targets in this target group.
+
+This does not include any response codes generated by the load balancer.
+
+###### `code`<sup>Required</sup> <a name="code" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricHttpCodeTarget.parameter.code"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.HttpCodeTarget
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricHttpCodeTarget.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricIpv6RequestCount`~~ <a name="metricIpv6RequestCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricIpv6RequestCount"></a>
+
+```typescript
+public metricIpv6RequestCount(props?: MetricOptions): Metric
+```
+
+The number of IPv6 requests received by the target group.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricIpv6RequestCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricRequestCount`~~ <a name="metricRequestCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricRequestCount"></a>
+
+```typescript
+public metricRequestCount(props?: MetricOptions): Metric
+```
+
+The number of requests processed over IPv4 and IPv6.
+
+This count includes only the requests with a response generated by a target of the load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricRequestCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricRequestCountPerTarget`~~ <a name="metricRequestCountPerTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricRequestCountPerTarget"></a>
+
+```typescript
+public metricRequestCountPerTarget(props?: MetricOptions): Metric
+```
+
+The average number of requests received by each target in a target group.
+
+The only valid statistic is Sum. Note that this represents the average not the sum.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricRequestCountPerTarget.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTargetConnectionErrorCount`~~ <a name="metricTargetConnectionErrorCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetConnectionErrorCount"></a>
+
+```typescript
+public metricTargetConnectionErrorCount(props?: MetricOptions): Metric
+```
+
+The number of connections that were not successfully established between the load balancer and target.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetConnectionErrorCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTargetResponseTime`~~ <a name="metricTargetResponseTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetResponseTime"></a>
+
+```typescript
+public metricTargetResponseTime(props?: MetricOptions): Metric
+```
+
+The time elapsed, in seconds, after the request leaves the load balancer until a response from the target is received.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetResponseTime.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTargetTLSNegotiationErrorCount`~~ <a name="metricTargetTLSNegotiationErrorCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetTLSNegotiationErrorCount"></a>
+
+```typescript
+public metricTargetTLSNegotiationErrorCount(props?: MetricOptions): Metric
+```
+
+The number of TLS connections initiated by the load balancer that did not establish a session with the target.
+
+Possible causes include a mismatch of ciphers or protocols.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricTargetTLSNegotiationErrorCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricUnhealthyHostCount`~~ <a name="metricUnhealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricUnhealthyHostCount"></a>
+
+```typescript
+public metricUnhealthyHostCount(props?: MetricOptions): Metric
+```
+
+The number of unhealthy hosts in the target group.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.metricUnhealthyHostCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `registerConnectable` <a name="registerConnectable" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.registerConnectable"></a>
+
+```typescript
+public registerConnectable(connectable: IConnectable, portRange?: Port): void
+```
+
+Register a connectable as a member of this target group.
+
+Don't call this directly. It will be called by load balancing targets.
+
+###### `connectable`<sup>Required</sup> <a name="connectable" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.registerConnectable.parameter.connectable"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.IConnectable
+
+---
+
+###### `portRange`<sup>Optional</sup> <a name="portRange" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.registerConnectable.parameter.portRange"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.Port
+
+---
+
+##### `registerListener` <a name="registerListener" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.registerListener"></a>
+
+```typescript
+public registerListener(listener: IApplicationListener, associatingConstruct?: IConstruct): void
+```
+
+Register a listener that is load balancing to this target group.
+
+Don't call this directly. It will be called by listeners.
+
+###### `listener`<sup>Required</sup> <a name="listener" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.registerListener.parameter.listener"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationListener
+
+---
+
+###### `associatingConstruct`<sup>Optional</sup> <a name="associatingConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.registerListener.parameter.associatingConstruct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `alarmHealthyHostCount` <a name="alarmHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.alarmHealthyHostCount"></a>
+
+```typescript
+public alarmHealthyHostCount(props?: ApplicationTargetGroupHealthyHostCountAlarmConfig): ApplicationTargetGroupHealthyHostCountAlarm
+```
+
+Creates an alarm that monitors the healthy host count for the ApplicationTargetGroup.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.alarmHealthyHostCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig">ApplicationTargetGroupHealthyHostCountAlarmConfig</a>
+
+---
+
+##### `alarmUnHealthyHostCount` <a name="alarmUnHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.alarmUnHealthyHostCount"></a>
+
+```typescript
+public alarmUnHealthyHostCount(props?: ApplicationTargetGroupUnHealthyHostCountAlarmConfig): ApplicationTargetGroupUnHealthyHostCountAlarm
+```
+
+Creates an alarm that monitors the unhealthy host count for the ApplicationTargetGroup.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.alarmUnHealthyHostCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig">ApplicationTargetGroupUnHealthyHostCountAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: ApplicationTargetGroupRecommendedAlarmsConfig): ApplicationTargetGroupRecommendedAlarms
+```
+
+Creates the recommended alarms for the ApplicationTargetGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig">ApplicationTargetGroupRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.fromTargetGroupAttributes">fromTargetGroupAttributes</a></code> | Import an existing target group. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.isConstruct"></a>
+
+```typescript
+import { ApplicationTargetGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroup.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `fromTargetGroupAttributes` <a name="fromTargetGroupAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.fromTargetGroupAttributes"></a>
+
+```typescript
+import { ApplicationTargetGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroup.fromTargetGroupAttributes(scope: Construct, id: string, attrs: TargetGroupAttributes)
+```
+
+Import an existing target group.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.fromTargetGroupAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.fromTargetGroupAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.fromTargetGroupAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.firstLoadBalancerFullName">firstLoadBalancerFullName</a></code> | <code>string</code> | Full name of first load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.loadBalancerArns">loadBalancerArns</a></code> | <code>string</code> | A token representing a list of ARNs of the load balancers that route traffic to this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.loadBalancerAttached">loadBalancerAttached</a></code> | <code>constructs.IDependable</code> | List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupArn">targetGroupArn</a></code> | <code>string</code> | The ARN of the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupFullName">targetGroupFullName</a></code> | <code>string</code> | The full name of the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupLoadBalancerArns">targetGroupLoadBalancerArns</a></code> | <code>string[]</code> | ARNs of load balancers load balancing to this TargetGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupName">targetGroupName</a></code> | <code>string</code> | The name of the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.healthCheck">healthCheck</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck</code> | Health check for the members of this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroupMetrics</code> | All metrics available for this target group. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `firstLoadBalancerFullName`<sup>Required</sup> <a name="firstLoadBalancerFullName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.firstLoadBalancerFullName"></a>
+
+```typescript
+public readonly firstLoadBalancerFullName: string;
+```
+
+- *Type:* string
+
+Full name of first load balancer.
+
+---
+
+##### `loadBalancerArns`<sup>Required</sup> <a name="loadBalancerArns" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.loadBalancerArns"></a>
+
+```typescript
+public readonly loadBalancerArns: string;
+```
+
+- *Type:* string
+
+A token representing a list of ARNs of the load balancers that route traffic to this target group.
+
+---
+
+##### `loadBalancerAttached`<sup>Required</sup> <a name="loadBalancerAttached" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.loadBalancerAttached"></a>
+
+```typescript
+public readonly loadBalancerAttached: IDependable;
+```
+
+- *Type:* constructs.IDependable
+
+List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer.
+
+---
+
+##### `targetGroupArn`<sup>Required</sup> <a name="targetGroupArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupArn"></a>
+
+```typescript
+public readonly targetGroupArn: string;
+```
+
+- *Type:* string
+
+The ARN of the target group.
+
+---
+
+##### `targetGroupFullName`<sup>Required</sup> <a name="targetGroupFullName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupFullName"></a>
+
+```typescript
+public readonly targetGroupFullName: string;
+```
+
+- *Type:* string
+
+The full name of the target group.
+
+---
+
+##### `targetGroupLoadBalancerArns`<sup>Required</sup> <a name="targetGroupLoadBalancerArns" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupLoadBalancerArns"></a>
+
+```typescript
+public readonly targetGroupLoadBalancerArns: string[];
+```
+
+- *Type:* string[]
+
+ARNs of load balancers load balancing to this TargetGroup.
+
+---
+
+##### `targetGroupName`<sup>Required</sup> <a name="targetGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupName"></a>
+
+```typescript
+public readonly targetGroupName: string;
+```
+
+- *Type:* string
+
+The name of the target group.
+
+---
+
+##### `healthCheck`<sup>Required</sup> <a name="healthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.healthCheck"></a>
+
+```typescript
+public readonly healthCheck: HealthCheck;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck
+
+Health check for the members of this target group.
+
+---
+
+##### `metrics`<sup>Required</sup> <a name="metrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.metrics"></a>
+
+```typescript
+public readonly metrics: IApplicationTargetGroupMetrics;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroupMetrics
+
+All metrics available for this target group.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### ApplicationTargetGroupHealthyHostCountAlarm <a name="ApplicationTargetGroupHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm"></a>
+
+This alarm is used to detect when the number of healthy hosts in the target group falls below the threshold.
+
+A low number of healthy hosts can indicate service availability issues.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationTargetGroupHealthyHostCountAlarm(scope: IConstruct, id: string, props: ApplicationTargetGroupHealthyHostCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps">ApplicationTargetGroupHealthyHostCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps">ApplicationTargetGroupHealthyHostCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isConstruct"></a>
+
+```typescript
+import { ApplicationTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupHealthyHostCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApplicationTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupHealthyHostCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isResource"></a>
+
+```typescript
+import { ApplicationTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupHealthyHostCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApplicationTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApplicationTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### ApplicationTargetGroupRecommendedAlarms <a name="ApplicationTargetGroupRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an ApplicationTargetGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationTargetGroupRecommendedAlarms(scope: Construct, id: string, props: ApplicationTargetGroupRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps">ApplicationTargetGroupRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps">ApplicationTargetGroupRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { ApplicationTargetGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.property.alarmHealthyHostCount">alarmHealthyHostCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm">ApplicationTargetGroupHealthyHostCountAlarm</a></code> | The HealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.property.alarmUnHealthyHostCount">alarmUnHealthyHostCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm">ApplicationTargetGroupUnHealthyHostCountAlarm</a></code> | The UnHealthyHostCount alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmHealthyHostCount`<sup>Optional</sup> <a name="alarmHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.property.alarmHealthyHostCount"></a>
+
+```typescript
+public readonly alarmHealthyHostCount: ApplicationTargetGroupHealthyHostCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm">ApplicationTargetGroupHealthyHostCountAlarm</a>
+
+The HealthyHostCount alarm.
+
+---
+
+##### `alarmUnHealthyHostCount`<sup>Optional</sup> <a name="alarmUnHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.property.alarmUnHealthyHostCount"></a>
+
+```typescript
+public readonly alarmUnHealthyHostCount: ApplicationTargetGroupUnHealthyHostCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm">ApplicationTargetGroupUnHealthyHostCountAlarm</a>
+
+The UnHealthyHostCount alarm.
+
+---
+
+
+### ApplicationTargetGroupUnHealthyHostCountAlarm <a name="ApplicationTargetGroupUnHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm"></a>
+
+This alarm is used to detect when the number of unhealthy hosts in the target group exceeds the threshold.
+
+A high number of unhealthy hosts can indicate service health issues.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationTargetGroupUnHealthyHostCountAlarm(scope: IConstruct, id: string, props: ApplicationTargetGroupUnHealthyHostCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps">ApplicationTargetGroupUnHealthyHostCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps">ApplicationTargetGroupUnHealthyHostCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isConstruct"></a>
+
+```typescript
+import { ApplicationTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupUnHealthyHostCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApplicationTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupUnHealthyHostCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isResource"></a>
+
+```typescript
+import { ApplicationTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupUnHealthyHostCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApplicationTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApplicationTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 ### Bucket <a name="Bucket" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket"></a>
 
 An extension for the S3 Bucket construct that provides methods to create recommended alarms.
@@ -27605,6 +32085,3088 @@ The metric object this alarm was based on.
 ---
 
 
+### NetworkLoadBalancer <a name="NetworkLoadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer"></a>
+
+An extension for the NetworkLoadBalancer construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkLoadBalancer(scope: Construct, id: string, props: NetworkLoadBalancerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.logAccessLogs">logAccessLogs</a></code> | Enable access logging for this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.removeAttribute">removeAttribute</a></code> | Remove an attribute from the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.setAttribute">setAttribute</a></code> | Set a non-standard attribute on the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.addListener">addListener</a></code> | Add a listener to this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.addSecurityGroup">addSecurityGroup</a></code> | Add a security group to this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metric">metric</a></code> | Return the given named metric for this Network Load Balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricActiveFlowCount">metricActiveFlowCount</a></code> | The total number of concurrent TCP flows (or connections) from clients to targets. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricConsumedLCUs">metricConsumedLCUs</a></code> | The number of load balancer capacity units (LCU) used by your load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricNewFlowCount">metricNewFlowCount</a></code> | The total number of new TCP flows (or connections) established from clients to targets in the time period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricProcessedBytes">metricProcessedBytes</a></code> | The total number of bytes processed by the load balancer, including TCP/IP headers. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpClientResetCount">metricTcpClientResetCount</a></code> | The total number of reset (RST) packets sent from a client to a target. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpElbResetCount">metricTcpElbResetCount</a></code> | The total number of reset (RST) packets generated by the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpTargetResetCount">metricTcpTargetResetCount</a></code> | The total number of reset (RST) packets sent from a target to a client. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.alarmTcpElbResetCount">alarmTcpElbResetCount</a></code> | Creates an alarm that monitors the TCP reset count from the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.alarmTcpTargetResetCount">alarmTcpTargetResetCount</a></code> | Creates an alarm that monitors the TCP reset count from targets. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the NetworkLoadBalancer. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `logAccessLogs` <a name="logAccessLogs" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.logAccessLogs"></a>
+
+```typescript
+public logAccessLogs(bucket: IBucket, prefix?: string): void
+```
+
+Enable access logging for this load balancer.
+
+A region must be specified on the stack containing the load balancer; you cannot enable logging on
+environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
+
+###### `bucket`<sup>Required</sup> <a name="bucket" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.logAccessLogs.parameter.bucket"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+###### `prefix`<sup>Optional</sup> <a name="prefix" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.logAccessLogs.parameter.prefix"></a>
+
+- *Type:* string
+
+---
+
+##### `removeAttribute` <a name="removeAttribute" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.removeAttribute"></a>
+
+```typescript
+public removeAttribute(key: string): void
+```
+
+Remove an attribute from the load balancer.
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.removeAttribute.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+##### `setAttribute` <a name="setAttribute" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.setAttribute"></a>
+
+```typescript
+public setAttribute(key: string, value?: string): void
+```
+
+Set a non-standard attribute on the load balancer.
+
+> [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes)
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.setAttribute.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Optional</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.setAttribute.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addListener` <a name="addListener" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.addListener"></a>
+
+```typescript
+public addListener(id: string, props: BaseNetworkListenerProps): NetworkListener
+```
+
+Add a listener to this load balancer.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.addListener.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.addListener.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.BaseNetworkListenerProps
+
+---
+
+##### `addSecurityGroup` <a name="addSecurityGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.addSecurityGroup"></a>
+
+```typescript
+public addSecurityGroup(securityGroup: ISecurityGroup): void
+```
+
+Add a security group to this load balancer.
+
+###### `securityGroup`<sup>Required</sup> <a name="securityGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.addSecurityGroup.parameter.securityGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup
+
+---
+
+##### ~~`metric`~~ <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this Network Load Balancer.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricActiveFlowCount`~~ <a name="metricActiveFlowCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricActiveFlowCount"></a>
+
+```typescript
+public metricActiveFlowCount(props?: MetricOptions): Metric
+```
+
+The total number of concurrent TCP flows (or connections) from clients to targets.
+
+This metric includes connections in the SYN_SENT and ESTABLISHED states.
+TCP connections are not terminated at the load balancer, so a client
+opening a TCP connection to a target counts as a single flow.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricActiveFlowCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricConsumedLCUs`~~ <a name="metricConsumedLCUs" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricConsumedLCUs"></a>
+
+```typescript
+public metricConsumedLCUs(props?: MetricOptions): Metric
+```
+
+The number of load balancer capacity units (LCU) used by your load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricConsumedLCUs.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricNewFlowCount`~~ <a name="metricNewFlowCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricNewFlowCount"></a>
+
+```typescript
+public metricNewFlowCount(props?: MetricOptions): Metric
+```
+
+The total number of new TCP flows (or connections) established from clients to targets in the time period.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricNewFlowCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricProcessedBytes`~~ <a name="metricProcessedBytes" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricProcessedBytes"></a>
+
+```typescript
+public metricProcessedBytes(props?: MetricOptions): Metric
+```
+
+The total number of bytes processed by the load balancer, including TCP/IP headers.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricProcessedBytes.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTcpClientResetCount`~~ <a name="metricTcpClientResetCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpClientResetCount"></a>
+
+```typescript
+public metricTcpClientResetCount(props?: MetricOptions): Metric
+```
+
+The total number of reset (RST) packets sent from a client to a target.
+
+These resets are generated by the client and forwarded by the load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpClientResetCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTcpElbResetCount`~~ <a name="metricTcpElbResetCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpElbResetCount"></a>
+
+```typescript
+public metricTcpElbResetCount(props?: MetricOptions): Metric
+```
+
+The total number of reset (RST) packets generated by the load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpElbResetCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricTcpTargetResetCount`~~ <a name="metricTcpTargetResetCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpTargetResetCount"></a>
+
+```typescript
+public metricTcpTargetResetCount(props?: MetricOptions): Metric
+```
+
+The total number of reset (RST) packets sent from a target to a client.
+
+These resets are generated by the target and forwarded by the load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.metricTcpTargetResetCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `alarmTcpElbResetCount` <a name="alarmTcpElbResetCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.alarmTcpElbResetCount"></a>
+
+```typescript
+public alarmTcpElbResetCount(props?: NetworkLoadBalancerTcpElbResetCountAlarmConfig): NetworkLoadBalancerTcpElbResetCountAlarm
+```
+
+Creates an alarm that monitors the TCP reset count from the load balancer.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.alarmTcpElbResetCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig">NetworkLoadBalancerTcpElbResetCountAlarmConfig</a>
+
+---
+
+##### `alarmTcpTargetResetCount` <a name="alarmTcpTargetResetCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.alarmTcpTargetResetCount"></a>
+
+```typescript
+public alarmTcpTargetResetCount(props?: NetworkLoadBalancerTcpTargetResetCountAlarmConfig): NetworkLoadBalancerTcpTargetResetCountAlarm
+```
+
+Creates an alarm that monitors the TCP reset count from targets.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.alarmTcpTargetResetCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig">NetworkLoadBalancerTcpTargetResetCountAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: NetworkLoadBalancerRecommendedAlarmsConfig): NetworkLoadBalancerRecommendedAlarms
+```
+
+Creates the recommended alarms for the NetworkLoadBalancer.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig">NetworkLoadBalancerRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromLookup">fromLookup</a></code> | Looks up the network load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromNetworkLoadBalancerAttributes">fromNetworkLoadBalancerAttributes</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isConstruct"></a>
+
+```typescript
+import { NetworkLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancer.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isOwnedResource"></a>
+
+```typescript
+import { NetworkLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancer.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isResource"></a>
+
+```typescript
+import { NetworkLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancer.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromLookup` <a name="fromLookup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromLookup"></a>
+
+```typescript
+import { NetworkLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancer.fromLookup(scope: Construct, id: string, options: NetworkLoadBalancerLookupOptions)
+```
+
+Looks up the network load balancer.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromLookup.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromLookup.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromLookup.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancerLookupOptions
+
+---
+
+##### `fromNetworkLoadBalancerAttributes` <a name="fromNetworkLoadBalancerAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromNetworkLoadBalancerAttributes"></a>
+
+```typescript
+import { NetworkLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancer.fromNetworkLoadBalancerAttributes(scope: Construct, id: string, attrs: NetworkLoadBalancerAttributes)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromNetworkLoadBalancerAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromNetworkLoadBalancerAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.fromNetworkLoadBalancerAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancerAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerArn">loadBalancerArn</a></code> | <code>string</code> | The ARN of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerCanonicalHostedZoneId">loadBalancerCanonicalHostedZoneId</a></code> | <code>string</code> | The canonical hosted zone ID of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerDnsName">loadBalancerDnsName</a></code> | <code>string</code> | The DNS name of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerFullName">loadBalancerFullName</a></code> | <code>string</code> | The full name of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerName">loadBalancerName</a></code> | <code>string</code> | The name of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerSecurityGroups">loadBalancerSecurityGroups</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC this load balancer has been created in. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancerMetrics</code> | All metrics available for this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic">enforceSecurityGroupInboundRulesOnPrivateLinkTraffic</a></code> | <code>string</code> | Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.ipAddressType">ipAddressType</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IpAddressType</code> | The type of IP addresses to use. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.securityGroups">securityGroups</a></code> | <code>string[]</code> | After the implementation of `IConnectable` (see https://github.com/aws/aws-cdk/pull/28494), the default value for `securityGroups` is set by the `ec2.Connections` constructor to an empty array. To keep backward compatibility (`securityGroups` is `undefined` if the related property is not specified) a getter has been added. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `loadBalancerArn`<sup>Required</sup> <a name="loadBalancerArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerArn"></a>
+
+```typescript
+public readonly loadBalancerArn: string;
+```
+
+- *Type:* string
+
+The ARN of this load balancer.
+
+Example value: `arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/50dc6c495c0c9188`
+
+---
+
+##### `loadBalancerCanonicalHostedZoneId`<sup>Required</sup> <a name="loadBalancerCanonicalHostedZoneId" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerCanonicalHostedZoneId"></a>
+
+```typescript
+public readonly loadBalancerCanonicalHostedZoneId: string;
+```
+
+- *Type:* string
+
+The canonical hosted zone ID of this load balancer.
+
+Example value: `Z2P70J7EXAMPLE`
+
+---
+
+##### `loadBalancerDnsName`<sup>Required</sup> <a name="loadBalancerDnsName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerDnsName"></a>
+
+```typescript
+public readonly loadBalancerDnsName: string;
+```
+
+- *Type:* string
+
+The DNS name of this load balancer.
+
+Example value: `my-load-balancer-424835706.us-west-2.elb.amazonaws.com`
+
+---
+
+##### `loadBalancerFullName`<sup>Required</sup> <a name="loadBalancerFullName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerFullName"></a>
+
+```typescript
+public readonly loadBalancerFullName: string;
+```
+
+- *Type:* string
+
+The full name of this load balancer.
+
+Example value: `app/my-load-balancer/50dc6c495c0c9188`
+
+---
+
+##### `loadBalancerName`<sup>Required</sup> <a name="loadBalancerName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerName"></a>
+
+```typescript
+public readonly loadBalancerName: string;
+```
+
+- *Type:* string
+
+The name of this load balancer.
+
+Example value: `my-load-balancer`
+
+---
+
+##### `loadBalancerSecurityGroups`<sup>Required</sup> <a name="loadBalancerSecurityGroups" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerSecurityGroups"></a>
+
+```typescript
+public readonly loadBalancerSecurityGroups: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC this load balancer has been created in.
+
+This property is always defined (not `null` or `undefined`) for sub-classes of `BaseLoadBalancer`.
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+The network connections associated with this resource.
+
+---
+
+##### `metrics`<sup>Required</sup> <a name="metrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.metrics"></a>
+
+```typescript
+public readonly metrics: INetworkLoadBalancerMetrics;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancerMetrics
+
+All metrics available for this load balancer.
+
+---
+
+##### `enforceSecurityGroupInboundRulesOnPrivateLinkTraffic`<sup>Optional</sup> <a name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"></a>
+
+```typescript
+public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic: string;
+```
+
+- *Type:* string
+
+Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink.
+
+---
+
+##### `ipAddressType`<sup>Optional</sup> <a name="ipAddressType" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.ipAddressType"></a>
+
+```typescript
+public readonly ipAddressType: IpAddressType;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.IpAddressType
+
+The type of IP addresses to use.
+
+---
+
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: string[];
+```
+
+- *Type:* string[]
+
+After the implementation of `IConnectable` (see https://github.com/aws/aws-cdk/pull/28494), the default value for `securityGroups` is set by the `ec2.Connections` constructor to an empty array. To keep backward compatibility (`securityGroups` is `undefined` if the related property is not specified) a getter has been added.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### NetworkLoadBalancerRecommendedAlarms <a name="NetworkLoadBalancerRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for a NetworkLoadBalancer.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkLoadBalancerRecommendedAlarms(scope: Construct, id: string, props: NetworkLoadBalancerRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps">NetworkLoadBalancerRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps">NetworkLoadBalancerRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { NetworkLoadBalancerRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.property.alarmTcpElbResetCount">alarmTcpElbResetCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm">NetworkLoadBalancerTcpElbResetCountAlarm</a></code> | The TcpElbResetCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.property.alarmTcpTargetResetCount">alarmTcpTargetResetCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm">NetworkLoadBalancerTcpTargetResetCountAlarm</a></code> | The TcpTargetResetCount alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmTcpElbResetCount`<sup>Optional</sup> <a name="alarmTcpElbResetCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.property.alarmTcpElbResetCount"></a>
+
+```typescript
+public readonly alarmTcpElbResetCount: NetworkLoadBalancerTcpElbResetCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm">NetworkLoadBalancerTcpElbResetCountAlarm</a>
+
+The TcpElbResetCount alarm.
+
+---
+
+##### `alarmTcpTargetResetCount`<sup>Optional</sup> <a name="alarmTcpTargetResetCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.property.alarmTcpTargetResetCount"></a>
+
+```typescript
+public readonly alarmTcpTargetResetCount: NetworkLoadBalancerTcpTargetResetCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm">NetworkLoadBalancerTcpTargetResetCountAlarm</a>
+
+The TcpTargetResetCount alarm.
+
+---
+
+
+### NetworkLoadBalancerTcpElbResetCountAlarm <a name="NetworkLoadBalancerTcpElbResetCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm"></a>
+
+This alarm is used to detect when the load balancer is sending TCP reset packets.
+
+A high number of resets can indicate connectivity issues between the load balancer and clients.
+
+The alarm is triggered when the number of TCP resets from the load balancer is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpElbResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkLoadBalancerTcpElbResetCountAlarm(scope: IConstruct, id: string, props: NetworkLoadBalancerTcpElbResetCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps">NetworkLoadBalancerTcpElbResetCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps">NetworkLoadBalancerTcpElbResetCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isConstruct"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpElbResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpElbResetCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpElbResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpElbResetCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isResource"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpElbResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpElbResetCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpElbResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpElbResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### NetworkLoadBalancerTcpTargetResetCountAlarm <a name="NetworkLoadBalancerTcpTargetResetCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm"></a>
+
+This alarm is used to detect when the targets are sending TCP reset packets.
+
+A high number of resets can indicate connectivity issues between the load balancer and targets.
+
+The alarm is triggered when the number of TCP resets from targets is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpTargetResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkLoadBalancerTcpTargetResetCountAlarm(scope: IConstruct, id: string, props: NetworkLoadBalancerTcpTargetResetCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps">NetworkLoadBalancerTcpTargetResetCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps">NetworkLoadBalancerTcpTargetResetCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isConstruct"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpTargetResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpTargetResetCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpTargetResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpTargetResetCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isResource"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpTargetResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpTargetResetCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpTargetResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpTargetResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### NetworkTargetGroup <a name="NetworkTargetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup"></a>
+
+An extension for the NetworkTargetGroup construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkTargetGroup(scope: Construct, id: string, props: NetworkTargetGroupProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroupProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroupProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.configureHealthCheck">configureHealthCheck</a></code> | Set/replace the target group's health check. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.setAttribute">setAttribute</a></code> | Set a non-standard attribute on the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.addTarget">addTarget</a></code> | Add a load balancing target to this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.metricHealthyHostCount">metricHealthyHostCount</a></code> | The number of targets that are considered healthy. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.metricUnHealthyHostCount">metricUnHealthyHostCount</a></code> | The number of targets that are considered unhealthy. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.registerListener">registerListener</a></code> | Register a listener that is load balancing to this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.alarmHealthyHostCount">alarmHealthyHostCount</a></code> | Creates an alarm that monitors the healthy host count for the NetworkTargetGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.alarmUnHealthyHostCount">alarmUnHealthyHostCount</a></code> | Creates an alarm that monitors the unhealthy host count for the NetworkTargetGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the NetworkTargetGroup. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `configureHealthCheck` <a name="configureHealthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.configureHealthCheck"></a>
+
+```typescript
+public configureHealthCheck(healthCheck: HealthCheck): void
+```
+
+Set/replace the target group's health check.
+
+###### `healthCheck`<sup>Required</sup> <a name="healthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.configureHealthCheck.parameter.healthCheck"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck
+
+---
+
+##### `setAttribute` <a name="setAttribute" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.setAttribute"></a>
+
+```typescript
+public setAttribute(key: string, value?: string): void
+```
+
+Set a non-standard attribute on the target group.
+
+> [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes)
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.setAttribute.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Optional</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.setAttribute.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addTarget` <a name="addTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.addTarget"></a>
+
+```typescript
+public addTarget(targets: ...INetworkLoadBalancerTarget[]): void
+```
+
+Add a load balancing target to this target group.
+
+###### `targets`<sup>Required</sup> <a name="targets" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.addTarget.parameter.targets"></a>
+
+- *Type:* ...aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancerTarget[]
+
+---
+
+##### ~~`metricHealthyHostCount`~~ <a name="metricHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.metricHealthyHostCount"></a>
+
+```typescript
+public metricHealthyHostCount(props?: MetricOptions): Metric
+```
+
+The number of targets that are considered healthy.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.metricHealthyHostCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### ~~`metricUnHealthyHostCount`~~ <a name="metricUnHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.metricUnHealthyHostCount"></a>
+
+```typescript
+public metricUnHealthyHostCount(props?: MetricOptions): Metric
+```
+
+The number of targets that are considered unhealthy.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.metricUnHealthyHostCount.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `registerListener` <a name="registerListener" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.registerListener"></a>
+
+```typescript
+public registerListener(listener: INetworkListener): void
+```
+
+Register a listener that is load balancing to this target group.
+
+Don't call this directly. It will be called by listeners.
+
+###### `listener`<sup>Required</sup> <a name="listener" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.registerListener.parameter.listener"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkListener
+
+---
+
+##### `alarmHealthyHostCount` <a name="alarmHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.alarmHealthyHostCount"></a>
+
+```typescript
+public alarmHealthyHostCount(props?: NetworkTargetGroupHealthyHostCountAlarmConfig): NetworkTargetGroupHealthyHostCountAlarm
+```
+
+Creates an alarm that monitors the healthy host count for the NetworkTargetGroup.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.alarmHealthyHostCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig">NetworkTargetGroupHealthyHostCountAlarmConfig</a>
+
+---
+
+##### `alarmUnHealthyHostCount` <a name="alarmUnHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.alarmUnHealthyHostCount"></a>
+
+```typescript
+public alarmUnHealthyHostCount(props?: NetworkTargetGroupUnHealthyHostCountAlarmConfig): NetworkTargetGroupUnHealthyHostCountAlarm
+```
+
+Creates an alarm that monitors the unhealthy host count for the NetworkTargetGroup.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.alarmUnHealthyHostCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig">NetworkTargetGroupUnHealthyHostCountAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: NetworkTargetGroupRecommendedAlarmsConfig): NetworkTargetGroupRecommendedAlarms
+```
+
+Creates the recommended alarms for the NetworkTargetGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig">NetworkTargetGroupRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.fromTargetGroupAttributes">fromTargetGroupAttributes</a></code> | Import an existing target group. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.isConstruct"></a>
+
+```typescript
+import { NetworkTargetGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroup.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `fromTargetGroupAttributes` <a name="fromTargetGroupAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.fromTargetGroupAttributes"></a>
+
+```typescript
+import { NetworkTargetGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroup.fromTargetGroupAttributes(scope: Construct, id: string, attrs: TargetGroupAttributes)
+```
+
+Import an existing target group.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.fromTargetGroupAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.fromTargetGroupAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.fromTargetGroupAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.firstLoadBalancerFullName">firstLoadBalancerFullName</a></code> | <code>string</code> | Full name of first load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.loadBalancerArns">loadBalancerArns</a></code> | <code>string</code> | A token representing a list of ARNs of the load balancers that route traffic to this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.loadBalancerAttached">loadBalancerAttached</a></code> | <code>constructs.IDependable</code> | List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupArn">targetGroupArn</a></code> | <code>string</code> | The ARN of the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupFullName">targetGroupFullName</a></code> | <code>string</code> | The full name of the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupLoadBalancerArns">targetGroupLoadBalancerArns</a></code> | <code>string[]</code> | ARNs of load balancers load balancing to this TargetGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupName">targetGroupName</a></code> | <code>string</code> | The name of the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.healthCheck">healthCheck</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck</code> | Health check for the members of this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroupMetrics</code> | All metrics available for this target group. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `firstLoadBalancerFullName`<sup>Required</sup> <a name="firstLoadBalancerFullName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.firstLoadBalancerFullName"></a>
+
+```typescript
+public readonly firstLoadBalancerFullName: string;
+```
+
+- *Type:* string
+
+Full name of first load balancer.
+
+---
+
+##### `loadBalancerArns`<sup>Required</sup> <a name="loadBalancerArns" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.loadBalancerArns"></a>
+
+```typescript
+public readonly loadBalancerArns: string;
+```
+
+- *Type:* string
+
+A token representing a list of ARNs of the load balancers that route traffic to this target group.
+
+---
+
+##### `loadBalancerAttached`<sup>Required</sup> <a name="loadBalancerAttached" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.loadBalancerAttached"></a>
+
+```typescript
+public readonly loadBalancerAttached: IDependable;
+```
+
+- *Type:* constructs.IDependable
+
+List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer.
+
+---
+
+##### `targetGroupArn`<sup>Required</sup> <a name="targetGroupArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupArn"></a>
+
+```typescript
+public readonly targetGroupArn: string;
+```
+
+- *Type:* string
+
+The ARN of the target group.
+
+---
+
+##### `targetGroupFullName`<sup>Required</sup> <a name="targetGroupFullName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupFullName"></a>
+
+```typescript
+public readonly targetGroupFullName: string;
+```
+
+- *Type:* string
+
+The full name of the target group.
+
+---
+
+##### `targetGroupLoadBalancerArns`<sup>Required</sup> <a name="targetGroupLoadBalancerArns" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupLoadBalancerArns"></a>
+
+```typescript
+public readonly targetGroupLoadBalancerArns: string[];
+```
+
+- *Type:* string[]
+
+ARNs of load balancers load balancing to this TargetGroup.
+
+---
+
+##### `targetGroupName`<sup>Required</sup> <a name="targetGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupName"></a>
+
+```typescript
+public readonly targetGroupName: string;
+```
+
+- *Type:* string
+
+The name of the target group.
+
+---
+
+##### `healthCheck`<sup>Required</sup> <a name="healthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.healthCheck"></a>
+
+```typescript
+public readonly healthCheck: HealthCheck;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck
+
+Health check for the members of this target group.
+
+---
+
+##### `metrics`<sup>Required</sup> <a name="metrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.metrics"></a>
+
+```typescript
+public readonly metrics: INetworkTargetGroupMetrics;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroupMetrics
+
+All metrics available for this target group.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### NetworkTargetGroupHealthyHostCountAlarm <a name="NetworkTargetGroupHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm"></a>
+
+This alarm is used to detect when the number of healthy hosts in the target group falls below the threshold.
+
+A low number of healthy hosts can indicate service availability issues.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkTargetGroupHealthyHostCountAlarm(scope: IConstruct, id: string, props: NetworkTargetGroupHealthyHostCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps">NetworkTargetGroupHealthyHostCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps">NetworkTargetGroupHealthyHostCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isConstruct"></a>
+
+```typescript
+import { NetworkTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupHealthyHostCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { NetworkTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupHealthyHostCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isResource"></a>
+
+```typescript
+import { NetworkTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupHealthyHostCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { NetworkTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupHealthyHostCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { NetworkTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupHealthyHostCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### NetworkTargetGroupRecommendedAlarms <a name="NetworkTargetGroupRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for a NetworkTargetGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkTargetGroupRecommendedAlarms(scope: Construct, id: string, props: NetworkTargetGroupRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps">NetworkTargetGroupRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps">NetworkTargetGroupRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { NetworkTargetGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.property.alarmHealthyHostCount">alarmHealthyHostCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm">NetworkTargetGroupHealthyHostCountAlarm</a></code> | The HealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.property.alarmUnHealthyHostCount">alarmUnHealthyHostCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm">NetworkTargetGroupUnHealthyHostCountAlarm</a></code> | The UnHealthyHostCount alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmHealthyHostCount`<sup>Optional</sup> <a name="alarmHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.property.alarmHealthyHostCount"></a>
+
+```typescript
+public readonly alarmHealthyHostCount: NetworkTargetGroupHealthyHostCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm">NetworkTargetGroupHealthyHostCountAlarm</a>
+
+The HealthyHostCount alarm.
+
+---
+
+##### `alarmUnHealthyHostCount`<sup>Optional</sup> <a name="alarmUnHealthyHostCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.property.alarmUnHealthyHostCount"></a>
+
+```typescript
+public readonly alarmUnHealthyHostCount: NetworkTargetGroupUnHealthyHostCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm">NetworkTargetGroupUnHealthyHostCountAlarm</a>
+
+The UnHealthyHostCount alarm.
+
+---
+
+
+### NetworkTargetGroupUnHealthyHostCountAlarm <a name="NetworkTargetGroupUnHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm"></a>
+
+This alarm is used to detect when the number of unhealthy hosts in the target group exceeds the threshold.
+
+A high number of unhealthy hosts can indicate service health issues.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkTargetGroupUnHealthyHostCountAlarm(scope: IConstruct, id: string, props: NetworkTargetGroupUnHealthyHostCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps">NetworkTargetGroupUnHealthyHostCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps">NetworkTargetGroupUnHealthyHostCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isConstruct"></a>
+
+```typescript
+import { NetworkTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupUnHealthyHostCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { NetworkTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupUnHealthyHostCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isResource"></a>
+
+```typescript
+import { NetworkTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupUnHealthyHostCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { NetworkTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { NetworkTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 ### Queue <a name="Queue" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue"></a>
 
 An extension of the SQS Queue construct that adds methods to create recommended alarms.
@@ -49172,6 +56734,2866 @@ The EC2 AutoScalingGroup to monitor.
 
 ---
 
+### ApplicationLoadBalancerAlarmBaseConfig <a name="ApplicationLoadBalancerAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerAlarmBaseConfig: ApplicationLoadBalancerAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### ApplicationLoadBalancerAlarmProps <a name="ApplicationLoadBalancerAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmProps"></a>
+
+The common properties for the ApplicationLoadBalancer alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmProps.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerAlarmProps: ApplicationLoadBalancerAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | The ApplicationLoadBalancer to monitor. |
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerAlarmProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: ApplicationLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+
+The ApplicationLoadBalancer to monitor.
+
+---
+
+### ApplicationLoadBalancerHttpCode4xxCountAlarmConfig <a name="ApplicationLoadBalancerHttpCode4xxCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig"></a>
+
+Configuration for the HTTPCode_ELB_4XX_Count alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode4xxCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerHttpCode4xxCountAlarmConfig: ApplicationLoadBalancerHttpCode4xxCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the load balancer is generating 4XX errors. A high number of 4XX errors can indicate client-side issues or misconfigured requests.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - HTTPCode_ELB_4XX_Count'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of 4XX errors.
+
+---
+
+### ApplicationLoadBalancerHttpCode4xxCountAlarmProps <a name="ApplicationLoadBalancerHttpCode4xxCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps"></a>
+
+The properties for the ApplicationLoadBalancerHttpCode4xxCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode4xxCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerHttpCode4xxCountAlarmProps: ApplicationLoadBalancerHttpCode4xxCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | The ApplicationLoadBalancer to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: ApplicationLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+
+The ApplicationLoadBalancer to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the load balancer is generating 4XX errors. A high number of 4XX errors can indicate client-side issues or misconfigured requests.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - HTTPCode_ELB_4XX_Count'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of 4XX errors.
+
+---
+
+### ApplicationLoadBalancerHttpCode5xxCountAlarmConfig <a name="ApplicationLoadBalancerHttpCode5xxCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig"></a>
+
+Configuration for the HTTPCode_ELB_5XX_Count alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode5xxCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerHttpCode5xxCountAlarmConfig: ApplicationLoadBalancerHttpCode5xxCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the load balancer is generating 5XX errors. A high number of 5XX errors can indicate issues with the load balancer itself.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - HTTPCode_ELB_5XX_Count'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of 5XX errors.
+
+---
+
+### ApplicationLoadBalancerHttpCode5xxCountAlarmProps <a name="ApplicationLoadBalancerHttpCode5xxCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps"></a>
+
+The properties for the ApplicationLoadBalancerHttpCode5xxCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCode5xxCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerHttpCode5xxCountAlarmProps: ApplicationLoadBalancerHttpCode5xxCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | The ApplicationLoadBalancer to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: ApplicationLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+
+The ApplicationLoadBalancer to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the load balancer is generating 5XX errors. A high number of 5XX errors can indicate issues with the load balancer itself.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - HTTPCode_ELB_5XX_Count'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of 5XX errors.
+
+---
+
+### ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig <a name="ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig"></a>
+
+Configuration for the HTTPCode_Target_5XX_Count alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig: ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the targets are generating 5XX errors. A high number of 5XX errors can indicate issues with the application or backend services.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - HTTPCode_Target_5XX_Count'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of 5XX errors from targets.
+
+---
+
+### ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps <a name="ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps"></a>
+
+The properties for the ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerHttpCodeTarget5xxCountAlarmProps: ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | The ApplicationLoadBalancer to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: ApplicationLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+
+The ApplicationLoadBalancer to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the targets are generating 5XX errors. A high number of 5XX errors can indicate issues with the application or backend services.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - HTTPCode_Target_5XX_Count'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of 5XX errors from targets.
+
+---
+
+### ApplicationLoadBalancerRecommendedAlarmsConfig <a name="ApplicationLoadBalancerRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an ApplicationLoadBalancer.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerRecommendedAlarmsConfig: ApplicationLoadBalancerRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.configHttpCode4xxCountAlarm">configHttpCode4xxCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig">ApplicationLoadBalancerHttpCode4xxCountAlarmConfig</a></code> | The configuration for the HTTPCode_ELB_4XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.configHttpCode5xxCountAlarm">configHttpCode5xxCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig">ApplicationLoadBalancerHttpCode5xxCountAlarmConfig</a></code> | The configuration for the HTTPCode_ELB_5XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.configHttpCodeTarget5xxCountAlarm">configHttpCodeTarget5xxCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig</a></code> | The configuration for the HTTPCode_Target_5XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.configRejectedConnectionCountAlarm">configRejectedConnectionCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig">ApplicationLoadBalancerRejectedConnectionCountAlarmConfig</a></code> | The configuration for the RejectedConnectionCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics">ApplicationLoadBalancerRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configHttpCode4xxCountAlarm`<sup>Optional</sup> <a name="configHttpCode4xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.configHttpCode4xxCountAlarm"></a>
+
+```typescript
+public readonly configHttpCode4xxCountAlarm: ApplicationLoadBalancerHttpCode4xxCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig">ApplicationLoadBalancerHttpCode4xxCountAlarmConfig</a>
+
+The configuration for the HTTPCode_ELB_4XX_Count alarm.
+
+---
+
+##### `configHttpCode5xxCountAlarm`<sup>Optional</sup> <a name="configHttpCode5xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.configHttpCode5xxCountAlarm"></a>
+
+```typescript
+public readonly configHttpCode5xxCountAlarm: ApplicationLoadBalancerHttpCode5xxCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig">ApplicationLoadBalancerHttpCode5xxCountAlarmConfig</a>
+
+The configuration for the HTTPCode_ELB_5XX_Count alarm.
+
+---
+
+##### `configHttpCodeTarget5xxCountAlarm`<sup>Optional</sup> <a name="configHttpCodeTarget5xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.configHttpCodeTarget5xxCountAlarm"></a>
+
+```typescript
+public readonly configHttpCodeTarget5xxCountAlarm: ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig</a>
+
+The configuration for the HTTPCode_Target_5XX_Count alarm.
+
+---
+
+##### `configRejectedConnectionCountAlarm`<sup>Optional</sup> <a name="configRejectedConnectionCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.configRejectedConnectionCountAlarm"></a>
+
+```typescript
+public readonly configRejectedConnectionCountAlarm: ApplicationLoadBalancerRejectedConnectionCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig">ApplicationLoadBalancerRejectedConnectionCountAlarmConfig</a>
+
+The configuration for the RejectedConnectionCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: ApplicationLoadBalancerRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics">ApplicationLoadBalancerRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### ApplicationLoadBalancerRecommendedAlarmsProps <a name="ApplicationLoadBalancerRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps"></a>
+
+Properties for the ApplicationLoadBalancerRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerRecommendedAlarmsProps: ApplicationLoadBalancerRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.configHttpCode4xxCountAlarm">configHttpCode4xxCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig">ApplicationLoadBalancerHttpCode4xxCountAlarmConfig</a></code> | The configuration for the HTTPCode_ELB_4XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.configHttpCode5xxCountAlarm">configHttpCode5xxCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig">ApplicationLoadBalancerHttpCode5xxCountAlarmConfig</a></code> | The configuration for the HTTPCode_ELB_5XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.configHttpCodeTarget5xxCountAlarm">configHttpCodeTarget5xxCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig</a></code> | The configuration for the HTTPCode_Target_5XX_Count alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.configRejectedConnectionCountAlarm">configRejectedConnectionCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig">ApplicationLoadBalancerRejectedConnectionCountAlarmConfig</a></code> | The configuration for the RejectedConnectionCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics">ApplicationLoadBalancerRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | The ApplicationLoadBalancer to monitor. |
+
+---
+
+##### `configHttpCode4xxCountAlarm`<sup>Optional</sup> <a name="configHttpCode4xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.configHttpCode4xxCountAlarm"></a>
+
+```typescript
+public readonly configHttpCode4xxCountAlarm: ApplicationLoadBalancerHttpCode4xxCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig">ApplicationLoadBalancerHttpCode4xxCountAlarmConfig</a>
+
+The configuration for the HTTPCode_ELB_4XX_Count alarm.
+
+---
+
+##### `configHttpCode5xxCountAlarm`<sup>Optional</sup> <a name="configHttpCode5xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.configHttpCode5xxCountAlarm"></a>
+
+```typescript
+public readonly configHttpCode5xxCountAlarm: ApplicationLoadBalancerHttpCode5xxCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig">ApplicationLoadBalancerHttpCode5xxCountAlarmConfig</a>
+
+The configuration for the HTTPCode_ELB_5XX_Count alarm.
+
+---
+
+##### `configHttpCodeTarget5xxCountAlarm`<sup>Optional</sup> <a name="configHttpCodeTarget5xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.configHttpCodeTarget5xxCountAlarm"></a>
+
+```typescript
+public readonly configHttpCodeTarget5xxCountAlarm: ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig">ApplicationLoadBalancerHttpCodeTarget5xxCountAlarmConfig</a>
+
+The configuration for the HTTPCode_Target_5XX_Count alarm.
+
+---
+
+##### `configRejectedConnectionCountAlarm`<sup>Optional</sup> <a name="configRejectedConnectionCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.configRejectedConnectionCountAlarm"></a>
+
+```typescript
+public readonly configRejectedConnectionCountAlarm: ApplicationLoadBalancerRejectedConnectionCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig">ApplicationLoadBalancerRejectedConnectionCountAlarmConfig</a>
+
+The configuration for the RejectedConnectionCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: ApplicationLoadBalancerRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics">ApplicationLoadBalancerRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: ApplicationLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+
+The ApplicationLoadBalancer to monitor.
+
+---
+
+### ApplicationLoadBalancerRejectedConnectionCountAlarmConfig <a name="ApplicationLoadBalancerRejectedConnectionCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig"></a>
+
+Configuration for the RejectedConnectionCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerRejectedConnectionCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerRejectedConnectionCountAlarmConfig: ApplicationLoadBalancerRejectedConnectionCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the load balancer is rejecting connections. Rejected connections can indicate that the load balancer has reached its maximum connection limit.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - RejectedConnectionCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of rejected connections.
+
+---
+
+### ApplicationLoadBalancerRejectedConnectionCountAlarmProps <a name="ApplicationLoadBalancerRejectedConnectionCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps"></a>
+
+The properties for the ApplicationLoadBalancerRejectedConnectionCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerRejectedConnectionCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationLoadBalancerRejectedConnectionCountAlarmProps: ApplicationLoadBalancerRejectedConnectionCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer</code> | The ApplicationLoadBalancer to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: ApplicationLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer
+
+The ApplicationLoadBalancer to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the load balancer is rejecting connections. Rejected connections can indicate that the load balancer has reached its maximum connection limit.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - RejectedConnectionCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of rejected connections.
+
+---
+
+### ApplicationTargetGroupAlarmBaseConfig <a name="ApplicationTargetGroupAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationTargetGroupAlarmBaseConfig: ApplicationTargetGroupAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### ApplicationTargetGroupAlarmProps <a name="ApplicationTargetGroupAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmProps"></a>
+
+The common properties for the ApplicationTargetGroup alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmProps.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationTargetGroupAlarmProps: ApplicationTargetGroupAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | The ApplicationTargetGroup to monitor. |
+
+---
+
+##### `targetGroup`<sup>Required</sup> <a name="targetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupAlarmProps.property.targetGroup"></a>
+
+```typescript
+public readonly targetGroup: ApplicationTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
+
+The ApplicationTargetGroup to monitor.
+
+---
+
+### ApplicationTargetGroupHealthyHostCountAlarmConfig <a name="ApplicationTargetGroupHealthyHostCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig"></a>
+
+Configuration for the HealthyHostCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupHealthyHostCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationTargetGroupHealthyHostCountAlarmConfig: ApplicationTargetGroupHealthyHostCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the number of healthy hosts in the target group falls below the threshold. A low number of healthy hosts can indicate service availability issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* targetGroupName + ' - HealthyHostCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the minimum number of healthy hosts
+required for your application to function properly.
+
+---
+
+### ApplicationTargetGroupHealthyHostCountAlarmProps <a name="ApplicationTargetGroupHealthyHostCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps"></a>
+
+The properties for the ApplicationTargetGroupHealthyHostCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupHealthyHostCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationTargetGroupHealthyHostCountAlarmProps: ApplicationTargetGroupHealthyHostCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | The ApplicationTargetGroup to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `targetGroup`<sup>Required</sup> <a name="targetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.targetGroup"></a>
+
+```typescript
+public readonly targetGroup: ApplicationTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
+
+The ApplicationTargetGroup to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the number of healthy hosts in the target group falls below the threshold. A low number of healthy hosts can indicate service availability issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* targetGroupName + ' - HealthyHostCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the minimum number of healthy hosts
+required for your application to function properly.
+
+---
+
+### ApplicationTargetGroupRecommendedAlarmsConfig <a name="ApplicationTargetGroupRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an ApplicationTargetGroup.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationTargetGroupRecommendedAlarmsConfig: ApplicationTargetGroupRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.configHealthyHostCountAlarm">configHealthyHostCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig">ApplicationTargetGroupHealthyHostCountAlarmConfig</a></code> | The configuration for the HealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.configUnHealthyHostCountAlarm">configUnHealthyHostCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig">ApplicationTargetGroupUnHealthyHostCountAlarmConfig</a></code> | The configuration for the UnHealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics">ApplicationTargetGroupRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configHealthyHostCountAlarm`<sup>Optional</sup> <a name="configHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.configHealthyHostCountAlarm"></a>
+
+```typescript
+public readonly configHealthyHostCountAlarm: ApplicationTargetGroupHealthyHostCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig">ApplicationTargetGroupHealthyHostCountAlarmConfig</a>
+
+The configuration for the HealthyHostCount alarm.
+
+---
+
+##### `configUnHealthyHostCountAlarm`<sup>Optional</sup> <a name="configUnHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.configUnHealthyHostCountAlarm"></a>
+
+```typescript
+public readonly configUnHealthyHostCountAlarm: ApplicationTargetGroupUnHealthyHostCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig">ApplicationTargetGroupUnHealthyHostCountAlarmConfig</a>
+
+The configuration for the UnHealthyHostCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: ApplicationTargetGroupRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics">ApplicationTargetGroupRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### ApplicationTargetGroupRecommendedAlarmsProps <a name="ApplicationTargetGroupRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps"></a>
+
+Properties for the ApplicationTargetGroupRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationTargetGroupRecommendedAlarmsProps: ApplicationTargetGroupRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.configHealthyHostCountAlarm">configHealthyHostCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig">ApplicationTargetGroupHealthyHostCountAlarmConfig</a></code> | The configuration for the HealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.configUnHealthyHostCountAlarm">configUnHealthyHostCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig">ApplicationTargetGroupUnHealthyHostCountAlarmConfig</a></code> | The configuration for the UnHealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics">ApplicationTargetGroupRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | The ApplicationTargetGroup to monitor. |
+
+---
+
+##### `configHealthyHostCountAlarm`<sup>Optional</sup> <a name="configHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.configHealthyHostCountAlarm"></a>
+
+```typescript
+public readonly configHealthyHostCountAlarm: ApplicationTargetGroupHealthyHostCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarmConfig">ApplicationTargetGroupHealthyHostCountAlarmConfig</a>
+
+The configuration for the HealthyHostCount alarm.
+
+---
+
+##### `configUnHealthyHostCountAlarm`<sup>Optional</sup> <a name="configUnHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.configUnHealthyHostCountAlarm"></a>
+
+```typescript
+public readonly configUnHealthyHostCountAlarm: ApplicationTargetGroupUnHealthyHostCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig">ApplicationTargetGroupUnHealthyHostCountAlarmConfig</a>
+
+The configuration for the UnHealthyHostCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: ApplicationTargetGroupRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics">ApplicationTargetGroupRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `targetGroup`<sup>Required</sup> <a name="targetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsProps.property.targetGroup"></a>
+
+```typescript
+public readonly targetGroup: ApplicationTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
+
+The ApplicationTargetGroup to monitor.
+
+---
+
+### ApplicationTargetGroupUnHealthyHostCountAlarmConfig <a name="ApplicationTargetGroupUnHealthyHostCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig"></a>
+
+Configuration for the UnHealthyHostCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupUnHealthyHostCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationTargetGroupUnHealthyHostCountAlarmConfig: ApplicationTargetGroupUnHealthyHostCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the number of unhealthy hosts in the target group exceeds the threshold. A high number of unhealthy hosts can indicate service health issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* targetGroupName + ' - UnHealthyHostCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the maximum number of unhealthy hosts
+that your application can tolerate before service is impacted.
+
+---
+
+### ApplicationTargetGroupUnHealthyHostCountAlarmProps <a name="ApplicationTargetGroupUnHealthyHostCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps"></a>
+
+The properties for the ApplicationTargetGroupUnHealthyHostCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupUnHealthyHostCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const applicationTargetGroupUnHealthyHostCountAlarmProps: ApplicationTargetGroupUnHealthyHostCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup</code> | The ApplicationTargetGroup to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `targetGroup`<sup>Required</sup> <a name="targetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.targetGroup"></a>
+
+```typescript
+public readonly targetGroup: ApplicationTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup
+
+The ApplicationTargetGroup to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the number of unhealthy hosts in the target group exceeds the threshold. A high number of unhealthy hosts can indicate service health issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* targetGroupName + ' - UnHealthyHostCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the maximum number of unhealthy hosts
+that your application can tolerate before service is impacted.
+
+---
+
 ### CloudFront5xxErrorRateAlarmConfig <a name="CloudFront5xxErrorRateAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFront5xxErrorRateAlarmConfig"></a>
 
 Configuration for the 5xxErrorRate alarm.
@@ -64155,6 +74577,2144 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
+### NetworkLoadBalancerAlarmBaseConfig <a name="NetworkLoadBalancerAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkLoadBalancerAlarmBaseConfig: NetworkLoadBalancerAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### NetworkLoadBalancerAlarmProps <a name="NetworkLoadBalancerAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmProps"></a>
+
+The common properties for the NetworkLoadBalancer alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmProps.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkLoadBalancerAlarmProps: NetworkLoadBalancerAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | The NetworkLoadBalancer to monitor. |
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: NetworkLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+
+The NetworkLoadBalancer to monitor.
+
+---
+
+### NetworkLoadBalancerRecommendedAlarmsConfig <a name="NetworkLoadBalancerRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for a NetworkLoadBalancer.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkLoadBalancerRecommendedAlarmsConfig: NetworkLoadBalancerRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.configTcpElbResetCountAlarm">configTcpElbResetCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig">NetworkLoadBalancerTcpElbResetCountAlarmConfig</a></code> | The configuration for the TcpElbResetCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.configTcpTargetResetCountAlarm">configTcpTargetResetCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig">NetworkLoadBalancerTcpTargetResetCountAlarmConfig</a></code> | The configuration for the TcpTargetResetCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics">NetworkLoadBalancerRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configTcpElbResetCountAlarm`<sup>Optional</sup> <a name="configTcpElbResetCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.configTcpElbResetCountAlarm"></a>
+
+```typescript
+public readonly configTcpElbResetCountAlarm: NetworkLoadBalancerTcpElbResetCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig">NetworkLoadBalancerTcpElbResetCountAlarmConfig</a>
+
+The configuration for the TcpElbResetCount alarm.
+
+---
+
+##### `configTcpTargetResetCountAlarm`<sup>Optional</sup> <a name="configTcpTargetResetCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.configTcpTargetResetCountAlarm"></a>
+
+```typescript
+public readonly configTcpTargetResetCountAlarm: NetworkLoadBalancerTcpTargetResetCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig">NetworkLoadBalancerTcpTargetResetCountAlarmConfig</a>
+
+The configuration for the TcpTargetResetCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: NetworkLoadBalancerRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics">NetworkLoadBalancerRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### NetworkLoadBalancerRecommendedAlarmsProps <a name="NetworkLoadBalancerRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps"></a>
+
+Properties for the NetworkLoadBalancerRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkLoadBalancerRecommendedAlarmsProps: NetworkLoadBalancerRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.configTcpElbResetCountAlarm">configTcpElbResetCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig">NetworkLoadBalancerTcpElbResetCountAlarmConfig</a></code> | The configuration for the TcpElbResetCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.configTcpTargetResetCountAlarm">configTcpTargetResetCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig">NetworkLoadBalancerTcpTargetResetCountAlarmConfig</a></code> | The configuration for the TcpTargetResetCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics">NetworkLoadBalancerRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | The NetworkLoadBalancer to monitor. |
+
+---
+
+##### `configTcpElbResetCountAlarm`<sup>Optional</sup> <a name="configTcpElbResetCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.configTcpElbResetCountAlarm"></a>
+
+```typescript
+public readonly configTcpElbResetCountAlarm: NetworkLoadBalancerTcpElbResetCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig">NetworkLoadBalancerTcpElbResetCountAlarmConfig</a>
+
+The configuration for the TcpElbResetCount alarm.
+
+---
+
+##### `configTcpTargetResetCountAlarm`<sup>Optional</sup> <a name="configTcpTargetResetCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.configTcpTargetResetCountAlarm"></a>
+
+```typescript
+public readonly configTcpTargetResetCountAlarm: NetworkLoadBalancerTcpTargetResetCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig">NetworkLoadBalancerTcpTargetResetCountAlarmConfig</a>
+
+The configuration for the TcpTargetResetCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: NetworkLoadBalancerRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics">NetworkLoadBalancerRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: NetworkLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+
+The NetworkLoadBalancer to monitor.
+
+---
+
+### NetworkLoadBalancerTcpElbResetCountAlarmConfig <a name="NetworkLoadBalancerTcpElbResetCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig"></a>
+
+Configuration for the TcpElbResetCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpElbResetCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkLoadBalancerTcpElbResetCountAlarmConfig: NetworkLoadBalancerTcpElbResetCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the load balancer is sending TCP reset packets. A high number of resets can indicate connectivity issues between the load balancer and clients.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - TcpElbResetCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of TCP resets from the load balancer.
+
+---
+
+### NetworkLoadBalancerTcpElbResetCountAlarmProps <a name="NetworkLoadBalancerTcpElbResetCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps"></a>
+
+The properties for the NetworkLoadBalancerTcpElbResetCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpElbResetCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkLoadBalancerTcpElbResetCountAlarmProps: NetworkLoadBalancerTcpElbResetCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | The NetworkLoadBalancer to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: NetworkLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+
+The NetworkLoadBalancer to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the load balancer is sending TCP reset packets. A high number of resets can indicate connectivity issues between the load balancer and clients.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - TcpElbResetCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of TCP resets from the load balancer.
+
+---
+
+### NetworkLoadBalancerTcpTargetResetCountAlarmConfig <a name="NetworkLoadBalancerTcpTargetResetCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig"></a>
+
+Configuration for the TcpTargetResetCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpTargetResetCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkLoadBalancerTcpTargetResetCountAlarmConfig: NetworkLoadBalancerTcpTargetResetCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the targets are sending TCP reset packets. A high number of resets can indicate connectivity issues between the load balancer and targets.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - TcpTargetResetCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of TCP resets from targets.
+
+---
+
+### NetworkLoadBalancerTcpTargetResetCountAlarmProps <a name="NetworkLoadBalancerTcpTargetResetCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps"></a>
+
+The properties for the NetworkLoadBalancerTcpTargetResetCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerTcpTargetResetCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkLoadBalancerTcpTargetResetCountAlarmProps: NetworkLoadBalancerTcpTargetResetCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.loadBalancer">loadBalancer</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer</code> | The NetworkLoadBalancer to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `loadBalancer`<sup>Required</sup> <a name="loadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.loadBalancer"></a>
+
+```typescript
+public readonly loadBalancer: NetworkLoadBalancer;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkLoadBalancer
+
+The NetworkLoadBalancer to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the targets are sending TCP reset packets. A high number of resets can indicate connectivity issues between the load balancer and targets.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* loadBalancerName + ' - TcpTargetResetCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the acceptable number of TCP resets from targets.
+
+---
+
+### NetworkTargetGroupAlarmBaseConfig <a name="NetworkTargetGroupAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkTargetGroupAlarmBaseConfig: NetworkTargetGroupAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### NetworkTargetGroupAlarmProps <a name="NetworkTargetGroupAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmProps"></a>
+
+The common properties for the NetworkTargetGroup alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmProps.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkTargetGroupAlarmProps: NetworkTargetGroupAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | The NetworkTargetGroup to monitor. |
+
+---
+
+##### `targetGroup`<sup>Required</sup> <a name="targetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupAlarmProps.property.targetGroup"></a>
+
+```typescript
+public readonly targetGroup: NetworkTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+
+The NetworkTargetGroup to monitor.
+
+---
+
+### NetworkTargetGroupHealthyHostCountAlarmConfig <a name="NetworkTargetGroupHealthyHostCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig"></a>
+
+Configuration for the HealthyHostCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupHealthyHostCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkTargetGroupHealthyHostCountAlarmConfig: NetworkTargetGroupHealthyHostCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the number of healthy hosts in the target group falls below the threshold. A low number of healthy hosts can indicate service availability issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* targetGroupName + ' - HealthyHostCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the minimum number of healthy hosts
+required for your application to function properly.
+
+---
+
+### NetworkTargetGroupHealthyHostCountAlarmProps <a name="NetworkTargetGroupHealthyHostCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps"></a>
+
+The properties for the NetworkTargetGroupHealthyHostCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupHealthyHostCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkTargetGroupHealthyHostCountAlarmProps: NetworkTargetGroupHealthyHostCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | The NetworkTargetGroup to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `targetGroup`<sup>Required</sup> <a name="targetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.targetGroup"></a>
+
+```typescript
+public readonly targetGroup: NetworkTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+
+The NetworkTargetGroup to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the number of healthy hosts in the target group falls below the threshold. A low number of healthy hosts can indicate service availability issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* targetGroupName + ' - HealthyHostCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the minimum number of healthy hosts
+required for your application to function properly.
+
+---
+
+### NetworkTargetGroupRecommendedAlarmsConfig <a name="NetworkTargetGroupRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for a NetworkTargetGroup.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkTargetGroupRecommendedAlarmsConfig: NetworkTargetGroupRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.configHealthyHostCountAlarm">configHealthyHostCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig">NetworkTargetGroupHealthyHostCountAlarmConfig</a></code> | The configuration for the HealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.configUnHealthyHostCountAlarm">configUnHealthyHostCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig">NetworkTargetGroupUnHealthyHostCountAlarmConfig</a></code> | The configuration for the UnHealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics">NetworkTargetGroupRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configHealthyHostCountAlarm`<sup>Optional</sup> <a name="configHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.configHealthyHostCountAlarm"></a>
+
+```typescript
+public readonly configHealthyHostCountAlarm: NetworkTargetGroupHealthyHostCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig">NetworkTargetGroupHealthyHostCountAlarmConfig</a>
+
+The configuration for the HealthyHostCount alarm.
+
+---
+
+##### `configUnHealthyHostCountAlarm`<sup>Optional</sup> <a name="configUnHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.configUnHealthyHostCountAlarm"></a>
+
+```typescript
+public readonly configUnHealthyHostCountAlarm: NetworkTargetGroupUnHealthyHostCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig">NetworkTargetGroupUnHealthyHostCountAlarmConfig</a>
+
+The configuration for the UnHealthyHostCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: NetworkTargetGroupRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics">NetworkTargetGroupRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### NetworkTargetGroupRecommendedAlarmsProps <a name="NetworkTargetGroupRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps"></a>
+
+Properties for the NetworkTargetGroupRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkTargetGroupRecommendedAlarmsProps: NetworkTargetGroupRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.configHealthyHostCountAlarm">configHealthyHostCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig">NetworkTargetGroupHealthyHostCountAlarmConfig</a></code> | The configuration for the HealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.configUnHealthyHostCountAlarm">configUnHealthyHostCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig">NetworkTargetGroupUnHealthyHostCountAlarmConfig</a></code> | The configuration for the UnHealthyHostCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics">NetworkTargetGroupRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | The NetworkTargetGroup to monitor. |
+
+---
+
+##### `configHealthyHostCountAlarm`<sup>Optional</sup> <a name="configHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.configHealthyHostCountAlarm"></a>
+
+```typescript
+public readonly configHealthyHostCountAlarm: NetworkTargetGroupHealthyHostCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarmConfig">NetworkTargetGroupHealthyHostCountAlarmConfig</a>
+
+The configuration for the HealthyHostCount alarm.
+
+---
+
+##### `configUnHealthyHostCountAlarm`<sup>Optional</sup> <a name="configUnHealthyHostCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.configUnHealthyHostCountAlarm"></a>
+
+```typescript
+public readonly configUnHealthyHostCountAlarm: NetworkTargetGroupUnHealthyHostCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig">NetworkTargetGroupUnHealthyHostCountAlarmConfig</a>
+
+The configuration for the UnHealthyHostCount alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: NetworkTargetGroupRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics">NetworkTargetGroupRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `targetGroup`<sup>Required</sup> <a name="targetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsProps.property.targetGroup"></a>
+
+```typescript
+public readonly targetGroup: NetworkTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+
+The NetworkTargetGroup to monitor.
+
+---
+
+### NetworkTargetGroupUnHealthyHostCountAlarmConfig <a name="NetworkTargetGroupUnHealthyHostCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig"></a>
+
+Configuration for the UnHealthyHostCount alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupUnHealthyHostCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkTargetGroupUnHealthyHostCountAlarmConfig: NetworkTargetGroupUnHealthyHostCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the number of unhealthy hosts in the target group exceeds the threshold. A high number of unhealthy hosts can indicate service health issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* targetGroupName + ' - UnHealthyHostCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the maximum number of unhealthy hosts
+that your application can tolerate before service is impacted.
+
+---
+
+### NetworkTargetGroupUnHealthyHostCountAlarmProps <a name="NetworkTargetGroupUnHealthyHostCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps"></a>
+
+The properties for the NetworkTargetGroupUnHealthyHostCountAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupUnHealthyHostCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const networkTargetGroupUnHealthyHostCountAlarmProps: NetworkTargetGroupUnHealthyHostCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.targetGroup">targetGroup</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup</code> | The NetworkTargetGroup to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+
+---
+
+##### `targetGroup`<sup>Required</sup> <a name="targetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.targetGroup"></a>
+
+```typescript
+public readonly targetGroup: NetworkTargetGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup
+
+The NetworkTargetGroup to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect when the number of unhealthy hosts in the target group exceeds the threshold. A high number of unhealthy hosts can indicate service health issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* targetGroupName + ' - UnHealthyHostCount'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The value against which the specified statistic is compared.
+
+You should set this threshold based on the maximum number of unhealthy hosts
+that your application can tolerate before service is impacted.
+
+---
+
 ### RdsAlarmBaseConfig <a name="RdsAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig"></a>
 
 The common optional configuration for the alarms.
@@ -77156,6 +89716,112 @@ All aspects can visit an IConstruct.
 
 
 
+### ApplicationLoadBalancerRecommendedAlarmsAspect <a name="ApplicationLoadBalancerRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the recommended alarms for an ApplicationLoadBalancer.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { ApplicationLoadBalancerRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationLoadBalancerRecommendedAlarmsAspect(props: ApplicationLoadBalancerRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig">ApplicationLoadBalancerRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsConfig">ApplicationLoadBalancerRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
+### ApplicationTargetGroupRecommendedAlarmsAspect <a name="ApplicationTargetGroupRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the recommended alarms for an ApplicationTargetGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { ApplicationTargetGroupRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApplicationTargetGroupRecommendedAlarmsAspect(props: ApplicationTargetGroupRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig">ApplicationTargetGroupRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsConfig">ApplicationTargetGroupRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### CloudFrontRecommendedAlarmsAspect <a name="CloudFrontRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontRecommendedAlarmsAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
@@ -77572,6 +90238,112 @@ public visit(node: IConstruct): void
 All aspects can visit an IConstruct.
 
 ###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
+### NetworkLoadBalancerRecommendedAlarmsAspect <a name="NetworkLoadBalancerRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the recommended alarms for a NetworkLoadBalancer.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { NetworkLoadBalancerRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkLoadBalancerRecommendedAlarmsAspect(props: NetworkLoadBalancerRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig">NetworkLoadBalancerRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsConfig">NetworkLoadBalancerRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
+### NetworkTargetGroupRecommendedAlarmsAspect <a name="NetworkTargetGroupRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the recommended alarms for a NetworkTargetGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { NetworkTargetGroupRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NetworkTargetGroupRecommendedAlarmsAspect(props: NetworkTargetGroupRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig">NetworkTargetGroupRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsConfig">NetworkTargetGroupRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsAspect.visit.parameter.node"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -78019,6 +90791,76 @@ The number of capacity units that are running as part of the Auto Scaling group.
 ---
 
 
+### ApplicationLoadBalancerRecommendedAlarmsMetrics <a name="ApplicationLoadBalancerRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for ApplicationLoadBalancer alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.REJECTED_CONNECTION_COUNT">REJECTED_CONNECTION_COUNT</a></code> | The number of connection requests that were rejected because the load balancer had reached its maximum connections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_4XX_COUNT">HTTP_CODE_ELB_4XX_COUNT</a></code> | The number of HTTP 4XX client error codes generated by the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_5XX_COUNT">HTTP_CODE_ELB_5XX_COUNT</a></code> | The number of HTTP 5XX server error codes generated by the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_TARGET_5XX_COUNT">HTTP_CODE_TARGET_5XX_COUNT</a></code> | The number of HTTP 5XX server error codes generated by the targets. |
+
+---
+
+##### `REJECTED_CONNECTION_COUNT` <a name="REJECTED_CONNECTION_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.REJECTED_CONNECTION_COUNT"></a>
+
+The number of connection requests that were rejected because the load balancer had reached its maximum connections.
+
+---
+
+
+##### `HTTP_CODE_ELB_4XX_COUNT` <a name="HTTP_CODE_ELB_4XX_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_4XX_COUNT"></a>
+
+The number of HTTP 4XX client error codes generated by the load balancer.
+
+---
+
+
+##### `HTTP_CODE_ELB_5XX_COUNT` <a name="HTTP_CODE_ELB_5XX_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_5XX_COUNT"></a>
+
+The number of HTTP 5XX server error codes generated by the load balancer.
+
+---
+
+
+##### `HTTP_CODE_TARGET_5XX_COUNT` <a name="HTTP_CODE_TARGET_5XX_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_TARGET_5XX_COUNT"></a>
+
+The number of HTTP 5XX server error codes generated by the targets.
+
+---
+
+
+### ApplicationTargetGroupRecommendedAlarmsMetrics <a name="ApplicationTargetGroupRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for ApplicationTargetGroup alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics.HEALTHY_HOST_COUNT">HEALTHY_HOST_COUNT</a></code> | The number of healthy targets in the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics.UNHEALTHY_HOST_COUNT">UNHEALTHY_HOST_COUNT</a></code> | The number of unhealthy targets in the target group. |
+
+---
+
+##### `HEALTHY_HOST_COUNT` <a name="HEALTHY_HOST_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics.HEALTHY_HOST_COUNT"></a>
+
+The number of healthy targets in the target group.
+
+---
+
+
+##### `UNHEALTHY_HOST_COUNT` <a name="UNHEALTHY_HOST_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarmsMetrics.UNHEALTHY_HOST_COUNT"></a>
+
+The number of unhealthy targets in the target group.
+
+---
+
+
 ### CloudFrontRecommendedAlarmsMetrics <a name="CloudFrontRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontRecommendedAlarmsMetrics"></a>
 
 The recommended metrics for CloudFront alarms.
@@ -78371,6 +91213,60 @@ The number of RST packets sent to endpoints by the endpoint service.
 
 Increasing values could indicate
 that there are unhealthy targets.
+
+---
+
+
+### NetworkLoadBalancerRecommendedAlarmsMetrics <a name="NetworkLoadBalancerRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for NetworkLoadBalancer alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics.TCP_ELB_RESET_COUNT">TCP_ELB_RESET_COUNT</a></code> | The number of reset (RST) packets sent from the load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics.TCP_TARGET_RESET_COUNT">TCP_TARGET_RESET_COUNT</a></code> | The number of reset (RST) packets generated by the targets. |
+
+---
+
+##### `TCP_ELB_RESET_COUNT` <a name="TCP_ELB_RESET_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics.TCP_ELB_RESET_COUNT"></a>
+
+The number of reset (RST) packets sent from the load balancer.
+
+---
+
+
+##### `TCP_TARGET_RESET_COUNT` <a name="TCP_TARGET_RESET_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsMetrics.TCP_TARGET_RESET_COUNT"></a>
+
+The number of reset (RST) packets generated by the targets.
+
+---
+
+
+### NetworkTargetGroupRecommendedAlarmsMetrics <a name="NetworkTargetGroupRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for NetworkTargetGroup alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics.HEALTHY_HOST_COUNT">HEALTHY_HOST_COUNT</a></code> | The number of healthy targets in the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics.UNHEALTHY_HOST_COUNT">UNHEALTHY_HOST_COUNT</a></code> | The number of unhealthy targets in the target group. |
+
+---
+
+##### `HEALTHY_HOST_COUNT` <a name="HEALTHY_HOST_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics.HEALTHY_HOST_COUNT"></a>
+
+The number of healthy targets in the target group.
+
+---
+
+
+##### `UNHEALTHY_HOST_COUNT` <a name="UNHEALTHY_HOST_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarmsMetrics.UNHEALTHY_HOST_COUNT"></a>
+
+The number of unhealthy targets in the target group.
 
 ---
 

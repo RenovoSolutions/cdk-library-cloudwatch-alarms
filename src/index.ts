@@ -1,5 +1,7 @@
 export * from './autoscaling';
 export * from './apigateway';
+export * from './applicationloadbalancer';
+export * from './applicationtargetgroup';
 export * from './common';
 export * from './cloudfront';
 export * from './dynamodb';
@@ -9,6 +11,8 @@ export * from './efs';
 export * from './elasticache';
 export * from './lambda';
 export * from './privatelink';
+export * from './networkloadbalancer';
+export * from './networktargetgroup';
 export * from './rds';
 export * from './s3';
 export * from './sns';
