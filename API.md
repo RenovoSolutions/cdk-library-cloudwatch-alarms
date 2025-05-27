@@ -95,7 +95,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -104,14 +104,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -120,14 +120,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -136,7 +136,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -391,6 +391,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### ApiGatewayRestApi5XXErrorAlarm <a name="ApiGatewayRestApi5XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm"></a>
 
@@ -482,7 +522,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -491,14 +531,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -507,14 +547,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -523,7 +563,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -778,6 +818,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### ApiGatewayRestApiCountAlarm <a name="ApiGatewayRestApiCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm"></a>
 
@@ -870,7 +950,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -879,14 +959,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -895,14 +975,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -911,7 +991,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -1166,6 +1246,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### ApiGatewayRestApiDetailedCountAlarm <a name="ApiGatewayRestApiDetailedCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm"></a>
 
@@ -1258,7 +1378,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -1267,14 +1387,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -1283,14 +1403,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -1299,7 +1419,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -1554,6 +1674,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### ApiGatewayRestApiDetailedLatencyAlarm <a name="ApiGatewayRestApiDetailedLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm"></a>
 
@@ -1647,7 +1807,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -1656,14 +1816,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -1672,14 +1832,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -1688,7 +1848,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -1943,6 +2103,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### ApiGatewayRestApiLatencyAlarm <a name="ApiGatewayRestApiLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm"></a>
 
@@ -2035,7 +2235,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -2044,14 +2244,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -2060,14 +2260,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -2076,7 +2276,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -2331,6 +2531,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### ApiGatewayRestApiRecommendedAlarms <a name="ApiGatewayRestApiRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms"></a>
 
@@ -3743,6 +3983,7 @@ new Bucket(scope: Construct, id: string, props?: BucketProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy">addReplicationPolicy</a></code> | Function to add required permissions to the destination bucket for cross account replication. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
@@ -3803,7 +4044,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addEventNotification` <a name="addEventNotification" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addEventNotification"></a>
 
 ```typescript
-public addEventNotification(event: EventType, dest: IBucketNotificationDestination, filters: NotificationKeyFilter): void
+public addEventNotification(event: EventType, dest: IBucketNotificationDestination, filters: ...NotificationKeyFilter[]): void
 ```
 
 Adds a bucket notification event destination.
@@ -3837,7 +4078,7 @@ The notification destination (Lambda, SNS Topic or SQS Queue).
 
 ###### `filters`<sup>Required</sup> <a name="filters" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addEventNotification.parameter.filters"></a>
 
-- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+- *Type:* ...aws-cdk-lib.aws_s3.NotificationKeyFilter[]
 
 S3 object key filter rules to determine which objects trigger this event.
 
@@ -3850,7 +4091,7 @@ for details about allowed filter rules.
 ##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectCreatedNotification"></a>
 
 ```typescript
-public addObjectCreatedNotification(dest: IBucketNotificationDestination, filters: NotificationKeyFilter): void
+public addObjectCreatedNotification(dest: IBucketNotificationDestination, filters: ...NotificationKeyFilter[]): void
 ```
 
 Subscribes a destination to receive notifications when an object is created in the bucket.
@@ -3868,7 +4109,7 @@ The notification destination (see onEvent).
 
 ###### `filters`<sup>Required</sup> <a name="filters" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectCreatedNotification.parameter.filters"></a>
 
-- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+- *Type:* ...aws-cdk-lib.aws_s3.NotificationKeyFilter[]
 
 Filters (see onEvent).
 
@@ -3877,7 +4118,7 @@ Filters (see onEvent).
 ##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectRemovedNotification"></a>
 
 ```typescript
-public addObjectRemovedNotification(dest: IBucketNotificationDestination, filters: NotificationKeyFilter): void
+public addObjectRemovedNotification(dest: IBucketNotificationDestination, filters: ...NotificationKeyFilter[]): void
 ```
 
 Subscribes a destination to receive notifications when an object is removed from the bucket.
@@ -3895,9 +4136,39 @@ The notification destination (see onEvent).
 
 ###### `filters`<sup>Required</sup> <a name="filters" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectRemovedNotification.parameter.filters"></a>
 
-- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+- *Type:* ...aws-cdk-lib.aws_s3.NotificationKeyFilter[]
 
 Filters (see onEvent).
+
+---
+
+##### `addReplicationPolicy` <a name="addReplicationPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy"></a>
+
+```typescript
+public addReplicationPolicy(roleArn: string, accessControlTransition?: boolean, account?: string): void
+```
+
+Function to add required permissions to the destination bucket for cross account replication.
+
+These permissions will be added as a resource based policy on the bucket
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html)
+
+###### `roleArn`<sup>Required</sup> <a name="roleArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy.parameter.roleArn"></a>
+
+- *Type:* string
+
+---
+
+###### `accessControlTransition`<sup>Optional</sup> <a name="accessControlTransition" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy.parameter.accessControlTransition"></a>
+
+- *Type:* boolean
+
+---
+
+###### `account`<sup>Optional</sup> <a name="account" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy.parameter.account"></a>
+
+- *Type:* string
 
 ---
 
@@ -3991,7 +4262,7 @@ Parameter type is `any` but `string` should be passed in.
 ##### `grantPublicAccess` <a name="grantPublicAccess" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPublicAccess"></a>
 
 ```typescript
-public grantPublicAccess(allowedActions: string, keyPrefix?: string): Grant
+public grantPublicAccess(allowedActions: ...string[], keyPrefix?: string): Grant
 ```
 
 Allows unrestricted access to objects from this bucket.
@@ -4017,7 +4288,7 @@ impossible to modify the policy of an existing bucket.
 
 ###### `allowedActions`<sup>Required</sup> <a name="allowedActions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPublicAccess.parameter.allowedActions"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 the set of S3 actions to allow.
 
@@ -4706,6 +4977,7 @@ allow legacy bucket naming style, default is false.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.replicationRoleArn">replicationRoleArn</a></code> | <code>string</code> | Role used to set up permissions on this bucket for replication. |
 
 ---
 
@@ -4875,6 +5147,37 @@ first call to addToResourcePolicy(s).
 
 ---
 
+##### `replicationRoleArn`<sup>Optional</sup> <a name="replicationRoleArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.replicationRoleArn"></a>
+
+```typescript
+public readonly replicationRoleArn: string;
+```
+
+- *Type:* string
+
+Role used to set up permissions on this bucket for replication.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### CfnCacheCluster <a name="CfnCacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster"></a>
 
@@ -7319,7 +7622,7 @@ The CloudFormation resource type name for this resource class.
 
 This alarm monitors the percentage of 5xx error responses from your origin server, to help you detect if the CloudFront service is having issues.
 
-See {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting-response-errors.html|Troubleshooting error responses from your origin} for information to help you understand the problems with your server.
+See {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting-response-errors.html Troubleshooting error responses from your origin} for information to help you understand the problems with your server.
 
 The alarm is triggered when the percentage exceeds the threshold.
 
@@ -7404,7 +7707,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -7413,14 +7716,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -7429,14 +7732,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -7445,7 +7748,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -7700,6 +8003,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm <a name="CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm"></a>
 
@@ -7791,7 +8134,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -7800,14 +8143,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -7816,14 +8159,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -7832,7 +8175,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -8087,6 +8430,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### CloudFrontDistributionDetailedFunctionThrottlesAlarm <a name="CloudFrontDistributionDetailedFunctionThrottlesAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm"></a>
 
@@ -8178,7 +8561,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -8187,14 +8570,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -8203,14 +8586,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -8219,7 +8602,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -8474,6 +8857,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### CloudFrontDistributionDetailedFunctionValidationErrorsAlarm <a name="CloudFrontDistributionDetailedFunctionValidationErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm"></a>
 
@@ -8565,7 +8988,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -8574,14 +8997,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -8590,14 +9013,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -8606,7 +9029,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -8861,13 +9284,53 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### CloudFrontDistributionOriginLatencyAlarm <a name="CloudFrontDistributionOriginLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm"></a>
 
 The alarm helps to monitor if the origin server is taking too long to respond.
 
 If the server takes too long to respond, it might lead to a timeout.
-Refer to {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-504-gateway-timeout.html#http-504-gateway-timeout-slow-application|find and fix delayed responses from applications on your origin server}
+Refer to {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-504-gateway-timeout.html#http-504-gateway-timeout-slow-application find and fix delayed responses from applications on your origin server}
 if you experience consistently high OriginLatency values.
 
 The alarm is triggered when the percentage is lower or equals the threshold.
@@ -8953,7 +9416,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -8962,14 +9425,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -8978,14 +9441,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -8994,7 +9457,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -9249,6 +9712,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### CloudFrontDistributionRecommendedAlarms <a name="CloudFrontDistributionRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms"></a>
 
@@ -10012,8 +10515,13 @@ Import an existing DatabaseCluster from properties.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The secret attached to this cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.cloudwatchLogGroups">cloudwatchLogGroups</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_logs.ILogGroup}</code> | The log group is created when `cloudwatchLogsExports` is set. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.multiUserRotationApplication">multiUserRotationApplication</a></code> | <code>aws-cdk-lib.aws_secretsmanager.SecretRotationApplication</code> | Application for multi user rotation to this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.performanceInsightsEnabled">performanceInsightsEnabled</a></code> | <code>boolean</code> | Whether Performance Insights is enabled at cluster level. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.singleUserRotationApplication">singleUserRotationApplication</a></code> | <code>aws-cdk-lib.aws_secretsmanager.SecretRotationApplication</code> | Application for single user rotation of the master password to this cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC network to place the cluster in. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.databaseInsightsMode">databaseInsightsMode</a></code> | <code>aws-cdk-lib.aws_rds.DatabaseInsightsMode</code> | The database insights mode. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.monitoringRole">monitoringRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The IAM role for the enhanced monitoring. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.performanceInsightEncryptionKey">performanceInsightEncryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | The AWS KMS key for encryption of Performance Insights data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.performanceInsightRetention">performanceInsightRetention</a></code> | <code>aws-cdk-lib.aws_rds.PerformanceInsightRetention</code> | The amount of time, in days, to retain Performance Insights data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The cluster's subnets. |
 
 ---
@@ -10211,6 +10719,18 @@ Application for multi user rotation to this cluster.
 
 ---
 
+##### `performanceInsightsEnabled`<sup>Required</sup> <a name="performanceInsightsEnabled" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.performanceInsightsEnabled"></a>
+
+```typescript
+public readonly performanceInsightsEnabled: boolean;
+```
+
+- *Type:* boolean
+
+Whether Performance Insights is enabled at cluster level.
+
+---
+
 ##### `singleUserRotationApplication`<sup>Required</sup> <a name="singleUserRotationApplication" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.singleUserRotationApplication"></a>
 
 ```typescript
@@ -10235,6 +10755,54 @@ The VPC network to place the cluster in.
 
 ---
 
+##### `databaseInsightsMode`<sup>Optional</sup> <a name="databaseInsightsMode" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.databaseInsightsMode"></a>
+
+```typescript
+public readonly databaseInsightsMode: DatabaseInsightsMode;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseInsightsMode
+
+The database insights mode.
+
+---
+
+##### `monitoringRole`<sup>Optional</sup> <a name="monitoringRole" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.monitoringRole"></a>
+
+```typescript
+public readonly monitoringRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+The IAM role for the enhanced monitoring.
+
+---
+
+##### `performanceInsightEncryptionKey`<sup>Optional</sup> <a name="performanceInsightEncryptionKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.performanceInsightEncryptionKey"></a>
+
+```typescript
+public readonly performanceInsightEncryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+The AWS KMS key for encryption of Performance Insights data.
+
+---
+
+##### `performanceInsightRetention`<sup>Optional</sup> <a name="performanceInsightRetention" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.performanceInsightRetention"></a>
+
+```typescript
+public readonly performanceInsightRetention: PerformanceInsightRetention;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.PerformanceInsightRetention
+
+The amount of time, in days, to retain Performance Insights data.
+
+---
+
 ##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.vpcSubnets"></a>
 
 ```typescript
@@ -10247,6 +10815,25 @@ The cluster's subnets.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DatabaseInstance <a name="DatabaseInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance"></a>
 
@@ -10710,6 +11297,7 @@ Creates recommended alarms for the database cluster.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromDatabaseInstanceAttributes">fromDatabaseInstanceAttributes</a></code> | Import an existing database instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromLookup">fromLookup</a></code> | Lookup an existing DatabaseInstance using instanceIdentifier. |
 
 ---
 
@@ -10788,6 +11376,34 @@ Import an existing database instance.
 ###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromDatabaseInstanceAttributes.parameter.attrs"></a>
 
 - *Type:* aws-cdk-lib.aws_rds.DatabaseInstanceAttributes
+
+---
+
+##### `fromLookup` <a name="fromLookup" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromLookup"></a>
+
+```typescript
+import { DatabaseInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseInstance.fromLookup(scope: Construct, id: string, options: DatabaseInstanceLookupOptions)
+```
+
+Lookup an existing DatabaseInstance using instanceIdentifier.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromLookup.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromLookup.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.fromLookup.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseInstanceLookupOptions
 
 ---
 
@@ -10994,6 +11610,25 @@ The AWS Secrets Manager secret attached to the instance.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### Distribution <a name="Distribution" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution"></a>
 
@@ -11040,6 +11675,7 @@ new Distribution(scope: Construct, id: string, props: DistributionProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.addBehavior">addBehavior</a></code> | Adds a new behavior to this distribution for the given pathPattern. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.attachWebAclId">attachWebAclId</a></code> | Attach WAF WebACL to this CloudFront distribution. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.grant">grant</a></code> | Adds an IAM policy statement associated with this distribution to an IAM principal's policy. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.grantCreateInvalidation">grantCreateInvalidation</a></code> | Grant to create invalidations for this bucket to an IAM principal (Role/Group/User). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.metric">metric</a></code> | Return the given named metric for this Distribution. |
@@ -11128,10 +11764,28 @@ the options for the behavior at this path.
 
 ---
 
+##### `attachWebAclId` <a name="attachWebAclId" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.attachWebAclId"></a>
+
+```typescript
+public attachWebAclId(webAclId: string): void
+```
+
+Attach WAF WebACL to this CloudFront distribution.
+
+WebACL must be in the us-east-1 region
+
+###### `webAclId`<sup>Required</sup> <a name="webAclId" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.attachWebAclId.parameter.webAclId"></a>
+
+- *Type:* string
+
+The WAF WebACL to associate with this distribution.
+
+---
+
 ##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.grant"></a>
 
 ```typescript
-public grant(identity: IGrantable, actions: string): Grant
+public grant(identity: IGrantable, actions: ...string[]): Grant
 ```
 
 Adds an IAM policy statement associated with this distribution to an IAM principal's policy.
@@ -11146,7 +11800,7 @@ The principal.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.grant.parameter.actions"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The set of actions to allow (i.e. "cloudfront:ListInvalidations").
 
@@ -11586,6 +12240,7 @@ Creates a Distribution construct that represents an external (imported) distribu
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionArn">distributionArn</a></code> | <code>string</code> | The distribution ARN for this distribution. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionDomainName">distributionDomainName</a></code> | <code>string</code> | The domain name of the Distribution, such as d111111abcdef8.cloudfront.net. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionId">distributionId</a></code> | <code>string</code> | The distribution ID for this distribution. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.domainName">domainName</a></code> | <code>string</code> | The domain name of the Distribution, such as d111111abcdef8.cloudfront.net. |
@@ -11635,6 +12290,18 @@ The stack in which this resource is defined.
 
 ---
 
+##### `distributionArn`<sup>Required</sup> <a name="distributionArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionArn"></a>
+
+```typescript
+public readonly distributionArn: string;
+```
+
+- *Type:* string
+
+The distribution ARN for this distribution.
+
+---
+
 ##### `distributionDomainName`<sup>Required</sup> <a name="distributionDomainName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionDomainName"></a>
 
 ```typescript
@@ -11671,6 +12338,25 @@ The domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm <a name="DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm"></a>
 
@@ -11768,7 +12454,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -11777,14 +12463,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -11793,14 +12479,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -11809,7 +12495,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -12064,6 +12750,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DynamoDbTableFailedToReplicateRecordCountAlarm <a name="DynamoDbTableFailedToReplicateRecordCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm"></a>
 
@@ -12159,7 +12885,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -12168,14 +12894,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -12184,14 +12910,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -12200,7 +12926,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -12455,12 +13181,52 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DynamoDbTableReadThrottleEventsAlarm <a name="DynamoDbTableReadThrottleEventsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm"></a>
 
 This alarm detects if there are high number of read requests getting throttled for the DynamoDB table.
 
-To troubleshoot the issue, see {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TroubleshootingThrottling.html|Troubleshooting throttling issues in Amazon DynamoDB}.
+To troubleshoot the issue, see {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TroubleshootingThrottling.html Troubleshooting throttling issues in Amazon DynamoDB}.
 
 The alarm is triggered when the number of read requests exceeds the threshold.
 
@@ -12545,7 +13311,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -12554,14 +13320,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -12570,14 +13336,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -12586,7 +13352,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -12841,6 +13607,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DynamoDbTableRecommendedAlarms <a name="DynamoDbTableRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms"></a>
 
@@ -13027,10 +13833,10 @@ The WriteThrottleEvents alarm.
 
 This alarm detects a sustained high number of system errors for the DynamoDB table requests.
 
-If you continue to get 5xx errors, open the {@link https://status.aws.amazon.com/|AWS Service Health Dashboard}
+If you continue to get 5xx errors, open the {@link https://status.aws.amazon.com/ AWS Service Health Dashboard}
 to check for operational issues with the service. You can use this alarm to get notified in case there is a prolonged
 internal service issue from DynamoDB and it helps you correlate with the issue your client application is facing.
-Refer {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.MessagesAndCodes.http5xx|Error handling for DynamoDB} for more information.
+Refer {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.MessagesAndCodes.http5xx Error handling for DynamoDB} for more information.
 
 The alarm is triggered when the number of system errors exceeds threshold.
 
@@ -13115,7 +13921,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -13124,14 +13930,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -13140,14 +13946,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -13156,7 +13962,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -13411,6 +14217,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DynamoDbTableThrottledPutRecordCountAlarm <a name="DynamoDbTableThrottledPutRecordCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm"></a>
 
@@ -13419,7 +14265,7 @@ This alarm detects the records getting throttled by your Kinesis data stream dur
 This throttling happens because of insufficient Kinesis data stream capacity. If you experience excessive
 and regular throttling, you might need to increase the number of Kinesis stream shards proportionally to
 the observed write throughput of your table. To learn more about determining the size of a Kinesis data stream,
-see {@link https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html#how-do-i-size-a-stream|Determining the Initial Size of a Kinesis Data Stream}.
+see {@link https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html#how-do-i-size-a-stream Determining the Initial Size of a Kinesis Data Stream}.
 
 The alarm is triggered when the number or records that were throttled exceeds the threshold.
 
@@ -13504,7 +14350,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -13513,14 +14359,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -13529,14 +14375,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -13545,7 +14391,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -13800,12 +14646,52 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DynamoDbTableWriteThrottleEventsAlarm <a name="DynamoDbTableWriteThrottleEventsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm"></a>
 
 This alarm detects if there are high number of read requests getting throttled for the DynamoDB table.
 
-To troubleshoot the issue, see {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TroubleshootingThrottling.html|Troubleshooting throttling issues in Amazon DynamoDB}.
+To troubleshoot the issue, see {@link https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TroubleshootingThrottling.html Troubleshooting throttling issues in Amazon DynamoDB}.
 
 The alarm is triggered when the number of read requests exceeds the threshold.
 
@@ -13890,7 +14776,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -13899,14 +14785,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -13915,14 +14801,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -13931,7 +14817,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -14186,6 +15072,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### Ec2InstanceCpuUtilizationAlarm <a name="Ec2InstanceCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm"></a>
 
@@ -15182,7 +16108,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -15191,14 +16117,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -15207,14 +16133,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -15223,7 +16149,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -15478,6 +16404,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### EcsServiceEphemeralStorageUtilizedAlarm <a name="EcsServiceEphemeralStorageUtilizedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm"></a>
 
@@ -15569,7 +16535,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -15578,14 +16544,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -15594,14 +16560,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -15610,7 +16576,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -15865,6 +16831,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### EcsServiceMemoryUtilizationAlarm <a name="EcsServiceMemoryUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm"></a>
 
@@ -15956,7 +16962,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -15965,14 +16971,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -15981,14 +16987,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -15997,7 +17003,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -16252,6 +17258,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### EcsServiceRecommendedAlarms <a name="EcsServiceRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRecommendedAlarms"></a>
 
@@ -16501,7 +17547,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -16510,14 +17556,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -16526,14 +17572,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -16542,7 +17588,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -16797,6 +17843,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### EfsFileSystemBurstCreditBalanceAlarm <a name="EfsFileSystemBurstCreditBalanceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm"></a>
 
@@ -16888,7 +17974,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -16897,14 +17983,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -16913,14 +17999,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -16929,7 +18015,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -17184,6 +18270,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### EfsFileSystemPercentIOLimitAlarm <a name="EfsFileSystemPercentIOLimitAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm"></a>
 
@@ -17276,7 +18402,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -17285,14 +18411,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -17301,14 +18427,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -17317,7 +18443,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -17572,6 +18698,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### EfsFileSystemRecommendedAlarms <a name="EfsFileSystemRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms"></a>
 
@@ -20660,7 +21826,7 @@ This method returns the CloudWatch metric for this service's memory utilization.
 ##### `registerLoadBalancerTargets` <a name="registerLoadBalancerTargets" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.registerLoadBalancerTargets"></a>
 
 ```typescript
-public registerLoadBalancerTargets(targets: EcsTarget): void
+public registerLoadBalancerTargets(targets: ...EcsTarget[]): void
 ```
 
 Use this function to create all load balancer targets to be registered in this service, add them to target groups, and attach target groups to listeners accordingly.
@@ -20687,7 +21853,7 @@ service.registerLoadBalancerTargets(
 
 ###### `targets`<sup>Required</sup> <a name="targets" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.registerLoadBalancerTargets.parameter.targets"></a>
 
-- *Type:* aws-cdk-lib.aws_ecs.EcsTarget
+- *Type:* ...aws-cdk-lib.aws_ecs.EcsTarget[]
 
 ---
 
@@ -21045,6 +22211,25 @@ The CloudMap service created for this service, if any.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### FileSystem <a name="FileSystem" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem"></a>
 
@@ -21175,7 +22360,7 @@ The policy statement to add.
 ##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grant"></a>
 
 ```typescript
-public grant(grantee: IGrantable, actions: string): Grant
+public grant(grantee: IGrantable, actions: ...string[]): Grant
 ```
 
 Grant the actions defined in actions to the given grantee on this File System resource.
@@ -21190,7 +22375,7 @@ Principal to grant right to.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grant.parameter.actions"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The actions to grant.
 
@@ -21487,6 +22672,7 @@ Dependable that can be depended upon to ensure the mount targets of the filesyst
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.DEFAULT_PORT">DEFAULT_PORT</a></code> | <code>number</code> | The default port File System listens on. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
 
 ---
 
@@ -21499,6 +22685,18 @@ public readonly DEFAULT_PORT: number;
 - *Type:* number
 
 The default port File System listens on.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
 
 ---
 
@@ -21977,14 +23175,14 @@ Environment variable options.
 ##### `addLayers` <a name="addLayers" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.addLayers"></a>
 
 ```typescript
-public addLayers(layers: ILayerVersion): void
+public addLayers(layers: ...ILayerVersion[]): void
 ```
 
 Adds one or more Lambda Layers to this Lambda function.
 
 ###### `layers`<sup>Required</sup> <a name="layers" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.addLayers.parameter.layers"></a>
 
-- *Type:* aws-cdk-lib.aws_lambda.ILayerVersion
+- *Type:* ...aws-cdk-lib.aws_lambda.ILayerVersion[]
 
 the layers to be added.
 
@@ -22686,6 +23884,25 @@ The timeout configured for this lambda.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### Instance <a name="Instance" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance"></a>
 
@@ -23603,7 +24820,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -23612,14 +24829,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -23628,14 +24845,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -23644,7 +24861,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -23899,6 +25116,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### LambdaDurationAlarm <a name="LambdaDurationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm"></a>
 
@@ -23995,7 +25252,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -24004,14 +25261,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -24020,14 +25277,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -24036,7 +25293,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -24291,6 +25548,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### LambdaErrorsAlarm <a name="LambdaErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm"></a>
 
@@ -24380,7 +25677,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -24389,14 +25686,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -24405,14 +25702,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -24421,7 +25718,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -24676,6 +25973,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### LambdaRecommendedAlarms <a name="LambdaRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms"></a>
 
@@ -24925,7 +26262,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -24934,14 +26271,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -24950,14 +26287,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -24966,7 +26303,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -25221,6 +26558,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm <a name="PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm"></a>
 
@@ -26346,7 +27723,7 @@ the queue is imported (`Queue.import`), then this is a no-op.
 ##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grant"></a>
 
 ```typescript
-public grant(grantee: IGrantable, actions: string): Grant
+public grant(grantee: IGrantable, actions: ...string[]): Grant
 ```
 
 Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
@@ -26361,7 +27738,7 @@ Principal to grant right to.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grant.parameter.actions"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The actions to grant.
 
@@ -26954,6 +28331,25 @@ If this queue is configured with a dead-letter queue, this is the dead-letter qu
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsAuroraBinLogReplicationLagAlarm <a name="RdsAuroraBinLogReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm"></a>
 
@@ -27044,7 +28440,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -27053,14 +28449,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -27069,14 +28465,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -27085,7 +28481,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -27340,6 +28736,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsAuroraRecommendedAlarms <a name="RdsAuroraRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms"></a>
 
@@ -27560,7 +28996,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -27569,14 +29005,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -27585,14 +29021,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -27601,7 +29037,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -27856,6 +29292,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsInstanceCpuUtilizationAlarm <a name="RdsInstanceCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm"></a>
 
@@ -27947,7 +29423,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -27956,14 +29432,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -27972,14 +29448,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -27988,7 +29464,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -28243,6 +29719,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsInstanceDatabaseConnectionsAlarm <a name="RdsInstanceDatabaseConnectionsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm"></a>
 
@@ -28334,7 +29850,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -28343,14 +29859,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -28359,14 +29875,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -28375,7 +29891,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -28630,6 +30146,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsInstanceDbLoadAlarm <a name="RdsInstanceDbLoadAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm"></a>
 
@@ -28722,7 +30278,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -28731,14 +30287,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -28747,14 +30303,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -28763,7 +30319,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -29018,6 +30574,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsInstanceFreeableMemoryAlarm <a name="RdsInstanceFreeableMemoryAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm"></a>
 
@@ -29108,7 +30704,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -29117,14 +30713,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -29133,14 +30729,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -29149,7 +30745,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -29404,6 +31000,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsInstanceFreeLocalStorageAlarm <a name="RdsInstanceFreeLocalStorageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm"></a>
 
@@ -29495,7 +31131,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -29504,14 +31140,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -29520,14 +31156,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -29536,7 +31172,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -29791,6 +31427,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsInstanceFreeStorageSpaceAlarm <a name="RdsInstanceFreeStorageSpaceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm"></a>
 
@@ -29882,7 +31558,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -29891,14 +31567,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -29907,14 +31583,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -29923,7 +31599,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -30178,6 +31854,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsInstanceReadLatencyAlarm <a name="RdsInstanceReadLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm"></a>
 
@@ -30270,7 +31986,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -30279,14 +31995,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -30295,14 +32011,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -30311,7 +32027,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -30566,6 +32282,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RdsInstanceRecommendedAlarms <a name="RdsInstanceRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms"></a>
 
@@ -30865,7 +32621,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -30874,14 +32630,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -30890,14 +32646,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -30906,7 +32662,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -31161,6 +32917,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### RestApi <a name="RestApi" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi"></a>
 
@@ -31209,8 +33005,10 @@ new RestApi(scope: Construct, id: string, props: RestApiBaseProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addApiKey">addApiKey</a></code> | Add an ApiKey to the deploymentStage. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addDomainName">addDomainName</a></code> | Defines an API Gateway domain name and maps it to this API. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addGatewayResponse">addGatewayResponse</a></code> | Adds a new gateway response. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this rest api. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addUsagePlan">addUsagePlan</a></code> | Adds a usage plan. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.arnForExecuteApi">arnForExecuteApi</a></code> | Gets the "execute-api" ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.grantInvokeFromVpcEndpointsOnly">grantInvokeFromVpcEndpointsOnly</a></code> | Add a resource policy that only allows API execution from a VPC Endpoint to create a private API. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.metric">metric</a></code> | Returns the given named metric for this API. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.metricCacheHitCount">metricCacheHitCount</a></code> | Metric for the number of requests served from the API cache in a given period. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.metricCacheMissCount">metricCacheMissCount</a></code> | Metric for the number of requests served from the backend in a given period, when API caching is enabled. |
@@ -31326,6 +33124,26 @@ Adds a new gateway response.
 
 ---
 
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(statement: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy associated with this rest api.
+
+A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+
+Note that this does not work with imported rest api.
+
+###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addToResourcePolicy.parameter.statement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+The policy statement to add.
+
+---
+
 ##### `addUsagePlan` <a name="addUsagePlan" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addUsagePlan"></a>
 
 ```typescript
@@ -31369,6 +33187,24 @@ Gets the "execute-api" ARN.
 ###### `stage`<sup>Optional</sup> <a name="stage" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.arnForExecuteApi.parameter.stage"></a>
 
 - *Type:* string
+
+---
+
+##### `grantInvokeFromVpcEndpointsOnly` <a name="grantInvokeFromVpcEndpointsOnly" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.grantInvokeFromVpcEndpointsOnly"></a>
+
+```typescript
+public grantInvokeFromVpcEndpointsOnly(vpcEndpoints: IVpcEndpoint[]): void
+```
+
+Add a resource policy that only allows API execution from a VPC Endpoint to create a private API.
+
+> [https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-examples.html#apigateway-resource-policies-source-vpc-example](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-examples.html#apigateway-resource-policies-source-vpc-example)
+
+###### `vpcEndpoints`<sup>Required</sup> <a name="vpcEndpoints" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.grantInvokeFromVpcEndpointsOnly.parameter.vpcEndpoints"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpcEndpoint[]
+
+the interface VPC endpoints to grant access to.
 
 ---
 
@@ -31977,6 +33813,25 @@ The list of methods bound to this RestApi.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### S3Bucket4xxErrorsAlarm <a name="S3Bucket4xxErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm"></a>
 
@@ -32069,7 +33924,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -32078,14 +33933,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -32094,14 +33949,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -32110,7 +33965,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -32365,6 +34220,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### S3Bucket5xxErrorsAlarm <a name="S3Bucket5xxErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm"></a>
 
@@ -32456,7 +34351,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -32465,14 +34360,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -32481,14 +34376,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -32497,7 +34392,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -32752,6 +34647,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### S3RecommendedAlarms <a name="S3RecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarms"></a>
 
@@ -34679,7 +36614,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -34688,14 +36623,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -34704,14 +36639,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -34720,7 +36655,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -34975,6 +36910,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SnsNumberOfNotificationsDeliveredAlarm <a name="SnsNumberOfNotificationsDeliveredAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm"></a>
 
@@ -35068,7 +37043,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -35077,14 +37052,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -35093,14 +37068,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -35109,7 +37084,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -35364,6 +37339,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SnsNumberOfNotificationsFailedAlarm <a name="SnsNumberOfNotificationsFailedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm"></a>
 
@@ -35456,7 +37471,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -35465,14 +37480,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -35481,14 +37496,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -35497,7 +37512,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -35752,6 +37767,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SnsNumberOfNotificationsFailedToRedriveToDlqAlarm <a name="SnsNumberOfNotificationsFailedToRedriveToDlqAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm"></a>
 
@@ -35844,7 +37899,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -35853,14 +37908,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -35869,14 +37924,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -35885,7 +37940,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -36140,6 +38195,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm <a name="SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm"></a>
 
@@ -36232,7 +38327,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -36241,14 +38336,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -36257,14 +38352,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -36273,7 +38368,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -36528,6 +38623,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm <a name="SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm"></a>
 
@@ -36620,7 +38755,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -36629,14 +38764,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -36645,14 +38780,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -36661,7 +38796,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -36916,6 +39051,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SnsNumberOfNotificationsRedrivenToDlqAlarm <a name="SnsNumberOfNotificationsRedrivenToDlqAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm"></a>
 
@@ -37009,7 +39184,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -37018,14 +39193,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -37034,14 +39209,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -37050,7 +39225,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -37305,6 +39480,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SnsRecommendedAlarms <a name="SnsRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarms"></a>
 
@@ -37594,7 +39809,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -37603,14 +39818,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -37619,14 +39834,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -37635,7 +39850,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -37890,6 +40105,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SqsApproximateNumberOfMessagesNotVisibleAlarm <a name="SqsApproximateNumberOfMessagesNotVisibleAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm"></a>
 
@@ -37991,7 +40246,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -38000,14 +40255,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -38016,14 +40271,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -38032,7 +40287,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -38287,6 +40542,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SqsApproximateNumberOfMessagesVisibleAlarm <a name="SqsApproximateNumberOfMessagesVisibleAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm"></a>
 
@@ -38382,7 +40677,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -38391,14 +40686,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -38407,14 +40702,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -38423,7 +40718,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -38678,6 +40973,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SqsNumberOfMessagesSentAlarm <a name="SqsNumberOfMessagesSentAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm"></a>
 
@@ -38769,7 +41104,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmAction"></a>
 
 ```typescript
-public addAlarmAction(actions: IAlarmAction): void
+public addAlarmAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm fires.
@@ -38778,14 +41113,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addInsufficientDataAction"></a>
 
 ```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if there is insufficient data to evaluate the alarm.
@@ -38794,14 +41129,14 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addInsufficientDataAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
 ##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addOkAction"></a>
 
 ```typescript
-public addOkAction(actions: IAlarmAction): void
+public addOkAction(actions: ...IAlarmAction[]): void
 ```
 
 Trigger this action if the alarm returns from breaching state into ok state.
@@ -38810,7 +41145,7 @@ Typically SnsAction or AutoScalingAction.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addOkAction.parameter.actions"></a>
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
 
 ---
 
@@ -39065,6 +41400,46 @@ The metric object this alarm was based on.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SqsRecommendedAlarms <a name="SqsRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarms"></a>
 
@@ -39996,7 +42371,7 @@ The policy statement to add.
 ##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant"></a>
 
 ```typescript
-public grant(grantee: IGrantable, actions: string): Grant
+public grant(grantee: IGrantable, actions: ...string[]): Grant
 ```
 
 Adds an IAM policy statement associated with this table to an IAM principal's policy.
@@ -40014,7 +42389,7 @@ The principal (no-op if undefined).
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant.parameter.actions"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The set of actions to allow (i.e. "dynamodb:PutItem", "dynamodb:GetItem", ...).
 
@@ -40083,7 +42458,7 @@ The principal to grant access to.
 ##### `grantStream` <a name="grantStream" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStream"></a>
 
 ```typescript
-public grantStream(grantee: IGrantable, actions: string): Grant
+public grantStream(grantee: IGrantable, actions: ...string[]): Grant
 ```
 
 Adds an IAM policy statement associated with this table's stream to an IAM principal's policy.
@@ -40101,7 +42476,7 @@ The principal (no-op if undefined).
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStream.parameter.actions"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The set of actions to allow (i.e. "dynamodb:DescribeStream", "dynamodb:GetRecords", ...).
 
@@ -40860,6 +43235,25 @@ Resource policy to assign to DynamoDB Table.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### Topic <a name="Topic" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic"></a>
 
@@ -40985,8 +43379,11 @@ public addToResourcePolicy(statement: PolicyStatement): AddToResourcePolicyResul
 Adds a statement to the IAM resource policy associated with this topic.
 
 If this topic was created in this stack (`new Topic`), a topic policy
-will be automatically created upon the first call to `addToResourcePolicy`. If
-the topic is imported (`Topic.import`), then this is a no-op.
+will be automatically created upon the first call to `addToResourcePolicy`.
+However, if `enforceSSL` is set to `true`, the policy has already been created
+before the first call to this method.
+
+If the topic is imported (`Topic.import`), then this is a no-op.
 
 ###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.addToResourcePolicy.parameter.statement"></a>
 
@@ -41469,6 +43866,7 @@ the attributes of the topic to import.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.fifo">fifo</a></code> | <code>boolean</code> | Whether this topic is an Amazon SNS FIFO queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.topicArn">topicArn</a></code> | <code>string</code> | The ARN of the topic. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.topicName">topicName</a></code> | <code>string</code> | The name of the topic. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.masterKey">masterKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | A KMS Key, either managed by this CDK app, or imported. |
 
 ---
 
@@ -41565,6 +43963,39 @@ The name of the topic.
 
 ---
 
+##### `masterKey`<sup>Optional</sup> <a name="masterKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.masterKey"></a>
+
+```typescript
+public readonly masterKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+A KMS Key, either managed by this CDK app, or imported.
+
+This property applies only to server-side encryption.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### VpcEndpointService <a name="VpcEndpointService" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService"></a>
 
@@ -75625,7 +78056,7 @@ This is also known as first byte latency, or time-to-first-byte.
 The number of validation errors produced by the function in a given time period.
 
 Validation errors occur when the function runs successfully but returns invalid data
-(an invalid {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html|event object}).
+(an invalid {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html event object}).
 
 ---
 
