@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Snapshot 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Queue4A7E3555": Object {
+  "Resources": {
+    "Queue4A7E3555": {
       "DeletionPolicy": "Delete",
-      "Properties": Object {
-        "RedrivePolicy": Object {
-          "deadLetterTargetArn": Object {
-            "Fn::GetAtt": Array [
+      "Properties": {
+        "RedrivePolicy": {
+          "deadLetterTargetArn": {
+            "Fn::GetAtt": [
               "dlq09C78ACC",
               "Arn",
             ],
@@ -26,15 +26,15 @@ Object {
       "Type": "AWS::SQS::Queue",
       "UpdateReplacePolicy": "Delete",
     },
-    "QueueSqsRecommendedAlarmsFromAspectApproximateAgeOfOldestMessageAlarmC8273C30": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsFromAspectApproximateAgeOfOldestMessageAlarmC8273C30": {
+      "Properties": {
         "AlarmDescription": "This alarm watches the age of the oldest message in the queue. You can use this alarm to monitor if your consumers are processing SQS messages at the desired speed. Consider increasing the consumer count or consumer throughput to reduce message age. This metric can be used in combination with ApproximateNumberOfMessagesVisible to determine how big the queue backlog is and how quickly messages are being processed. To prevent messages from being deleted before processed, consider configuring the dead-letter queue to sideline potential poison pill messages.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -45,11 +45,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -65,15 +65,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesNotVisibleAlarmEB79B223": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesNotVisibleAlarmEB79B223": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect a high number of in-flight messages with respect to QueueName. For troubleshooting, check message backlog decreasing (https://repost.aws/knowledge-center/sqs-message-backlog).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -84,11 +84,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -104,15 +104,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesVisibleAlarmE9291ED6": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesVisibleAlarmE9291ED6": {
+      "Properties": {
         "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -123,11 +123,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -143,15 +143,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsFromAspectNumberOfMessagesSentAlarmBD7C07EE": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsFromAspectNumberOfMessagesSentAlarmBD7C07EE": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect if there are no messages being sent from a producer with respect to QueueName.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -162,11 +162,11 @@ Object {
         },
         "ComparisonOperator": "LessThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -182,20 +182,20 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dlq09C78ACC": Object {
+    "dlq09C78ACC": {
       "DeletionPolicy": "Delete",
       "Type": "AWS::SQS::Queue",
       "UpdateReplacePolicy": "Delete",
     },
-    "dlqSqsRecommendedAlarmsFromAspectApproximateAgeOfOldestMessageAlarm76671054": Object {
-      "Properties": Object {
+    "dlqSqsRecommendedAlarmsFromAspectApproximateAgeOfOldestMessageAlarm76671054": {
+      "Properties": {
         "AlarmDescription": "This alarm watches the age of the oldest message in the queue. You can use this alarm to monitor if your consumers are processing SQS messages at the desired speed. Consider increasing the consumer count or consumer throughput to reduce message age. This metric can be used in combination with ApproximateNumberOfMessagesVisible to determine how big the queue backlog is and how quickly messages are being processed. To prevent messages from being deleted before processed, consider configuring the dead-letter queue to sideline potential poison pill messages.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "dlq09C78ACC",
                   "QueueName",
                 ],
@@ -206,11 +206,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "dlq09C78ACC",
                 "QueueName",
               ],
@@ -226,15 +226,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dlqSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesNotVisibleAlarm491DE0EA": Object {
-      "Properties": Object {
+    "dlqSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesNotVisibleAlarm491DE0EA": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect a high number of in-flight messages with respect to QueueName. For troubleshooting, check message backlog decreasing (https://repost.aws/knowledge-center/sqs-message-backlog).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "dlq09C78ACC",
                   "QueueName",
                 ],
@@ -245,11 +245,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "dlq09C78ACC",
                 "QueueName",
               ],
@@ -265,15 +265,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dlqSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesVisibleAlarm0C9FE60A": Object {
-      "Properties": Object {
+    "dlqSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesVisibleAlarm0C9FE60A": {
+      "Properties": {
         "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "dlq09C78ACC",
                   "QueueName",
                 ],
@@ -284,11 +284,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "dlq09C78ACC",
                 "QueueName",
               ],
@@ -304,15 +304,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dlqSqsRecommendedAlarmsFromAspectNumberOfMessagesSentAlarmFDCD6CDD": Object {
-      "Properties": Object {
+    "dlqSqsRecommendedAlarmsFromAspectNumberOfMessagesSentAlarmFDCD6CDD": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect if there are no messages being sent from a producer with respect to QueueName.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "dlq09C78ACC",
                   "QueueName",
                 ],
@@ -323,11 +323,11 @@ Object {
         },
         "ComparisonOperator": "LessThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "dlq09C78ACC",
                 "QueueName",
               ],
@@ -344,22 +344,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -375,29 +375,29 @@ Object {
 `;
 
 exports[`SnapshotDefaultActionsInUse 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Queue4A7E3555": Object {
+  "Resources": {
+    "Queue4A7E3555": {
       "DeletionPolicy": "Delete",
       "Type": "AWS::SQS::Queue",
       "UpdateReplacePolicy": "Delete",
     },
-    "QueueSqsRecommendedAlarmsApproximateAgeOfOldestMessageAlarmAE219096": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsApproximateAgeOfOldestMessageAlarmAE219096": {
+      "Properties": {
         "AlarmDescription": "This alarm watches the age of the oldest message in the queue. You can use this alarm to monitor if your consumers are processing SQS messages at the desired speed. Consider increasing the consumer count or consumer throughput to reduce message age. This metric can be used in combination with ApproximateNumberOfMessagesVisible to determine how big the queue backlog is and how quickly messages are being processed. To prevent messages from being deleted before processed, consider configuring the dead-letter queue to sideline potential poison pill messages.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -408,11 +408,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -428,15 +428,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsApproximateNumberOfMessagesNotVisibleAlarmE9F0309B": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsApproximateNumberOfMessagesNotVisibleAlarmE9F0309B": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect a high number of in-flight messages with respect to QueueName. For troubleshooting, check message backlog decreasing (https://repost.aws/knowledge-center/sqs-message-backlog).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -447,11 +447,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -467,15 +467,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsApproximateNumberOfMessagesVisibleAlarmEE98CAEE": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsApproximateNumberOfMessagesVisibleAlarmEE98CAEE": {
+      "Properties": {
         "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -486,11 +486,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -506,15 +506,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsNumberOfMessagesSentAlarm114DBFFD": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsNumberOfMessagesSentAlarm114DBFFD": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect if there are no messages being sent from a producer with respect to QueueName.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -525,11 +525,11 @@ Object {
         },
         "ComparisonOperator": "LessThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -545,23 +545,23 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TopicBFC7AF6E": Object {
+    "TopicBFC7AF6E": {
       "Type": "AWS::SNS::Topic",
     },
-    "sqsAlarmsApproximateAgeOfOldestMessageAlarm0B88084D": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "sqsAlarmsApproximateAgeOfOldestMessageAlarm0B88084D": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm watches the age of the oldest message in the queue. You can use this alarm to monitor if your consumers are processing SQS messages at the desired speed. Consider increasing the consumer count or consumer throughput to reduce message age. This metric can be used in combination with ApproximateNumberOfMessagesVisible to determine how big the queue backlog is and how quickly messages are being processed. To prevent messages from being deleted before processed, consider configuring the dead-letter queue to sideline potential poison pill messages.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -572,11 +572,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -584,15 +584,15 @@ Object {
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ApproximateAgeOfOldestMessage",
         "Namespace": "AWS/SQS",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -602,20 +602,20 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "sqsAlarmsApproximateNumberOfMessagesNotVisibleAlarm21502969": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "sqsAlarmsApproximateNumberOfMessagesNotVisibleAlarm21502969": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm helps to detect a high number of in-flight messages with respect to QueueName. For troubleshooting, check message backlog decreasing (https://repost.aws/knowledge-center/sqs-message-backlog).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -626,11 +626,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -638,15 +638,15 @@ Object {
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ApproximateNumberOfMessagesNotVisible",
         "Namespace": "AWS/SQS",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -656,20 +656,20 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "sqsAlarmsApproximateNumberOfMessagesVisibleAlarm46FCC667": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "sqsAlarmsApproximateNumberOfMessagesVisibleAlarm46FCC667": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -680,11 +680,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -692,15 +692,15 @@ Object {
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ApproximateNumberOfMessagesVisible",
         "Namespace": "AWS/SQS",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -710,20 +710,20 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "sqsAlarmsNumberOfMessagesSentAlarmFF7B107E": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "sqsAlarmsNumberOfMessagesSentAlarmFF7B107E": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm helps to detect if there are no messages being sent from a producer with respect to QueueName.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -734,11 +734,11 @@ Object {
         },
         "ComparisonOperator": "LessThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -746,15 +746,15 @@ Object {
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "NumberOfMessagesSent",
         "Namespace": "AWS/SQS",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -765,22 +765,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -796,29 +796,29 @@ Object {
 `;
 
 exports[`SnapshotForBucketConstruct 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Queue4A7E3555": Object {
+  "Resources": {
+    "Queue4A7E3555": {
       "DeletionPolicy": "Delete",
       "Type": "AWS::SQS::Queue",
       "UpdateReplacePolicy": "Delete",
     },
-    "QueueSqsRecommendedAlarmsApproximateAgeOfOldestMessageAlarmAE219096": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsApproximateAgeOfOldestMessageAlarmAE219096": {
+      "Properties": {
         "AlarmDescription": "This alarm watches the age of the oldest message in the queue. You can use this alarm to monitor if your consumers are processing SQS messages at the desired speed. Consider increasing the consumer count or consumer throughput to reduce message age. This metric can be used in combination with ApproximateNumberOfMessagesVisible to determine how big the queue backlog is and how quickly messages are being processed. To prevent messages from being deleted before processed, consider configuring the dead-letter queue to sideline potential poison pill messages.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -829,11 +829,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -849,15 +849,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsApproximateNumberOfMessagesNotVisibleAlarmE9F0309B": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsApproximateNumberOfMessagesNotVisibleAlarmE9F0309B": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect a high number of in-flight messages with respect to QueueName. For troubleshooting, check message backlog decreasing (https://repost.aws/knowledge-center/sqs-message-backlog).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -868,11 +868,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -888,15 +888,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsApproximateNumberOfMessagesVisibleAlarmEE98CAEE": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsApproximateNumberOfMessagesVisibleAlarmEE98CAEE": {
+      "Properties": {
         "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -907,11 +907,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -927,15 +927,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsNumberOfMessagesSentAlarm114DBFFD": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsNumberOfMessagesSentAlarm114DBFFD": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect if there are no messages being sent from a producer with respect to QueueName.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -946,11 +946,11 @@ Object {
         },
         "ComparisonOperator": "LessThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -967,22 +967,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -998,29 +998,29 @@ Object {
 `;
 
 exports[`SnapshotWithExclusion 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Queue4A7E3555": Object {
+  "Resources": {
+    "Queue4A7E3555": {
       "DeletionPolicy": "Delete",
       "Type": "AWS::SQS::Queue",
       "UpdateReplacePolicy": "Delete",
     },
-    "QueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesNotVisibleAlarmEB79B223": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesNotVisibleAlarmEB79B223": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect a high number of in-flight messages with respect to QueueName. For troubleshooting, check message backlog decreasing (https://repost.aws/knowledge-center/sqs-message-backlog).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -1031,11 +1031,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -1051,15 +1051,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesVisibleAlarmE9291ED6": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesVisibleAlarmE9291ED6": {
+      "Properties": {
         "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -1070,11 +1070,11 @@ Object {
         },
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -1090,15 +1090,15 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "QueueSqsRecommendedAlarmsFromAspectNumberOfMessagesSentAlarmBD7C07EE": Object {
-      "Properties": Object {
+    "QueueSqsRecommendedAlarmsFromAspectNumberOfMessagesSentAlarmBD7C07EE": {
+      "Properties": {
         "AlarmDescription": "This alarm helps to detect if there are no messages being sent from a producer with respect to QueueName.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
-                "Fn::GetAtt": Array [
+            [
+              {
+                "Fn::GetAtt": [
                   "Queue4A7E3555",
                   "QueueName",
                 ],
@@ -1109,11 +1109,11 @@ Object {
         },
         "ComparisonOperator": "LessThanOrEqualToThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "Queue4A7E3555",
                 "QueueName",
               ],
@@ -1130,22 +1130,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
