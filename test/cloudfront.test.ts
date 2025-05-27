@@ -31,7 +31,7 @@ class CloudFrontDistributionStack extends Stack {
 
     this.distribution = new cloudfrontAlarms.Distribution(this, 'Distribution', {
       defaultBehavior: {
-        origin: new origins.S3Origin(bucket),
+        origin: origins.S3BucketOrigin.withOriginAccessControl(bucket),
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
       publishAdditionalMetrics: true,
@@ -350,7 +350,7 @@ test('when an resource is excluded from the aspect config it should not have ala
 
   new cloudfront.Distribution(stack, 'Distribution1', {
     defaultBehavior: {
-      origin: new origins.S3Origin(bucket1),
+      origin: origins.S3BucketOrigin.withOriginAccessControl(bucket1),
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
     },
     publishAdditionalMetrics: true,
@@ -362,7 +362,7 @@ test('when an resource is excluded from the aspect config it should not have ala
 
   new cloudfront.Distribution(stack, 'Distribution2', {
     defaultBehavior: {
-      origin: new origins.S3Origin(bucket2),
+      origin: origins.S3BucketOrigin.withOriginAccessControl(bucket2),
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
     },
     publishAdditionalMetrics: true,
@@ -542,7 +542,7 @@ test('optional alarm configurations can be overwritten', () => {
 
   new cloudfront.Distribution(stack, 'Distribution', {
     defaultBehavior: {
-      origin: new origins.S3Origin(bucket),
+      origin: origins.S3BucketOrigin.withOriginAccessControl(bucket),
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
     },
     publishAdditionalMetrics: true,
