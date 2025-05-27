@@ -14,7 +14,7 @@ export enum SqsRecommendedAlarmsMetrics {
   APPROXIMATE_AGE_OF_OLDEST_MESSAGE = 'ApproximateAgeOfOldestMessage',
   APPROXIMATE_NUMBER_OF_MESSAGES_NOT_VISIBLE = 'ApproximateNumberOfMessagesNotVisible',
   APPROXIMATE_NUMBER_OF_MESSAGES_VISIBLE = 'ApproximateNumberOfMessagesVisible',
-  NUMBER_OF_MESSAGES_SENT = 'NumberOfMessagesSent'
+  NUMBER_OF_MESSAGES_SENT = 'NumberOfMessagesSent',
 }
 
 export interface SqsAlarmBaseConfig extends AlarmBaseProps {

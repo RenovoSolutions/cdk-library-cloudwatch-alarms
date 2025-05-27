@@ -38,7 +38,7 @@ export enum SnsRecommendedAlarmsMetrics {
   /**
    * The number of notifications failed to redrive to the dead-letter queue.
    */
-  NUMBER_OF_NOTIFICATIONS_FAILED_TO_REDRIVE_TO_DLQ = 'NumberOfNotificationsFailedToRedriveToDlq'
+  NUMBER_OF_NOTIFICATIONS_FAILED_TO_REDRIVE_TO_DLQ = 'NumberOfNotificationsFailedToRedriveToDlq',
 }
 
 export interface SnsAlarmBaseConfig extends AlarmBaseProps {
