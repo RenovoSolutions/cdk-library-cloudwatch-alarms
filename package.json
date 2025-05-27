@@ -17,6 +17,7 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
+    "package:dotnet": "npx projen package:dotnet",
     "package:js": "npx projen package:js",
     "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
@@ -131,6 +132,10 @@
       "python": {
         "distName": "renovosolutions.aws-cdk-cloudwatch-alarms",
         "module": "alarms"
+      },
+      "dotnet": {
+        "namespace": "renovosolutions",
+        "packageId": "Renovo.AWSCDK.Cloudwatch.Alarms"
       }
     },
     "tsc": {
