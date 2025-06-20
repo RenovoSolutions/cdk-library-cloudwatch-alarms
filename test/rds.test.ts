@@ -1151,7 +1151,7 @@ test('when required attributes are not present it should throw an error', () => 
         threshold: 20,
       },
     });
-  }).toThrowError('Either instanceIdentifier or databaseInstance must be specified.');
+  }).toThrow('Either instanceIdentifier or databaseInstance must be specified.');
 
   expect(() => {
     new rdsAlarms.RdsAuroraRecommendedAlarms(clusterStack, 'rdsDatabaseInstanceAlarms', {
@@ -1178,7 +1178,7 @@ test('when required attributes are not present it should throw an error', () => 
         threshold: 20,
       },
     });
-  }).toThrowError(`The threshold must be specified for ${rdsAlarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_LEFT_TOTAL} alarm.`);
+  }).toThrow(`The threshold must be specified for ${rdsAlarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_LEFT_TOTAL} alarm.`);
 });
 
 test('default alarm actions are overridden when individual alarm actions are provided in configuration', () => {

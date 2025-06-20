@@ -813,7 +813,7 @@ Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName =>
           evaluationPeriods: 25,
         },
       });
-    }).toThrowError('The period (86400) over which'),
+    }).toThrow('The period (86400) over which'),
 
     Template.fromStack(stack);
   });

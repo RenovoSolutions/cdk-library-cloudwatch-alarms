@@ -755,7 +755,7 @@ Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
           datapointsToAlarm: 25,
         },
       });
-    }).toThrowError('The period (86400) over which'),
+    }).toThrow('The period (86400) over which'),
 
     Template.fromStack(stack);
   });

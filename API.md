@@ -8473,6 +8473,7 @@ new Bucket(scope: Construct, id: string, props?: BucketProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReplicationPermission">grantReplicationPermission</a></code> | Grant replication permission to a principal. This method allows the principal to perform replication operations on this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Define a CloudWatch event that triggers when something happens to this repository. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
@@ -8894,6 +8895,33 @@ use the `grantPutAcl` method.
 ###### `objectsKeyPattern`<sup>Optional</sup> <a name="objectsKeyPattern" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReadWrite.parameter.objectsKeyPattern"></a>
 
 - *Type:* any
+
+---
+
+##### `grantReplicationPermission` <a name="grantReplicationPermission" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReplicationPermission"></a>
+
+```typescript
+public grantReplicationPermission(identity: IGrantable, props: GrantReplicationPermissionProps): Grant
+```
+
+Grant replication permission to a principal. This method allows the principal to perform replication operations on this bucket.
+
+Note that when calling this function for source or destination buckets that support KMS encryption,
+you need to specify the KMS key for encryption and the KMS key for decryption, respectively.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReplicationPermission.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+The principal to grant replication permission to.
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReplicationPermission.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.GrantReplicationPermissionProps
+
+The properties of the replication source and destination buckets.
 
 ---
 
@@ -15380,7 +15408,7 @@ new DatabaseInstance(scope: Construct, id: string, props: DatabaseInstanceProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmFreeStorageSpace">alarmFreeStorageSpace</a></code> | Creates an alarm that monitors the FreeStorageSpace. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmReadLatency">alarmReadLatency</a></code> | Creates an alarm that monitors the ReadLatency. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.alarmWriteLatency">alarmWriteLatency</a></code> | Creates an alarm that monitors the WriteLatency. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates recommended alarms for the database cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates recommended alarms for the database instance. |
 
 ---
 
@@ -15759,7 +15787,7 @@ Creates an alarm that monitors the WriteLatency.
 public applyRecommendedAlarms(props: RdsInstanceRecommendedAlarmsConfig): RdsInstanceRecommendedAlarms
 ```
 
-Creates recommended alarms for the database cluster.
+Creates recommended alarms for the database instance.
 
 > [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS)
 
