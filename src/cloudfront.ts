@@ -643,6 +643,7 @@ export class CloudFrontDistributionRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(CloudFrontRecommendedAlarmsMetrics.ERROR_RATE_5XX)) {
       this.alarm5xxErrorRate = new CloudFrontDistribution5xxErrorRateAlarm(this, `${props.distribution.node.id}_5xxErrorRate`, {
         distribution: props.distribution,
+        treatMissingData: props.treatMissingData,
         ...props.config5xxErrorRateAlarm,
       });
 
@@ -662,6 +663,7 @@ export class CloudFrontDistributionRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(CloudFrontRecommendedAlarmsMetrics.ORIGIN_LATENCY)) {
       this.alarmOriginLatency = new CloudFrontDistributionOriginLatencyAlarm(this, `${props.distribution.node.id}_OriginLatency`, {
         distribution: props.distribution,
+        treatMissingData: props.treatMissingData,
         ...props.configOriginLatencyAlarm,
       });
 
@@ -685,6 +687,7 @@ export class CloudFrontDistributionRecommendedAlarms extends Construct {
       props.configDetailedFunctionValidationErrorsAlarmList.forEach((config, index) => {
         let alarmConfig = {
           distribution: props.distribution,
+          treatMissingData: props.treatMissingData,
           ...config,
         };
         if (props.defaultAlarmAction && !config.alarmAction) {
@@ -707,6 +710,7 @@ export class CloudFrontDistributionRecommendedAlarms extends Construct {
       props.configDetailedFunctionExecutionErrorsAlarmList.forEach((config, index) => {
         let alarmConfig = {
           distribution: props.distribution,
+          treatMissingData: props.treatMissingData,
           ...config,
         };
         if (props.defaultAlarmAction && !config.alarmAction) {
@@ -729,6 +733,7 @@ export class CloudFrontDistributionRecommendedAlarms extends Construct {
       props.configDetailedFunctionThrottlesAlarmList.forEach((config, index) => {
         let alarmConfig = {
           distribution: props.distribution,
+          treatMissingData: props.treatMissingData,
           ...config,
         };
         if (props.defaultAlarmAction && !config.alarmAction) {

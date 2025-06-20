@@ -1472,3 +1472,52 @@ test('optional alarm configurations can be overwritten', () => {
     }));
   });
 });
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new rdsAlarms.RdsAuroraRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      configDatabaseConnectionsAlarm: {
+        threshold: 10,
+      },
+      configFreeableMemoryAlarm: {
+        threshold: 5,
+      },
+      configFreeLocalStorageAlarm: {
+        threshold: 20,
+      },
+      configFreeStorageSpaceAlarm: {
+        threshold: 20,
+      },
+      configDbLoadAlarm: {
+        threshold: 4,
+      },
+      configReadLatencyAlarm: {
+        threshold: 20,
+      },
+      configWriteLatencyAlarm: {
+        threshold: 20,
+      },
+    }),
+  );
+
+  const stack = new MySQLDatabaseInstanceStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(rdsAlarms.RdsRecommendedAlarmsMetrics).filter(metric => metric.startsWith('INSTANCE_')).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+});

@@ -392,3 +392,31 @@ test('default actions are applied when no specific actions are provided', () => 
     }));
   });
 });
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new applicationtargetgroupAlarms.ApplicationTargetGroupRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+    }),
+  );
+
+  const stack = new ApplicationTargetGroupStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(applicationtargetgroupAlarms.ApplicationTargetGroupRecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+});

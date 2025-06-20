@@ -694,6 +694,7 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.ERROR_4XX)) {
       this.alarm4XXError = new ApiGatewayRestApi4XXErrorAlarm(this, `${props.api.node.id}_4XXError`, {
         api: props.api,
+        treatMissingData: props.treatMissingData,
         ...props.config4XXErrorAlarm,
       });
 
@@ -713,6 +714,7 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.ERROR_5XX)) {
       this.alarm5XXError = new ApiGatewayRestApi5XXErrorAlarm(this, `${props.api.node.id}_5XXError`, {
         api: props.api,
+        treatMissingData: props.treatMissingData,
         ...props.config5XXErrorAlarm,
       });
 
@@ -732,6 +734,7 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.COUNT)) {
       this.alarmCount = new ApiGatewayRestApiCountAlarm(this, `${props.api.node.id}_Count`, {
         api: props.api,
+        treatMissingData: props.treatMissingData,
         ...props.configCountAlarm,
       });
 
@@ -751,6 +754,7 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.LATENCY)) {
       this.alarmLatency = new ApiGatewayRestApiLatencyAlarm(this, `${props.api.node.id}_Latency`, {
         api: props.api,
+        treatMissingData: props.treatMissingData,
         ...props.configLatencyAlarm,
       });
 
@@ -771,6 +775,7 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
       props.configDetailedCountAlarmList.forEach((config, index) => {
         let alarmConfig = {
           api: props.api,
+          treatMissingData: props.treatMissingData,
           ...config,
         };
         if (props.defaultAlarmAction && !config.alarmAction) {
@@ -790,6 +795,7 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
       props.configDetailedLatencyAlarmList.forEach((config, index) => {
         let alarmConfig = {
           api: props.api,
+          treatMissingData: props.treatMissingData,
           ...config,
         };
         if (props.defaultAlarmAction && !config.alarmAction) {

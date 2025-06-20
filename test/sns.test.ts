@@ -1,4 +1,5 @@
 import {
+  aws_cloudwatch as cloudwatch,
   aws_cloudwatch_actions as cloudwatch_actions,
   aws_sns as sns,
   aws_lambda as lambda,
@@ -889,5 +890,42 @@ test('when a resource is excluded from the aspect config it should not have alar
         expect(alarms.length).toBe(1);
       }
     });
+  });
+});
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+  const appAspects = Aspects.of(app);
+  appAspects.add(
+    new snsAlarms.SnsRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      configNumberOfMessagesPublishedAlarm: {
+        threshold: 1,
+      },
+      configNumberOfNotificationsDeliveredAlarm: {
+        threshold: 1,
+      },
+      configNumberOfNotificationsFailedAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  new sns.Topic(stack, 'Topic');
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(snsAlarms.SnsRecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
   });
 });

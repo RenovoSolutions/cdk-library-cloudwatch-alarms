@@ -348,3 +348,31 @@ test('optional alarm configurations can be overwritten', () => {
     }));
   });
 });
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new networkloadbalancerAlarms.NetworkLoadBalancerRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+    }),
+  );
+
+  const stack = new NetworkLoadBalancerStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(networkloadbalancerAlarms.NetworkLoadBalancerRecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+});

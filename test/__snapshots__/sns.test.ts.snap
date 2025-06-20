@@ -1,4 +1,328 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`AspectWithTreatMissingData 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "TopicBFC7AF6E": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "TopicSnsRecommendedAlarmsFromAspectSnsRecommendedAlarmsFromAspectNumberOfMessagesPublishedAlarm188830A2": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect when the number of SNS messages published is too low. For troubleshooting, check why the publishers are sending less traffic.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "TopicBFC7AF6E",
+                  "TopicName",
+                ],
+              },
+              " - NumberOfMessagesPublished",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TopicName",
+            "Value": {
+              "Fn::GetAtt": [
+                "TopicBFC7AF6E",
+                "TopicName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "NumberOfMessagesPublished",
+        "Namespace": "AWS/SNS",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicSnsRecommendedAlarmsFromAspectSnsRecommendedAlarmsFromAspectNumberOfNotificationsDeliveredAlarm2AAD9498": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect when the number of SNS messages delivered is too low. This could be because of unintentional unsubscribing of an endpoint, or because of an SNS event that causes messages to experience delay.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "TopicBFC7AF6E",
+                  "TopicName",
+                ],
+              },
+              " - NumberOfNotificationsDelivered",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TopicName",
+            "Value": {
+              "Fn::GetAtt": [
+                "TopicBFC7AF6E",
+                "TopicName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "NumberOfNotificationsDelivered",
+        "Namespace": "AWS/SNS",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicSnsRecommendedAlarmsFromAspectSnsRecommendedAlarmsFromAspectNumberOfNotificationsFailedAlarmB044AF65": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect when the number of failed SNS messages is too high. To troubleshoot failed notifications, enable logging to CloudWatch Logs. Checking the logs can help you find which subscribers are failing, as well as the status codes they are returning.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "TopicBFC7AF6E",
+                  "TopicName",
+                ],
+              },
+              " - NumberOfNotificationsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TopicName",
+            "Value": {
+              "Fn::GetAtt": [
+                "TopicBFC7AF6E",
+                "TopicName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "NumberOfNotificationsFailed",
+        "Namespace": "AWS/SNS",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicSnsRecommendedAlarmsFromAspectSnsRecommendedAlarmsFromAspectNumberOfNotificationsFailedToRedriveToDlqAlarm3C4F18D1": {
+      "Properties": {
+        "AlarmDescription": "This alarm helps to monitor messages that couldn't be moved to a dead-letter queue. Check whether your dead-letter queue exists and that it's configured correctly. Also, verify that SNS has permissions to access the dead-letter queue. Refer to the dead-letter queue documentation (https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html) to learn more.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "TopicBFC7AF6E",
+                  "TopicName",
+                ],
+              },
+              " - NumberOfNotificationsFailedToRedriveToDlq",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TopicName",
+            "Value": {
+              "Fn::GetAtt": [
+                "TopicBFC7AF6E",
+                "TopicName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "NumberOfNotificationsFailedToRedriveToDlq",
+        "Namespace": "AWS/SNS",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicSnsRecommendedAlarmsFromAspectSnsRecommendedAlarmsFromAspectNumberOfNotificationsFilteredOutInvalidAttributesAlarm6F46DF70": {
+      "Properties": {
+        "AlarmDescription": "This alarm helps to monitor and resolve potential problems with the publisher or subscribers. Check if a publisher is publishing messages with invalid attributes or if an inappropriate filter is applied to a subscriber. You can also analyze CloudWatch Logs to help find the root cause of the issue.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "TopicBFC7AF6E",
+                  "TopicName",
+                ],
+              },
+              " - NumberOfNotificationsFilteredOut-InvalidAttributes",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TopicName",
+            "Value": {
+              "Fn::GetAtt": [
+                "TopicBFC7AF6E",
+                "TopicName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "NumberOfNotificationsFilteredOut-InvalidAttributes",
+        "Namespace": "AWS/SNS",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicSnsRecommendedAlarmsFromAspectSnsRecommendedAlarmsFromAspectNumberOfNotificationsFilteredOutInvalidMessageBodyAlarmB06DC882": {
+      "Properties": {
+        "AlarmDescription": "This alarm helps to monitor and resolve potential problems with the publisher or subscribers. Check if a publisher is publishing messages with invalid message bodies, or if an inappropriate filter is applied to a subscriber. You can also analyze CloudWatch Logs to help find the root cause of the issue.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "TopicBFC7AF6E",
+                  "TopicName",
+                ],
+              },
+              " - NumberOfNotificationsFilteredOut-InvalidMessageBody",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TopicName",
+            "Value": {
+              "Fn::GetAtt": [
+                "TopicBFC7AF6E",
+                "TopicName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "NumberOfNotificationsFilteredOut-InvalidMessageBody",
+        "Namespace": "AWS/SNS",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicSnsRecommendedAlarmsFromAspectSnsRecommendedAlarmsFromAspectNumberOfNotificationsRedrivenToDlqAlarm9C0E386E": {
+      "Properties": {
+        "AlarmDescription": "This alarm helps to monitor the number of messages that are moved to a dead-letter queue.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "TopicBFC7AF6E",
+                  "TopicName",
+                ],
+              },
+              " - NumberOfNotificationsRedrivenToDlq",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TopicName",
+            "Value": {
+              "Fn::GetAtt": [
+                "TopicBFC7AF6E",
+                "TopicName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "NumberOfNotificationsRedrivenToDlq",
+        "Namespace": "AWS/SNS",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
 
 exports[`Snapshot 1`] = `
 {

@@ -1,4 +1,240 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`AspectWithTreatMissingData 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "Bucket83908E77": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "VersioningConfiguration": {
+          "Status": "Enabled",
+        },
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "BucketPolicyE9A3008A": {
+      "Properties": {
+        "Bucket": {
+          "Ref": "Bucket83908E77",
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:GetObject",
+              "Condition": {
+                "StringEquals": {
+                  "AWS:SourceArn": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "cloudfront.amazonaws.com",
+              },
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "Bucket83908E77",
+                        "Arn",
+                      ],
+                    },
+                    "/*",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::S3::BucketPolicy",
+    },
+    "Distribution830FAC52": {
+      "Properties": {
+        "DistributionConfig": {
+          "DefaultCacheBehavior": {
+            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "Compress": true,
+            "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
+            "ViewerProtocolPolicy": "redirect-to-https",
+          },
+          "Enabled": true,
+          "HttpVersion": "http2",
+          "IPV6Enabled": true,
+          "Origins": [
+            {
+              "DomainName": {
+                "Fn::GetAtt": [
+                  "Bucket83908E77",
+                  "RegionalDomainName",
+                ],
+              },
+              "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": {
+                "Fn::GetAtt": [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
+              "S3OriginConfig": {
+                "OriginAccessIdentity": "",
+              },
+            },
+          ],
+        },
+      },
+      "Type": "AWS::CloudFront::Distribution",
+    },
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "Distribution830FAC52",
+              },
+              " - 5xxErrorRate",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "DistributionId",
+            "Value": {
+              "Ref": "Distribution830FAC52",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "5xxErrorRate",
+        "Namespace": "AWS/CloudFront",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "Distribution830FAC52",
+              },
+              " - OriginLatency",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "DistributionId",
+            "Value": {
+              "Ref": "Distribution830FAC52",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "ExtendedStatistic": "p90",
+        "MetricName": "OriginLatency",
+        "Namespace": "AWS/CloudFront",
+        "Period": 60,
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DistributionMonitoringSubscription2503EB92": {
+      "Properties": {
+        "DistributionId": {
+          "Ref": "Distribution830FAC52",
+        },
+        "MonitoringSubscription": {
+          "RealtimeMetricsSubscriptionConfig": {
+            "RealtimeMetricsSubscriptionStatus": "Enabled",
+          },
+        },
+      },
+      "Type": "AWS::CloudFront::MonitoringSubscription",
+    },
+    "DistributionOrigin1S3OriginAccessControlEB606076": {
+      "Properties": {
+        "OriginAccessControlConfig": {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
+        },
+      },
+      "Type": "AWS::CloudFront::OriginAccessControl",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
 
 exports[`CloudFrontDistributionSnapshot 1`] = `
 {

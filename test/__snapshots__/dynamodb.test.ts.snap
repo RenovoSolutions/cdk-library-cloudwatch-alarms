@@ -1,4 +1,171 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`AspectWithTreatMissingData 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "TableCD117FA1": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S",
+          },
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH",
+          },
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5,
+        },
+        "TableName": "Table",
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "TableCD117FA1",
+              },
+              " - ReadThrottleEvents",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TableName",
+            "Value": {
+              "Ref": "TableCD117FA1",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ReadThrottleEvents",
+        "Namespace": "AWS/DynamoDB",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "TableCD117FA1",
+              },
+              " - SystemErrors",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "TableName",
+            "Value": {
+              "Ref": "TableCD117FA1",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "SystemErrors",
+        "Namespace": "AWS/DynamoDB",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "TableCD117FA1",
+              },
+              " - WriteThrottleEvents",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "TableName",
+            "Value": {
+              "Ref": "TableCD117FA1",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "WriteThrottleEvents",
+        "Namespace": "AWS/DynamoDB",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
 
 exports[`DynamoDbTableSnapshot 1`] = `
 {

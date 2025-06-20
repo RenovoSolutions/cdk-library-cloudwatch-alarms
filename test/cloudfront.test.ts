@@ -566,3 +566,37 @@ test('optional alarm configurations can be overwritten', () => {
     }));
   });
 });
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new cloudfrontAlarms.CloudFrontRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      config5xxErrorRateAlarm: {
+        threshold: 100,
+      },
+      configOriginLatencyAlarm: {
+        threshold: 100,
+      },
+    }),
+  );
+
+  const stack = new CloudFrontDistributionStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(cloudfrontAlarms.CloudFrontRecommendedAlarmsMetrics).filter(metric => !metric.startsWith('Function')).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+});
