@@ -14,3 +14,4 @@ export * from './s3';
 export * from './sns';
 export * from './sqs';
 export * from './vpn';
+export * from './states';

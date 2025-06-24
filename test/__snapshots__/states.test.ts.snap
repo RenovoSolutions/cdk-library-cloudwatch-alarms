@@ -1,0 +1,2318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SfStateMachineSnapshot 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StateMachine2E01A3A5": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachineRoleB840431D",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachineRoleB840431D",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "TestStateMachine",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachineRoleB840431D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionThrottledA51784C7": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect throttled executions due to exceeding AWS service limits.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionThrottled",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionTimeAAA39742": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect sudden increases in execution time.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionTime",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionTime",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 300000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionsFailedB39F05DB": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect workflows that are not working as expected.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionsTimedOutD5E9363C": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsTimedOut",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`SfStateMachineSnapshotDefaultActionsInUse 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StateMachine2E01A3A5": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachineRoleB840431D",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachineRoleB840431D",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "TestStateMachine",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachineRoleB840431D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "TopicBFC7AF6E": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "sfStateMachineAlarmsStateMachineExecutionThrottledEC4F1FD4": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect throttled executions due to exceeding AWS service limits.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionThrottled",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "sfStateMachineAlarmsStateMachineExecutionTimeFC58C723": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect sudden increases in execution time.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionTime",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ExecutionTime",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 300000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "sfStateMachineAlarmsStateMachineExecutionsFailedD1F885EB": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect workflows that are not working as expected.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "sfStateMachineAlarmsStateMachineExecutionsTimedOut6F0C2B8A": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsTimedOut",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`SfStateMachineSnapshotWithExclusion 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StateMachine2E01A3A5": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachineRoleB840431D",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachineRoleB840431D",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "TestStateMachine",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachineRoleB840431D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionThrottledA51784C7": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect throttled executions due to exceeding AWS service limits.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionThrottled",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionsFailedB39F05DB": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect workflows that are not working as expected.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionsTimedOutD5E9363C": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsTimedOut",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`SnapshotForSfStateMachineConstruct 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StateMachine2E01A3A5": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachineRoleB840431D",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachineRoleB840431D",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "TestStateMachine",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachineRoleB840431D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsStateMachineExecutionThrottledA1D45384": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect throttled executions due to exceeding AWS service limits.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionThrottled",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsStateMachineExecutionTime1BD79216": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect sudden increases in execution time.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionTime",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionTime",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 300000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsStateMachineExecutionsFailedB616149F": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect workflows that are not working as expected.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsStateMachineExecutionsTimedOut3FA281AA": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsTimedOut",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`alarms can be applied individually to resources using extended construct 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StateMachine2E01A3A5": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachineRoleB840431D",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachineRoleB840431D",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "TestStateMachine",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachineExecutionThrottledAlarmB2FE80D0": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect throttled executions due to exceeding AWS service limits.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionThrottled",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineExecutionTimeAlarmA5F124D6": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect sudden increases in execution time.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionTime",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionTime",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 300000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineExecutionsFailedAlarmE96016BF": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect workflows that are not working as expected.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineExecutionsTimedOutAlarmE06C9EE9": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsTimedOut",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineRoleB840431D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`default alarm actions are overridden when individual alarm actions are provided in configuration 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "LambdaD247545B": Object {
+      "DependsOn": Array [
+        "LambdaServiceRoleA8ED4D3B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "ZipFile": "exports.handler = async (event) => { console.log(event); }",
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "LambdaServiceRoleA8ED4D3B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "LambdaServiceRoleA8ED4D3B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "LambdaStateMachineExecutionThrottledAlarmPermission2ABC8113": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "LambdaD247545B",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "sfStateMachineAlarmsStateMachineExecutionThrottledEC4F1FD4",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "LambdaStateMachineExecutionTimeAlarmPermission1E4823A1": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "LambdaD247545B",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "sfStateMachineAlarmsStateMachineExecutionTimeFC58C723",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "LambdaStateMachineExecutionsFailedAlarmPermission31E6BD81": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "LambdaD247545B",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "sfStateMachineAlarmsStateMachineExecutionsFailedD1F885EB",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "LambdaStateMachineExecutionsTimedOutAlarmPermissionBB3A52F6": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "LambdaD247545B",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "sfStateMachineAlarmsStateMachineExecutionsTimedOut6F0C2B8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "StateMachine2E01A3A5": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachineRoleB840431D",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachineRoleB840431D",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "TestStateMachine",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachineRoleB840431D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "TopicBFC7AF6E": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "sfStateMachineAlarmsStateMachineExecutionThrottledEC4F1FD4": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect throttled executions due to exceeding AWS service limits.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionThrottled",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "sfStateMachineAlarmsStateMachineExecutionTimeFC58C723": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect sudden increases in execution time.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionTime",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "MetricName": "ExecutionTime",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 300000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "sfStateMachineAlarmsStateMachineExecutionsFailedD1F885EB": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect workflows that are not working as expected.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "sfStateMachineAlarmsStateMachineExecutionsTimedOut6F0C2B8A": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "AlarmDescription": "This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsTimedOut",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`optional alarm configurations can be overwritten 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StateMachine18AFC9B86": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachine1RoleDE82F282",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachine1RoleDE82F282",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "StateMachine1",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachine1RoleDE82F282": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "StateMachine1SfStateMachineRecommendedAlarmsFromAspectStateMachine1ExecutionThrottledA4F663D1": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomExecutionThrottledAlarm",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 25,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine18AFC9B86",
+            },
+          },
+        ],
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Sum",
+        "Threshold": 300000,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachine1SfStateMachineRecommendedAlarmsFromAspectStateMachine1ExecutionTime361E1F99": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomExecutionTimeAlarm",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 25,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine18AFC9B86",
+            },
+          },
+        ],
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ExecutionTime",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300000,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachine1SfStateMachineRecommendedAlarmsFromAspectStateMachine1ExecutionsFailed7EBD08D5": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomExecutionsFailedAlarm",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 25,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine18AFC9B86",
+            },
+          },
+        ],
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Sum",
+        "Threshold": 300000,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachine1SfStateMachineRecommendedAlarmsFromAspectStateMachine1ExecutionsTimedOut3ECF1B75": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomExecutionsTimedOutAlarm",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 25,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine18AFC9B86",
+            },
+          },
+        ],
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "OKActions": Array [
+          Object {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Sum",
+        "Threshold": 300000,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicBFC7AF6E": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`stack should contain stateMachine recommended alarms if recommended alarms aspect is applied with no exclusions 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StateMachine2E01A3A5": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachineRoleB840431D",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachineRoleB840431D",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "TestStateMachine",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachineRoleB840431D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionThrottledA51784C7": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect throttled executions due to exceeding AWS service limits.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionThrottled",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionTimeAAA39742": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect sudden increases in execution time.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionTime",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionTime",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 300000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionsFailedB39F05DB": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect workflows that are not working as expected.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachineSfStateMachineRecommendedAlarmsFromAspectStateMachineExecutionsTimedOutD5E9363C": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine2E01A3A5",
+                  "Name",
+                ],
+              },
+              " - ExecutionsTimedOut",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine2E01A3A5",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`when an resource is excluded from the aspect config it should not have alarms 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StateMachine18AFC9B86": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachine1RoleDE82F282",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachine1RoleDE82F282",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "StateMachine1",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachine1RoleDE82F282": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "StateMachine21CE8E3CE": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "StateMachine2Role6BE3CF0B",
+      ],
+      "Properties": Object {
+        "DefinitionString": "\\"{\\\\\\"StartAt\\\\\\":\\\\\\"PassState\\\\\\",\\\\\\"States\\\\\\":{\\\\\\"PassState\\\\\\":{\\\\\\"Type\\\\\\":\\\\\\"Pass\\\\\\",\\\\\\"Result\\\\\\":{\\\\\\"Value\\\\\\":\\\\\\"Hello, Step Functions!\\\\\\"},\\\\\\"End\\\\\\":true}}}\\"",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "StateMachine2Role6BE3CF0B",
+            "Arn",
+          ],
+        },
+        "StateMachineName": "StateMachine2",
+      },
+      "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachine2Role6BE3CF0B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "states.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "StateMachine2SfStateMachineRecommendedAlarmsFromAspectStateMachine2ExecutionThrottledE157E920": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect throttled executions due to exceeding AWS service limits.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine21CE8E3CE",
+                  "Name",
+                ],
+              },
+              " - ExecutionThrottled",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine21CE8E3CE",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionThrottled",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachine2SfStateMachineRecommendedAlarmsFromAspectStateMachine2ExecutionTime0DE12FE1": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect sudden increases in execution time.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine21CE8E3CE",
+                  "Name",
+                ],
+              },
+              " - ExecutionTime",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine21CE8E3CE",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionTime",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 300000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachine2SfStateMachineRecommendedAlarmsFromAspectStateMachine2ExecutionsFailedE3948986": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect workflows that are not working as expected.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine21CE8E3CE",
+                  "Name",
+                ],
+              },
+              " - ExecutionsFailed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine21CE8E3CE",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "StateMachine2SfStateMachineRecommendedAlarmsFromAspectStateMachine2ExecutionsTimedOut01DA7E00": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::GetAtt": Array [
+                  "StateMachine21CE8E3CE",
+                  "Name",
+                ],
+              },
+              " - ExecutionsTimedOut",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "StateMachineArn",
+            "Value": Object {
+              "Ref": "StateMachine21CE8E3CE",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "ExecutionsTimedOut",
+        "Namespace": "AWS/States",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

@@ -32882,6 +32882,1708 @@ The 5xx errors alarm.
 ---
 
 
+### SfStateMachineExecutionsFailedAlarm <a name="SfStateMachineExecutionsFailedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm"></a>
+
+It helps in tracking the number of executions that fail in AWS Step Functions.
+
+This is crucial for identifying workflows that are
+not performing as expected and require attention.
+
+By monitoring the failures, developers can proactively identify and resolve issues before they impact the business operations. This reduces
+downtime and improves the overall stability of applications.
+
+The alarm is triggered when the number of failed executions exceed the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionsFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SfStateMachineExecutionsFailedAlarm(scope: IConstruct, id: string, props: SfStateMachineExecutionsFailedAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps">SfStateMachineExecutionsFailedAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps">SfStateMachineExecutionsFailedAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isConstruct"></a>
+
+```typescript
+import { SfStateMachineExecutionsFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsFailedAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isOwnedResource"></a>
+
+```typescript
+import { SfStateMachineExecutionsFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsFailedAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isResource"></a>
+
+```typescript
+import { SfStateMachineExecutionsFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsFailedAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SfStateMachineExecutionsFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsFailedAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmName"></a>
+
+```typescript
+import { SfStateMachineExecutionsFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsFailedAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### SfStateMachineExecutionsTimedOutAlarm <a name="SfStateMachineExecutionsTimedOutAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm"></a>
+
+This alarm helps in identifying timeouts in state machine executions.
+
+This can indicate problems like poor configuration, inadequate resource allocation, or issues in the called services that need addressing.
+
+The alarm is triggered when the number of timed out executions exceed the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionsTimedOutAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SfStateMachineExecutionsTimedOutAlarm(scope: IConstruct, id: string, props: SfStateMachineExecutionsTimedOutAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps">SfStateMachineExecutionsTimedOutAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps">SfStateMachineExecutionsTimedOutAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isConstruct"></a>
+
+```typescript
+import { SfStateMachineExecutionsTimedOutAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsTimedOutAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isOwnedResource"></a>
+
+```typescript
+import { SfStateMachineExecutionsTimedOutAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsTimedOutAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isResource"></a>
+
+```typescript
+import { SfStateMachineExecutionsTimedOutAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsTimedOutAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SfStateMachineExecutionsTimedOutAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsTimedOutAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmName"></a>
+
+```typescript
+import { SfStateMachineExecutionsTimedOutAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionsTimedOutAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### SfStateMachineExecutionThrottledAlarm <a name="SfStateMachineExecutionThrottledAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm"></a>
+
+The ExecutionThrottled metric tracks the number of times state machine executions are throttled due to exceeding AWS service limits.
+
+Monitoring this can help you identify when you are hitting this limits, which could signal that adjustments need to be made either in
+the process design or in the service limits themselves.
+
+The alarm is triggered when the number of executions throttled exceed the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionThrottledAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SfStateMachineExecutionThrottledAlarm(scope: IConstruct, id: string, props: SfStateMachineExecutionThrottledAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps">SfStateMachineExecutionThrottledAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps">SfStateMachineExecutionThrottledAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isConstruct"></a>
+
+```typescript
+import { SfStateMachineExecutionThrottledAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionThrottledAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isOwnedResource"></a>
+
+```typescript
+import { SfStateMachineExecutionThrottledAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionThrottledAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isResource"></a>
+
+```typescript
+import { SfStateMachineExecutionThrottledAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionThrottledAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SfStateMachineExecutionThrottledAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionThrottledAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmName"></a>
+
+```typescript
+import { SfStateMachineExecutionThrottledAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionThrottledAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### SfStateMachineExecutionTimeAlarm <a name="SfStateMachineExecutionTimeAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm"></a>
+
+This metric can be a valuable tool for early detection of issues that might not be immediately apparent from other metrics.
+
+A sudden increase in execution time might indicate issues with the steps of the resources they interact with.
+
+The alarm is triggered when the time in milliseconds exceed the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionTimeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SfStateMachineExecutionTimeAlarm(scope: IConstruct, id: string, props: SfStateMachineExecutionTimeAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps">SfStateMachineExecutionTimeAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps">SfStateMachineExecutionTimeAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isConstruct"></a>
+
+```typescript
+import { SfStateMachineExecutionTimeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionTimeAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isOwnedResource"></a>
+
+```typescript
+import { SfStateMachineExecutionTimeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionTimeAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isResource"></a>
+
+```typescript
+import { SfStateMachineExecutionTimeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionTimeAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SfStateMachineExecutionTimeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionTimeAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmName"></a>
+
+```typescript
+import { SfStateMachineExecutionTimeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineExecutionTimeAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### SfStateMachineRecommendedAlarms <a name="SfStateMachineRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an StepFunctions StateMachine.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { SfStateMachineRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SfStateMachineRecommendedAlarms(scope: Construct, id: string, props: SfStateMachineRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps">SfStateMachineRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps">SfStateMachineRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { SfStateMachineRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SfStateMachineRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.alarmExecutionsFailed">alarmExecutionsFailed</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm">SfStateMachineExecutionsFailedAlarm</a></code> | The ExecutionsFailed alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.alarmExecutionsTimedOut">alarmExecutionsTimedOut</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm">SfStateMachineExecutionsTimedOutAlarm</a></code> | The ExecutionsTimedOut alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.alarmExecutionThrottled">alarmExecutionThrottled</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm">SfStateMachineExecutionThrottledAlarm</a></code> | The ExecutionThrottled alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.alarmExecutionTime">alarmExecutionTime</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm">SfStateMachineExecutionTimeAlarm</a></code> | The ExecutionTime alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmExecutionsFailed`<sup>Optional</sup> <a name="alarmExecutionsFailed" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.alarmExecutionsFailed"></a>
+
+```typescript
+public readonly alarmExecutionsFailed: SfStateMachineExecutionsFailedAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm">SfStateMachineExecutionsFailedAlarm</a>
+
+The ExecutionsFailed alarm.
+
+---
+
+##### `alarmExecutionsTimedOut`<sup>Optional</sup> <a name="alarmExecutionsTimedOut" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.alarmExecutionsTimedOut"></a>
+
+```typescript
+public readonly alarmExecutionsTimedOut: SfStateMachineExecutionsTimedOutAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm">SfStateMachineExecutionsTimedOutAlarm</a>
+
+The ExecutionsTimedOut alarm.
+
+---
+
+##### `alarmExecutionThrottled`<sup>Optional</sup> <a name="alarmExecutionThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.alarmExecutionThrottled"></a>
+
+```typescript
+public readonly alarmExecutionThrottled: SfStateMachineExecutionThrottledAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm">SfStateMachineExecutionThrottledAlarm</a>
+
+The ExecutionThrottled alarm.
+
+---
+
+##### `alarmExecutionTime`<sup>Optional</sup> <a name="alarmExecutionTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.property.alarmExecutionTime"></a>
+
+```typescript
+public readonly alarmExecutionTime: SfStateMachineExecutionTimeAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm">SfStateMachineExecutionTimeAlarm</a>
+
+The ExecutionTime alarm.
+
+---
+
+
 ### SnsNumberOfMessagesPublishedAlarm <a name="SnsNumberOfMessagesPublishedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm"></a>
 
 An alarm that monitors the number of messages published to an SNS topic.
@@ -37511,6 +39213,651 @@ public readonly alarmNumberOfMessagesSent: SqsNumberOfMessagesSentAlarm;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm">SqsNumberOfMessagesSentAlarm</a>
 
 The number of messages sent alarm.
+
+---
+
+
+### StateMachine <a name="StateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine"></a>
+
+An extension for the StateMachine construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new StateMachine(scope: Construct, id: string, props: StateMachineProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachineProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachineProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy">addToRolePolicy</a></code> | Add the given statement to the role's policy. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant">grant</a></code> | Grant the given identity custom permissions. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution">grantExecution</a></code> | Grant the given identity permissions on all executions of the state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead">grantRead</a></code> | Grant the given identity permissions to read results from state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution">grantStartExecution</a></code> | Grant the given identity permissions to start an execution of this state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution">grantStartSyncExecution</a></code> | Grant the given identity permissions to start a synchronous execution of this state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse">grantTaskResponse</a></code> | Grant the given identity task response permissions on a state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric">metric</a></code> | Return the given named metric for this State Machine's executions. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted">metricAborted</a></code> | Metric for the number of executions that were aborted. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed">metricFailed</a></code> | Metric for the number of executions that failed. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted">metricStarted</a></code> | Metric for the number of executions that were started. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded">metricSucceeded</a></code> | Metric for the number of executions that succeeded. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled">metricThrottled</a></code> | Metric for the number of executions that were throttled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime">metricTime</a></code> | Metric for the interval, in milliseconds, between the time the execution starts and the time it closes. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut">metricTimedOut</a></code> | Metric for the number of executions that timed out. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed">alarmExecutionsFailed</a></code> | Creates an alarm that monitors the ExecutionsFailed for the StepFunctions stateMachine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut">alarmExecutionsTimedOut</a></code> | Creates an alarm that monitors the ExecutionsTimedOut for the StepFunctions stateMachine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled">alarmExecutionThrottled</a></code> | Creates an alarm that monitors the ExecutionThrottled for the StepFunctions stateMachine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime">alarmExecutionTime</a></code> | Creates an alarm that monitors the ExecutionTime for the StepFunctions stateMachine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the StepFunctions StateMachine. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addToRolePolicy` <a name="addToRolePolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy"></a>
+
+```typescript
+public addToRolePolicy(statement: PolicyStatement): void
+```
+
+Add the given statement to the role's policy.
+
+###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy.parameter.statement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant"></a>
+
+```typescript
+public grant(identity: IGrantable, actions: string): Grant
+```
+
+Grant the given identity custom permissions.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant.parameter.actions"></a>
+
+- *Type:* string
+
+---
+
+##### `grantExecution` <a name="grantExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution"></a>
+
+```typescript
+public grantExecution(identity: IGrantable, actions: string): Grant
+```
+
+Grant the given identity permissions on all executions of the state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution.parameter.actions"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead"></a>
+
+```typescript
+public grantRead(identity: IGrantable): Grant
+```
+
+Grant the given identity permissions to read results from state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantStartExecution` <a name="grantStartExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution"></a>
+
+```typescript
+public grantStartExecution(identity: IGrantable): Grant
+```
+
+Grant the given identity permissions to start an execution of this state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantStartSyncExecution` <a name="grantStartSyncExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution"></a>
+
+```typescript
+public grantStartSyncExecution(identity: IGrantable): Grant
+```
+
+Grant the given identity permissions to start a synchronous execution of this state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantTaskResponse` <a name="grantTaskResponse" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse"></a>
+
+```typescript
+public grantTaskResponse(identity: IGrantable): Grant
+```
+
+Grant the given identity task response permissions on a state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `metric` <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this State Machine's executions.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricAborted` <a name="metricAborted" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted"></a>
+
+```typescript
+public metricAborted(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that were aborted.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricFailed` <a name="metricFailed" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed"></a>
+
+```typescript
+public metricFailed(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that failed.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricStarted` <a name="metricStarted" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted"></a>
+
+```typescript
+public metricStarted(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that were started.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricSucceeded` <a name="metricSucceeded" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded"></a>
+
+```typescript
+public metricSucceeded(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that succeeded.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricThrottled` <a name="metricThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled"></a>
+
+```typescript
+public metricThrottled(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that were throttled.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTime` <a name="metricTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime"></a>
+
+```typescript
+public metricTime(props?: MetricOptions): Metric
+```
+
+Metric for the interval, in milliseconds, between the time the execution starts and the time it closes.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTimedOut` <a name="metricTimedOut" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut"></a>
+
+```typescript
+public metricTimedOut(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that timed out.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `alarmExecutionsFailed` <a name="alarmExecutionsFailed" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed"></a>
+
+```typescript
+public alarmExecutionsFailed(props?: SfStateMachineExecutionsFailedAlarmConfig): SfStateMachineExecutionsFailedAlarm
+```
+
+Creates an alarm that monitors the ExecutionsFailed for the StepFunctions stateMachine.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig">SfStateMachineExecutionsFailedAlarmConfig</a>
+
+---
+
+##### `alarmExecutionsTimedOut` <a name="alarmExecutionsTimedOut" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut"></a>
+
+```typescript
+public alarmExecutionsTimedOut(props?: SfStateMachineExecutionsTimedOutAlarmConfig): SfStateMachineExecutionsTimedOutAlarm
+```
+
+Creates an alarm that monitors the ExecutionsTimedOut for the StepFunctions stateMachine.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig">SfStateMachineExecutionsTimedOutAlarmConfig</a>
+
+---
+
+##### `alarmExecutionThrottled` <a name="alarmExecutionThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled"></a>
+
+```typescript
+public alarmExecutionThrottled(props?: SfStateMachineExecutionThrottledAlarmConfig): SfStateMachineExecutionThrottledAlarm
+```
+
+Creates an alarm that monitors the ExecutionThrottled for the StepFunctions stateMachine.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig">SfStateMachineExecutionThrottledAlarmConfig</a>
+
+---
+
+##### `alarmExecutionTime` <a name="alarmExecutionTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime"></a>
+
+```typescript
+public alarmExecutionTime(props: SfStateMachineExecutionTimeAlarmConfig): SfStateMachineExecutionTimeAlarm
+```
+
+Creates an alarm that monitors the ExecutionTime for the StepFunctions stateMachine.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig">SfStateMachineExecutionTimeAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: SfStateMachineRecommendedAlarmsConfig): SfStateMachineRecommendedAlarms
+```
+
+Creates the recommended alarms for the StepFunctions StateMachine.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig">SfStateMachineRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn">fromStateMachineArn</a></code> | Import a state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName">fromStateMachineName</a></code> | Import a state machine via resource name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromStateMachineArn` <a name="fromStateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.fromStateMachineArn(scope: Construct, id: string, stateMachineArn: string)
+```
+
+Import a state machine.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `stateMachineArn`<sup>Required</sup> <a name="stateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.stateMachineArn"></a>
+
+- *Type:* string
+
+---
+
+##### `fromStateMachineName` <a name="fromStateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.fromStateMachineName(scope: Construct, id: string, stateMachineName: string)
+```
+
+Import a state machine via resource name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `stateMachineName`<sup>Required</sup> <a name="stateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.stateMachineName"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal this state machine is running as. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role of this state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineArn">stateMachineArn</a></code> | <code>string</code> | The ARN of the state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineName">stateMachineName</a></code> | <code>string</code> | The name of the state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRevisionId">stateMachineRevisionId</a></code> | <code>string</code> | Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineType">stateMachineType</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachineType</code> | Type of the state machine. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grantPrincipal"></a>
+
+```typescript
+public readonly grantPrincipal: IPrincipal;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IPrincipal
+
+The principal this state machine is running as.
+
+---
+
+##### `role`<sup>Required</sup> <a name="role" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+Execution role of this state machine.
+
+---
+
+##### `stateMachineArn`<sup>Required</sup> <a name="stateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineArn"></a>
+
+```typescript
+public readonly stateMachineArn: string;
+```
+
+- *Type:* string
+
+The ARN of the state machine.
+
+---
+
+##### `stateMachineName`<sup>Required</sup> <a name="stateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineName"></a>
+
+```typescript
+public readonly stateMachineName: string;
+```
+
+- *Type:* string
+
+The name of the state machine.
+
+---
+
+##### `stateMachineRevisionId`<sup>Required</sup> <a name="stateMachineRevisionId" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRevisionId"></a>
+
+```typescript
+public readonly stateMachineRevisionId: string;
+```
+
+- *Type:* string
+
+Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+
+---
+
+##### `stateMachineType`<sup>Required</sup> <a name="stateMachineType" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineType"></a>
+
+```typescript
+public readonly stateMachineType: StateMachineType;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachineType
+
+Type of the state machine.
 
 ---
 
@@ -65095,6 +67442,1796 @@ The S3 bucket to apply the recommended alarms to.
 
 ---
 
+### SfAlarmBaseConfig <a name="SfAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { SfAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfAlarmBaseConfig: SfAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### SfStateMachineAlarmProps <a name="SfStateMachineAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineAlarmProps"></a>
+
+The common properties for the StepFunctions StateMachine alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineAlarmProps.Initializer"></a>
+
+```typescript
+import { SfStateMachineAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineAlarmProps: SfStateMachineAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineAlarmProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine to monitor. |
+
+---
+
+##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineAlarmProps.property.stateMachine"></a>
+
+```typescript
+public readonly stateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+The StateMachine to monitor.
+
+---
+
+### SfStateMachineExecutionsFailedAlarmConfig <a name="SfStateMachineExecutionsFailedAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig"></a>
+
+Configuration for the ExecutionsFailed alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionsFailedAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineExecutionsFailedAlarmConfig: SfStateMachineExecutionsFailedAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | It helps in tracking the number of executions that fail in AWS Step Functions. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect workflows that are not working as expected.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* stateMachineName + ' - ExecutionsFailed'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+It helps in tracking the number of executions that fail in AWS Step Functions.
+
+This is crucial for identifying workflows that are
+not performing as expected and require attention. By monitoring the failures, developers can proactively identify and resolve issues
+before they impact the business operations. This reduces downtime and improves the overall stability of applications.
+
+---
+
+### SfStateMachineExecutionsFailedAlarmProps <a name="SfStateMachineExecutionsFailedAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps"></a>
+
+The properties for the SfStateMachineExecutionsFailedAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionsFailedAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineExecutionsFailedAlarmProps: SfStateMachineExecutionsFailedAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | It helps in tracking the number of executions that fail in AWS Step Functions. |
+
+---
+
+##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.stateMachine"></a>
+
+```typescript
+public readonly stateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+The StateMachine to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect workflows that are not working as expected.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* stateMachineName + ' - ExecutionsFailed'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+It helps in tracking the number of executions that fail in AWS Step Functions.
+
+This is crucial for identifying workflows that are
+not performing as expected and require attention. By monitoring the failures, developers can proactively identify and resolve issues
+before they impact the business operations. This reduces downtime and improves the overall stability of applications.
+
+---
+
+### SfStateMachineExecutionsTimedOutAlarmConfig <a name="SfStateMachineExecutionsTimedOutAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig"></a>
+
+Configuration for the ExecutionsTimedOut alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionsTimedOutAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineExecutionsTimedOutAlarmConfig: SfStateMachineExecutionsTimedOutAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | It helps in identifying timeouts in state machine executions, which can indicate problems like poor configuration, inadequate resource allocation, or issues in the called services that need addressing. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* stateMachineName + ' - ExecutionsTimedOut'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+It helps in identifying timeouts in state machine executions, which can indicate problems like poor configuration, inadequate resource allocation, or issues in the called services that need addressing.
+
+---
+
+### SfStateMachineExecutionsTimedOutAlarmProps <a name="SfStateMachineExecutionsTimedOutAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps"></a>
+
+The properties for the SfStateMachineExecutionsTimedOutAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionsTimedOutAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineExecutionsTimedOutAlarmProps: SfStateMachineExecutionsTimedOutAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | It helps in identifying timeouts in state machine executions, which can indicate problems like poor configuration, inadequate resource allocation, or issues in the called services that need addressing. |
+
+---
+
+##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.stateMachine"></a>
+
+```typescript
+public readonly stateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+The StateMachine to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm helps in identifying timeouts in state machine executions due to poor configuration, inadequate resource allocation, or issues in the called services that need addressing.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* stateMachineName + ' - ExecutionsTimedOut'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+It helps in identifying timeouts in state machine executions, which can indicate problems like poor configuration, inadequate resource allocation, or issues in the called services that need addressing.
+
+---
+
+### SfStateMachineExecutionThrottledAlarmConfig <a name="SfStateMachineExecutionThrottledAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig"></a>
+
+Configuration for the ExecutionThrottled alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionThrottledAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineExecutionThrottledAlarmConfig: SfStateMachineExecutionThrottledAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The ExecutionThrottled metric tracks the number of times state machine executions are throttled due to exceeding AWS service limits. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect throttled executions due to exceeding AWS service limits.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* stateMachineName + ' - ExecutionThrottled'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The ExecutionThrottled metric tracks the number of times state machine executions are throttled due to exceeding AWS service limits.
+
+Monitoring this can help you identify when you are hitting this limits, which could signal that adjustments need to be made either in
+the process design or in the service limits themselves.
+
+---
+
+### SfStateMachineExecutionThrottledAlarmProps <a name="SfStateMachineExecutionThrottledAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps"></a>
+
+The properties for the SfStateMachineExecutionThrottledAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionThrottledAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineExecutionThrottledAlarmProps: SfStateMachineExecutionThrottledAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The ExecutionThrottled metric tracks the number of times state machine executions are throttled due to exceeding AWS service limits. |
+
+---
+
+##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.stateMachine"></a>
+
+```typescript
+public readonly stateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+The StateMachine to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect throttled executions due to exceeding AWS service limits.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* stateMachineName + ' - ExecutionThrottled'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The ExecutionThrottled metric tracks the number of times state machine executions are throttled due to exceeding AWS service limits.
+
+Monitoring this can help you identify when you are hitting this limits, which could signal that adjustments need to be made either in
+the process design or in the service limits themselves.
+
+---
+
+### SfStateMachineExecutionTimeAlarmConfig <a name="SfStateMachineExecutionTimeAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig"></a>
+
+Configuration for the ExecutionTime alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionTimeAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineExecutionTimeAlarmConfig: SfStateMachineExecutionTimeAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | A sudden increase in execution time might indicate issues with the steps of the resources they interact with. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* None
+
+A sudden increase in execution time might indicate issues with the steps of the resources they interact with.
+
+Consider setting a threshold (in milliseconds) that is appropriate for the expected execution time of the state machine.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect sudden increases in execution time..
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* stateMachineName + ' - ExecutionTime'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### SfStateMachineExecutionTimeAlarmProps <a name="SfStateMachineExecutionTimeAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps"></a>
+
+The properties for the SfStateMachineExecutionTimeAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.Initializer"></a>
+
+```typescript
+import { SfStateMachineExecutionTimeAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineExecutionTimeAlarmProps: SfStateMachineExecutionTimeAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The StateMachine to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | A sudden increase in execution time might indicate issues with the steps of the resources they interact with. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.stateMachine"></a>
+
+```typescript
+public readonly stateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+The StateMachine to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* None
+
+A sudden increase in execution time might indicate issues with the steps of the resources they interact with.
+
+Consider setting a threshold (in milliseconds) that is appropriate for the expected execution time of the state machine.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect sudden increases in execution time..
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* stateMachineName + ' - ExecutionTime'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### SfStateMachineRecommendedAlarmsConfig <a name="SfStateMachineRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an StepFunctions Service.
+
+Default actions are overridden by the actions specified in the individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { SfStateMachineRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineRecommendedAlarmsConfig: SfStateMachineRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.configExecutionTimeAlarm">configExecutionTimeAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig">SfStateMachineExecutionTimeAlarmConfig</a></code> | The configuration for the ExecutionTime alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.configExecutionsFailedAlarm">configExecutionsFailedAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig">SfStateMachineExecutionsFailedAlarmConfig</a></code> | The configuration for the ExecutionsFailed alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.configExecutionsTimedOutAlarm">configExecutionsTimedOutAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig">SfStateMachineExecutionsTimedOutAlarmConfig</a></code> | The configuration for the ExecutionsFailed alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.configExecutionThrottledAlarm">configExecutionThrottledAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig">SfStateMachineExecutionThrottledAlarmConfig</a></code> | The configuration for the ExecutionThrottled alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics">SfRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configExecutionTimeAlarm`<sup>Required</sup> <a name="configExecutionTimeAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.configExecutionTimeAlarm"></a>
+
+```typescript
+public readonly configExecutionTimeAlarm: SfStateMachineExecutionTimeAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig">SfStateMachineExecutionTimeAlarmConfig</a>
+
+The configuration for the ExecutionTime alarm.
+
+---
+
+##### `configExecutionsFailedAlarm`<sup>Optional</sup> <a name="configExecutionsFailedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.configExecutionsFailedAlarm"></a>
+
+```typescript
+public readonly configExecutionsFailedAlarm: SfStateMachineExecutionsFailedAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig">SfStateMachineExecutionsFailedAlarmConfig</a>
+
+The configuration for the ExecutionsFailed alarm.
+
+---
+
+##### `configExecutionsTimedOutAlarm`<sup>Optional</sup> <a name="configExecutionsTimedOutAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.configExecutionsTimedOutAlarm"></a>
+
+```typescript
+public readonly configExecutionsTimedOutAlarm: SfStateMachineExecutionsTimedOutAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig">SfStateMachineExecutionsTimedOutAlarmConfig</a>
+
+The configuration for the ExecutionsFailed alarm.
+
+---
+
+##### `configExecutionThrottledAlarm`<sup>Optional</sup> <a name="configExecutionThrottledAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.configExecutionThrottledAlarm"></a>
+
+```typescript
+public readonly configExecutionThrottledAlarm: SfStateMachineExecutionThrottledAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig">SfStateMachineExecutionThrottledAlarmConfig</a>
+
+The configuration for the ExecutionThrottled alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: SfRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics">SfRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### SfStateMachineRecommendedAlarmsProps <a name="SfStateMachineRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps"></a>
+
+Properties for the SfStateMachineRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { SfStateMachineRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const sfStateMachineRecommendedAlarmsProps: SfStateMachineRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.configExecutionTimeAlarm">configExecutionTimeAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig">SfStateMachineExecutionTimeAlarmConfig</a></code> | The configuration for the ExecutionTime alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.configExecutionsFailedAlarm">configExecutionsFailedAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig">SfStateMachineExecutionsFailedAlarmConfig</a></code> | The configuration for the ExecutionsFailed alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.configExecutionsTimedOutAlarm">configExecutionsTimedOutAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig">SfStateMachineExecutionsTimedOutAlarmConfig</a></code> | The configuration for the ExecutionsFailed alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.configExecutionThrottledAlarm">configExecutionThrottledAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig">SfStateMachineExecutionThrottledAlarmConfig</a></code> | The configuration for the ExecutionThrottled alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics">SfRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The EFS StateMachine to monitor. |
+
+---
+
+##### `configExecutionTimeAlarm`<sup>Required</sup> <a name="configExecutionTimeAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.configExecutionTimeAlarm"></a>
+
+```typescript
+public readonly configExecutionTimeAlarm: SfStateMachineExecutionTimeAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig">SfStateMachineExecutionTimeAlarmConfig</a>
+
+The configuration for the ExecutionTime alarm.
+
+---
+
+##### `configExecutionsFailedAlarm`<sup>Optional</sup> <a name="configExecutionsFailedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.configExecutionsFailedAlarm"></a>
+
+```typescript
+public readonly configExecutionsFailedAlarm: SfStateMachineExecutionsFailedAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig">SfStateMachineExecutionsFailedAlarmConfig</a>
+
+The configuration for the ExecutionsFailed alarm.
+
+---
+
+##### `configExecutionsTimedOutAlarm`<sup>Optional</sup> <a name="configExecutionsTimedOutAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.configExecutionsTimedOutAlarm"></a>
+
+```typescript
+public readonly configExecutionsTimedOutAlarm: SfStateMachineExecutionsTimedOutAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig">SfStateMachineExecutionsTimedOutAlarmConfig</a>
+
+The configuration for the ExecutionsFailed alarm.
+
+---
+
+##### `configExecutionThrottledAlarm`<sup>Optional</sup> <a name="configExecutionThrottledAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.configExecutionThrottledAlarm"></a>
+
+```typescript
+public readonly configExecutionThrottledAlarm: SfStateMachineExecutionThrottledAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig">SfStateMachineExecutionThrottledAlarmConfig</a>
+
+The configuration for the ExecutionThrottled alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: SfRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics">SfRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsProps.property.stateMachine"></a>
+
+```typescript
+public readonly stateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+The EFS StateMachine to monitor.
+
+---
+
 ### SnsAlarmBaseConfig <a name="SnsAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsAlarmBaseConfig"></a>
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsAlarmBaseConfig.Initializer"></a>
@@ -71171,6 +75308,57 @@ All aspects can visit an IConstruct.
 
 
 
+### SfRecommendedAlarmsAspect <a name="SfRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the alarms for an StepFunctions StateMachine.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { SfRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SfRecommendedAlarmsAspect(props: SfStateMachineRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig">SfStateMachineRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig">SfStateMachineRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### SnsRecommendedAlarmsAspect <a name="SnsRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarmsAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
@@ -71870,6 +76058,52 @@ The recommended metrics for S3 bucket alarms.
 ##### `ERRORS_5XX` <a name="ERRORS_5XX" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsMetrics.ERRORS_5XX"></a>
 
 5xxErrors are server errors (5xx error codes) that are made in response to client requests.
+
+---
+
+
+### SfRecommendedAlarmsMetrics <a name="SfRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for StepFunctions alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics.EXECUTION_TIME">EXECUTION_TIME</a></code> | Interval, in milliseconds, between the time the execution starts and the time it closes. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics.EXECUTION_THROTTLED">EXECUTION_THROTTLED</a></code> | Number of StateEntered events and retries that have been throttled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics.EXECUTIONS_FAILED">EXECUTIONS_FAILED</a></code> | Number of failed executions. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics.EXECUTIONS_TIMED_OUT">EXECUTIONS_TIMED_OUT</a></code> | Number of executions that time out for any reason. |
+
+---
+
+##### `EXECUTION_TIME` <a name="EXECUTION_TIME" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics.EXECUTION_TIME"></a>
+
+Interval, in milliseconds, between the time the execution starts and the time it closes.
+
+---
+
+
+##### `EXECUTION_THROTTLED` <a name="EXECUTION_THROTTLED" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics.EXECUTION_THROTTLED"></a>
+
+Number of StateEntered events and retries that have been throttled.
+
+This is related to
+StateTransition throttling. For more information, see Quotas related to state throttling.
+
+---
+
+
+##### `EXECUTIONS_FAILED` <a name="EXECUTIONS_FAILED" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics.EXECUTIONS_FAILED"></a>
+
+Number of failed executions.
+
+---
+
+
+##### `EXECUTIONS_TIMED_OUT` <a name="EXECUTIONS_TIMED_OUT" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfRecommendedAlarmsMetrics.EXECUTIONS_TIMED_OUT"></a>
+
+Number of executions that time out for any reason.
 
 ---
 
