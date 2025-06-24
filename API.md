@@ -23161,6 +23161,356 @@ UserData for the instance.
 ---
 
 
+### InterfaceVpcEndpoint <a name="InterfaceVpcEndpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint"></a>
+
+An extension for the InterfaceVpcEndpoint construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.Initializer"></a>
+
+```typescript
+import { InterfaceVpcEndpoint } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new InterfaceVpcEndpoint(scope: Construct, id: string, props: InterfaceVpcEndpointProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_ec2.InterfaceVpcEndpointProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.InterfaceVpcEndpointProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.addToPolicy">addToPolicy</a></code> | Adds a statement to the policy document of the VPC endpoint. The statement must have a Principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.alarmPacketsDropped">alarmPacketsDropped</a></code> | Creates an alarm that monitors the PacketsDropped for the PrivateLink endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the PrivateLink InterfaceVpcEndpoint. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addToPolicy` <a name="addToPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.addToPolicy"></a>
+
+```typescript
+public addToPolicy(statement: PolicyStatement): void
+```
+
+Adds a statement to the policy document of the VPC endpoint. The statement must have a Principal.
+
+Not all interface VPC endpoints support policy. For more information
+see https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
+
+###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.addToPolicy.parameter.statement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+the IAM statement to add.
+
+---
+
+##### `alarmPacketsDropped` <a name="alarmPacketsDropped" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.alarmPacketsDropped"></a>
+
+```typescript
+public alarmPacketsDropped(props: PrivateLinkEndpointsPacketsDroppedAlarmConfig): PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm[]
+```
+
+Creates an alarm that monitors the PacketsDropped for the PrivateLink endpoint.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.alarmPacketsDropped.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig">PrivateLinkEndpointsPacketsDroppedAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig): PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms
+```
+
+Creates the recommended alarms for the PrivateLink InterfaceVpcEndpoint.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#PrivateLinkEndpoints](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#PrivateLinkEndpoints)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig">PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.fromInterfaceVpcEndpointAttributes">fromInterfaceVpcEndpointAttributes</a></code> | Imports an existing interface VPC endpoint. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isConstruct"></a>
+
+```typescript
+import { InterfaceVpcEndpoint } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+InterfaceVpcEndpoint.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isOwnedResource"></a>
+
+```typescript
+import { InterfaceVpcEndpoint } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+InterfaceVpcEndpoint.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isResource"></a>
+
+```typescript
+import { InterfaceVpcEndpoint } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+InterfaceVpcEndpoint.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromInterfaceVpcEndpointAttributes` <a name="fromInterfaceVpcEndpointAttributes" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.fromInterfaceVpcEndpointAttributes"></a>
+
+```typescript
+import { InterfaceVpcEndpoint } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+InterfaceVpcEndpoint.fromInterfaceVpcEndpointAttributes(scope: Construct, id: string, attrs: InterfaceVpcEndpointAttributes)
+```
+
+Imports an existing interface VPC endpoint.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.fromInterfaceVpcEndpointAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.fromInterfaceVpcEndpointAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.fromInterfaceVpcEndpointAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointId">vpcEndpointId</a></code> | <code>string</code> | The interface VPC endpoint identifier. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access to network connections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointCreationTimestamp">vpcEndpointCreationTimestamp</a></code> | <code>string</code> | The date and time the interface VPC endpoint was created. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointDnsEntries">vpcEndpointDnsEntries</a></code> | <code>string[]</code> | The DNS entries for the interface VPC endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointNetworkInterfaceIds">vpcEndpointNetworkInterfaceIds</a></code> | <code>string[]</code> | One or more network interfaces for the interface VPC endpoint. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `vpcEndpointId`<sup>Required</sup> <a name="vpcEndpointId" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointId"></a>
+
+```typescript
+public readonly vpcEndpointId: string;
+```
+
+- *Type:* string
+
+The interface VPC endpoint identifier.
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+Access to network connections.
+
+---
+
+##### `vpcEndpointCreationTimestamp`<sup>Required</sup> <a name="vpcEndpointCreationTimestamp" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointCreationTimestamp"></a>
+
+```typescript
+public readonly vpcEndpointCreationTimestamp: string;
+```
+
+- *Type:* string
+
+The date and time the interface VPC endpoint was created.
+
+---
+
+##### `vpcEndpointDnsEntries`<sup>Required</sup> <a name="vpcEndpointDnsEntries" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointDnsEntries"></a>
+
+```typescript
+public readonly vpcEndpointDnsEntries: string[];
+```
+
+- *Type:* string[]
+
+The DNS entries for the interface VPC endpoint.
+
+Each entry is a combination of the hosted zone ID and the DNS name.
+The entries are ordered as follows: regional public DNS, zonal public DNS, private DNS, and wildcard DNS.
+This order is not enforced for AWS Marketplace services.
+
+The following is an example. In the first entry, the hosted zone ID is Z1HUB23UULQXV
+and the DNS name is vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com.
+
+["Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com",
+"Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3-us-east-1a.ec2.us-east-1.vpce.amazonaws.com",
+"Z1C12344VYDITB0:ec2.us-east-1.amazonaws.com"]
+
+If you update the PrivateDnsEnabled or SubnetIds properties, the DNS entries in the list will change.
+
+---
+
+##### `vpcEndpointNetworkInterfaceIds`<sup>Required</sup> <a name="vpcEndpointNetworkInterfaceIds" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointNetworkInterfaceIds"></a>
+
+```typescript
+public readonly vpcEndpointNetworkInterfaceIds: string[];
+```
+
+- *Type:* string[]
+
+One or more network interfaces for the interface VPC endpoint.
+
+---
+
+
 ### LambdaConcurrentExecutionsAlarm <a name="LambdaConcurrentExecutionsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm"></a>
 
 This alarm can proactively detect if the concurrency of the function is approaching the Region-level concurrency quota of your account, so that you can act on it.
@@ -24860,6 +25210,1012 @@ Name of this alarm.
 ---
 
 ##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm <a name="PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm"></a>
+
+This alarm helps to detect if the endpoint or endpoint service is unhealthy by monitoring the number of packets dropped by the endpoint.
+
+Note that packets larger than 8500 bytes that arrive at the VPC endpoint are dropped. For troubleshooting,
+see connectivity problems between an interface VPC endpoint and an endpoint service.
+
+The alarm is triggered when the number of packets dropped exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.Initializer"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm(scope: IConstruct, id: string, props: PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps">PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps">PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isConstruct"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isOwnedResource"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isResource"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmArn"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmName"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms <a name="PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an PrivateLink InterfaceVpcEndpoint.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#PrivateLinkEndpoints](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#PrivateLinkEndpoints)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms(scope: Construct, id: string, props: PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps">PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps">PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.property.alarmPacketsDroppedList">alarmPacketsDroppedList</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm">PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm</a>[]</code> | The PacketsDropped alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmPacketsDroppedList`<sup>Optional</sup> <a name="alarmPacketsDroppedList" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.property.alarmPacketsDroppedList"></a>
+
+```typescript
+public readonly alarmPacketsDroppedList: PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm">PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm</a>[]
+
+The PacketsDropped alarm.
+
+---
+
+
+### PrivateLinkServicesVpcEndpointServiceRecommendedAlarms <a name="PrivateLinkServicesVpcEndpointServiceRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an PrivateLink VpcEndpointService.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#PrivateLinkServices](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#PrivateLinkServices)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new PrivateLinkServicesVpcEndpointServiceRecommendedAlarms(scope: Construct, id: string, props: PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps">PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps">PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.property.alarmRstPacketsSentList">alarmRstPacketsSentList</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm">PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm</a>[]</code> | The RstPacketsSent alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmRstPacketsSentList`<sup>Optional</sup> <a name="alarmRstPacketsSentList" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.property.alarmRstPacketsSentList"></a>
+
+```typescript
+public readonly alarmRstPacketsSentList: PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm">PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm</a>[]
+
+The RstPacketsSent alarm.
+
+---
+
+
+### PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm <a name="PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm"></a>
+
+This alarm helps you detect unhealthy targets of an endpoint service based on the number of reset packets that are sent to endpoints.
+
+When you debug connection errors with a consumer of your service, you can validate whether the service is resetting connections with
+the RstPacketsSent metric, or if something else is failing on the network path.
+
+The alarm is triggered when the the number of reset packets exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.Initializer"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm(scope: IConstruct, id: string, props: PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps">PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps">PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isConstruct"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isOwnedResource"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isResource"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmArn"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmName"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.metric"></a>
 
 ```typescript
 public readonly metric: IMetric;
@@ -37862,6 +39218,326 @@ The name of the topic.
 
 ---
 
+
+### VpcEndpointService <a name="VpcEndpointService" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService"></a>
+
+An extension for the VpcEndpointService construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.Initializer"></a>
+
+```typescript
+import { VpcEndpointService } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new VpcEndpointService(scope: Construct, id: string, props: VpcEndpointServiceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_ec2.VpcEndpointServiceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcEndpointServiceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.alarmRstPacketsSent">alarmRstPacketsSent</a></code> | Creates an alarm that monitors the RstPacketsSent for the PrivateLink endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the PrivateLink VpcEndpointService. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `alarmRstPacketsSent` <a name="alarmRstPacketsSent" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.alarmRstPacketsSent"></a>
+
+```typescript
+public alarmRstPacketsSent(props: PrivateLinkServicesRstPacketsSentAlarmConfig): PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm[]
+```
+
+Creates an alarm that monitors the RstPacketsSent for the PrivateLink endpoint.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.alarmRstPacketsSent.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig">PrivateLinkServicesRstPacketsSentAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig): PrivateLinkServicesVpcEndpointServiceRecommendedAlarms
+```
+
+Creates the recommended alarms for the PrivateLink VpcEndpointService.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#PrivateLinkServices](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#PrivateLinkServices)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig">PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isConstruct"></a>
+
+```typescript
+import { VpcEndpointService } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+VpcEndpointService.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isOwnedResource"></a>
+
+```typescript
+import { VpcEndpointService } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+VpcEndpointService.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isResource"></a>
+
+```typescript
+import { VpcEndpointService } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+VpcEndpointService.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.acceptanceRequired">acceptanceRequired</a></code> | <code>boolean</code> | Whether to require manual acceptance of new connections to the service. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.allowedPrincipals">allowedPrincipals</a></code> | <code>aws-cdk-lib.aws_iam.ArnPrincipal[]</code> | One or more Principal ARNs to allow inbound connections to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceId">vpcEndpointServiceId</a></code> | <code>string</code> | The id of the VPC Endpoint Service, like vpce-svc-xxxxxxxxxxxxxxxx. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceLoadBalancers">vpcEndpointServiceLoadBalancers</a></code> | <code>aws-cdk-lib.aws_ec2.IVpcEndpointServiceLoadBalancer[]</code> | One or more network load balancers to host the service. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceName">vpcEndpointServiceName</a></code> | <code>string</code> | The service name of the VPC Endpoint Service that clients use to connect to, like com.amazonaws.vpce.<region>.vpce-svc-xxxxxxxxxxxxxxxx. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.contributorInsightsEnabled">contributorInsightsEnabled</a></code> | <code>boolean</code> | Whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `acceptanceRequired`<sup>Required</sup> <a name="acceptanceRequired" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.acceptanceRequired"></a>
+
+```typescript
+public readonly acceptanceRequired: boolean;
+```
+
+- *Type:* boolean
+
+Whether to require manual acceptance of new connections to the service.
+
+---
+
+##### `allowedPrincipals`<sup>Required</sup> <a name="allowedPrincipals" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.allowedPrincipals"></a>
+
+```typescript
+public readonly allowedPrincipals: ArnPrincipal[];
+```
+
+- *Type:* aws-cdk-lib.aws_iam.ArnPrincipal[]
+
+One or more Principal ARNs to allow inbound connections to.
+
+---
+
+##### `vpcEndpointServiceId`<sup>Required</sup> <a name="vpcEndpointServiceId" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceId"></a>
+
+```typescript
+public readonly vpcEndpointServiceId: string;
+```
+
+- *Type:* string
+
+The id of the VPC Endpoint Service, like vpce-svc-xxxxxxxxxxxxxxxx.
+
+---
+
+##### `vpcEndpointServiceLoadBalancers`<sup>Required</sup> <a name="vpcEndpointServiceLoadBalancers" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceLoadBalancers"></a>
+
+```typescript
+public readonly vpcEndpointServiceLoadBalancers: IVpcEndpointServiceLoadBalancer[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpcEndpointServiceLoadBalancer[]
+
+One or more network load balancers to host the service.
+
+---
+
+##### `vpcEndpointServiceName`<sup>Required</sup> <a name="vpcEndpointServiceName" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceName"></a>
+
+```typescript
+public readonly vpcEndpointServiceName: string;
+```
+
+- *Type:* string
+
+The service name of the VPC Endpoint Service that clients use to connect to, like com.amazonaws.vpce.<region>.vpce-svc-xxxxxxxxxxxxxxxx.
+
+---
+
+##### `contributorInsightsEnabled`<sup>Optional</sup> <a name="contributorInsightsEnabled" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.contributorInsightsEnabled"></a>
+
+```typescript
+public readonly contributorInsightsEnabled: boolean;
+```
+
+- *Type:* boolean
+
+Whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.DEFAULT_PREFIX">DEFAULT_PREFIX</a></code> | <code>string</code> | The default value for a VPC Endpoint Service name prefix, useful if you do not have a synthesize-time region literal available (all you have is `{ "Ref": "AWS::Region" }`). |
+
+---
+
+##### `DEFAULT_PREFIX`<sup>Required</sup> <a name="DEFAULT_PREFIX" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.DEFAULT_PREFIX"></a>
+
+```typescript
+public readonly DEFAULT_PREFIX: string;
+```
+
+- *Type:* string
+
+The default value for a VPC Endpoint Service name prefix, useful if you do not have a synthesize-time region literal available (all you have is `{ "Ref": "AWS::Region" }`).
+
+---
 
 ## Structs <a name="Structs" id="Structs"></a>
 
@@ -54740,6 +56416,1680 @@ The Lambda function to monitor.
 
 ---
 
+### PrivateLinkEndpointsAlarmBaseConfig <a name="PrivateLinkEndpointsAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { PrivateLinkEndpointsAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkEndpointsAlarmBaseConfig: PrivateLinkEndpointsAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps <a name="PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps"></a>
+
+The common properties for the PrivateLink InterfaceVpcEndpoint alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.Initializer"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkEndpointsInterfaceVpcEndpointAlarmProps: PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.endpoint">endpoint</a></code> | <code>aws-cdk-lib.aws_ec2.InterfaceVpcEndpoint</code> | The PrivateLink InterfaceVpcEndpoint to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.endpointType">endpointType</a></code> | <code>string</code> | The type of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.serviceName">serviceName</a></code> | <code>string</code> | The service name of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.subnetId">subnetId</a></code> | <code>string</code> | The subnet ID of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.vpcId">vpcId</a></code> | <code>string</code> | The VPC ID of the PrivateLink InterfaceVpcEndpoint. |
+
+---
+
+##### `endpoint`<sup>Required</sup> <a name="endpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: InterfaceVpcEndpoint;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.InterfaceVpcEndpoint
+
+The PrivateLink InterfaceVpcEndpoint to monitor.
+
+---
+
+##### `endpointType`<sup>Required</sup> <a name="endpointType" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.endpointType"></a>
+
+```typescript
+public readonly endpointType: string;
+```
+
+- *Type:* string
+
+The type of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `serviceName`<sup>Required</sup> <a name="serviceName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.serviceName"></a>
+
+```typescript
+public readonly serviceName: string;
+```
+
+- *Type:* string
+
+The service name of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `subnetId`<sup>Required</sup> <a name="subnetId" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.subnetId"></a>
+
+```typescript
+public readonly subnetId: string;
+```
+
+- *Type:* string
+
+The subnet ID of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `vpcId`<sup>Required</sup> <a name="vpcId" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointAlarmProps.property.vpcId"></a>
+
+```typescript
+public readonly vpcId: string;
+```
+
+- *Type:* string
+
+The VPC ID of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+### PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps <a name="PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps"></a>
+
+The properties for the PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.Initializer"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps: PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.endpoint">endpoint</a></code> | <code>aws-cdk-lib.aws_ec2.InterfaceVpcEndpoint</code> | The PrivateLink InterfaceVpcEndpoint to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.endpointType">endpointType</a></code> | <code>string</code> | The type of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.serviceName">serviceName</a></code> | <code>string</code> | The service name of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.subnetId">subnetId</a></code> | <code>string</code> | The subnet ID of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.vpcId">vpcId</a></code> | <code>string</code> | The VPC ID of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the use case. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | The subnets of the PrivateLink InterfaceVpcEndpoint. |
+
+---
+
+##### `endpoint`<sup>Required</sup> <a name="endpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: InterfaceVpcEndpoint;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.InterfaceVpcEndpoint
+
+The PrivateLink InterfaceVpcEndpoint to monitor.
+
+---
+
+##### `endpointType`<sup>Required</sup> <a name="endpointType" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.endpointType"></a>
+
+```typescript
+public readonly endpointType: string;
+```
+
+- *Type:* string
+
+The type of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `serviceName`<sup>Required</sup> <a name="serviceName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.serviceName"></a>
+
+```typescript
+public readonly serviceName: string;
+```
+
+- *Type:* string
+
+The service name of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `subnetId`<sup>Required</sup> <a name="subnetId" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.subnetId"></a>
+
+```typescript
+public readonly subnetId: string;
+```
+
+- *Type:* string
+
+The subnet ID of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `vpcId`<sup>Required</sup> <a name="vpcId" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.vpcId"></a>
+
+```typescript
+public readonly vpcId: string;
+```
+
+- *Type:* string
+
+The VPC ID of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the use case.
+
+If you want to be aware of the unhealthy status of the endpoint or endpoint service,
+you should set the threshold low so that you get a chance to fix the issue before a huge data loss. You can use historical data to
+understand the tolerance for dropped packets and set the threshold accordingly.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect if the endpoint or endpoint service is unhealthy.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* endpointId + ' - ' + subnetId + ' - PacketsDropped'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarmProps.property.subnets"></a>
+
+```typescript
+public readonly subnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+The subnets of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+### PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig <a name="PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an PrivateLink Service.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig: PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.configPacketsDroppedAlarm">configPacketsDroppedAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig">PrivateLinkEndpointsPacketsDroppedAlarmConfig</a></code> | The configuration for the PacketsDropped alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsRecommendedAlarmsMetrics">PrivateLinkEndpointsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configPacketsDroppedAlarm`<sup>Required</sup> <a name="configPacketsDroppedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.configPacketsDroppedAlarm"></a>
+
+```typescript
+public readonly configPacketsDroppedAlarm: PrivateLinkEndpointsPacketsDroppedAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig">PrivateLinkEndpointsPacketsDroppedAlarmConfig</a>
+
+The configuration for the PacketsDropped alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: PrivateLinkEndpointsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsRecommendedAlarmsMetrics">PrivateLinkEndpointsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps <a name="PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps"></a>
+
+Properties for the PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps: PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.configPacketsDroppedAlarm">configPacketsDroppedAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig">PrivateLinkEndpointsPacketsDroppedAlarmConfig</a></code> | The configuration for the PacketsDropped alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsRecommendedAlarmsMetrics">PrivateLinkEndpointsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.endpoint">endpoint</a></code> | <code>aws-cdk-lib.aws_ec2.InterfaceVpcEndpoint</code> | The PrivateLink InterfaceVpcEndpoint to monitor. |
+
+---
+
+##### `configPacketsDroppedAlarm`<sup>Required</sup> <a name="configPacketsDroppedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.configPacketsDroppedAlarm"></a>
+
+```typescript
+public readonly configPacketsDroppedAlarm: PrivateLinkEndpointsPacketsDroppedAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig">PrivateLinkEndpointsPacketsDroppedAlarmConfig</a>
+
+The configuration for the PacketsDropped alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: PrivateLinkEndpointsRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsRecommendedAlarmsMetrics">PrivateLinkEndpointsRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `endpoint`<sup>Required</sup> <a name="endpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarmsProps.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: InterfaceVpcEndpoint;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.InterfaceVpcEndpoint
+
+The PrivateLink InterfaceVpcEndpoint to monitor.
+
+---
+
+### PrivateLinkEndpointsPacketsDroppedAlarmConfig <a name="PrivateLinkEndpointsPacketsDroppedAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig"></a>
+
+Configuration for the PacketsDropped alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.Initializer"></a>
+
+```typescript
+import { PrivateLinkEndpointsPacketsDroppedAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkEndpointsPacketsDroppedAlarmConfig: PrivateLinkEndpointsPacketsDroppedAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.endpointType">endpointType</a></code> | <code>string</code> | The type of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.serviceName">serviceName</a></code> | <code>string</code> | The service name of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to the use case. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.vpcId">vpcId</a></code> | <code>string</code> | The VPC ID of the PrivateLink InterfaceVpcEndpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | The subnets of the PrivateLink InterfaceVpcEndpoint. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `endpointType`<sup>Required</sup> <a name="endpointType" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.endpointType"></a>
+
+```typescript
+public readonly endpointType: string;
+```
+
+- *Type:* string
+
+The type of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `serviceName`<sup>Required</sup> <a name="serviceName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.serviceName"></a>
+
+```typescript
+public readonly serviceName: string;
+```
+
+- *Type:* string
+
+The service name of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to the use case.
+
+If you want to be aware of the unhealthy status of the endpoint or endpoint service,
+you should set the threshold low so that you get a chance to fix the issue before a huge data loss. You can use historical data to
+understand the tolerance for dropped packets and set the threshold accordingly.
+
+---
+
+##### `vpcId`<sup>Required</sup> <a name="vpcId" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.vpcId"></a>
+
+```typescript
+public readonly vpcId: string;
+```
+
+- *Type:* string
+
+The VPC ID of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect if the endpoint or endpoint service is unhealthy.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* endpointId + ' - ' + subnetId + ' - PacketsDropped'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsPacketsDroppedAlarmConfig.property.subnets"></a>
+
+```typescript
+public readonly subnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+The subnets of the PrivateLink InterfaceVpcEndpoint.
+
+---
+
+### PrivateLinkServicesAlarmBaseConfig <a name="PrivateLinkServicesAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { PrivateLinkServicesAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkServicesAlarmBaseConfig: PrivateLinkServicesAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### PrivateLinkServicesRstPacketsSentAlarmConfig <a name="PrivateLinkServicesRstPacketsSentAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig"></a>
+
+Configuration for the RstPacketsSent alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.Initializer"></a>
+
+```typescript
+import { PrivateLinkServicesRstPacketsSentAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkServicesRstPacketsSentAlarmConfig: PrivateLinkServicesRstPacketsSentAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.loadBalancerArn">loadBalancerArn</a></code> | <code>string</code> | The load balancer ARN of the PrivateLink VpcEndpointService. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The threshold depends on the use case. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.azs">azs</a></code> | <code>string[]</code> | The availability zone of the PrivateLink VpcEndpointService. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `loadBalancerArn`<sup>Required</sup> <a name="loadBalancerArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.loadBalancerArn"></a>
+
+```typescript
+public readonly loadBalancerArn: string;
+```
+
+- *Type:* string
+
+The load balancer ARN of the PrivateLink VpcEndpointService.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The threshold depends on the use case.
+
+If your use case can tolerate targets being unhealthy, you can set the threshold high.
+If the use case can’t tolerate unhealthy targets you can set the threshold very low.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect unhealthy targets of an endpoint service.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* endpointServiceName + ' - ' + az + ' - RstPacketsSent'
+
+The alarm name.
+
+---
+
+##### `azs`<sup>Optional</sup> <a name="azs" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.azs"></a>
+
+```typescript
+public readonly azs: string[];
+```
+
+- *Type:* string[]
+
+The availability zone of the PrivateLink VpcEndpointService.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### PrivateLinkServicesVpcEndpointServiceAlarmProps <a name="PrivateLinkServicesVpcEndpointServiceAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceAlarmProps"></a>
+
+The common properties for the PrivateLink VpcEndpointService alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceAlarmProps.Initializer"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkServicesVpcEndpointServiceAlarmProps: PrivateLinkServicesVpcEndpointServiceAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceAlarmProps.property.az">az</a></code> | <code>string</code> | The availability zone of the PrivateLink VpcEndpointService. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceAlarmProps.property.endpointService">endpointService</a></code> | <code>aws-cdk-lib.aws_ec2.VpcEndpointService</code> | The PrivateLink VpcEndpointService to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceAlarmProps.property.loadBalancerArn">loadBalancerArn</a></code> | <code>string</code> | The load balancer ARN of the PrivateLink VpcEndpointService. |
+
+---
+
+##### `az`<sup>Required</sup> <a name="az" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceAlarmProps.property.az"></a>
+
+```typescript
+public readonly az: string;
+```
+
+- *Type:* string
+
+The availability zone of the PrivateLink VpcEndpointService.
+
+---
+
+##### `endpointService`<sup>Required</sup> <a name="endpointService" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceAlarmProps.property.endpointService"></a>
+
+```typescript
+public readonly endpointService: VpcEndpointService;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcEndpointService
+
+The PrivateLink VpcEndpointService to monitor.
+
+---
+
+##### `loadBalancerArn`<sup>Required</sup> <a name="loadBalancerArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceAlarmProps.property.loadBalancerArn"></a>
+
+```typescript
+public readonly loadBalancerArn: string;
+```
+
+- *Type:* string
+
+The load balancer ARN of the PrivateLink VpcEndpointService.
+
+---
+
+### PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig <a name="PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an PrivateLink Service.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig: PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.configRstPacketsSentAlarm">configRstPacketsSentAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig">PrivateLinkServicesRstPacketsSentAlarmConfig</a></code> | The configuration for the RstPacketsSent alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRecommendedAlarmsMetrics">PrivateLinkServicesRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configRstPacketsSentAlarm`<sup>Required</sup> <a name="configRstPacketsSentAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.configRstPacketsSentAlarm"></a>
+
+```typescript
+public readonly configRstPacketsSentAlarm: PrivateLinkServicesRstPacketsSentAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig">PrivateLinkServicesRstPacketsSentAlarmConfig</a>
+
+The configuration for the RstPacketsSent alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: PrivateLinkServicesRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRecommendedAlarmsMetrics">PrivateLinkServicesRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps <a name="PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps"></a>
+
+Properties for the PrivateLinkServicesVpcEndpointServiceRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkServicesVpcEndpointServiceRecommendedAlarmsProps: PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.configRstPacketsSentAlarm">configRstPacketsSentAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig">PrivateLinkServicesRstPacketsSentAlarmConfig</a></code> | The configuration for the RstPacketsSent alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRecommendedAlarmsMetrics">PrivateLinkServicesRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.endpointService">endpointService</a></code> | <code>aws-cdk-lib.aws_ec2.VpcEndpointService</code> | The PrivateLink VpcEndpointService to monitor. |
+
+---
+
+##### `configRstPacketsSentAlarm`<sup>Required</sup> <a name="configRstPacketsSentAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.configRstPacketsSentAlarm"></a>
+
+```typescript
+public readonly configRstPacketsSentAlarm: PrivateLinkServicesRstPacketsSentAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRstPacketsSentAlarmConfig">PrivateLinkServicesRstPacketsSentAlarmConfig</a>
+
+The configuration for the RstPacketsSent alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: PrivateLinkServicesRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRecommendedAlarmsMetrics">PrivateLinkServicesRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `endpointService`<sup>Required</sup> <a name="endpointService" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarmsProps.property.endpointService"></a>
+
+```typescript
+public readonly endpointService: VpcEndpointService;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcEndpointService
+
+The PrivateLink VpcEndpointService to monitor.
+
+---
+
+### PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps <a name="PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps"></a>
+
+The properties for the PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.Initializer"></a>
+
+```typescript
+import { PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const privateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps: PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.az">az</a></code> | <code>string</code> | The availability zone of the PrivateLink VpcEndpointService. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.endpointService">endpointService</a></code> | <code>aws-cdk-lib.aws_ec2.VpcEndpointService</code> | The PrivateLink VpcEndpointService to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.loadBalancerArn">loadBalancerArn</a></code> | <code>string</code> | The load balancer ARN of the PrivateLink VpcEndpointService. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The threshold depends on the use case. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.azs">azs</a></code> | <code>string[]</code> | The availability zone of the PrivateLink VpcEndpointService. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `az`<sup>Required</sup> <a name="az" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.az"></a>
+
+```typescript
+public readonly az: string;
+```
+
+- *Type:* string
+
+The availability zone of the PrivateLink VpcEndpointService.
+
+---
+
+##### `endpointService`<sup>Required</sup> <a name="endpointService" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.endpointService"></a>
+
+```typescript
+public readonly endpointService: VpcEndpointService;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcEndpointService
+
+The PrivateLink VpcEndpointService to monitor.
+
+---
+
+##### `loadBalancerArn`<sup>Required</sup> <a name="loadBalancerArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.loadBalancerArn"></a>
+
+```typescript
+public readonly loadBalancerArn: string;
+```
+
+- *Type:* string
+
+The load balancer ARN of the PrivateLink VpcEndpointService.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The threshold depends on the use case.
+
+If your use case can tolerate targets being unhealthy, you can set the threshold high.
+If the use case can’t tolerate unhealthy targets you can set the threshold very low.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect unhealthy targets of an endpoint service.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* endpointServiceName + ' - ' + az + ' - RstPacketsSent'
+
+The alarm name.
+
+---
+
+##### `azs`<sup>Optional</sup> <a name="azs" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.azs"></a>
+
+```typescript
+public readonly azs: string[];
+```
+
+- *Type:* string[]
+
+The availability zone of the PrivateLink VpcEndpointService.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
 ### RdsAlarmBaseConfig <a name="RdsAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAlarmBaseConfig"></a>
 
 The common optional configuration for the alarms.
@@ -66319,6 +69669,47 @@ Duration is the time taken for the function to process an event.
 ##### `CONCURRENT_EXECUTIONS` <a name="CONCURRENT_EXECUTIONS" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.CONCURRENT_EXECUTIONS"></a>
 
 ConcurrentExecutions is the number of concurrent executions of the function.
+
+---
+
+
+### PrivateLinkEndpointsRecommendedAlarmsMetrics <a name="PrivateLinkEndpointsRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for PrivateLink Endpoints alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsRecommendedAlarmsMetrics.PACKETS_DROPPED">PACKETS_DROPPED</a></code> | Percentage of how close a file system is to reaching the I/O limit of the General Purpose performance mode. |
+
+---
+
+##### `PACKETS_DROPPED` <a name="PACKETS_DROPPED" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsRecommendedAlarmsMetrics.PACKETS_DROPPED"></a>
+
+Percentage of how close a file system is to reaching the I/O limit of the General Purpose performance mode.
+
+---
+
+
+### PrivateLinkServicesRecommendedAlarmsMetrics <a name="PrivateLinkServicesRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for PrivateLink Services alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRecommendedAlarmsMetrics.RST_PACKETS_SENT">RST_PACKETS_SENT</a></code> | The number of RST packets sent to endpoints by the endpoint service. |
+
+---
+
+##### `RST_PACKETS_SENT` <a name="RST_PACKETS_SENT" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesRecommendedAlarmsMetrics.RST_PACKETS_SENT"></a>
+
+The number of RST packets sent to endpoints by the endpoint service.
+
+Increasing values could indicate
+that there are unhealthy targets.
 
 ---
 
