@@ -206,7 +206,7 @@ export class LambdaThrottlesAlarm extends cloudwatch.Alarm {
       evaluationPeriods,
       datapointsToAlarm: props.datapointsToAlarm ?? 5,
       treatMissingData: props.treatMissingData,
-      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'This alarm detects a high number of throttled invocation requests. '
         + 'Throttling occurs when there is no concurrency is available for scale up. There are several approaches to '
         + 'resolve this issue. 1) Request a concurrency increase from AWS Support in this Region. 2) Identify performance '

@@ -1,5 +1,333 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AspectWithTreatMissingData 1`] = `
+Object {
+  "Outputs": Object {
+    "RestApi1Endpoint9538EE78": Object {
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "RestApi1480AC499",
+            },
+            ".execute-api.us-east-1.",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "RestApi1DeploymentStagelive146493FD",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "RestApi1480AC499": Object {
+      "Properties": Object {
+        "EndpointConfiguration": Object {
+          "Types": Array [
+            "REGIONAL",
+          ],
+        },
+        "Name": "TestApi1",
+      },
+      "Type": "AWS::ApiGateway::RestApi",
+    },
+    "RestApi1ANY857DBD69": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "ANY",
+        "Integration": Object {
+          "Type": "MOCK",
+        },
+        "ResourceId": Object {
+          "Fn::GetAtt": Array [
+            "RestApi1480AC499",
+            "RootResourceId",
+          ],
+        },
+        "RestApiId": Object {
+          "Ref": "RestApi1480AC499",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "RestApi1Account2FA629B2": Object {
+      "DeletionPolicy": "Retain",
+      "DependsOn": Array [
+        "RestApi1480AC499",
+      ],
+      "Properties": Object {
+        "CloudWatchRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "RestApi1CloudWatchRole9ED447DC",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::Account",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi14XXErrorDEAA528F": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm can detect high rates of client-side errors for the API Gateway requests.",
+        "AlarmName": "TestApi1 - 4XXError",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "ApiName",
+            "Value": "TestApi1",
+          },
+          Object {
+            "Name": "Stage",
+            "Value": Object {
+              "Ref": "RestApi1DeploymentStagelive146493FD",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "4XXError",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi15XXErrorA6B38A50": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm can detect high rates of server-side errors for the API Gateway requests.",
+        "AlarmName": "TestApi1 - 5XXError",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": Array [
+          Object {
+            "Name": "ApiName",
+            "Value": "TestApi1",
+          },
+          Object {
+            "Name": "Stage",
+            "Value": Object {
+              "Ref": "RestApi1DeploymentStagelive146493FD",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "5XXError",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1Count9D71474E": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
+        "AlarmName": "TestApi1 - Count",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": Array [
+          Object {
+            "Name": "ApiName",
+            "Value": "TestApi1",
+          },
+          Object {
+            "Name": "Stage",
+            "Value": Object {
+              "Ref": "RestApi1DeploymentStagelive146493FD",
+            },
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "MetricName": "Count",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "SampleCount",
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1Latency38B1EC96": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm can detect when the API Gateway requests in a stage have high latency.",
+        "AlarmName": "TestApi1 - Latency",
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "ApiName",
+            "Value": "TestApi1",
+          },
+          Object {
+            "Name": "Stage",
+            "Value": Object {
+              "Ref": "RestApi1DeploymentStagelive146493FD",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "ExtendedStatistic": "p90",
+        "MetricName": "Latency",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Threshold": 2500,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi1CloudWatchRole9ED447DC": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "RestApi1Deployment82EFFB3715975013ff8a6c177d3b14661b4133d7": Object {
+      "DependsOn": Array [
+        "RestApi1proxyANY1C0834C0",
+        "RestApi1proxy48E25E9D",
+        "RestApi1ANY857DBD69",
+      ],
+      "Properties": Object {
+        "Description": "Automatically created by the RestApi construct",
+        "RestApiId": Object {
+          "Ref": "RestApi1480AC499",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
+    "RestApi1DeploymentStagelive146493FD": Object {
+      "DependsOn": Array [
+        "RestApi1Account2FA629B2",
+      ],
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "RestApi1Deployment82EFFB3715975013ff8a6c177d3b14661b4133d7",
+        },
+        "MethodSettings": Array [
+          Object {
+            "DataTraceEnabled": false,
+            "HttpMethod": "*",
+            "LoggingLevel": "INFO",
+            "ResourcePath": "/*",
+          },
+        ],
+        "RestApiId": Object {
+          "Ref": "RestApi1480AC499",
+        },
+        "StageName": "live",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "RestApi1proxy48E25E9D": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "RestApi1480AC499",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "{proxy+}",
+        "RestApiId": Object {
+          "Ref": "RestApi1480AC499",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "RestApi1proxyANY1C0834C0": Object {
+      "Properties": Object {
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "HttpMethod": "ANY",
+        "Integration": Object {
+          "Type": "MOCK",
+        },
+        "RequestParameters": Object {
+          "method.request.path.proxy": true,
+        },
+        "ResourceId": Object {
+          "Ref": "RestApi1proxy48E25E9D",
+        },
+        "RestApiId": Object {
+          "Ref": "RestApi1480AC499",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`RestApiSnapshot 1`] = `
 Object {
   "Outputs": Object {

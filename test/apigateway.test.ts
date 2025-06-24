@@ -663,3 +663,52 @@ test('optional alarm configurations can be overwritten', () => {
     }));
   });
 });
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  appAspects.add(
+    new apiGatewayAlarms.ApiGatewayRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      configCountAlarm: {
+        threshold: 10,
+      },
+    }),
+  );
+
+  const api = new apiGatewayAlarms.RestApi(stack, 'RestApi1', {
+    restApiName: 'TestApi1',
+    endpointTypes: [apigateway.EndpointType.REGIONAL],
+    deployOptions: {
+      stageName: 'live',
+      loggingLevel: apigateway.MethodLoggingLevel.INFO,
+      dataTraceEnabled: false,
+    },
+  });
+
+  api.root.addProxy({
+    anyMethod: true,
+    defaultMethodOptions: {
+      apiKeyRequired: false,
+      requestParameters: {
+        'method.request.path.proxy': true,
+      },
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+  Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+});

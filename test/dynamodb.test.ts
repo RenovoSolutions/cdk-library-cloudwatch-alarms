@@ -798,3 +798,40 @@ test('optional alarm configurations can be overwritten (include replication alar
     }));
   });
 });
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new dynamodbAlarms.DynamoDbRecommendedAlarmsAspect({
+      configReadThrottleEventsAlarm: {
+        threshold: 100,
+      },
+      configSystemErrorsAlarm: {
+        threshold: 100,
+      },
+      configWriteThrottleEventsAlarm: {
+        threshold: 100,
+      },
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+    }),
+  );
+
+  const stack = new DynamoDbTableStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  mandatoryMetricsList.forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+});

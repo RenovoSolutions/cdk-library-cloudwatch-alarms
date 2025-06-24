@@ -1151,7 +1151,7 @@ test('when required attributes are not present it should throw an error', () => 
         threshold: 20,
       },
     });
-  }).toThrowError('Either instanceIdentifier or databaseInstance must be specified.');
+  }).toThrow('Either instanceIdentifier or databaseInstance must be specified.');
 
   expect(() => {
     new rdsAlarms.RdsAuroraRecommendedAlarms(clusterStack, 'rdsDatabaseInstanceAlarms', {
@@ -1178,7 +1178,7 @@ test('when required attributes are not present it should throw an error', () => 
         threshold: 20,
       },
     });
-  }).toThrowError(`The threshold must be specified for ${rdsAlarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_LEFT_TOTAL} alarm.`);
+  }).toThrow(`The threshold must be specified for ${rdsAlarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_LEFT_TOTAL} alarm.`);
 });
 
 test('default alarm actions are overridden when individual alarm actions are provided in configuration', () => {
@@ -1469,6 +1469,55 @@ test('optional alarm configurations can be overwritten', () => {
       AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    }));
+  });
+});
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new rdsAlarms.RdsAuroraRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      configDatabaseConnectionsAlarm: {
+        threshold: 10,
+      },
+      configFreeableMemoryAlarm: {
+        threshold: 5,
+      },
+      configFreeLocalStorageAlarm: {
+        threshold: 20,
+      },
+      configFreeStorageSpaceAlarm: {
+        threshold: 20,
+      },
+      configDbLoadAlarm: {
+        threshold: 4,
+      },
+      configReadLatencyAlarm: {
+        threshold: 20,
+      },
+      configWriteLatencyAlarm: {
+        threshold: 20,
+      },
+    }),
+  );
+
+  const stack = new MySQLDatabaseInstanceStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(rdsAlarms.RdsRecommendedAlarmsMetrics).filter(metric => metric.startsWith('INSTANCE_')).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
     }));
   });
 });

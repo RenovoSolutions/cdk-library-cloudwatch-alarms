@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CloudFrontDistributionSnapshot 1`] = `
+exports[`AspectWithTreatMissingData 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
@@ -29,14 +29,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -80,18 +98,250 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
+                "OriginAccessIdentity": "",
+              },
+            },
+          ],
+        },
+      },
+      "Type": "AWS::CloudFront::Distribution",
+    },
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "Distribution830FAC52",
+              },
+              " - 5xxErrorRate",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "DistributionId",
+            "Value": Object {
+              "Ref": "Distribution830FAC52",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "5xxErrorRate",
+        "Namespace": "AWS/CloudFront",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "Distribution830FAC52",
+              },
+              " - OriginLatency",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": Array [
+          Object {
+            "Name": "DistributionId",
+            "Value": Object {
+              "Ref": "Distribution830FAC52",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "ExtendedStatistic": "p90",
+        "MetricName": "OriginLatency",
+        "Namespace": "AWS/CloudFront",
+        "Period": 60,
+        "Threshold": 100,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
+          "Ref": "Distribution830FAC52",
+        },
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
+            "RealtimeMetricsSubscriptionStatus": "Enabled",
+          },
+        },
+      },
+      "Type": "AWS::CloudFront::MonitoringSubscription",
+    },
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
+        },
+      },
+      "Type": "AWS::CloudFront::OriginAccessControl",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
                   ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`CloudFrontDistributionSnapshot 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Bucket83908E77": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "VersioningConfiguration": Object {
+          "Status": "Enabled",
+        },
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
+          "Ref": "Bucket83908E77",
+        },
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
                 },
+              },
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "cloudfront.amazonaws.com",
+              },
+              "Resource": Object {
+                "Fn::Join": Array [
+                  "",
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
+                        "Bucket83908E77",
+                        "Arn",
+                      ],
+                    },
+                    "/*",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::S3::BucketPolicy",
+    },
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
+            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "Compress": true,
+            "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
+            "ViewerProtocolPolicy": "redirect-to-https",
+          },
+          "Enabled": true,
+          "HttpVersion": "http2",
+          "IPV6Enabled": true,
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
+                  "Bucket83908E77",
+                  "RegionalDomainName",
+                ],
+              },
+              "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
+              "S3OriginConfig": Object {
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -180,13 +430,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
   "Rules": Object {
@@ -248,14 +501,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -299,18 +570,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -331,13 +598,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
     "TopicBFC7AF6E": Object {
       "Type": "AWS::SNS::Topic",
@@ -500,14 +770,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -551,18 +839,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -617,13 +901,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
   "Rules": Object {
@@ -685,14 +972,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -736,18 +1041,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -768,13 +1069,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
     "TopicBFC7AF6E": Object {
       "Type": "AWS::SNS::Topic",
@@ -1108,14 +1412,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -1159,18 +1481,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -1385,13 +1703,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
   "Rules": Object {
@@ -1453,14 +1774,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -1504,18 +1843,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -1604,13 +1939,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
   "Rules": Object {
@@ -1672,14 +2010,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -1757,18 +2113,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -1915,13 +2267,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
     "DistributionOriginLatencyAlarm24A7FB50": Object {
       "Properties": Object {
@@ -2017,14 +2372,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -2068,18 +2441,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -2100,13 +2469,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
     "LambdaD247545B": Object {
       "DependsOn": Array [
@@ -2377,14 +2749,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -2428,18 +2818,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -2679,13 +3065,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
     "TopicBFC7AF6E": Object {
       "Type": "AWS::SNS::Topic",
@@ -2750,14 +3139,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution830FAC52",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "DistributionOrigin1S3Origin5F5C0696",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -2801,18 +3208,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "DistributionOrigin1S3OriginAccessControlEB606076",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "DistributionOrigin1S3Origin5F5C0696",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -2901,13 +3304,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3Origin5F5C0696": Object {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistributionOrigin1B0A090BF",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
   "Rules": Object {
@@ -2969,14 +3375,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution12E11DF57",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "Distribution1Origin1S3OriginBBF457E6",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -3018,14 +3442,32 @@ Object {
           "Statement": Array [
             Object {
               "Action": "s3:GetObject",
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
+                      "",
+                      Array [
+                        "arn:",
+                        Object {
+                          "Ref": "AWS::Partition",
+                        },
+                        ":cloudfront::",
+                        Object {
+                          "Ref": "AWS::AccountId",
+                        },
+                        ":distribution/",
+                        Object {
+                          "Ref": "Distribution2A3FAFEFD",
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
               "Effect": "Allow",
               "Principal": Object {
-                "CanonicalUser": Object {
-                  "Fn::GetAtt": Array [
-                    "Distribution2Origin1S3Origin3E786987",
-                    "S3CanonicalUserId",
-                  ],
-                },
+                "Service": "cloudfront.amazonaws.com",
               },
               "Resource": Object {
                 "Fn::Join": Array [
@@ -3069,18 +3511,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistribution1Origin16C82CBCA",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "Distribution1Origin1S3OriginAccessControl8129DDAC",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "Distribution1Origin1S3OriginBBF457E6",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -3101,13 +3539,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "Distribution1Origin1S3OriginBBF457E6": Object {
+    "Distribution1Origin1S3OriginAccessControl8129DDAC": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistribution1Origin16C82CBCA",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistribution1Origin1S3OriginAccessControlBAE658A4",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
     "Distribution2A3FAFEFD": Object {
       "Properties": Object {
@@ -3130,18 +3571,14 @@ Object {
                 ],
               },
               "Id": "TestStackDistribution2Origin16D080F8B",
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
+                  "Distribution2Origin1S3OriginAccessControlDACE9FB5",
+                  "Id",
+                ],
+              },
               "S3OriginConfig": Object {
-                "OriginAccessIdentity": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "origin-access-identity/cloudfront/",
-                      Object {
-                        "Ref": "Distribution2Origin1S3Origin3E786987",
-                      },
-                    ],
-                  ],
-                },
+                "OriginAccessIdentity": "",
               },
             },
           ],
@@ -3230,13 +3667,16 @@ Object {
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "Distribution2Origin1S3Origin3E786987": Object {
+    "Distribution2Origin1S3OriginAccessControlDACE9FB5": Object {
       "Properties": Object {
-        "CloudFrontOriginAccessIdentityConfig": Object {
-          "Comment": "Identity for TestStackDistribution2Origin16D080F8B",
+        "OriginAccessControlConfig": Object {
+          "Name": "TestStackDistribution2Origin1S3OriginAccessControlE8F74C43",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4",
         },
       },
-      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
   "Rules": Object {

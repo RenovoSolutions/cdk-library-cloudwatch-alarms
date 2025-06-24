@@ -1,4 +1,5 @@
 import {
+  aws_cloudwatch as cloudwatch,
   aws_cloudwatch_actions as cloudwatch_actions,
   aws_sqs as sqs,
   aws_sns as sns,
@@ -755,7 +756,7 @@ Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
           datapointsToAlarm: 25,
         },
       });
-    }).toThrowError('The period (86400) over which'),
+    }).toThrow('The period (86400) over which'),
 
     Template.fromStack(stack);
   });
@@ -814,5 +815,43 @@ test('when a resource is excluded from the aspect config it should not have alar
         expect(alarms.length).toBe(1);
       }
     });
+  });
+});
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new sqsAlarms.SqsRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      configApproximateAgeOfOldestMessageAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesNotVisibleAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesVisibleAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  new sqs.Queue(stack, 'Queue');
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
   });
 });

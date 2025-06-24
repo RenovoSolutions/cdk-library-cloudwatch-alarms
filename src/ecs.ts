@@ -515,6 +515,7 @@ export class EcsServiceRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(EcsRecommendedAlarmsMetrics.CPU_UTILIZATION)) {
       this.alarmCpuUtilization = new EcsServiceCpuUtilizationAlarm(this, `${props.service.node.id}_CpuUtilization`, {
         service: props.service,
+        treatMissingData: props.treatMissingData,
         ...props.configCpuUtilizationAlarm,
       });
 
@@ -534,6 +535,7 @@ export class EcsServiceRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(EcsRecommendedAlarmsMetrics.MEMORY_UTILIZATION)) {
       this.alarmMemoryUtilization = new EcsServiceMemoryUtilizationAlarm(this, `${props.service.node.id}_MemoryUtilization`, {
         service: props.service,
+        treatMissingData: props.treatMissingData,
         ...props.configMemoryUtilizationAlarm,
       });
 
@@ -553,6 +555,7 @@ export class EcsServiceRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(EcsRecommendedAlarmsMetrics.EPHEMERAL_STORAGE_UTILIZED)) {
       this.alarmEphemeralStorageUtilized = new EcsServiceEphemeralStorageUtilizedAlarm(this, `${props.service.node.id}_EphemeralStorageUtilized`, {
         service: props.service,
+        treatMissingData: props.treatMissingData,
         ...props.configEphemeralStorageUtilizedAlarm,
       });
 
@@ -572,6 +575,7 @@ export class EcsServiceRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(EcsRecommendedAlarmsMetrics.RUNNING_TASK_COUNT)) {
       this.alarmRunningTaskCount = new EcsServiceRunningTaskCountAlarm(this, `${props.service.node.id}_RunningTaskCount`, {
         service: props.service,
+        treatMissingData: props.treatMissingData,
         ...props.configRunningTaskCountAlarm,
       });
 

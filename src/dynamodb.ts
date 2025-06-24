@@ -749,6 +749,7 @@ export class DynamoDbTableRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(DynamoDbRecommendedAlarmsMetrics.READ_THROTTLE_EVENTS)) {
       this.alarmReadThrottleEvents = new DynamoDbTableReadThrottleEventsAlarm(this, `${props.table.node.id}_ReadThrottleEvents`, {
         table: props.table,
+        treatMissingData: props.treatMissingData,
         ...props.configReadThrottleEventsAlarm,
       });
 
@@ -768,6 +769,7 @@ export class DynamoDbTableRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(DynamoDbRecommendedAlarmsMetrics.SYSTEM_ERRORS)) {
       this.alarmSystemErrors = new DynamoDbTableSystemErrorsAlarm(this, `${props.table.node.id}_SystemErrors`, {
         table: props.table,
+        treatMissingData: props.treatMissingData,
         ...props.configSystemErrorsAlarm,
       });
 
@@ -787,6 +789,7 @@ export class DynamoDbTableRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(DynamoDbRecommendedAlarmsMetrics.WRITE_THROTTLE_EVENTS)) {
       this.alarmWriteThrottleEvents = new DynamoDbTableWriteThrottleEventsAlarm(this, `${props.table.node.id}_WriteThrottleEvents`, {
         table: props.table,
+        treatMissingData: props.treatMissingData,
         ...props.configWriteThrottleEventsAlarm,
       });
 
@@ -809,6 +812,7 @@ export class DynamoDbTableRecommendedAlarms extends Construct {
     ) {
       this.alarmAgeOfOldestUnreplicatedRecord = new DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm(this, `${props.table.node.id}_AgeOfOldestUnreplicatedRecord`, {
         table: props.table,
+        treatMissingData: props.treatMissingData,
         ...props.configAgeOfOldestUnreplicatedRecordAlarm,
       });
 
@@ -831,6 +835,7 @@ export class DynamoDbTableRecommendedAlarms extends Construct {
     ) {
       this.alarmFailedToReplicateRecordCount = new DynamoDbTableFailedToReplicateRecordCountAlarm(this, `${props.table.node.id}_FailedToReplicateRecordCount`, {
         table: props.table,
+        treatMissingData: props.treatMissingData,
         ...props.configFailedToReplicateRecordCountAlarm,
       });
 
@@ -853,6 +858,7 @@ export class DynamoDbTableRecommendedAlarms extends Construct {
     ) {
       this.alarmThrottledPutRecordCount = new DynamoDbTableThrottledPutRecordCountAlarm(this, `${props.table.node.id}_ThrottledPutRecordCount`, {
         table: props.table,
+        treatMissingData: props.treatMissingData,
         ...props.configThrottledPutRecordCountAlarm,
       });
 

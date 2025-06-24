@@ -1,5 +1,6 @@
 import {
   aws_s3 as s3,
+  aws_cloudwatch as cloudwatch,
   aws_cloudwatch_actions as cloudwatch_actions,
   aws_sns as sns,
   aws_lambda as lambda,
@@ -601,7 +602,7 @@ Object.values(s3alarms.S3RecommendedAlarmsMetrics).forEach(metricName => {
           evaluationPeriods: 25,
         },
       });
-    }).toThrowError('The period (86400) over which'),
+    }).toThrow('The period (86400) over which'),
 
     Template.fromStack(stack);
   });
@@ -655,5 +656,37 @@ test('when a resource is excluded from the aspect config it should not have alar
         expect(alarms.length).toBe(1);
       }
     });
+  });
+});
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new s3alarms.S3RecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+    }),
+  );
+
+  new s3.Bucket(stack, 'Bucket', {
+    bucketName: 'bucket',
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(s3alarms.S3RecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
   });
 });

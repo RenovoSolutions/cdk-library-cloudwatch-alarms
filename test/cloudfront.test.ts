@@ -31,7 +31,7 @@ class CloudFrontDistributionStack extends Stack {
 
     this.distribution = new cloudfrontAlarms.Distribution(this, 'Distribution', {
       defaultBehavior: {
-        origin: new origins.S3Origin(bucket),
+        origin: origins.S3BucketOrigin.withOriginAccessControl(bucket),
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
       publishAdditionalMetrics: true,
@@ -350,7 +350,7 @@ test('when an resource is excluded from the aspect config it should not have ala
 
   new cloudfront.Distribution(stack, 'Distribution1', {
     defaultBehavior: {
-      origin: new origins.S3Origin(bucket1),
+      origin: origins.S3BucketOrigin.withOriginAccessControl(bucket1),
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
     },
     publishAdditionalMetrics: true,
@@ -362,7 +362,7 @@ test('when an resource is excluded from the aspect config it should not have ala
 
   new cloudfront.Distribution(stack, 'Distribution2', {
     defaultBehavior: {
-      origin: new origins.S3Origin(bucket2),
+      origin: origins.S3BucketOrigin.withOriginAccessControl(bucket2),
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
     },
     publishAdditionalMetrics: true,
@@ -542,7 +542,7 @@ test('optional alarm configurations can be overwritten', () => {
 
   new cloudfront.Distribution(stack, 'Distribution', {
     defaultBehavior: {
-      origin: new origins.S3Origin(bucket),
+      origin: origins.S3BucketOrigin.withOriginAccessControl(bucket),
       viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
     },
     publishAdditionalMetrics: true,
@@ -563,6 +563,40 @@ test('optional alarm configurations can be overwritten', () => {
       AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    }));
+  });
+});
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new cloudfrontAlarms.CloudFrontRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      config5xxErrorRateAlarm: {
+        threshold: 100,
+      },
+      configOriginLatencyAlarm: {
+        threshold: 100,
+      },
+    }),
+  );
+
+  const stack = new CloudFrontDistributionStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(cloudfrontAlarms.CloudFrontRecommendedAlarmsMetrics).filter(metric => !metric.startsWith('Function')).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
     }));
   });
 });

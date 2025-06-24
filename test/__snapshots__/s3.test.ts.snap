@@ -1,5 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AspectWithTreatMissingData 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Bucket83908E77": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "BucketName": "bucket",
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "BucketS3RecommendedAlarmsFromAspectBucket4xxErrorsAlarm3784013E": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps us report the total number of 4xx error status codes that are made in response to client requests. 403 error codes might indicate an incorrect IAM policy, and 404 error codes might indicate mis-behaving client application, for example. Enabling S3 server access logging on a temporary basis will help you to pinpoint the issue's origin using the fields HTTP status and Error Code. To understand more about the error code, see Error Responses (https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "Bucket83908E77",
+              },
+              " - 4xxErrors",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": Array [
+          Object {
+            "Name": "BucketName",
+            "Value": Object {
+              "Ref": "Bucket83908E77",
+            },
+          },
+          Object {
+            "Name": "FilterId",
+            "Value": "AllMetrics",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "4xxErrors",
+        "Namespace": "AWS/S3",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": Object {
+      "Properties": Object {
+        "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
+        "AlarmName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Ref": "Bucket83908E77",
+              },
+              " - 5xxErrors",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": Array [
+          Object {
+            "Name": "BucketName",
+            "Value": Object {
+              "Ref": "Bucket83908E77",
+            },
+          },
+          Object {
+            "Name": "FilterId",
+            "Value": "AllMetrics",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "5xxErrors",
+        "Namespace": "AWS/S3",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`Snapshot 1`] = `
 Object {
   "Parameters": Object {

@@ -43,7 +43,7 @@ class PrivateLinkInterfaceVpcEndpointStack extends Stack {
 
 class PrivateLinkVpcEndpointServiceStack extends Stack {
   public readonly vpc: ec2.Vpc;
-  public readonly endpointService : privatelinkAlarms.VpcEndpointService;
+  public readonly endpointService: privatelinkAlarms.VpcEndpointService;
   public readonly fargateService: ecs_patterns.ApplicationLoadBalancedFargateService;
 
   constructor(scope: App, id: string, props?: StackProps) {

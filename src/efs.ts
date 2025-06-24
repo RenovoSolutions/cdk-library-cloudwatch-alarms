@@ -318,6 +318,7 @@ export class EfsFileSystemRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(EfsRecommendedAlarmsMetrics.PERCENT_IO_LIMIT)) {
       this.alarmPercentIOLimit = new EfsFileSystemPercentIOLimitAlarm(this, `${props.fileSystem.node.id}_PercentIOLimit`, {
         fileSystem: props.fileSystem,
+        treatMissingData: props.treatMissingData,
         ...props.configPercentIOLimitAlarm,
       });
 
@@ -337,6 +338,7 @@ export class EfsFileSystemRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(EfsRecommendedAlarmsMetrics.BURST_CREDIT_BALANCE)) {
       this.alarmBurstCreditBalance = new EfsFileSystemBurstCreditBalanceAlarm(this, `${props.fileSystem.node.id}_BurstCreditBalance`, {
         fileSystem: props.fileSystem,
+        treatMissingData: props.treatMissingData,
         ...props.configBurstCreditBalanceAlarm,
       });
 

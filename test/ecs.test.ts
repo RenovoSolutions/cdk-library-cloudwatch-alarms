@@ -15,6 +15,7 @@ import {
   Match,
   Template,
 } from 'aws-cdk-lib/assertions';
+import { ContainerInsights } from 'aws-cdk-lib/aws-ecs';
 import * as ecsAlarms from '../src/ecs';
 
 class EcsFargateServiceStack extends Stack {
@@ -30,7 +31,7 @@ class EcsFargateServiceStack extends Stack {
 
     this.cluster = new ecs.Cluster(this, 'Cluster', {
       vpc: new ec2.Vpc(this, 'VPC'),
-      containerInsights: true,
+      containerInsightsV2: ContainerInsights.ENABLED,
       clusterName: 'TestCluster',
     });
 
@@ -247,7 +248,7 @@ test('when an resource is excluded from the aspect config it should not have ala
 
   const cluster = new ecs.Cluster(stack, 'Cluster', {
     vpc: new ec2.Vpc(stack, 'VPC'),
-    containerInsights: true,
+    containerInsightsV2: ContainerInsights.ENABLED,
     clusterName: 'TestCluster',
   });
 
@@ -440,7 +441,7 @@ test('optional alarm configurations can be overwritten', () => {
 
   const cluster = new ecs.Cluster(stack, 'Cluster', {
     vpc: new ec2.Vpc(stack, 'VPC'),
-    containerInsights: true,
+    containerInsightsV2: ContainerInsights.ENABLED,
     clusterName: 'TestCluster',
   });
 
@@ -480,6 +481,37 @@ test('optional alarm configurations can be overwritten', () => {
       AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    }));
+  });
+});
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new ecsAlarms.EcsRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      configEphemeralStorageUtilizedAlarm: {
+        threshold: 90,
+      },
+    }),
+  );
+
+  const stack = new EcsFargateServiceStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(ecsAlarms.EcsRecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
     }));
   });
 });

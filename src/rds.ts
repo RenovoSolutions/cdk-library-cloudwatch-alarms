@@ -1207,6 +1207,7 @@ export class RdsInstanceRecommendedAlarms extends Construct {
       this.alarmCpuUtilization = new RdsInstanceCpuUtilizationAlarm(this, 'InstanceCpuUtilizationAlarm', {
         instanceIdentifier: props.instanceIdentifier,
         databaseInstance: props.databaseInstance,
+        treatMissingData: props.treatMissingData,
         ...props.configCpuUtilizationAlarm,
       });
 
@@ -1227,6 +1228,7 @@ export class RdsInstanceRecommendedAlarms extends Construct {
       this.alarmDatabaseConnections = new RdsInstanceDatabaseConnectionsAlarm(this, 'InstanceDatabaseConnectionsAlarm', {
         instanceIdentifier: props.instanceIdentifier,
         databaseInstance: props.databaseInstance,
+        treatMissingData: props.treatMissingData,
         ...props.configDatabaseConnectionsAlarm,
       });
 
@@ -1247,6 +1249,7 @@ export class RdsInstanceRecommendedAlarms extends Construct {
       this.alarmFreeableMemory = new RdsInstanceFreeableMemoryAlarm(this, 'InstanceFreeableMemoryAlarm', {
         instanceIdentifier: props.instanceIdentifier,
         databaseInstance: props.databaseInstance,
+        treatMissingData: props.treatMissingData,
         ...props.configFreeableMemoryAlarm,
       });
 
@@ -1267,6 +1270,7 @@ export class RdsInstanceRecommendedAlarms extends Construct {
       this.alarmFreeLocalStorage = new RdsInstanceFreeLocalStorageAlarm(this, 'InstanceFreeLocalStorageAlarm', {
         instanceIdentifier: props.instanceIdentifier,
         databaseInstance: props.databaseInstance,
+        treatMissingData: props.treatMissingData,
         ...props.configFreeLocalStorageAlarm,
       });
 
@@ -1287,6 +1291,7 @@ export class RdsInstanceRecommendedAlarms extends Construct {
       this.alarmFreeStorageSpace = new RdsInstanceFreeStorageSpaceAlarm(this, 'InstanceFreeStorageSpaceAlarm', {
         instanceIdentifier: props.instanceIdentifier,
         databaseInstance: props.databaseInstance,
+        treatMissingData: props.treatMissingData,
         ...props.configFreeStorageSpaceAlarm,
       });
 
@@ -1307,6 +1312,7 @@ export class RdsInstanceRecommendedAlarms extends Construct {
       this.alarmReadLatency = new RdsInstanceReadLatencyAlarm(this, 'InstanceReadLatencyAlarm', {
         instanceIdentifier: props.instanceIdentifier,
         databaseInstance: props.databaseInstance,
+        treatMissingData: props.treatMissingData,
         ...props.configReadLatencyAlarm,
       });
 
@@ -1327,6 +1333,7 @@ export class RdsInstanceRecommendedAlarms extends Construct {
       this.alarmWriteLatency = new RdsInstanceWriteLatencyAlarm(this, 'InstanceWriteLatencyAlarm', {
         instanceIdentifier: props.instanceIdentifier,
         databaseInstance: props.databaseInstance,
+        treatMissingData: props.treatMissingData,
         ...props.configWriteLatencyAlarm,
       });
 
@@ -1347,6 +1354,7 @@ export class RdsInstanceRecommendedAlarms extends Construct {
       this.alarmDbLoad = new RdsInstanceDbLoadAlarm(this, 'InstanceDbLoadAlarm', {
         instanceIdentifier: props.instanceIdentifier,
         databaseInstance: props.databaseInstance,
+        treatMissingData: props.treatMissingData,
         ...props.configDbLoadAlarm,
       });
 
@@ -1390,6 +1398,7 @@ export class RdsAuroraRecommendedAlarms extends Construct {
     ) {
       this.alarmAuroraVolumeBytesLeftTotal = new RdsAuroraVolumeBytesLeftTotalAlarm(this, 'AuroraVolumeBytesLeftTotalAlarm', {
         databaseCluster: props.databaseCluster,
+        treatMissingData: props.treatMissingData,
         ...props.configAuroraVolumeBytesLeftTotalAlarm,
       });
 
@@ -1421,6 +1430,7 @@ export class RdsAuroraRecommendedAlarms extends Construct {
     ) {
       this.alarmAuroraBinLogReplicationLag = new RdsAuroraBinLogReplicationLagAlarm(this, 'AuroraBinLogReplicationLagAlarm', {
         databaseCluster: props.databaseCluster,
+        treatMissingData: props.treatMissingData,
         ...props.configAuroraBinLogReplicationLagAlarm,
       });
 
@@ -1546,7 +1556,7 @@ export class DatabaseInstance extends rds.DatabaseInstance {
   }
 
   /**
-   * Creates recommended alarms for the database cluster.
+   * Creates recommended alarms for the database instance.
    *
    * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#RDS
    */
