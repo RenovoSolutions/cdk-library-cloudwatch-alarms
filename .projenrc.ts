@@ -37,10 +37,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'renovosolutions.aws-cdk-cloudwatch-alarms',
     module: 'alarms',
   },
-  publishToNuget: {
-    dotNetNamespace: 'renovosolutions',
-    packageId: 'Renovo.AWSCDK.Cloudwatch.Alarms',
-  },
 });
 
 new javascript.UpgradeDependencies(project, {
