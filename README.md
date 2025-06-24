@@ -41,6 +41,7 @@ If its not shown it hasn't been worked on.
 | AutoScaling | <ul><li>[x] GroupInServiceCapacity</li></ul> | The alarms are applied to `AutoScalingGroup` constructs. The alarm requires a `threshold` to be defined and the `AutoScalingGroup` should have this metric explicitly enabled. |
 | ElastiCache | <ul><li>[x] DatabaseMemoryUsagePercentage</li><li>[x] EngineCPUUtilization</li><li>[x] ReplicationLag</li></ul> | The alarms are applied to `CfnCacheCluster` and `CfnReplicationGroup` constructs. `DatabaseMemoryUsagePercentage` and `ReplicationLag` require a `threshold` to be defined.|
 | PrivateLink | <b>Endpoints</b><br/><ul><li>[x] PacketsDropped</li></ul><b>Endpoint Services</b><br/><ul><li>[x] RstPacketsSent</li></ul> | The alarms are applied to `InterfaceVpcEndpoint` and `VpcEndpointService` constructs. Because these objects do not expose the attributes required by alarms, they cannot be implemented using the `Aspect`. In all cases, the `threshold` must be defined. |
+| VPN | <ul><li>[x] TunnelState</li></ul> | The alarms are applied to `CfnVPNConnection` constructs. |
 
 ### Aspects
 
