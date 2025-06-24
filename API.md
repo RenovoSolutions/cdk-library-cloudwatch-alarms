@@ -4876,6 +4876,2445 @@ first call to addToResourcePolicy(s).
 ---
 
 
+### CfnCacheCluster <a name="CfnCacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster"></a>
+
+An extension for the CfnCacheCluster construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.Initializer"></a>
+
+```typescript
+import { CfnCacheCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CfnCacheCluster(scope: Construct, id: string, props: CfnCacheClusterProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnCacheClusterProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnCacheClusterProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDeletionOverride">addDeletionOverride</a></code> | Syntactic sugar for `addOverride(path, undefined)`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependency">addDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependsOn">addDependsOn</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addMetadata">addMetadata</a></code> | Add a value to the CloudFormation Resource Metadata. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainResourceDependencies">obtainResourceDependencies</a></code> | Get a shallow copy of dependencies between this resource and other resources in the same stack. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeDependency">removeDependency</a></code> | Indicates that this resource no longer depends on another resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.replaceDependency">replaceDependency</a></code> | Replaces one dependency with another. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.inspect">inspect</a></code> | Examines the CloudFormation resource and discloses attributes. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmDatabaseMemoryUsagePercentage">alarmDatabaseMemoryUsagePercentage</a></code> | Creates an alarm that monitors the DatabaseMemoryUsagePercentage for the ElastiCache cacheCluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmEngineCpuUtilization">alarmEngineCpuUtilization</a></code> | Creates an alarm that monitors the EngineCpuUtilization for the ElastiCache cacheCluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmReplicationLag">alarmReplicationLag</a></code> | Creates an alarm that monitors the ReplicationLag for the ElastiCache cacheCluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the ElastiCache CfnCacheCluster. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `overrideLogicalId` <a name="overrideLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.overrideLogicalId"></a>
+
+```typescript
+public overrideLogicalId(newLogicalId: string): void
+```
+
+Overrides the auto-generated logical ID with a specific ID.
+
+###### `newLogicalId`<sup>Required</sup> <a name="newLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.overrideLogicalId.parameter.newLogicalId"></a>
+
+- *Type:* string
+
+The new logical ID to use for this stack element.
+
+---
+
+##### `addDeletionOverride` <a name="addDeletionOverride" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDeletionOverride"></a>
+
+```typescript
+public addDeletionOverride(path: string): void
+```
+
+Syntactic sugar for `addOverride(path, undefined)`.
+
+###### `path`<sup>Required</sup> <a name="path" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDeletionOverride.parameter.path"></a>
+
+- *Type:* string
+
+The path of the value to delete.
+
+---
+
+##### `addDependency` <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependency"></a>
+
+```typescript
+public addDependency(target: CfnResource): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### ~~`addDependsOn`~~ <a name="addDependsOn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependsOn"></a>
+
+```typescript
+public addDependsOn(target: CfnResource): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependsOn.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `addMetadata` <a name="addMetadata" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addMetadata"></a>
+
+```typescript
+public addMetadata(key: string, value: any): void
+```
+
+Add a value to the CloudFormation Resource Metadata.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+
+Note that this is a different set of metadata from CDK node metadata; this
+metadata ends up in the stack template under the resource, whereas CDK
+node metadata ends up in the Cloud Assembly.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+
+Note that this is a different set of metadata from CDK node metadata; this
+metadata ends up in the stack template under the resource, whereas CDK
+node metadata ends up in the Cloud Assembly.)
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addMetadata.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addMetadata.parameter.value"></a>
+
+- *Type:* any
+
+---
+
+##### `addOverride` <a name="addOverride" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addOverride"></a>
+
+```typescript
+public addOverride(path: string, value: any): void
+```
+
+Adds an override to the synthesized CloudFormation resource.
+
+To add a
+property override, either use `addPropertyOverride` or prefix `path` with
+"Properties." (i.e. `Properties.TopicName`).
+
+If the override is nested, separate each nested level using a dot (.) in the path parameter.
+If there is an array as part of the nesting, specify the index in the path.
+
+To include a literal `.` in the property name, prefix with a `\`. In most
+programming languages you will need to write this as `"\\."` because the
+`\` itself will need to be escaped.
+
+For example,
+```typescript
+cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+```
+would add the overrides
+```json
+"Properties": {
+  "GlobalSecondaryIndexes": [
+    {
+      "Projection": {
+        "NonKeyAttributes": [ "myattribute" ]
+        ...
+      }
+      ...
+    },
+    {
+      "ProjectionType": "INCLUDE"
+      ...
+    },
+  ]
+  ...
+}
+```
+
+The `value` argument to `addOverride` will not be processed or translated
+in any way. Pass raw JSON values in here with the correct capitalization
+for CloudFormation. If you pass CDK classes or structs, they will be
+rendered with lowercased key names, and CloudFormation will reject the
+template.
+
+###### `path`<sup>Required</sup> <a name="path" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addOverride.parameter.path"></a>
+
+- *Type:* string
+
+The path of the property, you can use dot notation to override values in complex types.
+
+Any intermediate keys
+will be created as needed.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addOverride.parameter.value"></a>
+
+- *Type:* any
+
+The value.
+
+Could be primitive or complex.
+
+---
+
+##### `addPropertyDeletionOverride` <a name="addPropertyDeletionOverride" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyDeletionOverride"></a>
+
+```typescript
+public addPropertyDeletionOverride(propertyPath: string): void
+```
+
+Adds an override that deletes the value of a property from the resource definition.
+
+###### `propertyPath`<sup>Required</sup> <a name="propertyPath" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyDeletionOverride.parameter.propertyPath"></a>
+
+- *Type:* string
+
+The path to the property.
+
+---
+
+##### `addPropertyOverride` <a name="addPropertyOverride" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyOverride"></a>
+
+```typescript
+public addPropertyOverride(propertyPath: string, value: any): void
+```
+
+Adds an override to a resource property.
+
+Syntactic sugar for `addOverride("Properties.<...>", value)`.
+
+###### `propertyPath`<sup>Required</sup> <a name="propertyPath" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyOverride.parameter.propertyPath"></a>
+
+- *Type:* string
+
+The path of the property.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyOverride.parameter.value"></a>
+
+- *Type:* any
+
+The value.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy?: RemovalPolicy, options?: RemovalPolicyOptions): void
+```
+
+Sets the deletion policy of the resource based on the removal policy specified.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+cases, a snapshot can be taken of the resource prior to deletion
+(`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+can be found in the following link:
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options)
+
+###### `policy`<sup>Optional</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRemovalPolicy.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicyOptions
+
+---
+
+##### `getAtt` <a name="getAtt" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string, typeHint?: ResolutionTypeHint): Reference
+```
+
+Returns a token for an runtime attribute of this resource.
+
+Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+in case there is no generated attribute.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+The name of the attribute.
+
+---
+
+###### `typeHint`<sup>Optional</sup> <a name="typeHint" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getAtt.parameter.typeHint"></a>
+
+- *Type:* aws-cdk-lib.ResolutionTypeHint
+
+---
+
+##### `getMetadata` <a name="getMetadata" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getMetadata"></a>
+
+```typescript
+public getMetadata(key: string): any
+```
+
+Retrieve a value value from the CloudFormation Resource Metadata.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+
+Note that this is a different set of metadata from CDK node metadata; this
+metadata ends up in the stack template under the resource, whereas CDK
+node metadata ends up in the Cloud Assembly.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+
+Note that this is a different set of metadata from CDK node metadata; this
+metadata ends up in the stack template under the resource, whereas CDK
+node metadata ends up in the Cloud Assembly.)
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getMetadata.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainDependencies"></a>
+
+```typescript
+public obtainDependencies(): Stack | CfnResource[]
+```
+
+Retrieves an array of resources this resource depends on.
+
+This assembles dependencies on resources across stacks (including nested stacks)
+automatically.
+
+##### `obtainResourceDependencies` <a name="obtainResourceDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainResourceDependencies"></a>
+
+```typescript
+public obtainResourceDependencies(): CfnResource[]
+```
+
+Get a shallow copy of dependencies between this resource and other resources in the same stack.
+
+##### `removeDependency` <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeDependency"></a>
+
+```typescript
+public removeDependency(target: CfnResource): void
+```
+
+Indicates that this resource no longer depends on another resource.
+
+This can be used for resources across stacks (including nested stacks)
+and the dependency will automatically be removed from the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `replaceDependency` <a name="replaceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.replaceDependency"></a>
+
+```typescript
+public replaceDependency(target: CfnResource, newTarget: CfnResource): void
+```
+
+Replaces one dependency with another.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.replaceDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+The dependency to replace.
+
+---
+
+###### `newTarget`<sup>Required</sup> <a name="newTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.replaceDependency.parameter.newTarget"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+The new dependency to add.
+
+---
+
+##### `inspect` <a name="inspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines the CloudFormation resource and discloses attributes.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+tree inspector to collect and process attributes.
+
+---
+
+##### `alarmDatabaseMemoryUsagePercentage` <a name="alarmDatabaseMemoryUsagePercentage" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmDatabaseMemoryUsagePercentage"></a>
+
+```typescript
+public alarmDatabaseMemoryUsagePercentage(props: ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig): ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm
+```
+
+Creates an alarm that monitors the DatabaseMemoryUsagePercentage for the ElastiCache cacheCluster.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmDatabaseMemoryUsagePercentage.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a>
+
+---
+
+##### `alarmEngineCpuUtilization` <a name="alarmEngineCpuUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmEngineCpuUtilization"></a>
+
+```typescript
+public alarmEngineCpuUtilization(props?: ElastiCacheEngineCpuUtilizationAlarmConfig): ElastiCacheClusterEngineCpuUtilizationAlarm
+```
+
+Creates an alarm that monitors the EngineCpuUtilization for the ElastiCache cacheCluster.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmEngineCpuUtilization.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a>
+
+---
+
+##### `alarmReplicationLag` <a name="alarmReplicationLag" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmReplicationLag"></a>
+
+```typescript
+public alarmReplicationLag(props: ElastiCacheReplicationLagAlarmConfig): ElastiCacheClusterReplicationLagAlarm
+```
+
+Creates an alarm that monitors the ReplicationLag for the ElastiCache cacheCluster.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmReplicationLag.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: ElastiCacheClusterRecommendedAlarmsConfig): ElastiCacheClusterRecommendedAlarms
+```
+
+Creates the recommended alarms for the ElastiCache CfnCacheCluster.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig">ElastiCacheClusterRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnElement">isCfnElement</a></code> | Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnResource">isCfnResource</a></code> | Check whether the given object is a CfnResource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isConstruct"></a>
+
+```typescript
+import { CfnCacheCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnCacheCluster.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isCfnElement` <a name="isCfnElement" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnElement"></a>
+
+```typescript
+import { CfnCacheCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnCacheCluster.isCfnElement(x: any)
+```
+
+Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+
+Uses duck-typing instead of `instanceof` to allow stack elements from different
+versions of this library to be included in the same stack.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnElement.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `isCfnResource` <a name="isCfnResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnResource"></a>
+
+```typescript
+import { CfnCacheCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnCacheCluster.isCfnResource(x: any)
+```
+
+Check whether the given object is a CfnResource.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnResource.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.creationStack">creationStack</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.logicalId">logicalId</a></code> | <code>string</code> | The logical ID for this CloudFormation stack element. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this element is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.ref">ref</a></code> | <code>string</code> | Return a string that will be resolved to a CloudFormation `{ Ref }` for this element. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointAddress">attrConfigurationEndpointAddress</a></code> | <code>string</code> | The DNS hostname of the cache node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointPort">attrConfigurationEndpointPort</a></code> | <code>string</code> | The port number of the configuration endpoint for the Memcached cache cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrId">attrId</a></code> | <code>string</code> | The resource name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpointAddress">attrRedisEndpointAddress</a></code> | <code>string</code> | The DNS address of the configuration endpoint for the Redis OSS cache cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpointPort">attrRedisEndpointPort</a></code> | <code>string</code> | The port number of the configuration endpoint for the Redis OSS cache cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tag Manager which manages the tags for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheNodeType">cacheNodeType</a></code> | <code>string</code> | The compute and memory capacity of the nodes in the node group (shard). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.engine">engine</a></code> | <code>string</code> | The name of the cache engine to be used for this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.numCacheNodes">numCacheNodes</a></code> | <code>number</code> | The number of cache nodes that the cache cluster should have. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.autoMinorVersionUpgrade">autoMinorVersionUpgrade</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.azMode">azMode</a></code> | <code>string</code> | Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheParameterGroupName">cacheParameterGroupName</a></code> | <code>string</code> | The name of the parameter group to associate with this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheSecurityGroupNames">cacheSecurityGroupNames</a></code> | <code>string[]</code> | A list of security group names to associate with this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheSubnetGroupName">cacheSubnetGroupName</a></code> | <code>string</code> | The name of the subnet group to be used for the cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.clusterName">clusterName</a></code> | <code>string</code> | A name for the cache cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.engineVersion">engineVersion</a></code> | <code>string</code> | The version number of the cache engine to be used for this cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.ipDiscovery">ipDiscovery</a></code> | <code>string</code> | The network type you choose when modifying a cluster, either `ipv4` \| `ipv6` . |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.logDeliveryConfigurations">logDeliveryConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_elasticache.CfnCacheCluster.LogDeliveryConfigurationRequestProperty[]</code> | Specifies the destination, format and type of the logs. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.networkType">networkType</a></code> | <code>string</code> | Must be either `ipv4` \| `ipv6` \| `dual_stack` . |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.notificationTopicArn">notificationTopicArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.port">port</a></code> | <code>number</code> | The port number on which each of the cache nodes accepts connections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.preferredAvailabilityZone">preferredAvailabilityZone</a></code> | <code>string</code> | The EC2 Availability Zone in which the cluster is created. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.preferredAvailabilityZones">preferredAvailabilityZones</a></code> | <code>string[]</code> | A list of the Availability Zones in which cache nodes are created. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.preferredMaintenanceWindow">preferredMaintenanceWindow</a></code> | <code>string</code> | Specifies the weekly time range during which maintenance on the cluster is performed. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.snapshotArns">snapshotArns</a></code> | <code>string[]</code> | A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis OSS RDB snapshot file stored in Amazon S3. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.snapshotName">snapshotName</a></code> | <code>string</code> | The name of a Redis OSS snapshot from which to restore data into the new node group (shard). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.snapshotRetentionLimit">snapshotRetentionLimit</a></code> | <code>number</code> | The number of days for which ElastiCache retains automatic snapshots before deleting them. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.snapshotWindow">snapshotWindow</a></code> | <code>string</code> | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.tagsRaw">tagsRaw</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | A list of tags to be added to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.transitEncryptionEnabled">transitEncryptionEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | A flag that enables in-transit encryption when set to true. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.vpcSecurityGroupIds">vpcSecurityGroupIds</a></code> | <code>string[]</code> | One or more VPC security groups associated with the cluster. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `creationStack`<sup>Required</sup> <a name="creationStack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.creationStack"></a>
+
+```typescript
+public readonly creationStack: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `logicalId`<sup>Required</sup> <a name="logicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.logicalId"></a>
+
+```typescript
+public readonly logicalId: string;
+```
+
+- *Type:* string
+
+The logical ID for this CloudFormation stack element.
+
+The logical ID of the element
+is calculated from the path of the resource node in the construct tree.
+
+To override this value, use `overrideLogicalId(newLogicalId)`.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this element is defined.
+
+CfnElements must be defined within a stack scope (directly or indirectly).
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+
+If, by any chance, the intrinsic reference of a resource is not a string, you could
+coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+
+---
+
+##### `cfnOptions`<sup>Required</sup> <a name="cfnOptions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cfnOptions"></a>
+
+```typescript
+public readonly cfnOptions: ICfnResourceOptions;
+```
+
+- *Type:* aws-cdk-lib.ICfnResourceOptions
+
+Options for this resource, such as condition, update policy etc.
+
+---
+
+##### `cfnResourceType`<sup>Required</sup> <a name="cfnResourceType" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cfnResourceType"></a>
+
+```typescript
+public readonly cfnResourceType: string;
+```
+
+- *Type:* string
+
+AWS resource type.
+
+---
+
+##### `attrConfigurationEndpointAddress`<sup>Required</sup> <a name="attrConfigurationEndpointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointAddress"></a>
+
+```typescript
+public readonly attrConfigurationEndpointAddress: string;
+```
+
+- *Type:* string
+
+The DNS hostname of the cache node.
+
+> Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
+
+---
+
+##### `attrConfigurationEndpointPort`<sup>Required</sup> <a name="attrConfigurationEndpointPort" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointPort"></a>
+
+```typescript
+public readonly attrConfigurationEndpointPort: string;
+```
+
+- *Type:* string
+
+The port number of the configuration endpoint for the Memcached cache cluster.
+
+> Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
+
+---
+
+##### `attrId`<sup>Required</sup> <a name="attrId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrId"></a>
+
+```typescript
+public readonly attrId: string;
+```
+
+- *Type:* string
+
+The resource name.
+
+---
+
+##### `attrRedisEndpointAddress`<sup>Required</sup> <a name="attrRedisEndpointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpointAddress"></a>
+
+```typescript
+public readonly attrRedisEndpointAddress: string;
+```
+
+- *Type:* string
+
+The DNS address of the configuration endpoint for the Redis OSS cache cluster.
+
+---
+
+##### `attrRedisEndpointPort`<sup>Required</sup> <a name="attrRedisEndpointPort" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpointPort"></a>
+
+```typescript
+public readonly attrRedisEndpointPort: string;
+```
+
+- *Type:* string
+
+The port number of the configuration endpoint for the Redis OSS cache cluster.
+
+---
+
+##### `tags`<sup>Required</sup> <a name="tags" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.tags"></a>
+
+```typescript
+public readonly tags: TagManager;
+```
+
+- *Type:* aws-cdk-lib.TagManager
+
+Tag Manager which manages the tags for this resource.
+
+---
+
+##### `cacheNodeType`<sup>Required</sup> <a name="cacheNodeType" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheNodeType"></a>
+
+```typescript
+public readonly cacheNodeType: string;
+```
+
+- *Type:* string
+
+The compute and memory capacity of the nodes in the node group (shard).
+
+---
+
+##### `engine`<sup>Required</sup> <a name="engine" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.engine"></a>
+
+```typescript
+public readonly engine: string;
+```
+
+- *Type:* string
+
+The name of the cache engine to be used for this cluster.
+
+---
+
+##### `numCacheNodes`<sup>Required</sup> <a name="numCacheNodes" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.numCacheNodes"></a>
+
+```typescript
+public readonly numCacheNodes: number;
+```
+
+- *Type:* number
+
+The number of cache nodes that the cache cluster should have.
+
+---
+
+##### `autoMinorVersionUpgrade`<sup>Optional</sup> <a name="autoMinorVersionUpgrade" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.autoMinorVersionUpgrade"></a>
+
+```typescript
+public readonly autoMinorVersionUpgrade: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
+
+---
+
+##### `azMode`<sup>Optional</sup> <a name="azMode" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.azMode"></a>
+
+```typescript
+public readonly azMode: string;
+```
+
+- *Type:* string
+
+Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
+
+---
+
+##### `cacheParameterGroupName`<sup>Optional</sup> <a name="cacheParameterGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheParameterGroupName"></a>
+
+```typescript
+public readonly cacheParameterGroupName: string;
+```
+
+- *Type:* string
+
+The name of the parameter group to associate with this cluster.
+
+---
+
+##### `cacheSecurityGroupNames`<sup>Optional</sup> <a name="cacheSecurityGroupNames" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheSecurityGroupNames"></a>
+
+```typescript
+public readonly cacheSecurityGroupNames: string[];
+```
+
+- *Type:* string[]
+
+A list of security group names to associate with this cluster.
+
+---
+
+##### `cacheSubnetGroupName`<sup>Optional</sup> <a name="cacheSubnetGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheSubnetGroupName"></a>
+
+```typescript
+public readonly cacheSubnetGroupName: string;
+```
+
+- *Type:* string
+
+The name of the subnet group to be used for the cluster.
+
+---
+
+##### `clusterName`<sup>Optional</sup> <a name="clusterName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.clusterName"></a>
+
+```typescript
+public readonly clusterName: string;
+```
+
+- *Type:* string
+
+A name for the cache cluster.
+
+---
+
+##### `engineVersion`<sup>Optional</sup> <a name="engineVersion" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.engineVersion"></a>
+
+```typescript
+public readonly engineVersion: string;
+```
+
+- *Type:* string
+
+The version number of the cache engine to be used for this cluster.
+
+---
+
+##### `ipDiscovery`<sup>Optional</sup> <a name="ipDiscovery" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.ipDiscovery"></a>
+
+```typescript
+public readonly ipDiscovery: string;
+```
+
+- *Type:* string
+
+The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
+
+---
+
+##### `logDeliveryConfigurations`<sup>Optional</sup> <a name="logDeliveryConfigurations" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.logDeliveryConfigurations"></a>
+
+```typescript
+public readonly logDeliveryConfigurations: IResolvable | IResolvable | LogDeliveryConfigurationRequestProperty[];
+```
+
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_elasticache.CfnCacheCluster.LogDeliveryConfigurationRequestProperty[]
+
+Specifies the destination, format and type of the logs.
+
+---
+
+##### `networkType`<sup>Optional</sup> <a name="networkType" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.networkType"></a>
+
+```typescript
+public readonly networkType: string;
+```
+
+- *Type:* string
+
+Must be either `ipv4` | `ipv6` | `dual_stack` .
+
+---
+
+##### `notificationTopicArn`<sup>Optional</sup> <a name="notificationTopicArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.notificationTopicArn"></a>
+
+```typescript
+public readonly notificationTopicArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+The port number on which each of the cache nodes accepts connections.
+
+---
+
+##### `preferredAvailabilityZone`<sup>Optional</sup> <a name="preferredAvailabilityZone" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.preferredAvailabilityZone"></a>
+
+```typescript
+public readonly preferredAvailabilityZone: string;
+```
+
+- *Type:* string
+
+The EC2 Availability Zone in which the cluster is created.
+
+---
+
+##### `preferredAvailabilityZones`<sup>Optional</sup> <a name="preferredAvailabilityZones" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.preferredAvailabilityZones"></a>
+
+```typescript
+public readonly preferredAvailabilityZones: string[];
+```
+
+- *Type:* string[]
+
+A list of the Availability Zones in which cache nodes are created.
+
+---
+
+##### `preferredMaintenanceWindow`<sup>Optional</sup> <a name="preferredMaintenanceWindow" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.preferredMaintenanceWindow"></a>
+
+```typescript
+public readonly preferredMaintenanceWindow: string;
+```
+
+- *Type:* string
+
+Specifies the weekly time range during which maintenance on the cluster is performed.
+
+---
+
+##### `snapshotArns`<sup>Optional</sup> <a name="snapshotArns" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.snapshotArns"></a>
+
+```typescript
+public readonly snapshotArns: string[];
+```
+
+- *Type:* string[]
+
+A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis OSS RDB snapshot file stored in Amazon S3.
+
+---
+
+##### `snapshotName`<sup>Optional</sup> <a name="snapshotName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.snapshotName"></a>
+
+```typescript
+public readonly snapshotName: string;
+```
+
+- *Type:* string
+
+The name of a Redis OSS snapshot from which to restore data into the new node group (shard).
+
+---
+
+##### `snapshotRetentionLimit`<sup>Optional</sup> <a name="snapshotRetentionLimit" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.snapshotRetentionLimit"></a>
+
+```typescript
+public readonly snapshotRetentionLimit: number;
+```
+
+- *Type:* number
+
+The number of days for which ElastiCache retains automatic snapshots before deleting them.
+
+---
+
+##### `snapshotWindow`<sup>Optional</sup> <a name="snapshotWindow" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.snapshotWindow"></a>
+
+```typescript
+public readonly snapshotWindow: string;
+```
+
+- *Type:* string
+
+The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+
+---
+
+##### `tagsRaw`<sup>Optional</sup> <a name="tagsRaw" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.tagsRaw"></a>
+
+```typescript
+public readonly tagsRaw: CfnTag[];
+```
+
+- *Type:* aws-cdk-lib.CfnTag[]
+
+A list of tags to be added to this resource.
+
+---
+
+##### `transitEncryptionEnabled`<sup>Optional</sup> <a name="transitEncryptionEnabled" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.transitEncryptionEnabled"></a>
+
+```typescript
+public readonly transitEncryptionEnabled: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+A flag that enables in-transit encryption when set to true.
+
+---
+
+##### `vpcSecurityGroupIds`<sup>Optional</sup> <a name="vpcSecurityGroupIds" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.vpcSecurityGroupIds"></a>
+
+```typescript
+public readonly vpcSecurityGroupIds: string[];
+```
+
+- *Type:* string[]
+
+One or more VPC security groups associated with the cluster.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.CFN_RESOURCE_TYPE_NAME">CFN_RESOURCE_TYPE_NAME</a></code> | <code>string</code> | The CloudFormation resource type name for this resource class. |
+
+---
+
+##### `CFN_RESOURCE_TYPE_NAME`<sup>Required</sup> <a name="CFN_RESOURCE_TYPE_NAME" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.CFN_RESOURCE_TYPE_NAME"></a>
+
+```typescript
+public readonly CFN_RESOURCE_TYPE_NAME: string;
+```
+
+- *Type:* string
+
+The CloudFormation resource type name for this resource class.
+
+---
+
+### CfnReplicationGroup <a name="CfnReplicationGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup"></a>
+
+An extension for the CfnReplicationGroup construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.Initializer"></a>
+
+```typescript
+import { CfnReplicationGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CfnReplicationGroup(scope: Construct, id: string, props: CfnReplicationGroupProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnReplicationGroupProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnReplicationGroupProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDeletionOverride">addDeletionOverride</a></code> | Syntactic sugar for `addOverride(path, undefined)`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependency">addDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependsOn">addDependsOn</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addMetadata">addMetadata</a></code> | Add a value to the CloudFormation Resource Metadata. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainResourceDependencies">obtainResourceDependencies</a></code> | Get a shallow copy of dependencies between this resource and other resources in the same stack. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeDependency">removeDependency</a></code> | Indicates that this resource no longer depends on another resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.replaceDependency">replaceDependency</a></code> | Replaces one dependency with another. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.inspect">inspect</a></code> | Examines the CloudFormation resource and discloses attributes. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmDatabaseMemoryUsagePercentage">alarmDatabaseMemoryUsagePercentage</a></code> | Creates an alarm that monitors the DatabaseMemoryUsagePercentage for the ElastiCache cacheReplicationGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmEngineCpuUtilization">alarmEngineCpuUtilization</a></code> | Creates an alarm that monitors the EngineCpuUtilization for the ElastiCache cacheReplicationGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmReplicationLag">alarmReplicationLag</a></code> | Creates an alarm that monitors the ReplicationLag for the ElastiCache cacheReplicationGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the ElastiCache CfnReplicationGroup. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `overrideLogicalId` <a name="overrideLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.overrideLogicalId"></a>
+
+```typescript
+public overrideLogicalId(newLogicalId: string): void
+```
+
+Overrides the auto-generated logical ID with a specific ID.
+
+###### `newLogicalId`<sup>Required</sup> <a name="newLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.overrideLogicalId.parameter.newLogicalId"></a>
+
+- *Type:* string
+
+The new logical ID to use for this stack element.
+
+---
+
+##### `addDeletionOverride` <a name="addDeletionOverride" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDeletionOverride"></a>
+
+```typescript
+public addDeletionOverride(path: string): void
+```
+
+Syntactic sugar for `addOverride(path, undefined)`.
+
+###### `path`<sup>Required</sup> <a name="path" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDeletionOverride.parameter.path"></a>
+
+- *Type:* string
+
+The path of the value to delete.
+
+---
+
+##### `addDependency` <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependency"></a>
+
+```typescript
+public addDependency(target: CfnResource): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### ~~`addDependsOn`~~ <a name="addDependsOn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependsOn"></a>
+
+```typescript
+public addDependsOn(target: CfnResource): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependsOn.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `addMetadata` <a name="addMetadata" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addMetadata"></a>
+
+```typescript
+public addMetadata(key: string, value: any): void
+```
+
+Add a value to the CloudFormation Resource Metadata.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+
+Note that this is a different set of metadata from CDK node metadata; this
+metadata ends up in the stack template under the resource, whereas CDK
+node metadata ends up in the Cloud Assembly.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+
+Note that this is a different set of metadata from CDK node metadata; this
+metadata ends up in the stack template under the resource, whereas CDK
+node metadata ends up in the Cloud Assembly.)
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addMetadata.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addMetadata.parameter.value"></a>
+
+- *Type:* any
+
+---
+
+##### `addOverride` <a name="addOverride" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addOverride"></a>
+
+```typescript
+public addOverride(path: string, value: any): void
+```
+
+Adds an override to the synthesized CloudFormation resource.
+
+To add a
+property override, either use `addPropertyOverride` or prefix `path` with
+"Properties." (i.e. `Properties.TopicName`).
+
+If the override is nested, separate each nested level using a dot (.) in the path parameter.
+If there is an array as part of the nesting, specify the index in the path.
+
+To include a literal `.` in the property name, prefix with a `\`. In most
+programming languages you will need to write this as `"\\."` because the
+`\` itself will need to be escaped.
+
+For example,
+```typescript
+cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+```
+would add the overrides
+```json
+"Properties": {
+  "GlobalSecondaryIndexes": [
+    {
+      "Projection": {
+        "NonKeyAttributes": [ "myattribute" ]
+        ...
+      }
+      ...
+    },
+    {
+      "ProjectionType": "INCLUDE"
+      ...
+    },
+  ]
+  ...
+}
+```
+
+The `value` argument to `addOverride` will not be processed or translated
+in any way. Pass raw JSON values in here with the correct capitalization
+for CloudFormation. If you pass CDK classes or structs, they will be
+rendered with lowercased key names, and CloudFormation will reject the
+template.
+
+###### `path`<sup>Required</sup> <a name="path" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addOverride.parameter.path"></a>
+
+- *Type:* string
+
+The path of the property, you can use dot notation to override values in complex types.
+
+Any intermediate keys
+will be created as needed.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addOverride.parameter.value"></a>
+
+- *Type:* any
+
+The value.
+
+Could be primitive or complex.
+
+---
+
+##### `addPropertyDeletionOverride` <a name="addPropertyDeletionOverride" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyDeletionOverride"></a>
+
+```typescript
+public addPropertyDeletionOverride(propertyPath: string): void
+```
+
+Adds an override that deletes the value of a property from the resource definition.
+
+###### `propertyPath`<sup>Required</sup> <a name="propertyPath" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyDeletionOverride.parameter.propertyPath"></a>
+
+- *Type:* string
+
+The path to the property.
+
+---
+
+##### `addPropertyOverride` <a name="addPropertyOverride" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyOverride"></a>
+
+```typescript
+public addPropertyOverride(propertyPath: string, value: any): void
+```
+
+Adds an override to a resource property.
+
+Syntactic sugar for `addOverride("Properties.<...>", value)`.
+
+###### `propertyPath`<sup>Required</sup> <a name="propertyPath" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyOverride.parameter.propertyPath"></a>
+
+- *Type:* string
+
+The path of the property.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyOverride.parameter.value"></a>
+
+- *Type:* any
+
+The value.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy?: RemovalPolicy, options?: RemovalPolicyOptions): void
+```
+
+Sets the deletion policy of the resource based on the removal policy specified.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`). In some
+cases, a snapshot can be taken of the resource prior to deletion
+(`RemovalPolicy.SNAPSHOT`). A list of resources that support this policy
+can be found in the following link:
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options)
+
+###### `policy`<sup>Optional</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRemovalPolicy.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicyOptions
+
+---
+
+##### `getAtt` <a name="getAtt" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getAtt"></a>
+
+```typescript
+public getAtt(attributeName: string, typeHint?: ResolutionTypeHint): Reference
+```
+
+Returns a token for an runtime attribute of this resource.
+
+Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+in case there is no generated attribute.
+
+###### `attributeName`<sup>Required</sup> <a name="attributeName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getAtt.parameter.attributeName"></a>
+
+- *Type:* string
+
+The name of the attribute.
+
+---
+
+###### `typeHint`<sup>Optional</sup> <a name="typeHint" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getAtt.parameter.typeHint"></a>
+
+- *Type:* aws-cdk-lib.ResolutionTypeHint
+
+---
+
+##### `getMetadata` <a name="getMetadata" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getMetadata"></a>
+
+```typescript
+public getMetadata(key: string): any
+```
+
+Retrieve a value value from the CloudFormation Resource Metadata.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+
+Note that this is a different set of metadata from CDK node metadata; this
+metadata ends up in the stack template under the resource, whereas CDK
+node metadata ends up in the Cloud Assembly.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+
+Note that this is a different set of metadata from CDK node metadata; this
+metadata ends up in the stack template under the resource, whereas CDK
+node metadata ends up in the Cloud Assembly.)
+
+###### `key`<sup>Required</sup> <a name="key" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getMetadata.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainDependencies"></a>
+
+```typescript
+public obtainDependencies(): Stack | CfnResource[]
+```
+
+Retrieves an array of resources this resource depends on.
+
+This assembles dependencies on resources across stacks (including nested stacks)
+automatically.
+
+##### `obtainResourceDependencies` <a name="obtainResourceDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainResourceDependencies"></a>
+
+```typescript
+public obtainResourceDependencies(): CfnResource[]
+```
+
+Get a shallow copy of dependencies between this resource and other resources in the same stack.
+
+##### `removeDependency` <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeDependency"></a>
+
+```typescript
+public removeDependency(target: CfnResource): void
+```
+
+Indicates that this resource no longer depends on another resource.
+
+This can be used for resources across stacks (including nested stacks)
+and the dependency will automatically be removed from the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `replaceDependency` <a name="replaceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.replaceDependency"></a>
+
+```typescript
+public replaceDependency(target: CfnResource, newTarget: CfnResource): void
+```
+
+Replaces one dependency with another.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.replaceDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+The dependency to replace.
+
+---
+
+###### `newTarget`<sup>Required</sup> <a name="newTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.replaceDependency.parameter.newTarget"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+The new dependency to add.
+
+---
+
+##### `inspect` <a name="inspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.inspect"></a>
+
+```typescript
+public inspect(inspector: TreeInspector): void
+```
+
+Examines the CloudFormation resource and discloses attributes.
+
+###### `inspector`<sup>Required</sup> <a name="inspector" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.inspect.parameter.inspector"></a>
+
+- *Type:* aws-cdk-lib.TreeInspector
+
+tree inspector to collect and process attributes.
+
+---
+
+##### `alarmDatabaseMemoryUsagePercentage` <a name="alarmDatabaseMemoryUsagePercentage" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmDatabaseMemoryUsagePercentage"></a>
+
+```typescript
+public alarmDatabaseMemoryUsagePercentage(props: ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig): ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm
+```
+
+Creates an alarm that monitors the DatabaseMemoryUsagePercentage for the ElastiCache cacheReplicationGroup.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmDatabaseMemoryUsagePercentage.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a>
+
+---
+
+##### `alarmEngineCpuUtilization` <a name="alarmEngineCpuUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmEngineCpuUtilization"></a>
+
+```typescript
+public alarmEngineCpuUtilization(props?: ElastiCacheEngineCpuUtilizationAlarmConfig): ElastiCacheReplicationGroupEngineCpuUtilizationAlarm
+```
+
+Creates an alarm that monitors the EngineCpuUtilization for the ElastiCache cacheReplicationGroup.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmEngineCpuUtilization.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a>
+
+---
+
+##### `alarmReplicationLag` <a name="alarmReplicationLag" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmReplicationLag"></a>
+
+```typescript
+public alarmReplicationLag(props: ElastiCacheReplicationLagAlarmConfig): ElastiCacheReplicationGroupReplicationLagAlarm
+```
+
+Creates an alarm that monitors the ReplicationLag for the ElastiCache cacheReplicationGroup.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmReplicationLag.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: ElastiCacheReplicationGroupRecommendedAlarmsConfig): ElastiCacheReplicationGroupRecommendedAlarms
+```
+
+Creates the recommended alarms for the ElastiCache CfnReplicationGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache)
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig">ElastiCacheReplicationGroupRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnElement">isCfnElement</a></code> | Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnResource">isCfnResource</a></code> | Check whether the given object is a CfnResource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isConstruct"></a>
+
+```typescript
+import { CfnReplicationGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnReplicationGroup.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isCfnElement` <a name="isCfnElement" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnElement"></a>
+
+```typescript
+import { CfnReplicationGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnReplicationGroup.isCfnElement(x: any)
+```
+
+Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+
+Uses duck-typing instead of `instanceof` to allow stack elements from different
+versions of this library to be included in the same stack.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnElement.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `isCfnResource` <a name="isCfnResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnResource"></a>
+
+```typescript
+import { CfnReplicationGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnReplicationGroup.isCfnResource(x: any)
+```
+
+Check whether the given object is a CfnResource.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnResource.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.creationStack">creationStack</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.logicalId">logicalId</a></code> | <code>string</code> | The logical ID for this CloudFormation stack element. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this element is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.ref">ref</a></code> | <code>string</code> | Return a string that will be resolved to a CloudFormation `{ Ref }` for this element. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointAddress">attrConfigurationEndPointAddress</a></code> | <code>string</code> | The DNS hostname of the cache node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointPort">attrConfigurationEndPointPort</a></code> | <code>string</code> | The port number that the cache engine is listening on. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointAddress">attrPrimaryEndPointAddress</a></code> | <code>string</code> | The DNS address of the primary read-write cache node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointPort">attrPrimaryEndPointPort</a></code> | <code>string</code> | The number of the port that the primary read-write cache engine is listening on. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointAddresses">attrReadEndPointAddresses</a></code> | <code>string</code> | A string with a list of endpoints for the primary and read-only replicas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointAddressesList">attrReadEndPointAddressesList</a></code> | <code>string[]</code> | A string with a list of endpoints for the read-only replicas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointPorts">attrReadEndPointPorts</a></code> | <code>string</code> | A string with a list of ports for the read-only replicas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointPortsList">attrReadEndPointPortsList</a></code> | <code>string[]</code> | A string with a list of ports for the read-only replicas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPointAddress">attrReaderEndPointAddress</a></code> | <code>string</code> | The address of the reader endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPointPort">attrReaderEndPointPort</a></code> | <code>string</code> | The port used by the reader endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tag Manager which manages the tags for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicationGroupDescription">replicationGroupDescription</a></code> | <code>string</code> | A user-created description for the replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.atRestEncryptionEnabled">atRestEncryptionEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | A flag that enables encryption at rest when set to `true` . |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.authToken">authToken</a></code> | <code>string</code> | *Reserved parameter.* The password used to access a password protected server. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.automaticFailoverEnabled">automaticFailoverEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.autoMinorVersionUpgrade">autoMinorVersionUpgrade</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheNodeType">cacheNodeType</a></code> | <code>string</code> | The compute and memory capacity of the nodes in the node group (shard). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheParameterGroupName">cacheParameterGroupName</a></code> | <code>string</code> | The name of the parameter group to associate with this replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheSecurityGroupNames">cacheSecurityGroupNames</a></code> | <code>string[]</code> | A list of cache security group names to associate with this replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheSubnetGroupName">cacheSubnetGroupName</a></code> | <code>string</code> | The name of the cache subnet group to be used for the replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.clusterMode">clusterMode</a></code> | <code>string</code> | Enabled or Disabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.dataTieringEnabled">dataTieringEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Enables data tiering. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.engine">engine</a></code> | <code>string</code> | The name of the cache engine to be used for the clusters in this replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.engineVersion">engineVersion</a></code> | <code>string</code> | The version number of the cache engine to be used for the clusters in this replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.globalReplicationGroupId">globalReplicationGroupId</a></code> | <code>string</code> | The name of the Global datastore. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.ipDiscovery">ipDiscovery</a></code> | <code>string</code> | The network type you choose when creating a replication group, either `ipv4` \| `ipv6` . |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.kmsKeyId">kmsKeyId</a></code> | <code>string</code> | The ID of the KMS key used to encrypt the disk on the cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.logDeliveryConfigurations">logDeliveryConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_elasticache.CfnReplicationGroup.LogDeliveryConfigurationRequestProperty[]</code> | Specifies the destination, format and type of the logs. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.multiAzEnabled">multiAzEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.networkType">networkType</a></code> | <code>string</code> | Must be either `ipv4` \| `ipv6` \| `dual_stack` . |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.nodeGroupConfiguration">nodeGroupConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_elasticache.CfnReplicationGroup.NodeGroupConfigurationProperty[]</code> | `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis OSS cluster node group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.notificationTopicArn">notificationTopicArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.numCacheClusters">numCacheClusters</a></code> | <code>number</code> | The number of clusters this replication group initially has. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.numNodeGroups">numNodeGroups</a></code> | <code>number</code> | An optional parameter that specifies the number of node groups (shards) for this Redis OSS (cluster mode enabled) replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.port">port</a></code> | <code>number</code> | The port number on which each member of the replication group accepts connections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.preferredCacheClusterAZs">preferredCacheClusterAZs</a></code> | <code>string[]</code> | A list of EC2 Availability Zones in which the replication group's clusters are created. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.preferredMaintenanceWindow">preferredMaintenanceWindow</a></code> | <code>string</code> | Specifies the weekly time range during which maintenance on the cluster is performed. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.primaryClusterId">primaryClusterId</a></code> | <code>string</code> | The identifier of the cluster that serves as the primary for this replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicasPerNodeGroup">replicasPerNodeGroup</a></code> | <code>number</code> | An optional parameter that specifies the number of replica nodes in each node group (shard). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicationGroupId">replicationGroupId</a></code> | <code>string</code> | The replication group identifier. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.securityGroupIds">securityGroupIds</a></code> | <code>string[]</code> | One or more Amazon VPC security groups associated with this replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshotArns">snapshotArns</a></code> | <code>string[]</code> | A list of Amazon Resource Names (ARN) that uniquely identify the Redis OSS RDB snapshot files stored in Amazon S3. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshotName">snapshotName</a></code> | <code>string</code> | The name of a snapshot from which to restore data into the new replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshotRetentionLimit">snapshotRetentionLimit</a></code> | <code>number</code> | The number of days for which ElastiCache retains automatic snapshots before deleting them. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshottingClusterId">snapshottingClusterId</a></code> | <code>string</code> | The cluster ID that is used as the daily snapshot source for the replication group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshotWindow">snapshotWindow</a></code> | <code>string</code> | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.tagsRaw">tagsRaw</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | A list of tags to be added to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.transitEncryptionEnabled">transitEncryptionEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | A flag that enables in-transit encryption when set to `true` . |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.transitEncryptionMode">transitEncryptionMode</a></code> | <code>string</code> | A setting that allows you to migrate your clients to use in-transit encryption, with no downtime. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.userGroupIds">userGroupIds</a></code> | <code>string[]</code> | The ID of user group to associate with the replication group. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `creationStack`<sup>Required</sup> <a name="creationStack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.creationStack"></a>
+
+```typescript
+public readonly creationStack: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `logicalId`<sup>Required</sup> <a name="logicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.logicalId"></a>
+
+```typescript
+public readonly logicalId: string;
+```
+
+- *Type:* string
+
+The logical ID for this CloudFormation stack element.
+
+The logical ID of the element
+is calculated from the path of the resource node in the construct tree.
+
+To override this value, use `overrideLogicalId(newLogicalId)`.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this element is defined.
+
+CfnElements must be defined within a stack scope (directly or indirectly).
+
+---
+
+##### `ref`<sup>Required</sup> <a name="ref" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.ref"></a>
+
+```typescript
+public readonly ref: string;
+```
+
+- *Type:* string
+
+Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
+
+If, by any chance, the intrinsic reference of a resource is not a string, you could
+coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
+
+---
+
+##### `cfnOptions`<sup>Required</sup> <a name="cfnOptions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cfnOptions"></a>
+
+```typescript
+public readonly cfnOptions: ICfnResourceOptions;
+```
+
+- *Type:* aws-cdk-lib.ICfnResourceOptions
+
+Options for this resource, such as condition, update policy etc.
+
+---
+
+##### `cfnResourceType`<sup>Required</sup> <a name="cfnResourceType" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cfnResourceType"></a>
+
+```typescript
+public readonly cfnResourceType: string;
+```
+
+- *Type:* string
+
+AWS resource type.
+
+---
+
+##### `attrConfigurationEndPointAddress`<sup>Required</sup> <a name="attrConfigurationEndPointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointAddress"></a>
+
+```typescript
+public readonly attrConfigurationEndPointAddress: string;
+```
+
+- *Type:* string
+
+The DNS hostname of the cache node.
+
+> Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails. For Redis OSS (cluster mode disabled) replication groups, use the `PrimaryEndpoint` or `ReadEndpoint` attributes.
+
+---
+
+##### `attrConfigurationEndPointPort`<sup>Required</sup> <a name="attrConfigurationEndPointPort" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointPort"></a>
+
+```typescript
+public readonly attrConfigurationEndPointPort: string;
+```
+
+- *Type:* string
+
+The port number that the cache engine is listening on.
+
+---
+
+##### `attrPrimaryEndPointAddress`<sup>Required</sup> <a name="attrPrimaryEndPointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointAddress"></a>
+
+```typescript
+public readonly attrPrimaryEndPointAddress: string;
+```
+
+- *Type:* string
+
+The DNS address of the primary read-write cache node.
+
+---
+
+##### `attrPrimaryEndPointPort`<sup>Required</sup> <a name="attrPrimaryEndPointPort" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointPort"></a>
+
+```typescript
+public readonly attrPrimaryEndPointPort: string;
+```
+
+- *Type:* string
+
+The number of the port that the primary read-write cache engine is listening on.
+
+---
+
+##### `attrReadEndPointAddresses`<sup>Required</sup> <a name="attrReadEndPointAddresses" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointAddresses"></a>
+
+```typescript
+public readonly attrReadEndPointAddresses: string;
+```
+
+- *Type:* string
+
+A string with a list of endpoints for the primary and read-only replicas.
+
+The order of the addresses maps to the order of the ports from the `ReadEndPoint.Ports` attribute.
+
+---
+
+##### `attrReadEndPointAddressesList`<sup>Required</sup> <a name="attrReadEndPointAddressesList" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointAddressesList"></a>
+
+```typescript
+public readonly attrReadEndPointAddressesList: string[];
+```
+
+- *Type:* string[]
+
+A string with a list of endpoints for the read-only replicas.
+
+The order of the addresses maps to the order of the ports from the `ReadEndPoint.Ports` attribute.
+
+---
+
+##### `attrReadEndPointPorts`<sup>Required</sup> <a name="attrReadEndPointPorts" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointPorts"></a>
+
+```typescript
+public readonly attrReadEndPointPorts: string;
+```
+
+- *Type:* string
+
+A string with a list of ports for the read-only replicas.
+
+The order of the ports maps to the order of the addresses from the `ReadEndPoint.Addresses` attribute.
+
+---
+
+##### `attrReadEndPointPortsList`<sup>Required</sup> <a name="attrReadEndPointPortsList" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointPortsList"></a>
+
+```typescript
+public readonly attrReadEndPointPortsList: string[];
+```
+
+- *Type:* string[]
+
+A string with a list of ports for the read-only replicas.
+
+The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
+
+---
+
+##### `attrReaderEndPointAddress`<sup>Required</sup> <a name="attrReaderEndPointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPointAddress"></a>
+
+```typescript
+public readonly attrReaderEndPointAddress: string;
+```
+
+- *Type:* string
+
+The address of the reader endpoint.
+
+---
+
+##### `attrReaderEndPointPort`<sup>Required</sup> <a name="attrReaderEndPointPort" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPointPort"></a>
+
+```typescript
+public readonly attrReaderEndPointPort: string;
+```
+
+- *Type:* string
+
+The port used by the reader endpoint.
+
+---
+
+##### `tags`<sup>Required</sup> <a name="tags" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.tags"></a>
+
+```typescript
+public readonly tags: TagManager;
+```
+
+- *Type:* aws-cdk-lib.TagManager
+
+Tag Manager which manages the tags for this resource.
+
+---
+
+##### `replicationGroupDescription`<sup>Required</sup> <a name="replicationGroupDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicationGroupDescription"></a>
+
+```typescript
+public readonly replicationGroupDescription: string;
+```
+
+- *Type:* string
+
+A user-created description for the replication group.
+
+---
+
+##### `atRestEncryptionEnabled`<sup>Optional</sup> <a name="atRestEncryptionEnabled" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.atRestEncryptionEnabled"></a>
+
+```typescript
+public readonly atRestEncryptionEnabled: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+A flag that enables encryption at rest when set to `true` .
+
+---
+
+##### `authToken`<sup>Optional</sup> <a name="authToken" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.authToken"></a>
+
+```typescript
+public readonly authToken: string;
+```
+
+- *Type:* string
+
+*Reserved parameter.* The password used to access a password protected server.
+
+---
+
+##### `automaticFailoverEnabled`<sup>Optional</sup> <a name="automaticFailoverEnabled" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.automaticFailoverEnabled"></a>
+
+```typescript
+public readonly automaticFailoverEnabled: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
+
+---
+
+##### `autoMinorVersionUpgrade`<sup>Optional</sup> <a name="autoMinorVersionUpgrade" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.autoMinorVersionUpgrade"></a>
+
+```typescript
+public readonly autoMinorVersionUpgrade: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
+
+---
+
+##### `cacheNodeType`<sup>Optional</sup> <a name="cacheNodeType" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheNodeType"></a>
+
+```typescript
+public readonly cacheNodeType: string;
+```
+
+- *Type:* string
+
+The compute and memory capacity of the nodes in the node group (shard).
+
+---
+
+##### `cacheParameterGroupName`<sup>Optional</sup> <a name="cacheParameterGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheParameterGroupName"></a>
+
+```typescript
+public readonly cacheParameterGroupName: string;
+```
+
+- *Type:* string
+
+The name of the parameter group to associate with this replication group.
+
+---
+
+##### `cacheSecurityGroupNames`<sup>Optional</sup> <a name="cacheSecurityGroupNames" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheSecurityGroupNames"></a>
+
+```typescript
+public readonly cacheSecurityGroupNames: string[];
+```
+
+- *Type:* string[]
+
+A list of cache security group names to associate with this replication group.
+
+---
+
+##### `cacheSubnetGroupName`<sup>Optional</sup> <a name="cacheSubnetGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheSubnetGroupName"></a>
+
+```typescript
+public readonly cacheSubnetGroupName: string;
+```
+
+- *Type:* string
+
+The name of the cache subnet group to be used for the replication group.
+
+---
+
+##### `clusterMode`<sup>Optional</sup> <a name="clusterMode" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.clusterMode"></a>
+
+```typescript
+public readonly clusterMode: string;
+```
+
+- *Type:* string
+
+Enabled or Disabled.
+
+---
+
+##### `dataTieringEnabled`<sup>Optional</sup> <a name="dataTieringEnabled" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.dataTieringEnabled"></a>
+
+```typescript
+public readonly dataTieringEnabled: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+Enables data tiering.
+
+---
+
+##### `engine`<sup>Optional</sup> <a name="engine" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.engine"></a>
+
+```typescript
+public readonly engine: string;
+```
+
+- *Type:* string
+
+The name of the cache engine to be used for the clusters in this replication group.
+
+---
+
+##### `engineVersion`<sup>Optional</sup> <a name="engineVersion" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.engineVersion"></a>
+
+```typescript
+public readonly engineVersion: string;
+```
+
+- *Type:* string
+
+The version number of the cache engine to be used for the clusters in this replication group.
+
+---
+
+##### `globalReplicationGroupId`<sup>Optional</sup> <a name="globalReplicationGroupId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.globalReplicationGroupId"></a>
+
+```typescript
+public readonly globalReplicationGroupId: string;
+```
+
+- *Type:* string
+
+The name of the Global datastore.
+
+---
+
+##### `ipDiscovery`<sup>Optional</sup> <a name="ipDiscovery" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.ipDiscovery"></a>
+
+```typescript
+public readonly ipDiscovery: string;
+```
+
+- *Type:* string
+
+The network type you choose when creating a replication group, either `ipv4` | `ipv6` .
+
+---
+
+##### `kmsKeyId`<sup>Optional</sup> <a name="kmsKeyId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.kmsKeyId"></a>
+
+```typescript
+public readonly kmsKeyId: string;
+```
+
+- *Type:* string
+
+The ID of the KMS key used to encrypt the disk on the cluster.
+
+---
+
+##### `logDeliveryConfigurations`<sup>Optional</sup> <a name="logDeliveryConfigurations" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.logDeliveryConfigurations"></a>
+
+```typescript
+public readonly logDeliveryConfigurations: IResolvable | IResolvable | LogDeliveryConfigurationRequestProperty[];
+```
+
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_elasticache.CfnReplicationGroup.LogDeliveryConfigurationRequestProperty[]
+
+Specifies the destination, format and type of the logs.
+
+---
+
+##### `multiAzEnabled`<sup>Optional</sup> <a name="multiAzEnabled" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.multiAzEnabled"></a>
+
+```typescript
+public readonly multiAzEnabled: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+A flag indicating if you have Multi-AZ enabled to enhance fault tolerance.
+
+---
+
+##### `networkType`<sup>Optional</sup> <a name="networkType" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.networkType"></a>
+
+```typescript
+public readonly networkType: string;
+```
+
+- *Type:* string
+
+Must be either `ipv4` | `ipv6` | `dual_stack` .
+
+---
+
+##### `nodeGroupConfiguration`<sup>Optional</sup> <a name="nodeGroupConfiguration" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.nodeGroupConfiguration"></a>
+
+```typescript
+public readonly nodeGroupConfiguration: IResolvable | IResolvable | NodeGroupConfigurationProperty[];
+```
+
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_elasticache.CfnReplicationGroup.NodeGroupConfigurationProperty[]
+
+`NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis OSS cluster node group.
+
+---
+
+##### `notificationTopicArn`<sup>Optional</sup> <a name="notificationTopicArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.notificationTopicArn"></a>
+
+```typescript
+public readonly notificationTopicArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
+
+---
+
+##### `numCacheClusters`<sup>Optional</sup> <a name="numCacheClusters" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.numCacheClusters"></a>
+
+```typescript
+public readonly numCacheClusters: number;
+```
+
+- *Type:* number
+
+The number of clusters this replication group initially has.
+
+---
+
+##### `numNodeGroups`<sup>Optional</sup> <a name="numNodeGroups" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.numNodeGroups"></a>
+
+```typescript
+public readonly numNodeGroups: number;
+```
+
+- *Type:* number
+
+An optional parameter that specifies the number of node groups (shards) for this Redis OSS (cluster mode enabled) replication group.
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+The port number on which each member of the replication group accepts connections.
+
+---
+
+##### `preferredCacheClusterAZs`<sup>Optional</sup> <a name="preferredCacheClusterAZs" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.preferredCacheClusterAZs"></a>
+
+```typescript
+public readonly preferredCacheClusterAZs: string[];
+```
+
+- *Type:* string[]
+
+A list of EC2 Availability Zones in which the replication group's clusters are created.
+
+---
+
+##### `preferredMaintenanceWindow`<sup>Optional</sup> <a name="preferredMaintenanceWindow" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.preferredMaintenanceWindow"></a>
+
+```typescript
+public readonly preferredMaintenanceWindow: string;
+```
+
+- *Type:* string
+
+Specifies the weekly time range during which maintenance on the cluster is performed.
+
+---
+
+##### `primaryClusterId`<sup>Optional</sup> <a name="primaryClusterId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.primaryClusterId"></a>
+
+```typescript
+public readonly primaryClusterId: string;
+```
+
+- *Type:* string
+
+The identifier of the cluster that serves as the primary for this replication group.
+
+---
+
+##### `replicasPerNodeGroup`<sup>Optional</sup> <a name="replicasPerNodeGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicasPerNodeGroup"></a>
+
+```typescript
+public readonly replicasPerNodeGroup: number;
+```
+
+- *Type:* number
+
+An optional parameter that specifies the number of replica nodes in each node group (shard).
+
+---
+
+##### `replicationGroupId`<sup>Optional</sup> <a name="replicationGroupId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicationGroupId"></a>
+
+```typescript
+public readonly replicationGroupId: string;
+```
+
+- *Type:* string
+
+The replication group identifier.
+
+This parameter is stored as a lowercase string.
+
+---
+
+##### `securityGroupIds`<sup>Optional</sup> <a name="securityGroupIds" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.securityGroupIds"></a>
+
+```typescript
+public readonly securityGroupIds: string[];
+```
+
+- *Type:* string[]
+
+One or more Amazon VPC security groups associated with this replication group.
+
+---
+
+##### `snapshotArns`<sup>Optional</sup> <a name="snapshotArns" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshotArns"></a>
+
+```typescript
+public readonly snapshotArns: string[];
+```
+
+- *Type:* string[]
+
+A list of Amazon Resource Names (ARN) that uniquely identify the Redis OSS RDB snapshot files stored in Amazon S3.
+
+---
+
+##### `snapshotName`<sup>Optional</sup> <a name="snapshotName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshotName"></a>
+
+```typescript
+public readonly snapshotName: string;
+```
+
+- *Type:* string
+
+The name of a snapshot from which to restore data into the new replication group.
+
+---
+
+##### `snapshotRetentionLimit`<sup>Optional</sup> <a name="snapshotRetentionLimit" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshotRetentionLimit"></a>
+
+```typescript
+public readonly snapshotRetentionLimit: number;
+```
+
+- *Type:* number
+
+The number of days for which ElastiCache retains automatic snapshots before deleting them.
+
+---
+
+##### `snapshottingClusterId`<sup>Optional</sup> <a name="snapshottingClusterId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshottingClusterId"></a>
+
+```typescript
+public readonly snapshottingClusterId: string;
+```
+
+- *Type:* string
+
+The cluster ID that is used as the daily snapshot source for the replication group.
+
+---
+
+##### `snapshotWindow`<sup>Optional</sup> <a name="snapshotWindow" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.snapshotWindow"></a>
+
+```typescript
+public readonly snapshotWindow: string;
+```
+
+- *Type:* string
+
+The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+
+---
+
+##### `tagsRaw`<sup>Optional</sup> <a name="tagsRaw" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.tagsRaw"></a>
+
+```typescript
+public readonly tagsRaw: CfnTag[];
+```
+
+- *Type:* aws-cdk-lib.CfnTag[]
+
+A list of tags to be added to this resource.
+
+---
+
+##### `transitEncryptionEnabled`<sup>Optional</sup> <a name="transitEncryptionEnabled" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.transitEncryptionEnabled"></a>
+
+```typescript
+public readonly transitEncryptionEnabled: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+A flag that enables in-transit encryption when set to `true` .
+
+---
+
+##### `transitEncryptionMode`<sup>Optional</sup> <a name="transitEncryptionMode" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.transitEncryptionMode"></a>
+
+```typescript
+public readonly transitEncryptionMode: string;
+```
+
+- *Type:* string
+
+A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.
+
+---
+
+##### `userGroupIds`<sup>Optional</sup> <a name="userGroupIds" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.userGroupIds"></a>
+
+```typescript
+public readonly userGroupIds: string[];
+```
+
+- *Type:* string[]
+
+The ID of user group to associate with the replication group.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.CFN_RESOURCE_TYPE_NAME">CFN_RESOURCE_TYPE_NAME</a></code> | <code>string</code> | The CloudFormation resource type name for this resource class. |
+
+---
+
+##### `CFN_RESOURCE_TYPE_NAME`<sup>Required</sup> <a name="CFN_RESOURCE_TYPE_NAME" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.CFN_RESOURCE_TYPE_NAME"></a>
+
+```typescript
+public readonly CFN_RESOURCE_TYPE_NAME: string;
+```
+
+- *Type:* string
+
+The CloudFormation resource type name for this resource class.
+
+---
+
 ### CloudFrontDistribution5xxErrorRateAlarm <a name="CloudFrontDistribution5xxErrorRateAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm"></a>
 
 This alarm monitors the percentage of 5xx error responses from your origin server, to help you detect if the CloudFront service is having issues.
@@ -15259,6 +17698,2628 @@ public readonly alarmPercentIOLimit: EfsFileSystemPercentIOLimitAlarm;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm">EfsFileSystemPercentIOLimitAlarm</a>
 
 The PercentIOLimit alarm.
+
+---
+
+
+### ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm <a name="ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm"></a>
+
+This alarm helps you monitor the memory utilization of your cluster.
+
+When your DatabaseMemoryUsagePercentage reaches 100%, the Redis OSS maxmemory policy is triggered and evictions might occur
+based on the policy selected. If no object in the cache matches the eviction policy, write operations fail. Some workloads
+expect or rely on evictions, but if not, you will need to increase the memory capacity of your cluster. You can scale your
+cluster out by adding more primary nodes, or scale it up by using a larger node type.
+Refer to {@link https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html|Scaling ElastiCache for Redis OSS clusters} for details.
+
+The alarm is triggered when the percentage exceeds % threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm(scope: IConstruct, id: string, props: ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps">ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps">ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isConstruct"></a>
+
+```typescript
+import { ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isOwnedResource"></a>
+
+```typescript
+import { ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isResource"></a>
+
+```typescript
+import { ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmName"></a>
+
+```typescript
+import { ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### ElastiCacheClusterEngineCpuUtilizationAlarm <a name="ElastiCacheClusterEngineCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm"></a>
+
+This alarm helps to monitor the CPU utilization of a Redis OSS engine thread within the ElastiCache instance.
+
+Common reasons for high engine CPU are long-running commands that consume high CPU, a high number of requests, an increase of new
+client connection requests in a short time period, and high evictions when the cache doesn't have enough memory to hold new data.
+You should consider {@link https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html|Scaling ElastiCache for Redis OSS clusters}
+by adding more nodes or scaling up your instance type.
+
+The alarm is triggered when the percentage exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheClusterEngineCpuUtilizationAlarm(scope: IConstruct, id: string, props: ElastiCacheClusterEngineCpuUtilizationAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps">ElastiCacheClusterEngineCpuUtilizationAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps">ElastiCacheClusterEngineCpuUtilizationAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isConstruct"></a>
+
+```typescript
+import { ElastiCacheClusterEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterEngineCpuUtilizationAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isOwnedResource"></a>
+
+```typescript
+import { ElastiCacheClusterEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterEngineCpuUtilizationAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isResource"></a>
+
+```typescript
+import { ElastiCacheClusterEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterEngineCpuUtilizationAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ElastiCacheClusterEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmName"></a>
+
+```typescript
+import { ElastiCacheClusterEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### ElastiCacheClusterRecommendedAlarms <a name="ElastiCacheClusterRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an ElastiCache CfnCacheCluster.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheClusterRecommendedAlarms(scope: Construct, id: string, props: ElastiCacheClusterRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps">ElastiCacheClusterRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps">ElastiCacheClusterRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { ElastiCacheClusterRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.property.alarmDatabaseMemoryUsagePercentage">alarmDatabaseMemoryUsagePercentage</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm">ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm</a></code> | The DatabaseMemoryUsagePercentage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.property.alarmEngineCpuUtilization">alarmEngineCpuUtilization</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm">ElastiCacheClusterEngineCpuUtilizationAlarm</a></code> | The EngineCpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.property.alarmReplicationLag">alarmReplicationLag</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm">ElastiCacheClusterReplicationLagAlarm</a></code> | The ReplicationLag alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmDatabaseMemoryUsagePercentage`<sup>Optional</sup> <a name="alarmDatabaseMemoryUsagePercentage" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.property.alarmDatabaseMemoryUsagePercentage"></a>
+
+```typescript
+public readonly alarmDatabaseMemoryUsagePercentage: ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm">ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm</a>
+
+The DatabaseMemoryUsagePercentage alarm.
+
+---
+
+##### `alarmEngineCpuUtilization`<sup>Optional</sup> <a name="alarmEngineCpuUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.property.alarmEngineCpuUtilization"></a>
+
+```typescript
+public readonly alarmEngineCpuUtilization: ElastiCacheClusterEngineCpuUtilizationAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm">ElastiCacheClusterEngineCpuUtilizationAlarm</a>
+
+The EngineCpuUtilization alarm.
+
+---
+
+##### `alarmReplicationLag`<sup>Optional</sup> <a name="alarmReplicationLag" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.property.alarmReplicationLag"></a>
+
+```typescript
+public readonly alarmReplicationLag: ElastiCacheClusterReplicationLagAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm">ElastiCacheClusterReplicationLagAlarm</a>
+
+The ReplicationLag alarm.
+
+---
+
+
+### ElastiCacheClusterReplicationLagAlarm <a name="ElastiCacheClusterReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm"></a>
+
+This alarm helps to monitor the replication health of your ElastiCache cluster.
+
+A high replication lag means that the primary node or the replica can't keep up the pace of the replication. If your write
+activity is too high, consider scaling your cluster out by adding more primary nodes, or scaling it up by using a larger node type.
+Refer to {@link https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html|Scaling ElastiCache for Redis OSS clusters} for
+details. If your read replicas are overloaded by the amount of read requests,
+consider adding more read replicas.
+
+The alarm is triggered when the number of milliseconds exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheClusterReplicationLagAlarm(scope: IConstruct, id: string, props: ElastiCacheClusterReplicationLagAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps">ElastiCacheClusterReplicationLagAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps">ElastiCacheClusterReplicationLagAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isConstruct"></a>
+
+```typescript
+import { ElastiCacheClusterReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterReplicationLagAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isOwnedResource"></a>
+
+```typescript
+import { ElastiCacheClusterReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterReplicationLagAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isResource"></a>
+
+```typescript
+import { ElastiCacheClusterReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterReplicationLagAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ElastiCacheClusterReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterReplicationLagAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmName"></a>
+
+```typescript
+import { ElastiCacheClusterReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheClusterReplicationLagAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm <a name="ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm"></a>
+
+This alarm helps you monitor the memory utilization of your cluster.
+
+When your DatabaseMemoryUsagePercentage reaches 100%, the Redis OSS maxmemory policy is triggered and evictions might occur
+based on the policy selected. If no object in the cache matches the eviction policy, write operations fail. Some workloads
+expect or rely on evictions, but if not, you will need to increase the memory capacity of your cluster. You can scale your
+cluster out by adding more primary nodes, or scale it up by using a larger node type.
+Refer to {@link https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html|Scaling ElastiCache for Redis OSS clusters} for details.
+
+The alarm is triggered when the percentage exceeds % threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm(scope: IConstruct, id: string, props: ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps">ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps">ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isConstruct"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isOwnedResource"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isResource"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmName"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### ElastiCacheReplicationGroupEngineCpuUtilizationAlarm <a name="ElastiCacheReplicationGroupEngineCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm"></a>
+
+This alarm helps to monitor the CPU utilization of a Redis OSS engine thread within the ElastiCache instance.
+
+Common reasons for high engine CPU are long-running commands that consume high CPU, a high number of requests, an increase of new
+client connection requests in a short time period, and high evictions when the cache doesn't have enough memory to hold new data.
+You should consider {@link https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html|Scaling ElastiCache for Redis OSS clusters}
+by adding more nodes or scaling up your instance type.
+
+The alarm is triggered when the percentage exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheReplicationGroupEngineCpuUtilizationAlarm(scope: IConstruct, id: string, props: ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps">ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps">ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isConstruct"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isOwnedResource"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isResource"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmName"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### ElastiCacheReplicationGroupRecommendedAlarms <a name="ElastiCacheReplicationGroupRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an ElastiCache CfnReplicationGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheReplicationGroupRecommendedAlarms(scope: Construct, id: string, props: ElastiCacheReplicationGroupRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps">ElastiCacheReplicationGroupRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps">ElastiCacheReplicationGroupRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.property.alarmDatabaseMemoryUsagePercentage">alarmDatabaseMemoryUsagePercentage</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm">ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm</a></code> | The DatabaseMemoryUsagePercentage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.property.alarmEngineCpuUtilization">alarmEngineCpuUtilization</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm">ElastiCacheReplicationGroupEngineCpuUtilizationAlarm</a></code> | The EngineCpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.property.alarmReplicationLag">alarmReplicationLag</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm">ElastiCacheReplicationGroupReplicationLagAlarm</a></code> | The ReplicationLag alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmDatabaseMemoryUsagePercentage`<sup>Optional</sup> <a name="alarmDatabaseMemoryUsagePercentage" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.property.alarmDatabaseMemoryUsagePercentage"></a>
+
+```typescript
+public readonly alarmDatabaseMemoryUsagePercentage: ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm">ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm</a>
+
+The DatabaseMemoryUsagePercentage alarm.
+
+---
+
+##### `alarmEngineCpuUtilization`<sup>Optional</sup> <a name="alarmEngineCpuUtilization" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.property.alarmEngineCpuUtilization"></a>
+
+```typescript
+public readonly alarmEngineCpuUtilization: ElastiCacheReplicationGroupEngineCpuUtilizationAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm">ElastiCacheReplicationGroupEngineCpuUtilizationAlarm</a>
+
+The EngineCpuUtilization alarm.
+
+---
+
+##### `alarmReplicationLag`<sup>Optional</sup> <a name="alarmReplicationLag" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.property.alarmReplicationLag"></a>
+
+```typescript
+public readonly alarmReplicationLag: ElastiCacheReplicationGroupReplicationLagAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm">ElastiCacheReplicationGroupReplicationLagAlarm</a>
+
+The ReplicationLag alarm.
+
+---
+
+
+### ElastiCacheReplicationGroupReplicationLagAlarm <a name="ElastiCacheReplicationGroupReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm"></a>
+
+This alarm helps to monitor the replication health of your ElastiCache cluster.
+
+A high replication lag means that the primary node or the replica can't keep up the pace of the replication. If your write
+activity is too high, consider scaling your cluster out by adding more primary nodes, or scaling it up by using a larger node type.
+Refer to {@link https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html|Scaling ElastiCache for Redis OSS clusters} for
+details. If your read replicas are overloaded by the amount of read requests,
+consider adding more read replicas.
+
+The alarm is triggered when the number of milliseconds exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheReplicationGroupReplicationLagAlarm(scope: IConstruct, id: string, props: ElastiCacheReplicationGroupReplicationLagAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps">ElastiCacheReplicationGroupReplicationLagAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps">ElastiCacheReplicationGroupReplicationLagAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isConstruct"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupReplicationLagAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isOwnedResource"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupReplicationLagAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isResource"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupReplicationLagAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmName"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
 
 ---
 
@@ -45603,6 +50664,2293 @@ to a lower value based on file system characteristics.
 
 ---
 
+### ElastiCacheAlarmBaseConfig <a name="ElastiCacheAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig"></a>
+
+The common optional configuration for the alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { ElastiCacheAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheAlarmBaseConfig: ElastiCacheAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### ElastiCacheClusterAlarmProps <a name="ElastiCacheClusterAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterAlarmProps"></a>
+
+The common properties for the ElastiCache CfnCacheCluster alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterAlarmProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheClusterAlarmProps: ElastiCacheClusterAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterAlarmProps.property.cacheCluster">cacheCluster</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnCacheCluster</code> | The ElastiCache CfnCacheCluster to monitor. |
+
+---
+
+##### `cacheCluster`<sup>Required</sup> <a name="cacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterAlarmProps.property.cacheCluster"></a>
+
+```typescript
+public readonly cacheCluster: CfnCacheCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnCacheCluster
+
+The ElastiCache CfnCacheCluster to monitor.
+
+---
+
+### ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps <a name="ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps"></a>
+
+The properties for the ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps: ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.cacheCluster">cacheCluster</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnCacheCluster</code> | The ElastiCache CfnCacheCluster to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Depending on your application's memory requirements and the memory capacity of your ElastiCache cluster, you should set the threshold to the percentage that reflects the critical level of memory usage of the cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `cacheCluster`<sup>Required</sup> <a name="cacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.cacheCluster"></a>
+
+```typescript
+public readonly cacheCluster: CfnCacheCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnCacheCluster
+
+The ElastiCache CfnCacheCluster to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Depending on your application's memory requirements and the memory capacity of your ElastiCache cluster, you should set the threshold to the percentage that reflects the critical level of memory usage of the cluster.
+
+You can use historical memory usage data as reference for acceptable memory usage threshold.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high memory utilization of your cluster so that you can avoid failures when writing to your cluster. It is useful to know when you will need to scale up your cluster if your application does not expect to experience evictions.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - DatabaseMemoryUsagePercentage'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### ElastiCacheClusterEngineCpuUtilizationAlarmProps <a name="ElastiCacheClusterEngineCpuUtilizationAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps"></a>
+
+The properties for the ElastiCacheClusterEngineCpuUtilizationAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterEngineCpuUtilizationAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheClusterEngineCpuUtilizationAlarmProps: ElastiCacheClusterEngineCpuUtilizationAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.cacheCluster">cacheCluster</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnCacheCluster</code> | The ElastiCache CfnCacheCluster to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold to a percentage that reflects the critical engine CPU utilization level for your application. |
+
+---
+
+##### `cacheCluster`<sup>Required</sup> <a name="cacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.cacheCluster"></a>
+
+```typescript
+public readonly cacheCluster: CfnCacheCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnCacheCluster
+
+The ElastiCache CfnCacheCluster to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high CPU utilization of the Redis OSS engine thread. It is useful if you want to monitor the CPU usage of the database engine itself.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - EngineCPUUtilization'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 90
+
+Set the threshold to a percentage that reflects the critical engine CPU utilization level for your application.
+
+You can benchmark your cluster using your application and expected workload to correlate EngineCPUUtilization and
+performance as a reference, and then set the threshold accordingly. In most cases, you can set the threshold to
+about 90% of your available CPU.
+
+---
+
+### ElastiCacheClusterRecommendedAlarmsConfig <a name="ElastiCacheClusterRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an ElastiCache Service.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheClusterRecommendedAlarmsConfig: ElastiCacheClusterRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.configDatabaseMemoryUsagePercentageAlarm">configDatabaseMemoryUsagePercentageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a></code> | The configuration for the DatabaseMemoryUsagePercentage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.configReplicationLagAlarm">configReplicationLagAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a></code> | The configuration for the ReplicationLag alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.configEngineCpuUtilizationAlarm">configEngineCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a></code> | The configuration for the EngineCpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics">ElastiCacheRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configDatabaseMemoryUsagePercentageAlarm`<sup>Required</sup> <a name="configDatabaseMemoryUsagePercentageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.configDatabaseMemoryUsagePercentageAlarm"></a>
+
+```typescript
+public readonly configDatabaseMemoryUsagePercentageAlarm: ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a>
+
+The configuration for the DatabaseMemoryUsagePercentage alarm.
+
+---
+
+##### `configReplicationLagAlarm`<sup>Required</sup> <a name="configReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.configReplicationLagAlarm"></a>
+
+```typescript
+public readonly configReplicationLagAlarm: ElastiCacheReplicationLagAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a>
+
+The configuration for the ReplicationLag alarm.
+
+---
+
+##### `configEngineCpuUtilizationAlarm`<sup>Optional</sup> <a name="configEngineCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.configEngineCpuUtilizationAlarm"></a>
+
+```typescript
+public readonly configEngineCpuUtilizationAlarm: ElastiCacheEngineCpuUtilizationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a>
+
+The configuration for the EngineCpuUtilization alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: ElastiCacheRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics">ElastiCacheRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### ElastiCacheClusterRecommendedAlarmsProps <a name="ElastiCacheClusterRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps"></a>
+
+Properties for the ElastiCacheClusterRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheClusterRecommendedAlarmsProps: ElastiCacheClusterRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.configDatabaseMemoryUsagePercentageAlarm">configDatabaseMemoryUsagePercentageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a></code> | The configuration for the DatabaseMemoryUsagePercentage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.configReplicationLagAlarm">configReplicationLagAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a></code> | The configuration for the ReplicationLag alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.configEngineCpuUtilizationAlarm">configEngineCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a></code> | The configuration for the EngineCpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics">ElastiCacheRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.cacheCluster">cacheCluster</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnCacheCluster</code> | The ElastiCache CfnCacheCluster to monitor. |
+
+---
+
+##### `configDatabaseMemoryUsagePercentageAlarm`<sup>Required</sup> <a name="configDatabaseMemoryUsagePercentageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.configDatabaseMemoryUsagePercentageAlarm"></a>
+
+```typescript
+public readonly configDatabaseMemoryUsagePercentageAlarm: ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a>
+
+The configuration for the DatabaseMemoryUsagePercentage alarm.
+
+---
+
+##### `configReplicationLagAlarm`<sup>Required</sup> <a name="configReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.configReplicationLagAlarm"></a>
+
+```typescript
+public readonly configReplicationLagAlarm: ElastiCacheReplicationLagAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a>
+
+The configuration for the ReplicationLag alarm.
+
+---
+
+##### `configEngineCpuUtilizationAlarm`<sup>Optional</sup> <a name="configEngineCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.configEngineCpuUtilizationAlarm"></a>
+
+```typescript
+public readonly configEngineCpuUtilizationAlarm: ElastiCacheEngineCpuUtilizationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a>
+
+The configuration for the EngineCpuUtilization alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: ElastiCacheRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics">ElastiCacheRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `cacheCluster`<sup>Required</sup> <a name="cacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsProps.property.cacheCluster"></a>
+
+```typescript
+public readonly cacheCluster: CfnCacheCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnCacheCluster
+
+The ElastiCache CfnCacheCluster to monitor.
+
+---
+
+### ElastiCacheClusterReplicationLagAlarmProps <a name="ElastiCacheClusterReplicationLagAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps"></a>
+
+The properties for the ElastiCacheClusterReplicationLagAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterReplicationLagAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheClusterReplicationLagAlarmProps: ElastiCacheClusterReplicationLagAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.cacheCluster">cacheCluster</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnCacheCluster</code> | The ElastiCache CfnCacheCluster to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to your application's requirements and the potential impact of replication lag. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `cacheCluster`<sup>Required</sup> <a name="cacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.cacheCluster"></a>
+
+```typescript
+public readonly cacheCluster: CfnCacheCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnCacheCluster
+
+The ElastiCache CfnCacheCluster to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to your application's requirements and the potential impact of replication lag.
+
+You should
+consider your application's expected write rates and network conditions for the acceptable replication lag.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect a delay between data updates on the primary node and their synchronization to replica node. It helps to ensure data consistency of a read replica cluster node.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - ReplicationLag'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig <a name="ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig"></a>
+
+Configuration for the DatabaseMemoryUsagePercentage alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.Initializer"></a>
+
+```typescript
+import { ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheDatabaseMemoryUsagePercentageAlarmConfig: ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Depending on your application's memory requirements and the memory capacity of your ElastiCache cluster, you should set the threshold to the percentage that reflects the critical level of memory usage of the cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Depending on your application's memory requirements and the memory capacity of your ElastiCache cluster, you should set the threshold to the percentage that reflects the critical level of memory usage of the cluster.
+
+You can use historical memory usage data as reference for acceptable memory usage threshold.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high memory utilization of your cluster so that you can avoid failures when writing to your cluster. It is useful to know when you will need to scale up your cluster if your application does not expect to experience evictions.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - DatabaseMemoryUsagePercentage'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### ElastiCacheEngineCpuUtilizationAlarmConfig <a name="ElastiCacheEngineCpuUtilizationAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig"></a>
+
+Configuration for the EngineCpuUtilization alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.Initializer"></a>
+
+```typescript
+import { ElastiCacheEngineCpuUtilizationAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheEngineCpuUtilizationAlarmConfig: ElastiCacheEngineCpuUtilizationAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold to a percentage that reflects the critical engine CPU utilization level for your application. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high CPU utilization of the Redis OSS engine thread. It is useful if you want to monitor the CPU usage of the database engine itself.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - EngineCPUUtilization'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 90
+
+Set the threshold to a percentage that reflects the critical engine CPU utilization level for your application.
+
+You can benchmark your cluster using your application and expected workload to correlate EngineCPUUtilization and
+performance as a reference, and then set the threshold accordingly. In most cases, you can set the threshold to
+about 90% of your available CPU.
+
+---
+
+### ElastiCacheReplicationGroupAlarmProps <a name="ElastiCacheReplicationGroupAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupAlarmProps"></a>
+
+The common properties for the ElastiCache CfnReplicationGroup alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupAlarmProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheReplicationGroupAlarmProps: ElastiCacheReplicationGroupAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupAlarmProps.property.cacheReplicationGroup">cacheReplicationGroup</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnReplicationGroup</code> | The ElastiCache CfnReplicationGroup to monitor. |
+
+---
+
+##### `cacheReplicationGroup`<sup>Required</sup> <a name="cacheReplicationGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupAlarmProps.property.cacheReplicationGroup"></a>
+
+```typescript
+public readonly cacheReplicationGroup: CfnReplicationGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnReplicationGroup
+
+The ElastiCache CfnReplicationGroup to monitor.
+
+---
+
+### ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps <a name="ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps"></a>
+
+The properties for the ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps: ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.cacheReplicationGroup">cacheReplicationGroup</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnReplicationGroup</code> | The ElastiCache CfnReplicationGroup to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Depending on your application's memory requirements and the memory capacity of your ElastiCache cluster, you should set the threshold to the percentage that reflects the critical level of memory usage of the cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `cacheReplicationGroup`<sup>Required</sup> <a name="cacheReplicationGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.cacheReplicationGroup"></a>
+
+```typescript
+public readonly cacheReplicationGroup: CfnReplicationGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnReplicationGroup
+
+The ElastiCache CfnReplicationGroup to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Depending on your application's memory requirements and the memory capacity of your ElastiCache cluster, you should set the threshold to the percentage that reflects the critical level of memory usage of the cluster.
+
+You can use historical memory usage data as reference for acceptable memory usage threshold.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high memory utilization of your cluster so that you can avoid failures when writing to your cluster. It is useful to know when you will need to scale up your cluster if your application does not expect to experience evictions.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - DatabaseMemoryUsagePercentage'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps <a name="ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps"></a>
+
+The properties for the ElastiCacheReplicationGroupEngineCpuUtilizationAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheReplicationGroupEngineCpuUtilizationAlarmProps: ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.cacheReplicationGroup">cacheReplicationGroup</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnReplicationGroup</code> | The ElastiCache CfnReplicationGroup to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold to a percentage that reflects the critical engine CPU utilization level for your application. |
+
+---
+
+##### `cacheReplicationGroup`<sup>Required</sup> <a name="cacheReplicationGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.cacheReplicationGroup"></a>
+
+```typescript
+public readonly cacheReplicationGroup: CfnReplicationGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnReplicationGroup
+
+The ElastiCache CfnReplicationGroup to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high CPU utilization of the Redis OSS engine thread. It is useful if you want to monitor the CPU usage of the database engine itself.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - EngineCPUUtilization'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 90
+
+Set the threshold to a percentage that reflects the critical engine CPU utilization level for your application.
+
+You can benchmark your cluster using your application and expected workload to correlate EngineCPUUtilization and
+performance as a reference, and then set the threshold accordingly. In most cases, you can set the threshold to
+about 90% of your available CPU.
+
+---
+
+### ElastiCacheReplicationGroupRecommendedAlarmsConfig <a name="ElastiCacheReplicationGroupRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended alarms for an ElastiCache ReplicationGroup.
+
+Default actions are overridden by the actions specified in the
+individual alarm configurations.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheReplicationGroupRecommendedAlarmsConfig: ElastiCacheReplicationGroupRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.configDatabaseMemoryUsagePercentageAlarm">configDatabaseMemoryUsagePercentageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a></code> | The configuration for the DatabaseMemoryUsagePercentage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.configReplicationLagAlarm">configReplicationLagAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a></code> | The configuration for the ReplicationLag alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.configEngineCpuUtilizationAlarm">configEngineCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a></code> | The configuration for the EngineCPUUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics">ElastiCacheRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `configDatabaseMemoryUsagePercentageAlarm`<sup>Required</sup> <a name="configDatabaseMemoryUsagePercentageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.configDatabaseMemoryUsagePercentageAlarm"></a>
+
+```typescript
+public readonly configDatabaseMemoryUsagePercentageAlarm: ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a>
+
+The configuration for the DatabaseMemoryUsagePercentage alarm.
+
+---
+
+##### `configReplicationLagAlarm`<sup>Required</sup> <a name="configReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.configReplicationLagAlarm"></a>
+
+```typescript
+public readonly configReplicationLagAlarm: ElastiCacheReplicationLagAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a>
+
+The configuration for the ReplicationLag alarm.
+
+---
+
+##### `configEngineCpuUtilizationAlarm`<sup>Optional</sup> <a name="configEngineCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.configEngineCpuUtilizationAlarm"></a>
+
+```typescript
+public readonly configEngineCpuUtilizationAlarm: ElastiCacheEngineCpuUtilizationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a>
+
+The configuration for the EngineCPUUtilization alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: ElastiCacheRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics">ElastiCacheRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+### ElastiCacheReplicationGroupRecommendedAlarmsProps <a name="ElastiCacheReplicationGroupRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps"></a>
+
+Properties for the ElastiCacheReplicationGroupRecommendedAlarms construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheReplicationGroupRecommendedAlarmsProps: ElastiCacheReplicationGroupRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.configDatabaseMemoryUsagePercentageAlarm">configDatabaseMemoryUsagePercentageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a></code> | The configuration for the DatabaseMemoryUsagePercentage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.configReplicationLagAlarm">configReplicationLagAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a></code> | The configuration for the ReplicationLag alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.configEngineCpuUtilizationAlarm">configEngineCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a></code> | The configuration for the EngineCPUUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics">ElastiCacheRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.cacheReplicationGroup">cacheReplicationGroup</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnReplicationGroup</code> | The ElastiCache CfnReplicationGroup to monitor. |
+
+---
+
+##### `configDatabaseMemoryUsagePercentageAlarm`<sup>Required</sup> <a name="configDatabaseMemoryUsagePercentageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.configDatabaseMemoryUsagePercentageAlarm"></a>
+
+```typescript
+public readonly configDatabaseMemoryUsagePercentageAlarm: ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig">ElastiCacheDatabaseMemoryUsagePercentageAlarmConfig</a>
+
+The configuration for the DatabaseMemoryUsagePercentage alarm.
+
+---
+
+##### `configReplicationLagAlarm`<sup>Required</sup> <a name="configReplicationLagAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.configReplicationLagAlarm"></a>
+
+```typescript
+public readonly configReplicationLagAlarm: ElastiCacheReplicationLagAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig">ElastiCacheReplicationLagAlarmConfig</a>
+
+The configuration for the ReplicationLag alarm.
+
+---
+
+##### `configEngineCpuUtilizationAlarm`<sup>Optional</sup> <a name="configEngineCpuUtilizationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.configEngineCpuUtilizationAlarm"></a>
+
+```typescript
+public readonly configEngineCpuUtilizationAlarm: ElastiCacheEngineCpuUtilizationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheEngineCpuUtilizationAlarmConfig">ElastiCacheEngineCpuUtilizationAlarmConfig</a>
+
+The configuration for the EngineCPUUtilization alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: ElastiCacheRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics">ElastiCacheRecommendedAlarmsMetrics</a>[]
+- *Default:* None
+
+Alarm metrics to exclude from the recommended alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+
+The resources to exclude from the recommended alarms.
+
+Use a resources id to exclude a specific resource.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `cacheReplicationGroup`<sup>Required</sup> <a name="cacheReplicationGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsProps.property.cacheReplicationGroup"></a>
+
+```typescript
+public readonly cacheReplicationGroup: CfnReplicationGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnReplicationGroup
+
+The ElastiCache CfnReplicationGroup to monitor.
+
+---
+
+### ElastiCacheReplicationGroupReplicationLagAlarmProps <a name="ElastiCacheReplicationGroupReplicationLagAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps"></a>
+
+The properties for the ElastiCacheReplicationGroupReplicationLagAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupReplicationLagAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheReplicationGroupReplicationLagAlarmProps: ElastiCacheReplicationGroupReplicationLagAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.cacheReplicationGroup">cacheReplicationGroup</a></code> | <code>aws-cdk-lib.aws_elasticache.CfnReplicationGroup</code> | The ElastiCache CfnReplicationGroup to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to your application's requirements and the potential impact of replication lag. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `cacheReplicationGroup`<sup>Required</sup> <a name="cacheReplicationGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.cacheReplicationGroup"></a>
+
+```typescript
+public readonly cacheReplicationGroup: CfnReplicationGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticache.CfnReplicationGroup
+
+The ElastiCache CfnReplicationGroup to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to your application's requirements and the potential impact of replication lag.
+
+You should
+consider your application's expected write rates and network conditions for the acceptable replication lag.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect a delay between data updates on the primary node and their synchronization to replica node. It helps to ensure data consistency of a read replica cluster node.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - ReplicationLag'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+### ElastiCacheReplicationLagAlarmConfig <a name="ElastiCacheReplicationLagAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig"></a>
+
+Configuration for the ReplicationLag alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationLagAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const elastiCacheReplicationLagAlarmConfig: ElastiCacheReplicationLagAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Set the threshold according to your application's requirements and the potential impact of replication lag. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Set the threshold according to your application's requirements and the potential impact of replication lag.
+
+You should
+consider your application's expected write rates and network conditions for the acceptable replication lag.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect a delay between data updates on the primary node and their synchronization to replica node. It helps to ensure data consistency of a read replica cluster node.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* logicalId + ' - ReplicationLag'
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationLagAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 15
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
 ### LambdaAlarmBaseConfig <a name="LambdaAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAlarmBaseConfig"></a>
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAlarmBaseConfig.Initializer"></a>
@@ -58166,6 +65514,112 @@ All aspects can visit an IConstruct.
 
 
 
+### ElastiCacheClusterRecommendedAlarmsAspect <a name="ElastiCacheClusterRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the recommended alarms for an ElastiCache CfnCacheCluster.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { ElastiCacheClusterRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheClusterRecommendedAlarmsAspect(props: ElastiCacheClusterRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig">ElastiCacheClusterRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsConfig">ElastiCacheClusterRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
+### ElastiCacheReplicationGroupRecommendedAlarmsAspect <a name="ElastiCacheReplicationGroupRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Configures the recommended alarms for an ElastiCache CfnReplicationGroup.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ElastiCache)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { ElastiCacheReplicationGroupRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ElastiCacheReplicationGroupRecommendedAlarmsAspect(props: ElastiCacheReplicationGroupRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig">ElastiCacheReplicationGroupRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsConfig">ElastiCacheReplicationGroupRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### LambdaRecommendedAlarmsAspect <a name="LambdaRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
@@ -58778,6 +66232,50 @@ The number of burst credits that a file system has.
 
 Burst credits allow a file system to burst
 to throughput levels above a file system's baseline level for periods of time.
+
+---
+
+
+### ElastiCacheRecommendedAlarmsMetrics <a name="ElastiCacheRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics"></a>
+
+The recommended metrics for ElastiCache alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics.DATABASE_MEMORY_USAGE_PERCENTAGE">DATABASE_MEMORY_USAGE_PERCENTAGE</a></code> | Percentage of the memory for the cluster that is in use. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics.ENGINE_CPU_UTILIZATION">ENGINE_CPU_UTILIZATION</a></code> | Provides CPU utilization of the Valkey or Redis OSS engine thread. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics.REPLICATION_LAG">REPLICATION_LAG</a></code> | It represents how far behind, in seconds, the replica is in applying changes from the primary node. |
+
+---
+
+##### `DATABASE_MEMORY_USAGE_PERCENTAGE` <a name="DATABASE_MEMORY_USAGE_PERCENTAGE" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics.DATABASE_MEMORY_USAGE_PERCENTAGE"></a>
+
+Percentage of the memory for the cluster that is in use.
+
+---
+
+
+##### `ENGINE_CPU_UTILIZATION` <a name="ENGINE_CPU_UTILIZATION" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics.ENGINE_CPU_UTILIZATION"></a>
+
+Provides CPU utilization of the Valkey or Redis OSS engine thread.
+
+Because Valkey and Redis OSS are single-threaded,
+you can use this metric to analyze the load of the process itself. The `EngineCPUUtilization` metric provides a more
+precise visibility of the process. You can use it in conjunction with the `CPUUtilization` metric. `CPUUtilization`
+exposes CPU utilization for the server instance as a whole, including other operating system and management processes.
+For larger node types with four vCPUs or more, use the EngineCPUUtilization metric to monitor and set thresholds for scaling.
+
+---
+
+
+##### `REPLICATION_LAG` <a name="REPLICATION_LAG" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheRecommendedAlarmsMetrics.REPLICATION_LAG"></a>
+
+It represents how far behind, in seconds, the replica is in applying changes from the primary node.
+
+For Valkey 7.2 and onwards,
+and Redis OSS engine version 5.0.6 onwards, the lag can be measured in milliseconds.
 
 ---
 

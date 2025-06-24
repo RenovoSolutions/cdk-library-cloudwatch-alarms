@@ -39,6 +39,7 @@ If its not shown it hasn't been worked on.
 | DynamoDB | <b>Mandatory alarms</b><br/><ul><li>[x] ReadThrottleEvents</li><li>[x] SystemErrors</li><li>[x] WriteThrottleEvents</li></ul><b>Replication alarms (optional)</b><br/><ul><li>[x] AgeOfOldestUnreplicatedRecord</li><li>[x] FailedToReplicateRecordCount</li><li>[x] ThrottledPutRecordCount</li></ul> | The alarms are applied to `Table` constructs only. All the mandatory alarms require a `threshold` to be defined.<br/>Replication alarms are created only if the corresponding configuration is specified. Each replication alarm has a default `DelegatedOperation` dimension value: <ul><li>AgeOfOldestUnreplicatedRecord: `StreamRecords`</li><li>FailedToReplicateRecordCount: `StreamRecords`</li><li>ThrottledPutRecordCount: `PutItem`</li></ul> |
 | EC2 | <ul><li>[x] CPUUtilization</li><li>[x] StatusCheckFailed</li></ul> | The alarms are applied to `Instance` constructs. |
 | AutoScaling | <ul><li>[x] GroupInServiceCapacity</li></ul> | The alarms are applied to `AutoScalingGroup` constructs. The alarm requires a `threshold` to be defined and the `AutoScalingGroup` should have this metric explicitly enabled. |
+| ElastiCache | <ul><li>[x] DatabaseMemoryUsagePercentage</li><li>[x] EngineCPUUtilization</li><li>[x] ReplicationLag</li></ul> | The alarms are applied to `CfnCacheCluster` and `CfnReplicationGroup` constructs. `DatabaseMemoryUsagePercentage` and `ReplicationLag` require a `threshold` to be defined.|
 
 ### Aspects
 

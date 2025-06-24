@@ -1393,15 +1393,24 @@ export class RdsAuroraRecommendedAlarms extends Construct {
         ...props.configAuroraVolumeBytesLeftTotalAlarm,
       });
 
-      if (props.defaultAlarmAction && !props.configAuroraVolumeBytesLeftTotalAlarm?.alarmAction) {
+      if (
+        props.defaultAlarmAction &&
+        (!props.configAuroraVolumeBytesLeftTotalAlarm || !props.configAuroraVolumeBytesLeftTotalAlarm.alarmAction)
+      ) {
         this.alarmAuroraVolumeBytesLeftTotal.addAlarmAction(props.defaultAlarmAction);
       }
 
-      if (props.defaultOkAction && !props.configAuroraVolumeBytesLeftTotalAlarm?.okAction) {
+      if (
+        props.defaultOkAction &&
+          (!props.configAuroraVolumeBytesLeftTotalAlarm || !props.configAuroraVolumeBytesLeftTotalAlarm.okAction)
+      ) {
         this.alarmAuroraVolumeBytesLeftTotal.addOkAction(props.defaultOkAction);
       }
 
-      if (props.defaultInsufficientDataAction && !props.configAuroraVolumeBytesLeftTotalAlarm?.insufficientDataAction) {
+      if (
+        props.defaultInsufficientDataAction &&
+        (!props.configAuroraVolumeBytesLeftTotalAlarm || !props.configAuroraVolumeBytesLeftTotalAlarm.insufficientDataAction)
+      ) {
         this.alarmAuroraVolumeBytesLeftTotal.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
@@ -1415,15 +1424,24 @@ export class RdsAuroraRecommendedAlarms extends Construct {
         ...props.configAuroraBinLogReplicationLagAlarm,
       });
 
-      if (props.defaultAlarmAction && !props.configAuroraBinLogReplicationLagAlarm?.alarmAction) {
+      if (
+        props.defaultAlarmAction &&
+        (!props.configAuroraBinLogReplicationLagAlarm || !props.configAuroraBinLogReplicationLagAlarm.alarmAction)
+      ) {
         this.alarmAuroraBinLogReplicationLag.addAlarmAction(props.defaultAlarmAction);
       }
 
-      if (props.defaultOkAction && !props.configAuroraBinLogReplicationLagAlarm?.okAction) {
+      if (
+        props.defaultOkAction &&
+        (!props.configAuroraBinLogReplicationLagAlarm || !props.configAuroraBinLogReplicationLagAlarm.okAction)
+      ) {
         this.alarmAuroraBinLogReplicationLag.addOkAction(props.defaultOkAction);
       }
 
-      if (props.defaultInsufficientDataAction && !props.configAuroraBinLogReplicationLagAlarm?.insufficientDataAction) {
+      if (
+        props.defaultInsufficientDataAction &&
+        (!props.configAuroraBinLogReplicationLagAlarm || !props.configAuroraBinLogReplicationLagAlarm.insufficientDataAction)
+      ) {
         this.alarmAuroraBinLogReplicationLag.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
