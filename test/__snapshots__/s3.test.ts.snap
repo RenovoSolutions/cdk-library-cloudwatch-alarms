@@ -1,31 +1,31 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`AspectWithTreatMissingData 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Bucket83908E77": Object {
+  "Resources": {
+    "Bucket83908E77": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
+      "Properties": {
         "BucketName": "bucket",
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketS3RecommendedAlarmsFromAspectBucket4xxErrorsAlarm3784013E": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsFromAspectBucket4xxErrorsAlarm3784013E": {
+      "Properties": {
         "AlarmDescription": "This alarm helps us report the total number of 4xx error status codes that are made in response to client requests. 403 error codes might indicate an incorrect IAM policy, and 404 error codes might indicate mis-behaving client application, for example. Enabling S3 server access logging on a temporary basis will help you to pinpoint the issue's origin using the fields HTTP status and Error Code. To understand more about the error code, see Error Responses (https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 4xxErrors",
@@ -34,14 +34,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -56,14 +56,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": {
+      "Properties": {
         "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 5xxErrors",
@@ -72,14 +72,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -95,22 +95,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -126,28 +126,28 @@ Object {
 `;
 
 exports[`Snapshot 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Bucket83908E77": Object {
+  "Resources": {
+    "Bucket83908E77": {
       "DeletionPolicy": "Retain",
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketS3RecommendedAlarmsFromAspectBucket4xxErrorsAlarm3784013E": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsFromAspectBucket4xxErrorsAlarm3784013E": {
+      "Properties": {
         "AlarmDescription": "This alarm helps us report the total number of 4xx error status codes that are made in response to client requests. 403 error codes might indicate an incorrect IAM policy, and 404 error codes might indicate mis-behaving client application, for example. Enabling S3 server access logging on a temporary basis will help you to pinpoint the issue's origin using the fields HTTP status and Error Code. To understand more about the error code, see Error Responses (https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 4xxErrors",
@@ -156,14 +156,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -177,14 +177,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": {
+      "Properties": {
         "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 5xxErrors",
@@ -193,14 +193,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -215,22 +215,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -246,36 +246,36 @@ Object {
 `;
 
 exports[`SnapshotDefaultActionsInUse 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Bucket83908E77": Object {
+  "Resources": {
+    "Bucket83908E77": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
+      "Properties": {
         "BucketName": "bucket",
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketAlarmsBucket4xxErrorsAlarm2E25C0E9": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "BucketAlarmsBucket4xxErrorsAlarm2E25C0E9": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm helps us report the total number of 4xx error status codes that are made in response to client requests. 403 error codes might indicate an incorrect IAM policy, and 404 error codes might indicate mis-behaving client application, for example. Enabling S3 server access logging on a temporary basis will help you to pinpoint the issue's origin using the fields HTTP status and Error Code. To understand more about the error code, see Error Responses (https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 4xxErrors",
@@ -284,28 +284,28 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "4xxErrors",
         "Namespace": "AWS/S3",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -315,19 +315,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "BucketAlarmsBucket5xxErrorsAlarm08E51BDD": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "BucketAlarmsBucket5xxErrorsAlarm08E51BDD": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 5xxErrors",
@@ -336,28 +336,28 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "5xxErrors",
         "Namespace": "AWS/S3",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -367,26 +367,26 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TopicBFC7AF6E": Object {
+    "TopicBFC7AF6E": {
       "Type": "AWS::SNS::Topic",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -402,28 +402,28 @@ Object {
 `;
 
 exports[`SnapshotForBucketConstruct 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Bucket83908E77": Object {
+  "Resources": {
+    "Bucket83908E77": {
       "DeletionPolicy": "Retain",
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketS3RecommendedAlarmsBucket4xxErrorsAlarm0244A631": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsBucket4xxErrorsAlarm0244A631": {
+      "Properties": {
         "AlarmDescription": "This alarm helps us report the total number of 4xx error status codes that are made in response to client requests. 403 error codes might indicate an incorrect IAM policy, and 404 error codes might indicate mis-behaving client application, for example. Enabling S3 server access logging on a temporary basis will help you to pinpoint the issue's origin using the fields HTTP status and Error Code. To understand more about the error code, see Error Responses (https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 4xxErrors",
@@ -432,14 +432,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -453,14 +453,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "BucketS3RecommendedAlarmsBucket5xxErrorsAlarmD050FFC7": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsBucket5xxErrorsAlarmD050FFC7": {
+      "Properties": {
         "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 5xxErrors",
@@ -469,14 +469,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -491,22 +491,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -522,28 +522,28 @@ Object {
 `;
 
 exports[`SnapshotWithExclusion 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Bucket83908E77": Object {
+  "Resources": {
+    "Bucket83908E77": {
       "DeletionPolicy": "Retain",
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": {
+      "Properties": {
         "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 5xxErrors",
@@ -552,14 +552,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -574,22 +574,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -605,28 +605,28 @@ Object {
 `;
 
 exports[`SnapshotWithResourceExclusion 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Bucket25524B414": Object {
+  "Resources": {
+    "Bucket25524B414": {
       "DeletionPolicy": "Retain",
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "Bucket2S3RecommendedAlarmsFromAspectBucket24xxErrorsAlarmD819B190": Object {
-      "Properties": Object {
+    "Bucket2S3RecommendedAlarmsFromAspectBucket24xxErrorsAlarmD819B190": {
+      "Properties": {
         "AlarmDescription": "This alarm helps us report the total number of 4xx error status codes that are made in response to client requests. 403 error codes might indicate an incorrect IAM policy, and 404 error codes might indicate mis-behaving client application, for example. Enabling S3 server access logging on a temporary basis will help you to pinpoint the issue's origin using the fields HTTP status and Error Code. To understand more about the error code, see Error Responses (https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket25524B414",
               },
               " - 4xxErrors",
@@ -635,14 +635,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket25524B414",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -656,14 +656,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "Bucket2S3RecommendedAlarmsFromAspectBucket25xxErrorsAlarm058F0BBE": Object {
-      "Properties": Object {
+    "Bucket2S3RecommendedAlarmsFromAspectBucket25xxErrorsAlarm058F0BBE": {
+      "Properties": {
         "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket25524B414",
               },
               " - 5xxErrors",
@@ -672,14 +672,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket25524B414",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -693,19 +693,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "Bucket83908E77": Object {
+    "Bucket83908E77": {
       "DeletionPolicy": "Retain",
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketS3RecommendedAlarmsFromAspectBucket4xxErrorsAlarm3784013E": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsFromAspectBucket4xxErrorsAlarm3784013E": {
+      "Properties": {
         "AlarmDescription": "This alarm helps us report the total number of 4xx error status codes that are made in response to client requests. 403 error codes might indicate an incorrect IAM policy, and 404 error codes might indicate mis-behaving client application, for example. Enabling S3 server access logging on a temporary basis will help you to pinpoint the issue's origin using the fields HTTP status and Error Code. To understand more about the error code, see Error Responses (https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 4xxErrors",
@@ -714,14 +714,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -735,14 +735,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": Object {
-      "Properties": Object {
+    "BucketS3RecommendedAlarmsFromAspectBucket5xxErrorsAlarmC88AFF69": {
+      "Properties": {
         "AlarmDescription": "This alarm helps you detect a high number of server-side errors. These errors indicate that a client made a request that the server couldn't complete. This can help you correlate the issue your application is facing because of S3. For more information to help you efficiently handle or reduce errors, see Optimizing performance design patterns (https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html#optimizing-performance-timeouts-retries). Errors might also be caused by an the issue with S3, check AWS service health dashboard for the status of Amazon S3 in your Region.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Bucket83908E77",
               },
               " - 5xxErrors",
@@ -751,14 +751,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "BucketName",
-            "Value": Object {
+            "Value": {
               "Ref": "Bucket83908E77",
             },
           },
-          Object {
+          {
             "Name": "FilterId",
             "Value": "AllMetrics",
           },
@@ -773,22 +773,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],

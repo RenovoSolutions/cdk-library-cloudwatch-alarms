@@ -896,3 +896,77 @@ test('optional ReplicationGroup alarm configurations can be overwritten', () => 
     }));
   });
 });
+
+test('ClusterWithNoName', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  const stack = new ElastiCacheClusterStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  delete stack.cacheCluster.clusterName; // Remove the cluster name to test using the logical ID instead
+
+  appAspects.add(
+    new elasticacheAlarms.ElastiCacheClusterRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      configDatabaseMemoryUsagePercentageAlarm: {
+        threshold: 90,
+      },
+      configEngineCpuUtilizationAlarm: {
+      },
+      configReplicationLagAlarm: {
+        threshold: 90,
+      },
+    }),
+  );
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(elasticacheAlarms.ElastiCacheRecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+});
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const appAspects = Aspects.of(app);
+
+  const stack = new ElastiCacheClusterStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  appAspects.add(
+    new elasticacheAlarms.ElastiCacheClusterRecommendedAlarmsAspect({
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      configDatabaseMemoryUsagePercentageAlarm: {
+        threshold: 90,
+      },
+      configEngineCpuUtilizationAlarm: {
+      },
+      configReplicationLagAlarm: {
+        threshold: 90,
+      },
+    }),
+  );
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(elasticacheAlarms.ElastiCacheRecommendedAlarmsMetrics).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+});
