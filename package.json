@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
-    "@types/jest": "^27",
-    "@types/node": "^16 <= 16.18.78",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.3",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk-lib": "2.200.1",
@@ -48,16 +48,16 @@
     "constructs": "10.0.5",
     "eslint": "^9",
     "eslint-import-resolver-typescript": "^4.4.3",
-    "eslint-plugin-import": "^2.31.0",
-    "jest": "^27",
+    "eslint-plugin-import": "^2.32.0",
+    "jest": "^30.0.2",
     "jest-junit": "^16",
     "jsii": "~5.6.0",
     "jsii-diff": "^1.112.0",
     "jsii-docgen": "^10.5.0",
     "jsii-pacmak": "^1.112.0",
     "jsii-rosetta": "~5.6.0",
-    "projen": "^0.93.0",
-    "ts-jest": "^27",
+    "projen": "^0.94.0",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
@@ -115,11 +115,13 @@
         }
       ]
     ],
-    "preset": "ts-jest",
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.dev.json"
-      }
+    "transform": {
+      "^.+\\.[t]sx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.dev.json"
+        }
+      ]
     }
   },
   "types": "lib/index.d.ts",
