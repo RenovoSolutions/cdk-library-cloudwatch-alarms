@@ -4876,2070 +4876,6 @@ first call to addToResourcePolicy(s).
 ---
 
 
-### CloudFrontDistribution5xxErrorRateAlarm <a name="CloudFrontDistribution5xxErrorRateAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm"></a>
-
-This alarm monitors the percentage of 5xx error responses from your origin server, to help you detect if the CloudFront service is having issues.
-
-See {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting-response-errors.html|Troubleshooting error responses from your origin} for information to help you understand the problems with your server.
-
-The alarm is triggered when the percentage exceeds the threshold.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer"></a>
-
-```typescript
-import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new CloudFrontDistribution5xxErrorRateAlarm(scope: IConstruct, id: string, props: CloudFrontDistribution5xxErrorRateAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarmProps">CloudFrontDistribution5xxErrorRateAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarmProps">CloudFrontDistribution5xxErrorRateAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct"></a>
-
-```typescript
-import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistribution5xxErrorRateAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isOwnedResource"></a>
-
-```typescript
-import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistribution5xxErrorRateAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isResource"></a>
-
-```typescript
-import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistribution5xxErrorRateAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn"></a>
-
-```typescript
-import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName"></a>
-
-```typescript
-import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-
-### CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm <a name="CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm"></a>
-
-This alarm helps you monitor execution errors from CloudFront functions so that you can take steps to resolve them.
-
-Analyze the CloudWatch function logs and look at the function code to find and resolve the root
-cause of the problem.
-
-The alarm is triggered when the number of execution errors is greater than threshold.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm(scope: IConstruct, id: string, props: CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps">CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps">CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isOwnedResource"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isResource"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-
-### CloudFrontDistributionDetailedFunctionThrottlesAlarm <a name="CloudFrontDistributionDetailedFunctionThrottlesAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm"></a>
-
-This alarm helps you to monitor if your CloudFront function is throttled.
-
-If your function is throttled, it means that it is taking too long to execute.
-To avoid function throttles, consider optimizing the function code.
-
-The alarm is triggered when the number of times the function was throttled is greater than threshold.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new CloudFrontDistributionDetailedFunctionThrottlesAlarm(scope: IConstruct, id: string, props: CloudFrontDistributionDetailedFunctionThrottlesAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarmProps">CloudFrontDistributionDetailedFunctionThrottlesAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarmProps">CloudFrontDistributionDetailedFunctionThrottlesAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isOwnedResource"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionThrottlesAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isResource"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionThrottlesAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-
-### CloudFrontDistributionDetailedFunctionValidationErrorsAlarm <a name="CloudFrontDistributionDetailedFunctionValidationErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm"></a>
-
-This alarm helps you monitor validation errors from CloudFront functions so that you can take steps to resolve them.
-
-Analyze the CloudWatch function logs and look at the function code to find and resolve the root
-cause of the problem.
-
-The alarm is triggered when the number of validation errors is greater than threshold.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new CloudFrontDistributionDetailedFunctionValidationErrorsAlarm(scope: IConstruct, id: string, props: CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps">CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps">CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isOwnedResource"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isResource"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName"></a>
-
-```typescript
-import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-
-### CloudFrontDistributionOriginLatencyAlarm <a name="CloudFrontDistributionOriginLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm"></a>
-
-The alarm helps to monitor if the origin server is taking too long to respond.
-
-If the server takes too long to respond, it might lead to a timeout.
-Refer to {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-504-gateway-timeout.html#http-504-gateway-timeout-slow-application|find and fix delayed responses from applications on your origin server}
-if you experience consistently high OriginLatency values.
-
-The alarm is triggered when the percentage is lower or equals the threshold.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer"></a>
-
-```typescript
-import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new CloudFrontDistributionOriginLatencyAlarm(scope: IConstruct, id: string, props: CloudFrontDistributionOriginLatencyAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarmProps">CloudFrontDistributionOriginLatencyAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarmProps">CloudFrontDistributionOriginLatencyAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: IAlarmAction): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: IAlarmAction): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct"></a>
-
-```typescript
-import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionOriginLatencyAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isOwnedResource"></a>
-
-```typescript
-import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionOriginLatencyAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isResource"></a>
-
-```typescript
-import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionOriginLatencyAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn"></a>
-
-```typescript
-import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName"></a>
-
-```typescript
-import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionOriginLatencyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-
-### CloudFrontDistributionRecommendedAlarms <a name="CloudFrontDistributionRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms"></a>
-
-A construct that creates the recommended alarms for an CloudFront Distribution.
-
-> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#CloudFront](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#CloudFront)
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer"></a>
-
-```typescript
-import { CloudFrontDistributionRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new CloudFrontDistributionRecommendedAlarms(scope: Construct, id: string, props: CloudFrontDistributionRecommendedAlarmsProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarmsProps">CloudFrontDistributionRecommendedAlarmsProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarmsProps">CloudFrontDistributionRecommendedAlarmsProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct"></a>
-
-```typescript
-import { CloudFrontDistributionRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-CloudFrontDistributionRecommendedAlarms.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.alarm5xxErrorRate">alarm5xxErrorRate</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm">CloudFrontDistribution5xxErrorRateAlarm</a></code> | The 5xxErrorRate alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.alarmOriginLatency">alarmOriginLatency</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm">CloudFrontDistributionOriginLatencyAlarm</a></code> | The OriginLatency alarm. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `alarm5xxErrorRate`<sup>Optional</sup> <a name="alarm5xxErrorRate" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.alarm5xxErrorRate"></a>
-
-```typescript
-public readonly alarm5xxErrorRate: CloudFrontDistribution5xxErrorRateAlarm;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm">CloudFrontDistribution5xxErrorRateAlarm</a>
-
-The 5xxErrorRate alarm.
-
----
-
-##### `alarmOriginLatency`<sup>Optional</sup> <a name="alarmOriginLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.alarmOriginLatency"></a>
-
-```typescript
-public readonly alarmOriginLatency: CloudFrontDistributionOriginLatencyAlarm;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm">CloudFrontDistributionOriginLatencyAlarm</a>
-
-The OriginLatency alarm.
-
----
-
-
 ### CfnCacheCluster <a name="CfnCacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster"></a>
 
 An extension for the CfnCacheCluster construct that provides methods to create recommended alarms.
@@ -9378,6 +7314,2070 @@ public readonly CFN_RESOURCE_TYPE_NAME: string;
 The CloudFormation resource type name for this resource class.
 
 ---
+
+### CloudFrontDistribution5xxErrorRateAlarm <a name="CloudFrontDistribution5xxErrorRateAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm"></a>
+
+This alarm monitors the percentage of 5xx error responses from your origin server, to help you detect if the CloudFront service is having issues.
+
+See {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting-response-errors.html|Troubleshooting error responses from your origin} for information to help you understand the problems with your server.
+
+The alarm is triggered when the percentage exceeds the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer"></a>
+
+```typescript
+import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudFrontDistribution5xxErrorRateAlarm(scope: IConstruct, id: string, props: CloudFrontDistribution5xxErrorRateAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarmProps">CloudFrontDistribution5xxErrorRateAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarmProps">CloudFrontDistribution5xxErrorRateAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct"></a>
+
+```typescript
+import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistribution5xxErrorRateAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isOwnedResource"></a>
+
+```typescript
+import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistribution5xxErrorRateAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isResource"></a>
+
+```typescript
+import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistribution5xxErrorRateAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn"></a>
+
+```typescript
+import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName"></a>
+
+```typescript
+import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm <a name="CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm"></a>
+
+This alarm helps you monitor execution errors from CloudFront functions so that you can take steps to resolve them.
+
+Analyze the CloudWatch function logs and look at the function code to find and resolve the root
+cause of the problem.
+
+The alarm is triggered when the number of execution errors is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm(scope: IConstruct, id: string, props: CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps">CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps">CloudFrontDistributionDetailedFunctionExecutionErrorsAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isOwnedResource"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isResource"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### CloudFrontDistributionDetailedFunctionThrottlesAlarm <a name="CloudFrontDistributionDetailedFunctionThrottlesAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm"></a>
+
+This alarm helps you to monitor if your CloudFront function is throttled.
+
+If your function is throttled, it means that it is taking too long to execute.
+To avoid function throttles, consider optimizing the function code.
+
+The alarm is triggered when the number of times the function was throttled is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudFrontDistributionDetailedFunctionThrottlesAlarm(scope: IConstruct, id: string, props: CloudFrontDistributionDetailedFunctionThrottlesAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarmProps">CloudFrontDistributionDetailedFunctionThrottlesAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarmProps">CloudFrontDistributionDetailedFunctionThrottlesAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isOwnedResource"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionThrottlesAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isResource"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionThrottlesAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### CloudFrontDistributionDetailedFunctionValidationErrorsAlarm <a name="CloudFrontDistributionDetailedFunctionValidationErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm"></a>
+
+This alarm helps you monitor validation errors from CloudFront functions so that you can take steps to resolve them.
+
+Analyze the CloudWatch function logs and look at the function code to find and resolve the root
+cause of the problem.
+
+The alarm is triggered when the number of validation errors is greater than threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudFrontDistributionDetailedFunctionValidationErrorsAlarm(scope: IConstruct, id: string, props: CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps">CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps">CloudFrontDistributionDetailedFunctionValidationErrorsAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isOwnedResource"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isResource"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName"></a>
+
+```typescript
+import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### CloudFrontDistributionOriginLatencyAlarm <a name="CloudFrontDistributionOriginLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm"></a>
+
+The alarm helps to monitor if the origin server is taking too long to respond.
+
+If the server takes too long to respond, it might lead to a timeout.
+Refer to {@link https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/http-504-gateway-timeout.html#http-504-gateway-timeout-slow-application|find and fix delayed responses from applications on your origin server}
+if you experience consistently high OriginLatency values.
+
+The alarm is triggered when the percentage is lower or equals the threshold.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer"></a>
+
+```typescript
+import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudFrontDistributionOriginLatencyAlarm(scope: IConstruct, id: string, props: CloudFrontDistributionOriginLatencyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarmProps">CloudFrontDistributionOriginLatencyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarmProps">CloudFrontDistributionOriginLatencyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: IAlarmAction): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: IAlarmAction): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct"></a>
+
+```typescript
+import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionOriginLatencyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isOwnedResource"></a>
+
+```typescript
+import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionOriginLatencyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isResource"></a>
+
+```typescript
+import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionOriginLatencyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName"></a>
+
+```typescript
+import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionOriginLatencyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+
+### CloudFrontDistributionRecommendedAlarms <a name="CloudFrontDistributionRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms"></a>
+
+A construct that creates the recommended alarms for an CloudFront Distribution.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#CloudFront](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#CloudFront)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { CloudFrontDistributionRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudFrontDistributionRecommendedAlarms(scope: Construct, id: string, props: CloudFrontDistributionRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarmsProps">CloudFrontDistributionRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarmsProps">CloudFrontDistributionRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { CloudFrontDistributionRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudFrontDistributionRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.alarm5xxErrorRate">alarm5xxErrorRate</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm">CloudFrontDistribution5xxErrorRateAlarm</a></code> | The 5xxErrorRate alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.alarmOriginLatency">alarmOriginLatency</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm">CloudFrontDistributionOriginLatencyAlarm</a></code> | The OriginLatency alarm. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarm5xxErrorRate`<sup>Optional</sup> <a name="alarm5xxErrorRate" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.alarm5xxErrorRate"></a>
+
+```typescript
+public readonly alarm5xxErrorRate: CloudFrontDistribution5xxErrorRateAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm">CloudFrontDistribution5xxErrorRateAlarm</a>
+
+The 5xxErrorRate alarm.
+
+---
+
+##### `alarmOriginLatency`<sup>Optional</sup> <a name="alarmOriginLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.property.alarmOriginLatency"></a>
+
+```typescript
+public readonly alarmOriginLatency: CloudFrontDistributionOriginLatencyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm">CloudFrontDistributionOriginLatencyAlarm</a>
+
+The OriginLatency alarm.
+
+---
+
 
 ### DatabaseCluster <a name="DatabaseCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster"></a>
 
