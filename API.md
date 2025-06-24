@@ -39217,6 +39217,651 @@ The number of messages sent alarm.
 ---
 
 
+### StateMachine <a name="StateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine"></a>
+
+An extension for the StateMachine construct that provides methods to create recommended alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new StateMachine(scope: Construct, id: string, props: StateMachineProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachineProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachineProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy">addToRolePolicy</a></code> | Add the given statement to the role's policy. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant">grant</a></code> | Grant the given identity custom permissions. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution">grantExecution</a></code> | Grant the given identity permissions on all executions of the state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead">grantRead</a></code> | Grant the given identity permissions to read results from state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution">grantStartExecution</a></code> | Grant the given identity permissions to start an execution of this state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution">grantStartSyncExecution</a></code> | Grant the given identity permissions to start a synchronous execution of this state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse">grantTaskResponse</a></code> | Grant the given identity task response permissions on a state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric">metric</a></code> | Return the given named metric for this State Machine's executions. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted">metricAborted</a></code> | Metric for the number of executions that were aborted. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed">metricFailed</a></code> | Metric for the number of executions that failed. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted">metricStarted</a></code> | Metric for the number of executions that were started. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded">metricSucceeded</a></code> | Metric for the number of executions that succeeded. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled">metricThrottled</a></code> | Metric for the number of executions that were throttled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime">metricTime</a></code> | Metric for the interval, in milliseconds, between the time the execution starts and the time it closes. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut">metricTimedOut</a></code> | Metric for the number of executions that timed out. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed">alarmExecutionsFailed</a></code> | Creates an alarm that monitors the ExecutionsFailed for the StepFunctions stateMachine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut">alarmExecutionsTimedOut</a></code> | Creates an alarm that monitors the ExecutionsTimedOut for the StepFunctions stateMachine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled">alarmExecutionThrottled</a></code> | Creates an alarm that monitors the ExecutionThrottled for the StepFunctions stateMachine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime">alarmExecutionTime</a></code> | Creates an alarm that monitors the ExecutionTime for the StepFunctions stateMachine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the StepFunctions StateMachine. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addToRolePolicy` <a name="addToRolePolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy"></a>
+
+```typescript
+public addToRolePolicy(statement: PolicyStatement): void
+```
+
+Add the given statement to the role's policy.
+
+###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy.parameter.statement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant"></a>
+
+```typescript
+public grant(identity: IGrantable, actions: string): Grant
+```
+
+Grant the given identity custom permissions.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant.parameter.actions"></a>
+
+- *Type:* string
+
+---
+
+##### `grantExecution` <a name="grantExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution"></a>
+
+```typescript
+public grantExecution(identity: IGrantable, actions: string): Grant
+```
+
+Grant the given identity permissions on all executions of the state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution.parameter.actions"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead"></a>
+
+```typescript
+public grantRead(identity: IGrantable): Grant
+```
+
+Grant the given identity permissions to read results from state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantStartExecution` <a name="grantStartExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution"></a>
+
+```typescript
+public grantStartExecution(identity: IGrantable): Grant
+```
+
+Grant the given identity permissions to start an execution of this state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantStartSyncExecution` <a name="grantStartSyncExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution"></a>
+
+```typescript
+public grantStartSyncExecution(identity: IGrantable): Grant
+```
+
+Grant the given identity permissions to start a synchronous execution of this state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantTaskResponse` <a name="grantTaskResponse" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse"></a>
+
+```typescript
+public grantTaskResponse(identity: IGrantable): Grant
+```
+
+Grant the given identity task response permissions on a state machine.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `metric` <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this State Machine's executions.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricAborted` <a name="metricAborted" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted"></a>
+
+```typescript
+public metricAborted(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that were aborted.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricFailed` <a name="metricFailed" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed"></a>
+
+```typescript
+public metricFailed(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that failed.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricStarted` <a name="metricStarted" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted"></a>
+
+```typescript
+public metricStarted(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that were started.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricSucceeded` <a name="metricSucceeded" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded"></a>
+
+```typescript
+public metricSucceeded(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that succeeded.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricThrottled` <a name="metricThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled"></a>
+
+```typescript
+public metricThrottled(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that were throttled.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTime` <a name="metricTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime"></a>
+
+```typescript
+public metricTime(props?: MetricOptions): Metric
+```
+
+Metric for the interval, in milliseconds, between the time the execution starts and the time it closes.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTimedOut` <a name="metricTimedOut" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut"></a>
+
+```typescript
+public metricTimedOut(props?: MetricOptions): Metric
+```
+
+Metric for the number of executions that timed out.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `alarmExecutionsFailed` <a name="alarmExecutionsFailed" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed"></a>
+
+```typescript
+public alarmExecutionsFailed(props?: SfStateMachineExecutionsFailedAlarmConfig): SfStateMachineExecutionsFailedAlarm
+```
+
+Creates an alarm that monitors the ExecutionsFailed for the StepFunctions stateMachine.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig">SfStateMachineExecutionsFailedAlarmConfig</a>
+
+---
+
+##### `alarmExecutionsTimedOut` <a name="alarmExecutionsTimedOut" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut"></a>
+
+```typescript
+public alarmExecutionsTimedOut(props?: SfStateMachineExecutionsTimedOutAlarmConfig): SfStateMachineExecutionsTimedOutAlarm
+```
+
+Creates an alarm that monitors the ExecutionsTimedOut for the StepFunctions stateMachine.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig">SfStateMachineExecutionsTimedOutAlarmConfig</a>
+
+---
+
+##### `alarmExecutionThrottled` <a name="alarmExecutionThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled"></a>
+
+```typescript
+public alarmExecutionThrottled(props?: SfStateMachineExecutionThrottledAlarmConfig): SfStateMachineExecutionThrottledAlarm
+```
+
+Creates an alarm that monitors the ExecutionThrottled for the StepFunctions stateMachine.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig">SfStateMachineExecutionThrottledAlarmConfig</a>
+
+---
+
+##### `alarmExecutionTime` <a name="alarmExecutionTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime"></a>
+
+```typescript
+public alarmExecutionTime(props: SfStateMachineExecutionTimeAlarmConfig): SfStateMachineExecutionTimeAlarm
+```
+
+Creates an alarm that monitors the ExecutionTime for the StepFunctions stateMachine.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig">SfStateMachineExecutionTimeAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props: SfStateMachineRecommendedAlarmsConfig): SfStateMachineRecommendedAlarms
+```
+
+Creates the recommended alarms for the StepFunctions StateMachine.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig">SfStateMachineRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn">fromStateMachineArn</a></code> | Import a state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName">fromStateMachineName</a></code> | Import a state machine via resource name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromStateMachineArn` <a name="fromStateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.fromStateMachineArn(scope: Construct, id: string, stateMachineArn: string)
+```
+
+Import a state machine.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `stateMachineArn`<sup>Required</sup> <a name="stateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.stateMachineArn"></a>
+
+- *Type:* string
+
+---
+
+##### `fromStateMachineName` <a name="fromStateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName"></a>
+
+```typescript
+import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+StateMachine.fromStateMachineName(scope: Construct, id: string, stateMachineName: string)
+```
+
+Import a state machine via resource name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `stateMachineName`<sup>Required</sup> <a name="stateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.stateMachineName"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal this state machine is running as. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role of this state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineArn">stateMachineArn</a></code> | <code>string</code> | The ARN of the state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineName">stateMachineName</a></code> | <code>string</code> | The name of the state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRevisionId">stateMachineRevisionId</a></code> | <code>string</code> | Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineType">stateMachineType</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachineType</code> | Type of the state machine. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grantPrincipal"></a>
+
+```typescript
+public readonly grantPrincipal: IPrincipal;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IPrincipal
+
+The principal this state machine is running as.
+
+---
+
+##### `role`<sup>Required</sup> <a name="role" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+Execution role of this state machine.
+
+---
+
+##### `stateMachineArn`<sup>Required</sup> <a name="stateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineArn"></a>
+
+```typescript
+public readonly stateMachineArn: string;
+```
+
+- *Type:* string
+
+The ARN of the state machine.
+
+---
+
+##### `stateMachineName`<sup>Required</sup> <a name="stateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineName"></a>
+
+```typescript
+public readonly stateMachineName: string;
+```
+
+- *Type:* string
+
+The name of the state machine.
+
+---
+
+##### `stateMachineRevisionId`<sup>Required</sup> <a name="stateMachineRevisionId" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRevisionId"></a>
+
+```typescript
+public readonly stateMachineRevisionId: string;
+```
+
+- *Type:* string
+
+Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+
+---
+
+##### `stateMachineType`<sup>Required</sup> <a name="stateMachineType" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineType"></a>
+
+```typescript
+public readonly stateMachineType: StateMachineType;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachineType
+
+Type of the state machine.
+
+---
+
+
 ### Table <a name="Table" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table"></a>
 
 An extension for the Table construct that provides methods to create recommended alarms.
@@ -40212,651 +40857,6 @@ public readonly resourcePolicy: PolicyDocument;
 Resource policy to assign to DynamoDB Table.
 
 > [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html)
-
----
-
-
-### StateMachine <a name="StateMachine" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine"></a>
-
-An extension for the StateMachine construct that provides methods to create recommended alarms.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer"></a>
-
-```typescript
-import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new StateMachine(scope: Construct, id: string, props: StateMachineProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachineProps</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.Initializer.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachineProps
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy">addToRolePolicy</a></code> | Add the given statement to the role's policy. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant">grant</a></code> | Grant the given identity custom permissions. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution">grantExecution</a></code> | Grant the given identity permissions on all executions of the state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead">grantRead</a></code> | Grant the given identity permissions to read results from state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution">grantStartExecution</a></code> | Grant the given identity permissions to start an execution of this state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution">grantStartSyncExecution</a></code> | Grant the given identity permissions to start a synchronous execution of this state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse">grantTaskResponse</a></code> | Grant the given identity task response permissions on a state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric">metric</a></code> | Return the given named metric for this State Machine's executions. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted">metricAborted</a></code> | Metric for the number of executions that were aborted. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed">metricFailed</a></code> | Metric for the number of executions that failed. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted">metricStarted</a></code> | Metric for the number of executions that were started. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded">metricSucceeded</a></code> | Metric for the number of executions that succeeded. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled">metricThrottled</a></code> | Metric for the number of executions that were throttled. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime">metricTime</a></code> | Metric for the interval, in milliseconds, between the time the execution starts and the time it closes. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut">metricTimedOut</a></code> | Metric for the number of executions that timed out. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed">alarmExecutionsFailed</a></code> | Creates an alarm that monitors the ExecutionsFailed for the StepFunctions stateMachine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut">alarmExecutionsTimedOut</a></code> | Creates an alarm that monitors the ExecutionsTimedOut for the StepFunctions stateMachine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled">alarmExecutionThrottled</a></code> | Creates an alarm that monitors the ExecutionThrottled for the StepFunctions stateMachine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime">alarmExecutionTime</a></code> | Creates an alarm that monitors the ExecutionTime for the StepFunctions stateMachine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the StepFunctions StateMachine. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addToRolePolicy` <a name="addToRolePolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy"></a>
-
-```typescript
-public addToRolePolicy(statement: PolicyStatement): void
-```
-
-Add the given statement to the role's policy.
-
-###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy.parameter.statement"></a>
-
-- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
-
----
-
-##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant"></a>
-
-```typescript
-public grant(identity: IGrantable, actions: string): Grant
-```
-
-Grant the given identity custom permissions.
-
-###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant.parameter.identity"></a>
-
-- *Type:* aws-cdk-lib.aws_iam.IGrantable
-
----
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant.parameter.actions"></a>
-
-- *Type:* string
-
----
-
-##### `grantExecution` <a name="grantExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution"></a>
-
-```typescript
-public grantExecution(identity: IGrantable, actions: string): Grant
-```
-
-Grant the given identity permissions on all executions of the state machine.
-
-###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution.parameter.identity"></a>
-
-- *Type:* aws-cdk-lib.aws_iam.IGrantable
-
----
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution.parameter.actions"></a>
-
-- *Type:* string
-
----
-
-##### `grantRead` <a name="grantRead" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead"></a>
-
-```typescript
-public grantRead(identity: IGrantable): Grant
-```
-
-Grant the given identity permissions to read results from state machine.
-
-###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead.parameter.identity"></a>
-
-- *Type:* aws-cdk-lib.aws_iam.IGrantable
-
----
-
-##### `grantStartExecution` <a name="grantStartExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution"></a>
-
-```typescript
-public grantStartExecution(identity: IGrantable): Grant
-```
-
-Grant the given identity permissions to start an execution of this state machine.
-
-###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution.parameter.identity"></a>
-
-- *Type:* aws-cdk-lib.aws_iam.IGrantable
-
----
-
-##### `grantStartSyncExecution` <a name="grantStartSyncExecution" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution"></a>
-
-```typescript
-public grantStartSyncExecution(identity: IGrantable): Grant
-```
-
-Grant the given identity permissions to start a synchronous execution of this state machine.
-
-###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution.parameter.identity"></a>
-
-- *Type:* aws-cdk-lib.aws_iam.IGrantable
-
----
-
-##### `grantTaskResponse` <a name="grantTaskResponse" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse"></a>
-
-```typescript
-public grantTaskResponse(identity: IGrantable): Grant
-```
-
-Grant the given identity task response permissions on a state machine.
-
-###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse.parameter.identity"></a>
-
-- *Type:* aws-cdk-lib.aws_iam.IGrantable
-
----
-
-##### `metric` <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric"></a>
-
-```typescript
-public metric(metricName: string, props?: MetricOptions): Metric
-```
-
-Return the given named metric for this State Machine's executions.
-
-###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric.parameter.metricName"></a>
-
-- *Type:* string
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metric.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
-
----
-
-##### `metricAborted` <a name="metricAborted" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted"></a>
-
-```typescript
-public metricAborted(props?: MetricOptions): Metric
-```
-
-Metric for the number of executions that were aborted.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricAborted.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
-
----
-
-##### `metricFailed` <a name="metricFailed" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed"></a>
-
-```typescript
-public metricFailed(props?: MetricOptions): Metric
-```
-
-Metric for the number of executions that failed.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricFailed.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
-
----
-
-##### `metricStarted` <a name="metricStarted" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted"></a>
-
-```typescript
-public metricStarted(props?: MetricOptions): Metric
-```
-
-Metric for the number of executions that were started.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricStarted.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
-
----
-
-##### `metricSucceeded` <a name="metricSucceeded" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded"></a>
-
-```typescript
-public metricSucceeded(props?: MetricOptions): Metric
-```
-
-Metric for the number of executions that succeeded.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricSucceeded.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
-
----
-
-##### `metricThrottled` <a name="metricThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled"></a>
-
-```typescript
-public metricThrottled(props?: MetricOptions): Metric
-```
-
-Metric for the number of executions that were throttled.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricThrottled.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
-
----
-
-##### `metricTime` <a name="metricTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime"></a>
-
-```typescript
-public metricTime(props?: MetricOptions): Metric
-```
-
-Metric for the interval, in milliseconds, between the time the execution starts and the time it closes.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTime.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
-
----
-
-##### `metricTimedOut` <a name="metricTimedOut" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut"></a>
-
-```typescript
-public metricTimedOut(props?: MetricOptions): Metric
-```
-
-Metric for the number of executions that timed out.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.metricTimedOut.parameter.props"></a>
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
-
----
-
-##### `alarmExecutionsFailed` <a name="alarmExecutionsFailed" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed"></a>
-
-```typescript
-public alarmExecutionsFailed(props?: SfStateMachineExecutionsFailedAlarmConfig): SfStateMachineExecutionsFailedAlarm
-```
-
-Creates an alarm that monitors the ExecutionsFailed for the StepFunctions stateMachine.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsFailed.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarmConfig">SfStateMachineExecutionsFailedAlarmConfig</a>
-
----
-
-##### `alarmExecutionsTimedOut` <a name="alarmExecutionsTimedOut" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut"></a>
-
-```typescript
-public alarmExecutionsTimedOut(props?: SfStateMachineExecutionsTimedOutAlarmConfig): SfStateMachineExecutionsTimedOutAlarm
-```
-
-Creates an alarm that monitors the ExecutionsTimedOut for the StepFunctions stateMachine.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionsTimedOut.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarmConfig">SfStateMachineExecutionsTimedOutAlarmConfig</a>
-
----
-
-##### `alarmExecutionThrottled` <a name="alarmExecutionThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled"></a>
-
-```typescript
-public alarmExecutionThrottled(props?: SfStateMachineExecutionThrottledAlarmConfig): SfStateMachineExecutionThrottledAlarm
-```
-
-Creates an alarm that monitors the ExecutionThrottled for the StepFunctions stateMachine.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionThrottled.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarmConfig">SfStateMachineExecutionThrottledAlarmConfig</a>
-
----
-
-##### `alarmExecutionTime` <a name="alarmExecutionTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime"></a>
-
-```typescript
-public alarmExecutionTime(props: SfStateMachineExecutionTimeAlarmConfig): SfStateMachineExecutionTimeAlarm
-```
-
-Creates an alarm that monitors the ExecutionTime for the StepFunctions stateMachine.
-
-###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.alarmExecutionTime.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarmConfig">SfStateMachineExecutionTimeAlarmConfig</a>
-
----
-
-##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms"></a>
-
-```typescript
-public applyRecommendedAlarms(props: SfStateMachineRecommendedAlarmsConfig): SfStateMachineRecommendedAlarms
-```
-
-Creates the recommended alarms for the StepFunctions StateMachine.
-
-###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRecommendedAlarms.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarmsConfig">SfStateMachineRecommendedAlarmsConfig</a>
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn">fromStateMachineArn</a></code> | Import a state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName">fromStateMachineName</a></code> | Import a state machine via resource name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct"></a>
-
-```typescript
-import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-StateMachine.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource"></a>
-
-```typescript
-import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-StateMachine.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource"></a>
-
-```typescript
-import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-StateMachine.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromStateMachineArn` <a name="fromStateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn"></a>
-
-```typescript
-import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-StateMachine.fromStateMachineArn(scope: Construct, id: string, stateMachineArn: string)
-```
-
-Import a state machine.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.id"></a>
-
-- *Type:* string
-
----
-
-###### `stateMachineArn`<sup>Required</sup> <a name="stateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineArn.parameter.stateMachineArn"></a>
-
-- *Type:* string
-
----
-
-##### `fromStateMachineName` <a name="fromStateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName"></a>
-
-```typescript
-import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-StateMachine.fromStateMachineName(scope: Construct, id: string, stateMachineName: string)
-```
-
-Import a state machine via resource name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.id"></a>
-
-- *Type:* string
-
----
-
-###### `stateMachineName`<sup>Required</sup> <a name="stateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.fromStateMachineName.parameter.stateMachineName"></a>
-
-- *Type:* string
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal this state machine is running as. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role of this state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineArn">stateMachineArn</a></code> | <code>string</code> | The ARN of the state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineName">stateMachineName</a></code> | <code>string</code> | The name of the state machine. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRevisionId">stateMachineRevisionId</a></code> | <code>string</code> | Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineType">stateMachineType</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachineType</code> | Type of the state machine. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grantPrincipal"></a>
-
-```typescript
-public readonly grantPrincipal: IPrincipal;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.IPrincipal
-
-The principal this state machine is running as.
-
----
-
-##### `role`<sup>Required</sup> <a name="role" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.role"></a>
-
-```typescript
-public readonly role: IRole;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.IRole
-
-Execution role of this state machine.
-
----
-
-##### `stateMachineArn`<sup>Required</sup> <a name="stateMachineArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineArn"></a>
-
-```typescript
-public readonly stateMachineArn: string;
-```
-
-- *Type:* string
-
-The ARN of the state machine.
-
----
-
-##### `stateMachineName`<sup>Required</sup> <a name="stateMachineName" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineName"></a>
-
-```typescript
-public readonly stateMachineName: string;
-```
-
-- *Type:* string
-
-The name of the state machine.
-
----
-
-##### `stateMachineRevisionId`<sup>Required</sup> <a name="stateMachineRevisionId" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRevisionId"></a>
-
-```typescript
-public readonly stateMachineRevisionId: string;
-```
-
-- *Type:* string
-
-Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
-
----
-
-##### `stateMachineType`<sup>Required</sup> <a name="stateMachineType" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineType"></a>
-
-```typescript
-public readonly stateMachineType: StateMachineType;
-```
-
-- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachineType
-
-Type of the state machine.
 
 ---
 
