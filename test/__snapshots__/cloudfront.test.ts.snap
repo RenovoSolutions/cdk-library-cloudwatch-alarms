@@ -1,50 +1,50 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AspectWithTreatMissingData 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -53,15 +53,15 @@ exports[`AspectWithTreatMissingData 1`] = `
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -77,10 +77,10 @@ exports[`AspectWithTreatMissingData 1`] = `
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -89,22 +89,22 @@ exports[`AspectWithTreatMissingData 1`] = `
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -113,14 +113,14 @@ exports[`AspectWithTreatMissingData 1`] = `
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -129,10 +129,10 @@ exports[`AspectWithTreatMissingData 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -147,14 +147,14 @@ exports[`AspectWithTreatMissingData 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -163,10 +163,10 @@ exports[`AspectWithTreatMissingData 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -181,22 +181,22 @@ exports[`AspectWithTreatMissingData 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -206,22 +206,22 @@ exports[`AspectWithTreatMissingData 1`] = `
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -237,50 +237,50 @@ exports[`AspectWithTreatMissingData 1`] = `
 `;
 
 exports[`CloudFrontDistributionSnapshot 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -289,15 +289,15 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -313,10 +313,10 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -325,22 +325,22 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -349,14 +349,14 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -365,10 +365,10 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -383,14 +383,14 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -399,10 +399,10 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -417,22 +417,22 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -442,22 +442,22 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -473,50 +473,50 @@ exports[`CloudFrontDistributionSnapshot 1`] = `
 `;
 
 exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -525,15 +525,15 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -549,10 +549,10 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -561,22 +561,22 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -585,22 +585,22 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -609,22 +609,22 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
-    "TopicBFC7AF6E": {
+    "TopicBFC7AF6E": Object {
       "Type": "AWS::SNS::Topic",
     },
-    "cloudfrontDistributionAlarmsDistribution5xxErrorRateFF9892B6": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "cloudfrontDistributionAlarmsDistribution5xxErrorRateFF9892B6": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -633,24 +633,24 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "5xxErrorRate",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -661,19 +661,19 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "cloudfrontDistributionAlarmsDistributionOriginLatency3F81DAA5": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "cloudfrontDistributionAlarmsDistributionOriginLatency3F81DAA5": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -682,25 +682,25 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
         ],
         "EvaluationPeriods": 5,
         "ExtendedStatistic": "p90",
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "OriginLatency",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -711,22 +711,22 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -742,50 +742,50 @@ exports[`CloudFrontDistributionSnapshotDefaultActionsInUse 1`] = `
 `;
 
 exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -794,15 +794,15 @@ exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -818,10 +818,10 @@ exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -830,22 +830,22 @@ exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -854,14 +854,14 @@ exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -870,10 +870,10 @@ exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -888,22 +888,22 @@ exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -913,22 +913,22 @@ exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -944,50 +944,50 @@ exports[`CloudFrontDistributionSnapshotWithExclusion 1`] = `
 `;
 
 exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -996,15 +996,15 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -1020,10 +1020,10 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -1032,22 +1032,22 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -1056,22 +1056,22 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -1080,22 +1080,22 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
-    "TopicBFC7AF6E": {
+    "TopicBFC7AF6E": Object {
       "Type": "AWS::SNS::Topic",
     },
-    "cloudFrontDistributionAlarmsDistribution5xxErrorRate96A33BA5": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "cloudFrontDistributionAlarmsDistribution5xxErrorRate96A33BA5": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -1104,24 +1104,24 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "5xxErrorRate",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -1132,19 +1132,19 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "cloudFrontDistributionAlarmsDistributionDetailedFunctionExecutionErrors02ADAB117": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "cloudFrontDistributionAlarmsDistributionDetailedFunctionExecutionErrors02ADAB117": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm is used to detect execution errors from CloudFront functions.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionExecutionErrors",
@@ -1153,32 +1153,32 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "FunctionExecutionErrors",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -1189,19 +1189,19 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "cloudFrontDistributionAlarmsDistributionDetailedFunctionThrottles0D9B20465": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "cloudFrontDistributionAlarmsDistributionDetailedFunctionThrottles0D9B20465": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can detect when your CloudFront function is throttled so that you can react and resolve the issue for a smooth customer experience.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionThrottles",
@@ -1210,32 +1210,32 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "FunctionThrottles",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -1246,19 +1246,19 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "cloudFrontDistributionAlarmsDistributionDetailedFunctionValidationErrors0A91A91DF": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "cloudFrontDistributionAlarmsDistributionDetailedFunctionValidationErrors0A91A91DF": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm is used to detect validation errors from CloudFront functions.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionValidationErrors",
@@ -1267,32 +1267,32 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 2,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
         ],
         "EvaluationPeriods": 2,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "FunctionValidationErrors",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -1303,19 +1303,19 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "cloudFrontDistributionAlarmsDistributionOriginLatency74D4C100": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "cloudFrontDistributionAlarmsDistributionOriginLatency74D4C100": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -1324,25 +1324,25 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
         ],
         "EvaluationPeriods": 5,
         "ExtendedStatistic": "p90",
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "OriginLatency",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -1353,22 +1353,22 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -1384,50 +1384,50 @@ exports[`DistributionSnapshotDefaultActionsInUseWithDetails 1`] = `
 `;
 
 exports[`DistributionSnapshotWithDetailedList 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -1436,15 +1436,15 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -1460,10 +1460,10 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -1472,22 +1472,22 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -1496,14 +1496,14 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -1512,10 +1512,10 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -1530,14 +1530,14 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionExecutionErrors0FE26E582": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionExecutionErrors0FE26E582": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect execution errors from CloudFront functions.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionExecutionErrors",
@@ -1546,18 +1546,18 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
@@ -1572,14 +1572,14 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionThrottles09E508AC8": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionThrottles09E508AC8": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm can detect when your CloudFront function is throttled so that you can react and resolve the issue for a smooth customer experience.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionThrottles",
@@ -1588,18 +1588,18 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
@@ -1614,14 +1614,14 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionValidationErrors042BE53E8": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionValidationErrors042BE53E8": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect validation errors from CloudFront functions.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionValidationErrors",
@@ -1630,18 +1630,18 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 2,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
@@ -1656,14 +1656,14 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -1672,10 +1672,10 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -1690,22 +1690,22 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -1715,22 +1715,22 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -1746,50 +1746,50 @@ exports[`DistributionSnapshotWithDetailedList 1`] = `
 `;
 
 exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -1798,15 +1798,15 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -1822,10 +1822,10 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -1834,22 +1834,22 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -1858,14 +1858,14 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsDistribution5xxErrorRate935099A6": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsDistribution5xxErrorRate935099A6": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -1874,10 +1874,10 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -1892,14 +1892,14 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsDistributionOriginLatencyF4167B89": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsDistributionOriginLatencyF4167B89": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -1908,10 +1908,10 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -1926,22 +1926,22 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -1951,22 +1951,22 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -1982,50 +1982,50 @@ exports[`SnapshotForCloudFrontDistributionConstruct 1`] = `
 `;
 
 exports[`alarms can be applied individually to resources using extended construct 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -2034,15 +2034,15 @@ exports[`alarms can be applied individually to resources using extended construc
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -2058,14 +2058,14 @@ exports[`alarms can be applied individually to resources using extended construc
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution5xxErrorRateAlarm39B5F7C8": {
-      "Properties": {
+    "Distribution5xxErrorRateAlarm39B5F7C8": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -2074,10 +2074,10 @@ exports[`alarms can be applied individually to resources using extended construc
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -2092,10 +2092,10 @@ exports[`alarms can be applied individually to resources using extended construc
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -2104,22 +2104,22 @@ exports[`alarms can be applied individually to resources using extended construc
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -2128,14 +2128,14 @@ exports[`alarms can be applied individually to resources using extended construc
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionDetailedFunctionExecutionErrors06F4E3709": {
-      "Properties": {
+    "DistributionDetailedFunctionExecutionErrors06F4E3709": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect execution errors from CloudFront functions.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionExecutionErrors",
@@ -2144,18 +2144,18 @@ exports[`alarms can be applied individually to resources using extended construc
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
@@ -2170,14 +2170,14 @@ exports[`alarms can be applied individually to resources using extended construc
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionDetailedFunctionThrottles08B7E3EF3": {
-      "Properties": {
+    "DistributionDetailedFunctionThrottles08B7E3EF3": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm can detect when your CloudFront function is throttled so that you can react and resolve the issue for a smooth customer experience.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionThrottles",
@@ -2186,18 +2186,18 @@ exports[`alarms can be applied individually to resources using extended construc
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
@@ -2212,14 +2212,14 @@ exports[`alarms can be applied individually to resources using extended construc
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionDetailedFunctionValidationErrors05CA4BD51": {
-      "Properties": {
+    "DistributionDetailedFunctionValidationErrors05CA4BD51": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect validation errors from CloudFront functions.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               "-test-function-name - FunctionValidationErrors",
@@ -2228,18 +2228,18 @@ exports[`alarms can be applied individually to resources using extended construc
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 2,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
@@ -2254,22 +2254,22 @@ exports[`alarms can be applied individually to resources using extended construc
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -2278,14 +2278,14 @@ exports[`alarms can be applied individually to resources using extended construc
       },
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
-    "DistributionOriginLatencyAlarm24A7FB50": {
-      "Properties": {
+    "DistributionOriginLatencyAlarm24A7FB50": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -2294,10 +2294,10 @@ exports[`alarms can be applied individually to resources using extended construc
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -2313,22 +2313,22 @@ exports[`alarms can be applied individually to resources using extended construc
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -2344,50 +2344,50 @@ exports[`alarms can be applied individually to resources using extended construc
 `;
 
 exports[`default alarm actions are overridden when individual alarm actions are provided in configuration 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -2396,15 +2396,15 @@ exports[`default alarm actions are overridden when individual alarm actions are 
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -2420,10 +2420,10 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -2432,22 +2432,22 @@ exports[`default alarm actions are overridden when individual alarm actions are 
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -2456,22 +2456,22 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -2480,17 +2480,17 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
-    "LambdaD247545B": {
-      "DependsOn": [
+    "LambdaD247545B": Object {
+      "DependsOn": Array [
         "LambdaServiceRoleA8ED4D3B",
       ],
-      "Properties": {
-        "Code": {
+      "Properties": Object {
+        "Code": Object {
           "ZipFile": "exports.handler = async (event) => { console.log(event); }",
         },
         "Handler": "index.handler",
-        "Role": {
-          "Fn::GetAtt": [
+        "Role": Object {
+          "Fn::GetAtt": Array [
             "LambdaServiceRoleA8ED4D3B",
             "Arn",
           ],
@@ -2499,19 +2499,19 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::Lambda::Function",
     },
-    "LambdaDistribution5xxErrorRateAlarmPermissionF39C4A58": {
-      "Properties": {
+    "LambdaDistribution5xxErrorRateAlarmPermissionF39C4A58": Object {
+      "Properties": Object {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
             "LambdaD247545B",
             "Arn",
           ],
         },
         "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
         "SourceAccount": "123456789012",
-        "SourceArn": {
-          "Fn::GetAtt": [
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
             "cloudfrontDistributionAlarmsDistribution5xxErrorRateFF9892B6",
             "Arn",
           ],
@@ -2519,19 +2519,19 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "LambdaDistributionOriginLatencyAlarmPermission9C273FD2": {
-      "Properties": {
+    "LambdaDistributionOriginLatencyAlarmPermission9C273FD2": Object {
+      "Properties": Object {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
             "LambdaD247545B",
             "Arn",
           ],
         },
         "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
         "SourceAccount": "123456789012",
-        "SourceArn": {
-          "Fn::GetAtt": [
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
             "cloudfrontDistributionAlarmsDistributionOriginLatency3F81DAA5",
             "Arn",
           ],
@@ -2539,27 +2539,27 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "LambdaServiceRoleA8ED4D3B": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
+    "LambdaServiceRoleA8ED4D3B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": [
-          {
-            "Fn::Join": [
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
               "",
-              [
+              Array [
                 "arn:",
-                {
+                Object {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -2570,25 +2570,25 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::IAM::Role",
     },
-    "TopicBFC7AF6E": {
+    "TopicBFC7AF6E": Object {
       "Type": "AWS::SNS::Topic",
     },
-    "cloudfrontDistributionAlarmsDistribution5xxErrorRateFF9892B6": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Fn::GetAtt": [
+    "cloudfrontDistributionAlarmsDistribution5xxErrorRateFF9892B6": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
               "LambdaD247545B",
               "Arn",
             ],
           },
         ],
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -2597,18 +2597,18 @@ exports[`default alarm actions are overridden when individual alarm actions are 
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": [
-          {
-            "Fn::GetAtt": [
+        "InsufficientDataActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2616,9 +2616,9 @@ exports[`default alarm actions are overridden when individual alarm actions are 
         ],
         "MetricName": "5xxErrorRate",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
-            "Fn::GetAtt": [
+        "OKActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2631,22 +2631,22 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "cloudfrontDistributionAlarmsDistributionOriginLatency3F81DAA5": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Fn::GetAtt": [
+    "cloudfrontDistributionAlarmsDistributionOriginLatency3F81DAA5": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
               "LambdaD247545B",
               "Arn",
             ],
           },
         ],
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -2655,19 +2655,19 @@ exports[`default alarm actions are overridden when individual alarm actions are 
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
         ],
         "EvaluationPeriods": 5,
         "ExtendedStatistic": "p90",
-        "InsufficientDataActions": [
-          {
-            "Fn::GetAtt": [
+        "InsufficientDataActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2675,9 +2675,9 @@ exports[`default alarm actions are overridden when individual alarm actions are 
         ],
         "MetricName": "OriginLatency",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
-            "Fn::GetAtt": [
+        "OKActions": Array [
+          Object {
+            "Fn::GetAtt": Array [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2690,22 +2690,22 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -2721,50 +2721,50 @@ exports[`default alarm actions are overridden when individual alarm actions are 
 `;
 
 exports[`optional alarm configurations can be overwritten 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -2773,15 +2773,15 @@ exports[`optional alarm configurations can be overwritten 1`] = `
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -2797,10 +2797,10 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -2809,22 +2809,22 @@ exports[`optional alarm configurations can be overwritten 1`] = `
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -2833,10 +2833,10 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2844,24 +2844,24 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         "AlarmName": "Custom5xxErrorRateAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "5xxErrorRate",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2872,10 +2872,10 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionExecutionErrors0FE26E582": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionExecutionErrors0FE26E582": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2883,32 +2883,32 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         "AlarmName": "CustomTestDetailedFunctionExecutionErrorsAlarmAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "FunctionExecutionErrors",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2919,10 +2919,10 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionThrottles09E508AC8": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionThrottles09E508AC8": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2930,32 +2930,32 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         "AlarmName": "CustomTestDetailedFunctionThrottlesAlarmAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "FunctionThrottles",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2966,10 +2966,10 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionValidationErrors042BE53E8": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionDetailedFunctionValidationErrors042BE53E8": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2977,32 +2977,32 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         "AlarmName": "CustomTestDetailedFunctionValidationErrorsAlarmAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
-          {
+          Object {
             "Name": "FunctionName",
             "Value": "test-function-name",
           },
-          {
+          Object {
             "Name": "Region",
             "Value": "GLOBAL",
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "FunctionValidationErrors",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3013,10 +3013,10 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": {
-      "Properties": {
-        "AlarmActions": [
-          {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": Object {
+      "Properties": Object {
+        "AlarmActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3024,25 +3024,25 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         "AlarmName": "CustomOriginLatencyAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
         ],
         "EvaluationPeriods": 25,
         "ExtendedStatistic": "p90",
-        "InsufficientDataActions": [
-          {
+        "InsufficientDataActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "OriginLatency",
         "Namespace": "AWS/CloudFront",
-        "OKActions": [
-          {
+        "OKActions": Array [
+          Object {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3052,22 +3052,22 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -3076,26 +3076,26 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
-    "TopicBFC7AF6E": {
+    "TopicBFC7AF6E": Object {
       "Type": "AWS::SNS::Topic",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -3111,50 +3111,50 @@ exports[`optional alarm configurations can be overwritten 1`] = `
 `;
 
 exports[`stack should contain distribution recommended alarms if recommended alarms aspect is applied with no exclusions 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket83908E77": {
+  "Resources": Object {
+    "Bucket83908E77": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "BucketPolicyE9A3008A": {
-      "Properties": {
-        "Bucket": {
+    "BucketPolicyE9A3008A": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket83908E77",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution830FAC52",
                         },
                       ],
@@ -3163,15 +3163,15 @@ exports[`stack should contain distribution recommended alarms if recommended ala
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket83908E77",
                         "Arn",
                       ],
@@ -3187,10 +3187,10 @@ exports[`stack should contain distribution recommended alarms if recommended ala
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution830FAC52": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution830FAC52": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistributionOrigin1B0A090BF",
@@ -3199,22 +3199,22 @@ exports[`stack should contain distribution recommended alarms if recommended ala
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket83908E77",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistributionOrigin1B0A090BF",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "DistributionOrigin1S3OriginAccessControlEB606076",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -3223,14 +3223,14 @@ exports[`stack should contain distribution recommended alarms if recommended ala
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistribution5xxErrorRateB368D12B": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - 5xxErrorRate",
@@ -3239,10 +3239,10 @@ exports[`stack should contain distribution recommended alarms if recommended ala
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -3257,14 +3257,14 @@ exports[`stack should contain distribution recommended alarms if recommended ala
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": {
-      "Properties": {
+    "DistributionCloudFrontDistributionRecommendedAlarmsFromAspectDistributionOriginLatency29AA3952": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution830FAC52",
               },
               " - OriginLatency",
@@ -3273,10 +3273,10 @@ exports[`stack should contain distribution recommended alarms if recommended ala
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution830FAC52",
             },
           },
@@ -3291,22 +3291,22 @@ exports[`stack should contain distribution recommended alarms if recommended ala
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "DistributionMonitoringSubscription2503EB92": {
-      "Properties": {
-        "DistributionId": {
+    "DistributionMonitoringSubscription2503EB92": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution830FAC52",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "DistributionOrigin1S3OriginAccessControlEB606076": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "DistributionOrigin1S3OriginAccessControlEB606076": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistributionOrigin1S3OriginAccessControl466A8947",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -3316,22 +3316,22 @@ exports[`stack should contain distribution recommended alarms if recommended ala
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -3347,50 +3347,50 @@ exports[`stack should contain distribution recommended alarms if recommended ala
 `;
 
 exports[`when an resource is excluded from the aspect config it should not have alarms 1`] = `
-{
-  "Parameters": {
-    "BootstrapVersion": {
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": {
-    "Bucket12520700A": {
+  "Resources": Object {
+    "Bucket12520700A": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "Bucket1Policy65042C0B": {
-      "Properties": {
-        "Bucket": {
+    "Bucket1Policy65042C0B": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket12520700A",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution12E11DF57",
                         },
                       ],
@@ -3399,15 +3399,15 @@ exports[`when an resource is excluded from the aspect config it should not have 
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket12520700A",
                         "Arn",
                       ],
@@ -3423,41 +3423,41 @@ exports[`when an resource is excluded from the aspect config it should not have 
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Bucket25524B414": {
+    "Bucket25524B414": Object {
       "DeletionPolicy": "Retain",
-      "Properties": {
-        "VersioningConfiguration": {
+      "Properties": Object {
+        "VersioningConfiguration": Object {
           "Status": "Enabled",
         },
       },
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "Bucket2Policy945B22E3": {
-      "Properties": {
-        "Bucket": {
+    "Bucket2Policy945B22E3": Object {
+      "Properties": Object {
+        "Bucket": Object {
           "Ref": "Bucket25524B414",
         },
-        "PolicyDocument": {
-          "Statement": [
-            {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
               "Action": "s3:GetObject",
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": {
-                    "Fn::Join": [
+              "Condition": Object {
+                "StringEquals": Object {
+                  "AWS:SourceArn": Object {
+                    "Fn::Join": Array [
                       "",
-                      [
+                      Array [
                         "arn:",
-                        {
+                        Object {
                           "Ref": "AWS::Partition",
                         },
                         ":cloudfront::",
-                        {
+                        Object {
                           "Ref": "AWS::AccountId",
                         },
                         ":distribution/",
-                        {
+                        Object {
                           "Ref": "Distribution2A3FAFEFD",
                         },
                       ],
@@ -3466,15 +3466,15 @@ exports[`when an resource is excluded from the aspect config it should not have 
                 },
               },
               "Effect": "Allow",
-              "Principal": {
+              "Principal": Object {
                 "Service": "cloudfront.amazonaws.com",
               },
-              "Resource": {
-                "Fn::Join": [
+              "Resource": Object {
+                "Fn::Join": Array [
                   "",
-                  [
-                    {
-                      "Fn::GetAtt": [
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
                         "Bucket25524B414",
                         "Arn",
                       ],
@@ -3490,10 +3490,10 @@ exports[`when an resource is excluded from the aspect config it should not have 
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "Distribution12E11DF57": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution12E11DF57": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistribution1Origin16C82CBCA",
@@ -3502,22 +3502,22 @@ exports[`when an resource is excluded from the aspect config it should not have 
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket12520700A",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistribution1Origin16C82CBCA",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "Distribution1Origin1S3OriginAccessControl8129DDAC",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -3526,22 +3526,22 @@ exports[`when an resource is excluded from the aspect config it should not have 
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "Distribution1MonitoringSubscription2791C3FE": {
-      "Properties": {
-        "DistributionId": {
+    "Distribution1MonitoringSubscription2791C3FE": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution12E11DF57",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "Distribution1Origin1S3OriginAccessControl8129DDAC": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "Distribution1Origin1S3OriginAccessControl8129DDAC": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistribution1Origin1S3OriginAccessControlBAE658A4",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -3550,10 +3550,10 @@ exports[`when an resource is excluded from the aspect config it should not have 
       },
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
-    "Distribution2A3FAFEFD": {
-      "Properties": {
-        "DistributionConfig": {
-          "DefaultCacheBehavior": {
+    "Distribution2A3FAFEFD": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
             "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
             "Compress": true,
             "TargetOriginId": "TestStackDistribution2Origin16D080F8B",
@@ -3562,22 +3562,22 @@ exports[`when an resource is excluded from the aspect config it should not have 
           "Enabled": true,
           "HttpVersion": "http2",
           "IPV6Enabled": true,
-          "Origins": [
-            {
-              "DomainName": {
-                "Fn::GetAtt": [
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
                   "Bucket25524B414",
                   "RegionalDomainName",
                 ],
               },
               "Id": "TestStackDistribution2Origin16D080F8B",
-              "OriginAccessControlId": {
-                "Fn::GetAtt": [
+              "OriginAccessControlId": Object {
+                "Fn::GetAtt": Array [
                   "Distribution2Origin1S3OriginAccessControlDACE9FB5",
                   "Id",
                 ],
               },
-              "S3OriginConfig": {
+              "S3OriginConfig": Object {
                 "OriginAccessIdentity": "",
               },
             },
@@ -3586,14 +3586,14 @@ exports[`when an resource is excluded from the aspect config it should not have 
       },
       "Type": "AWS::CloudFront::Distribution",
     },
-    "Distribution2CloudFrontDistributionRecommendedAlarmsFromAspectDistribution25xxErrorRate253D31BD": {
-      "Properties": {
+    "Distribution2CloudFrontDistributionRecommendedAlarmsFromAspectDistribution25xxErrorRate253D31BD": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with serving requests from the origin  server, or problems with communication between CloudFront and your origin server.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution2A3FAFEFD",
               },
               " - 5xxErrorRate",
@@ -3602,10 +3602,10 @@ exports[`when an resource is excluded from the aspect config it should not have 
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution2A3FAFEFD",
             },
           },
@@ -3620,14 +3620,14 @@ exports[`when an resource is excluded from the aspect config it should not have 
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "Distribution2CloudFrontDistributionRecommendedAlarmsFromAspectDistribution2OriginLatency1D7BDFB1": {
-      "Properties": {
+    "Distribution2CloudFrontDistributionRecommendedAlarmsFromAspectDistribution2OriginLatency1D7BDFB1": Object {
+      "Properties": Object {
         "AlarmDescription": "This alarm is used to detect problems with the origin server taking too long to respond.",
-        "AlarmName": {
-          "Fn::Join": [
+        "AlarmName": Object {
+          "Fn::Join": Array [
             "",
-            [
-              {
+            Array [
+              Object {
                 "Ref": "Distribution2A3FAFEFD",
               },
               " - OriginLatency",
@@ -3636,10 +3636,10 @@ exports[`when an resource is excluded from the aspect config it should not have 
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": [
-          {
+        "Dimensions": Array [
+          Object {
             "Name": "DistributionId",
-            "Value": {
+            "Value": Object {
               "Ref": "Distribution2A3FAFEFD",
             },
           },
@@ -3654,22 +3654,22 @@ exports[`when an resource is excluded from the aspect config it should not have 
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "Distribution2MonitoringSubscriptionE2E01B6B": {
-      "Properties": {
-        "DistributionId": {
+    "Distribution2MonitoringSubscriptionE2E01B6B": Object {
+      "Properties": Object {
+        "DistributionId": Object {
           "Ref": "Distribution2A3FAFEFD",
         },
-        "MonitoringSubscription": {
-          "RealtimeMetricsSubscriptionConfig": {
+        "MonitoringSubscription": Object {
+          "RealtimeMetricsSubscriptionConfig": Object {
             "RealtimeMetricsSubscriptionStatus": "Enabled",
           },
         },
       },
       "Type": "AWS::CloudFront::MonitoringSubscription",
     },
-    "Distribution2Origin1S3OriginAccessControlDACE9FB5": {
-      "Properties": {
-        "OriginAccessControlConfig": {
+    "Distribution2Origin1S3OriginAccessControlDACE9FB5": Object {
+      "Properties": Object {
+        "OriginAccessControlConfig": Object {
           "Name": "TestStackDistribution2Origin1S3OriginAccessControlE8F74C43",
           "OriginAccessControlOriginType": "s3",
           "SigningBehavior": "always",
@@ -3679,22 +3679,22 @@ exports[`when an resource is excluded from the aspect config it should not have 
       "Type": "AWS::CloudFront::OriginAccessControl",
     },
   },
-  "Rules": {
-    "CheckBootstrapVersion": {
-      "Assertions": [
-        {
-          "Assert": {
-            "Fn::Not": [
-              {
-                "Fn::Contains": [
-                  [
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  {
+                  Object {
                     "Ref": "BootstrapVersion",
                   },
                 ],

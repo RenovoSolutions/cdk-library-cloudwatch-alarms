@@ -17,7 +17,6 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
-    "package:dotnet": "npx projen package:dotnet",
     "package:js": "npx projen package:js",
     "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
@@ -39,8 +38,8 @@
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.0.3",
+    "@types/jest": "^27",
+    "@types/node": "^16 <= 16.18.78",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk-lib": "2.200.1",
@@ -49,7 +48,7 @@
     "eslint": "^9",
     "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "^2.31.0",
-    "jest": "^30.0.2",
+    "jest": "^27",
     "jest-junit": "^16",
     "jsii": "~5.6.0",
     "jsii-diff": "^1.112.0",
@@ -57,7 +56,7 @@
     "jsii-pacmak": "^1.112.0",
     "jsii-rosetta": "~5.6.0",
     "projen": "^0.93.0",
-    "ts-jest": "^29.4.0",
+    "ts-jest": "^27",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
@@ -115,13 +114,11 @@
         }
       ]
     ],
-    "transform": {
-      "^.+\\.[t]sx?$": [
-        "ts-jest",
-        {
-          "tsconfig": "tsconfig.dev.json"
-        }
-      ]
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.dev.json"
+      }
     }
   },
   "types": "lib/index.d.ts",
@@ -132,10 +129,6 @@
       "python": {
         "distName": "renovosolutions.aws-cdk-cloudwatch-alarms",
         "module": "alarms"
-      },
-      "dotnet": {
-        "namespace": "renovosolutions",
-        "packageId": "Renovo.AWSCDK.Cloudwatch.Alarms"
       }
     },
     "tsc": {
