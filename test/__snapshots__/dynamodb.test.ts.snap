@@ -1,31 +1,31 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`AspectWithTreatMissingData 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -34,14 +34,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -50,10 +50,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -68,14 +68,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -84,10 +84,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -102,14 +102,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -118,10 +118,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -137,22 +137,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -168,31 +168,31 @@ Object {
 `;
 
 exports[`DynamoDbTableSnapshot 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -201,14 +201,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -217,10 +217,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -235,14 +235,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -251,10 +251,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -269,14 +269,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -285,10 +285,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -304,22 +304,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -335,31 +335,31 @@ Object {
 `;
 
 exports[`DynamoDbTableSnapshotDefaultActionsInUse 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -368,22 +368,22 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TopicBFC7AF6E": Object {
+    "TopicBFC7AF6E": {
       "Type": "AWS::SNS::Topic",
     },
-    "dynamodbTableAlarmsTableReadThrottleEvents18A6A3BB": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableReadThrottleEvents18A6A3BB": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -392,24 +392,24 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ReadThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -420,19 +420,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableSystemErrors1D141C49": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableSystemErrors1D141C49": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -441,24 +441,24 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "SystemErrors",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -469,19 +469,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableWriteThrottleEvents65AD8039": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableWriteThrottleEvents65AD8039": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -490,24 +490,24 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "WriteThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -519,22 +519,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -550,31 +550,31 @@ Object {
 `;
 
 exports[`DynamoDbTableSnapshotDefaultActionsInUseWithReplicationAlarms 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -583,22 +583,22 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TopicBFC7AF6E": Object {
+    "TopicBFC7AF6E": {
       "Type": "AWS::SNS::Topic",
     },
-    "dynamodbTableAlarmsTableAgeOfOldestUnreplicatedRecord1E762DBC": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableAgeOfOldestUnreplicatedRecord1E762DBC": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - AgeOfOldestUnreplicatedRecord",
@@ -607,28 +607,28 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 3,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "AgeOfOldestUnreplicatedRecord",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -639,19 +639,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableFailedToReplicateRecordCountC5DFB97A": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableFailedToReplicateRecordCountC5DFB97A": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can monitor the number of records that DynamoDB failed to replicate to your Kinesis data stream because of the item size limit of Kinesis Data Streams.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - FailedToReplicateRecordCount",
@@ -660,28 +660,28 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 1,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 1,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "FailedToReplicateRecordCount",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -692,19 +692,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableReadThrottleEvents18A6A3BB": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableReadThrottleEvents18A6A3BB": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -713,24 +713,24 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ReadThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -741,19 +741,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableSystemErrors1D141C49": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableSystemErrors1D141C49": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -762,24 +762,24 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "SystemErrors",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -790,19 +790,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableThrottledPutRecordCountAC0FD8FB": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableThrottledPutRecordCountAC0FD8FB": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can monitor the number of records that that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ThrottledPutRecordCount",
@@ -811,28 +811,28 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 10,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "PutItem",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 10,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ThrottledPutRecordCount",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -843,19 +843,19 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableWriteThrottleEvents65AD8039": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "dynamodbTableAlarmsTableWriteThrottleEvents65AD8039": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -864,24 +864,24 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "WriteThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -893,22 +893,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -924,31 +924,31 @@ Object {
 `;
 
 exports[`DynamoDbTableSnapshotWithExclusion 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -957,14 +957,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -973,10 +973,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -991,14 +991,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -1007,10 +1007,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1026,22 +1026,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -1057,31 +1057,31 @@ Object {
 `;
 
 exports[`DynamoDbTableSnapshotWithReplicationAlarmsAndExclusion 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -1090,14 +1090,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableAgeOfOldestUnreplicatedRecordD4A6A50F": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableAgeOfOldestUnreplicatedRecordD4A6A50F": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - AgeOfOldestUnreplicatedRecord",
@@ -1106,14 +1106,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1128,14 +1128,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableFailedToReplicateRecordCountF168E613": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableFailedToReplicateRecordCountF168E613": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that DynamoDB failed to replicate to your Kinesis data stream because of the item size limit of Kinesis Data Streams.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - FailedToReplicateRecordCount",
@@ -1144,14 +1144,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 1,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1166,14 +1166,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -1182,10 +1182,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1200,14 +1200,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableThrottledPutRecordCount33CF224B": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableThrottledPutRecordCount33CF224B": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ThrottledPutRecordCount",
@@ -1216,14 +1216,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 10,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "PutItem",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1238,14 +1238,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -1254,10 +1254,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1273,22 +1273,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -1304,31 +1304,31 @@ Object {
 `;
 
 exports[`DynamoDbTableWithReplicationAlarmsSnapshot 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -1337,14 +1337,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableAgeOfOldestUnreplicatedRecordD4A6A50F": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableAgeOfOldestUnreplicatedRecordD4A6A50F": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - AgeOfOldestUnreplicatedRecord",
@@ -1353,14 +1353,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1375,14 +1375,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableFailedToReplicateRecordCountF168E613": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableFailedToReplicateRecordCountF168E613": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that DynamoDB failed to replicate to your Kinesis data stream because of the item size limit of Kinesis Data Streams.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - FailedToReplicateRecordCount",
@@ -1391,14 +1391,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 1,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1413,14 +1413,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -1429,10 +1429,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1447,14 +1447,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -1463,10 +1463,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1481,14 +1481,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableThrottledPutRecordCount33CF224B": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableThrottledPutRecordCount33CF224B": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ThrottledPutRecordCount",
@@ -1497,14 +1497,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 10,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "PutItem",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1519,14 +1519,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -1535,10 +1535,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1554,22 +1554,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -1585,31 +1585,31 @@ Object {
 `;
 
 exports[`SnapshotForDynamoDbTableConstruct 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -1618,14 +1618,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableReadThrottleEvents3ADEE357": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableReadThrottleEvents3ADEE357": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -1634,10 +1634,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1652,14 +1652,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableSystemErrorsD53B47A7": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableSystemErrorsD53B47A7": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -1668,10 +1668,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1686,14 +1686,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableWriteThrottleEvents0C02782F": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableWriteThrottleEvents0C02782F": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -1702,10 +1702,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1721,22 +1721,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -1752,31 +1752,31 @@ Object {
 `;
 
 exports[`SnapshotForDynamoDbTableConstructWithReplicationAlarms 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -1785,14 +1785,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableAgeOfOldestUnreplicatedRecordB2799F85": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableAgeOfOldestUnreplicatedRecordB2799F85": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - AgeOfOldestUnreplicatedRecord",
@@ -1801,14 +1801,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1823,14 +1823,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableFailedToReplicateRecordCount5220A975": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableFailedToReplicateRecordCount5220A975": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that DynamoDB failed to replicate to your Kinesis data stream because of the item size limit of Kinesis Data Streams.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - FailedToReplicateRecordCount",
@@ -1839,14 +1839,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 1,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1861,14 +1861,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableReadThrottleEvents3ADEE357": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableReadThrottleEvents3ADEE357": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -1877,10 +1877,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1895,14 +1895,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableSystemErrorsD53B47A7": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableSystemErrorsD53B47A7": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -1911,10 +1911,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1929,14 +1929,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableThrottledPutRecordCountD3AF830B": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableThrottledPutRecordCountD3AF830B": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ThrottledPutRecordCount",
@@ -1945,14 +1945,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 10,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "PutItem",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -1967,14 +1967,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsTableWriteThrottleEvents0C02782F": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsTableWriteThrottleEvents0C02782F": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -1983,10 +1983,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2002,22 +2002,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -2033,23 +2033,23 @@ Object {
 `;
 
 exports[`all alarms can be applied individually to resources using extended construct 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableAgeOfOldestUnreplicatedRecordAlarmAAB30F37": Object {
-      "Properties": Object {
+  "Resources": {
+    "TableAgeOfOldestUnreplicatedRecordAlarmAAB30F37": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - AgeOfOldestUnreplicatedRecord",
@@ -2058,14 +2058,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2080,22 +2080,22 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableCD117FA1": Object {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -2104,14 +2104,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableFailedToReplicateRecordCountAlarm0D870386": Object {
-      "Properties": Object {
+    "TableFailedToReplicateRecordCountAlarm0D870386": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that DynamoDB failed to replicate to your Kinesis data stream because of the item size limit of Kinesis Data Streams.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - FailedToReplicateRecordCount",
@@ -2120,14 +2120,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 1,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2142,14 +2142,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableReadThrottleEventsAlarm0A49C4F4": Object {
-      "Properties": Object {
+    "TableReadThrottleEventsAlarm0A49C4F4": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -2158,10 +2158,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2176,14 +2176,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableSystemErrorsAlarmBC7C396A": Object {
-      "Properties": Object {
+    "TableSystemErrorsAlarmBC7C396A": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -2192,10 +2192,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2210,14 +2210,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableThrottledPutRecordCountAlarmB49C03B3": Object {
-      "Properties": Object {
+    "TableThrottledPutRecordCountAlarmB49C03B3": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ThrottledPutRecordCount",
@@ -2226,14 +2226,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 10,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "PutItem",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2248,14 +2248,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableWriteThrottleEventsAlarm5A8D9E54": Object {
-      "Properties": Object {
+    "TableWriteThrottleEventsAlarm5A8D9E54": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -2264,10 +2264,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2283,22 +2283,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -2314,26 +2314,26 @@ Object {
 `;
 
 exports[`default alarm actions are overridden when individual alarm actions are provided in configuration 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "LambdaD247545B": Object {
-      "DependsOn": Array [
+  "Resources": {
+    "LambdaD247545B": {
+      "DependsOn": [
         "LambdaServiceRoleA8ED4D3B",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "ZipFile": "exports.handler = async (event) => { console.log(event); }",
         },
         "Handler": "index.handler",
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "LambdaServiceRoleA8ED4D3B",
             "Arn",
           ],
@@ -2342,27 +2342,27 @@ Object {
       },
       "Type": "AWS::Lambda::Function",
     },
-    "LambdaServiceRoleA8ED4D3B": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "LambdaServiceRoleA8ED4D3B": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -2373,19 +2373,19 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "LambdaTableReadThrottleEventsAlarmPermission49A30A64": Object {
-      "Properties": Object {
+    "LambdaTableReadThrottleEventsAlarmPermission49A30A64": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "LambdaD247545B",
             "Arn",
           ],
         },
         "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
         "SourceAccount": "123456789012",
-        "SourceArn": Object {
-          "Fn::GetAtt": Array [
+        "SourceArn": {
+          "Fn::GetAtt": [
             "dynamodbTableAlarmsTableReadThrottleEvents18A6A3BB",
             "Arn",
           ],
@@ -2393,19 +2393,19 @@ Object {
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "LambdaTableSystemErrorsAlarmPermissionDE6E04D6": Object {
-      "Properties": Object {
+    "LambdaTableSystemErrorsAlarmPermissionDE6E04D6": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "LambdaD247545B",
             "Arn",
           ],
         },
         "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
         "SourceAccount": "123456789012",
-        "SourceArn": Object {
-          "Fn::GetAtt": Array [
+        "SourceArn": {
+          "Fn::GetAtt": [
             "dynamodbTableAlarmsTableSystemErrors1D141C49",
             "Arn",
           ],
@@ -2413,19 +2413,19 @@ Object {
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "LambdaTableWriteThrottleEventsAlarmPermission8BCC3097": Object {
-      "Properties": Object {
+    "LambdaTableWriteThrottleEventsAlarmPermission8BCC3097": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "LambdaD247545B",
             "Arn",
           ],
         },
         "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
         "SourceAccount": "123456789012",
-        "SourceArn": Object {
-          "Fn::GetAtt": Array [
+        "SourceArn": {
+          "Fn::GetAtt": [
             "dynamodbTableAlarmsTableWriteThrottleEvents65AD8039",
             "Arn",
           ],
@@ -2433,22 +2433,22 @@ Object {
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "TableCD117FA1": Object {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -2457,25 +2457,25 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TopicBFC7AF6E": Object {
+    "TopicBFC7AF6E": {
       "Type": "AWS::SNS::Topic",
     },
-    "dynamodbTableAlarmsTableReadThrottleEvents18A6A3BB": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+    "dynamodbTableAlarmsTableReadThrottleEvents18A6A3BB": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
           },
         ],
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -2484,18 +2484,18 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+        "InsufficientDataActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2503,9 +2503,9 @@ Object {
         ],
         "MetricName": "ReadThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+        "OKActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2518,22 +2518,22 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableSystemErrors1D141C49": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+    "dynamodbTableAlarmsTableSystemErrors1D141C49": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
           },
         ],
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -2542,18 +2542,18 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 15,
-        "InsufficientDataActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+        "InsufficientDataActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2561,9 +2561,9 @@ Object {
         ],
         "MetricName": "SystemErrors",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+        "OKActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2576,22 +2576,22 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "dynamodbTableAlarmsTableWriteThrottleEvents65AD8039": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+    "dynamodbTableAlarmsTableWriteThrottleEvents65AD8039": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
           },
         ],
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -2600,18 +2600,18 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 5,
-        "InsufficientDataActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+        "InsufficientDataActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2619,9 +2619,9 @@ Object {
         ],
         "MetricName": "WriteThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
-            "Fn::GetAtt": Array [
+        "OKActions": [
+          {
+            "Fn::GetAtt": [
               "LambdaD247545B",
               "Arn",
             ],
@@ -2635,22 +2635,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -2666,31 +2666,31 @@ Object {
 `;
 
 exports[`mandatory alarms can be applied individually to resources using extended construct 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -2699,14 +2699,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableReadThrottleEventsAlarm0A49C4F4": Object {
-      "Properties": Object {
+    "TableReadThrottleEventsAlarm0A49C4F4": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -2715,10 +2715,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2733,14 +2733,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableSystemErrorsAlarmBC7C396A": Object {
-      "Properties": Object {
+    "TableSystemErrorsAlarmBC7C396A": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -2749,10 +2749,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2767,14 +2767,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableWriteThrottleEventsAlarm5A8D9E54": Object {
-      "Properties": Object {
+    "TableWriteThrottleEventsAlarm5A8D9E54": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -2783,10 +2783,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -2802,22 +2802,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -2833,31 +2833,31 @@ Object {
 `;
 
 exports[`optional alarm configurations can be overwritten (include replication alarms) 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -2866,10 +2866,10 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableAgeOfOldestUnreplicatedRecordD4A6A50F": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableAgeOfOldestUnreplicatedRecordD4A6A50F": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2877,28 +2877,28 @@ Object {
         "AlarmName": "CustomAgeOfOldestUnreplicatedRecordAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "AgeOfOldestUnreplicatedRecord",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2909,10 +2909,10 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableFailedToReplicateRecordCountF168E613": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableFailedToReplicateRecordCountF168E613": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2920,28 +2920,28 @@ Object {
         "AlarmName": "CustomFailedToReplicateRecordCountAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "FailedToReplicateRecordCount",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2952,10 +2952,10 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2963,24 +2963,24 @@ Object {
         "AlarmName": "CustomReadThrottleEventsAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ReadThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -2991,10 +2991,10 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3002,24 +3002,24 @@ Object {
         "AlarmName": "CustomSystemErrorsAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "SystemErrors",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3030,10 +3030,10 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableThrottledPutRecordCount33CF224B": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableThrottledPutRecordCount33CF224B": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3041,28 +3041,28 @@ Object {
         "AlarmName": "CustomThrottledPutRecordCountAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "PutItem",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ThrottledPutRecordCount",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3073,10 +3073,10 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3084,24 +3084,24 @@ Object {
         "AlarmName": "CustomWriteThrottleEventsAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "WriteThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3112,26 +3112,26 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TopicBFC7AF6E": Object {
+    "TopicBFC7AF6E": {
       "Type": "AWS::SNS::Topic",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -3147,31 +3147,31 @@ Object {
 `;
 
 exports[`optional alarm configurations can be overwritten 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -3180,10 +3180,10 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3191,24 +3191,24 @@ Object {
         "AlarmName": "CustomReadThrottleEventsAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "ReadThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3219,10 +3219,10 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3230,24 +3230,24 @@ Object {
         "AlarmName": "CustomSystemErrorsAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "SystemErrors",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3258,10 +3258,10 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
+        "AlarmActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3269,24 +3269,24 @@ Object {
         "AlarmName": "CustomWriteThrottleEventsAlarm",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 25,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
         ],
         "EvaluationPeriods": 25,
-        "InsufficientDataActions": Array [
-          Object {
+        "InsufficientDataActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
         "MetricName": "WriteThrottleEvents",
         "Namespace": "AWS/DynamoDB",
-        "OKActions": Array [
-          Object {
+        "OKActions": [
+          {
             "Ref": "TopicBFC7AF6E",
           },
         ],
@@ -3297,26 +3297,26 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TopicBFC7AF6E": Object {
+    "TopicBFC7AF6E": {
       "Type": "AWS::SNS::Topic",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -3332,31 +3332,31 @@ Object {
 `;
 
 exports[`stack should contain table all recommended alarms if recommended alarms aspect is applied with no exclusions 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -3365,14 +3365,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableAgeOfOldestUnreplicatedRecordD4A6A50F": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableAgeOfOldestUnreplicatedRecordD4A6A50F": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - AgeOfOldestUnreplicatedRecord",
@@ -3381,14 +3381,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3403,14 +3403,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableFailedToReplicateRecordCountF168E613": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableFailedToReplicateRecordCountF168E613": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that DynamoDB failed to replicate to your Kinesis data stream because of the item size limit of Kinesis Data Streams.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - FailedToReplicateRecordCount",
@@ -3419,14 +3419,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 1,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "StreamRecords",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3441,14 +3441,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -3457,10 +3457,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3475,14 +3475,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -3491,10 +3491,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3509,14 +3509,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableThrottledPutRecordCount33CF224B": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableThrottledPutRecordCount33CF224B": {
+      "Properties": {
         "AlarmDescription": "This alarm can monitor the number of records that that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ThrottledPutRecordCount",
@@ -3525,14 +3525,14 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 10,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "DelegatedOperation",
             "Value": "PutItem",
           },
-          Object {
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3547,14 +3547,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -3563,10 +3563,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3582,22 +3582,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -3613,31 +3613,31 @@ Object {
 `;
 
 exports[`stack should contain table mandatory recommended alarms if recommended alarms aspect is applied with no exclusions 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "TableCD117FA1": Object {
+  "Resources": {
+    "TableCD117FA1": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -3646,14 +3646,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableReadThrottleEvents22CD37E9": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - ReadThrottleEvents",
@@ -3662,10 +3662,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3680,14 +3680,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableSystemErrors58D6DBA6": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - SystemErrors",
@@ -3696,10 +3696,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3714,14 +3714,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": Object {
-      "Properties": Object {
+    "TableDynamoDbTableRecommendedAlarmsFromAspectTableWriteThrottleEvents18EFFB42": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "TableCD117FA1",
               },
               " - WriteThrottleEvents",
@@ -3730,10 +3730,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "TableCD117FA1",
             },
           },
@@ -3749,22 +3749,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
@@ -3780,31 +3780,31 @@ Object {
 `;
 
 exports[`when an resource is excluded from the aspect config it should not have alarms 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Table1725C6B72": Object {
+  "Resources": {
+    "Table1725C6B72": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -3813,22 +3813,22 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "Table2DBDCD1F7": Object {
+    "Table2DBDCD1F7": {
       "DeletionPolicy": "Retain",
-      "Properties": Object {
-        "AttributeDefinitions": Array [
-          Object {
+      "Properties": {
+        "AttributeDefinitions": [
+          {
             "AttributeName": "id",
             "AttributeType": "S",
           },
         ],
-        "KeySchema": Array [
-          Object {
+        "KeySchema": [
+          {
             "AttributeName": "id",
             "KeyType": "HASH",
           },
         ],
-        "ProvisionedThroughput": Object {
+        "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5,
         },
@@ -3837,14 +3837,14 @@ Object {
       "Type": "AWS::DynamoDB::Table",
       "UpdateReplacePolicy": "Retain",
     },
-    "Table2DynamoDbTableRecommendedAlarmsFromAspectTable2ReadThrottleEvents971C19B9": Object {
-      "Properties": Object {
+    "Table2DynamoDbTableRecommendedAlarmsFromAspectTable2ReadThrottleEvents971C19B9": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for read requests to the DynamoDB table. Sustained throttling of read requests can negatively impact your workload read operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Table2DBDCD1F7",
               },
               " - ReadThrottleEvents",
@@ -3853,10 +3853,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "Table2DBDCD1F7",
             },
           },
@@ -3871,14 +3871,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "Table2DynamoDbTableRecommendedAlarmsFromAspectTable2SystemErrorsAAF87ED6": Object {
-      "Properties": Object {
+    "Table2DynamoDbTableRecommendedAlarmsFromAspectTable2SystemErrorsAAF87ED6": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Table2DBDCD1F7",
               },
               " - SystemErrors",
@@ -3887,10 +3887,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "Table2DBDCD1F7",
             },
           },
@@ -3905,14 +3905,14 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "Table2DynamoDbTableRecommendedAlarmsFromAspectTable2WriteThrottleEvents09A1BBDD": Object {
-      "Properties": Object {
+    "Table2DynamoDbTableRecommendedAlarmsFromAspectTable2WriteThrottleEvents09A1BBDD": {
+      "Properties": {
         "AlarmDescription": "This alarm can detect sustained throttling for write requests to the DynamoDB table. Sustained throttling of write requests can negatively impact your workload write operations and reduce the overall efficiency of the system.",
-        "AlarmName": Object {
-          "Fn::Join": Array [
+        "AlarmName": {
+          "Fn::Join": [
             "",
-            Array [
-              Object {
+            [
+              {
                 "Ref": "Table2DBDCD1F7",
               },
               " - WriteThrottleEvents",
@@ -3921,10 +3921,10 @@ Object {
         },
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "TableName",
-            "Value": Object {
+            "Value": {
               "Ref": "Table2DBDCD1F7",
             },
           },
@@ -3940,22 +3940,22 @@ Object {
       "Type": "AWS::CloudWatch::Alarm",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],

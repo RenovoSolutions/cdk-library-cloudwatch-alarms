@@ -411,7 +411,7 @@ test('when required attributes for InterfaceVpcEndpoint stack are not present it
         serviceName: ec2.InterfaceVpcEndpointAwsService.S3.name,
       },
     });
-  }).toThrowError('Subnets must be provided for the PacketsDropped alarm.');
+  }).toThrow('Subnets must be provided for the PacketsDropped alarm.');
 
   expect(() => {
     stack.endpoint.alarmPacketsDropped({
@@ -420,7 +420,7 @@ test('when required attributes for InterfaceVpcEndpoint stack are not present it
       endpointType: ec2.VpcEndpointType.GATEWAY,
       serviceName: ec2.InterfaceVpcEndpointAwsService.S3.name,
     });
-  }).toThrowError('Subnets must be provided for the PacketsDropped alarm.');
+  }).toThrow('Subnets must be provided for the PacketsDropped alarm.');
 });
 
 test('when required attributes for VpcEndpointService stack are not present it should throw an error', () => {
@@ -440,14 +440,14 @@ test('when required attributes for VpcEndpointService stack are not present it s
         loadBalancerArn: stack.fargateService.loadBalancer.loadBalancerArn,
       },
     });
-  }).toThrowError('AZs must be provided for the RstPacketsSent alarm.');
+  }).toThrow('AZs must be provided for the RstPacketsSent alarm.');
 
   expect(() => {
     stack.endpointService.alarmRstPacketsSent({
       threshold: 10,
       loadBalancerArn: stack.fargateService.loadBalancer.loadBalancerArn,
     });
-  }).toThrowError('AZs must be provided for the RstPacketsSent alarm.');
+  }).toThrow('AZs must be provided for the RstPacketsSent alarm.');
 });
 
 test('optional InterfaceVpcEndpoint alarm configurations can be overwritten', () => {
@@ -544,6 +544,37 @@ test('optional VpcEndpointService alarm configurations can be overwritten', () =
       AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    }));
+  });
+});
+
+test('AspectWithTreatMissingData', () => {
+  const app = new App();
+  const stack = new PrivateLinkInterfaceVpcEndpointStack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  stack.endpoint.applyRecommendedAlarms({
+    configPacketsDroppedAlarm: {
+      threshold: 10,
+      vpcId: stack.vpc.vpcId,
+      endpointType: ec2.VpcEndpointType.GATEWAY,
+      serviceName: ec2.InterfaceVpcEndpointAwsService.S3.name,
+      subnets: stack.selectedSubnets.subnets,
+      treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  Object.values(privatelinkAlarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms).forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      TreatMissingData: 'notBreaching',
     }));
   });
 });

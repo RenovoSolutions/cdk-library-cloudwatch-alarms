@@ -314,6 +314,7 @@ export class Ec2InstanceRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(Ec2RecommendedAlarmsMetrics.CPU_UTILIZATION)) {
       this.alarmCpuUtilization = new Ec2InstanceCpuUtilizationAlarm(this, `${props.instance.node.id}_CPUUtilization`, {
         instance: props.instance,
+        treatMissingData: props.treatMissingData,
         ...props.configCpuUtilizationAlarm,
       });
 
@@ -333,6 +334,7 @@ export class Ec2InstanceRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(Ec2RecommendedAlarmsMetrics.STATUS_CHECK_FAILED)) {
       this.alarmStatusCheckFailed = new Ec2InstanceStatusCheckFailedAlarm(this, `${props.instance.node.id}_StatusCheckFailed`, {
         instance: props.instance,
+        treatMissingData: props.treatMissingData,
         ...props.configStatusCheckFailedAlarm,
       });
 

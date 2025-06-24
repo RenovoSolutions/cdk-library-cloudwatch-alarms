@@ -202,6 +202,7 @@ export class AutoScalingGroupRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(AutoScalingRecommendedAlarmsMetrics.GROUP_IN_SERVICE_CAPACITY)) {
       this.alarmGroupInServiceCapacity = new AutoScalingGroupGroupInServiceCapacityAlarm(this, `${props.autoScalingGroup.node.id}_GroupInServiceCapacity`, {
         autoScalingGroup: props.autoScalingGroup,
+        treatMissingData: props.treatMissingData,
         ...props.configGroupInServiceCapacityAlarm,
       });
 
