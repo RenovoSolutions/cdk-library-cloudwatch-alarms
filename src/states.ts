@@ -503,6 +503,7 @@ export class SfStateMachineRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SfRecommendedAlarmsMetrics.EXECUTION_TIME)) {
       this.alarmExecutionTime = new SfStateMachineExecutionTimeAlarm(this, `${props.stateMachine.node.id}_ExecutionTime`, {
         stateMachine: props.stateMachine,
+        treatMissingData: props.treatMissingData,
         ...props.configExecutionTimeAlarm,
       });
 
@@ -531,6 +532,7 @@ export class SfStateMachineRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SfRecommendedAlarmsMetrics.EXECUTION_THROTTLED)) {
       this.alarmExecutionThrottled = new SfStateMachineExecutionThrottledAlarm(this, `${props.stateMachine.node.id}_ExecutionThrottled`, {
         stateMachine: props.stateMachine,
+        treatMissingData: props.treatMissingData,
         ...props.configExecutionThrottledAlarm,
       });
 
@@ -559,6 +561,7 @@ export class SfStateMachineRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SfRecommendedAlarmsMetrics.EXECUTIONS_FAILED)) {
       this.alarmExecutionsFailed = new SfStateMachineExecutionsFailedAlarm(this, `${props.stateMachine.node.id}_ExecutionsFailed`, {
         stateMachine: props.stateMachine,
+        treatMissingData: props.treatMissingData,
         ...props.configExecutionsFailedAlarm,
       });
 
@@ -587,6 +590,7 @@ export class SfStateMachineRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(SfRecommendedAlarmsMetrics.EXECUTIONS_TIMED_OUT)) {
       this.alarmExecutionsTimedOut = new SfStateMachineExecutionsTimedOutAlarm(this, `${props.stateMachine.node.id}_ExecutionsTimedOut`, {
         stateMachine: props.stateMachine,
+        treatMissingData: props.treatMissingData,
         ...props.configExecutionsTimedOutAlarm,
       });
 

@@ -606,6 +606,7 @@ export class ElastiCacheClusterRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ElastiCacheRecommendedAlarmsMetrics.DATABASE_MEMORY_USAGE_PERCENTAGE)) {
       this.alarmDatabaseMemoryUsagePercentage = new ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm(this, `${props.cacheCluster.node.id}_DatabaseMemoryUsagePercentage`, {
         cacheCluster: props.cacheCluster,
+        treatMissingData: props.treatMissingData,
         ...props.configDatabaseMemoryUsagePercentageAlarm,
       });
 
@@ -625,6 +626,7 @@ export class ElastiCacheClusterRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ElastiCacheRecommendedAlarmsMetrics.ENGINE_CPU_UTILIZATION)) {
       this.alarmEngineCpuUtilization = new ElastiCacheClusterEngineCpuUtilizationAlarm(this, `${props.cacheCluster.node.id}_EngineCPUUtilization`, {
         cacheCluster: props.cacheCluster,
+        treatMissingData: props.treatMissingData,
         ...props.configEngineCpuUtilizationAlarm,
       });
 
@@ -647,6 +649,7 @@ export class ElastiCacheClusterRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ElastiCacheRecommendedAlarmsMetrics.REPLICATION_LAG)) {
       this.alarmReplicationLag = new ElastiCacheClusterReplicationLagAlarm(this, `${props.cacheCluster.node.id}_ReplicationLag`, {
         cacheCluster: props.cacheCluster,
+        treatMissingData: props.treatMissingData,
         ...props.configReplicationLagAlarm,
       });
 
@@ -759,6 +762,7 @@ export class ElastiCacheReplicationGroupRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ElastiCacheRecommendedAlarmsMetrics.DATABASE_MEMORY_USAGE_PERCENTAGE)) {
       this.alarmDatabaseMemoryUsagePercentage = new ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm(this, `${props.cacheReplicationGroup.node.id}_DatabaseMemoryUsagePercentage`, {
         cacheReplicationGroup: props.cacheReplicationGroup,
+        treatMissingData: props.treatMissingData,
         ...props.configDatabaseMemoryUsagePercentageAlarm,
       });
 
@@ -778,6 +782,7 @@ export class ElastiCacheReplicationGroupRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ElastiCacheRecommendedAlarmsMetrics.ENGINE_CPU_UTILIZATION)) {
       this.alarmEngineCpuUtilization = new ElastiCacheReplicationGroupEngineCpuUtilizationAlarm(this, `${props.cacheReplicationGroup.node.id}_EngineCPUUtilization`, {
         cacheReplicationGroup: props.cacheReplicationGroup,
+        treatMissingData: props.treatMissingData,
         ...props.configEngineCpuUtilizationAlarm,
       });
 
@@ -800,6 +805,7 @@ export class ElastiCacheReplicationGroupRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(ElastiCacheRecommendedAlarmsMetrics.REPLICATION_LAG)) {
       this.alarmReplicationLag = new ElastiCacheReplicationGroupReplicationLagAlarm(this, `${props.cacheReplicationGroup.node.id}_ReplicationLag`, {
         cacheReplicationGroup: props.cacheReplicationGroup,
+        treatMissingData: props.treatMissingData,
         ...props.configReplicationLagAlarm,
       });
 

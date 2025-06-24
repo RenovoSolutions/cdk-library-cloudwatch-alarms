@@ -203,6 +203,7 @@ export class VpnConnectionRecommendedAlarms extends Construct {
     if (!props.excludeAlarms?.includes(VpnRecommendedAlarmsMetrics.TUNNEL_STATE)) {
       this.alarmTunnelState = new VpnConnectionTunnelStateAlarm(this, `${props.vpnConnection.node.id}_TunnelState`, {
         vpnConnection: props.vpnConnection,
+        treatMissingData: props.treatMissingData,
         ...props.configTunnelStateAlarm,
       });
 
