@@ -231,6 +231,9 @@ exports[`AspectWithTreatMissingData 1`] = `
         "RestApi1proxy48E25E9D",
         "RestApi1ANY857DBD69",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -559,6 +562,9 @@ exports[`RestApiSnapshot 1`] = `
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -793,6 +799,9 @@ exports[`RestApiSnapshotDefaultActionsInUse 1`] = `
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -1202,6 +1211,9 @@ exports[`RestApiSnapshotDefaultActionsInUseWithDetails 1`] = `
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -1999,6 +2011,9 @@ exports[`RestApiSnapshotWithDetailedList 1`] = `
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -2317,6 +2332,9 @@ exports[`RestApiSnapshotWithExclusion 1`] = `
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -2663,6 +2681,9 @@ exports[`SnapshotForRestApiConstruct 1`] = `
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -2981,6 +3002,9 @@ exports[`alarms can be applied individually to services using extended construct
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -3445,6 +3469,9 @@ exports[`default alarm actions are overridden when individual alarm actions are 
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -4164,6 +4191,9 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         "RestApi1proxy48E25E9D",
         "RestApi1ANY857DBD69",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -4495,6 +4525,9 @@ exports[`stack should contain service recommended alarms if recommended alarms a
         "RestApiproxyC95856DD",
         "RestApiANYA7C1DC94",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -4751,6 +4784,9 @@ exports[`when a resource is excluded from the aspect config it should not have a
         "RestApi1proxy48E25E9D",
         "RestApi1ANY857DBD69",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
@@ -5003,6 +5039,9 @@ exports[`when a resource is excluded from the aspect config it should not have a
         "RestApi2proxy1E46C68B",
         "RestApi2ANY327F0C93",
       ],
+      "Metadata": {
+        "aws:cdk:do-not-refactor": true,
+      },
       "Properties": {
         "Description": "Automatically created by the RestApi construct",
         "RestApiId": {
