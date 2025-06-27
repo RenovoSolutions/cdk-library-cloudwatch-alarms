@@ -23,12 +23,12 @@ Intended feature list as of Aug 2024
 
 ## Resource Coverage
 
-If its not shown it hasn't been worked on.
+If it's not shown it hasn't been worked on.
 
 | Service   | Status | Notes |
 | --- | --- | --- |
 | S3  | - [x] 4xxErrors<br>- [x] 5xxErrors<br>- [ ] OperationsFailedReplication | Replication errors are difficult to set up in CDK at the moment due to rule properties being IResolvables and replication rules not being available on the L2 Bucket construct |
-| SQS | - [x] ApproximateAgeOfOldestMessage<br>- [x] ApproximateNumberOfMessagesNotVisible<br>- [x] ApproximateNumberOfMessagesVisible<br>- [x] NumberOfMessagesSent | All alarms with the exception of number of messages sent require a user defined threshold because its very usecase specific |
+| SQS | - [x] ApproximateAgeOfOldestMessage<br>- [x] ApproximateNumberOfMessagesNotVisible<br>- [x] ApproximateNumberOfMessagesVisible<br>- [x] NumberOfMessagesSent | - All alarms with the exception of number of messages sent require a user defined threshold because its very use-case specific.<br>- The Aspect only assigns DLQs the `ApproximateNumberOfMessagesVisible` alarm with a default threshold of 0, unless `dlqsGetFullRecommendedAlarms` is `true`, in which case they get the same alarms as other queues. DLQs that belong to a main queue which isn't in the same scope as the Aspect is added to won't be detected as DLQs and they will be treated as normal queues. |
 | SNS | - [x] NumberOfMessagesPublished<br>- [x] NumberOfNotificationsDelivered<br>- [x] NumberOfNotificationsFailed<br>- [x] NumberOfNotificationsFilteredOut-InvalidAttributes<br>- [x] NumberOfNotificationsFilteredOut-InvalidMessageBody<br>- [x] NumberOfNotificationsRedrivenToDlq<br>- [x] NumberOfNotificationsFailedToRedriveToDlq<br>- [ ] SMSMonthToDateSpentUSD<br>- [ ] SMSSuccessRate | Some alarms require a threshold to be defined. SMS alarms are not implememented. |
 | Lambda | - [ ] ClaimedAccountConcurrency<br>- [x] Errors<br>- [x] Throttles<br>- [x] Duration<br>- [x] ConcurrentExecutions | ClaimedAccountConcurrency is account wide and one time so not covered by this library at this time |
 | RDS | **For database & cluster instances**<br>- [x] CPUUtilization<br>- [x] DatabaseConnections<br>- [x] FreeableMemory<br>- [x] FreeLocalStorage<br>- [x] FreeStorageSpace<br>- [x] ReadLatency<br>- [x] WriteLatency<br>- [x] DBLoad<br><br>**For clusters**<br>- [x] AuroraVolumeBytesLeftTotal<br>- [x] AuroraBinlogReplicaLag | Some alarms require a `threshold` to be defined. `AuroraVolumeBytesLeftTotal` and `AuroraBinlogReplicaLag` alarms are created only for Aurora MySQL clusters. |
