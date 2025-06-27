@@ -131,7 +131,7 @@
     "targets": {
       "python": {
         "distName": "renovosolutions.aws-cdk-cloudwatch-alarms",
-        "module": "alarms"
+        "module": "renovosolutions_recommended_cloudwatch_alarms"
       },
       "dotnet": {
         "namespace": "renovosolutions",

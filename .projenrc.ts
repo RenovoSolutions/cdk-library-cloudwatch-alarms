@@ -36,7 +36,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   eslint: true,
   publishToPypi: {
     distName: 'renovosolutions.aws-cdk-cloudwatch-alarms',
-    module: 'alarms',
+    module: 'renovosolutions_recommended_cloudwatch_alarms',
   },
   publishToNuget: {
     dotNetNamespace: 'renovosolutions',
