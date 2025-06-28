@@ -3769,11 +3769,12 @@ Uniquely identifies this class.
 
 ### ApplicationLoadBalancerHttpCode4xxCountAlarm <a name="ApplicationLoadBalancerHttpCode4xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm"></a>
 
-This alarm is used to detect when the load balancer is generating 4XX errors.
+This anomaly detection alarm is used to detect when the load balancer is generating unusually many 4XX errors.
 
 A high number of 4XX errors can indicate client-side issues or misconfigured requests.
 
-The alarm is triggered when the number of 4XX errors is greater than threshold.
+The alarm is triggered when the number of 4XX errors is outside the upper threshold
+of the anomaly detection band.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer"></a>
 
@@ -4195,11 +4196,12 @@ Uniquely identifies this class.
 
 ### ApplicationLoadBalancerHttpCode5xxCountAlarm <a name="ApplicationLoadBalancerHttpCode5xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm"></a>
 
-This alarm is used to detect when the load balancer is generating 5XX errors.
+This anomaly detection alarm is used to detect when the load balancer is generating unusually many 5XX errors.
 
 A high number of 5XX errors can indicate issues with the load balancer itself.
 
-The alarm is triggered when the number of 5XX errors is greater than threshold.
+The alarm is triggered when the number of 5XX errors is outside the upper threshold
+of the anomaly detection band.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer"></a>
 
@@ -57037,7 +57039,7 @@ const applicationLoadBalancerHttpCode4xxCountAlarmConfig: ApplicationLoadBalance
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -57158,18 +57160,16 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.threshold"></a>
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.stdDevs"></a>
 
 ```typescript
-public readonly threshold: number;
+public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 0
+- *Default:* 8
 
-The value against which the specified statistic is compared.
-
-You should set this threshold based on the acceptable number of 4XX errors.
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -57199,7 +57199,7 @@ const applicationLoadBalancerHttpCode4xxCountAlarmProps: ApplicationLoadBalancer
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -57332,18 +57332,16 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.threshold"></a>
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.stdDevs"></a>
 
 ```typescript
-public readonly threshold: number;
+public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 0
+- *Default:* 8
 
-The value against which the specified statistic is compared.
-
-You should set this threshold based on the acceptable number of 4XX errors.
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -57372,7 +57370,7 @@ const applicationLoadBalancerHttpCode5xxCountAlarmConfig: ApplicationLoadBalance
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -57493,18 +57491,16 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.threshold"></a>
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.stdDevs"></a>
 
 ```typescript
-public readonly threshold: number;
+public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 0
+- *Default:* 8
 
-The value against which the specified statistic is compared.
-
-You should set this threshold based on the acceptable number of 5XX errors.
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -57534,7 +57530,7 @@ const applicationLoadBalancerHttpCode5xxCountAlarmProps: ApplicationLoadBalancer
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -57667,18 +57663,16 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.threshold"></a>
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.stdDevs"></a>
 
 ```typescript
-public readonly threshold: number;
+public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 0
+- *Default:* 8
 
-The value against which the specified statistic is compared.
-
-You should set this threshold based on the acceptable number of 5XX errors.
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 

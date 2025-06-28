@@ -141,7 +141,8 @@ test('stack should contain load balancer recommended alarms if recommended alarm
         ApplicationLoadBalancerRecommendedAlarmsMetrics
         [metricKey as keyof typeof applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics];
 
-      return resourceProperties.MetricName === metricName;
+      return (resourceProperties.MetricName === metricName ||
+        (resourceProperties.Metrics && resourceProperties.Metrics[1].MetricStat.Metric.MetricName === metricName));
     });
 
     expect(alarms.length).toEqual(1);
@@ -179,7 +180,8 @@ test('alarms can be applied individually to load balancers using extended constr
         ApplicationLoadBalancerRecommendedAlarmsMetrics
         [metricKey as keyof typeof applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics];
 
-      return resourceProperties.MetricName === metricName;
+      return (resourceProperties.MetricName === metricName ||
+        (resourceProperties.Metrics && resourceProperties.Metrics[1].MetricStat.Metric.MetricName === metricName));
     });
 
     expect(alarms.length).toBe(1);
@@ -232,7 +234,8 @@ test('when an resource is excluded from the aspect config it should not have ala
           ApplicationLoadBalancerRecommendedAlarmsMetrics
           [metricKey as keyof typeof applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics];
 
-        return resourceName.startsWith(albName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(albName) && (resourceProperties.MetricName === metricName ||
+          (resourceProperties.Metrics && resourceProperties.Metrics[1].MetricStat.Metric.MetricName === metricName));
       });
       if (albName === 'ALB1') {
         expect(alarms.length).toEqual(0);
@@ -272,7 +275,7 @@ test('optional alarm configurations can be overwritten', () => {
       },
       configHttpCode4xxCountAlarm: {
         alarmName: 'CustomHttpCode4xxCountAlarm',
-        threshold: 10,
+        stdDevs: 10,
         period: Duration.minutes(5),
         evaluationPeriods: 10,
         datapointsToAlarm: 10,
@@ -284,7 +287,7 @@ test('optional alarm configurations can be overwritten', () => {
       },
       configHttpCode5xxCountAlarm: {
         alarmName: 'CustomHttpCode5xxCountAlarm',
-        threshold: 1,
+        stdDevs: 10,
         period: Duration.minutes(5),
         evaluationPeriods: 10,
         datapointsToAlarm: 10,
@@ -318,11 +321,63 @@ test('optional alarm configurations can be overwritten', () => {
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
-  Object.values(applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics).forEach(metricName => {
+  // Standard alarms
+  [
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_TARGET_5XX_COUNT,
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.REJECTED_CONNECTION_COUNT,
+  ].forEach(metricName => {
     template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
       MetricName: metricName,
       AlarmName: Match.stringLikeRegexp('^Custom.*'),
       Period: 300,
+      EvaluationPeriods: 10,
+      DatapointsToAlarm: 10,
+      AlarmDescription: 'Custom alarm description',
+      TreatMissingData: 'ignore',
+      AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    }));
+  });
+
+  // Anomaly detection alarms
+  [
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_4XX_COUNT,
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_5XX_COUNT,
+  ].forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      AlarmName: Match.stringLikeRegexp('^Custom.*'),
+      Metrics: [
+        {
+          Id: 'expr_1',
+          Expression: 'ANOMALY_DETECTION_BAND(m0, 10)',
+          Label: 'Anomaly Detection Band',
+          ReturnData: true,
+        },
+        {
+          Id: 'm0',
+          MetricStat: {
+            Metric: {
+              Namespace: 'AWS/ApplicationELB',
+              MetricName: metricName,
+              Dimensions: [
+                {
+                  Name: 'LoadBalancer',
+                  Value: {
+                    'Fn::GetAtt': [
+                      Match.stringLikeRegexp('^ALB.*'),
+                      'LoadBalancerFullName',
+                    ],
+                  },
+                },
+              ],
+            },
+            Period: 300,
+            Stat: 'Sum',
+          },
+          ReturnData: true,
+        },
+      ],
       EvaluationPeriods: 10,
       DatapointsToAlarm: 10,
       AlarmDescription: 'Custom alarm description',
@@ -349,7 +404,7 @@ test('default actions are applied when no specific actions are provided', () => 
   const insufficientDataAction = new cloudwatch_actions.SnsAction(alarmTopic);
 
   // Create alarms with default actions but no specific actions in the config
-  new applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarms(stack, 'applicationTargetGroupAlarms', {
+  new applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarms(stack, 'applicationLoadBalancerAlarms', {
     loadBalancer: stack.loadBalancer,
     defaultAlarmAction: alarmAction,
     defaultOkAction: okAction,
@@ -358,22 +413,69 @@ test('default actions are applied when no specific actions are provided', () => 
       threshold: 5,
     },
     configHttpCode4xxCountAlarm: {
-      threshold: 10,
+      stdDevs: 10,
     },
     configHttpCode5xxCountAlarm: {
-      threshold: 1,
+      stdDevs: 10,
     },
     configHttpCodeTarget5xxCountAlarm: {
-      threshold: 1,
+      threshold: 5,
     },
   });
 
   const template = Template.fromStack(stack);
 
-  // Verify that both alarms have the default actions
-  Object.values(applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics).forEach(metricName => {
+  // Standard alarms
+  [
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_TARGET_5XX_COUNT,
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.REJECTED_CONNECTION_COUNT,
+  ].forEach(metricName => {
     template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
       MetricName: metricName,
+      Threshold: 5,
+      AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    }));
+  });
+
+  // Anomaly detection alarms
+  [
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_4XX_COUNT,
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_5XX_COUNT,
+  ].forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      Metrics: [
+        {
+          Id: 'expr_1',
+          Expression: 'ANOMALY_DETECTION_BAND(m0, 10)',
+          Label: 'Anomaly Detection Band',
+          ReturnData: true,
+        },
+        {
+          Id: 'm0',
+          MetricStat: {
+            Metric: {
+              Namespace: 'AWS/ApplicationELB',
+              MetricName: metricName,
+              Dimensions: [
+                {
+                  Name: 'LoadBalancer',
+                  Value: {
+                    'Fn::GetAtt': [
+                      Match.stringLikeRegexp('^ALB.*'),
+                      'LoadBalancerFullName',
+                    ],
+                  },
+                },
+              ],
+            },
+            Period: 300,
+            Stat: 'Sum',
+          },
+          ReturnData: true,
+        },
+      ],
       AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
@@ -401,9 +503,54 @@ test('AspectWithTreatMissingData', () => {
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
-  Object.values(applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics).forEach(metricName => {
+  // Standard alarms
+  [
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_TARGET_5XX_COUNT,
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.REJECTED_CONNECTION_COUNT,
+  ].forEach(metricName => {
     template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
       MetricName: metricName,
+      TreatMissingData: 'notBreaching',
+    }));
+  });
+
+  // Anomaly detection alarms
+  [
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_4XX_COUNT,
+    applicationloadbalancerAlarms.ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_5XX_COUNT,
+  ].forEach(metricName => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      Metrics: [
+        {
+          Id: 'expr_1',
+          Expression: 'ANOMALY_DETECTION_BAND(m0, 8)',
+          Label: 'Anomaly Detection Band',
+          ReturnData: true,
+        },
+        {
+          Id: 'm0',
+          MetricStat: {
+            Metric: {
+              Namespace: 'AWS/ApplicationELB',
+              MetricName: metricName,
+              Dimensions: [
+                {
+                  Name: 'LoadBalancer',
+                  Value: {
+                    'Fn::GetAtt': [
+                      Match.stringLikeRegexp('^ALB.*'),
+                      'LoadBalancerFullName',
+                    ],
+                  },
+                },
+              ],
+            },
+            Period: 300,
+            Stat: 'Sum',
+          },
+          ReturnData: true,
+        },
+      ],
       TreatMissingData: 'notBreaching',
     }));
   });
