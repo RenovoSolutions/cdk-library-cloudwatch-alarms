@@ -1,4 +1,6 @@
 import {
+  App,
+  Stack,
   IAspect,
   aws_sqs as sqs,
   aws_cloudwatch as cloudwatch,
@@ -417,6 +419,22 @@ export interface SqsRecommendedAlarmsConfig {
    * The configuration for the number of messages sent alarm.
    */
   readonly configNumberOfMessagesSentAlarm?: SqsNumberOfMessagesSentAlarmConfig;
+  /**
+   * Whether to apply the usual recommended alarms to dead letter queues.
+   *
+   * If true, the dead letter queues will have the same alarms as normal queues.
+   * If false, the dead letter queues will only have the ApproximateNumberOfMessagesVisible
+   * alarm with a default threshold of 0.
+   *
+   * @default false
+   */
+  readonly dlqsGetFullRecommendedAlarms?: boolean;
+  /**
+   * The configuration for the approximate number of messages visible alarm for DLQs.
+   *
+   * This is used for dead letter queues only. The threshold is set to 0 by default.
+   */
+  readonly configDlqApproximateNumberOfMessagesVisibleAlarm?: SqsApproximateNumberOfMessagesVisibleAlarmConfig;
 }
 
 /**
@@ -601,18 +619,103 @@ export class Queue extends sqs.Queue {
  * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#SQS
  */
 export class SqsRecommendedAlarmsAspect implements IAspect {
+  /**
+   * A list of dead letter queues discovered in the scope.
+   * We exclude these from the recommended alarms
+   * because they don't make sense.
+   */
+  deadLetterQueues: string[] = [];
+  /**
+   * A flag to indicate whether dead letter queues have been discovered.
+   * This is used to prevent running the discovery logic on every call to `visit`.
+   */
+  deadLetterQueuesDiscovered: boolean = false;
+
   constructor(private readonly props: SqsRecommendedAlarmsConfig) {}
 
   public visit(node: IConstruct): void {
+    // Constructed list of SQS queues to exclude from the recommended alarms.
+    let excludeResources: string[] | undefined;
+
+    /**
+     * If the `dlqsGetFullRecommendedAlarms` prop is false or not set,
+     * we discover dead letter queues in the scope and exclude them
+     * from the normal recommended alarms.
+     */
+    if (!this.props.dlqsGetFullRecommendedAlarms) {
+      /**
+       * Discover dead letter queues in the scope.
+       * If the node is a Stack or App, we can discover all SQS queues in the scope.
+       * The top level node is supposed to be the first call to `visit`.
+       */
+      if (!this.deadLetterQueuesDiscovered) {
+        if (node instanceof Stack || node instanceof App) {
+          const queues = node.node.findAll().filter(n => n instanceof sqs.Queue) as sqs.Queue[];
+          queues.forEach(queue => {
+            if (queue.deadLetterQueue) {
+              this.deadLetterQueues.push(queue.deadLetterQueue.queue.node.id);
+            }
+          });
+          /**
+           * Mark that we have discovered dead letter queues
+           * so we don't run this logic again.
+           * This is to prevent performance issues in large stacks.
+           * We only want to discover dead letter queues once.
+           */
+          this.deadLetterQueuesDiscovered = true;
+        }
+      }
+
+      /**
+       * Exclude the dead letter queues as if they were specified in the `excludeResources` prop.
+       */
+      excludeResources = this.deadLetterQueues.concat(this.props.excludeResources || []);
+    } else {
+      /**
+       * If the `includeDeadLetterQueues` prop is true, we don't exclude dead letter queues.
+       * We use the `excludeResources` prop as is.
+       */
+      excludeResources = this.props.excludeResources;
+    }
+
     if (node instanceof sqs.Queue) {
-      if (this.props.excludeResources && this.props.excludeResources.includes(node.node.id)) {
-        return;
-      } else {
+      // Normal, unexcluded queues
+      if (!(excludeResources && excludeResources.includes(node.node.id))) {
         const queue = node as sqs.Queue;
 
         new SqsRecommendedAlarms(queue, 'SqsRecommendedAlarmsFromAspect', {
           queue,
           ...this.props,
+        });
+      }
+
+      /**
+       * Dead letter queues
+       *
+       * If the `dlqsGetFullRecommendedAlarms` prop is true,
+       * we apply the same recommended alarms as for normal queues and don't process them here.
+       *
+       * If the `dlqsGetFullRecommendedAlarms` prop is false,
+       * we only apply the ApproximateNumberOfMessagesVisible alarm with a default threshold of 0.
+       * But we still check if it's explicitly been excluded from the alarms, and we use the
+       * original `excludeResources` prop to determine if we should skip it, not the list we
+       * constructed above.
+       */
+      if (this.props.excludeResources && this.props.excludeResources.includes(node.node.id)) {
+        return;
+      } else if (!this.props.dlqsGetFullRecommendedAlarms && this.deadLetterQueues.includes(node.node.id)) {
+        /**
+         * Apply only the recommended alarms that make sense for dead letter queues.
+         * At this time, we only apply the ApproximateNumberOfMessagesVisible alarm,
+         * with a default threshold of 0.
+         * This is because dead letter queues are not expected to have messages
+         * in them, and if they do, it indicates a problem.
+         */
+        new SqsApproximateNumberOfMessagesVisibleAlarm(node, 'SqsApproximateNumberOfMessagesVisibleAlarm', {
+          queue: node,
+          treatMissingData: this.props.treatMissingData,
+          threshold: 0,
+          ...this.props.configDlqApproximateNumberOfMessagesVisibleAlarm,
         });
       }
     }

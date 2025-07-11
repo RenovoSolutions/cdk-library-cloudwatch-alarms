@@ -67,25 +67,41 @@ exports[`ApplicationLoadBalancerSnapshot 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_4XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_4XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -107,25 +123,41 @@ exports[`ApplicationLoadBalancerSnapshot 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1404,35 +1436,51 @@ exports[`ApplicationLoadBalancerSnapshotDefaultActionsInUse 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
-          {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
-            },
-          },
-        ],
         "EvaluationPeriods": 3,
         "InsufficientDataActions": [
           {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "MetricName": "HTTPCode_ELB_4XX_Count",
-        "Namespace": "AWS/ApplicationELB",
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_4XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
         "OKActions": [
           {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1459,35 +1507,51 @@ exports[`ApplicationLoadBalancerSnapshotDefaultActionsInUse 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
-          {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
-            },
-          },
-        ],
         "EvaluationPeriods": 3,
         "InsufficientDataActions": [
           {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
         "OKActions": [
           {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1700,25 +1764,41 @@ exports[`ApplicationLoadBalancerSnapshotWithExclusion 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -2445,25 +2525,41 @@ exports[`AspectWithTreatMissingData 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_4XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_4XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -2485,25 +2581,41 @@ exports[`AspectWithTreatMissingData 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -3230,25 +3342,41 @@ exports[`SnapshotForApplicationLoadBalancerConstruct 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_4XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_4XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -3270,25 +3398,41 @@ exports[`SnapshotForApplicationLoadBalancerConstruct 1`] = `
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -4015,25 +4159,41 @@ exports[`alarms can be applied individually to load balancers using extended con
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_4XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_4XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -4055,25 +4215,41 @@ exports[`alarms can be applied individually to load balancers using extended con
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -4792,35 +4968,51 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         ],
         "AlarmDescription": "Custom alarm description",
         "AlarmName": "CustomHttpCode4xxCountAlarm",
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
-            },
-          },
-        ],
         "EvaluationPeriods": 10,
         "InsufficientDataActions": [
           {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "MetricName": "HTTPCode_ELB_4XX_Count",
-        "Namespace": "AWS/ApplicationELB",
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 10)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_4XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
         "OKActions": [
           {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "Period": 300,
-        "Statistic": "Sum",
-        "Threshold": 10,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "ignore",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -4834,35 +5026,51 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         ],
         "AlarmDescription": "Custom alarm description",
         "AlarmName": "CustomHttpCode5xxCountAlarm",
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
-            },
-          },
-        ],
         "EvaluationPeriods": 10,
         "InsufficientDataActions": [
           {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 10)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
         "OKActions": [
           {
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "Period": 300,
-        "Statistic": "Sum",
-        "Threshold": 1,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "ignore",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -5596,25 +5804,41 @@ exports[`stack should contain load balancer recommended alarms if recommended al
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_4XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_4XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -5636,25 +5860,41 @@ exports[`stack should contain load balancer recommended alarms if recommended al
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALBAEE750D2",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALBAEE750D2",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -6431,25 +6671,41 @@ exports[`when an resource is excluded from the aspect config it should not have 
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALB27057A3AE",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALB27057A3AE",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_4XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_4XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -6471,25 +6727,41 @@ exports[`when an resource is excluded from the aspect config it should not have 
             ],
           ],
         },
-        "ComparisonOperator": "GreaterThanThreshold",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
-        "Dimensions": [
+        "EvaluationPeriods": 3,
+        "Metrics": [
           {
-            "Name": "LoadBalancer",
-            "Value": {
-              "Fn::GetAtt": [
-                "ALB27057A3AE",
-                "LoadBalancerFullName",
-              ],
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "LoadBalancer",
+                    "Value": {
+                      "Fn::GetAtt": [
+                        "ALB27057A3AE",
+                        "LoadBalancerFullName",
+                      ],
+                    },
+                  },
+                ],
+                "MetricName": "HTTPCode_ELB_5XX_Count",
+                "Namespace": "AWS/ApplicationELB",
+              },
+              "Period": 300,
+              "Stat": "Sum",
             },
+            "ReturnData": true,
           },
         ],
-        "EvaluationPeriods": 3,
-        "MetricName": "HTTPCode_ELB_5XX_Count",
-        "Namespace": "AWS/ApplicationELB",
-        "Period": 60,
-        "Statistic": "Sum",
-        "Threshold": 0,
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",

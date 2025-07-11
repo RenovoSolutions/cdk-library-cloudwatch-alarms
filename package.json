@@ -51,11 +51,11 @@
     "eslint-plugin-import": "^2.32.0",
     "jest": "^30.0.2",
     "jest-junit": "^16",
-    "jsii": "~5.6.0",
+    "jsii": "^5.8.0",
     "jsii-diff": "^1.112.0",
     "jsii-docgen": "^10.5.0",
     "jsii-pacmak": "^1.112.0",
-    "jsii-rosetta": "~5.6.0",
+    "jsii-rosetta": "^5.8.0",
     "projen": "^0.94.0",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
@@ -131,7 +131,7 @@
     "targets": {
       "python": {
         "distName": "renovosolutions.aws-cdk-cloudwatch-alarms",
-        "module": "alarms"
+        "module": "renovosolutions_recommended_cloudwatch_alarms"
       },
       "dotnet": {
         "namespace": "renovosolutions",

@@ -855,3 +855,144 @@ test('AspectWithTreatMissingData', () => {
     }));
   });
 });
+
+test('DLQs get special alarms by default', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new sqsAlarms.SqsRecommendedAlarmsAspect({
+      configApproximateAgeOfOldestMessageAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesNotVisibleAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesVisibleAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  // Explicitly declared DLQ
+  const dlq1 = new sqs.Queue(stack, 'dlq1');
+  new sqs.Queue(stack, 'Queue1', {
+    deadLetterQueue: {
+      queue: dlq1,
+      maxReceiveCount: 1,
+    },
+  });
+
+  // Inline DLQ
+  new sqs.Queue(stack, 'Queue2', {
+    deadLetterQueue: {
+      queue: new sqs.Queue(stack, 'dlq2'),
+      maxReceiveCount: 1,
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  /**
+   * There are 4 queues, but only 2 should have full alarms
+   * - Queue1 and Queue2 will have 4 alarms each
+   * - dlq1 and dlq2 will have 1 alarm each (ApproximateNumberOfMessagesVisible)
+   */
+  const numAlarms = Object.keys(sqsAlarms.SqsRecommendedAlarmsMetrics).length * 2 + 2;
+
+  template.resourceCountIs('AWS::CloudWatch::Alarm', numAlarms);
+
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+
+  ['Queue1', 'Queue2', 'dlq1', 'dlq2'].forEach(queueName => {
+    Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
+      const alarms = Object.keys(resources).filter(resourceName => {
+        const resource = resources[resourceName];
+        const resourceProperties = resource.Properties;
+
+        return resourceName.startsWith(queueName) && resourceProperties.MetricName === metricName;
+      });
+
+      if (['dlq1', 'dlq2'].includes(queueName) && metricName !== sqsAlarms.SqsRecommendedAlarmsMetrics.
+        APPROXIMATE_NUMBER_OF_MESSAGES_VISIBLE) {
+        expect(alarms.length).toBe(0);
+      } else {
+        expect(alarms.length).toBe(1);
+      }
+    });
+  });
+});
+
+test('DLQs get normal alarms when dlqsGetFullRecommendedAlarms is true', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+  const appAspects = Aspects.of(app);
+
+  appAspects.add(
+    new sqsAlarms.SqsRecommendedAlarmsAspect({
+      dlqsGetFullRecommendedAlarms: true,
+      configApproximateAgeOfOldestMessageAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesNotVisibleAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesVisibleAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  // Explicitly declared DLQ
+  const dlq = new sqs.Queue(stack, 'dlq1');
+  new sqs.Queue(stack, 'Queue1', {
+    deadLetterQueue: {
+      queue: dlq,
+      maxReceiveCount: 1,
+    },
+  });
+
+  // Inline DLQ
+  new sqs.Queue(stack, 'Queue2', {
+    deadLetterQueue: {
+      queue: new sqs.Queue(stack, 'dlq2'),
+      maxReceiveCount: 1,
+    },
+  });
+
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+
+  // There are 4 queues and all should have alarms
+  const numAlarms = Object.keys(sqsAlarms.SqsRecommendedAlarmsMetrics).length * 4;
+
+  template.resourceCountIs('AWS::CloudWatch::Alarm', numAlarms);
+
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+
+  ['Queue1', 'Queue2', 'dlq1', 'dlq2'].forEach(queueName => {
+    Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
+      const alarms = Object.keys(resources).filter(resourceName => {
+        const resource = resources[resourceName];
+        const resourceProperties = resource.Properties;
+
+        return resourceName.startsWith(queueName) && resourceProperties.MetricName === metricName;
+      });
+
+      // All queues should have alarms
+      expect(alarms.length).toBe(1);
+    });
+  });
+});

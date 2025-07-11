@@ -146,13 +146,6 @@ export class ApplicationLoadBalancerRejectedConnectionCountAlarm extends cloudwa
 export interface ApplicationLoadBalancerHttpCode4xxCountAlarmConfig extends
   ApplicationLoadBalancerAlarmBaseConfig {
   /**
-   * The value against which the specified statistic is compared.
-   * You should set this threshold based on the acceptable number of 4XX errors.
-   *
-   * @default 0
-   */
-  readonly threshold?: number;
-  /**
    * The number of periods over which data is compared to the specified threshold.
    *
    * @default 3
@@ -164,6 +157,12 @@ export interface ApplicationLoadBalancerHttpCode4xxCountAlarmConfig extends
    * @default 3
    */
   readonly datapointsToAlarm?: number;
+  /**
+   * The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+   *
+   * @default 8
+   */
+  readonly stdDevs?: number;
   /**
    * The alarm name.
    *
@@ -186,19 +185,21 @@ export interface ApplicationLoadBalancerHttpCode4xxCountAlarmProps extends
   ApplicationLoadBalancerAlarmProps, ApplicationLoadBalancerHttpCode4xxCountAlarmConfig {}
 
 /**
- * This alarm is used to detect when the load balancer is generating 4XX errors.
+ * This anomaly detection alarm is used to detect when the load balancer is generating
+ * unusually many 4XX errors.
  *
  * A high number of 4XX errors can indicate client-side issues or misconfigured requests.
  *
- * The alarm is triggered when the number of 4XX errors is greater than threshold.
+ * The alarm is triggered when the number of 4XX errors is outside the upper threshold
+ * of the anomaly detection band.
  */
-export class ApplicationLoadBalancerHttpCode4xxCountAlarm extends cloudwatch.Alarm {
+export class ApplicationLoadBalancerHttpCode4xxCountAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: IConstruct, id: string, props: ApplicationLoadBalancerHttpCode4xxCountAlarmProps) {
     const alarmName = props.alarmName ?? `${props.loadBalancer.loadBalancerName} - ${ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_4XX_COUNT}`;
     const period = props.period ?? Duration.minutes(1);
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 3;
-    const threshold = props.threshold ?? 0;
+    const stdDevs = props.stdDevs ?? 8;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
     const alarmDescription = props.alarmDescription ?? 'This alarm is used to detect when the load balancer is generating 4XX errors.'
       + ' A high number of 4XX errors can indicate client-side issues or misconfigured requests.';
@@ -216,11 +217,11 @@ export class ApplicationLoadBalancerHttpCode4xxCountAlarm extends cloudwatch.Ala
         statistic: 'Sum',
         period,
       }),
-      threshold,
+      stdDevs,
       evaluationPeriods,
       datapointsToAlarm,
       treatMissingData,
-      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD,
       alarmDescription,
     });
 
@@ -234,13 +235,6 @@ export class ApplicationLoadBalancerHttpCode4xxCountAlarm extends cloudwatch.Ala
  * Configuration for the HTTPCode_ELB_5XX_Count alarm.
  */
 export interface ApplicationLoadBalancerHttpCode5xxCountAlarmConfig extends ApplicationLoadBalancerAlarmBaseConfig {
-  /**
-   * The value against which the specified statistic is compared.
-   * You should set this threshold based on the acceptable number of 5XX errors.
-   *
-   * @default 0
-   */
-  readonly threshold?: number;
   /**
    * The number of periods over which data is compared to the specified threshold.
    *
@@ -260,6 +254,12 @@ export interface ApplicationLoadBalancerHttpCode5xxCountAlarmConfig extends Appl
    */
   readonly alarmName?: string;
   /**
+   * The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+   *
+   * @default 8
+   */
+  readonly stdDevs?: number;
+  /**
    * The description of the alarm.
    *
    * @default - This alarm is used to detect when the load balancer is generating 5XX errors.
@@ -275,19 +275,21 @@ export interface ApplicationLoadBalancerHttpCode5xxCountAlarmProps extends
   ApplicationLoadBalancerAlarmProps, ApplicationLoadBalancerHttpCode5xxCountAlarmConfig {}
 
 /**
- * This alarm is used to detect when the load balancer is generating 5XX errors.
+ * This anomaly detection alarm is used to detect when the load balancer is generating
+ * unusually many 5XX errors.
  *
  * A high number of 5XX errors can indicate issues with the load balancer itself.
  *
- * The alarm is triggered when the number of 5XX errors is greater than threshold.
+ * The alarm is triggered when the number of 5XX errors is outside the upper threshold
+ * of the anomaly detection band.
  */
-export class ApplicationLoadBalancerHttpCode5xxCountAlarm extends cloudwatch.Alarm {
+export class ApplicationLoadBalancerHttpCode5xxCountAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: IConstruct, id: string, props: ApplicationLoadBalancerHttpCode5xxCountAlarmProps) {
     const alarmName = props.alarmName ?? `${props.loadBalancer.loadBalancerName} - ${ApplicationLoadBalancerRecommendedAlarmsMetrics.HTTP_CODE_ELB_5XX_COUNT}`;
     const period = props.period ?? Duration.minutes(1);
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 3;
-    const threshold = props.threshold ?? 0;
+    const stdDevs = props.stdDevs ?? 8;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
     const alarmDescription = props.alarmDescription ?? 'This alarm is used to detect when the load balancer is generating 5XX errors.'
       + ' A high number of 5XX errors can indicate issues with the load balancer itself.';
@@ -305,11 +307,11 @@ export class ApplicationLoadBalancerHttpCode5xxCountAlarm extends cloudwatch.Ala
         statistic: 'Sum',
         period,
       }),
-      threshold,
+      stdDevs,
       evaluationPeriods,
       datapointsToAlarm,
       treatMissingData,
-      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD,
       alarmDescription,
     });
 

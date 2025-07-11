@@ -3769,11 +3769,12 @@ Uniquely identifies this class.
 
 ### ApplicationLoadBalancerHttpCode4xxCountAlarm <a name="ApplicationLoadBalancerHttpCode4xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm"></a>
 
-This alarm is used to detect when the load balancer is generating 4XX errors.
+This anomaly detection alarm is used to detect when the load balancer is generating unusually many 4XX errors.
 
 A high number of 4XX errors can indicate client-side issues or misconfigured requests.
 
-The alarm is triggered when the number of 4XX errors is greater than threshold.
+The alarm is triggered when the number of 4XX errors is outside the upper threshold
+of the anomaly detection band.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.Initializer"></a>
 
@@ -4195,11 +4196,12 @@ Uniquely identifies this class.
 
 ### ApplicationLoadBalancerHttpCode5xxCountAlarm <a name="ApplicationLoadBalancerHttpCode5xxCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm"></a>
 
-This alarm is used to detect when the load balancer is generating 5XX errors.
+This anomaly detection alarm is used to detect when the load balancer is generating unusually many 5XX errors.
 
 A high number of 5XX errors can indicate issues with the load balancer itself.
 
-The alarm is triggered when the number of 5XX errors is greater than threshold.
+The alarm is triggered when the number of 5XX errors is outside the upper threshold
+of the anomaly detection band.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.Initializer"></a>
 
@@ -57037,7 +57039,7 @@ const applicationLoadBalancerHttpCode4xxCountAlarmConfig: ApplicationLoadBalance
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -57158,18 +57160,16 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.threshold"></a>
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmConfig.property.stdDevs"></a>
 
 ```typescript
-public readonly threshold: number;
+public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 0
+- *Default:* 8
 
-The value against which the specified statistic is compared.
-
-You should set this threshold based on the acceptable number of 4XX errors.
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -57199,7 +57199,7 @@ const applicationLoadBalancerHttpCode4xxCountAlarmProps: ApplicationLoadBalancer
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -57332,18 +57332,16 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.threshold"></a>
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarmProps.property.stdDevs"></a>
 
 ```typescript
-public readonly threshold: number;
+public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 0
+- *Default:* 8
 
-The value against which the specified statistic is compared.
-
-You should set this threshold based on the acceptable number of 4XX errors.
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -57372,7 +57370,7 @@ const applicationLoadBalancerHttpCode5xxCountAlarmConfig: ApplicationLoadBalance
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -57493,18 +57491,16 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.threshold"></a>
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmConfig.property.stdDevs"></a>
 
 ```typescript
-public readonly threshold: number;
+public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 0
+- *Default:* 8
 
-The value against which the specified statistic is compared.
-
-You should set this threshold based on the acceptable number of 5XX errors.
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -57534,7 +57530,7 @@ const applicationLoadBalancerHttpCode5xxCountAlarmProps: ApplicationLoadBalancer
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The value against which the specified statistic is compared. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -57667,18 +57663,16 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.threshold"></a>
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarmProps.property.stdDevs"></a>
 
 ```typescript
-public readonly threshold: number;
+public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 0
+- *Default:* 8
 
-The value against which the specified statistic is compared.
-
-You should set this threshold based on the acceptable number of 5XX errors.
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -89463,10 +89457,12 @@ const sqsRecommendedAlarmsConfig: SqsRecommendedAlarmsConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.configApproximateAgeOfOldestMessageAlarm">configApproximateAgeOfOldestMessageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarmConfig">SqsApproximateAgeOfOldestMessageAlarmConfig</a></code> | The configuration for the approximate age of oldest message alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.configApproximateNumberOfMessagesNotVisibleAlarm">configApproximateNumberOfMessagesNotVisibleAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarmConfig">SqsApproximateNumberOfMessagesNotVisibleAlarmConfig</a></code> | The configuration for the approximate number of messages not visible alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.configApproximateNumberOfMessagesVisibleAlarm">configApproximateNumberOfMessagesVisibleAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarmConfig">SqsApproximateNumberOfMessagesVisibleAlarmConfig</a></code> | The configuration for the approximate number of messages visible alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.configDlqApproximateNumberOfMessagesVisibleAlarm">configDlqApproximateNumberOfMessagesVisibleAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarmConfig">SqsApproximateNumberOfMessagesVisibleAlarmConfig</a></code> | The configuration for the approximate number of messages visible alarm for DLQs. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.configNumberOfMessagesSentAlarm">configNumberOfMessagesSentAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarmConfig">SqsNumberOfMessagesSentAlarmConfig</a></code> | The configuration for the number of messages sent alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.dlqsGetFullRecommendedAlarms">dlqsGetFullRecommendedAlarms</a></code> | <code>boolean</code> | Whether to apply the usual recommended alarms to dead letter queues. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsMetrics">SqsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
@@ -89506,6 +89502,20 @@ public readonly configApproximateNumberOfMessagesVisibleAlarm: SqsApproximateNum
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarmConfig">SqsApproximateNumberOfMessagesVisibleAlarmConfig</a>
 
 The configuration for the approximate number of messages visible alarm.
+
+---
+
+##### `configDlqApproximateNumberOfMessagesVisibleAlarm`<sup>Optional</sup> <a name="configDlqApproximateNumberOfMessagesVisibleAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.configDlqApproximateNumberOfMessagesVisibleAlarm"></a>
+
+```typescript
+public readonly configDlqApproximateNumberOfMessagesVisibleAlarm: SqsApproximateNumberOfMessagesVisibleAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarmConfig">SqsApproximateNumberOfMessagesVisibleAlarmConfig</a>
+
+The configuration for the approximate number of messages visible alarm for DLQs.
+
+This is used for dead letter queues only. The threshold is set to 0 by default.
 
 ---
 
@@ -89557,6 +89567,23 @@ public readonly defaultOkAction: IAlarmAction;
 - *Default:* None
 
 The default action to take when an alarm enters the ok state.
+
+---
+
+##### `dlqsGetFullRecommendedAlarms`<sup>Optional</sup> <a name="dlqsGetFullRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsConfig.property.dlqsGetFullRecommendedAlarms"></a>
+
+```typescript
+public readonly dlqsGetFullRecommendedAlarms: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to apply the usual recommended alarms to dead letter queues.
+
+If true, the dead letter queues will have the same alarms as normal queues.
+If false, the dead letter queues will only have the ApproximateNumberOfMessagesVisible
+alarm with a default threshold of 0.
 
 ---
 
@@ -89619,10 +89646,12 @@ const sqsRecommendedAlarmsProps: SqsRecommendedAlarmsProps = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.configApproximateAgeOfOldestMessageAlarm">configApproximateAgeOfOldestMessageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarmConfig">SqsApproximateAgeOfOldestMessageAlarmConfig</a></code> | The configuration for the approximate age of oldest message alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.configApproximateNumberOfMessagesNotVisibleAlarm">configApproximateNumberOfMessagesNotVisibleAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarmConfig">SqsApproximateNumberOfMessagesNotVisibleAlarmConfig</a></code> | The configuration for the approximate number of messages not visible alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.configApproximateNumberOfMessagesVisibleAlarm">configApproximateNumberOfMessagesVisibleAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarmConfig">SqsApproximateNumberOfMessagesVisibleAlarmConfig</a></code> | The configuration for the approximate number of messages visible alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.configDlqApproximateNumberOfMessagesVisibleAlarm">configDlqApproximateNumberOfMessagesVisibleAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarmConfig">SqsApproximateNumberOfMessagesVisibleAlarmConfig</a></code> | The configuration for the approximate number of messages visible alarm for DLQs. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.configNumberOfMessagesSentAlarm">configNumberOfMessagesSentAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarmConfig">SqsNumberOfMessagesSentAlarmConfig</a></code> | The configuration for the number of messages sent alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.dlqsGetFullRecommendedAlarms">dlqsGetFullRecommendedAlarms</a></code> | <code>boolean</code> | Whether to apply the usual recommended alarms to dead letter queues. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsMetrics">SqsRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
@@ -89663,6 +89692,20 @@ public readonly configApproximateNumberOfMessagesVisibleAlarm: SqsApproximateNum
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarmConfig">SqsApproximateNumberOfMessagesVisibleAlarmConfig</a>
 
 The configuration for the approximate number of messages visible alarm.
+
+---
+
+##### `configDlqApproximateNumberOfMessagesVisibleAlarm`<sup>Optional</sup> <a name="configDlqApproximateNumberOfMessagesVisibleAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.configDlqApproximateNumberOfMessagesVisibleAlarm"></a>
+
+```typescript
+public readonly configDlqApproximateNumberOfMessagesVisibleAlarm: SqsApproximateNumberOfMessagesVisibleAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarmConfig">SqsApproximateNumberOfMessagesVisibleAlarmConfig</a>
+
+The configuration for the approximate number of messages visible alarm for DLQs.
+
+This is used for dead letter queues only. The threshold is set to 0 by default.
 
 ---
 
@@ -89714,6 +89757,23 @@ public readonly defaultOkAction: IAlarmAction;
 - *Default:* None
 
 The default action to take when an alarm enters the ok state.
+
+---
+
+##### `dlqsGetFullRecommendedAlarms`<sup>Optional</sup> <a name="dlqsGetFullRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsProps.property.dlqsGetFullRecommendedAlarms"></a>
+
+```typescript
+public readonly dlqsGetFullRecommendedAlarms: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to apply the usual recommended alarms to dead letter queues.
+
+If true, the dead letter queues will have the same alarms as normal queues.
+If false, the dead letter queues will only have the ApproximateNumberOfMessagesVisible
+alarm with a default threshold of 0.
 
 ---
 
@@ -91531,6 +91591,43 @@ All aspects can visit an IConstruct.
 ---
 
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsAspect.property.deadLetterQueues">deadLetterQueues</a></code> | <code>string[]</code> | A list of dead letter queues discovered in the scope. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsAspect.property.deadLetterQueuesDiscovered">deadLetterQueuesDiscovered</a></code> | <code>boolean</code> | A flag to indicate whether dead letter queues have been discovered. |
+
+---
+
+##### `deadLetterQueues`<sup>Required</sup> <a name="deadLetterQueues" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsAspect.property.deadLetterQueues"></a>
+
+```typescript
+public readonly deadLetterQueues: string[];
+```
+
+- *Type:* string[]
+
+A list of dead letter queues discovered in the scope.
+
+We exclude these from the recommended alarms
+because they don't make sense.
+
+---
+
+##### `deadLetterQueuesDiscovered`<sup>Required</sup> <a name="deadLetterQueuesDiscovered" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarmsAspect.property.deadLetterQueuesDiscovered"></a>
+
+```typescript
+public readonly deadLetterQueuesDiscovered: boolean;
+```
+
+- *Type:* boolean
+
+A flag to indicate whether dead letter queues have been discovered.
+
+This is used to prevent running the discovery logic on every call to `visit`.
+
+---
 
 
 ### VpnRecommendedAlarmsAspect <a name="VpnRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnRecommendedAlarmsAspect"></a>
