@@ -214,7 +214,7 @@ export class ApplicationLoadBalancerHttpCode4xxCountAlarm extends cloudwatch.Ano
         dimensionsMap: {
           LoadBalancer: props.loadBalancer.loadBalancerFullName,
         },
-        statistic: 'Sum',
+        statistic: 'Average',
       }),
       stdDevs,
       evaluationPeriods,
@@ -303,7 +303,7 @@ export class ApplicationLoadBalancerHttpCode5xxCountAlarm extends cloudwatch.Ano
         dimensionsMap: {
           LoadBalancer: props.loadBalancer.loadBalancerFullName,
         },
-        statistic: 'Sum',
+        statistic: 'Average',
       }),
       stdDevs,
       evaluationPeriods,
