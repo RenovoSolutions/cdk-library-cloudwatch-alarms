@@ -4,7 +4,7 @@
 
 ### ApiGatewayRestApi4XXErrorAlarm <a name="ApiGatewayRestApi4XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm"></a>
 
-This alarm detects a high rate of client-side errors.
+This alarm detects a high number of client-side errors.
 
 This can indicate an issue in the authorization or client request parameters. It could also mean that a resource was
 removed or a client is requesting one that doesn't exist. Consider enabling CloudWatch Logs and checking for any errors
@@ -12,7 +12,7 @@ that may be causing the 4XX errors. Moreover, consider enabling detailed CloudWa
 resource and method and narrow down the source of the errors. Errors could also be caused by exceeding the configured
 throttling limit.
 
-The alarm is triggered when percentage of client-errors exceeds the threshold.
+The alarm is triggered when number of client-errors exceeds the threshold.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.Initializer"></a>
 
@@ -434,12 +434,12 @@ Uniquely identifies this class.
 
 ### ApiGatewayRestApi5XXErrorAlarm <a name="ApiGatewayRestApi5XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm"></a>
 
-This alarm detects a high rate of server-side errors.
+This alarm detects a high number of server-side errors.
 
 This can indicate that there is something wrong on the API backend, the network,
 or the integration between the API gateway and the backend API.
 
-The alarm is triggered when percentage of server-errors exceeds the threshold.
+The alarm is triggered when number of server-errors exceeds the threshold.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.Initializer"></a>
 
@@ -47091,12 +47091,12 @@ Adds a new request validator.
 ##### `alarm4XXError` <a name="alarm4XXError" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarm4XXError"></a>
 
 ```typescript
-public alarm4XXError(props?: ApiGateway4XXErrorAlarmConfig): ApiGatewayRestApi4XXErrorAlarm
+public alarm4XXError(props: ApiGateway4XXErrorAlarmConfig): ApiGatewayRestApi4XXErrorAlarm
 ```
 
 Creates an alarm that monitors the number of client-side errors captured in a given period.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarm4XXError.parameter.props"></a>
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarm4XXError.parameter.props"></a>
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig">ApiGateway4XXErrorAlarmConfig</a>
 
@@ -47105,12 +47105,12 @@ Creates an alarm that monitors the number of client-side errors captured in a gi
 ##### `alarm5XXError` <a name="alarm5XXError" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarm5XXError"></a>
 
 ```typescript
-public alarm5XXError(props?: ApiGateway5XXErrorAlarmConfig): ApiGatewayRestApi5XXErrorAlarm
+public alarm5XXError(props: ApiGateway5XXErrorAlarmConfig): ApiGatewayRestApi5XXErrorAlarm
 ```
 
 Creates an alarm that monitors the number of server-side errors captured in a given period.
 
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarm5XXError.parameter.props"></a>
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarm5XXError.parameter.props"></a>
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig">ApiGateway5XXErrorAlarmConfig</a>
 
@@ -59730,11 +59730,11 @@ const apiGateway4XXErrorAlarmConfig: ApiGateway4XXErrorAlarmConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The threshold value against which the specified statistic is compared. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The percentage (0-1) value against which the specified statistic is compared. |
 
 ---
 
@@ -59803,6 +59803,18 @@ The period over which the specified statistic is applied.
 
 ---
 
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The threshold value against which the specified statistic is compared.
+
+---
+
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.alarmDescription"></a>
 
 ```typescript
@@ -59853,25 +59865,7 @@ public readonly evaluationPeriods: number;
 
 The number of periods over which data is compared to the specified threshold.
 
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 0.05
-
-The percentage (0-1) value against which the specified statistic is compared.
-
-The suggested threshold detects when more than 5% of total requests are getting 4XX errors.
-However, you can tune the threshold to suit the traffic of the requests as well as acceptable
-error rates. You can also analyze historical data to determine the acceptable error rate for
-the application workload and then tune the threshold accordingly. Frequently occurring 4XX
-errors need to be alarmed on. However, setting a very low value for the threshold can cause
-the alarm to be too sensitive.
+The unit is an absolute count of errors, not a percentage.
 
 ---
 
@@ -59896,11 +59890,11 @@ const apiGateway5XXErrorAlarmConfig: ApiGateway5XXErrorAlarmConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The threshold value against which the specified statistic is compared. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The percentage (0-1) value against which the specified statistic is compared. |
 
 ---
 
@@ -59969,6 +59963,18 @@ The period over which the specified statistic is applied.
 
 ---
 
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The threshold value against which the specified statistic is compared.
+
+---
+
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.alarmDescription"></a>
 
 ```typescript
@@ -60019,25 +60025,7 @@ public readonly evaluationPeriods: number;
 
 The number of periods over which data is compared to the specified threshold.
 
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 0.05
-
-The percentage (0-1) value against which the specified statistic is compared.
-
-The suggested threshold detects when more than 5% of total requests are getting 5XX errors.
-However, you can tune the threshold to suit the traffic of the requests as well as acceptable
-error rates. you can also analyze historical data to determine the acceptable error rate for
-the application workload and then tune the threshold accordingly. Frequently occurring 5XX
-errors need to be alarmed on. However, setting a very low value for the threshold can cause
-the alarm to be too sensitive.
+The unit is an absolute count of errors, not a percentage.
 
 ---
 
@@ -60542,11 +60530,11 @@ const apiGatewayRestApi4XXErrorAlarmProps: ApiGatewayRestApi4XXErrorAlarmProps =
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The threshold value against which the specified statistic is compared. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The percentage (0-1) value against which the specified statistic is compared. |
 
 ---
 
@@ -60627,6 +60615,18 @@ The period over which the specified statistic is applied.
 
 ---
 
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The threshold value against which the specified statistic is compared.
+
+---
+
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.alarmDescription"></a>
 
 ```typescript
@@ -60677,25 +60677,7 @@ public readonly evaluationPeriods: number;
 
 The number of periods over which data is compared to the specified threshold.
 
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 0.05
-
-The percentage (0-1) value against which the specified statistic is compared.
-
-The suggested threshold detects when more than 5% of total requests are getting 4XX errors.
-However, you can tune the threshold to suit the traffic of the requests as well as acceptable
-error rates. You can also analyze historical data to determine the acceptable error rate for
-the application workload and then tune the threshold accordingly. Frequently occurring 4XX
-errors need to be alarmed on. However, setting a very low value for the threshold can cause
-the alarm to be too sensitive.
+The unit is an absolute count of errors, not a percentage.
 
 ---
 
@@ -60721,11 +60703,11 @@ const apiGatewayRestApi5XXErrorAlarmProps: ApiGatewayRestApi5XXErrorAlarmProps =
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The threshold value against which the specified statistic is compared. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The percentage (0-1) value against which the specified statistic is compared. |
 
 ---
 
@@ -60806,6 +60788,18 @@ The period over which the specified statistic is applied.
 
 ---
 
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The threshold value against which the specified statistic is compared.
+
+---
+
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.alarmDescription"></a>
 
 ```typescript
@@ -60856,25 +60850,7 @@ public readonly evaluationPeriods: number;
 
 The number of periods over which data is compared to the specified threshold.
 
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 0.05
-
-The percentage (0-1) value against which the specified statistic is compared.
-
-The suggested threshold detects when more than 5% of total requests are getting 5XX errors.
-However, you can tune the threshold to suit the traffic of the requests as well as acceptable
-error rates. you can also analyze historical data to determine the acceptable error rate for
-the application workload and then tune the threshold accordingly. Frequently occurring 5XX
-errors need to be alarmed on. However, setting a very low value for the threshold can cause
-the alarm to be too sensitive.
+The unit is an absolute count of errors, not a percentage.
 
 ---
 
@@ -62133,9 +62109,9 @@ const apiGatewayRestApiRecommendedAlarmsConfig: ApiGatewayRestApiRecommendedAlar
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configCountAlarm">configCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAlarmConfig">ApiGatewayCountAlarmConfig</a></code> | The configuration for the Count alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.config4XXErrorAlarm">config4XXErrorAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig">ApiGateway4XXErrorAlarmConfig</a></code> | The configuration for the 4XXError alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.config5XXErrorAlarm">config5XXErrorAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig">ApiGateway5XXErrorAlarmConfig</a></code> | The configuration for the 5XXError alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configCountAlarm">configCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAlarmConfig">ApiGatewayCountAlarmConfig</a></code> | The configuration for the Count alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configDetailedCountAlarmList">configDetailedCountAlarmList</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarmConfig">ApiGatewayRestApiDetailedCountAlarmConfig</a>[]</code> | The configuration list for the detailed Count alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configDetailedLatencyAlarmList">configDetailedLatencyAlarmList</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarmConfig">ApiGatewayRestApiDetailedLatencyAlarmConfig</a>[]</code> | The configuration list for the detailed Latency alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configLatencyAlarm">configLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAlarmConfig">ApiGatewayLatencyAlarmConfig</a></code> | The configuration for the Latency alarm. |
@@ -62148,19 +62124,7 @@ const apiGatewayRestApiRecommendedAlarmsConfig: ApiGatewayRestApiRecommendedAlar
 
 ---
 
-##### `configCountAlarm`<sup>Required</sup> <a name="configCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configCountAlarm"></a>
-
-```typescript
-public readonly configCountAlarm: ApiGatewayCountAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAlarmConfig">ApiGatewayCountAlarmConfig</a>
-
-The configuration for the Count alarm.
-
----
-
-##### `config4XXErrorAlarm`<sup>Optional</sup> <a name="config4XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.config4XXErrorAlarm"></a>
+##### `config4XXErrorAlarm`<sup>Required</sup> <a name="config4XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.config4XXErrorAlarm"></a>
 
 ```typescript
 public readonly config4XXErrorAlarm: ApiGateway4XXErrorAlarmConfig;
@@ -62172,7 +62136,7 @@ The configuration for the 4XXError alarm.
 
 ---
 
-##### `config5XXErrorAlarm`<sup>Optional</sup> <a name="config5XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.config5XXErrorAlarm"></a>
+##### `config5XXErrorAlarm`<sup>Required</sup> <a name="config5XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.config5XXErrorAlarm"></a>
 
 ```typescript
 public readonly config5XXErrorAlarm: ApiGateway5XXErrorAlarmConfig;
@@ -62181,6 +62145,18 @@ public readonly config5XXErrorAlarm: ApiGateway5XXErrorAlarmConfig;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig">ApiGateway5XXErrorAlarmConfig</a>
 
 The configuration for the 5XXError alarm.
+
+---
+
+##### `configCountAlarm`<sup>Required</sup> <a name="configCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configCountAlarm"></a>
+
+```typescript
+public readonly configCountAlarm: ApiGatewayCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAlarmConfig">ApiGatewayCountAlarmConfig</a>
+
+The configuration for the Count alarm.
 
 ---
 
@@ -62315,9 +62291,9 @@ const apiGatewayRestApiRecommendedAlarmsProps: ApiGatewayRestApiRecommendedAlarm
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configCountAlarm">configCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAlarmConfig">ApiGatewayCountAlarmConfig</a></code> | The configuration for the Count alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.config4XXErrorAlarm">config4XXErrorAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig">ApiGateway4XXErrorAlarmConfig</a></code> | The configuration for the 4XXError alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.config5XXErrorAlarm">config5XXErrorAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig">ApiGateway5XXErrorAlarmConfig</a></code> | The configuration for the 5XXError alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configCountAlarm">configCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAlarmConfig">ApiGatewayCountAlarmConfig</a></code> | The configuration for the Count alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configDetailedCountAlarmList">configDetailedCountAlarmList</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedCountAlarmConfig">ApiGatewayRestApiDetailedCountAlarmConfig</a>[]</code> | The configuration list for the detailed Count alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configDetailedLatencyAlarmList">configDetailedLatencyAlarmList</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarmConfig">ApiGatewayRestApiDetailedLatencyAlarmConfig</a>[]</code> | The configuration list for the detailed Latency alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configLatencyAlarm">configLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAlarmConfig">ApiGatewayLatencyAlarmConfig</a></code> | The configuration for the Latency alarm. |
@@ -62331,19 +62307,7 @@ const apiGatewayRestApiRecommendedAlarmsProps: ApiGatewayRestApiRecommendedAlarm
 
 ---
 
-##### `configCountAlarm`<sup>Required</sup> <a name="configCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configCountAlarm"></a>
-
-```typescript
-public readonly configCountAlarm: ApiGatewayCountAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAlarmConfig">ApiGatewayCountAlarmConfig</a>
-
-The configuration for the Count alarm.
-
----
-
-##### `config4XXErrorAlarm`<sup>Optional</sup> <a name="config4XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.config4XXErrorAlarm"></a>
+##### `config4XXErrorAlarm`<sup>Required</sup> <a name="config4XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.config4XXErrorAlarm"></a>
 
 ```typescript
 public readonly config4XXErrorAlarm: ApiGateway4XXErrorAlarmConfig;
@@ -62355,7 +62319,7 @@ The configuration for the 4XXError alarm.
 
 ---
 
-##### `config5XXErrorAlarm`<sup>Optional</sup> <a name="config5XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.config5XXErrorAlarm"></a>
+##### `config5XXErrorAlarm`<sup>Required</sup> <a name="config5XXErrorAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.config5XXErrorAlarm"></a>
 
 ```typescript
 public readonly config5XXErrorAlarm: ApiGateway5XXErrorAlarmConfig;
@@ -62364,6 +62328,18 @@ public readonly config5XXErrorAlarm: ApiGateway5XXErrorAlarmConfig;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig">ApiGateway5XXErrorAlarmConfig</a>
 
 The configuration for the 5XXError alarm.
+
+---
+
+##### `configCountAlarm`<sup>Required</sup> <a name="configCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configCountAlarm"></a>
+
+```typescript
+public readonly configCountAlarm: ApiGatewayCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAlarmConfig">ApiGatewayCountAlarmConfig</a>
+
+The configuration for the Count alarm.
 
 ---
 

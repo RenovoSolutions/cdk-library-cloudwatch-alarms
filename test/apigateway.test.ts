@@ -99,6 +99,12 @@ test('RestApiSnapshot', () => {
 
   appAspects.add(
     new apiGatewayAlarms.ApiGatewayRecommendedAlarmsAspect({
+      config4XXErrorAlarm: {
+        threshold: 10,
+      },
+      config5XXErrorAlarm: {
+        threshold: 10,
+      },
       configCountAlarm: {
         threshold: 10,
       },
@@ -122,6 +128,12 @@ test('RestApiSnapshotWithDetailedList', () => {
 
   appAspects.add(
     new apiGatewayAlarms.ApiGatewayRecommendedAlarmsAspect({
+      config4XXErrorAlarm: {
+        threshold: 10,
+      },
+      config5XXErrorAlarm: {
+        threshold: 10,
+      },
       configCountAlarm: {
         threshold: 10,
       },
@@ -161,6 +173,12 @@ test('RestApiSnapshotWithExclusion', () => {
   appAspects.add(
     new apiGatewayAlarms.ApiGatewayRecommendedAlarmsAspect({
       excludeAlarms: [apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_4XX],
+      config4XXErrorAlarm: {
+        threshold: 10,
+      },
+      config5XXErrorAlarm: {
+        threshold: 10,
+      },
       configCountAlarm: {
         threshold: 10,
       },
@@ -188,6 +206,12 @@ test('SnapshotForRestApiConstruct', () => {
   });
 
   stack.api.applyRecommendedAlarms({
+    config4XXErrorAlarm: {
+      threshold: 10,
+    },
+    config5XXErrorAlarm: {
+      threshold: 10,
+    },
     configCountAlarm: {
       threshold: 10,
     },
@@ -213,6 +237,12 @@ test('RestApiSnapshotDefaultActionsInUse', () => {
     defaultAlarmAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultOkAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(alarmTopic),
+    config4XXErrorAlarm: {
+      threshold: 10,
+    },
+    config5XXErrorAlarm: {
+      threshold: 10,
+    },
     configCountAlarm: {
       threshold: 10,
     },
@@ -238,6 +268,12 @@ test('RestApiSnapshotDefaultActionsInUseWithDetails', () => {
     defaultAlarmAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultOkAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(alarmTopic),
+    config4XXErrorAlarm: {
+      threshold: 10,
+    },
+    config5XXErrorAlarm: {
+      threshold: 10,
+    },
     configCountAlarm: {
       threshold: 10,
     },
@@ -279,6 +315,12 @@ test('stack should contain service recommended alarms if recommended alarms aspe
 
   appAspects.add(
     new apiGatewayAlarms.ApiGatewayRecommendedAlarmsAspect({
+      config4XXErrorAlarm: {
+        threshold: 10,
+      },
+      config5XXErrorAlarm: {
+        threshold: 10,
+      },
       configCountAlarm: {
         threshold: 10,
       },
@@ -341,8 +383,8 @@ test('alarms can be applied individually to services using extended construct', 
     },
   ];
 
-  stack.api.alarm4XXError();
-  stack.api.alarm5XXError();
+  stack.api.alarm4XXError({ threshold: 10 });
+  stack.api.alarm5XXError({ threshold: 10 });
   stack.api.alarmCount({ threshold: 10 });
   stack.api.alarmLatency();
   stack.api.alarmDetailedCount(alarmDetailCountConfig);
@@ -389,6 +431,12 @@ test('when a resource is excluded from the aspect config it should not have alar
   appAspects.add(
     new apiGatewayAlarms.ApiGatewayRecommendedAlarmsAspect({
       excludeResources: ['RestApi1'],
+      config4XXErrorAlarm: {
+        threshold: 10,
+      },
+      config5XXErrorAlarm: {
+        threshold: 10,
+      },
       configCountAlarm: {
         threshold: 10,
       },
@@ -493,11 +541,13 @@ test('default alarm actions are overridden when individual alarm actions are pro
       alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
       okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
       insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+      threshold: 10,
     },
     config5XXErrorAlarm: {
       alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
       okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
       insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+      threshold: 10,
     },
     configCountAlarm: {
       alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
@@ -677,6 +727,12 @@ test('AspectWithTreatMissingData', () => {
   appAspects.add(
     new apiGatewayAlarms.ApiGatewayRecommendedAlarmsAspect({
       treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
+      config4XXErrorAlarm: {
+        threshold: 10,
+      },
+      config5XXErrorAlarm: {
+        threshold: 10,
+      },
       configCountAlarm: {
         threshold: 10,
       },
