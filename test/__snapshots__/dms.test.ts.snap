@@ -728,6 +728,62 @@ exports[`AspectWithTreatMissingData 2`] = `
       },
       "Type": "AWS::DMS::ReplicationTask",
     },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencySourceB0377D15": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencyTarget2FBFA9EC": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcThroughputRowsSource76F12A11": {
       "Properties": {
         "AlarmDescription": "This alarm monitors CDC throughput from the source database. High values may indicate unexpected data changes or bulk operations. Low values may indicate replication lag or source database issues.",
@@ -3578,6 +3634,62 @@ exports[`DmsReplicationTaskSnapshot 1`] = `
       },
       "Type": "AWS::DMS::ReplicationTask",
     },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencySourceB0377D15": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencyTarget2FBFA9EC": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcThroughputRowsSource76F12A11": {
       "Properties": {
         "AlarmDescription": "This alarm monitors CDC throughput from the source database. High values may indicate unexpected data changes or bulk operations. Low values may indicate replication lag or source database issues.",
@@ -4882,6 +4994,92 @@ exports[`DmsReplicationTaskSnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::EC2::VPCGatewayAttachment",
     },
+    "dmsReplicationTaskAlarmstestReplicationTaskCdcLatencySourceA4F924B7": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "dmsReplicationTaskAlarmstestReplicationTaskCdcLatencyTarget127EAA4E": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "dmsReplicationTaskAlarmstestReplicationTaskCdcThroughputRowsSourceABBED6B5": {
       "Properties": {
         "AlarmActions": [
@@ -5142,6 +5340,62 @@ exports[`DmsReplicationTaskSnapshotWithExclusion 1`] = `
         },
       },
       "Type": "AWS::DMS::ReplicationTask",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencySourceB0377D15": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencyTarget2FBFA9EC": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcThroughputRowsTarget0AD25133": {
       "Properties": {
@@ -6551,6 +6805,62 @@ exports[`SnapshotForDmsReplicationTaskConstruct 1`] = `
         },
       },
       "Type": "AWS::DMS::ReplicationTask",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmstestReplicationTaskCdcLatencySource2C61D651": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmstestReplicationTaskCdcLatencyTarget7719DDD4": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ReplicationTaskDmsReplicationTaskRecommendedAlarmstestReplicationTaskCdcThroughputRowsSourceE7B27AF8": {
       "Properties": {
@@ -7988,6 +8298,62 @@ exports[`alarms can be applied individually to replicationTasks using extended c
         },
       },
       "Type": "AWS::DMS::ReplicationTask",
+    },
+    "ReplicationTaskCdcLatencySourceAlarm6F72451E": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationTaskCdcLatencyTargetAlarm8D5FE6F9": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ReplicationTaskCdcThroughputRowsSourceAlarm318B5553": {
       "Properties": {
@@ -9673,6 +10039,46 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::IAM::Role",
     },
+    "LambdatestReplicationTaskCdcLatencySourceAlarmPermission819D5DF0": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "LambdaD247545B",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "dmsReplicationTaskAlarmstestReplicationTaskCdcLatencySourceA4F924B7",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "LambdatestReplicationTaskCdcLatencyTargetAlarmPermission3C9119D6": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "LambdaD247545B",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "dmsReplicationTaskAlarmstestReplicationTaskCdcLatencyTarget127EAA4E",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
     "LambdatestReplicationTaskCdcThroughputRowsSourceAlarmPermissionDC55E4FD": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
@@ -10337,6 +10743,110 @@ exports[`default alarm actions are overridden when individual alarm actions are 
         },
       },
       "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+    "dmsReplicationTaskAlarmstestReplicationTaskCdcLatencySourceA4F924B7": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "OKActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "dmsReplicationTaskAlarmstestReplicationTaskCdcLatencyTarget127EAA4E": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "OKActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "dmsReplicationTaskAlarmstestReplicationTaskCdcThroughputRowsSourceABBED6B5": {
       "Properties": {
@@ -11363,6 +11873,88 @@ exports[`optional alarm configurations can be overwritten 2`] = `
       },
       "Type": "AWS::DMS::ReplicationTask",
     },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencySourceB0377D15": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomCdcLatencySourceAlarm",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 25,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": "arn:aws:dms:us-east-1:123456789012:rep:replication-instance",
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 10,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencyTarget2FBFA9EC": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomCdcLatencyTargetAlarm",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 25,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": "arn:aws:dms:us-east-1:123456789012:rep:replication-instance",
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 10,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcThroughputRowsSource76F12A11": {
       "Properties": {
         "AlarmActions": [
@@ -12288,6 +12880,62 @@ exports[`stack should contain replicationTask recommended alarms if recommended 
         },
       },
       "Type": "AWS::DMS::ReplicationTask",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencySourceB0377D15": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcLatencyTarget2FBFA9EC": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": {
+              "Ref": "ReplicationInstance",
+            },
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ReplicationTaskDmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTaskCdcThroughputRowsSource76F12A11": {
       "Properties": {
@@ -13730,6 +14378,58 @@ exports[`when an resource is excluded from the aspect config it should not have 
         "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:target-endpoint",
       },
       "Type": "AWS::DMS::ReplicationTask",
+    },
+    "ReplicationTask2DmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTask2CdcLatencySourceE846179A": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency from the source database. High values may indicate replication lag or source database performance issues. This can affect data freshness in real-time applications.",
+        "AlarmName": "testReplicationTask2 - CDCLatencySource",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": "arn:aws:dms:us-east-1:123456789012:rep:replication-instance",
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask2",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencySource",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationTask2DmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTask2CdcLatencyTarget7CE0FBA2": {
+      "Properties": {
+        "AlarmDescription": "This alarm monitors CDC latency to the target database. High values may indicate replication lag or target database performance issues. This can affect data consistency in downstream applications.",
+        "AlarmName": "testReplicationTask2 - CDCLatencyTarget",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ReplicationInstanceIdentifier",
+            "Value": "arn:aws:dms:us-east-1:123456789012:rep:replication-instance",
+          },
+          {
+            "Name": "ReplicationTaskIdentifier",
+            "Value": "testReplicationTask2",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "CDCLatencyTarget",
+        "Namespace": "AWS/DMS",
+        "Period": 300,
+        "Statistic": "Average",
+        "Threshold": 300,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
     },
     "ReplicationTask2DmsReplicationTaskRecommendedAlarmsFromAspecttestReplicationTask2CdcThroughputRowsSourceCE78BCC3": {
       "Properties": {
