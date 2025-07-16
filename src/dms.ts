@@ -42,6 +42,14 @@ export enum DmsReplicationTaskRecommendedAlarmsMetrics {
    */
   CDC_THROUGHPUT_ROWS_TARGET = 'CDCThroughputRowsTarget',
   /**
+   * The gap, in seconds, between the last event captured from the source endpoint and current system time.
+   */
+  CDC_LATENCY_SOURCE = 'CDCLatencySource',
+  /**
+   * The gap, in seconds, between a change that was committed to the source and the same change committed to the target.
+   */
+  CDC_LATENCY_TARGET = 'CDCLatencyTarget',
+  /**
    * The number of rows per second being read from the source database during full load operations.
    */
   FULL_LOAD_THROUGHPUT_ROWS_SOURCE = 'FullLoadThroughputRowsSource',
@@ -851,6 +859,218 @@ export class DmsReplicationTaskFullLoadThroughputRowsTargetAlarm extends cloudwa
 }
 
 /**
+ * Configuration for the CdcLatencySource alarm.
+ */
+export interface DmsCdcLatencySourceAlarmConfig extends DmsAlarmBaseConfig {
+  /**
+   * The latency threshold in seconds. This alarm can be used to detect:
+   * - High latency indicating replication lag or source database performance issues
+   * - Potential data freshness problems affecting real-time applications
+   *
+   * Consider your application's tolerance for data lag when setting this threshold.
+   *
+   * @default 300 (5 minutes - for detecting high latency issues)
+   */
+  readonly threshold?: number;
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   *
+   * @default 3 (to avoid false alarms from temporary fluctuations)
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 2 (allow for some variance while still detecting issues)
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The comparison operator to use for the alarm.
+   *
+   * @default GREATER_THAN_THRESHOLD (for detecting high latency issues)
+   */
+  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - replicationTaskIdentifier + ' - CDCLatencySource'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This alarm monitors CDC latency from the source database.
+   * High values may indicate replication lag or source database performance issues.
+   * This can affect data freshness in real-time applications.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the DmsReplicationTaskCdcLatencySourceAlarm construct.
+ */
+export interface DmsReplicationTaskCdcLatencySourceAlarmProps extends DmsReplicationTaskAlarmProps, DmsCdcLatencySourceAlarmConfig {}
+
+/**
+ * An alarm that monitors the CDC latency (in seconds) from the source database.
+ *
+ * This alarm monitors the gap between the last event captured from the source endpoint
+ * and current system time. It can help detect:
+ * - Replication lag indicating source database performance issues
+ * - Network connectivity problems affecting CDC capture
+ * - Source database load affecting change capture performance
+ * - Data freshness issues that could impact real-time applications
+ *
+ * The alarm is typically configured to trigger on high latency values.
+ */
+export class DmsReplicationTaskCdcLatencySourceAlarm extends cloudwatch.Alarm {
+  constructor(scope: IConstruct, id: string, props: DmsReplicationTaskCdcLatencySourceAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE}`;
+    const period = props.period ?? Duration.minutes(5); // Longer period for latency metrics
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 2;
+    const threshold = props.threshold ?? 300; // Default threshold for detecting high latency (5 minutes)
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This alarm monitors CDC latency from the source database. '
+      + 'High values may indicate replication lag or source database performance issues. '
+      + 'This can affect data freshness in real-time applications.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: new cloudwatch.Metric({
+        namespace: 'AWS/DMS',
+        metricName: DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE,
+        dimensionsMap: {
+          ReplicationTaskIdentifier: props.replicationTask.replicationTaskIdentifier!,
+          ReplicationInstanceIdentifier: props.replicationTask.replicationInstanceArn!,
+        },
+        statistic: 'Average',
+        period,
+      }),
+      threshold,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+}
+
+/**
+ * Configuration for the CdcLatencyTarget alarm.
+ */
+export interface DmsCdcLatencyTargetAlarmConfig extends DmsAlarmBaseConfig {
+  /**
+   * The latency threshold in seconds. This alarm can be used to detect:
+   * - High latency indicating target database performance issues or replication lag
+   * - Potential data consistency problems affecting downstream applications
+   *
+   * Consider your application's tolerance for data lag when setting this threshold.
+   *
+   * @default 300 (5 minutes - for detecting high latency issues)
+   */
+  readonly threshold?: number;
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   *
+   * @default 3 (to avoid false alarms from temporary fluctuations)
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 2 (allow for some variance while still detecting issues)
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The comparison operator to use for the alarm.
+   *
+   * @default GREATER_THAN_THRESHOLD (for detecting high latency issues)
+   */
+  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - replicationTaskIdentifier + ' - CDCLatencyTarget'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This alarm monitors CDC latency to the target database.
+   * High values may indicate replication lag or target database performance issues.
+   * This can affect data consistency in downstream applications.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the DmsReplicationTaskCdcLatencyTargetAlarm construct.
+ */
+export interface DmsReplicationTaskCdcLatencyTargetAlarmProps extends DmsReplicationTaskAlarmProps, DmsCdcLatencyTargetAlarmConfig {}
+
+/**
+ * An alarm that monitors the CDC latency (in seconds) to the target database.
+ *
+ * This alarm monitors the gap between a change that was committed to the source
+ * and the same change committed to the target. It can help detect:
+ * - End-to-end replication latency affecting data consistency
+ * - Target database performance issues affecting write operations
+ * - Network connectivity problems between replication instance and target
+ * - Data consistency issues that could impact downstream applications
+ *
+ * The alarm is typically configured to trigger on high latency values.
+ */
+export class DmsReplicationTaskCdcLatencyTargetAlarm extends cloudwatch.Alarm {
+  constructor(scope: IConstruct, id: string, props: DmsReplicationTaskCdcLatencyTargetAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET}`;
+    const period = props.period ?? Duration.minutes(5); // Longer period for latency metrics
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 2;
+    const threshold = props.threshold ?? 300; // Default threshold for detecting high latency (5 minutes)
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This alarm monitors CDC latency to the target database. '
+      + 'High values may indicate replication lag or target database performance issues. '
+      + 'This can affect data consistency in downstream applications.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: new cloudwatch.Metric({
+        namespace: 'AWS/DMS',
+        metricName: DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET,
+        dimensionsMap: {
+          ReplicationTaskIdentifier: props.replicationTask.replicationTaskIdentifier!,
+          ReplicationInstanceIdentifier: props.replicationTask.replicationInstanceArn!,
+        },
+        statistic: 'Average',
+        period,
+      }),
+      threshold,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+}
+
+/**
  * Configurations for the recommended alarms for a DMS Replication Instance.
  *
  * Default actions are overridden by the actions specified in the
@@ -910,7 +1130,6 @@ export interface DmsReplicationInstanceRecommendedAlarmsConfig {
    */
   readonly configWriteIopsAlarm?: DmsWriteIopsAlarmConfig;
 }
-
 
 /**
  * Properties for the DmsReplicationInstanceRecommendedAlarms construct.
@@ -1083,6 +1302,14 @@ export interface DmsReplicationTaskRecommendedAlarmsConfig {
    */
   readonly configCdcThroughputRowsTargetAlarm?: DmsCdcThroughputRowsTargetAlarmConfig;
   /**
+   * The configuration for the CDCLatencySource alarm.
+   */
+  readonly configCdcLatencySourceAlarm?: DmsCdcLatencySourceAlarmConfig;
+  /**
+   * The configuration for the CDCLatencyTarget alarm.
+   */
+  readonly configCdcLatencyTargetAlarm?: DmsCdcLatencyTargetAlarmConfig;
+  /**
    * The configuration for the FullLoadThroughputRowsSource alarm.
    */
   readonly configFullLoadThroughputRowsSourceAlarm?: DmsFullLoadThroughputRowsSourceAlarmConfig;
@@ -1115,6 +1342,16 @@ export class DmsReplicationTaskRecommendedAlarms extends Construct {
    * The CDCThroughputRowsTarget alarm.
    */
   public readonly alarmCdcThroughputRowsTarget?: DmsReplicationTaskCdcThroughputRowsTargetAlarm;
+
+  /**
+   * The CDCLatencySource alarm.
+   */
+  public readonly alarmCdcLatencySource?: DmsReplicationTaskCdcLatencySourceAlarm;
+
+  /**
+   * The CDCLatencyTarget alarm.
+   */
+  public readonly alarmCdcLatencyTarget?: DmsReplicationTaskCdcLatencyTargetAlarm;
 
   /**
    * The FullLoadThroughputRowsSource alarm.
@@ -1166,6 +1403,46 @@ export class DmsReplicationTaskRecommendedAlarms extends Construct {
 
       if (props.defaultInsufficientDataAction && !props.configCdcThroughputRowsTargetAlarm?.insufficientDataAction) {
         this.alarmCdcThroughputRowsTarget.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
+    if (!props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE)) {
+      this.alarmCdcLatencySource = new DmsReplicationTaskCdcLatencySourceAlarm(this, `${props.replicationTask.replicationTaskIdentifier}_CdcLatencySource`, {
+        replicationTask: props.replicationTask,
+        treatMissingData: props.treatMissingData,
+        ...props.configCdcLatencySourceAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.configCdcLatencySourceAlarm?.alarmAction) {
+        this.alarmCdcLatencySource.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.configCdcLatencySourceAlarm?.okAction) {
+        this.alarmCdcLatencySource.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.configCdcLatencySourceAlarm?.insufficientDataAction) {
+        this.alarmCdcLatencySource.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
+    if (!props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET)) {
+      this.alarmCdcLatencyTarget = new DmsReplicationTaskCdcLatencyTargetAlarm(this, `${props.replicationTask.replicationTaskIdentifier}_CdcLatencyTarget`, {
+        replicationTask: props.replicationTask,
+        treatMissingData: props.treatMissingData,
+        ...props.configCdcLatencyTargetAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.configCdcLatencyTargetAlarm?.alarmAction) {
+        this.alarmCdcLatencyTarget.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.configCdcLatencyTargetAlarm?.okAction) {
+        this.alarmCdcLatencyTarget.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.configCdcLatencyTargetAlarm?.insufficientDataAction) {
+        this.alarmCdcLatencyTarget.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
 
@@ -1235,6 +1512,26 @@ export class ReplicationTask extends dms.CfnReplicationTask {
    */
   public alarmCdcThroughputRowsTarget(props?: DmsCdcThroughputRowsTargetAlarmConfig): DmsReplicationTaskCdcThroughputRowsTargetAlarm {
     return new DmsReplicationTaskCdcThroughputRowsTargetAlarm(this, 'CdcThroughputRowsTargetAlarm', {
+      replicationTask: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an alarm that monitors the CDC latency from the source for the Replication Task.
+   */
+  public alarmCdcLatencySource(props?: DmsCdcLatencySourceAlarmConfig): DmsReplicationTaskCdcLatencySourceAlarm {
+    return new DmsReplicationTaskCdcLatencySourceAlarm(this, 'CdcLatencySourceAlarm', {
+      replicationTask: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an alarm that monitors the CDC latency to the target for the Replication Task.
+   */
+  public alarmCdcLatencyTarget(props?: DmsCdcLatencyTargetAlarmConfig): DmsReplicationTaskCdcLatencyTargetAlarm {
+    return new DmsReplicationTaskCdcLatencyTargetAlarm(this, 'CdcLatencyTargetAlarm', {
       replicationTask: this,
       ...props,
     });

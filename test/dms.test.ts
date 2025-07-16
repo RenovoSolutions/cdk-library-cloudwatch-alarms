@@ -634,6 +634,12 @@ test('DmsReplicationTaskSnapshotWithExclusion', () => {
       configFullLoadThroughputRowsTargetAlarm: {
         threshold: 1000,
       },
+      configCdcLatencySourceAlarm: {
+        threshold: 300,
+      },
+      configCdcLatencyTargetAlarm: {
+        threshold: 300,
+      },
     }),
   );
 
@@ -670,6 +676,12 @@ test('SnapshotForDmsReplicationTaskConstruct', () => {
     configFullLoadThroughputRowsTargetAlarm: {
       threshold: 1000,
     },
+    configCdcLatencySourceAlarm: {
+      threshold: 300,
+    },
+    configCdcLatencyTargetAlarm: {
+      threshold: 300,
+    },
   });
 
   const template = Template.fromStack(stack);
@@ -704,6 +716,12 @@ test('DmsReplicationTaskSnapshotDefaultActionsInUse', () => {
     configFullLoadThroughputRowsTargetAlarm: {
       threshold: 1000,
     },
+    configCdcLatencySourceAlarm: {
+      threshold: 300,
+    },
+    configCdcLatencyTargetAlarm: {
+      threshold: 300,
+    },
   });
 
   const template = Template.fromStack(stack);
@@ -727,6 +745,12 @@ test('stack should contain replicationTask recommended alarms if recommended ala
       },
       configFullLoadThroughputRowsTargetAlarm: {
         threshold: 1000,
+      },
+      configCdcLatencySourceAlarm: {
+        threshold: 300,
+      },
+      configCdcLatencyTargetAlarm: {
+        threshold: 300,
       },
     }),
   );
@@ -775,6 +799,8 @@ test('alarms can be applied individually to replicationTasks using extended cons
   stack.replicationTask.alarmCdcThroughputRowsTarget({ threshold: 100 });
   stack.replicationTask.alarmFullLoadThroughputRowsSource({ threshold: 1000 });
   stack.replicationTask.alarmFullLoadThroughputRowsTarget({ threshold: 1000 });
+  stack.replicationTask.alarmCdcLatencySource({ threshold: 300 });
+  stack.replicationTask.alarmCdcLatencyTarget({ threshold: 300 });
 
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
@@ -825,6 +851,12 @@ test('when an resource is excluded from the aspect config it should not have ala
       },
       configFullLoadThroughputRowsTargetAlarm: {
         threshold: 1000,
+      },
+      configCdcLatencySourceAlarm: {
+        threshold: 300,
+      },
+      configCdcLatencyTargetAlarm: {
+        threshold: 300,
       },
     }),
   );
@@ -957,6 +989,18 @@ test('default alarm actions are overridden when individual alarm actions are pro
       okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
       insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
     },
+    configCdcLatencySourceAlarm: {
+      threshold: 300,
+      alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+      okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+      insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+    },
+    configCdcLatencyTargetAlarm: {
+      threshold: 300,
+      alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+      okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+      insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+    },
   });
 
   const template = Template.fromStack(stack);
@@ -1025,6 +1069,30 @@ test('optional alarm configurations can be overwritten', () => {
       },
       configFullLoadThroughputRowsTargetAlarm: {
         alarmName: 'CustomFullLoadThroughputRowsTargetAlarm',
+        threshold: 10,
+        period: Duration.minutes(5),
+        evaluationPeriods: 25,
+        datapointsToAlarm: 25,
+        alarmDescription: 'Custom alarm description',
+        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
+        alarmAction: topicAction,
+        okAction: topicAction,
+        insufficientDataAction: topicAction,
+      },
+      configCdcLatencySourceAlarm: {
+        alarmName: 'CustomCdcLatencySourceAlarm',
+        threshold: 10,
+        period: Duration.minutes(5),
+        evaluationPeriods: 25,
+        datapointsToAlarm: 25,
+        alarmDescription: 'Custom alarm description',
+        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
+        alarmAction: topicAction,
+        okAction: topicAction,
+        insufficientDataAction: topicAction,
+      },
+      configCdcLatencyTargetAlarm: {
+        alarmName: 'CustomCdcLatencyTargetAlarm',
         threshold: 10,
         period: Duration.minutes(5),
         evaluationPeriods: 25,
@@ -1104,6 +1172,12 @@ test('AspectWithTreatMissingData', () => {
       },
       configFullLoadThroughputRowsTargetAlarm: {
         threshold: 1000,
+      },
+      configCdcLatencySourceAlarm: {
+        threshold: 300,
+      },
+      configCdcLatencyTargetAlarm: {
+        threshold: 300,
       },
     }),
   );
