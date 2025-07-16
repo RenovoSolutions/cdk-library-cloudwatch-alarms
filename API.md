@@ -14984,6 +14984,7 @@ Creates recommended alarms for the database cluster.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromDatabaseClusterAttributes">fromDatabaseClusterAttributes</a></code> | Import an existing DatabaseCluster from properties. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromLookup">fromLookup</a></code> | Lookup an existing DatabaseCluster using clusterIdentifier. |
 
 ---
 
@@ -15062,6 +15063,34 @@ Import an existing DatabaseCluster from properties.
 ###### `attrs`<sup>Required</sup> <a name="attrs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromDatabaseClusterAttributes.parameter.attrs"></a>
 
 - *Type:* aws-cdk-lib.aws_rds.DatabaseClusterAttributes
+
+---
+
+##### `fromLookup` <a name="fromLookup" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromLookup"></a>
+
+```typescript
+import { DatabaseCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DatabaseCluster.fromLookup(scope: Construct, id: string, options: DatabaseClusterLookupOptions)
+```
+
+Lookup an existing DatabaseCluster using clusterIdentifier.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromLookup.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromLookup.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.fromLookup.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.DatabaseClusterLookupOptions
 
 ---
 
@@ -58761,7 +58790,7 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.enableAcceleration">enableAcceleration</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Indicate whether to enable acceleration for the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.localIpv4NetworkCidr">localIpv4NetworkCidr</a></code> | <code>string</code> | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.localIpv6NetworkCidr">localIpv6NetworkCidr</a></code> | <code>string</code> | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.outsideIpAddressType">outsideIpAddressType</a></code> | <code>string</code> | The type of IPv4 address assigned to the outside interface of the customer gateway device. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.outsideIpAddressType">outsideIpAddressType</a></code> | <code>string</code> | The type of IP address assigned to the outside interface of the customer gateway device. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.remoteIpv4NetworkCidr">remoteIpv4NetworkCidr</a></code> | <code>string</code> | The IPv4 CIDR on the AWS side of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.remoteIpv6NetworkCidr">remoteIpv6NetworkCidr</a></code> | <code>string</code> | The IPv6 CIDR on the AWS side of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.staticRoutesOnly">staticRoutesOnly</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Indicates whether the VPN connection uses static routes only. |
@@ -58958,7 +58987,7 @@ public readonly outsideIpAddressType: string;
 
 - *Type:* string
 
-The type of IPv4 address assigned to the outside interface of the customer gateway device.
+The type of IP address assigned to the outside interface of the customer gateway device.
 
 ---
 
