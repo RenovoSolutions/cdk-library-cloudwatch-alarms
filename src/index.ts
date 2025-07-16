@@ -4,6 +4,7 @@ export * from './applicationloadbalancer';
 export * from './applicationtargetgroup';
 export * from './common';
 export * from './cloudfront';
+export * from './dms';
 export * from './dynamodb';
 export * from './ec2';
 export * from './ecs';

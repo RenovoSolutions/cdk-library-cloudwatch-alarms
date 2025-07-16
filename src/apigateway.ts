@@ -78,19 +78,13 @@ export interface ApiGatewayRestApiAlarmProps {
  */
 export interface ApiGateway4XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig {
   /**
-   * The percentage (0-1) value against which the specified statistic is compared.
-   * The suggested threshold detects when more than 5% of total requests are getting 4XX errors.
-   * However, you can tune the threshold to suit the traffic of the requests as well as acceptable
-   * error rates. You can also analyze historical data to determine the acceptable error rate for
-   * the application workload and then tune the threshold accordingly. Frequently occurring 4XX
-   * errors need to be alarmed on. However, setting a very low value for the threshold can cause
-   * the alarm to be too sensitive.
+   * The threshold value against which the specified statistic is compared.
    *
-   * @default 0.05
    */
-  readonly threshold?: number;
+  readonly threshold: number;
   /**
    * The number of periods over which data is compared to the specified threshold.
+   * The unit is an absolute count of errors, not a percentage.
    *
    * @default 5
    */
@@ -121,7 +115,7 @@ export interface ApiGateway4XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig
 export interface ApiGatewayRestApi4XXErrorAlarmProps extends ApiGatewayRestApiAlarmProps, ApiGateway4XXErrorAlarmConfig {}
 
 /**
- * This alarm detects a high rate of client-side errors.
+ * This alarm detects a high number of client-side errors.
  *
  * This can indicate an issue in the authorization or client request parameters. It could also mean that a resource was
  * removed or a client is requesting one that doesn't exist. Consider enabling CloudWatch Logs and checking for any errors
@@ -129,7 +123,7 @@ export interface ApiGatewayRestApi4XXErrorAlarmProps extends ApiGatewayRestApiAl
  * resource and method and narrow down the source of the errors. Errors could also be caused by exceeding the configured
  * throttling limit.
  *
- * The alarm is triggered when percentage of client-errors exceeds the threshold.
+ * The alarm is triggered when number of client-errors exceeds the threshold.
  */
 export class ApiGatewayRestApi4XXErrorAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: ApiGatewayRestApi4XXErrorAlarmProps) {
@@ -137,7 +131,7 @@ export class ApiGatewayRestApi4XXErrorAlarm extends cloudwatch.Alarm {
     const period = props.period ?? Duration.minutes(1);
     const evaluationPeriods = props.evaluationPeriods ?? 5;
     const datapointsToAlarm = props.datapointsToAlarm ?? 5;
-    const threshold = props.threshold ?? 0.05;
+    const threshold = props.threshold;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
     const alarmDescription = props.alarmDescription ?? 'This alarm can detect high rates of client-side errors for the'
       + ' API Gateway requests.';
@@ -173,19 +167,12 @@ export class ApiGatewayRestApi4XXErrorAlarm extends cloudwatch.Alarm {
  */
 export interface ApiGateway5XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig {
   /**
-   * The percentage (0-1) value against which the specified statistic is compared.
-   * The suggested threshold detects when more than 5% of total requests are getting 5XX errors.
-   * However, you can tune the threshold to suit the traffic of the requests as well as acceptable
-   * error rates. you can also analyze historical data to determine the acceptable error rate for
-   * the application workload and then tune the threshold accordingly. Frequently occurring 5XX
-   * errors need to be alarmed on. However, setting a very low value for the threshold can cause
-   * the alarm to be too sensitive.
-   *
-   * @default 0.05
+   * The threshold value against which the specified statistic is compared.
    */
-  readonly threshold?: number;
+  readonly threshold: number;
   /**
    * The number of periods over which data is compared to the specified threshold.
+   * The unit is an absolute count of errors, not a percentage.
    *
    * @default 3
    */
@@ -216,12 +203,12 @@ export interface ApiGateway5XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig
 export interface ApiGatewayRestApi5XXErrorAlarmProps extends ApiGatewayRestApiAlarmProps, ApiGateway5XXErrorAlarmConfig {}
 
 /**
- * This alarm detects a high rate of server-side errors.
+ * This alarm detects a high number of server-side errors.
  *
  * This can indicate that there is something wrong on the API backend, the network,
  * or the integration between the API gateway and the backend API.
  *
- * The alarm is triggered when percentage of server-errors exceeds the threshold.
+ * The alarm is triggered when number of server-errors exceeds the threshold.
  */
 export class ApiGatewayRestApi5XXErrorAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: ApiGatewayRestApi5XXErrorAlarmProps) {
@@ -229,7 +216,7 @@ export class ApiGatewayRestApi5XXErrorAlarm extends cloudwatch.Alarm {
     const period = props.period ?? Duration.minutes(1);
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 3;
-    const threshold = props.threshold ?? 0.05;
+    const threshold = props.threshold;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
     const alarmDescription = props.alarmDescription ?? 'This alarm can detect high rates of server-side errors for the'
       + ' API Gateway requests.';
@@ -620,11 +607,11 @@ export interface ApiGatewayRestApiRecommendedAlarmsConfig {
   /**
    * The configuration for the 4XXError alarm.
    */
-  readonly config4XXErrorAlarm?: ApiGateway4XXErrorAlarmConfig;
+  readonly config4XXErrorAlarm: ApiGateway4XXErrorAlarmConfig;
   /**
    * The configuration for the 5XXError alarm.
    */
-  readonly config5XXErrorAlarm?: ApiGateway5XXErrorAlarmConfig;
+  readonly config5XXErrorAlarm: ApiGateway5XXErrorAlarmConfig;
   /**
    * The configuration for the Count alarm.
    */
@@ -825,7 +812,7 @@ export class RestApi extends apigateway.RestApi {
   /**
    * Creates an alarm that monitors the number of client-side errors captured in a given period.
    */
-  public alarm4XXError(props?: ApiGateway4XXErrorAlarmConfig): ApiGatewayRestApi4XXErrorAlarm {
+  public alarm4XXError(props: ApiGateway4XXErrorAlarmConfig): ApiGatewayRestApi4XXErrorAlarm {
     return new ApiGatewayRestApi4XXErrorAlarm(this, '4XXErrorAlarm', {
       api: this,
       ...props,
@@ -835,7 +822,7 @@ export class RestApi extends apigateway.RestApi {
   /**
    * Creates an alarm that monitors the number of server-side errors captured in a given period.
    */
-  public alarm5XXError(props?: ApiGateway5XXErrorAlarmConfig): ApiGatewayRestApi5XXErrorAlarm {
+  public alarm5XXError(props: ApiGateway5XXErrorAlarmConfig): ApiGatewayRestApi5XXErrorAlarm {
     return new ApiGatewayRestApi5XXErrorAlarm(this, '5XXErrorAlarm', {
       api: this,
       ...props,
