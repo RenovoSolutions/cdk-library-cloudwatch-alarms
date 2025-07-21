@@ -91,6 +91,44 @@ exports[`AspectWithTreatMissingData 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstanceSwapUsage8FB3B80A": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstanceWriteIops916560CC": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect high write IOPS for the DMS Replication Instance. High write IOPS can indicate heavy write activity or potential I/O bottlenecks.",
@@ -1584,6 +1622,44 @@ exports[`DmsReplicationInstanceSnapshot 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstanceSwapUsage8FB3B80A": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstanceWriteIops916560CC": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect high write IOPS for the DMS Replication Instance. High write IOPS can indicate heavy write activity or potential I/O bottlenecks.",
@@ -2844,6 +2920,59 @@ exports[`DmsReplicationInstanceSnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "dmsReplicationInstanceAlarmstestReplicationInstanceSwapUsageC57DFECC": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "dmsReplicationInstanceAlarmstestReplicationInstanceWriteIops72D50173": {
       "Properties": {
         "AlarmActions": [
@@ -2993,6 +3122,44 @@ exports[`DmsReplicationInstanceSnapshotWithExclusion 1`] = `
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 25000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstanceSwapUsage8FB3B80A": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -6169,6 +6336,44 @@ exports[`SnapshotForDmsReplicationInstanceConstruct 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmstestReplicationInstanceSwapUsage7A6A0A79": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmstestReplicationInstanceWriteIops18C6A5A1": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect high write IOPS for the DMS Replication Instance. High write IOPS can indicate heavy write activity or potential I/O bottlenecks.",
@@ -7658,6 +7863,44 @@ exports[`alarms can be applied individually to replicationInstances using extend
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 25000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationInstanceSwapUsageAlarm624C3282": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -9184,6 +9427,26 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::Lambda::Permission",
     },
+    "LambdatestReplicationInstanceSwapUsageAlarmPermissionAF98D394": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "LambdaD247545B",
+            "Arn",
+          ],
+        },
+        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
+        "SourceAccount": "123456789012",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "dmsReplicationInstanceAlarmstestReplicationInstanceSwapUsageC57DFECC",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
     "LambdatestReplicationInstanceWriteIopsAlarmPermission9B01B4A9": {
       "Properties": {
         "Action": "lambda:InvokeFunction",
@@ -9882,6 +10145,68 @@ exports[`default alarm actions are overridden when individual alarm actions are 
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 25000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "dmsReplicationInstanceAlarmstestReplicationInstanceSwapUsageC57DFECC": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Fn::GetAtt": [
+              "LambdaD247545B",
+              "Arn",
+            ],
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -11239,6 +11564,59 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstanceSwapUsage8FB3B80A": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomSwapUsageAlarm",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 25,
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 3)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstanceWriteIops916560CC": {
       "Properties": {
         "AlarmActions": [
@@ -12240,6 +12618,44 @@ exports[`stack should contain replicationInstance recommended alarms if recommen
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 25000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationInstanceDmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstanceSwapUsage8FB3B80A": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -13748,6 +14164,44 @@ exports[`when an resource is excluded from the aspect config it should not have 
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 25000,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicationInstance2DmsReplicationInstanceRecommendedAlarmsFromAspecttestReplicationInstance2SwapUsage25EE6FB1": {
+      "Properties": {
+        "AlarmDescription": "This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure, performance issues, or resource constraints. This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.",
+        "AlarmName": "testReplicationInstance2 - SwapUsage",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ReplicationInstanceIdentifier",
+                    "Value": "testReplicationInstance2",
+                  },
+                ],
+                "MetricName": "SwapUsage",
+                "Namespace": "AWS/DMS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
