@@ -40,6 +40,27 @@ class DmsReplicationInstanceStack extends Stack {
   }
 }
 
+// Helper function to extract metric name from both regular alarms and anomaly detection alarms
+function getMetricNameFromAlarm(resource: any): string | undefined {
+  const resourceProperties = resource.Properties;
+
+  // Regular alarm - MetricName is directly in Properties
+  if (resourceProperties.MetricName) {
+    return resourceProperties.MetricName;
+  }
+
+  // Anomaly detection alarm - MetricName is in Properties.Metrics array
+  if (resourceProperties.Metrics && Array.isArray(resourceProperties.Metrics)) {
+    for (const metric of resourceProperties.Metrics) {
+      if (metric.MetricStat?.Metric?.MetricName) {
+        return metric.MetricStat.Metric.MetricName;
+      }
+    }
+  }
+
+  return undefined;
+}
+
 test('DmsReplicationInstanceSnapshot', () => {
   const app = new App();
   const appAspects = Aspects.of(app);
@@ -85,6 +106,9 @@ test('DmsReplicationInstanceSnapshotWithExclusion', () => {
       configWriteIopsAlarm: {
         threshold: 1000,
       },
+      configSwapUsageAlarm: {
+        stdDevs: 2,
+      },
     }),
   );
 
@@ -121,6 +145,9 @@ test('SnapshotForDmsReplicationInstanceConstruct', () => {
     configWriteIopsAlarm: {
       threshold: 1000,
     },
+    configSwapUsageAlarm: {
+      stdDevs: 2,
+    },
   });
 
   const template = Template.fromStack(stack);
@@ -155,6 +182,9 @@ test('DmsReplicationInstanceSnapshotDefaultActionsInUse', () => {
     configWriteIopsAlarm: {
       threshold: 1000,
     },
+    configSwapUsageAlarm: {
+      stdDevs: 2,
+    },
   });
 
   const template = Template.fromStack(stack);
@@ -179,6 +209,9 @@ test('stack should contain replicationInstance recommended alarms if recommended
       configWriteIopsAlarm: {
         threshold: 1000,
       },
+      configSwapUsageAlarm: {
+        stdDevs: 2,
+      },
     }),
   );
 
@@ -201,12 +234,11 @@ test('stack should contain replicationInstance recommended alarms if recommended
   Object.keys(dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics).forEach(metricKey => {
     const alarms = Object.keys(resources).filter(resourceName => {
       const resource = resources[resourceName];
-      const resourceProperties = resource.Properties;
       const metricName = dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics[
         metricKey as keyof typeof dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics
       ];
 
-      return resourceProperties.MetricName === metricName;
+      return getMetricNameFromAlarm(resource) === metricName;
     });
 
     expect(alarms.length).toEqual(1);
@@ -226,6 +258,7 @@ test('alarms can be applied individually to replicationInstances using extended 
   stack.replicationInstance.alarmFreeableMemory({ threshold: 25000 });
   stack.replicationInstance.alarmFreeStorageSpace({ threshold: 25000 });
   stack.replicationInstance.alarmWriteIops({ threshold: 1000 });
+  stack.replicationInstance.alarmSwapUsage({ stdDevs: 2 });
 
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
@@ -239,12 +272,11 @@ test('alarms can be applied individually to replicationInstances using extended 
   Object.keys(dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics).forEach(metricKey => {
     const alarms = Object.keys(resources).filter(resourceName => {
       const resource = resources[resourceName];
-      const resourceProperties = resource.Properties;
       const metricName = dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics[
         metricKey as keyof typeof dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics
       ];
 
-      return resourceProperties.MetricName === metricName;
+      return getMetricNameFromAlarm(resource) === metricName;
     });
 
     expect(alarms.length).toBe(1);
@@ -276,6 +308,9 @@ test('when an resource is excluded from the aspect config it should not have ala
       },
       configWriteIopsAlarm: {
         threshold: 1000,
+      },
+      configSwapUsageAlarm: {
+        stdDevs: 2,
       },
     }),
   );
@@ -311,12 +346,11 @@ test('when an resource is excluded from the aspect config it should not have ala
     Object.keys(dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics).forEach(metricKey => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
-        const resourceProperties = resource.Properties;
         const metricName = dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics[
           metricKey as keyof typeof dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics
         ];
 
-        return resourceName.startsWith(replicationInstanceName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(replicationInstanceName) && getMetricNameFromAlarm(resource) === metricName;
       });
       if (replicationInstanceName === 'ReplicationInstance1') {
         expect(alarms.length).toEqual(0);
@@ -376,18 +410,43 @@ test('default alarm actions are overridden when individual alarm actions are pro
       okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
       insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
     },
+    configSwapUsageAlarm: {
+      stdDevs: 2,
+      alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+      okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+      insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
+    },
   });
 
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
   Object.values(dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics).forEach(metricName => {
-    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
-      AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
-      OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
-      InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
-    }));
+    // For SwapUsage alarm, check the structure differently since it's an anomaly detection alarm
+    if (metricName === 'SwapUsage') {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        Metrics: Match.arrayWith([
+          Match.objectLike({
+            MetricStat: Match.objectLike({
+              Metric: Match.objectLike({
+                MetricName: metricName,
+              }),
+            }),
+          }),
+        ]),
+        AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+        OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+        InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+      }));
+    } else {
+      // For regular alarms, check the MetricName directly
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+        OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+        InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+      }));
+    }
   });
 });
 
@@ -454,6 +513,17 @@ test('optional alarm configurations can be overwritten', () => {
         okAction: topicAction,
         insufficientDataAction: topicAction,
       },
+      configSwapUsageAlarm: {
+        alarmName: 'CustomSwapUsageAlarm',
+        stdDevs: 3,
+        evaluationPeriods: 25,
+        datapointsToAlarm: 25,
+        alarmDescription: 'Custom alarm description',
+        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
+        alarmAction: topicAction,
+        okAction: topicAction,
+        insufficientDataAction: topicAction,
+      },
     }),
   );
 
@@ -474,18 +544,42 @@ test('optional alarm configurations can be overwritten', () => {
   expect(template).toMatchSnapshot();
 
   Object.values(dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics).forEach(metricName => {
-    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
-      AlarmName: Match.stringLikeRegexp('^Custom.*'),
-      Period: 300,
-      EvaluationPeriods: 25,
-      DatapointsToAlarm: 25,
-      AlarmDescription: 'Custom alarm description',
-      TreatMissingData: 'ignore',
-      AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-      OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-      InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-    }));
+    // For SwapUsage alarm, check the structure differently since it's an anomaly detection alarm
+    if (metricName === 'SwapUsage') {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        Metrics: Match.arrayWith([
+          Match.objectLike({
+            MetricStat: Match.objectLike({
+              Metric: Match.objectLike({
+                MetricName: metricName,
+              }),
+            }),
+          }),
+        ]),
+        AlarmName: Match.stringLikeRegexp('^Custom.*'),
+        EvaluationPeriods: 25,
+        DatapointsToAlarm: 25,
+        AlarmDescription: 'Custom alarm description',
+        TreatMissingData: 'ignore',
+        AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      }));
+    } else {
+      // For regular alarms, check the MetricName directly
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        AlarmName: Match.stringLikeRegexp('^Custom.*'),
+        Period: 300,
+        EvaluationPeriods: 25,
+        DatapointsToAlarm: 25,
+        AlarmDescription: 'Custom alarm description',
+        TreatMissingData: 'ignore',
+        AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      }));
+    }
   });
 });
 
@@ -508,6 +602,9 @@ test('AspectWithTreatMissingData', () => {
       configWriteIopsAlarm: {
         threshold: 1000,
       },
+      configSwapUsageAlarm: {
+        stdDevs: 2,
+      },
     }),
   );
 
@@ -522,18 +619,39 @@ test('AspectWithTreatMissingData', () => {
   expect(template).toMatchSnapshot();
 
   Object.values(dmsAlarms.DmsReplicationInstanceRecommendedAlarmsMetrics).forEach(metricName => {
-    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
-      TreatMissingData: 'notBreaching',
-    }));
+    // For SwapUsage alarm, check the structure differently since it's an anomaly detection alarm
+    if (metricName === 'SwapUsage') {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        Metrics: Match.arrayWith([
+          Match.objectLike({
+            MetricStat: Match.objectLike({
+              Metric: Match.objectLike({
+                MetricName: metricName,
+              }),
+            }),
+          }),
+        ]),
+        TreatMissingData: 'notBreaching',
+      }));
+    } else {
+      // For regular alarms, check the MetricName directly
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        TreatMissingData: 'notBreaching',
+      }));
+    }
   });
 });
+
+interface DmsReplicationTaskStackProps extends StackProps {
+  readonly migrationType?: string;
+}
 
 class DmsReplicationTaskStack extends Stack {
 
   public readonly replicationTask: dmsAlarms.ReplicationTask;
 
-  constructor(scope: App, id: string, props?: StackProps) {
+  constructor(scope: App, id: string, props?: DmsReplicationTaskStackProps) {
     super(scope, id, props);
 
     const vpc = new ec2.Vpc(this, 'VPC');
@@ -576,7 +694,7 @@ class DmsReplicationTaskStack extends Stack {
       sourceEndpointArn: sourceEndpoint.ref,
       targetEndpointArn: targetEndpoint.ref,
       replicationInstanceArn: replicationInstance.ref,
-      migrationType: 'full-load-and-cdc',
+      migrationType: props?.migrationType ?? 'full-load-and-cdc',
       tableMappings: JSON.stringify({
         rules: [
           {
@@ -774,12 +892,11 @@ test('stack should contain replicationTask recommended alarms if recommended ala
   Object.keys(dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics).forEach(metricKey => {
     const alarms = Object.keys(resources).filter(resourceName => {
       const resource = resources[resourceName];
-      const resourceProperties = resource.Properties;
       const metricName = dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics[
         metricKey as keyof typeof dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics
       ];
 
-      return resourceProperties.MetricName === metricName;
+      return getMetricNameFromAlarm(resource) === metricName;
     });
 
     expect(alarms.length).toEqual(1);
@@ -814,12 +931,11 @@ test('alarms can be applied individually to replicationTasks using extended cons
   Object.keys(dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics).forEach(metricKey => {
     const alarms = Object.keys(resources).filter(resourceName => {
       const resource = resources[resourceName];
-      const resourceProperties = resource.Properties;
       const metricName = dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics[
         metricKey as keyof typeof dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics
       ];
 
-      return resourceProperties.MetricName === metricName;
+      return getMetricNameFromAlarm(resource) === metricName;
     });
 
     expect(alarms.length).toBe(1);
@@ -924,12 +1040,11 @@ test('when an resource is excluded from the aspect config it should not have ala
     Object.keys(dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics).forEach(metricKey => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
-        const resourceProperties = resource.Properties;
         const metricName = dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics[
           metricKey as keyof typeof dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics
         ];
 
-        return resourceName.startsWith(replicationTaskName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(replicationTaskName) && getMetricNameFromAlarm(resource) === metricName;
       });
       if (replicationTaskName === 'ReplicationTask1') {
         expect(alarms.length).toEqual(0);
@@ -1198,4 +1313,194 @@ test('AspectWithTreatMissingData', () => {
       TreatMissingData: 'notBreaching',
     }));
   });
+});
+
+// Error validation tests for migration type mismatches
+describe('DMS Replication Task Migration Type Validation', () => {
+
+  test('should throw error when creating CDC throughput source alarm for full-load migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'full-load',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    expect(() => {
+      stack.replicationTask.alarmCdcThroughputRowsSource();
+    }).toThrow(
+      "CDC throughput alarms can only be created for replication tasks with migration type 'cdc' or 'full-load-and-cdc'. " +
+      'Current migration type: full-load',
+    );
+  });
+
+  test('should throw error when creating CDC throughput target alarm for full-load migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'full-load',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    expect(() => {
+      stack.replicationTask.alarmCdcThroughputRowsTarget();
+    }).toThrow(
+      "CDC throughput alarms can only be created for replication tasks with migration type 'cdc' or 'full-load-and-cdc'. " +
+      'Current migration type: full-load',
+    );
+  });
+
+  test('should throw error when creating CDC latency source alarm for full-load migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'full-load',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    expect(() => {
+      stack.replicationTask.alarmCdcLatencySource();
+    }).toThrow(
+      "CDC latency alarms can only be created for replication tasks with migration type 'cdc' or 'full-load-and-cdc'. " +
+      'Current migration type: full-load',
+    );
+  });
+
+  test('should throw error when creating CDC latency target alarm for full-load migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'full-load',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    expect(() => {
+      stack.replicationTask.alarmCdcLatencyTarget();
+    }).toThrow(
+      "CDC latency alarms can only be created for replication tasks with migration type 'cdc' or 'full-load-and-cdc'. " +
+      'Current migration type: full-load',
+    );
+  });
+
+  test('should throw error when creating full load throughput source alarm for CDC migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'cdc',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    expect(() => {
+      stack.replicationTask.alarmFullLoadThroughputRowsSource();
+    }).toThrow(
+      "Full load throughput alarms can only be created for replication tasks with migration type 'full-load' or " +
+      "'full-load-and-cdc'. Current migration type: cdc",
+    );
+  });
+
+  test('should throw error when creating full load throughput target alarm for CDC migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'cdc',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    expect(() => {
+      stack.replicationTask.alarmFullLoadThroughputRowsTarget();
+    }).toThrow(
+      "Full load throughput alarms can only be created for replication tasks with migration type 'full-load' or " +
+      "'full-load-and-cdc'. Current migration type: cdc",
+    );
+  });
+
+  test('should successfully create CDC alarms for CDC migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'cdc',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    // These should not throw errors
+    expect(() => {
+      stack.replicationTask.alarmCdcThroughputRowsSource();
+      stack.replicationTask.alarmCdcThroughputRowsTarget();
+      stack.replicationTask.alarmCdcLatencySource();
+      stack.replicationTask.alarmCdcLatencyTarget();
+    }).not.toThrow();
+  });
+
+  test('should successfully create full load alarms for full-load migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'full-load',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    // These should not throw errors
+    expect(() => {
+      stack.replicationTask.alarmFullLoadThroughputRowsSource();
+      stack.replicationTask.alarmFullLoadThroughputRowsTarget();
+    }).not.toThrow();
+  });
+
+  test('should successfully create all alarms for full-load-and-cdc migration type', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      migrationType: 'full-load-and-cdc',
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    // All alarms should be allowed for full-load-and-cdc
+    expect(() => {
+      stack.replicationTask.alarmCdcThroughputRowsSource();
+      stack.replicationTask.alarmCdcThroughputRowsTarget();
+      stack.replicationTask.alarmCdcLatencySource();
+      stack.replicationTask.alarmCdcLatencyTarget();
+      stack.replicationTask.alarmFullLoadThroughputRowsSource();
+      stack.replicationTask.alarmFullLoadThroughputRowsTarget();
+    }).not.toThrow();
+  });
+
+  test('should use default migration type when not specified', () => {
+    const app = new App();
+    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
+      env: {
+        account: '123456789012', // not a real account
+        region: 'us-east-1',
+      },
+    });
+
+    // Default is 'full-load-and-cdc', so all alarms should be allowed
+    expect(() => {
+      stack.replicationTask.alarmCdcThroughputRowsSource();
+      stack.replicationTask.alarmCdcThroughputRowsTarget();
+      stack.replicationTask.alarmCdcLatencySource();
+      stack.replicationTask.alarmCdcLatencyTarget();
+      stack.replicationTask.alarmFullLoadThroughputRowsSource();
+      stack.replicationTask.alarmFullLoadThroughputRowsTarget();
+    }).not.toThrow();
+  });
+
 });

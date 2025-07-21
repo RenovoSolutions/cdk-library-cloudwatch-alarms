@@ -18324,6 +18324,7 @@ Any object.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.property.alarmCpuUtilization">alarmCpuUtilization</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm">DmsReplicationInstanceCpuUtilizationAlarm</a></code> | The CpuUtilization alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.property.alarmFreeableMemory">alarmFreeableMemory</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm">DmsReplicationInstanceFreeableMemoryAlarm</a></code> | The FreeableMemory alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.property.alarmFreeStorageSpace">alarmFreeStorageSpace</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm">DmsReplicationInstanceFreeStorageSpaceAlarm</a></code> | The FreeStorageSpace alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.property.alarmSwapUsage">alarmSwapUsage</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm">DmsReplicationInstanceSwapUsageAlarm</a></code> | The SwapUsage alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.property.alarmWriteIops">alarmWriteIops</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm">DmsReplicationInstanceWriteIopsAlarm</a></code> | The WriteIops alarm. |
 
 ---
@@ -18376,6 +18377,18 @@ The FreeStorageSpace alarm.
 
 ---
 
+##### `alarmSwapUsage`<sup>Optional</sup> <a name="alarmSwapUsage" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.property.alarmSwapUsage"></a>
+
+```typescript
+public readonly alarmSwapUsage: DmsReplicationInstanceSwapUsageAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm">DmsReplicationInstanceSwapUsageAlarm</a>
+
+The SwapUsage alarm.
+
+---
+
 ##### `alarmWriteIops`<sup>Optional</sup> <a name="alarmWriteIops" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.property.alarmWriteIops"></a>
 
 ```typescript
@@ -18388,6 +18401,439 @@ The WriteIops alarm.
 
 ---
 
+
+### DmsReplicationInstanceSwapUsageAlarm <a name="DmsReplicationInstanceSwapUsageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm"></a>
+
+This anomaly detection alarm is used to detect high swap usage for the DMS Replication Instance.
+
+High swap usage can indicate memory pressure, performance issues, or resource constraints.
+This alarm uses anomaly detection to identify when swap usage exceeds normal patterns,
+which can help identify performance degradation or insufficient memory allocation.
+
+By default, the alarm is triggered when swap usage exceeds the upper threshold
+of the anomaly detection band, detecting unusually high swap usage that may
+indicate memory pressure or performance issues.
+
+Note: Anomaly detection alarms use a fixed 5-minute period as required by AWS CloudWatch.
+This period cannot be customized and is optimal for anomaly detection algorithms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.Initializer"></a>
+
+```typescript
+import { DmsReplicationInstanceSwapUsageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new DmsReplicationInstanceSwapUsageAlarm(scope: IConstruct, id: string, props: DmsReplicationInstanceSwapUsageAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps">DmsReplicationInstanceSwapUsageAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps">DmsReplicationInstanceSwapUsageAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isConstruct"></a>
+
+```typescript
+import { DmsReplicationInstanceSwapUsageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DmsReplicationInstanceSwapUsageAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isOwnedResource"></a>
+
+```typescript
+import { DmsReplicationInstanceSwapUsageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DmsReplicationInstanceSwapUsageAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isResource"></a>
+
+```typescript
+import { DmsReplicationInstanceSwapUsageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DmsReplicationInstanceSwapUsageAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmArn"></a>
+
+```typescript
+import { DmsReplicationInstanceSwapUsageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DmsReplicationInstanceSwapUsageAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmName"></a>
+
+```typescript
+import { DmsReplicationInstanceSwapUsageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+DmsReplicationInstanceSwapUsageAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### DmsReplicationInstanceWriteIopsAlarm <a name="DmsReplicationInstanceWriteIopsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm"></a>
 
@@ -45761,6 +46207,7 @@ new ReplicationInstance(scope: Construct, id: string, props: CfnReplicationInsta
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmCpuUtilization">alarmCpuUtilization</a></code> | Creates an alarm that monitors the CPU utilization for the Replication Instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmFreeableMemory">alarmFreeableMemory</a></code> | Creates an alarm that monitors the FreeableMemory for the Replication Instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmFreeStorageSpace">alarmFreeStorageSpace</a></code> | Creates an alarm that monitors the Free Storage Space for the Replication Instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmSwapUsage">alarmSwapUsage</a></code> | Creates an alarm that monitors the Swap Usage for the Replication Instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmWriteIops">alarmWriteIops</a></code> | Creates an alarm that monitors the Write IOPS for the Replication Instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the DMS Replication Instance. |
 
@@ -46177,6 +46624,20 @@ Creates an alarm that monitors the Free Storage Space for the Replication Instan
 ###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmFreeStorageSpace.parameter.props"></a>
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFreeStorageSpaceAlarmConfig">DmsFreeStorageSpaceAlarmConfig</a>
+
+---
+
+##### `alarmSwapUsage` <a name="alarmSwapUsage" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmSwapUsage"></a>
+
+```typescript
+public alarmSwapUsage(props?: DmsSwapUsageAlarmConfig): DmsReplicationInstanceSwapUsageAlarm
+```
+
+Creates an alarm that monitors the Swap Usage for the Replication Instance.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmSwapUsage.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig">DmsSwapUsageAlarmConfig</a>
 
 ---
 
@@ -47200,14 +47661,14 @@ Creates an alarm that monitors the full load throughput to the target for the Re
 ##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRecommendedAlarms"></a>
 
 ```typescript
-public applyRecommendedAlarms(props: DmsReplicationTaskRecommendedAlarmsConfig): DmsReplicationTaskRecommendedAlarms
+public applyRecommendedAlarms(props?: DmsReplicationTaskRecommendedAlarmsConfig): DmsReplicationTaskRecommendedAlarms
 ```
 
 Creates the recommended alarms for the DMS Replication Task.
 
 > [https://aws.amazon.com/blogs/database/setting-up-amazon-cloudwatch-alarms-for-aws-dms-resources-using-the-aws-cli/](https://aws.amazon.com/blogs/database/setting-up-amazon-cloudwatch-alarms-for-aws-dms-resources-using-the-aws-cli/)
 
-###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRecommendedAlarms.parameter.props"></a>
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRecommendedAlarms.parameter.props"></a>
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig">DmsReplicationTaskRecommendedAlarmsConfig</a>
 
@@ -69803,9 +70264,92 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
+
+---
+
+### DmsAnomalyDetectionAlarmBaseConfig <a name="DmsAnomalyDetectionAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig"></a>
+
+The common optional configuration for anomaly detection alarms.
+
+Anomaly detection alarms have a fixed period of 5 minutes as required by AWS CloudWatch,
+so the period property is not configurable.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { DmsAnomalyDetectionAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dmsAnomalyDetectionAlarmBaseConfig: DmsAnomalyDetectionAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
 
 ---
 
@@ -69898,9 +70442,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -70077,9 +70626,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -70256,9 +70810,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -70435,9 +70994,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -70613,9 +71177,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -70776,9 +71345,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -70938,9 +71512,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -71100,9 +71679,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -71265,9 +71849,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -71475,9 +72064,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -71651,9 +72245,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -71826,9 +72425,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -71922,6 +72526,7 @@ const dmsReplicationInstanceRecommendedAlarmsConfig: DmsReplicationInstanceRecom
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsConfig.property.configFreeableMemoryAlarm">configFreeableMemoryAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFreeableMemoryAlarmConfig">DmsFreeableMemoryAlarmConfig</a></code> | The configuration for the FreeableMemory alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsConfig.property.configFreeStorageSpaceAlarm">configFreeStorageSpaceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFreeStorageSpaceAlarmConfig">DmsFreeStorageSpaceAlarmConfig</a></code> | The configuration for the FreeStorageSpace alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsConfig.property.configCpuUtilizationAlarm">configCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCpuUtilizationAlarmConfig">DmsCpuUtilizationAlarmConfig</a></code> | The configuration for the CpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsConfig.property.configSwapUsageAlarm">configSwapUsageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig">DmsSwapUsageAlarmConfig</a></code> | The configuration for the SwapUsage alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsConfig.property.configWriteIopsAlarm">configWriteIopsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsWriteIopsAlarmConfig">DmsWriteIopsAlarmConfig</a></code> | The configuration for the WriteIops alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
@@ -71965,6 +72570,18 @@ public readonly configCpuUtilizationAlarm: DmsCpuUtilizationAlarmConfig;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCpuUtilizationAlarmConfig">DmsCpuUtilizationAlarmConfig</a>
 
 The configuration for the CpuUtilization alarm.
+
+---
+
+##### `configSwapUsageAlarm`<sup>Optional</sup> <a name="configSwapUsageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsConfig.property.configSwapUsageAlarm"></a>
+
+```typescript
+public readonly configSwapUsageAlarm: DmsSwapUsageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig">DmsSwapUsageAlarmConfig</a>
+
+The configuration for the SwapUsage alarm.
 
 ---
 
@@ -72078,6 +72695,7 @@ const dmsReplicationInstanceRecommendedAlarmsProps: DmsReplicationInstanceRecomm
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsProps.property.configFreeableMemoryAlarm">configFreeableMemoryAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFreeableMemoryAlarmConfig">DmsFreeableMemoryAlarmConfig</a></code> | The configuration for the FreeableMemory alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsProps.property.configFreeStorageSpaceAlarm">configFreeStorageSpaceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFreeStorageSpaceAlarmConfig">DmsFreeStorageSpaceAlarmConfig</a></code> | The configuration for the FreeStorageSpace alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsProps.property.configCpuUtilizationAlarm">configCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCpuUtilizationAlarmConfig">DmsCpuUtilizationAlarmConfig</a></code> | The configuration for the CpuUtilization alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsProps.property.configSwapUsageAlarm">configSwapUsageAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig">DmsSwapUsageAlarmConfig</a></code> | The configuration for the SwapUsage alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsProps.property.configWriteIopsAlarm">configWriteIopsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsWriteIopsAlarmConfig">DmsWriteIopsAlarmConfig</a></code> | The configuration for the WriteIops alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
@@ -72122,6 +72740,18 @@ public readonly configCpuUtilizationAlarm: DmsCpuUtilizationAlarmConfig;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCpuUtilizationAlarmConfig">DmsCpuUtilizationAlarmConfig</a>
 
 The configuration for the CpuUtilization alarm.
+
+---
+
+##### `configSwapUsageAlarm`<sup>Optional</sup> <a name="configSwapUsageAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsProps.property.configSwapUsageAlarm"></a>
+
+```typescript
+public readonly configSwapUsageAlarm: DmsSwapUsageAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig">DmsSwapUsageAlarmConfig</a>
+
+The configuration for the SwapUsage alarm.
 
 ---
 
@@ -72228,6 +72858,178 @@ The DMS Replication Instance to monitor.
 
 ---
 
+### DmsReplicationInstanceSwapUsageAlarmProps <a name="DmsReplicationInstanceSwapUsageAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps"></a>
+
+The properties for the DmsReplicationInstanceSwapUsageAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.Initializer"></a>
+
+```typescript
+import { DmsReplicationInstanceSwapUsageAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dmsReplicationInstanceSwapUsageAlarmProps: DmsReplicationInstanceSwapUsageAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.replicationInstance">replicationInstance</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationInstance</code> | The DMS Replication Instance to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator to use for the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+
+---
+
+##### `replicationInstance`<sup>Required</sup> <a name="replicationInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.replicationInstance"></a>
+
+```typescript
+public readonly replicationInstance: CfnReplicationInstance;
+```
+
+- *Type:* aws-cdk-lib.aws_dms.CfnReplicationInstance
+
+The DMS Replication Instance to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure or performance issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* replicationInstanceIdentifier + ' - SwapUsage'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* GREATER_THAN_UPPER_THRESHOLD (for detecting high swap usage indicating memory pressure)
+
+The comparison operator to use for the alarm.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2 (allow for some variance while still detecting issues)
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3 (to avoid false alarms from temporary fluctuations)
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for swap usage anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
 ### DmsReplicationInstanceWriteIopsAlarmProps <a name="DmsReplicationInstanceWriteIopsAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarmProps"></a>
 
 The properties for the DmsReplicationInstanceWriteIopsAlarm construct.
@@ -72329,9 +73131,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -72537,9 +73344,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -72729,9 +73541,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -72921,9 +73738,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -73113,9 +73935,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -73304,9 +74131,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -73482,9 +74314,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -73939,6 +74776,165 @@ The DMS Replication Task to monitor.
 
 ---
 
+### DmsSwapUsageAlarmConfig <a name="DmsSwapUsageAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig"></a>
+
+Configuration for the SwapUsage alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.Initializer"></a>
+
+```typescript
+import { DmsSwapUsageAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const dmsSwapUsageAlarmConfig: DmsSwapUsageAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator to use for the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm is used to detect high swap usage for the DMS Replication Instance. High swap usage can indicate memory pressure or performance issues.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* replicationInstanceIdentifier + ' - SwapUsage'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* GREATER_THAN_UPPER_THRESHOLD (for detecting high swap usage indicating memory pressure)
+
+The comparison operator to use for the alarm.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2 (allow for some variance while still detecting issues)
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3 (to avoid false alarms from temporary fluctuations)
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for swap usage anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
 ### DmsWriteIopsAlarmConfig <a name="DmsWriteIopsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsWriteIopsAlarmConfig"></a>
 
 Configuration for the WriteIops alarm.
@@ -74027,9 +75023,14 @@ public readonly period: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1)
+- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
 
 The period over which the specified statistic is applied.
+
+Different alarm types may have different optimal default periods:
+- Regular alarms: 1 minute (for responsive monitoring)
+- Anomaly detection alarms: 5 minutes (for stable ML model training)
+- CDC/throughput alarms: 5 minutes (for trend analysis)
 
 ---
 
@@ -102908,6 +103909,7 @@ The recommended metrics for DMS Replication Instance alarms.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsMetrics.FREEABLE_MEMORY">FREEABLE_MEMORY</a></code> | The amount in bytes of available random access memory. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsMetrics.FREE_STORAGE_SPACE">FREE_STORAGE_SPACE</a></code> | The amount in bytes of available storage space. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsMetrics.WRITE_IOPS">WRITE_IOPS</a></code> | The average number of disk write I/O operations per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsMetrics.SWAP_USAGE">SWAP_USAGE</a></code> | The amount in bytes of swap space used on the replication instance. |
 
 ---
 
@@ -102935,6 +103937,50 @@ The amount in bytes of available storage space.
 ##### `WRITE_IOPS` <a name="WRITE_IOPS" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsMetrics.WRITE_IOPS"></a>
 
 The average number of disk write I/O operations per second.
+
+---
+
+
+##### `SWAP_USAGE` <a name="SWAP_USAGE" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarmsMetrics.SWAP_USAGE"></a>
+
+The amount in bytes of swap space used on the replication instance.
+
+---
+
+
+### DmsReplicationTaskMigrationType <a name="DmsReplicationTaskMigrationType" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskMigrationType"></a>
+
+DMS Replication Task migration types.
+
+These are the valid migration types for AWS DMS Replication Tasks.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskMigrationType.FULL_LOAD">FULL_LOAD</a></code> | Full load migration - copies all existing data from the source to the target. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskMigrationType.CDC">CDC</a></code> | Change Data Capture (CDC) migration - captures ongoing changes from the source. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC">FULL_LOAD_AND_CDC</a></code> | Full load and CDC migration - performs initial full load then captures ongoing changes. |
+
+---
+
+##### `FULL_LOAD` <a name="FULL_LOAD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskMigrationType.FULL_LOAD"></a>
+
+Full load migration - copies all existing data from the source to the target.
+
+---
+
+
+##### `CDC` <a name="CDC" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskMigrationType.CDC"></a>
+
+Change Data Capture (CDC) migration - captures ongoing changes from the source.
+
+---
+
+
+##### `FULL_LOAD_AND_CDC` <a name="FULL_LOAD_AND_CDC" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC"></a>
+
+Full load and CDC migration - performs initial full load then captures ongoing changes.
 
 ---
 

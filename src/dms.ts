@@ -8,6 +8,28 @@ import { Construct, IConstruct } from 'constructs';
 import { AlarmBaseProps, validateTotalAlarmPeriod } from './common';
 
 /**
+ * DMS Replication Task migration types.
+ *
+ * These are the valid migration types for AWS DMS Replication Tasks.
+ */
+export enum DmsReplicationTaskMigrationType {
+  /**
+   * Full load migration - copies all existing data from the source to the target.
+   */
+  FULL_LOAD = 'full-load',
+
+  /**
+   * Change Data Capture (CDC) migration - captures ongoing changes from the source.
+   */
+  CDC = 'cdc',
+
+  /**
+   * Full load and CDC migration - performs initial full load then captures ongoing changes.
+   */
+  FULL_LOAD_AND_CDC = 'full-load-and-cdc',
+}
+
+/**
  * The recommended metrics for DMS Replication Instance alarms.
  */
 export enum DmsReplicationInstanceRecommendedAlarmsMetrics {
@@ -27,6 +49,10 @@ export enum DmsReplicationInstanceRecommendedAlarmsMetrics {
    * The average number of disk write I/O operations per second.
    */
   WRITE_IOPS = 'WriteIOPS',
+  /**
+   * The amount in bytes of swap space used on the replication instance.
+   */
+  SWAP_USAGE = 'SwapUsage',
 }
 
 /**
@@ -66,9 +92,24 @@ export interface DmsAlarmBaseConfig extends AlarmBaseProps {
   /**
    * The period over which the specified statistic is applied.
    *
-   * @default Duration.minutes(1)
+   * Different alarm types may have different optimal default periods:
+   * - Regular alarms: 1 minute (for responsive monitoring)
+   * - Anomaly detection alarms: 5 minutes (for stable ML model training)
+   * - CDC/throughput alarms: 5 minutes (for trend analysis)
+   *
+   * @default Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
    */
   readonly period?: Duration;
+}
+
+/**
+ * The common optional configuration for anomaly detection alarms.
+ *
+ * Anomaly detection alarms have a fixed period of 5 minutes as required by AWS CloudWatch,
+ * so the period property is not configurable.
+ */
+export interface DmsAnomalyDetectionAlarmBaseConfig extends AlarmBaseProps {
+  // Note: period is not configurable for anomaly detection alarms - always 5 minutes
 }
 
 /**
@@ -147,7 +188,8 @@ export interface DmsReplicationInstanceCpuUtilizationAlarmProps extends DmsRepli
  */
 export class DmsReplicationInstanceCpuUtilizationAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationInstanceCpuUtilizationAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.CPU_UTILIZATION}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.CPU_UTILIZATION}`;
     const period = props.period ?? Duration.minutes(1);
     const evaluationPeriods = props.evaluationPeriods ?? 5;
     const datapointsToAlarm = props.datapointsToAlarm ?? 5;
@@ -234,7 +276,8 @@ export interface DmsReplicationInstanceFreeableMemoryAlarmProps extends DmsRepli
  */
 export class DmsReplicationInstanceFreeableMemoryAlarm extends cloudwatch.Alarm {
   constructor(scope: Construct, id: string, props: DmsReplicationInstanceFreeableMemoryAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.FREEABLE_MEMORY}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.FREEABLE_MEMORY}`;
     const period = props.period ?? Duration.minutes(1);
     const evaluationPeriods = props.evaluationPeriods ?? 5;
     const datapointsToAlarm = props.datapointsToAlarm ?? 5;
@@ -322,7 +365,8 @@ export interface DmsReplicationInstanceFreeStorageSpaceAlarmProps extends DmsRep
  */
 export class DmsReplicationInstanceFreeStorageSpaceAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationInstanceFreeStorageSpaceAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.FREE_STORAGE_SPACE}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.FREE_STORAGE_SPACE}`;
     const period = props.period ?? Duration.minutes(1);
     const evaluationPeriods = props.evaluationPeriods ?? 5;
     const datapointsToAlarm = props.datapointsToAlarm ?? 5;
@@ -412,7 +456,8 @@ export interface DmsReplicationInstanceWriteIopsAlarmProps extends DmsReplicatio
  */
 export class DmsReplicationInstanceWriteIopsAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationInstanceWriteIopsAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.WRITE_IOPS}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.WRITE_IOPS}`;
     const period = props.period ?? Duration.minutes(1);
     const evaluationPeriods = props.evaluationPeriods ?? 5;
     const datapointsToAlarm = props.datapointsToAlarm ?? 5;
@@ -439,6 +484,110 @@ export class DmsReplicationInstanceWriteIopsAlarm extends cloudwatch.Alarm {
       datapointsToAlarm,
       treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+};
+
+/**
+ * Configuration for the SwapUsage alarm.
+ */
+export interface DmsSwapUsageAlarmConfig extends DmsAnomalyDetectionAlarmBaseConfig {
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   *
+   * @default 3 (to avoid false alarms from temporary fluctuations)
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 2 (allow for some variance while still detecting issues)
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+   *
+   * @default 8 (standard deviation for swap usage anomaly detection)
+   */
+  readonly stdDevs?: number;
+  /**
+   * The comparison operator to use for the alarm.
+   *
+   * @default GREATER_THAN_UPPER_THRESHOLD (for detecting high swap usage indicating memory pressure)
+   */
+  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - replicationInstanceIdentifier + ' - SwapUsage'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This alarm is used to detect high swap usage for the DMS Replication Instance.
+   * High swap usage can indicate memory pressure or performance issues.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the DmsReplicationInstanceSwapUsageAlarm construct.
+ */
+export interface DmsReplicationInstanceSwapUsageAlarmProps extends DmsReplicationInstanceAlarmProps, DmsSwapUsageAlarmConfig {}
+
+/**
+ * This anomaly detection alarm is used to detect high swap usage for the DMS Replication Instance.
+ *
+ * High swap usage can indicate memory pressure, performance issues, or resource constraints.
+ * This alarm uses anomaly detection to identify when swap usage exceeds normal patterns,
+ * which can help identify performance degradation or insufficient memory allocation.
+ *
+ * By default, the alarm is triggered when swap usage exceeds the upper threshold
+ * of the anomaly detection band, detecting unusually high swap usage that may
+ * indicate memory pressure or performance issues.
+ *
+ * Note: Anomaly detection alarms use a fixed 5-minute period as required by AWS CloudWatch.
+ * This period cannot be customized and is optimal for anomaly detection algorithms.
+ */
+export class DmsReplicationInstanceSwapUsageAlarm extends cloudwatch.AnomalyDetectionAlarm {
+  constructor(scope: IConstruct, id: string, props: DmsReplicationInstanceSwapUsageAlarmProps) {
+    const alarmName = props.alarmName ??
+      `${props.replicationInstance.replicationInstanceIdentifier} - ${DmsReplicationInstanceRecommendedAlarmsMetrics.SWAP_USAGE}`;
+    // Anomaly detection alarms require a fixed 5-minute period as mandated by AWS CloudWatch.
+    const period = Duration.minutes(5);
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 2;
+    const stdDevs = props.stdDevs ?? 8;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This alarm is used to detect high swap usage for the DMS Replication Instance.'
+      + ' High swap usage can indicate memory pressure, performance issues, or resource constraints.'
+      + ' This alarm triggers when swap usage exceeds the upper threshold of the anomaly detection band.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: new cloudwatch.Metric({
+        namespace: 'AWS/DMS',
+        metricName: DmsReplicationInstanceRecommendedAlarmsMetrics.SWAP_USAGE,
+        dimensionsMap: {
+          ReplicationInstanceIdentifier: props.replicationInstance.replicationInstanceIdentifier!,
+        },
+        statistic: 'Average',
+        period,
+      }),
+      stdDevs,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
       alarmDescription,
     });
 
@@ -514,7 +663,8 @@ export interface DmsReplicationTaskCdcThroughputRowsSourceAlarmProps extends Dms
  */
 export class DmsReplicationTaskCdcThroughputRowsSourceAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationTaskCdcThroughputRowsSourceAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_SOURCE}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_SOURCE}`;
     const period = props.period ?? Duration.minutes(5); // Longer period for CDC metrics
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 2;
@@ -619,7 +769,8 @@ export interface DmsReplicationTaskCdcThroughputRowsTargetAlarmProps extends Dms
  */
 export class DmsReplicationTaskCdcThroughputRowsTargetAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationTaskCdcThroughputRowsTargetAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_TARGET}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_TARGET}`;
     const period = props.period ?? Duration.minutes(5); // Longer period for CDC metrics
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 2;
@@ -720,7 +871,8 @@ export interface DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps extend
  */
 export class DmsReplicationTaskFullLoadThroughputRowsSourceAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_SOURCE}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_SOURCE}`;
     const period = props.period ?? Duration.minutes(5); // Longer period for full load metrics
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 2;
@@ -820,7 +972,8 @@ export interface DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps extend
  */
 export class DmsReplicationTaskFullLoadThroughputRowsTargetAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_TARGET}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_TARGET}`;
     const period = props.period ?? Duration.minutes(5); // Longer period for full load metrics
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 2;
@@ -925,7 +1078,8 @@ export interface DmsReplicationTaskCdcLatencySourceAlarmProps extends DmsReplica
  */
 export class DmsReplicationTaskCdcLatencySourceAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationTaskCdcLatencySourceAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE}`;
     const period = props.period ?? Duration.minutes(5); // Longer period for latency metrics
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 2;
@@ -1031,7 +1185,8 @@ export interface DmsReplicationTaskCdcLatencyTargetAlarmProps extends DmsReplica
  */
 export class DmsReplicationTaskCdcLatencyTargetAlarm extends cloudwatch.Alarm {
   constructor(scope: IConstruct, id: string, props: DmsReplicationTaskCdcLatencyTargetAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET}`;
+    const alarmName = props.alarmName ??
+      `${props.replicationTask.replicationTaskIdentifier} - ${DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET}`;
     const period = props.period ?? Duration.minutes(5); // Longer period for latency metrics
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 2;
@@ -1129,6 +1284,10 @@ export interface DmsReplicationInstanceRecommendedAlarmsConfig {
    * The configuration for the WriteIops alarm.
    */
   readonly configWriteIopsAlarm?: DmsWriteIopsAlarmConfig;
+  /**
+   * The configuration for the SwapUsage alarm.
+   */
+  readonly configSwapUsageAlarm?: DmsSwapUsageAlarmConfig;
 }
 
 /**
@@ -1165,15 +1324,24 @@ export class DmsReplicationInstanceRecommendedAlarms extends Construct {
    */
   public readonly alarmWriteIops?: DmsReplicationInstanceWriteIopsAlarm;
 
+  /**
+   * The SwapUsage alarm.
+   */
+  public readonly alarmSwapUsage?: DmsReplicationInstanceSwapUsageAlarm;
+
   constructor(scope: Construct, id: string, props: DmsReplicationInstanceRecommendedAlarmsProps) {
     super(scope, id);
 
     if (!props.excludeAlarms?.includes(DmsReplicationInstanceRecommendedAlarmsMetrics.CPU_UTILIZATION)) {
-      this.alarmCpuUtilization = new DmsReplicationInstanceCpuUtilizationAlarm(this, `${props.replicationInstance.replicationInstanceIdentifier}_CpuUtilization`, {
-        replicationInstance: props.replicationInstance,
-        treatMissingData: props.treatMissingData,
-        ...props.configCpuUtilizationAlarm,
-      });
+      this.alarmCpuUtilization = new DmsReplicationInstanceCpuUtilizationAlarm(
+        this,
+        `${props.replicationInstance.replicationInstanceIdentifier}_CpuUtilization`,
+        {
+          replicationInstance: props.replicationInstance,
+          treatMissingData: props.treatMissingData,
+          ...props.configCpuUtilizationAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configCpuUtilizationAlarm?.alarmAction) {
         this.alarmCpuUtilization.addAlarmAction(props.defaultAlarmAction);
@@ -1189,11 +1357,15 @@ export class DmsReplicationInstanceRecommendedAlarms extends Construct {
     }
 
     if (!props.excludeAlarms?.includes(DmsReplicationInstanceRecommendedAlarmsMetrics.FREEABLE_MEMORY)) {
-      this.alarmFreeableMemory = new DmsReplicationInstanceFreeableMemoryAlarm(this, `${props.replicationInstance.replicationInstanceIdentifier}_FreeableMemory`, {
-        replicationInstance: props.replicationInstance,
-        treatMissingData: props.treatMissingData,
-        ...props.configFreeableMemoryAlarm,
-      });
+      this.alarmFreeableMemory = new DmsReplicationInstanceFreeableMemoryAlarm(
+        this,
+        `${props.replicationInstance.replicationInstanceIdentifier}_FreeableMemory`,
+        {
+          replicationInstance: props.replicationInstance,
+          treatMissingData: props.treatMissingData,
+          ...props.configFreeableMemoryAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configFreeableMemoryAlarm?.alarmAction) {
         this.alarmFreeableMemory.addAlarmAction(props.defaultAlarmAction);
@@ -1209,11 +1381,15 @@ export class DmsReplicationInstanceRecommendedAlarms extends Construct {
     }
 
     if (!props.excludeAlarms?.includes(DmsReplicationInstanceRecommendedAlarmsMetrics.FREE_STORAGE_SPACE)) {
-      this.alarmFreeStorageSpace = new DmsReplicationInstanceFreeStorageSpaceAlarm(this, `${props.replicationInstance.replicationInstanceIdentifier}_FreeStorageSpace`, {
-        replicationInstance: props.replicationInstance,
-        treatMissingData: props.treatMissingData,
-        ...props.configFreeStorageSpaceAlarm,
-      });
+      this.alarmFreeStorageSpace = new DmsReplicationInstanceFreeStorageSpaceAlarm(
+        this,
+        `${props.replicationInstance.replicationInstanceIdentifier}_FreeStorageSpace`,
+        {
+          replicationInstance: props.replicationInstance,
+          treatMissingData: props.treatMissingData,
+          ...props.configFreeStorageSpaceAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configFreeStorageSpaceAlarm?.alarmAction) {
         this.alarmFreeStorageSpace.addAlarmAction(props.defaultAlarmAction);
@@ -1245,6 +1421,26 @@ export class DmsReplicationInstanceRecommendedAlarms extends Construct {
 
       if (props.defaultInsufficientDataAction && !props.configWriteIopsAlarm?.insufficientDataAction) {
         this.alarmWriteIops.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
+    if (!props.excludeAlarms?.includes(DmsReplicationInstanceRecommendedAlarmsMetrics.SWAP_USAGE)) {
+      this.alarmSwapUsage = new DmsReplicationInstanceSwapUsageAlarm(this, `${props.replicationInstance.replicationInstanceIdentifier}_SwapUsage`, {
+        replicationInstance: props.replicationInstance,
+        treatMissingData: props.treatMissingData,
+        ...props.configSwapUsageAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.configSwapUsageAlarm?.alarmAction) {
+        this.alarmSwapUsage.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.configSwapUsageAlarm?.okAction) {
+        this.alarmSwapUsage.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.configSwapUsageAlarm?.insufficientDataAction) {
+        this.alarmSwapUsage.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
   }
@@ -1366,12 +1562,20 @@ export class DmsReplicationTaskRecommendedAlarms extends Construct {
   constructor(scope: Construct, id: string, props: DmsReplicationTaskRecommendedAlarmsProps) {
     super(scope, id);
 
-    if (!props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_SOURCE)) {
-      this.alarmCdcThroughputRowsSource = new DmsReplicationTaskCdcThroughputRowsSourceAlarm(this, `${props.replicationTask.replicationTaskIdentifier}_CdcThroughputRowsSource`, {
-        replicationTask: props.replicationTask,
-        treatMissingData: props.treatMissingData,
-        ...props.configCdcThroughputRowsSourceAlarm,
-      });
+    // Check if migration type supports CDC alarms
+    const supportsCdc = props.replicationTask.migrationType === DmsReplicationTaskMigrationType.CDC ||
+                       props.replicationTask.migrationType === DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC;
+
+    if (supportsCdc && !props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_SOURCE)) {
+      this.alarmCdcThroughputRowsSource = new DmsReplicationTaskCdcThroughputRowsSourceAlarm(
+        this,
+        `${props.replicationTask.replicationTaskIdentifier}_CdcThroughputRowsSource`,
+        {
+          replicationTask: props.replicationTask,
+          treatMissingData: props.treatMissingData,
+          ...props.configCdcThroughputRowsSourceAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configCdcThroughputRowsSourceAlarm?.alarmAction) {
         this.alarmCdcThroughputRowsSource.addAlarmAction(props.defaultAlarmAction);
@@ -1386,12 +1590,16 @@ export class DmsReplicationTaskRecommendedAlarms extends Construct {
       }
     }
 
-    if (!props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_TARGET)) {
-      this.alarmCdcThroughputRowsTarget = new DmsReplicationTaskCdcThroughputRowsTargetAlarm(this, `${props.replicationTask.replicationTaskIdentifier}_CdcThroughputRowsTarget`, {
-        replicationTask: props.replicationTask,
-        treatMissingData: props.treatMissingData,
-        ...props.configCdcThroughputRowsTargetAlarm,
-      });
+    if (supportsCdc && !props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_TARGET)) {
+      this.alarmCdcThroughputRowsTarget = new DmsReplicationTaskCdcThroughputRowsTargetAlarm(
+        this,
+        `${props.replicationTask.replicationTaskIdentifier}_CdcThroughputRowsTarget`,
+        {
+          replicationTask: props.replicationTask,
+          treatMissingData: props.treatMissingData,
+          ...props.configCdcThroughputRowsTargetAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configCdcThroughputRowsTargetAlarm?.alarmAction) {
         this.alarmCdcThroughputRowsTarget.addAlarmAction(props.defaultAlarmAction);
@@ -1406,12 +1614,16 @@ export class DmsReplicationTaskRecommendedAlarms extends Construct {
       }
     }
 
-    if (!props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE)) {
-      this.alarmCdcLatencySource = new DmsReplicationTaskCdcLatencySourceAlarm(this, `${props.replicationTask.replicationTaskIdentifier}_CdcLatencySource`, {
-        replicationTask: props.replicationTask,
-        treatMissingData: props.treatMissingData,
-        ...props.configCdcLatencySourceAlarm,
-      });
+    if (supportsCdc && !props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE)) {
+      this.alarmCdcLatencySource = new DmsReplicationTaskCdcLatencySourceAlarm(
+        this,
+        `${props.replicationTask.replicationTaskIdentifier}_CdcLatencySource`,
+        {
+          replicationTask: props.replicationTask,
+          treatMissingData: props.treatMissingData,
+          ...props.configCdcLatencySourceAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configCdcLatencySourceAlarm?.alarmAction) {
         this.alarmCdcLatencySource.addAlarmAction(props.defaultAlarmAction);
@@ -1426,12 +1638,16 @@ export class DmsReplicationTaskRecommendedAlarms extends Construct {
       }
     }
 
-    if (!props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET)) {
-      this.alarmCdcLatencyTarget = new DmsReplicationTaskCdcLatencyTargetAlarm(this, `${props.replicationTask.replicationTaskIdentifier}_CdcLatencyTarget`, {
-        replicationTask: props.replicationTask,
-        treatMissingData: props.treatMissingData,
-        ...props.configCdcLatencyTargetAlarm,
-      });
+    if (supportsCdc && !props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET)) {
+      this.alarmCdcLatencyTarget = new DmsReplicationTaskCdcLatencyTargetAlarm(
+        this,
+        `${props.replicationTask.replicationTaskIdentifier}_CdcLatencyTarget`,
+        {
+          replicationTask: props.replicationTask,
+          treatMissingData: props.treatMissingData,
+          ...props.configCdcLatencyTargetAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configCdcLatencyTargetAlarm?.alarmAction) {
         this.alarmCdcLatencyTarget.addAlarmAction(props.defaultAlarmAction);
@@ -1446,12 +1662,20 @@ export class DmsReplicationTaskRecommendedAlarms extends Construct {
       }
     }
 
-    if (!props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_SOURCE)) {
-      this.alarmFullLoadThroughputRowsSource = new DmsReplicationTaskFullLoadThroughputRowsSourceAlarm(this, `${props.replicationTask.replicationTaskIdentifier}_FullLoadThroughputRowsSource`, {
-        replicationTask: props.replicationTask,
-        treatMissingData: props.treatMissingData,
-        ...props.configFullLoadThroughputRowsSourceAlarm,
-      });
+    // Check if migration type supports full load alarms
+    const supportsFullLoad = props.replicationTask.migrationType === DmsReplicationTaskMigrationType.FULL_LOAD ||
+                            props.replicationTask.migrationType === DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC;
+
+    if (supportsFullLoad && !props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_SOURCE)) {
+      this.alarmFullLoadThroughputRowsSource = new DmsReplicationTaskFullLoadThroughputRowsSourceAlarm(
+        this,
+        `${props.replicationTask.replicationTaskIdentifier}_FullLoadThroughputRowsSource`,
+        {
+          replicationTask: props.replicationTask,
+          treatMissingData: props.treatMissingData,
+          ...props.configFullLoadThroughputRowsSourceAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configFullLoadThroughputRowsSourceAlarm?.alarmAction) {
         this.alarmFullLoadThroughputRowsSource.addAlarmAction(props.defaultAlarmAction);
@@ -1466,12 +1690,16 @@ export class DmsReplicationTaskRecommendedAlarms extends Construct {
       }
     }
 
-    if (!props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_TARGET)) {
-      this.alarmFullLoadThroughputRowsTarget = new DmsReplicationTaskFullLoadThroughputRowsTargetAlarm(this, `${props.replicationTask.replicationTaskIdentifier}_FullLoadThroughputRowsTarget`, {
-        replicationTask: props.replicationTask,
-        treatMissingData: props.treatMissingData,
-        ...props.configFullLoadThroughputRowsTargetAlarm,
-      });
+    if (supportsFullLoad && !props.excludeAlarms?.includes(DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_TARGET)) {
+      this.alarmFullLoadThroughputRowsTarget = new DmsReplicationTaskFullLoadThroughputRowsTargetAlarm(
+        this,
+        `${props.replicationTask.replicationTaskIdentifier}_FullLoadThroughputRowsTarget`,
+        {
+          replicationTask: props.replicationTask,
+          treatMissingData: props.treatMissingData,
+          ...props.configFullLoadThroughputRowsTargetAlarm,
+        },
+      );
 
       if (props.defaultAlarmAction && !props.configFullLoadThroughputRowsTargetAlarm?.alarmAction) {
         this.alarmFullLoadThroughputRowsTarget.addAlarmAction(props.defaultAlarmAction);
@@ -1501,6 +1729,13 @@ export class ReplicationTask extends dms.CfnReplicationTask {
    * Creates an alarm that monitors the CDC throughput from the source for the Replication Task.
    */
   public alarmCdcThroughputRowsSource(props?: DmsCdcThroughputRowsSourceAlarmConfig): DmsReplicationTaskCdcThroughputRowsSourceAlarm {
+    if (this.migrationType !== DmsReplicationTaskMigrationType.CDC &&
+        this.migrationType !== DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC) {
+      throw new Error(
+        `CDC throughput alarms can only be created for replication tasks with migration type '${DmsReplicationTaskMigrationType.CDC}' or ` +
+        `'${DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC}'. Current migration type: ${this.migrationType}`,
+      );
+    }
     return new DmsReplicationTaskCdcThroughputRowsSourceAlarm(this, 'CdcThroughputRowsSourceAlarm', {
       replicationTask: this,
       ...props,
@@ -1511,6 +1746,13 @@ export class ReplicationTask extends dms.CfnReplicationTask {
    * Creates an alarm that monitors the CDC throughput to the target for the Replication Task.
    */
   public alarmCdcThroughputRowsTarget(props?: DmsCdcThroughputRowsTargetAlarmConfig): DmsReplicationTaskCdcThroughputRowsTargetAlarm {
+    if (this.migrationType !== DmsReplicationTaskMigrationType.CDC &&
+        this.migrationType !== DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC) {
+      throw new Error(
+        `CDC throughput alarms can only be created for replication tasks with migration type '${DmsReplicationTaskMigrationType.CDC}' or ` +
+        `'${DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC}'. Current migration type: ${this.migrationType}`,
+      );
+    }
     return new DmsReplicationTaskCdcThroughputRowsTargetAlarm(this, 'CdcThroughputRowsTargetAlarm', {
       replicationTask: this,
       ...props,
@@ -1521,6 +1763,13 @@ export class ReplicationTask extends dms.CfnReplicationTask {
    * Creates an alarm that monitors the CDC latency from the source for the Replication Task.
    */
   public alarmCdcLatencySource(props?: DmsCdcLatencySourceAlarmConfig): DmsReplicationTaskCdcLatencySourceAlarm {
+    if (this.migrationType !== DmsReplicationTaskMigrationType.CDC &&
+        this.migrationType !== DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC) {
+      throw new Error(
+        `CDC latency alarms can only be created for replication tasks with migration type '${DmsReplicationTaskMigrationType.CDC}' or ` +
+        `'${DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC}'. Current migration type: ${this.migrationType}`,
+      );
+    }
     return new DmsReplicationTaskCdcLatencySourceAlarm(this, 'CdcLatencySourceAlarm', {
       replicationTask: this,
       ...props,
@@ -1531,6 +1780,13 @@ export class ReplicationTask extends dms.CfnReplicationTask {
    * Creates an alarm that monitors the CDC latency to the target for the Replication Task.
    */
   public alarmCdcLatencyTarget(props?: DmsCdcLatencyTargetAlarmConfig): DmsReplicationTaskCdcLatencyTargetAlarm {
+    if (this.migrationType !== DmsReplicationTaskMigrationType.CDC &&
+        this.migrationType !== DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC) {
+      throw new Error(
+        `CDC latency alarms can only be created for replication tasks with migration type '${DmsReplicationTaskMigrationType.CDC}' or ` +
+        `'${DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC}'. Current migration type: ${this.migrationType}`,
+      );
+    }
     return new DmsReplicationTaskCdcLatencyTargetAlarm(this, 'CdcLatencyTargetAlarm', {
       replicationTask: this,
       ...props,
@@ -1541,6 +1797,14 @@ export class ReplicationTask extends dms.CfnReplicationTask {
    * Creates an alarm that monitors the full load throughput from the source for the Replication Task.
    */
   public alarmFullLoadThroughputRowsSource(props?: DmsFullLoadThroughputRowsSourceAlarmConfig): DmsReplicationTaskFullLoadThroughputRowsSourceAlarm {
+    if (this.migrationType !== DmsReplicationTaskMigrationType.FULL_LOAD &&
+        this.migrationType !== DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC) {
+      throw new Error(
+        'Full load throughput alarms can only be created for replication tasks with migration type ' +
+        `'${DmsReplicationTaskMigrationType.FULL_LOAD}' or '${DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC}'. ` +
+        `Current migration type: ${this.migrationType}`,
+      );
+    }
     return new DmsReplicationTaskFullLoadThroughputRowsSourceAlarm(this, 'FullLoadThroughputRowsSourceAlarm', {
       replicationTask: this,
       ...props,
@@ -1551,6 +1815,14 @@ export class ReplicationTask extends dms.CfnReplicationTask {
    * Creates an alarm that monitors the full load throughput to the target for the Replication Task.
    */
   public alarmFullLoadThroughputRowsTarget(props?: DmsFullLoadThroughputRowsTargetAlarmConfig): DmsReplicationTaskFullLoadThroughputRowsTargetAlarm {
+    if (this.migrationType !== DmsReplicationTaskMigrationType.FULL_LOAD &&
+        this.migrationType !== DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC) {
+      throw new Error(
+        'Full load throughput alarms can only be created for replication tasks with migration type ' +
+        `'${DmsReplicationTaskMigrationType.FULL_LOAD}' or '${DmsReplicationTaskMigrationType.FULL_LOAD_AND_CDC}'. ` +
+        `Current migration type: ${this.migrationType}`,
+      );
+    }
     return new DmsReplicationTaskFullLoadThroughputRowsTargetAlarm(this, 'FullLoadThroughputRowsTargetAlarm', {
       replicationTask: this,
       ...props,
@@ -1562,7 +1834,7 @@ export class ReplicationTask extends dms.CfnReplicationTask {
    *
    * @see https://aws.amazon.com/blogs/database/setting-up-amazon-cloudwatch-alarms-for-aws-dms-resources-using-the-aws-cli/
    */
-  public applyRecommendedAlarms(props: DmsReplicationTaskRecommendedAlarmsConfig): DmsReplicationTaskRecommendedAlarms {
+  public applyRecommendedAlarms(props?: DmsReplicationTaskRecommendedAlarmsConfig): DmsReplicationTaskRecommendedAlarms {
     return new DmsReplicationTaskRecommendedAlarms(this, 'DmsReplicationTaskRecommendedAlarms', {
       replicationTask: this,
       ...props,
@@ -1638,6 +1910,16 @@ export class ReplicationInstance extends dms.CfnReplicationInstance {
    */
   public alarmWriteIops(props?: DmsWriteIopsAlarmConfig): DmsReplicationInstanceWriteIopsAlarm {
     return new DmsReplicationInstanceWriteIopsAlarm(this, 'WriteIopsAlarm', {
+      replicationInstance: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an alarm that monitors the Swap Usage for the Replication Instance.
+   */
+  public alarmSwapUsage(props?: DmsSwapUsageAlarmConfig): DmsReplicationInstanceSwapUsageAlarm {
+    return new DmsReplicationInstanceSwapUsageAlarm(this, 'SwapUsageAlarm', {
       replicationInstance: this,
       ...props,
     });
