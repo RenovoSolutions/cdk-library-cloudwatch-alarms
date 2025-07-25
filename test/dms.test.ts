@@ -1,7 +1,6 @@
 import {
   aws_cloudwatch as cloudwatch,
   aws_cloudwatch_actions as cloudwatch_actions,
-  aws_dms as dms,
   aws_ec2 as ec2,
   aws_lambda as lambda,
   aws_sns as sns,
@@ -654,46 +653,12 @@ class DmsReplicationTaskStack extends Stack {
   constructor(scope: App, id: string, props?: DmsReplicationTaskStackProps) {
     super(scope, id, props);
 
-    const vpc = new ec2.Vpc(this, 'VPC');
-
-    const sg = new ec2.SecurityGroup(this, 'testSG', {
-      vpc,
-      allowAllOutbound: true,
-    });
-
-    // Create a replication instance first (required for replication task)
-    const replicationInstance = new dmsAlarms.ReplicationInstance(this, 'ReplicationInstance', {
-      replicationInstanceIdentifier: 'testReplicationInstance',
-      vpcSecurityGroupIds: [sg.securityGroupId],
-      replicationInstanceClass: 'dms.t3.medium',
-    });
-
-    // Create source and target endpoints (simplified for testing)
-    const sourceEndpoint = new dms.CfnEndpoint(this, 'SourceEndpoint', {
-      endpointType: 'source',
-      engineName: 'mysql',
-      serverName: 'source.example.com',
-      port: 3306,
-      username: 'admin',
-      password: 'password',
-      databaseName: 'sourcedb',
-    });
-
-    const targetEndpoint = new dms.CfnEndpoint(this, 'TargetEndpoint', {
-      endpointType: 'target',
-      engineName: 'mysql',
-      serverName: 'target.example.com',
-      port: 3306,
-      username: 'admin',
-      password: 'password',
-      databaseName: 'targetdb',
-    });
-
     this.replicationTask = new dmsAlarms.ReplicationTask(this, 'ReplicationTask', {
-      replicationTaskIdentifier: 'testReplicationTask',
-      sourceEndpointArn: sourceEndpoint.ref,
-      targetEndpointArn: targetEndpoint.ref,
-      replicationInstanceArn: replicationInstance.ref,
+      replicationTaskIdentifier: 'arn:aws:dms:us-east-1:123456789012:task:replication-task',
+      sourceEndpointArn: 'arn:aws:dms:us-east-1:123456789012:endpoint:source',
+      targetEndpointArn: 'arn:aws:dms:us-east-1:123456789012:endpoint:target',
+      replicationInstanceIdentifier: 'replication-instance',
+      replicationInstanceArn: 'arn:aws:dms:us-east-1:123456789012:rep:replication-instance',
       migrationType: props?.migrationType ?? 'full-load-and-cdc',
       tableMappings: JSON.stringify({
         rules: [
@@ -739,19 +704,7 @@ test('DmsReplicationTaskSnapshotWithExclusion', () => {
 
   appAspects.add(
     new dmsAlarms.DmsReplicationTaskRecommendedAlarmsAspect({
-      excludeAlarms: [dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_SOURCE],
-      configCdcThroughputRowsSourceAlarm: {
-        threshold: 100,
-      },
-      configCdcThroughputRowsTargetAlarm: {
-        threshold: 100,
-      },
-      configFullLoadThroughputRowsSourceAlarm: {
-        threshold: 1000,
-      },
-      configFullLoadThroughputRowsTargetAlarm: {
-        threshold: 1000,
-      },
+      excludeAlarms: [dmsAlarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE],
       configCdcLatencySourceAlarm: {
         threshold: 300,
       },
@@ -782,18 +735,6 @@ test('SnapshotForDmsReplicationTaskConstruct', () => {
   });
 
   stack.replicationTask.applyRecommendedAlarms({
-    configCdcThroughputRowsSourceAlarm: {
-      threshold: 100,
-    },
-    configCdcThroughputRowsTargetAlarm: {
-      threshold: 100,
-    },
-    configFullLoadThroughputRowsSourceAlarm: {
-      threshold: 1000,
-    },
-    configFullLoadThroughputRowsTargetAlarm: {
-      threshold: 1000,
-    },
     configCdcLatencySourceAlarm: {
       threshold: 300,
     },
@@ -822,18 +763,6 @@ test('DmsReplicationTaskSnapshotDefaultActionsInUse', () => {
     defaultAlarmAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultOkAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(alarmTopic),
-    configCdcThroughputRowsSourceAlarm: {
-      threshold: 100,
-    },
-    configCdcThroughputRowsTargetAlarm: {
-      threshold: 100,
-    },
-    configFullLoadThroughputRowsSourceAlarm: {
-      threshold: 1000,
-    },
-    configFullLoadThroughputRowsTargetAlarm: {
-      threshold: 1000,
-    },
     configCdcLatencySourceAlarm: {
       threshold: 300,
     },
@@ -852,18 +781,6 @@ test('stack should contain replicationTask recommended alarms if recommended ala
 
   appAspects.add(
     new dmsAlarms.DmsReplicationTaskRecommendedAlarmsAspect({
-      configCdcThroughputRowsSourceAlarm: {
-        threshold: 100,
-      },
-      configCdcThroughputRowsTargetAlarm: {
-        threshold: 100,
-      },
-      configFullLoadThroughputRowsSourceAlarm: {
-        threshold: 1000,
-      },
-      configFullLoadThroughputRowsTargetAlarm: {
-        threshold: 1000,
-      },
       configCdcLatencySourceAlarm: {
         threshold: 300,
       },
@@ -912,10 +829,6 @@ test('alarms can be applied individually to replicationTasks using extended cons
     },
   });
 
-  stack.replicationTask.alarmCdcThroughputRowsSource();
-  stack.replicationTask.alarmCdcThroughputRowsTarget({ threshold: 100 });
-  stack.replicationTask.alarmFullLoadThroughputRowsSource({ threshold: 1000 });
-  stack.replicationTask.alarmFullLoadThroughputRowsTarget({ threshold: 1000 });
   stack.replicationTask.alarmCdcLatencySource({ threshold: 300 });
   stack.replicationTask.alarmCdcLatencyTarget({ threshold: 300 });
 
@@ -956,18 +869,6 @@ test('when an resource is excluded from the aspect config it should not have ala
   appAspects.add(
     new dmsAlarms.DmsReplicationTaskRecommendedAlarmsAspect({
       excludeResources: ['ReplicationTask1'],
-      configCdcThroughputRowsSourceAlarm: {
-        threshold: 100,
-      },
-      configCdcThroughputRowsTargetAlarm: {
-        threshold: 100,
-      },
-      configFullLoadThroughputRowsSourceAlarm: {
-        threshold: 1000,
-      },
-      configFullLoadThroughputRowsTargetAlarm: {
-        threshold: 1000,
-      },
       configCdcLatencySourceAlarm: {
         threshold: 300,
       },
@@ -985,9 +886,10 @@ test('when an resource is excluded from the aspect config it should not have ala
   // });
 
   new dmsAlarms.ReplicationTask(stack, 'ReplicationTask1', {
-    replicationTaskIdentifier: 'testReplicationTask1',
+    replicationTaskIdentifier: 'arn:aws:dms:us-east-1:123456789012:task:replication-task',
     sourceEndpointArn: 'arn:aws:dms:us-east-1:123456789012:endpoint:source-endpoint',
     targetEndpointArn: 'arn:aws:dms:us-east-1:123456789012:endpoint:target-endpoint',
+    replicationInstanceIdentifier: 'replication-instance',
     replicationInstanceArn: 'arn:aws:dms:us-east-1:123456789012:rep:replication-instance',
     migrationType: 'full-load-and-cdc',
     tableMappings: JSON.stringify({
@@ -1007,9 +909,10 @@ test('when an resource is excluded from the aspect config it should not have ala
   });
 
   new dmsAlarms.ReplicationTask(stack, 'ReplicationTask2', {
-    replicationTaskIdentifier: 'testReplicationTask2',
+    replicationTaskIdentifier: 'arn:aws:dms:us-east-1:123456789012:task:replication-task-2',
     sourceEndpointArn: 'arn:aws:dms:us-east-1:123456789012:endpoint:source-endpoint',
     targetEndpointArn: 'arn:aws:dms:us-east-1:123456789012:endpoint:target-endpoint',
+    replicationInstanceIdentifier: 'replication-instance',
     replicationInstanceArn: 'arn:aws:dms:us-east-1:123456789012:rep:replication-instance',
     migrationType: 'full-load-and-cdc',
     tableMappings: JSON.stringify({
@@ -1081,29 +984,6 @@ test('default alarm actions are overridden when individual alarm actions are pro
     defaultAlarmAction: new cloudwatch_actions.SnsAction(topic),
     defaultOkAction: new cloudwatch_actions.SnsAction(topic),
     defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(topic),
-    configCdcThroughputRowsSourceAlarm: {
-      alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-    },
-    configCdcThroughputRowsTargetAlarm: {
-      threshold: 100,
-      alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-    },
-    configFullLoadThroughputRowsSourceAlarm: {
-      threshold: 1000,
-      alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-    },
-    configFullLoadThroughputRowsTargetAlarm: {
-      threshold: 1000,
-      alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-    },
     configCdcLatencySourceAlarm: {
       threshold: 300,
       alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
@@ -1146,54 +1026,6 @@ test('optional alarm configurations can be overwritten', () => {
 
   appAspects.add(
     new dmsAlarms.DmsReplicationTaskRecommendedAlarmsAspect({
-      configCdcThroughputRowsSourceAlarm: {
-        alarmName: 'CustomCdcThroughputRowsSourceAlarm',
-        threshold: 10,
-        period: Duration.minutes(5),
-        evaluationPeriods: 25,
-        datapointsToAlarm: 25,
-        alarmDescription: 'Custom alarm description',
-        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
-        alarmAction: topicAction,
-        okAction: topicAction,
-        insufficientDataAction: topicAction,
-      },
-      configCdcThroughputRowsTargetAlarm: {
-        alarmName: 'CustomCdcThroughputRowsTargetAlarm',
-        threshold: 10,
-        period: Duration.minutes(5),
-        evaluationPeriods: 25,
-        datapointsToAlarm: 25,
-        alarmDescription: 'Custom alarm description',
-        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
-        alarmAction: topicAction,
-        okAction: topicAction,
-        insufficientDataAction: topicAction,
-      },
-      configFullLoadThroughputRowsSourceAlarm: {
-        alarmName: 'CustomFullLoadThroughputRowsSourceAlarm',
-        threshold: 10,
-        period: Duration.minutes(5),
-        evaluationPeriods: 25,
-        datapointsToAlarm: 25,
-        alarmDescription: 'Custom alarm description',
-        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
-        alarmAction: topicAction,
-        okAction: topicAction,
-        insufficientDataAction: topicAction,
-      },
-      configFullLoadThroughputRowsTargetAlarm: {
-        alarmName: 'CustomFullLoadThroughputRowsTargetAlarm',
-        threshold: 10,
-        period: Duration.minutes(5),
-        evaluationPeriods: 25,
-        datapointsToAlarm: 25,
-        alarmDescription: 'Custom alarm description',
-        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
-        alarmAction: topicAction,
-        okAction: topicAction,
-        insufficientDataAction: topicAction,
-      },
       configCdcLatencySourceAlarm: {
         alarmName: 'CustomCdcLatencySourceAlarm',
         threshold: 10,
@@ -1229,9 +1061,10 @@ test('optional alarm configurations can be overwritten', () => {
   // });
 
   new dmsAlarms.ReplicationTask(stack, 'ReplicationTask', {
-    replicationTaskIdentifier: 'testReplicationTask',
+    replicationTaskIdentifier: 'arn:aws:dms:us-east-1:123456789012:task:replication-task',
     sourceEndpointArn: 'arn:aws:dms:us-east-1:123456789012:endpoint:source-endpoint',
     targetEndpointArn: 'arn:aws:dms:us-east-1:123456789012:endpoint:target-endpoint',
+    replicationInstanceIdentifier: 'replication-instance',
     replicationInstanceArn: 'arn:aws:dms:us-east-1:123456789012:rep:replication-instance',
     migrationType: 'full-load-and-cdc',
     tableMappings: JSON.stringify({
@@ -1276,18 +1109,6 @@ test('AspectWithTreatMissingData', () => {
   appAspects.add(
     new dmsAlarms.DmsReplicationTaskRecommendedAlarmsAspect({
       treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,
-      configCdcThroughputRowsSourceAlarm: {
-        threshold: 100,
-      },
-      configCdcThroughputRowsTargetAlarm: {
-        threshold: 100,
-      },
-      configFullLoadThroughputRowsSourceAlarm: {
-        threshold: 1000,
-      },
-      configFullLoadThroughputRowsTargetAlarm: {
-        threshold: 1000,
-      },
       configCdcLatencySourceAlarm: {
         threshold: 300,
       },
@@ -1317,42 +1138,6 @@ test('AspectWithTreatMissingData', () => {
 
 // Error validation tests for migration type mismatches
 describe('DMS Replication Task Migration Type Validation', () => {
-
-  test('should throw error when creating CDC throughput source alarm for full-load migration type', () => {
-    const app = new App();
-    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
-      migrationType: 'full-load',
-      env: {
-        account: '123456789012', // not a real account
-        region: 'us-east-1',
-      },
-    });
-
-    expect(() => {
-      stack.replicationTask.alarmCdcThroughputRowsSource();
-    }).toThrow(
-      "CDC throughput alarms can only be created for replication tasks with migration type 'cdc' or 'full-load-and-cdc'. " +
-      'Current migration type: full-load',
-    );
-  });
-
-  test('should throw error when creating CDC throughput target alarm for full-load migration type', () => {
-    const app = new App();
-    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
-      migrationType: 'full-load',
-      env: {
-        account: '123456789012', // not a real account
-        region: 'us-east-1',
-      },
-    });
-
-    expect(() => {
-      stack.replicationTask.alarmCdcThroughputRowsTarget();
-    }).toThrow(
-      "CDC throughput alarms can only be created for replication tasks with migration type 'cdc' or 'full-load-and-cdc'. " +
-      'Current migration type: full-load',
-    );
-  });
 
   test('should throw error when creating CDC latency source alarm for full-load migration type', () => {
     const app = new App();
@@ -1390,42 +1175,6 @@ describe('DMS Replication Task Migration Type Validation', () => {
     );
   });
 
-  test('should throw error when creating full load throughput source alarm for CDC migration type', () => {
-    const app = new App();
-    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
-      migrationType: 'cdc',
-      env: {
-        account: '123456789012', // not a real account
-        region: 'us-east-1',
-      },
-    });
-
-    expect(() => {
-      stack.replicationTask.alarmFullLoadThroughputRowsSource();
-    }).toThrow(
-      "Full load throughput alarms can only be created for replication tasks with migration type 'full-load' or " +
-      "'full-load-and-cdc'. Current migration type: cdc",
-    );
-  });
-
-  test('should throw error when creating full load throughput target alarm for CDC migration type', () => {
-    const app = new App();
-    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
-      migrationType: 'cdc',
-      env: {
-        account: '123456789012', // not a real account
-        region: 'us-east-1',
-      },
-    });
-
-    expect(() => {
-      stack.replicationTask.alarmFullLoadThroughputRowsTarget();
-    }).toThrow(
-      "Full load throughput alarms can only be created for replication tasks with migration type 'full-load' or " +
-      "'full-load-and-cdc'. Current migration type: cdc",
-    );
-  });
-
   test('should successfully create CDC alarms for CDC migration type', () => {
     const app = new App();
     const stack = new DmsReplicationTaskStack(app, 'TestStack', {
@@ -1438,27 +1187,8 @@ describe('DMS Replication Task Migration Type Validation', () => {
 
     // These should not throw errors
     expect(() => {
-      stack.replicationTask.alarmCdcThroughputRowsSource();
-      stack.replicationTask.alarmCdcThroughputRowsTarget();
       stack.replicationTask.alarmCdcLatencySource();
       stack.replicationTask.alarmCdcLatencyTarget();
-    }).not.toThrow();
-  });
-
-  test('should successfully create full load alarms for full-load migration type', () => {
-    const app = new App();
-    const stack = new DmsReplicationTaskStack(app, 'TestStack', {
-      migrationType: 'full-load',
-      env: {
-        account: '123456789012', // not a real account
-        region: 'us-east-1',
-      },
-    });
-
-    // These should not throw errors
-    expect(() => {
-      stack.replicationTask.alarmFullLoadThroughputRowsSource();
-      stack.replicationTask.alarmFullLoadThroughputRowsTarget();
     }).not.toThrow();
   });
 
@@ -1474,12 +1204,8 @@ describe('DMS Replication Task Migration Type Validation', () => {
 
     // All alarms should be allowed for full-load-and-cdc
     expect(() => {
-      stack.replicationTask.alarmCdcThroughputRowsSource();
-      stack.replicationTask.alarmCdcThroughputRowsTarget();
       stack.replicationTask.alarmCdcLatencySource();
       stack.replicationTask.alarmCdcLatencyTarget();
-      stack.replicationTask.alarmFullLoadThroughputRowsSource();
-      stack.replicationTask.alarmFullLoadThroughputRowsTarget();
     }).not.toThrow();
   });
 
@@ -1494,12 +1220,8 @@ describe('DMS Replication Task Migration Type Validation', () => {
 
     // Default is 'full-load-and-cdc', so all alarms should be allowed
     expect(() => {
-      stack.replicationTask.alarmCdcThroughputRowsSource();
-      stack.replicationTask.alarmCdcThroughputRowsTarget();
       stack.replicationTask.alarmCdcLatencySource();
       stack.replicationTask.alarmCdcLatencyTarget();
-      stack.replicationTask.alarmFullLoadThroughputRowsSource();
-      stack.replicationTask.alarmFullLoadThroughputRowsTarget();
     }).not.toThrow();
   });
 
