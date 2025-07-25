@@ -20124,1728 +20124,6 @@ Uniquely identifies this class.
 
 ---
 
-### DmsReplicationTaskCdcThroughputRowsSourceAlarm <a name="DmsReplicationTaskCdcThroughputRowsSourceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm"></a>
-
-An alarm that monitors the CDC throughput (rows per second) from the source database.
-
-This alarm monitors the rate at which changes are being read from the source database
-during Change Data Capture (CDC) operations. It can help detect:
-- Unexpected bulk operations or high change activity (high throughput)
-- Replication lag or stalls (low throughput)
-- Source database performance issues affecting CDC
-
-The alarm can be configured to trigger on either high or low throughput values.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.Initializer"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new DmsReplicationTaskCdcThroughputRowsSourceAlarm(scope: IConstruct, id: string, props: DmsReplicationTaskCdcThroughputRowsSourceAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps">DmsReplicationTaskCdcThroughputRowsSourceAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps">DmsReplicationTaskCdcThroughputRowsSourceAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isConstruct"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsSourceAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isOwnedResource"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsSourceAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isResource"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsSourceAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmArn"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmName"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
-
----
-
-##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
-
-```typescript
-public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
-```
-
-- *Type:* number
-
-Conventional value for the threshold property when creating anomaly detection alarms.
-
-Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
-calculated threshold based on the metric math expression that contains a metric expression.
-
-The `threshold` property is required, but the value is ignored. This
-constant has the value 0, and has a symbolic name to indicate why the
-threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
-the `threshold` property at all.
-
----
-
-##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm.property.PROPERTY_INJECTION_ID"></a>
-
-```typescript
-public readonly PROPERTY_INJECTION_ID: string;
-```
-
-- *Type:* string
-
-Uniquely identifies this class.
-
----
-
-### DmsReplicationTaskCdcThroughputRowsTargetAlarm <a name="DmsReplicationTaskCdcThroughputRowsTargetAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm"></a>
-
-An alarm that monitors the CDC throughput (rows per second) to the target database.
-
-This alarm monitors the rate at which changes are being written to the target database
-during Change Data Capture (CDC) operations. It can help detect:
-- Unexpected bulk operations or high change activity (high throughput)
-- Replication lag or stalls (low throughput)
-- Target database performance issues affecting CDC
-
-The alarm can be configured to trigger on either high or low throughput values.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.Initializer"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new DmsReplicationTaskCdcThroughputRowsTargetAlarm(scope: IConstruct, id: string, props: DmsReplicationTaskCdcThroughputRowsTargetAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps">DmsReplicationTaskCdcThroughputRowsTargetAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps">DmsReplicationTaskCdcThroughputRowsTargetAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isConstruct"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsTargetAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isOwnedResource"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsTargetAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isResource"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsTargetAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmArn"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmName"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
-
----
-
-##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
-
-```typescript
-public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
-```
-
-- *Type:* number
-
-Conventional value for the threshold property when creating anomaly detection alarms.
-
-Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
-calculated threshold based on the metric math expression that contains a metric expression.
-
-The `threshold` property is required, but the value is ignored. This
-constant has the value 0, and has a symbolic name to indicate why the
-threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
-the `threshold` property at all.
-
----
-
-##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm.property.PROPERTY_INJECTION_ID"></a>
-
-```typescript
-public readonly PROPERTY_INJECTION_ID: string;
-```
-
-- *Type:* string
-
-Uniquely identifies this class.
-
----
-
-### DmsReplicationTaskFullLoadThroughputRowsSourceAlarm <a name="DmsReplicationTaskFullLoadThroughputRowsSourceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm"></a>
-
-An alarm that monitors the full load throughput (rows per second) from the source database.
-
-This alarm monitors the rate at which data is being read from the source database
-during full load operations. It can help detect:
-- Full load performance issues (low throughput)
-- Full load completion (zero throughput)
-- Full load stalling or errors
-- Source database performance issues affecting full load
-
-The alarm is typically configured to trigger on low or zero throughput values.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.Initializer"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new DmsReplicationTaskFullLoadThroughputRowsSourceAlarm(scope: IConstruct, id: string, props: DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps">DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps">DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isConstruct"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isOwnedResource"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isResource"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmArn"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmName"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsSourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
-
----
-
-##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
-
-```typescript
-public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
-```
-
-- *Type:* number
-
-Conventional value for the threshold property when creating anomaly detection alarms.
-
-Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
-calculated threshold based on the metric math expression that contains a metric expression.
-
-The `threshold` property is required, but the value is ignored. This
-constant has the value 0, and has a symbolic name to indicate why the
-threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
-the `threshold` property at all.
-
----
-
-##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm.property.PROPERTY_INJECTION_ID"></a>
-
-```typescript
-public readonly PROPERTY_INJECTION_ID: string;
-```
-
-- *Type:* string
-
-Uniquely identifies this class.
-
----
-
-### DmsReplicationTaskFullLoadThroughputRowsTargetAlarm <a name="DmsReplicationTaskFullLoadThroughputRowsTargetAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm"></a>
-
-An alarm that monitors the full load throughput (rows per second) to the target database.
-
-This alarm monitors the rate at which data is being written to the target database
-during full load operations. It can help detect:
-- Full load performance issues (low throughput)
-- Full load completion (zero throughput)
-- Full load stalling or errors
-- Target database performance issues affecting full load
-
-The alarm is typically configured to trigger on low or zero throughput values.
-
-#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.Initializer"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-new DmsReplicationTaskFullLoadThroughputRowsTargetAlarm(scope: IConstruct, id: string, props: DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps">DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps">DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
-
----
-
-##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addAlarmAction"></a>
-
-```typescript
-public addAlarmAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if the alarm fires.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addAlarmAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addInsufficientDataAction"></a>
-
-```typescript
-public addInsufficientDataAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if there is insufficient data to evaluate the alarm.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addInsufficientDataAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addOkAction"></a>
-
-```typescript
-public addOkAction(actions: ...IAlarmAction[]): void
-```
-
-Trigger this action if the alarm returns from breaching state into ok state.
-
-Typically SnsAction or AutoScalingAction.
-
-###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.addOkAction.parameter.actions"></a>
-
-- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
-
----
-
-##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.renderAlarmRule"></a>
-
-```typescript
-public renderAlarmRule(): string
-```
-
-AlarmRule indicating ALARM state for Alarm.
-
-##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.toAnnotation"></a>
-
-```typescript
-public toAnnotation(): HorizontalAnnotation
-```
-
-Turn this alarm into a horizontal annotation.
-
-This is useful if you want to represent an Alarm in a non-AlarmWidget.
-An `AlarmWidget` can directly show an alarm, but it can only show a
-single alarm and no other metrics. Instead, you can convert the alarm to
-a HorizontalAnnotation and add it as an annotation to another graph.
-
-This might be useful if:
-
-- You want to show multiple alarms inside a single graph, for example if
-  you have both a "small margin/long period" alarm as well as a
-  "large margin/short period" alarm.
-
-- You want to show an Alarm line in a graph with multiple metrics in it.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isConstruct"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isOwnedResource"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isResource"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmArn"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
-```
-
-Import an existing CloudWatch alarm provided an ARN.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmArn.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmArn.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmArn.parameter.alarmArn"></a>
-
-- *Type:* string
-
-Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-
----
-
-##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmName"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
-```
-
-Import an existing CloudWatch alarm provided an Name.
-
-###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmName.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
-The parent creating construct (usually `this`).
-
----
-
-###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmName.parameter.id"></a>
-
-- *Type:* string
-
-The construct's name.
-
----
-
-###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.fromAlarmName.parameter.alarmName"></a>
-
-- *Type:* string
-
-Alarm Name.
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.alarmArn"></a>
-
-```typescript
-public readonly alarmArn: string;
-```
-
-- *Type:* string
-
-ARN of this alarm.
-
----
-
-##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-
-Name of this alarm.
-
----
-
-##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.metric"></a>
-
-```typescript
-public readonly metric: IMetric;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
-
-The metric object this alarm was based on.
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
-
----
-
-##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
-
-```typescript
-public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
-```
-
-- *Type:* number
-
-Conventional value for the threshold property when creating anomaly detection alarms.
-
-Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
-calculated threshold based on the metric math expression that contains a metric expression.
-
-The `threshold` property is required, but the value is ignored. This
-constant has the value 0, and has a symbolic name to indicate why the
-threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
-the `threshold` property at all.
-
----
-
-##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm.property.PROPERTY_INJECTION_ID"></a>
-
-```typescript
-public readonly PROPERTY_INJECTION_ID: string;
-```
-
-- *Type:* string
-
-Uniquely identifies this class.
-
----
-
 ### DmsReplicationTaskRecommendedAlarms <a name="DmsReplicationTaskRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms"></a>
 
 A construct that creates the recommended alarms for a DMS Replication Task.
@@ -21933,10 +20211,6 @@ Any object.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmCdcLatencySource">alarmCdcLatencySource</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm">DmsReplicationTaskCdcLatencySourceAlarm</a></code> | The CDCLatencySource alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmCdcLatencyTarget">alarmCdcLatencyTarget</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm">DmsReplicationTaskCdcLatencyTargetAlarm</a></code> | The CDCLatencyTarget alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmCdcThroughputRowsSource">alarmCdcThroughputRowsSource</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm">DmsReplicationTaskCdcThroughputRowsSourceAlarm</a></code> | The CDCThroughputRowsSource alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmCdcThroughputRowsTarget">alarmCdcThroughputRowsTarget</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm">DmsReplicationTaskCdcThroughputRowsTargetAlarm</a></code> | The CDCThroughputRowsTarget alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmFullLoadThroughputRowsSource">alarmFullLoadThroughputRowsSource</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm">DmsReplicationTaskFullLoadThroughputRowsSourceAlarm</a></code> | The FullLoadThroughputRowsSource alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmFullLoadThroughputRowsTarget">alarmFullLoadThroughputRowsTarget</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm">DmsReplicationTaskFullLoadThroughputRowsTargetAlarm</a></code> | The FullLoadThroughputRowsTarget alarm. |
 
 ---
 
@@ -21973,54 +20247,6 @@ public readonly alarmCdcLatencyTarget: DmsReplicationTaskCdcLatencyTargetAlarm;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm">DmsReplicationTaskCdcLatencyTargetAlarm</a>
 
 The CDCLatencyTarget alarm.
-
----
-
-##### `alarmCdcThroughputRowsSource`<sup>Optional</sup> <a name="alarmCdcThroughputRowsSource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmCdcThroughputRowsSource"></a>
-
-```typescript
-public readonly alarmCdcThroughputRowsSource: DmsReplicationTaskCdcThroughputRowsSourceAlarm;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarm">DmsReplicationTaskCdcThroughputRowsSourceAlarm</a>
-
-The CDCThroughputRowsSource alarm.
-
----
-
-##### `alarmCdcThroughputRowsTarget`<sup>Optional</sup> <a name="alarmCdcThroughputRowsTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmCdcThroughputRowsTarget"></a>
-
-```typescript
-public readonly alarmCdcThroughputRowsTarget: DmsReplicationTaskCdcThroughputRowsTargetAlarm;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarm">DmsReplicationTaskCdcThroughputRowsTargetAlarm</a>
-
-The CDCThroughputRowsTarget alarm.
-
----
-
-##### `alarmFullLoadThroughputRowsSource`<sup>Optional</sup> <a name="alarmFullLoadThroughputRowsSource" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmFullLoadThroughputRowsSource"></a>
-
-```typescript
-public readonly alarmFullLoadThroughputRowsSource: DmsReplicationTaskFullLoadThroughputRowsSourceAlarm;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarm">DmsReplicationTaskFullLoadThroughputRowsSourceAlarm</a>
-
-The FullLoadThroughputRowsSource alarm.
-
----
-
-##### `alarmFullLoadThroughputRowsTarget`<sup>Optional</sup> <a name="alarmFullLoadThroughputRowsTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.property.alarmFullLoadThroughputRowsTarget"></a>
-
-```typescript
-public readonly alarmFullLoadThroughputRowsTarget: DmsReplicationTaskFullLoadThroughputRowsTargetAlarm;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarm">DmsReplicationTaskFullLoadThroughputRowsTargetAlarm</a>
-
-The FullLoadThroughputRowsTarget alarm.
 
 ---
 
@@ -47142,14 +45368,14 @@ An extension for the CfnReplicationTask construct that provides methods to creat
 ```typescript
 import { ReplicationTask } from '@renovosolutions/cdk-library-cloudwatch-alarms'
 
-new ReplicationTask(scope: Construct, id: string, props: CfnReplicationTaskProps)
+new ReplicationTask(scope: Construct, id: string, props: ReplicationTaskProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTaskProps</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps">ReplicationTaskProps</a></code> | *No description.* |
 
 ---
 
@@ -47167,7 +45393,7 @@ new ReplicationTask(scope: Construct, id: string, props: CfnReplicationTaskProps
 
 ##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.Initializer.parameter.props"></a>
 
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTaskProps
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps">ReplicationTaskProps</a>
 
 ---
 
@@ -47194,10 +45420,6 @@ new ReplicationTask(scope: Construct, id: string, props: CfnReplicationTaskProps
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.inspect">inspect</a></code> | Examines the CloudFormation resource and discloses attributes. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcLatencySource">alarmCdcLatencySource</a></code> | Creates an alarm that monitors the CDC latency from the source for the Replication Task. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcLatencyTarget">alarmCdcLatencyTarget</a></code> | Creates an alarm that monitors the CDC latency to the target for the Replication Task. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcThroughputRowsSource">alarmCdcThroughputRowsSource</a></code> | Creates an alarm that monitors the CDC throughput from the source for the Replication Task. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcThroughputRowsTarget">alarmCdcThroughputRowsTarget</a></code> | Creates an alarm that monitors the CDC throughput to the target for the Replication Task. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmFullLoadThroughputRowsSource">alarmFullLoadThroughputRowsSource</a></code> | Creates an alarm that monitors the full load throughput from the source for the Replication Task. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmFullLoadThroughputRowsTarget">alarmFullLoadThroughputRowsTarget</a></code> | Creates an alarm that monitors the full load throughput to the target for the Replication Task. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the DMS Replication Task. |
 
 ---
@@ -47602,62 +45824,6 @@ Creates an alarm that monitors the CDC latency to the target for the Replication
 
 ---
 
-##### `alarmCdcThroughputRowsSource` <a name="alarmCdcThroughputRowsSource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcThroughputRowsSource"></a>
-
-```typescript
-public alarmCdcThroughputRowsSource(props?: DmsCdcThroughputRowsSourceAlarmConfig): DmsReplicationTaskCdcThroughputRowsSourceAlarm
-```
-
-Creates an alarm that monitors the CDC throughput from the source for the Replication Task.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcThroughputRowsSource.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig">DmsCdcThroughputRowsSourceAlarmConfig</a>
-
----
-
-##### `alarmCdcThroughputRowsTarget` <a name="alarmCdcThroughputRowsTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcThroughputRowsTarget"></a>
-
-```typescript
-public alarmCdcThroughputRowsTarget(props?: DmsCdcThroughputRowsTargetAlarmConfig): DmsReplicationTaskCdcThroughputRowsTargetAlarm
-```
-
-Creates an alarm that monitors the CDC throughput to the target for the Replication Task.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcThroughputRowsTarget.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig">DmsCdcThroughputRowsTargetAlarmConfig</a>
-
----
-
-##### `alarmFullLoadThroughputRowsSource` <a name="alarmFullLoadThroughputRowsSource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmFullLoadThroughputRowsSource"></a>
-
-```typescript
-public alarmFullLoadThroughputRowsSource(props?: DmsFullLoadThroughputRowsSourceAlarmConfig): DmsReplicationTaskFullLoadThroughputRowsSourceAlarm
-```
-
-Creates an alarm that monitors the full load throughput from the source for the Replication Task.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmFullLoadThroughputRowsSource.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig">DmsFullLoadThroughputRowsSourceAlarmConfig</a>
-
----
-
-##### `alarmFullLoadThroughputRowsTarget` <a name="alarmFullLoadThroughputRowsTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmFullLoadThroughputRowsTarget"></a>
-
-```typescript
-public alarmFullLoadThroughputRowsTarget(props?: DmsFullLoadThroughputRowsTargetAlarmConfig): DmsReplicationTaskFullLoadThroughputRowsTargetAlarm
-```
-
-Creates an alarm that monitors the full load throughput to the target for the Replication Task.
-
-###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmFullLoadThroughputRowsTarget.parameter.props"></a>
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig">DmsFullLoadThroughputRowsTargetAlarmConfig</a>
-
----
-
 ##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRecommendedAlarms"></a>
 
 ```typescript
@@ -47763,6 +45929,7 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.resourceIdentifier">resourceIdentifier</a></code> | <code>string</code> | A display name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.tagsRaw">tagsRaw</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | One or more tags to be assigned to the replication task. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.taskData">taskData</a></code> | <code>string</code> | Supplemental information that the task requires to migrate the data for certain source and target endpoints. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.replicationInstanceIdentifier">replicationInstanceIdentifier</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -48033,6 +46200,16 @@ public readonly taskData: string;
 - *Type:* string
 
 Supplemental information that the task requires to migrate the data for certain source and target endpoints.
+
+---
+
+##### `replicationInstanceIdentifier`<sup>Required</sup> <a name="replicationInstanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.replicationInstanceIdentifier"></a>
+
+```typescript
+public readonly replicationInstanceIdentifier: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -70298,6 +68475,7 @@ const dmsAnomalyDetectionAlarmBaseConfig: DmsAnomalyDetectionAlarmBaseConfig = {
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -70350,6 +68528,19 @@ public readonly treatMissingData: TreatMissingData;
 - *Default:* TreatMissingData.MISSING
 
 How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsAnomalyDetectionAlarmBaseConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -70718,374 +68909,6 @@ This alarm can be used to detect:
 - Potential data consistency problems affecting downstream applications
 
 Consider your application's tolerance for data lag when setting this threshold.
-
----
-
-### DmsCdcThroughputRowsSourceAlarmConfig <a name="DmsCdcThroughputRowsSourceAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig"></a>
-
-Configuration for the CdcThroughputRowsSource alarm.
-
-#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.Initializer"></a>
-
-```typescript
-import { DmsCdcThroughputRowsSourceAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-const dmsCdcThroughputRowsSourceAlarmConfig: DmsCdcThroughputRowsSourceAlarmConfig = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator to use for the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The number of rows per second threshold. |
-
----
-
-##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.alarmAction"></a>
-
-```typescript
-public readonly alarmAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm is triggered.
-
----
-
-##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.insufficientDataAction"></a>
-
-```typescript
-public readonly insufficientDataAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm has insufficient data.
-
----
-
-##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.okAction"></a>
-
-```typescript
-public readonly okAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm enters the ok state.
-
----
-
-##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.treatMissingData"></a>
-
-```typescript
-public readonly treatMissingData: TreatMissingData;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* TreatMissingData.MISSING
-
-How to handle missing data for this alarm.
-
----
-
-##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.period"></a>
-
-```typescript
-public readonly period: Duration;
-```
-
-- *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
-
-The period over which the specified statistic is applied.
-
-Different alarm types may have different optimal default periods:
-- Regular alarms: 1 minute (for responsive monitoring)
-- Anomaly detection alarms: 5 minutes (for stable ML model training)
-- CDC/throughput alarms: 5 minutes (for trend analysis)
-
----
-
-##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.alarmDescription"></a>
-
-```typescript
-public readonly alarmDescription: string;
-```
-
-- *Type:* string
-- *Default:* This alarm monitors CDC throughput from the source database. High values may indicate unexpected data changes or bulk operations. Low values may indicate replication lag or source database issues.
-
-The description of the alarm.
-
----
-
-##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-- *Default:* replicationTaskIdentifier + ' - CDCThroughputRowsSource'
-
-The alarm name.
-
----
-
-##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.comparisonOperator"></a>
-
-```typescript
-public readonly comparisonOperator: ComparisonOperator;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
-- *Default:* GREATER_THAN_THRESHOLD (for detecting unexpected bulk operations)
-
-The comparison operator to use for the alarm.
-
----
-
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.datapointsToAlarm"></a>
-
-```typescript
-public readonly datapointsToAlarm: number;
-```
-
-- *Type:* number
-- *Default:* 2 (allow for some variance while still detecting issues)
-
-The number of data points that must be breaching to trigger the alarm.
-
----
-
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.evaluationPeriods"></a>
-
-```typescript
-public readonly evaluationPeriods: number;
-```
-
-- *Type:* number
-- *Default:* 3 (to avoid false alarms from temporary fluctuations)
-
-The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 1000 (for detecting unexpected bulk operations - adjust based on your workload)
-
-The number of rows per second threshold.
-
-This alarm can be used to detect:
-- Unexpected bulk operations or high change activity (abnormally high throughput)
-- Abnormally low throughput (potential replication issues)
-
-Consider your normal CDC patterns when setting this threshold.
-
----
-
-### DmsCdcThroughputRowsTargetAlarmConfig <a name="DmsCdcThroughputRowsTargetAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig"></a>
-
-Configuration for the CdcThroughputRowsTarget alarm.
-
-#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.Initializer"></a>
-
-```typescript
-import { DmsCdcThroughputRowsTargetAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-const dmsCdcThroughputRowsTargetAlarmConfig: DmsCdcThroughputRowsTargetAlarmConfig = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator to use for the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The number of rows per second threshold. |
-
----
-
-##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.alarmAction"></a>
-
-```typescript
-public readonly alarmAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm is triggered.
-
----
-
-##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.insufficientDataAction"></a>
-
-```typescript
-public readonly insufficientDataAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm has insufficient data.
-
----
-
-##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.okAction"></a>
-
-```typescript
-public readonly okAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm enters the ok state.
-
----
-
-##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.treatMissingData"></a>
-
-```typescript
-public readonly treatMissingData: TreatMissingData;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* TreatMissingData.MISSING
-
-How to handle missing data for this alarm.
-
----
-
-##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.period"></a>
-
-```typescript
-public readonly period: Duration;
-```
-
-- *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
-
-The period over which the specified statistic is applied.
-
-Different alarm types may have different optimal default periods:
-- Regular alarms: 1 minute (for responsive monitoring)
-- Anomaly detection alarms: 5 minutes (for stable ML model training)
-- CDC/throughput alarms: 5 minutes (for trend analysis)
-
----
-
-##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.alarmDescription"></a>
-
-```typescript
-public readonly alarmDescription: string;
-```
-
-- *Type:* string
-- *Default:* This alarm monitors CDC throughput to the target database. High values may indicate unexpected data changes or bulk operations. Low values may indicate replication lag or target database issues.
-
-The description of the alarm.
-
----
-
-##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-- *Default:* replicationTaskIdentifier + ' - CDCThroughputRowsTarget'
-
-The alarm name.
-
----
-
-##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.comparisonOperator"></a>
-
-```typescript
-public readonly comparisonOperator: ComparisonOperator;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
-- *Default:* GREATER_THAN_THRESHOLD (for detecting unexpected bulk operations)
-
-The comparison operator to use for the alarm.
-
----
-
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.datapointsToAlarm"></a>
-
-```typescript
-public readonly datapointsToAlarm: number;
-```
-
-- *Type:* number
-- *Default:* 2 (allow for some variance while still detecting issues)
-
-The number of data points that must be breaching to trigger the alarm.
-
----
-
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.evaluationPeriods"></a>
-
-```typescript
-public readonly evaluationPeriods: number;
-```
-
-- *Type:* number
-- *Default:* 3 (to avoid false alarms from temporary fluctuations)
-
-The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 1000 (for detecting unexpected bulk operations - adjust based on your workload)
-
-The number of rows per second threshold.
-
-This alarm can be used to detect:
-- Unexpected bulk operations or high change activity (abnormally high throughput)
-- Abnormally low throughput (potential target database issues)
-
-Consider your normal CDC patterns when setting this threshold.
 
 ---
 
@@ -71588,346 +69411,6 @@ public readonly evaluationPeriods: number;
 - *Default:* 5
 
 The number of periods over which data is compared to the specified threshold.
-
----
-
-### DmsFullLoadThroughputRowsSourceAlarmConfig <a name="DmsFullLoadThroughputRowsSourceAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig"></a>
-
-Configuration for the FullLoadThroughputRowsSource alarm.
-
-#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.Initializer"></a>
-
-```typescript
-import { DmsFullLoadThroughputRowsSourceAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-const dmsFullLoadThroughputRowsSourceAlarmConfig: DmsFullLoadThroughputRowsSourceAlarmConfig = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The number of rows per second threshold. |
-
----
-
-##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.alarmAction"></a>
-
-```typescript
-public readonly alarmAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm is triggered.
-
----
-
-##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.insufficientDataAction"></a>
-
-```typescript
-public readonly insufficientDataAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm has insufficient data.
-
----
-
-##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.okAction"></a>
-
-```typescript
-public readonly okAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm enters the ok state.
-
----
-
-##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.treatMissingData"></a>
-
-```typescript
-public readonly treatMissingData: TreatMissingData;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* TreatMissingData.MISSING
-
-How to handle missing data for this alarm.
-
----
-
-##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.period"></a>
-
-```typescript
-public readonly period: Duration;
-```
-
-- *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
-
-The period over which the specified statistic is applied.
-
-Different alarm types may have different optimal default periods:
-- Regular alarms: 1 minute (for responsive monitoring)
-- Anomaly detection alarms: 5 minutes (for stable ML model training)
-- CDC/throughput alarms: 5 minutes (for trend analysis)
-
----
-
-##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.alarmDescription"></a>
-
-```typescript
-public readonly alarmDescription: string;
-```
-
-- *Type:* string
-- *Default:* This alarm monitors full load throughput from the source database. Low values may indicate performance issues or full load completion. Zero values indicate full load has completed or stalled.
-
-The description of the alarm.
-
----
-
-##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-- *Default:* replicationTaskIdentifier + ' - FullLoadThroughputRowsSource'
-
-The alarm name.
-
----
-
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.datapointsToAlarm"></a>
-
-```typescript
-public readonly datapointsToAlarm: number;
-```
-
-- *Type:* number
-- *Default:* 2 (allow for some variance while still detecting issues)
-
-The number of data points that must be breaching to trigger the alarm.
-
----
-
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.evaluationPeriods"></a>
-
-```typescript
-public readonly evaluationPeriods: number;
-```
-
-- *Type:* number
-- *Default:* 3 (to avoid false alarms from temporary fluctuations)
-
-The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 1000 (for detecting low throughput during full load - adjust based on your workload)
-
-The number of rows per second threshold.
-
-This alarm can be used to detect:
-- Abnormally low throughput (potential full load performance issues)
-- Full load completion or stalling
-
-Consider your expected full load patterns when setting this threshold.
-
----
-
-### DmsFullLoadThroughputRowsTargetAlarmConfig <a name="DmsFullLoadThroughputRowsTargetAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig"></a>
-
-Configuration for the FullLoadThroughputRowsTarget alarm.
-
-#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.Initializer"></a>
-
-```typescript
-import { DmsFullLoadThroughputRowsTargetAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-const dmsFullLoadThroughputRowsTargetAlarmConfig: DmsFullLoadThroughputRowsTargetAlarmConfig = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The number of rows per second threshold. |
-
----
-
-##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.alarmAction"></a>
-
-```typescript
-public readonly alarmAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm is triggered.
-
----
-
-##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.insufficientDataAction"></a>
-
-```typescript
-public readonly insufficientDataAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm has insufficient data.
-
----
-
-##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.okAction"></a>
-
-```typescript
-public readonly okAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm enters the ok state.
-
----
-
-##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.treatMissingData"></a>
-
-```typescript
-public readonly treatMissingData: TreatMissingData;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* TreatMissingData.MISSING
-
-How to handle missing data for this alarm.
-
----
-
-##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.period"></a>
-
-```typescript
-public readonly period: Duration;
-```
-
-- *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
-
-The period over which the specified statistic is applied.
-
-Different alarm types may have different optimal default periods:
-- Regular alarms: 1 minute (for responsive monitoring)
-- Anomaly detection alarms: 5 minutes (for stable ML model training)
-- CDC/throughput alarms: 5 minutes (for trend analysis)
-
----
-
-##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.alarmDescription"></a>
-
-```typescript
-public readonly alarmDescription: string;
-```
-
-- *Type:* string
-- *Default:* This alarm monitors full load throughput to the target database. Low values may indicate performance issues or full load completion. Zero values indicate full load has completed or stalled.
-
-The description of the alarm.
-
----
-
-##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-- *Default:* replicationTaskIdentifier + ' - FullLoadThroughputRowsTarget'
-
-The alarm name.
-
----
-
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.datapointsToAlarm"></a>
-
-```typescript
-public readonly datapointsToAlarm: number;
-```
-
-- *Type:* number
-- *Default:* 2 (allow for some variance while still detecting issues)
-
-The number of data points that must be breaching to trigger the alarm.
-
----
-
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.evaluationPeriods"></a>
-
-```typescript
-public readonly evaluationPeriods: number;
-```
-
-- *Type:* number
-- *Default:* 3 (to avoid false alarms from temporary fluctuations)
-
-The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 1000 (for detecting low throughput during full load - adjust based on your workload)
-
-The number of rows per second threshold.
-
-This alarm can be used to detect:
-- Abnormally low throughput (potential full load performance issues)
-- Full load completion or stalling
-
-Consider your expected full load patterns when setting this threshold.
 
 ---
 
@@ -72879,12 +70362,12 @@ const dmsReplicationInstanceSwapUsageAlarmProps: DmsReplicationInstanceSwapUsage
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator to use for the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -72952,6 +70435,19 @@ How to handle missing data for this alarm.
 
 ---
 
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.alarmDescription"></a>
 
 ```typescript
@@ -73014,19 +70510,6 @@ public readonly evaluationPeriods: number;
 - *Default:* 3 (to avoid false alarms from temporary fluctuations)
 
 The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarmProps.property.stdDevs"></a>
-
-```typescript
-public readonly stdDevs: number;
-```
-
-- *Type:* number
-- *Default:* 8 (standard deviation for swap usage anomaly detection)
-
-The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -73226,17 +70709,17 @@ const dmsReplicationTaskAlarmProps: DmsReplicationTaskAlarmProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskAlarmProps.property.replicationTask">replicationTask</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTask</code> | The DMS Replication Task to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskAlarmProps.property.replicationTask">replicationTask</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask">ReplicationTask</a></code> | The DMS Replication Task to monitor. |
 
 ---
 
 ##### `replicationTask`<sup>Required</sup> <a name="replicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskAlarmProps.property.replicationTask"></a>
 
 ```typescript
-public readonly replicationTask: CfnReplicationTask;
+public readonly replicationTask: ReplicationTask;
 ```
 
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTask
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask">ReplicationTask</a>
 
 The DMS Replication Task to monitor.
 
@@ -73258,7 +70741,7 @@ const dmsReplicationTaskCdcLatencySourceAlarmProps: DmsReplicationTaskCdcLatency
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarmProps.property.replicationTask">replicationTask</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTask</code> | The DMS Replication Task to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarmProps.property.replicationTask">replicationTask</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask">ReplicationTask</a></code> | The DMS Replication Task to monitor. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -73276,10 +70759,10 @@ const dmsReplicationTaskCdcLatencySourceAlarmProps: DmsReplicationTaskCdcLatency
 ##### `replicationTask`<sup>Required</sup> <a name="replicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarmProps.property.replicationTask"></a>
 
 ```typescript
-public readonly replicationTask: CfnReplicationTask;
+public readonly replicationTask: ReplicationTask;
 ```
 
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTask
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask">ReplicationTask</a>
 
 The DMS Replication Task to monitor.
 
@@ -73455,7 +70938,7 @@ const dmsReplicationTaskCdcLatencyTargetAlarmProps: DmsReplicationTaskCdcLatency
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarmProps.property.replicationTask">replicationTask</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTask</code> | The DMS Replication Task to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarmProps.property.replicationTask">replicationTask</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask">ReplicationTask</a></code> | The DMS Replication Task to monitor. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -73473,10 +70956,10 @@ const dmsReplicationTaskCdcLatencyTargetAlarmProps: DmsReplicationTaskCdcLatency
 ##### `replicationTask`<sup>Required</sup> <a name="replicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarmProps.property.replicationTask"></a>
 
 ```typescript
-public readonly replicationTask: CfnReplicationTask;
+public readonly replicationTask: ReplicationTask;
 ```
 
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTask
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask">ReplicationTask</a>
 
 The DMS Replication Task to monitor.
 
@@ -73636,766 +71119,6 @@ Consider your application's tolerance for data lag when setting this threshold.
 
 ---
 
-### DmsReplicationTaskCdcThroughputRowsSourceAlarmProps <a name="DmsReplicationTaskCdcThroughputRowsSourceAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps"></a>
-
-The properties for the DmsReplicationTaskCdcThroughputRowsSourceAlarm construct.
-
-#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.Initializer"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsSourceAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-const dmsReplicationTaskCdcThroughputRowsSourceAlarmProps: DmsReplicationTaskCdcThroughputRowsSourceAlarmProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.replicationTask">replicationTask</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTask</code> | The DMS Replication Task to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator to use for the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The number of rows per second threshold. |
-
----
-
-##### `replicationTask`<sup>Required</sup> <a name="replicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.replicationTask"></a>
-
-```typescript
-public readonly replicationTask: CfnReplicationTask;
-```
-
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTask
-
-The DMS Replication Task to monitor.
-
----
-
-##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.alarmAction"></a>
-
-```typescript
-public readonly alarmAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm is triggered.
-
----
-
-##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.insufficientDataAction"></a>
-
-```typescript
-public readonly insufficientDataAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm has insufficient data.
-
----
-
-##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.okAction"></a>
-
-```typescript
-public readonly okAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm enters the ok state.
-
----
-
-##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.treatMissingData"></a>
-
-```typescript
-public readonly treatMissingData: TreatMissingData;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* TreatMissingData.MISSING
-
-How to handle missing data for this alarm.
-
----
-
-##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.period"></a>
-
-```typescript
-public readonly period: Duration;
-```
-
-- *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
-
-The period over which the specified statistic is applied.
-
-Different alarm types may have different optimal default periods:
-- Regular alarms: 1 minute (for responsive monitoring)
-- Anomaly detection alarms: 5 minutes (for stable ML model training)
-- CDC/throughput alarms: 5 minutes (for trend analysis)
-
----
-
-##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.alarmDescription"></a>
-
-```typescript
-public readonly alarmDescription: string;
-```
-
-- *Type:* string
-- *Default:* This alarm monitors CDC throughput from the source database. High values may indicate unexpected data changes or bulk operations. Low values may indicate replication lag or source database issues.
-
-The description of the alarm.
-
----
-
-##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-- *Default:* replicationTaskIdentifier + ' - CDCThroughputRowsSource'
-
-The alarm name.
-
----
-
-##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.comparisonOperator"></a>
-
-```typescript
-public readonly comparisonOperator: ComparisonOperator;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
-- *Default:* GREATER_THAN_THRESHOLD (for detecting unexpected bulk operations)
-
-The comparison operator to use for the alarm.
-
----
-
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.datapointsToAlarm"></a>
-
-```typescript
-public readonly datapointsToAlarm: number;
-```
-
-- *Type:* number
-- *Default:* 2 (allow for some variance while still detecting issues)
-
-The number of data points that must be breaching to trigger the alarm.
-
----
-
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.evaluationPeriods"></a>
-
-```typescript
-public readonly evaluationPeriods: number;
-```
-
-- *Type:* number
-- *Default:* 3 (to avoid false alarms from temporary fluctuations)
-
-The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsSourceAlarmProps.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 1000 (for detecting unexpected bulk operations - adjust based on your workload)
-
-The number of rows per second threshold.
-
-This alarm can be used to detect:
-- Unexpected bulk operations or high change activity (abnormally high throughput)
-- Abnormally low throughput (potential replication issues)
-
-Consider your normal CDC patterns when setting this threshold.
-
----
-
-### DmsReplicationTaskCdcThroughputRowsTargetAlarmProps <a name="DmsReplicationTaskCdcThroughputRowsTargetAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps"></a>
-
-The properties for the DmsReplicationTaskCdcThroughputRowsTargetAlarm construct.
-
-#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.Initializer"></a>
-
-```typescript
-import { DmsReplicationTaskCdcThroughputRowsTargetAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-const dmsReplicationTaskCdcThroughputRowsTargetAlarmProps: DmsReplicationTaskCdcThroughputRowsTargetAlarmProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.replicationTask">replicationTask</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTask</code> | The DMS Replication Task to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator to use for the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The number of rows per second threshold. |
-
----
-
-##### `replicationTask`<sup>Required</sup> <a name="replicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.replicationTask"></a>
-
-```typescript
-public readonly replicationTask: CfnReplicationTask;
-```
-
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTask
-
-The DMS Replication Task to monitor.
-
----
-
-##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.alarmAction"></a>
-
-```typescript
-public readonly alarmAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm is triggered.
-
----
-
-##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.insufficientDataAction"></a>
-
-```typescript
-public readonly insufficientDataAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm has insufficient data.
-
----
-
-##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.okAction"></a>
-
-```typescript
-public readonly okAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm enters the ok state.
-
----
-
-##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.treatMissingData"></a>
-
-```typescript
-public readonly treatMissingData: TreatMissingData;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* TreatMissingData.MISSING
-
-How to handle missing data for this alarm.
-
----
-
-##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.period"></a>
-
-```typescript
-public readonly period: Duration;
-```
-
-- *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
-
-The period over which the specified statistic is applied.
-
-Different alarm types may have different optimal default periods:
-- Regular alarms: 1 minute (for responsive monitoring)
-- Anomaly detection alarms: 5 minutes (for stable ML model training)
-- CDC/throughput alarms: 5 minutes (for trend analysis)
-
----
-
-##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.alarmDescription"></a>
-
-```typescript
-public readonly alarmDescription: string;
-```
-
-- *Type:* string
-- *Default:* This alarm monitors CDC throughput to the target database. High values may indicate unexpected data changes or bulk operations. Low values may indicate replication lag or target database issues.
-
-The description of the alarm.
-
----
-
-##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-- *Default:* replicationTaskIdentifier + ' - CDCThroughputRowsTarget'
-
-The alarm name.
-
----
-
-##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.comparisonOperator"></a>
-
-```typescript
-public readonly comparisonOperator: ComparisonOperator;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
-- *Default:* GREATER_THAN_THRESHOLD (for detecting unexpected bulk operations)
-
-The comparison operator to use for the alarm.
-
----
-
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.datapointsToAlarm"></a>
-
-```typescript
-public readonly datapointsToAlarm: number;
-```
-
-- *Type:* number
-- *Default:* 2 (allow for some variance while still detecting issues)
-
-The number of data points that must be breaching to trigger the alarm.
-
----
-
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.evaluationPeriods"></a>
-
-```typescript
-public readonly evaluationPeriods: number;
-```
-
-- *Type:* number
-- *Default:* 3 (to avoid false alarms from temporary fluctuations)
-
-The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcThroughputRowsTargetAlarmProps.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 1000 (for detecting unexpected bulk operations - adjust based on your workload)
-
-The number of rows per second threshold.
-
-This alarm can be used to detect:
-- Unexpected bulk operations or high change activity (abnormally high throughput)
-- Abnormally low throughput (potential target database issues)
-
-Consider your normal CDC patterns when setting this threshold.
-
----
-
-### DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps <a name="DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps"></a>
-
-The properties for the DmsReplicationTaskFullLoadThroughputRowsSourceAlarm construct.
-
-#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.Initializer"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-const dmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps: DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.replicationTask">replicationTask</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTask</code> | The DMS Replication Task to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The number of rows per second threshold. |
-
----
-
-##### `replicationTask`<sup>Required</sup> <a name="replicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.replicationTask"></a>
-
-```typescript
-public readonly replicationTask: CfnReplicationTask;
-```
-
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTask
-
-The DMS Replication Task to monitor.
-
----
-
-##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.alarmAction"></a>
-
-```typescript
-public readonly alarmAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm is triggered.
-
----
-
-##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.insufficientDataAction"></a>
-
-```typescript
-public readonly insufficientDataAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm has insufficient data.
-
----
-
-##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.okAction"></a>
-
-```typescript
-public readonly okAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm enters the ok state.
-
----
-
-##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.treatMissingData"></a>
-
-```typescript
-public readonly treatMissingData: TreatMissingData;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* TreatMissingData.MISSING
-
-How to handle missing data for this alarm.
-
----
-
-##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.period"></a>
-
-```typescript
-public readonly period: Duration;
-```
-
-- *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
-
-The period over which the specified statistic is applied.
-
-Different alarm types may have different optimal default periods:
-- Regular alarms: 1 minute (for responsive monitoring)
-- Anomaly detection alarms: 5 minutes (for stable ML model training)
-- CDC/throughput alarms: 5 minutes (for trend analysis)
-
----
-
-##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.alarmDescription"></a>
-
-```typescript
-public readonly alarmDescription: string;
-```
-
-- *Type:* string
-- *Default:* This alarm monitors full load throughput from the source database. Low values may indicate performance issues or full load completion. Zero values indicate full load has completed or stalled.
-
-The description of the alarm.
-
----
-
-##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-- *Default:* replicationTaskIdentifier + ' - FullLoadThroughputRowsSource'
-
-The alarm name.
-
----
-
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.datapointsToAlarm"></a>
-
-```typescript
-public readonly datapointsToAlarm: number;
-```
-
-- *Type:* number
-- *Default:* 2 (allow for some variance while still detecting issues)
-
-The number of data points that must be breaching to trigger the alarm.
-
----
-
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.evaluationPeriods"></a>
-
-```typescript
-public readonly evaluationPeriods: number;
-```
-
-- *Type:* number
-- *Default:* 3 (to avoid false alarms from temporary fluctuations)
-
-The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsSourceAlarmProps.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 1000 (for detecting low throughput during full load - adjust based on your workload)
-
-The number of rows per second threshold.
-
-This alarm can be used to detect:
-- Abnormally low throughput (potential full load performance issues)
-- Full load completion or stalling
-
-Consider your expected full load patterns when setting this threshold.
-
----
-
-### DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps <a name="DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps"></a>
-
-The properties for the DmsReplicationTaskFullLoadThroughputRowsTargetAlarm construct.
-
-#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.Initializer"></a>
-
-```typescript
-import { DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
-
-const dmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps: DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.replicationTask">replicationTask</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTask</code> | The DMS Replication Task to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The number of rows per second threshold. |
-
----
-
-##### `replicationTask`<sup>Required</sup> <a name="replicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.replicationTask"></a>
-
-```typescript
-public readonly replicationTask: CfnReplicationTask;
-```
-
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTask
-
-The DMS Replication Task to monitor.
-
----
-
-##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.alarmAction"></a>
-
-```typescript
-public readonly alarmAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm is triggered.
-
----
-
-##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.insufficientDataAction"></a>
-
-```typescript
-public readonly insufficientDataAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm has insufficient data.
-
----
-
-##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.okAction"></a>
-
-```typescript
-public readonly okAction: IAlarmAction;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
-- *Default:* None
-
-The action to take when an alarm enters the ok state.
-
----
-
-##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.treatMissingData"></a>
-
-```typescript
-public readonly treatMissingData: TreatMissingData;
-```
-
-- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* TreatMissingData.MISSING
-
-How to handle missing data for this alarm.
-
----
-
-##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.period"></a>
-
-```typescript
-public readonly period: Duration;
-```
-
-- *Type:* aws-cdk-lib.Duration
-- *Default:* Duration.minutes(1) for regular alarms, Duration.minutes(5) for anomaly detection and throughput alarms
-
-The period over which the specified statistic is applied.
-
-Different alarm types may have different optimal default periods:
-- Regular alarms: 1 minute (for responsive monitoring)
-- Anomaly detection alarms: 5 minutes (for stable ML model training)
-- CDC/throughput alarms: 5 minutes (for trend analysis)
-
----
-
-##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.alarmDescription"></a>
-
-```typescript
-public readonly alarmDescription: string;
-```
-
-- *Type:* string
-- *Default:* This alarm monitors full load throughput to the target database. Low values may indicate performance issues or full load completion. Zero values indicate full load has completed or stalled.
-
-The description of the alarm.
-
----
-
-##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.alarmName"></a>
-
-```typescript
-public readonly alarmName: string;
-```
-
-- *Type:* string
-- *Default:* replicationTaskIdentifier + ' - FullLoadThroughputRowsTarget'
-
-The alarm name.
-
----
-
-##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.datapointsToAlarm"></a>
-
-```typescript
-public readonly datapointsToAlarm: number;
-```
-
-- *Type:* number
-- *Default:* 2 (allow for some variance while still detecting issues)
-
-The number of data points that must be breaching to trigger the alarm.
-
----
-
-##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.evaluationPeriods"></a>
-
-```typescript
-public readonly evaluationPeriods: number;
-```
-
-- *Type:* number
-- *Default:* 3 (to avoid false alarms from temporary fluctuations)
-
-The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskFullLoadThroughputRowsTargetAlarmProps.property.threshold"></a>
-
-```typescript
-public readonly threshold: number;
-```
-
-- *Type:* number
-- *Default:* 1000 (for detecting low throughput during full load - adjust based on your workload)
-
-The number of rows per second threshold.
-
-This alarm can be used to detect:
-- Abnormally low throughput (potential full load performance issues)
-- Full load completion or stalling
-
-Consider your expected full load patterns when setting this threshold.
-
----
-
 ### DmsReplicationTaskRecommendedAlarmsConfig <a name="DmsReplicationTaskRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig"></a>
 
 Configurations for the recommended alarms for a DMS Replication Task.
@@ -74417,10 +71140,6 @@ const dmsReplicationTaskRecommendedAlarmsConfig: DmsReplicationTaskRecommendedAl
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configCdcLatencySourceAlarm">configCdcLatencySourceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcLatencySourceAlarmConfig">DmsCdcLatencySourceAlarmConfig</a></code> | The configuration for the CDCLatencySource alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configCdcLatencyTargetAlarm">configCdcLatencyTargetAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcLatencyTargetAlarmConfig">DmsCdcLatencyTargetAlarmConfig</a></code> | The configuration for the CDCLatencyTarget alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configCdcThroughputRowsSourceAlarm">configCdcThroughputRowsSourceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig">DmsCdcThroughputRowsSourceAlarmConfig</a></code> | The configuration for the CDCThroughputRowsSource alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configCdcThroughputRowsTargetAlarm">configCdcThroughputRowsTargetAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig">DmsCdcThroughputRowsTargetAlarmConfig</a></code> | The configuration for the CDCThroughputRowsTarget alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configFullLoadThroughputRowsSourceAlarm">configFullLoadThroughputRowsSourceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig">DmsFullLoadThroughputRowsSourceAlarmConfig</a></code> | The configuration for the FullLoadThroughputRowsSource alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configFullLoadThroughputRowsTargetAlarm">configFullLoadThroughputRowsTargetAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig">DmsFullLoadThroughputRowsTargetAlarmConfig</a></code> | The configuration for the FullLoadThroughputRowsTarget alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
@@ -74451,54 +71170,6 @@ public readonly configCdcLatencyTargetAlarm: DmsCdcLatencyTargetAlarmConfig;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcLatencyTargetAlarmConfig">DmsCdcLatencyTargetAlarmConfig</a>
 
 The configuration for the CDCLatencyTarget alarm.
-
----
-
-##### `configCdcThroughputRowsSourceAlarm`<sup>Optional</sup> <a name="configCdcThroughputRowsSourceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configCdcThroughputRowsSourceAlarm"></a>
-
-```typescript
-public readonly configCdcThroughputRowsSourceAlarm: DmsCdcThroughputRowsSourceAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig">DmsCdcThroughputRowsSourceAlarmConfig</a>
-
-The configuration for the CDCThroughputRowsSource alarm.
-
----
-
-##### `configCdcThroughputRowsTargetAlarm`<sup>Optional</sup> <a name="configCdcThroughputRowsTargetAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configCdcThroughputRowsTargetAlarm"></a>
-
-```typescript
-public readonly configCdcThroughputRowsTargetAlarm: DmsCdcThroughputRowsTargetAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig">DmsCdcThroughputRowsTargetAlarmConfig</a>
-
-The configuration for the CDCThroughputRowsTarget alarm.
-
----
-
-##### `configFullLoadThroughputRowsSourceAlarm`<sup>Optional</sup> <a name="configFullLoadThroughputRowsSourceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configFullLoadThroughputRowsSourceAlarm"></a>
-
-```typescript
-public readonly configFullLoadThroughputRowsSourceAlarm: DmsFullLoadThroughputRowsSourceAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig">DmsFullLoadThroughputRowsSourceAlarmConfig</a>
-
-The configuration for the FullLoadThroughputRowsSource alarm.
-
----
-
-##### `configFullLoadThroughputRowsTargetAlarm`<sup>Optional</sup> <a name="configFullLoadThroughputRowsTargetAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsConfig.property.configFullLoadThroughputRowsTargetAlarm"></a>
-
-```typescript
-public readonly configFullLoadThroughputRowsTargetAlarm: DmsFullLoadThroughputRowsTargetAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig">DmsFullLoadThroughputRowsTargetAlarmConfig</a>
-
-The configuration for the FullLoadThroughputRowsTarget alarm.
 
 ---
 
@@ -74599,17 +71270,13 @@ const dmsReplicationTaskRecommendedAlarmsProps: DmsReplicationTaskRecommendedAla
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configCdcLatencySourceAlarm">configCdcLatencySourceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcLatencySourceAlarmConfig">DmsCdcLatencySourceAlarmConfig</a></code> | The configuration for the CDCLatencySource alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configCdcLatencyTargetAlarm">configCdcLatencyTargetAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcLatencyTargetAlarmConfig">DmsCdcLatencyTargetAlarmConfig</a></code> | The configuration for the CDCLatencyTarget alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configCdcThroughputRowsSourceAlarm">configCdcThroughputRowsSourceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig">DmsCdcThroughputRowsSourceAlarmConfig</a></code> | The configuration for the CDCThroughputRowsSource alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configCdcThroughputRowsTargetAlarm">configCdcThroughputRowsTargetAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig">DmsCdcThroughputRowsTargetAlarmConfig</a></code> | The configuration for the CDCThroughputRowsTarget alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configFullLoadThroughputRowsSourceAlarm">configFullLoadThroughputRowsSourceAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig">DmsFullLoadThroughputRowsSourceAlarmConfig</a></code> | The configuration for the FullLoadThroughputRowsSource alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configFullLoadThroughputRowsTargetAlarm">configFullLoadThroughputRowsTargetAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig">DmsFullLoadThroughputRowsTargetAlarmConfig</a></code> | The configuration for the FullLoadThroughputRowsTarget alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics">DmsReplicationTaskRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.replicationTask">replicationTask</a></code> | <code>aws-cdk-lib.aws_dms.CfnReplicationTask</code> | The DMS Replication Task to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.replicationTask">replicationTask</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask">ReplicationTask</a></code> | The DMS Replication Task to monitor. |
 
 ---
 
@@ -74634,54 +71301,6 @@ public readonly configCdcLatencyTargetAlarm: DmsCdcLatencyTargetAlarmConfig;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcLatencyTargetAlarmConfig">DmsCdcLatencyTargetAlarmConfig</a>
 
 The configuration for the CDCLatencyTarget alarm.
-
----
-
-##### `configCdcThroughputRowsSourceAlarm`<sup>Optional</sup> <a name="configCdcThroughputRowsSourceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configCdcThroughputRowsSourceAlarm"></a>
-
-```typescript
-public readonly configCdcThroughputRowsSourceAlarm: DmsCdcThroughputRowsSourceAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsSourceAlarmConfig">DmsCdcThroughputRowsSourceAlarmConfig</a>
-
-The configuration for the CDCThroughputRowsSource alarm.
-
----
-
-##### `configCdcThroughputRowsTargetAlarm`<sup>Optional</sup> <a name="configCdcThroughputRowsTargetAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configCdcThroughputRowsTargetAlarm"></a>
-
-```typescript
-public readonly configCdcThroughputRowsTargetAlarm: DmsCdcThroughputRowsTargetAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsCdcThroughputRowsTargetAlarmConfig">DmsCdcThroughputRowsTargetAlarmConfig</a>
-
-The configuration for the CDCThroughputRowsTarget alarm.
-
----
-
-##### `configFullLoadThroughputRowsSourceAlarm`<sup>Optional</sup> <a name="configFullLoadThroughputRowsSourceAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configFullLoadThroughputRowsSourceAlarm"></a>
-
-```typescript
-public readonly configFullLoadThroughputRowsSourceAlarm: DmsFullLoadThroughputRowsSourceAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsSourceAlarmConfig">DmsFullLoadThroughputRowsSourceAlarmConfig</a>
-
-The configuration for the FullLoadThroughputRowsSource alarm.
-
----
-
-##### `configFullLoadThroughputRowsTargetAlarm`<sup>Optional</sup> <a name="configFullLoadThroughputRowsTargetAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.configFullLoadThroughputRowsTargetAlarm"></a>
-
-```typescript
-public readonly configFullLoadThroughputRowsTargetAlarm: DmsFullLoadThroughputRowsTargetAlarmConfig;
-```
-
-- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsFullLoadThroughputRowsTargetAlarmConfig">DmsFullLoadThroughputRowsTargetAlarmConfig</a>
-
-The configuration for the FullLoadThroughputRowsTarget alarm.
 
 ---
 
@@ -74767,10 +71386,10 @@ How to handle missing data for this alarm.
 ##### `replicationTask`<sup>Required</sup> <a name="replicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsProps.property.replicationTask"></a>
 
 ```typescript
-public readonly replicationTask: CfnReplicationTask;
+public readonly replicationTask: ReplicationTask;
 ```
 
-- *Type:* aws-cdk-lib.aws_dms.CfnReplicationTask
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask">ReplicationTask</a>
 
 The DMS Replication Task to monitor.
 
@@ -74796,12 +71415,12 @@ const dmsSwapUsageAlarmConfig: DmsSwapUsageAlarmConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator to use for the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
 
 ---
 
@@ -74854,6 +71473,19 @@ public readonly treatMissingData: TreatMissingData;
 - *Default:* TreatMissingData.MISSING
 
 How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -74919,19 +71551,6 @@ public readonly evaluationPeriods: number;
 - *Default:* 3 (to avoid false alarms from temporary fluctuations)
 
 The number of periods over which data is compared to the specified threshold.
-
----
-
-##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsSwapUsageAlarmConfig.property.stdDevs"></a>
-
-```typescript
-public readonly stdDevs: number;
-```
-
-- *Type:* number
-- *Default:* 8 (standard deviation for swap usage anomaly detection)
-
-The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
 ---
 
@@ -94129,6 +90748,267 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
+### ReplicationTaskProps <a name="ReplicationTaskProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps"></a>
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.Initializer"></a>
+
+```typescript
+import { ReplicationTaskProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const replicationTaskProps: ReplicationTaskProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.migrationType">migrationType</a></code> | <code>string</code> | The migration type. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.replicationInstanceArn">replicationInstanceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of a replication instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.sourceEndpointArn">sourceEndpointArn</a></code> | <code>string</code> | An Amazon Resource Name (ARN) that uniquely identifies the source endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.tableMappings">tableMappings</a></code> | <code>string</code> | The table mappings for the task, in JSON format. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.targetEndpointArn">targetEndpointArn</a></code> | <code>string</code> | An Amazon Resource Name (ARN) that uniquely identifies the target endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.cdcStartPosition">cdcStartPosition</a></code> | <code>string</code> | Indicates when you want a change data capture (CDC) operation to start. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.cdcStartTime">cdcStartTime</a></code> | <code>number</code> | Indicates the start time for a change data capture (CDC) operation. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.cdcStopPosition">cdcStopPosition</a></code> | <code>string</code> | Indicates when you want a change data capture (CDC) operation to stop. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.replicationTaskIdentifier">replicationTaskIdentifier</a></code> | <code>string</code> | An identifier for the replication task. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.replicationTaskSettings">replicationTaskSettings</a></code> | <code>string</code> | Overall settings for the task, in JSON format. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.resourceIdentifier">resourceIdentifier</a></code> | <code>string</code> | A display name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.tags">tags</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | One or more tags to be assigned to the replication task. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.taskData">taskData</a></code> | <code>string</code> | Supplemental information that the task requires to migrate the data for certain source and target endpoints. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.replicationInstanceIdentifier">replicationInstanceIdentifier</a></code> | <code>string</code> | The identifier of the replication instance. |
+
+---
+
+##### `migrationType`<sup>Required</sup> <a name="migrationType" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.migrationType"></a>
+
+```typescript
+public readonly migrationType: string;
+```
+
+- *Type:* string
+
+The migration type.
+
+Valid values: `full-load` | `cdc` | `full-load-and-cdc`
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-migrationtype](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-migrationtype)
+
+---
+
+##### `replicationInstanceArn`<sup>Required</sup> <a name="replicationInstanceArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.replicationInstanceArn"></a>
+
+```typescript
+public readonly replicationInstanceArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of a replication instance.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationinstancearn](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationinstancearn)
+
+---
+
+##### `sourceEndpointArn`<sup>Required</sup> <a name="sourceEndpointArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.sourceEndpointArn"></a>
+
+```typescript
+public readonly sourceEndpointArn: string;
+```
+
+- *Type:* string
+
+An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-sourceendpointarn](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-sourceendpointarn)
+
+---
+
+##### `tableMappings`<sup>Required</sup> <a name="tableMappings" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.tableMappings"></a>
+
+```typescript
+public readonly tableMappings: string;
+```
+
+- *Type:* string
+
+The table mappings for the task, in JSON format.
+
+For more information, see [Using Table Mapping to Specify Task Settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html) in the *AWS Database Migration Service User Guide* .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tablemappings](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tablemappings)
+
+---
+
+##### `targetEndpointArn`<sup>Required</sup> <a name="targetEndpointArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.targetEndpointArn"></a>
+
+```typescript
+public readonly targetEndpointArn: string;
+```
+
+- *Type:* string
+
+An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-targetendpointarn](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-targetendpointarn)
+
+---
+
+##### `cdcStartPosition`<sup>Optional</sup> <a name="cdcStartPosition" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.cdcStartPosition"></a>
+
+```typescript
+public readonly cdcStartPosition: string;
+```
+
+- *Type:* string
+
+Indicates when you want a change data capture (CDC) operation to start.
+
+Use either `CdcStartPosition` or `CdcStartTime` to specify when you want a CDC operation to start. Specifying both values results in an error.
+
+The value can be in date, checkpoint, log sequence number (LSN), or system change number (SCN) format.
+
+Here is a date example: `--cdc-start-position "2018-03-08T12:12:12"`
+
+Here is a checkpoint example: `--cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"`
+
+Here is an LSN example: `--cdc-start-position “mysql-bin-changelog.000024:373”`
+
+> When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the `slotName` extra connection attribute to the name of this logical replication slot. For more information, see [Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib) in the *AWS Database Migration Service User Guide* .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstartposition](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstartposition)
+
+---
+
+##### `cdcStartTime`<sup>Optional</sup> <a name="cdcStartTime" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.cdcStartTime"></a>
+
+```typescript
+public readonly cdcStartTime: number;
+```
+
+- *Type:* number
+
+Indicates the start time for a change data capture (CDC) operation.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime)
+
+---
+
+##### `cdcStopPosition`<sup>Optional</sup> <a name="cdcStopPosition" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.cdcStopPosition"></a>
+
+```typescript
+public readonly cdcStopPosition: string;
+```
+
+- *Type:* string
+
+Indicates when you want a change data capture (CDC) operation to stop.
+
+The value can be either server time or commit time.
+
+Here is a server time example: `--cdc-stop-position "server_time:2018-02-09T12:12:12"`
+
+Here is a commit time example: `--cdc-stop-position "commit_time: 2018-02-09T12:12:12"`
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstopposition](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstopposition)
+
+---
+
+##### `replicationTaskIdentifier`<sup>Optional</sup> <a name="replicationTaskIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.replicationTaskIdentifier"></a>
+
+```typescript
+public readonly replicationTaskIdentifier: string;
+```
+
+- *Type:* string
+
+An identifier for the replication task.
+
+Constraints:
+
+- Must contain 1-255 alphanumeric characters or hyphens.
+- First character must be a letter.
+- Cannot end with a hyphen or contain two consecutive hyphens.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtaskidentifier](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtaskidentifier)
+
+---
+
+##### `replicationTaskSettings`<sup>Optional</sup> <a name="replicationTaskSettings" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.replicationTaskSettings"></a>
+
+```typescript
+public readonly replicationTaskSettings: string;
+```
+
+- *Type:* string
+
+Overall settings for the task, in JSON format.
+
+For more information, see [Specifying Task Settings for AWS Database Migration Service Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html) in the *AWS Database Migration Service User Guide* .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtasksettings](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-replicationtasksettings)
+
+---
+
+##### `resourceIdentifier`<sup>Optional</sup> <a name="resourceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.resourceIdentifier"></a>
+
+```typescript
+public readonly resourceIdentifier: string;
+```
+
+- *Type:* string
+
+A display name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object.
+
+The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1` .
+
+For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1` . If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn` .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-resourceidentifier](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-resourceidentifier)
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.tags"></a>
+
+```typescript
+public readonly tags: CfnTag[];
+```
+
+- *Type:* aws-cdk-lib.CfnTag[]
+
+One or more tags to be assigned to the replication task.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tags](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-tags)
+
+---
+
+##### `taskData`<sup>Optional</sup> <a name="taskData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.taskData"></a>
+
+```typescript
+public readonly taskData: string;
+```
+
+- *Type:* string
+
+Supplemental information that the task requires to migrate the data for certain source and target endpoints.
+
+For more information, see [Specifying Supplemental Data for Task Settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html) in the *AWS Database Migration Service User Guide.*
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-taskdata](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-taskdata)
+
+---
+
+##### `replicationInstanceIdentifier`<sup>Required</sup> <a name="replicationInstanceIdentifier" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTaskProps.property.replicationInstanceIdentifier"></a>
+
+```typescript
+public readonly replicationInstanceIdentifier: string;
+```
+
+- *Type:* string
+
+The identifier of the replication instance.
+
+---
+
 ### S3Bucket4xxErrorsAlarmConfig <a name="S3Bucket4xxErrorsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarmConfig"></a>
 
 Configuration for the 4xx errors alarm.
@@ -103993,28 +100873,10 @@ The recommended metrics for DMS Replication Task alarms.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_SOURCE">CDC_THROUGHPUT_ROWS_SOURCE</a></code> | The number of rows per second being read from the source database during CDC operations. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_TARGET">CDC_THROUGHPUT_ROWS_TARGET</a></code> | The number of rows per second being written to the target database during CDC operations. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE">CDC_LATENCY_SOURCE</a></code> | The gap, in seconds, between the last event captured from the source endpoint and current system time. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET">CDC_LATENCY_TARGET</a></code> | The gap, in seconds, between a change that was committed to the source and the same change committed to the target. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_SOURCE">FULL_LOAD_THROUGHPUT_ROWS_SOURCE</a></code> | The number of rows per second being read from the source database during full load operations. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_TARGET">FULL_LOAD_THROUGHPUT_ROWS_TARGET</a></code> | The number of rows per second being written to the target database during full load operations. |
 
 ---
-
-##### `CDC_THROUGHPUT_ROWS_SOURCE` <a name="CDC_THROUGHPUT_ROWS_SOURCE" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_SOURCE"></a>
-
-The number of rows per second being read from the source database during CDC operations.
-
----
-
-
-##### `CDC_THROUGHPUT_ROWS_TARGET` <a name="CDC_THROUGHPUT_ROWS_TARGET" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_THROUGHPUT_ROWS_TARGET"></a>
-
-The number of rows per second being written to the target database during CDC operations.
-
----
-
 
 ##### `CDC_LATENCY_SOURCE` <a name="CDC_LATENCY_SOURCE" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_SOURCE"></a>
 
@@ -104026,20 +100888,6 @@ The gap, in seconds, between the last event captured from the source endpoint an
 ##### `CDC_LATENCY_TARGET` <a name="CDC_LATENCY_TARGET" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.CDC_LATENCY_TARGET"></a>
 
 The gap, in seconds, between a change that was committed to the source and the same change committed to the target.
-
----
-
-
-##### `FULL_LOAD_THROUGHPUT_ROWS_SOURCE` <a name="FULL_LOAD_THROUGHPUT_ROWS_SOURCE" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_SOURCE"></a>
-
-The number of rows per second being read from the source database during full load operations.
-
----
-
-
-##### `FULL_LOAD_THROUGHPUT_ROWS_TARGET` <a name="FULL_LOAD_THROUGHPUT_ROWS_TARGET" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarmsMetrics.FULL_LOAD_THROUGHPUT_ROWS_TARGET"></a>
-
-The number of rows per second being written to the target database during full load operations.
 
 ---
 
