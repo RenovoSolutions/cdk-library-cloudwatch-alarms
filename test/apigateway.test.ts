@@ -105,9 +105,6 @@ test('RestApiSnapshot', () => {
       config5XXErrorAlarm: {
         threshold: 10,
       },
-      configCountAlarm: {
-        threshold: 10,
-      },
     }),
   );
 
@@ -134,17 +131,6 @@ test('RestApiSnapshotWithDetailedList', () => {
       config5XXErrorAlarm: {
         threshold: 10,
       },
-      configCountAlarm: {
-        threshold: 10,
-      },
-      configDetailedCountAlarmList: [
-        {
-          alias: 'getUsers',
-          resource: '/users',
-          method: 'GET',
-          threshold: 1000,
-        },
-      ],
       configDetailedLatencyAlarmList: [
         {
           alias: 'getUsers',
@@ -179,9 +165,6 @@ test('RestApiSnapshotWithExclusion', () => {
       config5XXErrorAlarm: {
         threshold: 10,
       },
-      configCountAlarm: {
-        threshold: 10,
-      },
     }),
   );
 
@@ -212,9 +195,6 @@ test('SnapshotForRestApiConstruct', () => {
     config5XXErrorAlarm: {
       threshold: 10,
     },
-    configCountAlarm: {
-      threshold: 10,
-    },
   });
 
   const template = Template.fromStack(stack);
@@ -241,9 +221,6 @@ test('RestApiSnapshotDefaultActionsInUse', () => {
       threshold: 10,
     },
     config5XXErrorAlarm: {
-      threshold: 10,
-    },
-    configCountAlarm: {
       threshold: 10,
     },
   });
@@ -274,23 +251,6 @@ test('RestApiSnapshotDefaultActionsInUseWithDetails', () => {
     config5XXErrorAlarm: {
       threshold: 10,
     },
-    configCountAlarm: {
-      threshold: 10,
-    },
-    configDetailedCountAlarmList: [
-      {
-        alias: 'getUsers',
-        resource: '/users',
-        method: 'GET',
-        threshold: 1000,
-      },
-      {
-        alias: 'createUser',
-        resource: '/users',
-        method: 'POST',
-        threshold: 1000,
-      },
-    ],
     configDetailedLatencyAlarmList: [
       {
         alias: 'getUsers',
@@ -319,9 +279,6 @@ test('stack should contain service recommended alarms if recommended alarms aspe
         threshold: 10,
       },
       config5XXErrorAlarm: {
-        threshold: 10,
-      },
-      configCountAlarm: {
         threshold: 10,
       },
     }),
@@ -367,14 +324,6 @@ test('alarms can be applied individually to services using extended construct', 
       region: 'us-east-1',
     },
   });
-  const alarmDetailCountConfig = [
-    {
-      alias: 'getUsers',
-      resource: '/users',
-      method: 'GET',
-      threshold: 1000,
-    },
-  ];
   const alarmDetailLatencyConfig = [
     {
       alias: 'getUsers',
@@ -385,9 +334,7 @@ test('alarms can be applied individually to services using extended construct', 
 
   stack.api.alarm4XXError({ threshold: 10 });
   stack.api.alarm5XXError({ threshold: 10 });
-  stack.api.alarmCount({ threshold: 10 });
   stack.api.alarmLatency();
-  stack.api.alarmDetailedCount(alarmDetailCountConfig);
   stack.api.alarmDetailedLatency(alarmDetailLatencyConfig);
 
   const template = Template.fromStack(stack);
@@ -395,21 +342,16 @@ test('alarms can be applied individually to services using extended construct', 
 
   const numOfMetrics = Object.keys(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).length;
 
-  template.resourceCountIs('AWS::CloudWatch::Alarm', numOfMetrics + alarmDetailCountConfig.length + alarmDetailLatencyConfig.length);
+  template.resourceCountIs('AWS::CloudWatch::Alarm', numOfMetrics + alarmDetailLatencyConfig.length);
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
   Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricName => {
     const alarms = Object.keys(resources).filter(resourceName => {
       const resource = resources[resourceName];
-      const resourceProperties = resource.Properties;
-
-      return resourceProperties.MetricName === metricName;
+      return resource.Properties.MetricName === metricName;
     });
-
-    if (metricName === apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.COUNT) {
-      expect(alarms.length).toBe(1 + alarmDetailCountConfig.length);
-    } else if (metricName === apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY) {
+    if (metricName === apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY) {
       expect(alarms.length).toBe(1 + alarmDetailLatencyConfig.length);
     } else {
       expect(alarms.length).toBe(1);
@@ -435,9 +377,6 @@ test('when a resource is excluded from the aspect config it should not have alar
         threshold: 10,
       },
       config5XXErrorAlarm: {
-        threshold: 10,
-      },
-      configCountAlarm: {
         threshold: 10,
       },
     }),
@@ -549,12 +488,6 @@ test('default alarm actions are overridden when individual alarm actions are pro
       insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
       threshold: 10,
     },
-    configCountAlarm: {
-      alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      insufficientDataAction: new cloudwatch_actions.LambdaAction(alarmLambda),
-      threshold: 10,
-    },
     configLatencyAlarm: {
       alarmAction: new cloudwatch_actions.LambdaAction(alarmLambda),
       okAction: new cloudwatch_actions.LambdaAction(alarmLambda),
@@ -614,18 +547,6 @@ test('optional alarm configurations can be overwritten', () => {
         okAction: topicAction,
         insufficientDataAction: topicAction,
       },
-      configCountAlarm: {
-        alarmName: 'CustomCountAlarm',
-        threshold: 10,
-        period: Duration.minutes(5),
-        evaluationPeriods: 25,
-        datapointsToAlarm: 25,
-        alarmDescription: 'Custom alarm description',
-        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
-        alarmAction: topicAction,
-        okAction: topicAction,
-        insufficientDataAction: topicAction,
-      },
       configLatencyAlarm: {
         alarmName: 'CustomLatencyAlarm',
         threshold: 10,
@@ -638,23 +559,6 @@ test('optional alarm configurations can be overwritten', () => {
         okAction: topicAction,
         insufficientDataAction: topicAction,
       },
-      configDetailedCountAlarmList: [
-        {
-          alias: 'getUsers',
-          resource: '/users',
-          method: 'GET',
-          alarmName: 'CustomDetailedGetUsersCountAlarm',
-          threshold: 1000,
-          period: Duration.minutes(5),
-          evaluationPeriods: 25,
-          datapointsToAlarm: 25,
-          alarmDescription: 'Custom alarm description',
-          treatMissingData: cloudwatch.TreatMissingData.IGNORE,
-          alarmAction: topicAction,
-          okAction: topicAction,
-          insufficientDataAction: topicAction,
-        },
-      ],
       configDetailedLatencyAlarmList: [
         {
           alias: 'getUsers',
@@ -731,9 +635,6 @@ test('AspectWithTreatMissingData', () => {
         threshold: 10,
       },
       config5XXErrorAlarm: {
-        threshold: 10,
-      },
-      configCountAlarm: {
         threshold: 10,
       },
     }),

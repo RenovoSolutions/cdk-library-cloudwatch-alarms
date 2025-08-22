@@ -136,34 +136,6 @@ exports[`AspectWithTreatMissingData 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1Count9D71474E": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi1 - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi1",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApi1DeploymentStagelive146493FD",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 10,
-        "TreatMissingData": "notBreaching",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
     "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1Latency38B1EC96": {
       "Properties": {
         "AlarmDescription": "This alarm can detect when the API Gateway requests in a stage have high latency.",
@@ -462,34 +434,6 @@ exports[`RestApiSnapshot 1`] = `
         "Namespace": "AWS/ApiGateway",
         "Period": 60,
         "Statistic": "Average",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountF4908B9F": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
         "Threshold": 10,
         "TreatMissingData": "missing",
       },
@@ -966,49 +910,6 @@ exports[`RestApiSnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "apiGatewayRestApiAlarmsRestApiCountB292920F": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "InsufficientDataActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "OKActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
     "apiGatewayRestApiAlarmsRestApiLatencyCD758518": {
       "Properties": {
         "AlarmActions": [
@@ -1378,151 +1279,6 @@ exports[`RestApiSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "apiGatewayRestApiAlarmsRestApiCountB292920F": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "InsufficientDataActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "OKActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "apiGatewayRestApiAlarmsRestApiDetailedCount01D7A175B": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "AlarmDescription": "This alarm can detect when the API Gateway requests for a resource and method in a stage have high latency.",
-        "AlarmName": "TestApi-getUsers - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Method",
-            "Value": "GET",
-          },
-          {
-            "Name": "Resource",
-            "Value": "/users",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "InsufficientDataActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "OKActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 1000,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "apiGatewayRestApiAlarmsRestApiDetailedCount140F6D885": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "AlarmDescription": "This alarm can detect when the API Gateway requests for a resource and method in a stage have high latency.",
-        "AlarmName": "TestApi-createUser - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Method",
-            "Value": "POST",
-          },
-          {
-            "Name": "Resource",
-            "Value": "/users",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "InsufficientDataActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "OKActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 1000,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
     "apiGatewayRestApiAlarmsRestApiDetailedLatency03D52684B": {
       "Properties": {
         "AlarmActions": [
@@ -1840,70 +1596,6 @@ exports[`RestApiSnapshotWithDetailedList 1`] = `
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountF4908B9F": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiDetailedCount032348565": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect when the API Gateway requests for a resource and method in a stage have high latency.",
-        "AlarmName": "TestApi-getUsers - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Method",
-            "Value": "GET",
-          },
-          {
-            "Name": "Resource",
-            "Value": "/users",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 1000,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -2237,34 +1929,6 @@ exports[`RestApiSnapshotWithExclusion 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountF4908B9F": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
     "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiLatencyFB41F7A4": {
       "Properties": {
         "AlarmDescription": "This alarm can detect when the API Gateway requests in a stage have high latency.",
@@ -2581,34 +2245,6 @@ exports[`SnapshotForRestApiConstruct 1`] = `
         "Namespace": "AWS/ApiGateway",
         "Period": 60,
         "Statistic": "Average",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "RestApiApiGatewayRestApiRecommendedAlarmsRestApiCount0920C293": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
         "Threshold": 10,
         "TreatMissingData": "missing",
       },
@@ -2968,34 +2604,6 @@ exports[`alarms can be applied individually to services using extended construct
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Retain",
     },
-    "RestApiCountAlarmD1A5EDC9": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
     "RestApiDeployment180EC50302b1c063942af59f4edf9229b42bb78e": {
       "DependsOn": [
         "RestApiproxyANY1786B242",
@@ -3044,42 +2652,6 @@ exports[`alarms can be applied individually to services using extended construct
         "StageName": "live",
       },
       "Type": "AWS::ApiGateway::Stage",
-    },
-    "RestApiDetailedCount06463A2AA": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect when the API Gateway requests for a resource and method in a stage have high latency.",
-        "AlarmName": "TestApi-getUsers - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Method",
-            "Value": "GET",
-          },
-          {
-            "Name": "Resource",
-            "Value": "/users",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 1000,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
     },
     "RestApiDetailedLatency0BBBD13CD": {
       "Properties": {
@@ -3307,26 +2879,6 @@ exports[`default alarm actions are overridden when individual alarm actions are 
         "SourceArn": {
           "Fn::GetAtt": [
             "apiGatewayRestApiAlarmsRestApi5XXError005F45E2",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
-    },
-    "LambdaRestApiCountAlarmPermission5E8C395C": {
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "LambdaD247545B",
-            "Arn",
-          ],
-        },
-        "Principal": "lambda.alarms.cloudwatch.amazonaws.com",
-        "SourceAccount": "123456789012",
-        "SourceArn": {
-          "Fn::GetAtt": [
-            "apiGatewayRestApiAlarmsRestApiCountB292920F",
             "Arn",
           ],
         },
@@ -3654,58 +3206,6 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "apiGatewayRestApiAlarmsRestApiCountB292920F": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Fn::GetAtt": [
-              "LambdaD247545B",
-              "Arn",
-            ],
-          },
-        ],
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "InsufficientDataActions": [
-          {
-            "Fn::GetAtt": [
-              "LambdaD247545B",
-              "Arn",
-            ],
-          },
-        ],
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "OKActions": [
-          {
-            "Fn::GetAtt": [
-              "LambdaD247545B",
-              "Arn",
-            ],
-          },
-        ],
-        "Period": 60,
-        "Statistic": "SampleCount",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
     "apiGatewayRestApiAlarmsRestApiLatencyCD758518": {
       "Properties": {
         "AlarmActions": [
@@ -3960,100 +3460,6 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         "Period": 300,
         "Statistic": "Average",
         "Threshold": 10,
-        "TreatMissingData": "ignore",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1Count9D71474E": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "AlarmDescription": "Custom alarm description",
-        "AlarmName": "CustomCountAlarm",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 25,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi1",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApi1DeploymentStagelive146493FD",
-            },
-          },
-        ],
-        "EvaluationPeriods": 25,
-        "InsufficientDataActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "OKActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "Period": 300,
-        "Statistic": "SampleCount",
-        "Threshold": 10,
-        "TreatMissingData": "ignore",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1DetailedCount02D1747A4": {
-      "Properties": {
-        "AlarmActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "AlarmDescription": "Custom alarm description",
-        "AlarmName": "CustomDetailedGetUsersCountAlarm",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 25,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi1",
-          },
-          {
-            "Name": "Method",
-            "Value": "GET",
-          },
-          {
-            "Name": "Resource",
-            "Value": "/users",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApi1DeploymentStagelive146493FD",
-            },
-          },
-        ],
-        "EvaluationPeriods": 25,
-        "InsufficientDataActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "OKActions": [
-          {
-            "Ref": "TopicBFC7AF6E",
-          },
-        ],
-        "Period": 300,
-        "Statistic": "SampleCount",
-        "Threshold": 1000,
         "TreatMissingData": "ignore",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -4425,34 +3831,6 @@ exports[`stack should contain service recommended alarms if recommended alarms a
         "Namespace": "AWS/ApiGateway",
         "Period": 60,
         "Statistic": "Average",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountF4908B9F": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApiDeploymentStageliveE585F0C9",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
         "Threshold": 10,
         "TreatMissingData": "missing",
       },
@@ -4939,34 +4317,6 @@ exports[`when a resource is excluded from the aspect config it should not have a
         "Namespace": "AWS/ApiGateway",
         "Period": 60,
         "Statistic": "Average",
-        "Threshold": 10,
-        "TreatMissingData": "missing",
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
-    "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi2Count186EE132": {
-      "Properties": {
-        "AlarmDescription": "This alarm can detect unexpectedly low traffic volume for the REST API stage.",
-        "AlarmName": "TestApi2 - Count",
-        "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 10,
-        "Dimensions": [
-          {
-            "Name": "ApiName",
-            "Value": "TestApi2",
-          },
-          {
-            "Name": "Stage",
-            "Value": {
-              "Ref": "RestApi2DeploymentStagelive144C5CE7",
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "Count",
-        "Namespace": "AWS/ApiGateway",
-        "Period": 60,
-        "Statistic": "SampleCount",
         "Threshold": 10,
         "TreatMissingData": "missing",
       },

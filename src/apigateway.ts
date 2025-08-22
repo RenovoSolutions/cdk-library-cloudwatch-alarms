@@ -20,10 +20,6 @@ export enum ApiGatewayRecommendedAlarmsMetrics {
    */
   ERROR_5XX = '5XXError',
   /**
-   * The total number API requests in a given period.
-   */
-  COUNT = 'Count',
-  /**
    * The time (milliseconds) between when API Gateway receives a request from a client and
    * when it returns a response to the client. The latency includes the integration latency
    * and other API Gateway overhead.
@@ -248,97 +244,6 @@ export class ApiGatewayRestApi5XXErrorAlarm extends cloudwatch.Alarm {
 };
 
 /**
- * Configuration for the Count alarm.
- */
-export interface ApiGatewayCountAlarmConfig extends ApiGatewayAlarmBaseConfig {
-  /**
-   * The value against which the specified statistic is compared.
-   * Set the threshold based on historical data analysis to determine what the expected
-   * baseline request count for your API is. Setting the threshold at a very high value
-   * might cause the alarm to be too sensitive at periods of normal and expected low traffic.
-   * Conversely, setting it at a very low value might cause the alarm to miss anomalous
-   * smaller drops in traffic volume.
-   *
-   */
-  readonly threshold: number;
-  /**
-   * The number of periods over which data is compared to the specified threshold.
-   *
-   * @default 10
-   */
-  readonly evaluationPeriods?: number;
-  /**
-   * The number of data points that must be breaching to trigger the alarm.
-   *
-   * @default 10
-   */
-  readonly datapointsToAlarm?: number;
-  /**
-   * The alarm name.
-   *
-   * @default - apiName + ' - Count'
-   */
-  readonly alarmName?: string;
-  /**
-   * The description of the alarm.
-   *
-   * @default - This alarm can detect high rates of client-side errors for the API Gateway requests.
-   */
-  readonly alarmDescription?: string;
-}
-
-/**
- * The properties for the ApiGatewayRestApiCountAlarm construct.
- */
-export interface ApiGatewayRestApiCountAlarmProps extends ApiGatewayRestApiAlarmProps, ApiGatewayCountAlarmConfig {}
-
-/**
- * This alarm helps to detect low traffic volume for the REST API stage.
- *
- * This can be an indicator of an issue with the application calling the API such as using incorrect endpoints.
- * It could also be an indicator of an issue with the configuration or permissions of the API making it unreachable
- * for clients.
- *
- * The alarm is triggered when the number of requests in a given period is less than threshold.
- */
-export class ApiGatewayRestApiCountAlarm extends cloudwatch.Alarm {
-  constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiCountAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.COUNT}`;
-    const period = props.period ?? Duration.minutes(1);
-    const evaluationPeriods = props.evaluationPeriods ?? 10;
-    const datapointsToAlarm = props.datapointsToAlarm ?? 10;
-    const threshold = props.threshold;
-    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
-    const alarmDescription = props.alarmDescription ?? 'This alarm can detect unexpectedly low traffic volume for'
-      + ' the REST API stage.';
-
-    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
-
-    super(scope, id, {
-      alarmName,
-      metric: props.api.metricCount({
-        dimensionsMap: {
-          ApiName: props.api.restApiName,
-          Stage: props.api.deploymentStage.stageName,
-        },
-        statistic: 'SampleCount',
-        period,
-      }),
-      threshold,
-      evaluationPeriods,
-      datapointsToAlarm,
-      treatMissingData,
-      comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
-      alarmDescription,
-    });
-
-    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
-    if (props.okAction) this.addOkAction(props.okAction);
-    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
-  }
-};
-
-/**
  * Configuration for the Latency alarm.
  */
 export interface ApiGatewayLatencyAlarmConfig extends ApiGatewayAlarmBaseConfig {
@@ -424,70 +329,6 @@ export class ApiGatewayRestApiLatencyAlarm extends cloudwatch.Alarm {
       datapointsToAlarm,
       treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
-      alarmDescription,
-    });
-
-    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
-    if (props.okAction) this.addOkAction(props.okAction);
-    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
-  }
-};
-
-/**
- * Configuration for the Count alarm when monitoring resource and method dimensions.
- */
-export interface ApiGatewayRestApiDetailedCountAlarmConfig extends
-  ApiGatewayCountAlarmConfig,
-  ApiGatewayDetailedAlarmConfig {}
-
-/**
- * The properties for the ApiGatewayRestApiDetailedCountAlarm construct.
- */
-export interface ApiGatewayRestApiDetailedCountAlarmProps extends
-  ApiGatewayRestApiAlarmProps,
-  ApiGatewayCountAlarmConfig,
-  ApiGatewayDetailedAlarmConfig {}
-
-/**
- * This alarm can detect unexpectedly low traffic volume for the REST API resource and method
- * in the stage.
- *
- * We recommend that you create this alarm if your API receives a predictable and
- * consistent number of requests under normal conditions. This alarm is not recommended for APIs
- * that don't expect constant and consistent traffic.
- *
- * The alarm is triggered when the number of requests in a given period is less than threshold.
- */
-export class ApiGatewayRestApiDetailedCountAlarm extends cloudwatch.Alarm {
-  constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiDetailedCountAlarmProps) {
-    const alarmName = props.alarmName ?? `${props.api.restApiName}-${props.alias} - ${ApiGatewayRecommendedAlarmsMetrics.COUNT}`;
-    const period = props.period ?? Duration.minutes(1);
-    const evaluationPeriods = props.evaluationPeriods ?? 10;
-    const datapointsToAlarm = props.datapointsToAlarm ?? 10;
-    const threshold = props.threshold;
-    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
-    const alarmDescription = props.alarmDescription ?? 'This alarm can detect when the API Gateway requests for a'
-      + ' resource and method in a stage have high latency.';
-
-    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
-
-    super(scope, id, {
-      alarmName,
-      metric: props.api.metricCount({
-        dimensionsMap: {
-          ApiName: props.api.restApiName,
-          Stage: props.api.deploymentStage.stageName,
-          Resource: props.resource,
-          Method: props.method,
-        },
-        statistic: 'SampleCount',
-        period,
-      }),
-      threshold,
-      evaluationPeriods,
-      datapointsToAlarm,
-      treatMissingData,
-      comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
       alarmDescription,
     });
 
@@ -613,17 +454,9 @@ export interface ApiGatewayRestApiRecommendedAlarmsConfig {
    */
   readonly config5XXErrorAlarm: ApiGateway5XXErrorAlarmConfig;
   /**
-   * The configuration for the Count alarm.
-   */
-  readonly configCountAlarm: ApiGatewayCountAlarmConfig;
-  /**
    * The configuration for the Latency alarm.
    */
   readonly configLatencyAlarm?: ApiGatewayLatencyAlarmConfig;
-  /**
-   * The configuration list for the detailed Count alarm.
-   */
-  readonly configDetailedCountAlarmList?: ApiGatewayRestApiDetailedCountAlarmConfig[];
   /**
    * The configuration list for the detailed Latency alarm.
    */
@@ -646,11 +479,10 @@ export interface ApiGatewayRestApiRecommendedAlarmsProps extends ApiGatewayRestA
  * The recommended alarms created by default for the ApiName and Stage are:
  * - 4XXError alarm
  * - 5XXError alarm
- * - Count alarm
  * - Latency alarm
  *
- * In order to create the Count or Latency alarms for the Resource and Method dimensions the
- * configDetailedCountAlarmList or configDetailedLatencyAlarmList must be specified.
+ * In order to create the Latency alarms for the Resource and Method dimensions the
+ * configDetailedLatencyAlarmList must be specified.
  *
  * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ApiGateway
  */
@@ -664,11 +496,6 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
    * The 5XXError alarm.
    */
   public readonly alarm5XXError?: ApiGatewayRestApi5XXErrorAlarm;
-
-  /**
-   * The Count alarm.
-   */
-  public readonly alarmCount?: ApiGatewayRestApiCountAlarm;
 
   /**
    * The Latency alarm.
@@ -718,26 +545,6 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
       }
     }
 
-    if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.COUNT)) {
-      this.alarmCount = new ApiGatewayRestApiCountAlarm(this, `${props.api.node.id}_Count`, {
-        api: props.api,
-        treatMissingData: props.treatMissingData,
-        ...props.configCountAlarm,
-      });
-
-      if (props.defaultAlarmAction && !props.configCountAlarm.alarmAction) {
-        this.alarmCount.addAlarmAction(props.defaultAlarmAction);
-      }
-
-      if (props.defaultOkAction && !props.configCountAlarm.okAction) {
-        this.alarmCount.addOkAction(props.defaultOkAction);
-      }
-
-      if (props.defaultInsufficientDataAction && !props.configCountAlarm.insufficientDataAction) {
-        this.alarmCount.addInsufficientDataAction(props.defaultInsufficientDataAction);
-      }
-    }
-
     if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.LATENCY)) {
       this.alarmLatency = new ApiGatewayRestApiLatencyAlarm(this, `${props.api.node.id}_Latency`, {
         api: props.api,
@@ -756,26 +563,6 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
       if (props.defaultInsufficientDataAction && !props.configLatencyAlarm?.insufficientDataAction) {
         this.alarmLatency.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
-    }
-
-    if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.COUNT) && props.configDetailedCountAlarmList) {
-      props.configDetailedCountAlarmList.forEach((config, index) => {
-        let alarmConfig = {
-          api: props.api,
-          treatMissingData: props.treatMissingData,
-          ...config,
-        };
-        if (props.defaultAlarmAction && !config.alarmAction) {
-          alarmConfig = { ...alarmConfig, alarmAction: props.defaultAlarmAction };
-        }
-        if (props.defaultOkAction && !config.okAction) {
-          alarmConfig = { ...alarmConfig, okAction: props.defaultOkAction };
-        }
-        if (props.defaultInsufficientDataAction && !config.insufficientDataAction) {
-          alarmConfig = { ...alarmConfig, insufficientDataAction: props.defaultInsufficientDataAction };
-        }
-        new ApiGatewayRestApiDetailedCountAlarm(this, `${props.api.node.id}_DetailedCount${index}`, alarmConfig);
-      });
     }
 
     if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.LATENCY) && props.configDetailedLatencyAlarmList) {
@@ -830,16 +617,6 @@ export class RestApi extends apigateway.RestApi {
   }
 
   /**
-   * Creates an alarm that monitors the total number API requests in a given period.
-   */
-  public alarmCount(props: ApiGatewayCountAlarmConfig): ApiGatewayRestApiCountAlarm {
-    return new ApiGatewayRestApiCountAlarm(this, 'CountAlarm', {
-      api: this,
-      ...props,
-    });
-  }
-
-  /**
    * Creates an alarm that monitors the time between when API Gateway receives a request
    * from a client and when it returns a response to the client.
    */
@@ -848,23 +625,6 @@ export class RestApi extends apigateway.RestApi {
       api: this,
       ...props,
     });
-  }
-
-  /**
-   * Creates a list of alarms that monitor the total number API requests in a given period for
-   * the methods and resources specified.
-   */
-  public alarmDetailedCount(props: ApiGatewayRestApiDetailedCountAlarmConfig[]): ApiGatewayRestApiDetailedCountAlarm[] {
-    let alarmList: ApiGatewayRestApiDetailedCountAlarm[] = [];
-
-    props.forEach((config, index) => {
-      const alarm = new ApiGatewayRestApiDetailedCountAlarm(this, `DetailedCount${index}`, {
-        api: this,
-        ...config,
-      });
-      alarmList.push(alarm);
-    });
-    return alarmList;
   }
 
   /**
