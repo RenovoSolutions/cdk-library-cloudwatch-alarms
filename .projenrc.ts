@@ -17,6 +17,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'aws-cdk-construct',
     'projen',
   ],
+  buildWorkflow: false,
   depsUpgrade: true,
   depsUpgradeOptions: {
     workflow: false,
@@ -47,10 +48,14 @@ const project = new awscdk.AwsCdkConstructLibrary({
 new javascript.UpgradeDependencies(project, {
   include: ['projen'],
   taskName: 'upgrade-projen',
-  workflow: true,
+  workflow: false,
   workflowOptions: {
     schedule: javascript.UpgradeDependenciesSchedule.WEEKLY,
   },
 });
+
+// Ignore the release workflow file so it's not committed to git
+project.gitignore.exclude('!/.github/workflows/release.yml');
+project.gitignore.addPatterns('.github/workflows/release.yml');
 
 project.synth();
