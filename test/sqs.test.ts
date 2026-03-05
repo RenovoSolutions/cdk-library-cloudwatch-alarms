@@ -539,7 +539,7 @@ test('default alarm actions are overridden when individual alarm actions are pro
   });
 });
 
-test('alarms can be applied individually to buckets using extended construct', () => {
+test('alarms can be applied individually to queues using extended construct', () => {
   const app = new App({
     context: {
       '@aws-cdk/aws-cloudwatch-actions:changeLambdaPermissionLogicalIdForLambdaAction': true,
@@ -928,6 +928,62 @@ test('DLQs get special alarms by default', () => {
       }
     });
   });
+});
+
+test('DLQ special alarm receives default alarm actions', () => {
+  const app = new App({
+    context: {
+      '@aws-cdk/aws-cloudwatch-actions:changeLambdaPermissionLogicalIdForLambdaAction': true,
+    },
+  });
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+  const appAspects = Aspects.of(app);
+
+  const alarmTopic = new sns.Topic(stack, 'Topic');
+  const topicAction = new cloudwatch_actions.SnsAction(alarmTopic);
+
+  appAspects.add(
+    new sqsAlarms.SqsRecommendedAlarmsAspect({
+      defaultAlarmAction: topicAction,
+      defaultOkAction: topicAction,
+      defaultInsufficientDataAction: topicAction,
+      configApproximateAgeOfOldestMessageAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesNotVisibleAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesVisibleAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  const dlq = new sqs.Queue(stack, 'dlq');
+  new sqs.Queue(stack, 'Queue', {
+    deadLetterQueue: {
+      queue: dlq,
+      maxReceiveCount: 1,
+    },
+  });
+
+  const template = Template.fromStack(stack);
+
+  // The DLQ's ApproximateNumberOfMessagesVisible alarm should have alarm actions
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+  const dlqAlarms = Object.keys(resources).filter(name => name.startsWith('dlq'));
+
+  expect(dlqAlarms.length).toBe(1);
+
+  const dlqAlarmProps = resources[dlqAlarms[0]].Properties;
+  expect(dlqAlarmProps.AlarmActions).toBeDefined();
+  expect(dlqAlarmProps.OKActions).toBeDefined();
+  expect(dlqAlarmProps.InsufficientDataActions).toBeDefined();
 });
 
 test('DLQs get normal alarms when dlqsGetFullRecommendedAlarms is true', () => {

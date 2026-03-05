@@ -711,12 +711,24 @@ export class SqsRecommendedAlarmsAspect implements IAspect {
          * This is because dead letter queues are not expected to have messages
          * in them, and if they do, it indicates a problem.
          */
-        new SqsApproximateNumberOfMessagesVisibleAlarm(node, 'SqsApproximateNumberOfMessagesVisibleAlarm', {
+        const dlqAlarm = new SqsApproximateNumberOfMessagesVisibleAlarm(node, 'SqsApproximateNumberOfMessagesVisibleAlarm', {
           queue: node,
           treatMissingData: this.props.treatMissingData,
           threshold: 0,
           ...this.props.configDlqApproximateNumberOfMessagesVisibleAlarm,
         });
+
+        if (this.props.defaultAlarmAction && !this.props.configDlqApproximateNumberOfMessagesVisibleAlarm?.alarmAction) {
+          dlqAlarm.addAlarmAction(this.props.defaultAlarmAction);
+        }
+
+        if (this.props.defaultOkAction && !this.props.configDlqApproximateNumberOfMessagesVisibleAlarm?.okAction) {
+          dlqAlarm.addOkAction(this.props.defaultOkAction);
+        }
+
+        if (this.props.defaultInsufficientDataAction && !this.props.configDlqApproximateNumberOfMessagesVisibleAlarm?.insufficientDataAction) {
+          dlqAlarm.addInsufficientDataAction(this.props.defaultInsufficientDataAction);
+        }
       }
     }
   }
