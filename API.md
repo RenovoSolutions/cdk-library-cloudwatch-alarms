@@ -53,6 +53,7 @@ new ApiGatewayRestApi4XXErrorAlarm(scope: IConstruct, id: string, props: ApiGate
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -69,6 +70,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.applyRemovalPolicy"></a>
 
@@ -181,7 +201,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.isConstruct"></a>
 
 ```typescript
 import { ApiGatewayRestApi4XXErrorAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -190,6 +210,20 @@ ApiGatewayRestApi4XXErrorAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.isConstruct.parameter.x"></a>
 
@@ -304,10 +338,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -330,16 +365,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -376,6 +412,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -480,6 +528,7 @@ new ApiGatewayRestApi5XXErrorAlarm(scope: IConstruct, id: string, props: ApiGate
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -496,6 +545,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.applyRemovalPolicy"></a>
 
@@ -608,7 +676,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.isConstruct"></a>
 
 ```typescript
 import { ApiGatewayRestApi5XXErrorAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -617,6 +685,20 @@ ApiGatewayRestApi5XXErrorAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.isConstruct.parameter.x"></a>
 
@@ -731,10 +813,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -757,16 +840,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -803,6 +887,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -909,6 +1005,7 @@ new ApiGatewayRestApiDetailedLatencyAlarm(scope: IConstruct, id: string, props: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -925,6 +1022,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.applyRemovalPolicy"></a>
 
@@ -1037,7 +1153,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.isConstruct"></a>
 
 ```typescript
 import { ApiGatewayRestApiDetailedLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -1046,6 +1162,20 @@ ApiGatewayRestApiDetailedLatencyAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.isConstruct.parameter.x"></a>
 
@@ -1160,10 +1290,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -1186,16 +1317,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -1232,6 +1364,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -1337,6 +1481,7 @@ new ApiGatewayRestApiLatencyAlarm(scope: IConstruct, id: string, props: ApiGatew
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -1353,6 +1498,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.applyRemovalPolicy"></a>
 
@@ -1465,7 +1629,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.isConstruct"></a>
 
 ```typescript
 import { ApiGatewayRestApiLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -1474,6 +1638,20 @@ ApiGatewayRestApiLatencyAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.isConstruct.parameter.x"></a>
 
@@ -1588,10 +1766,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -1614,16 +1793,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -1660,6 +1840,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -1769,6 +1961,7 @@ new ApiGatewayRestApiRecommendedAlarms(scope: Construct, id: string, props: ApiG
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -1780,6 +1973,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -1788,7 +2002,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { ApiGatewayRestApiRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -1797,6 +2011,20 @@ ApiGatewayRestApiRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -1909,6 +2137,7 @@ new ApplicationLoadBalancer(scope: Construct, id: string, props: ApplicationLoad
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logAccessLogs">logAccessLogs</a></code> | Enable access logging for this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.removeAttribute">removeAttribute</a></code> | Remove an attribute from the load balancer. |
@@ -1955,6 +2184,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRemovalPolicy"></a>
 
@@ -2554,7 +2802,7 @@ Creates the recommended alarms for the ApplicationLoadBalancer.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isConstruct"></a>
 
 ```typescript
 import { ApplicationLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -2563,6 +2811,20 @@ ApplicationLoadBalancer.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.isConstruct.parameter.x"></a>
 
@@ -2665,16 +2927,18 @@ Look up an application load balancer.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerArn">loadBalancerArn</a></code> | <code>string</code> | The ARN of this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerCanonicalHostedZoneId">loadBalancerCanonicalHostedZoneId</a></code> | <code>string</code> | The canonical hosted zone ID of this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerDnsName">loadBalancerDnsName</a></code> | <code>string</code> | The DNS name of this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerFullName">loadBalancerFullName</a></code> | <code>string</code> | The full name of this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerName">loadBalancerName</a></code> | <code>string</code> | The name of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerRef">loadBalancerRef</a></code> | <code>aws-cdk-lib.interfaces.aws_elasticloadbalancingv2.LoadBalancerReference</code> | A reference to this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerSecurityGroups">loadBalancerSecurityGroups</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC this load balancer has been created in. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.isApplicationLoadBalancer">isApplicationLoadBalancer</a></code> | <code>boolean</code> | Indicates that this is an Application Load Balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.listeners">listeners</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener[]</code> | A list of listeners that have been added to the load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancerMetrics</code> | All metrics available for this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.ipAddressType">ipAddressType</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IpAddressType</code> | The IP Address Type for this load balancer. |
@@ -2699,16 +2963,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -2794,6 +3059,18 @@ Example value: `my-load-balancer`
 
 ---
 
+##### `loadBalancerRef`<sup>Required</sup> <a name="loadBalancerRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerRef"></a>
+
+```typescript
+public readonly loadBalancerRef: LoadBalancerReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_elasticloadbalancingv2.LoadBalancerReference
+
+A reference to this load balancer.
+
+---
+
 ##### `loadBalancerSecurityGroups`<sup>Required</sup> <a name="loadBalancerSecurityGroups" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.loadBalancerSecurityGroups"></a>
 
 ```typescript
@@ -2827,6 +3104,21 @@ public readonly connections: Connections;
 - *Type:* aws-cdk-lib.aws_ec2.Connections
 
 The network connections associated with this resource.
+
+---
+
+##### `isApplicationLoadBalancer`<sup>Required</sup> <a name="isApplicationLoadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.property.isApplicationLoadBalancer"></a>
+
+```typescript
+public readonly isApplicationLoadBalancer: boolean;
+```
+
+- *Type:* boolean
+
+Indicates that this is an Application Load Balancer.
+
+Will always return true, but is necessary to prevent accidental structural
+equality in TypeScript.
 
 ---
 
@@ -2945,6 +3237,7 @@ new ApplicationLoadBalancerHttpCode4xxCountAlarm(scope: IConstruct, id: string, 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -2961,6 +3254,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyRemovalPolicy"></a>
 
@@ -3073,7 +3385,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isConstruct"></a>
 
 ```typescript
 import { ApplicationLoadBalancerHttpCode4xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -3082,6 +3394,20 @@ ApplicationLoadBalancerHttpCode4xxCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.isConstruct.parameter.x"></a>
 
@@ -3196,10 +3522,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -3222,16 +3549,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -3268,6 +3596,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -3372,6 +3712,7 @@ new ApplicationLoadBalancerHttpCode5xxCountAlarm(scope: IConstruct, id: string, 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -3388,6 +3729,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyRemovalPolicy"></a>
 
@@ -3500,7 +3860,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isConstruct"></a>
 
 ```typescript
 import { ApplicationLoadBalancerHttpCode5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -3509,6 +3869,20 @@ ApplicationLoadBalancerHttpCode5xxCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.isConstruct.parameter.x"></a>
 
@@ -3623,10 +3997,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -3649,16 +4024,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -3695,6 +4071,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -3798,6 +4186,7 @@ new ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm(scope: IConstruct, id: st
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -3814,6 +4203,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyRemovalPolicy"></a>
 
@@ -3926,7 +4334,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isConstruct"></a>
 
 ```typescript
 import { ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -3935,6 +4343,20 @@ ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.isConstruct.parameter.x"></a>
 
@@ -4049,10 +4471,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -4075,16 +4498,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -4121,6 +4545,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -4222,6 +4658,7 @@ new ApplicationLoadBalancerRecommendedAlarms(scope: Construct, id: string, props
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -4233,6 +4670,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -4241,7 +4699,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { ApplicationLoadBalancerRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -4250,6 +4708,20 @@ ApplicationLoadBalancerRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -4379,6 +4851,7 @@ new ApplicationLoadBalancerRejectedConnectionCountAlarm(scope: IConstruct, id: s
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -4395,6 +4868,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyRemovalPolicy"></a>
 
@@ -4507,7 +4999,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isConstruct"></a>
 
 ```typescript
 import { ApplicationLoadBalancerRejectedConnectionCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -4516,6 +5008,20 @@ ApplicationLoadBalancerRejectedConnectionCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.isConstruct.parameter.x"></a>
 
@@ -4630,10 +5136,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -4656,16 +5163,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -4702,6 +5210,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -4801,6 +5321,7 @@ new ApplicationTargetGroup(scope: Construct, id: string, props: ApplicationTarge
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.configureHealthCheck">configureHealthCheck</a></code> | Set/replace the target group's health check. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.setAttribute">setAttribute</a></code> | Set a non-standard attribute on the target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.addTarget">addTarget</a></code> | Add a load balancing target to this target group. |
@@ -4830,6 +5351,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `configureHealthCheck` <a name="configureHealthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.configureHealthCheck"></a>
 
@@ -5168,7 +5710,7 @@ Creates the recommended alarms for the ApplicationTargetGroup.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.isConstruct"></a>
 
 ```typescript
 import { ApplicationTargetGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -5177,6 +5719,20 @@ ApplicationTargetGroup.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.isConstruct.parameter.x"></a>
 
@@ -5219,6 +5775,7 @@ Import an existing target group.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.firstLoadBalancerFullName">firstLoadBalancerFullName</a></code> | <code>string</code> | Full name of first load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.loadBalancerArns">loadBalancerArns</a></code> | <code>string</code> | A token representing a list of ARNs of the load balancers that route traffic to this target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.loadBalancerAttached">loadBalancerAttached</a></code> | <code>constructs.IDependable</code> | List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer. |
@@ -5226,6 +5783,7 @@ Import an existing target group.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupFullName">targetGroupFullName</a></code> | <code>string</code> | The full name of the target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupLoadBalancerArns">targetGroupLoadBalancerArns</a></code> | <code>string[]</code> | ARNs of load balancers load balancing to this TargetGroup. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupName">targetGroupName</a></code> | <code>string</code> | The name of the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupRef">targetGroupRef</a></code> | <code>aws-cdk-lib.interfaces.aws_elasticloadbalancingv2.TargetGroupReference</code> | A reference to this target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.healthCheck">healthCheck</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck</code> | Health check for the members of this target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationTargetGroupMetrics</code> | All metrics available for this target group. |
 
@@ -5240,6 +5798,18 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
 
 ---
 
@@ -5324,6 +5894,18 @@ public readonly targetGroupName: string;
 - *Type:* string
 
 The name of the target group.
+
+---
+
+##### `targetGroupRef`<sup>Required</sup> <a name="targetGroupRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroup.property.targetGroupRef"></a>
+
+```typescript
+public readonly targetGroupRef: TargetGroupReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_elasticloadbalancingv2.TargetGroupReference
+
+A reference to this target group.
 
 ---
 
@@ -5416,6 +5998,7 @@ new ApplicationTargetGroupHealthyHostCountAlarm(scope: IConstruct, id: string, p
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -5432,6 +6015,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyRemovalPolicy"></a>
 
@@ -5544,7 +6146,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isConstruct"></a>
 
 ```typescript
 import { ApplicationTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -5553,6 +6155,20 @@ ApplicationTargetGroupHealthyHostCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.isConstruct.parameter.x"></a>
 
@@ -5667,10 +6283,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -5693,16 +6310,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -5739,6 +6357,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -5840,6 +6470,7 @@ new ApplicationTargetGroupRecommendedAlarms(scope: Construct, id: string, props:
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -5851,6 +6482,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -5859,7 +6511,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { ApplicationTargetGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -5868,6 +6520,20 @@ ApplicationTargetGroupRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -5969,6 +6635,7 @@ new ApplicationTargetGroupUnHealthyHostCountAlarm(scope: IConstruct, id: string,
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -5985,6 +6652,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy"></a>
 
@@ -6097,7 +6783,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isConstruct"></a>
 
 ```typescript
 import { ApplicationTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -6106,6 +6792,20 @@ ApplicationTargetGroupUnHealthyHostCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.isConstruct.parameter.x"></a>
 
@@ -6220,10 +6920,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -6246,16 +6947,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -6292,6 +6994,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -6391,6 +7105,7 @@ new AutoScalingGroup(scope: Construct, id: string, props: AutoScalingGroupProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.addLifecycleHook">addLifecycleHook</a></code> | Send a message to either an SQS queue or SNS topic when instances launch or terminate. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.addSecurityGroup">addSecurityGroup</a></code> | Add the security group to all instances via the launch template security groups array. |
@@ -6422,6 +7137,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.applyRemovalPolicy"></a>
 
@@ -6795,7 +7529,7 @@ Creates the recommended alarms for the EC2 AutoScalingGroup.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.isConstruct"></a>
 
 ```typescript
 import { AutoScalingGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -6804,6 +7538,20 @@ AutoScalingGroup.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.isConstruct.parameter.x"></a>
 
@@ -6876,10 +7624,11 @@ AutoScalingGroup.fromAutoScalingGroupName(scope: Construct, id: string, autoScal
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.autoScalingGroupArn">autoScalingGroupArn</a></code> | <code>string</code> | Arn of the AutoScalingGroup. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.autoScalingGroupName">autoScalingGroupName</a></code> | <code>string</code> | Name of the AutoScalingGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.autoScalingGroupRef">autoScalingGroupRef</a></code> | <code>aws-cdk-lib.interfaces.aws_autoscaling.AutoScalingGroupReference</code> | A reference to a AutoScalingGroup resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal to grant permissions to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.osType">osType</a></code> | <code>aws-cdk-lib.aws_ec2.OperatingSystemType</code> | The type of OS instances of this fleet are running. |
@@ -6908,16 +7657,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -6954,6 +7704,18 @@ public readonly autoScalingGroupName: string;
 - *Type:* string
 
 Name of the AutoScalingGroup.
+
+---
+
+##### `autoScalingGroupRef`<sup>Required</sup> <a name="autoScalingGroupRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.property.autoScalingGroupRef"></a>
+
+```typescript
+public readonly autoScalingGroupRef: AutoScalingGroupReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_autoscaling.AutoScalingGroupReference
+
+A reference to a AutoScalingGroup resource.
 
 ---
 
@@ -7112,6 +7874,7 @@ new AutoScalingGroupGroupInServiceCapacityAlarm(scope: IConstruct, id: string, p
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -7128,6 +7891,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.applyRemovalPolicy"></a>
 
@@ -7240,7 +8022,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.isConstruct"></a>
 
 ```typescript
 import { AutoScalingGroupGroupInServiceCapacityAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -7249,6 +8031,20 @@ AutoScalingGroupGroupInServiceCapacityAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.isConstruct.parameter.x"></a>
 
@@ -7363,10 +8159,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -7389,16 +8186,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -7435,6 +8233,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -7536,6 +8346,7 @@ new AutoScalingGroupRecommendedAlarms(scope: Construct, id: string, props: AutoS
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -7547,6 +8358,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -7555,7 +8387,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { AutoScalingGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -7564,6 +8396,20 @@ AutoScalingGroupRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -7650,6 +8496,7 @@ new Bucket(scope: Construct, id: string, props?: BucketProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
@@ -7659,13 +8506,14 @@ new Bucket(scope: Construct, id: string, props?: BucketProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantOnKey">grantOnKey</a></code> | Gives permissions to a grantable entity to perform actions on the encryption key. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPutAcl">grantPutAcl</a></code> | The use of this method is discouraged. Please use `grants.putAcl()` instead. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReadWrite">grantReadWrite</a></code> | The use of this method is discouraged. Please use `grants.readWrite()` instead. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReplicationPermission">grantReplicationPermission</a></code> | Grant replication permission to a principal. This method allows the principal to perform replication operations on this bucket. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantWrite">grantWrite</a></code> | The use of this method is discouraged. Please use `grants.write()` instead. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Define a CloudWatch event that triggers when something happens to this repository. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
@@ -7690,6 +8538,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.applyRemovalPolicy"></a>
 
@@ -7728,7 +8595,8 @@ Adds a bucket notification event destination.
 ```typescript
    declare const myLambda: lambda.Function;
    const bucket = new s3.Bucket(this, 'MyBucket');
-   bucket.addEventNotification(s3.EventType.OBJECT_CREATED, new s3n.LambdaDestination(myLambda), {prefix: 'home/myusername/*'});
+   const filter: s3.NotificationKeyFilter = { prefix: 'home/myusername/*' };
+   bucket.addEventNotification(s3.EventType.OBJECT_CREATED, new s3n.LambdaDestination(myLambda), filter);
 ```
 
 
@@ -7913,6 +8781,10 @@ public grantDelete(identity: IGrantable, objectsKeyPattern?: any): Grant
 
 Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
+The use of this method is discouraged. Please use `grants.delete()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantDelete.parameter.identity"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -7928,6 +8800,26 @@ The principal.
 Restrict the permission to a certain key pattern (default '*').
 
 Parameter type is `any` but `string` should be passed in.
+
+---
+
+##### `grantOnKey` <a name="grantOnKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantOnKey"></a>
+
+```typescript
+public grantOnKey(grantee: IGrantable, actions: ...string[]): GrantOnKeyResult
+```
+
+Gives permissions to a grantable entity to perform actions on the encryption key.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantOnKey.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantOnKey.parameter.actions"></a>
+
+- *Type:* ...string[]
 
 ---
 
@@ -7958,6 +8850,11 @@ Note that if this `IBucket` refers to an existing bucket, possibly not
 managed by CloudFormation, this method will have no effect, since it's
 impossible to modify the policy of an existing bucket.
 
+
+The use of this method is discouraged. Please use `grants.publicAccess()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `allowedActions`<sup>Required</sup> <a name="allowedActions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPublicAccess.parameter.allowedActions"></a>
 
 - *Type:* ...string[]
@@ -7987,6 +8884,11 @@ Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM princip
 If encryption is used, permission to use the key to encrypt the contents
 of written files will also be granted to the same principal.
 
+
+The use of this method is discouraged. Please use `grants.put()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPut.parameter.identity"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -8011,11 +8913,9 @@ Parameter type is `any` but `string` should be passed in.
 public grantPutAcl(identity: IGrantable, objectsKeyPattern?: string): Grant
 ```
 
-Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+The use of this method is discouraged. Please use `grants.putAcl()` instead.
 
-If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
-in this case, if you need to modify object ACLs, call this method explicitly.
+[disable-awslint:no-grants]
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPutAcl.parameter.identity"></a>
 
@@ -8039,6 +8939,11 @@ Grant read permissions for this bucket and it's contents to an IAM principal (Ro
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
+
+
+The use of this method is discouraged. Please use `grants.read()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantRead.parameter.identity"></a>
 
@@ -8064,18 +8969,9 @@ Parameter type is `any` but `string` should be passed in.
 public grantReadWrite(identity: IGrantable, objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+The use of this method is discouraged. Please use `grants.readWrite()` instead.
 
-If an encryption key is used, permission to use the key for
-encrypt/decrypt will also be granted.
-
-Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
-which could be used to grant read/write object access to IAM principals in other accounts.
-If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
-and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
-in the `context` key of your cdk.json file.
-If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+[disable-awslint:no-grants]
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReadWrite.parameter.identity"></a>
 
@@ -8100,6 +8996,11 @@ Grant replication permission to a principal. This method allows the principal to
 Note that when calling this function for source or destination buckets that support KMS encryption,
 you need to specify the KMS key for encryption and the KMS key for decryption, respectively.
 
+
+The use of this method is discouraged. Please use `grants.replicationPermission()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReplicationPermission.parameter.identity"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -8122,18 +9023,9 @@ The properties of the replication source and destination buckets.
 public grantWrite(identity: IGrantable, objectsKeyPattern?: any, allowedActionPatterns?: string[]): Grant
 ```
 
-Grant write permissions to this bucket to an IAM principal.
+The use of this method is discouraged. Please use `grants.write()` instead.
 
-If encryption is used, permission to use the key to encrypt the contents
-of written files will also be granted to the same principal.
-
-Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
-which could be used to grant read/write object access to IAM principals in other accounts.
-If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
-and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
-in the `context` key of your cdk.json file.
-If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+[disable-awslint:no-grants]
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantWrite.parameter.identity"></a>
 
@@ -8478,7 +9370,7 @@ Creates the recommended alarms for the S3 bucket.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.isConstruct"></a>
 
 ```typescript
 import { Bucket } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -8487,6 +9379,20 @@ Bucket.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.isConstruct.parameter.x"></a>
 
@@ -8664,17 +9570,20 @@ allow legacy bucket naming style, default is false.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketRef">bucketRef</a></code> | <code>aws-cdk-lib.interfaces.aws_s3.BucketReference</code> | A reference to a Bucket resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_s3.BucketGrants</code> | Collection of grant methods for a Bucket. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.disallowPublicAccess">disallowPublicAccess</a></code> | <code>boolean</code> | Whether to disallow public access. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.replicationRoleArn">replicationRoleArn</a></code> | <code>string</code> | Role used to set up permissions on this bucket for replication. |
 
@@ -8698,16 +9607,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -8771,6 +9681,18 @@ The name of the bucket.
 
 ---
 
+##### `bucketRef`<sup>Required</sup> <a name="bucketRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketRef"></a>
+
+```typescript
+public readonly bucketRef: BucketReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_s3.BucketReference
+
+A reference to a Bucket resource.
+
+---
+
 ##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketRegionalDomainName"></a>
 
 ```typescript
@@ -8828,6 +9750,30 @@ public readonly isWebsite: boolean;
 - *Type:* boolean
 
 If this bucket has been configured for static website hosting.
+
+---
+
+##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.grants"></a>
+
+```typescript
+public readonly grants: BucketGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketGrants
+
+Collection of grant methods for a Bucket.
+
+---
+
+##### `disallowPublicAccess`<sup>Optional</sup> <a name="disallowPublicAccess" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.disallowPublicAccess"></a>
+
+```typescript
+public readonly disallowPublicAccess: boolean;
+```
+
+- *Type:* boolean
+
+Whether to disallow public access.
 
 ---
 
@@ -8921,6 +9867,7 @@ new CfnCacheCluster(scope: Construct, id: string, props: CfnCacheClusterProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDeletionOverride">addDeletionOverride</a></code> | Syntactic sugar for `addOverride(path, undefined)`. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependency">addDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
@@ -8951,6 +9898,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `overrideLogicalId` <a name="overrideLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.overrideLogicalId"></a>
 
@@ -9243,7 +10209,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): Stack | CfnResource[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -9381,10 +10347,11 @@ Creates the recommended alarms for the ElastiCache CfnCacheCluster.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnElement">isCfnElement</a></code> | Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnResource">isCfnResource</a></code> | Check whether the given object is a CfnResource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnCacheCluster">isCfnCacheCluster</a></code> | Checks whether the given object is a CfnCacheCluster. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isConstruct"></a>
 
 ```typescript
 import { CfnCacheCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -9393,6 +10360,20 @@ CfnCacheCluster.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isConstruct.parameter.x"></a>
 
@@ -9437,6 +10418,22 @@ Check whether the given object is a CfnResource.
 
 ---
 
+##### `isCfnCacheCluster` <a name="isCfnCacheCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnCacheCluster"></a>
+
+```typescript
+import { CfnCacheCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnCacheCluster.isCfnCacheCluster(x: any)
+```
+
+Checks whether the given object is a CfnCacheCluster.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.isCfnCacheCluster.parameter.x"></a>
+
+- *Type:* any
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -9448,11 +10445,13 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.ref">ref</a></code> | <code>string</code> | Return a string that will be resolved to a CloudFormation `{ Ref }` for this element. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointAddress">attrConfigurationEndpointAddress</a></code> | <code>string</code> | The DNS hostname of the cache node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointPort">attrConfigurationEndpointPort</a></code> | <code>string</code> | The port number of the configuration endpoint for the Memcached cache cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrId">attrId</a></code> | <code>string</code> | The resource name. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpointAddress">attrRedisEndpointAddress</a></code> | <code>string</code> | The DNS address of the configuration endpoint for the Valkey or Redis OSS cache cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpointPort">attrRedisEndpointPort</a></code> | <code>string</code> | The port number of the configuration endpoint for the Valkey or Redis OSS cache cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheClusterRef">cacheClusterRef</a></code> | <code>aws-cdk-lib.interfaces.aws_elasticache.CacheClusterReference</code> | A reference to a CacheCluster resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tag Manager which manages the tags for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheNodeType">cacheNodeType</a></code> | <code>string</code> | The compute and memory capacity of the nodes in the node group (shard). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.engine">engine</a></code> | <code>string</code> | The name of the cache engine to be used for this cluster. |
@@ -9574,6 +10573,16 @@ AWS resource type.
 
 ---
 
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+---
+
 ##### `attrConfigurationEndpointAddress`<sup>Required</sup> <a name="attrConfigurationEndpointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointAddress"></a>
 
 ```typescript
@@ -9635,6 +10644,18 @@ public readonly attrRedisEndpointPort: string;
 - *Type:* string
 
 The port number of the configuration endpoint for the Valkey or Redis OSS cache cluster.
+
+---
+
+##### `cacheClusterRef`<sup>Required</sup> <a name="cacheClusterRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheClusterRef"></a>
+
+```typescript
+public readonly cacheClusterRef: CacheClusterReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_elasticache.CacheClusterReference
+
+A reference to a CacheCluster resource.
 
 ---
 
@@ -9785,7 +10806,7 @@ The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
 ##### `logDeliveryConfigurations`<sup>Optional</sup> <a name="logDeliveryConfigurations" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.logDeliveryConfigurations"></a>
 
 ```typescript
-public readonly logDeliveryConfigurations: IResolvable | IResolvable | LogDeliveryConfigurationRequestProperty[];
+public readonly logDeliveryConfigurations: IResolvable | (IResolvable | LogDeliveryConfigurationRequestProperty)[];
 ```
 
 - *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_elasticache.CfnCacheCluster.LogDeliveryConfigurationRequestProperty[]
@@ -10013,6 +11034,7 @@ new CfnReplicationGroup(scope: Construct, id: string, props: CfnReplicationGroup
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDeletionOverride">addDeletionOverride</a></code> | Syntactic sugar for `addOverride(path, undefined)`. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependency">addDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
@@ -10043,6 +11065,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `overrideLogicalId` <a name="overrideLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.overrideLogicalId"></a>
 
@@ -10335,7 +11376,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): Stack | CfnResource[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -10473,10 +11514,13 @@ Creates the recommended alarms for the ElastiCache CfnReplicationGroup.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnElement">isCfnElement</a></code> | Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnResource">isCfnResource</a></code> | Check whether the given object is a CfnResource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.arnForReplicationGroup">arnForReplicationGroup</a></code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.fromReplicationGroupId">fromReplicationGroupId</a></code> | Creates a new IReplicationGroupRef from a replicationGroupId. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnReplicationGroup">isCfnReplicationGroup</a></code> | Checks whether the given object is a CfnReplicationGroup. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isConstruct"></a>
 
 ```typescript
 import { CfnReplicationGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -10485,6 +11529,20 @@ CfnReplicationGroup.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isConstruct.parameter.x"></a>
 
@@ -10529,6 +11587,64 @@ Check whether the given object is a CfnResource.
 
 ---
 
+##### `arnForReplicationGroup` <a name="arnForReplicationGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.arnForReplicationGroup"></a>
+
+```typescript
+import { CfnReplicationGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnReplicationGroup.arnForReplicationGroup(resource: IReplicationGroupRef)
+```
+
+###### `resource`<sup>Required</sup> <a name="resource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.arnForReplicationGroup.parameter.resource"></a>
+
+- *Type:* aws-cdk-lib.interfaces.aws_elasticache.IReplicationGroupRef
+
+---
+
+##### `fromReplicationGroupId` <a name="fromReplicationGroupId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.fromReplicationGroupId"></a>
+
+```typescript
+import { CfnReplicationGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnReplicationGroup.fromReplicationGroupId(scope: Construct, id: string, replicationGroupId: string)
+```
+
+Creates a new IReplicationGroupRef from a replicationGroupId.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.fromReplicationGroupId.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.fromReplicationGroupId.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `replicationGroupId`<sup>Required</sup> <a name="replicationGroupId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.fromReplicationGroupId.parameter.replicationGroupId"></a>
+
+- *Type:* string
+
+---
+
+##### `isCfnReplicationGroup` <a name="isCfnReplicationGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnReplicationGroup"></a>
+
+```typescript
+import { CfnReplicationGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CfnReplicationGroup.isCfnReplicationGroup(x: any)
+```
+
+Checks whether the given object is a CfnReplicationGroup.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.isCfnReplicationGroup.parameter.x"></a>
+
+- *Type:* any
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -10540,6 +11656,7 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.ref">ref</a></code> | <code>string</code> | Return a string that will be resolved to a CloudFormation `{ Ref }` for this element. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointAddress">attrConfigurationEndPointAddress</a></code> | <code>string</code> | The DNS hostname of the cache node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointPort">attrConfigurationEndPointPort</a></code> | <code>string</code> | The port number that the cache engine is listening on. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointAddress">attrPrimaryEndPointAddress</a></code> | <code>string</code> | The DNS address of the primary read-write cache node. |
@@ -10550,6 +11667,7 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointPortsList">attrReadEndPointPortsList</a></code> | <code>string[]</code> | A string with a list of ports for the read-only replicas. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPointAddress">attrReaderEndPointAddress</a></code> | <code>string</code> | The address of the reader endpoint. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPointPort">attrReaderEndPointPort</a></code> | <code>string</code> | The port used by the reader endpoint. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicationGroupRef">replicationGroupRef</a></code> | <code>aws-cdk-lib.interfaces.aws_elasticache.ReplicationGroupReference</code> | A reference to a ReplicationGroup resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tag Manager which manages the tags for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicationGroupDescription">replicationGroupDescription</a></code> | <code>string</code> | A user-created description for the replication group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.atRestEncryptionEnabled">atRestEncryptionEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | A flag that enables encryption at rest when set to `true` . |
@@ -10685,6 +11803,16 @@ AWS resource type.
 
 ---
 
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+---
+
 ##### `attrConfigurationEndPointAddress`<sup>Required</sup> <a name="attrConfigurationEndPointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointAddress"></a>
 
 ```typescript
@@ -10812,6 +11940,18 @@ public readonly attrReaderEndPointPort: string;
 - *Type:* string
 
 The port used by the reader endpoint.
+
+---
+
+##### `replicationGroupRef`<sup>Required</sup> <a name="replicationGroupRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicationGroupRef"></a>
+
+```typescript
+public readonly replicationGroupRef: ReplicationGroupReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_elasticache.ReplicationGroupReference
+
+A reference to a ReplicationGroup resource.
 
 ---
 
@@ -11022,7 +12162,7 @@ The ID of the KMS key used to encrypt the disk on the cluster.
 ##### `logDeliveryConfigurations`<sup>Optional</sup> <a name="logDeliveryConfigurations" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.logDeliveryConfigurations"></a>
 
 ```typescript
-public readonly logDeliveryConfigurations: IResolvable | IResolvable | LogDeliveryConfigurationRequestProperty[];
+public readonly logDeliveryConfigurations: IResolvable | (IResolvable | LogDeliveryConfigurationRequestProperty)[];
 ```
 
 - *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_elasticache.CfnReplicationGroup.LogDeliveryConfigurationRequestProperty[]
@@ -11058,7 +12198,7 @@ Must be either `ipv4` | `ipv6` | `dual_stack` .
 ##### `nodeGroupConfiguration`<sup>Optional</sup> <a name="nodeGroupConfiguration" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.nodeGroupConfiguration"></a>
 
 ```typescript
-public readonly nodeGroupConfiguration: IResolvable | IResolvable | NodeGroupConfigurationProperty[];
+public readonly nodeGroupConfiguration: IResolvable | (IResolvable | NodeGroupConfigurationProperty)[];
 ```
 
 - *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_elasticache.CfnReplicationGroup.NodeGroupConfigurationProperty[]
@@ -11364,6 +12504,7 @@ new CloudFrontDistribution5xxErrorRateAlarm(scope: IConstruct, id: string, props
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -11380,6 +12521,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy"></a>
 
@@ -11492,7 +12652,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct"></a>
 
 ```typescript
 import { CloudFrontDistribution5xxErrorRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -11501,6 +12661,20 @@ CloudFrontDistribution5xxErrorRateAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.isConstruct.parameter.x"></a>
 
@@ -11615,10 +12789,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -11641,16 +12816,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -11687,6 +12863,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -11791,6 +12979,7 @@ new CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm(scope: IConstruct
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -11807,6 +12996,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy"></a>
 
@@ -11919,7 +13127,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct"></a>
 
 ```typescript
 import { CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -11928,6 +13136,20 @@ CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.isConstruct.parameter.x"></a>
 
@@ -12042,10 +13264,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -12068,16 +13291,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -12114,6 +13338,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -12218,6 +13454,7 @@ new CloudFrontDistributionDetailedFunctionThrottlesAlarm(scope: IConstruct, id: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -12234,6 +13471,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy"></a>
 
@@ -12346,7 +13602,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct"></a>
 
 ```typescript
 import { CloudFrontDistributionDetailedFunctionThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -12355,6 +13611,20 @@ CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.isConstruct.parameter.x"></a>
 
@@ -12469,10 +13739,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -12495,16 +13766,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -12541,6 +13813,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -12645,6 +13929,7 @@ new CloudFrontDistributionDetailedFunctionValidationErrorsAlarm(scope: IConstruc
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -12661,6 +13946,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy"></a>
 
@@ -12773,7 +14077,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct"></a>
 
 ```typescript
 import { CloudFrontDistributionDetailedFunctionValidationErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -12782,6 +14086,20 @@ CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.isConstruct.parameter.x"></a>
 
@@ -12896,10 +14214,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -12922,16 +14241,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -12968,6 +14288,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -13073,6 +14405,7 @@ new CloudFrontDistributionOriginLatencyAlarm(scope: IConstruct, id: string, prop
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -13089,6 +14422,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy"></a>
 
@@ -13201,7 +14553,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct"></a>
 
 ```typescript
 import { CloudFrontDistributionOriginLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -13210,6 +14562,20 @@ CloudFrontDistributionOriginLatencyAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.isConstruct.parameter.x"></a>
 
@@ -13324,10 +14690,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -13350,16 +14717,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -13396,6 +14764,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -13497,6 +14877,7 @@ new CloudFrontDistributionRecommendedAlarms(scope: Construct, id: string, props:
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -13508,6 +14889,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -13516,7 +14918,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { CloudFrontDistributionRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -13525,6 +14927,20 @@ CloudFrontDistributionRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -13624,10 +15040,11 @@ new DatabaseCluster(scope: Construct, id: string, props: DatabaseClusterProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addProxy">addProxy</a></code> | Add a new db proxy to this cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.asSecretAttachmentTarget">asSecretAttachmentTarget</a></code> | Renders the secret attachment target specifications. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantConnect">grantConnect</a></code> | Grant the given identity connection access to the Cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantConnect">grantConnect</a></code> | [disable-awslint:no-grants]. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantDataApiAccess">grantDataApiAccess</a></code> | Grant the given identity to access the Data API. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metric">metric</a></code> | Return the given named metric for this DBCluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricCPUUtilization">metricCPUUtilization</a></code> | The percentage of CPU utilization. |
@@ -13642,8 +15059,8 @@ new DatabaseCluster(scope: Construct, id: string, props: DatabaseClusterProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricSnapshotStorageUsed">metricSnapshotStorageUsed</a></code> | The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricTotalBackupStorageBilled">metricTotalBackupStorageBilled</a></code> | The total amount of backup storage in bytes for which you are billed. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeBytesUsed">metricVolumeBytesUsed</a></code> | The amount of storage used by your Aurora DB instance, in bytes. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeReadIOPs">metricVolumeReadIOPs</a></code> | The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeWriteIOPs">metricVolumeWriteIOPs</a></code> | The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeReadIOPs">metricVolumeReadIOPs</a></code> | The average number of disk read I/O operations per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeWriteIOPs">metricVolumeWriteIOPs</a></code> | The average number of disk write I/O operations per second. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationMultiUser">addRotationMultiUser</a></code> | Adds the multi user rotation to this cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addRotationSingleUser">addRotationSingleUser</a></code> | Adds the single user rotation of the master password to this cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricACUUtilization">metricACUUtilization</a></code> | This value is represented as a percentage. |
@@ -13661,6 +15078,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRemovalPolicy"></a>
 
@@ -13718,7 +15154,7 @@ Renders the secret attachment target specifications.
 public grantConnect(grantee: IGrantable, dbUser: string): Grant
 ```
 
-Grant the given identity connection access to the Cluster.
+[disable-awslint:no-grants].
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantConnect.parameter.grantee"></a>
 
@@ -13739,6 +15175,8 @@ public grantDataApiAccess(grantee: IGrantable): Grant
 ```
 
 Grant the given identity to access the Data API.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.grantDataApiAccess.parameter.grantee"></a>
 
@@ -13964,9 +15402,11 @@ Average over 5 minutes
 public metricVolumeReadIOPs(props?: MetricOptions): Metric
 ```
 
-The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
+The average number of disk read I/O operations per second.
 
-Average over 5 minutes
+This metric is only available for Aurora database clusters.
+For non-Aurora RDS clusters, this metric will not return any data
+in CloudWatch.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeReadIOPs.parameter.props"></a>
 
@@ -13980,9 +15420,11 @@ Average over 5 minutes
 public metricVolumeWriteIOPs(props?: MetricOptions): Metric
 ```
 
-The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
+The average number of disk write I/O operations per second.
 
-Average over 5 minutes
+This metric is only available for Aurora database clusters.
+For non-Aurora RDS clusters, this metric will not return any data
+in CloudWatch.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricVolumeWriteIOPs.parameter.props"></a>
 
@@ -14118,7 +15560,7 @@ Creates recommended alarms for the database cluster.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isConstruct"></a>
 
 ```typescript
 import { DatabaseCluster } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -14127,6 +15569,20 @@ DatabaseCluster.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.isConstruct.parameter.x"></a>
 
@@ -14229,7 +15685,7 @@ Lookup an existing DatabaseCluster using clusterIdentifier.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterArn">clusterArn</a></code> | <code>string</code> | The ARN of the cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterEndpoint">clusterEndpoint</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint</code> | The endpoint to use for read/write operations. |
@@ -14237,6 +15693,7 @@ Lookup an existing DatabaseCluster using clusterIdentifier.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterReadEndpoint">clusterReadEndpoint</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint</code> | Endpoint to use for load-balanced read-only operations. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.clusterResourceIdentifier">clusterResourceIdentifier</a></code> | <code>string</code> | The immutable identifier for the cluster; for example: cluster-ABCD1234EFGH5678IJKL90MNOP. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access to the network connections. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.dbClusterRef">dbClusterRef</a></code> | <code>aws-cdk-lib.interfaces.aws_rds.DBClusterReference</code> | A reference to this database cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.instanceEndpoints">instanceEndpoints</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint[]</code> | Endpoints which address each individual replica. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.instanceIdentifiers">instanceIdentifiers</a></code> | <code>string[]</code> | Identifiers of the replicas. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.engine">engine</a></code> | <code>aws-cdk-lib.aws_rds.IClusterEngine</code> | The engine for this Cluster. |
@@ -14272,16 +15729,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -14368,6 +15826,18 @@ public readonly connections: Connections;
 - *Type:* aws-cdk-lib.aws_ec2.Connections
 
 Access to the network connections.
+
+---
+
+##### `dbClusterRef`<sup>Required</sup> <a name="dbClusterRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.property.dbClusterRef"></a>
+
+```typescript
+public readonly dbClusterRef: DBClusterReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_rds.DBClusterReference
+
+A reference to this database cluster.
 
 ---
 
@@ -14606,6 +16076,7 @@ new DatabaseInstance(scope: Construct, id: string, props: DatabaseInstanceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addProxy">addProxy</a></code> | Add a new db proxy to this instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.asSecretAttachmentTarget">asSecretAttachmentTarget</a></code> | Renders the secret attachment target specifications. |
@@ -14615,8 +16086,8 @@ new DatabaseInstance(scope: Construct, id: string, props: DatabaseInstanceProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricDatabaseConnections">metricDatabaseConnections</a></code> | The number of database connections in use. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricFreeableMemory">metricFreeableMemory</a></code> | The amount of available random access memory. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricFreeStorageSpace">metricFreeStorageSpace</a></code> | The amount of available storage space. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricReadIOPS">metricReadIOPS</a></code> | The average number of disk write I/O operations per second. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricWriteIOPS">metricWriteIOPS</a></code> | The average number of disk read I/O operations per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricReadIOPS">metricReadIOPS</a></code> | The average number of disk read I/O operations per second. The average number of disk write I/O operations per second. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.metricWriteIOPS">metricWriteIOPS</a></code> | The average number of disk write I/O operations per second. The average number of disk read I/O operations per second. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.onEvent">onEvent</a></code> | Defines a CloudWatch event rule which triggers for instance events. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationMultiUser">addRotationMultiUser</a></code> | Adds the multi user rotation to this instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addRotationSingleUser">addRotationSingleUser</a></code> | Adds the single user rotation of the master password to this instance. |
@@ -14639,6 +16110,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRemovalPolicy"></a>
 
@@ -14697,6 +16187,8 @@ public grantConnect(grantee: IGrantable, dbUser?: string): Grant
 ```
 
 Grant the given identity connection access to the database.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.grantConnect.parameter.grantee"></a>
 
@@ -14804,7 +16296,7 @@ Average over 5 minutes
 public metricReadIOPS(props?: MetricOptions): Metric
 ```
 
-The average number of disk write I/O operations per second.
+The average number of disk read I/O operations per second. The average number of disk write I/O operations per second.
 
 Average over 5 minutes
 
@@ -14820,7 +16312,7 @@ Average over 5 minutes
 public metricWriteIOPS(props?: MetricOptions): Metric
 ```
 
-The average number of disk read I/O operations per second.
+The average number of disk write I/O operations per second. The average number of disk read I/O operations per second.
 
 Average over 5 minutes
 
@@ -15029,7 +16521,7 @@ Creates recommended alarms for the database instance.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isConstruct"></a>
 
 ```typescript
 import { DatabaseInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -15038,6 +16530,20 @@ DatabaseInstance.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.isConstruct.parameter.x"></a>
 
@@ -15140,11 +16646,12 @@ Lookup an existing DatabaseInstance using instanceIdentifier.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access to network connections. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.dbInstanceEndpointAddress">dbInstanceEndpointAddress</a></code> | <code>string</code> | The instance endpoint address. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.dbInstanceEndpointPort">dbInstanceEndpointPort</a></code> | <code>string</code> | The instance endpoint port. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.dbInstanceRef">dbInstanceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_rds.DBInstanceReference</code> | A reference to this database instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceArn">instanceArn</a></code> | <code>string</code> | The instance arn. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceEndpoint">instanceEndpoint</a></code> | <code>aws-cdk-lib.aws_rds.Endpoint</code> | The instance endpoint. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.instanceIdentifier">instanceIdentifier</a></code> | <code>string</code> | The instance identifier. |
@@ -15174,16 +16681,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -15232,6 +16740,18 @@ public readonly dbInstanceEndpointPort: string;
 - *Type:* string
 
 The instance endpoint port.
+
+---
+
+##### `dbInstanceRef`<sup>Required</sup> <a name="dbInstanceRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.property.dbInstanceRef"></a>
+
+```typescript
+public readonly dbInstanceRef: DBInstanceReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_rds.DBInstanceReference
+
+A reference to this database instance.
 
 ---
 
@@ -15401,6 +16921,7 @@ new Distribution(scope: Construct, id: string, props: DistributionProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.addBehavior">addBehavior</a></code> | Adds a new behavior to this distribution for the given pathPattern. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.attachWebAclId">attachWebAclId</a></code> | Attach WAF WebACL to this CloudFront distribution. |
@@ -15437,6 +16958,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.applyRemovalPolicy"></a>
 
@@ -15518,6 +17058,8 @@ public grant(identity: IGrantable, actions: ...string[]): Grant
 
 Adds an IAM policy statement associated with this distribution to an IAM principal's policy.
 
+[disable-awslint:no-grants]
+
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.grant.parameter.identity"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -15541,6 +17083,8 @@ public grantCreateInvalidation(identity: IGrantable): Grant
 ```
 
 Grant to create invalidations for this bucket to an IAM principal (Role/Group/User).
+
+[disable-awslint:no-grants]
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.grantCreateInvalidation.parameter.identity"></a>
 
@@ -15883,7 +17427,7 @@ Creates the recommended alarms for the CloudFront Distribution.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.isConstruct"></a>
 
 ```typescript
 import { Distribution } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -15892,6 +17436,20 @@ Distribution.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.isConstruct.parameter.x"></a>
 
@@ -15966,12 +17524,14 @@ Creates a Distribution construct that represents an external (imported) distribu
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionArn">distributionArn</a></code> | <code>string</code> | The distribution ARN for this distribution. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionDomainName">distributionDomainName</a></code> | <code>string</code> | The domain name of the Distribution, such as d111111abcdef8.cloudfront.net. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionId">distributionId</a></code> | <code>string</code> | The distribution ID for this distribution. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionRef">distributionRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudfront.DistributionReference</code> | A reference to a Distribution resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.domainName">domainName</a></code> | <code>string</code> | The domain name of the Distribution, such as d111111abcdef8.cloudfront.net. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_cloudfront.DistributionGrants</code> | Collection of grant methods for a Distribution. |
 
 ---
 
@@ -15993,16 +17553,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -16054,6 +17615,18 @@ The distribution ID for this distribution.
 
 ---
 
+##### `distributionRef`<sup>Required</sup> <a name="distributionRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.distributionRef"></a>
+
+```typescript
+public readonly distributionRef: DistributionReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudfront.DistributionReference
+
+A reference to a Distribution resource.
+
+---
+
 ##### `domainName`<sup>Required</sup> <a name="domainName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.domainName"></a>
 
 ```typescript
@@ -16063,6 +17636,18 @@ public readonly domainName: string;
 - *Type:* string
 
 The domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
+
+---
+
+##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.property.grants"></a>
+
+```typescript
+public readonly grants: DistributionGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudfront.DistributionGrants
+
+Collection of grant methods for a Distribution.
 
 ---
 
@@ -16134,6 +17719,7 @@ new DmsReplicationInstanceCpuUtilizationAlarm(scope: IConstruct, id: string, pro
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -16150,6 +17736,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.applyRemovalPolicy"></a>
 
@@ -16262,7 +17867,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationInstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -16271,6 +17876,20 @@ DmsReplicationInstanceCpuUtilizationAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.isConstruct.parameter.x"></a>
 
@@ -16385,10 +18004,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -16411,16 +18031,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -16457,6 +18078,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -16560,6 +18193,7 @@ new DmsReplicationInstanceFreeableMemoryAlarm(scope: Construct, id: string, prop
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -16576,6 +18210,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.applyRemovalPolicy"></a>
 
@@ -16688,7 +18341,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationInstanceFreeableMemoryAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -16697,6 +18350,20 @@ DmsReplicationInstanceFreeableMemoryAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.isConstruct.parameter.x"></a>
 
@@ -16811,10 +18478,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -16837,16 +18505,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -16883,6 +18552,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -16987,6 +18668,7 @@ new DmsReplicationInstanceFreeStorageSpaceAlarm(scope: IConstruct, id: string, p
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -17003,6 +18685,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.applyRemovalPolicy"></a>
 
@@ -17115,7 +18816,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationInstanceFreeStorageSpaceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -17124,6 +18825,20 @@ DmsReplicationInstanceFreeStorageSpaceAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.isConstruct.parameter.x"></a>
 
@@ -17238,10 +18953,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -17264,16 +18980,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -17310,6 +19027,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -17409,6 +19138,7 @@ new DmsReplicationInstanceRecommendedAlarms(scope: Construct, id: string, props:
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -17420,6 +19150,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -17428,7 +19179,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationInstanceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -17437,6 +19188,20 @@ DmsReplicationInstanceRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -17586,6 +19351,7 @@ new DmsReplicationInstanceSwapUsageAlarm(scope: IConstruct, id: string, props: D
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -17602,6 +19368,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyRemovalPolicy"></a>
 
@@ -17714,7 +19499,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationInstanceSwapUsageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -17723,6 +19508,20 @@ DmsReplicationInstanceSwapUsageAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.isConstruct.parameter.x"></a>
 
@@ -17837,10 +19636,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -17863,16 +19663,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -17909,6 +19710,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -18013,6 +19826,7 @@ new DmsReplicationInstanceWriteIopsAlarm(scope: IConstruct, id: string, props: D
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -18029,6 +19843,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.applyRemovalPolicy"></a>
 
@@ -18141,7 +19974,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationInstanceWriteIopsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -18150,6 +19983,20 @@ DmsReplicationInstanceWriteIopsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.isConstruct.parameter.x"></a>
 
@@ -18264,10 +20111,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -18290,16 +20138,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -18336,6 +20185,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -18444,6 +20305,7 @@ new DmsReplicationTaskCdcLatencySourceAlarm(scope: IConstruct, id: string, props
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -18460,6 +20322,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.applyRemovalPolicy"></a>
 
@@ -18572,7 +20453,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationTaskCdcLatencySourceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -18581,6 +20462,20 @@ DmsReplicationTaskCdcLatencySourceAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.isConstruct.parameter.x"></a>
 
@@ -18695,10 +20590,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -18721,16 +20617,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -18767,6 +20664,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -18875,6 +20784,7 @@ new DmsReplicationTaskCdcLatencyTargetAlarm(scope: IConstruct, id: string, props
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -18891,6 +20801,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.applyRemovalPolicy"></a>
 
@@ -19003,7 +20932,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationTaskCdcLatencyTargetAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -19012,6 +20941,20 @@ DmsReplicationTaskCdcLatencyTargetAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.isConstruct.parameter.x"></a>
 
@@ -19126,10 +21069,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -19152,16 +21096,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -19198,6 +21143,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -19297,6 +21254,7 @@ new DmsReplicationTaskRecommendedAlarms(scope: Construct, id: string, props: Dms
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -19308,6 +21266,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -19316,7 +21295,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { DmsReplicationTaskRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -19325,6 +21304,20 @@ DmsReplicationTaskRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -19435,6 +21428,7 @@ new DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm(scope: IConstruct, id: strin
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -19451,6 +21445,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyRemovalPolicy"></a>
 
@@ -19563,7 +21576,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isConstruct"></a>
 
 ```typescript
 import { DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -19572,6 +21585,20 @@ DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.isConstruct.parameter.x"></a>
 
@@ -19686,10 +21713,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -19712,16 +21740,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -19758,6 +21787,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -19866,6 +21907,7 @@ new DynamoDbTableFailedToReplicateRecordCountAlarm(scope: IConstruct, id: string
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -19882,6 +21924,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyRemovalPolicy"></a>
 
@@ -19994,7 +22055,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isConstruct"></a>
 
 ```typescript
 import { DynamoDbTableFailedToReplicateRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -20003,6 +22064,20 @@ DynamoDbTableFailedToReplicateRecordCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.isConstruct.parameter.x"></a>
 
@@ -20117,10 +22192,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -20143,16 +22219,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -20189,6 +22266,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -20292,6 +22381,7 @@ new DynamoDbTableReadThrottleEventsAlarm(scope: IConstruct, id: string, props: D
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -20308,6 +22398,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyRemovalPolicy"></a>
 
@@ -20420,7 +22529,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isConstruct"></a>
 
 ```typescript
 import { DynamoDbTableReadThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -20429,6 +22538,20 @@ DynamoDbTableReadThrottleEventsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.isConstruct.parameter.x"></a>
 
@@ -20543,10 +22666,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -20569,16 +22693,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -20615,6 +22740,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -20716,6 +22853,7 @@ new DynamoDbTableRecommendedAlarms(scope: Construct, id: string, props: DynamoDb
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -20727,6 +22865,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -20735,7 +22894,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { DynamoDbTableRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -20744,6 +22903,20 @@ DynamoDbTableRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -20902,6 +23075,7 @@ new DynamoDbTableSystemErrorsAlarm(scope: IConstruct, id: string, props: DynamoD
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -20918,6 +23092,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyRemovalPolicy"></a>
 
@@ -21030,7 +23223,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isConstruct"></a>
 
 ```typescript
 import { DynamoDbTableSystemErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -21039,6 +23232,20 @@ DynamoDbTableSystemErrorsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.isConstruct.parameter.x"></a>
 
@@ -21153,10 +23360,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -21179,16 +23387,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -21225,6 +23434,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -21331,6 +23552,7 @@ new DynamoDbTableThrottledPutRecordCountAlarm(scope: IConstruct, id: string, pro
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -21347,6 +23569,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyRemovalPolicy"></a>
 
@@ -21459,7 +23700,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isConstruct"></a>
 
 ```typescript
 import { DynamoDbTableThrottledPutRecordCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -21468,6 +23709,20 @@ DynamoDbTableThrottledPutRecordCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.isConstruct.parameter.x"></a>
 
@@ -21582,10 +23837,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -21608,16 +23864,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -21654,6 +23911,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -21757,6 +24026,7 @@ new DynamoDbTableWriteThrottleEventsAlarm(scope: IConstruct, id: string, props: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -21773,6 +24043,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyRemovalPolicy"></a>
 
@@ -21885,7 +24174,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isConstruct"></a>
 
 ```typescript
 import { DynamoDbTableWriteThrottleEventsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -21894,6 +24183,20 @@ DynamoDbTableWriteThrottleEventsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.isConstruct.parameter.x"></a>
 
@@ -22008,10 +24311,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -22034,16 +24338,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -22080,6 +24385,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -22187,6 +24504,7 @@ new Ec2InstanceCpuUtilizationAlarm(scope: IConstruct, id: string, props: Ec2Inst
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -22203,6 +24521,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.applyRemovalPolicy"></a>
 
@@ -22315,7 +24652,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.isConstruct"></a>
 
 ```typescript
 import { Ec2InstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -22324,6 +24661,20 @@ Ec2InstanceCpuUtilizationAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.isConstruct.parameter.x"></a>
 
@@ -22438,10 +24789,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -22464,16 +24816,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -22510,6 +24863,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -22611,6 +24976,7 @@ new Ec2InstanceRecommendedAlarms(scope: Construct, id: string, props: Ec2Instanc
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -22622,6 +24988,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -22630,7 +25017,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { Ec2InstanceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -22639,6 +25026,20 @@ Ec2InstanceRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -22742,6 +25143,7 @@ new Ec2InstanceStatusCheckFailedAlarm(scope: IConstruct, id: string, props: Ec2I
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -22758,6 +25160,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.applyRemovalPolicy"></a>
 
@@ -22870,7 +25291,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.isConstruct"></a>
 
 ```typescript
 import { Ec2InstanceStatusCheckFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -22879,6 +25300,20 @@ Ec2InstanceStatusCheckFailedAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.isConstruct.parameter.x"></a>
 
@@ -22993,10 +25428,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -23019,16 +25455,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -23065,6 +25502,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -23169,6 +25618,7 @@ new EcsServiceCpuUtilizationAlarm(scope: IConstruct, id: string, props: EcsServi
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -23185,6 +25635,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.applyRemovalPolicy"></a>
 
@@ -23297,7 +25766,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.isConstruct"></a>
 
 ```typescript
 import { EcsServiceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -23306,6 +25775,20 @@ EcsServiceCpuUtilizationAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.isConstruct.parameter.x"></a>
 
@@ -23420,10 +25903,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -23446,16 +25930,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -23492,6 +25977,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -23596,6 +26093,7 @@ new EcsServiceEphemeralStorageUtilizedAlarm(scope: IConstruct, id: string, props
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -23612,6 +26110,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.applyRemovalPolicy"></a>
 
@@ -23724,7 +26241,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.isConstruct"></a>
 
 ```typescript
 import { EcsServiceEphemeralStorageUtilizedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -23733,6 +26250,20 @@ EcsServiceEphemeralStorageUtilizedAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.isConstruct.parameter.x"></a>
 
@@ -23847,10 +26378,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -23873,16 +26405,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -23919,6 +26452,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -24023,6 +26568,7 @@ new EcsServiceMemoryUtilizationAlarm(scope: IConstruct, id: string, props: EcsSe
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -24039,6 +26585,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.applyRemovalPolicy"></a>
 
@@ -24151,7 +26716,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.isConstruct"></a>
 
 ```typescript
 import { EcsServiceMemoryUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -24160,6 +26725,20 @@ EcsServiceMemoryUtilizationAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.isConstruct.parameter.x"></a>
 
@@ -24274,10 +26853,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -24300,16 +26880,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -24346,6 +26927,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -24447,6 +27040,7 @@ new EcsServiceRecommendedAlarms(scope: Construct, id: string, props: EcsServiceR
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -24458,6 +27052,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -24466,7 +27081,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { EcsServiceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -24475,6 +27090,20 @@ EcsServiceRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -24608,6 +27237,7 @@ new EcsServiceRunningTaskCountAlarm(scope: IConstruct, id: string, props: EcsSer
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -24624,6 +27254,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.applyRemovalPolicy"></a>
 
@@ -24736,7 +27385,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.isConstruct"></a>
 
 ```typescript
 import { EcsServiceRunningTaskCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -24745,6 +27394,20 @@ EcsServiceRunningTaskCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.isConstruct.parameter.x"></a>
 
@@ -24859,10 +27522,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -24885,16 +27549,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -24931,6 +27596,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -25035,6 +27712,7 @@ new EfsFileSystemBurstCreditBalanceAlarm(scope: IConstruct, id: string, props: E
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -25051,6 +27729,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyRemovalPolicy"></a>
 
@@ -25163,7 +27860,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isConstruct"></a>
 
 ```typescript
 import { EfsFileSystemBurstCreditBalanceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -25172,6 +27869,20 @@ EfsFileSystemBurstCreditBalanceAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.isConstruct.parameter.x"></a>
 
@@ -25286,10 +27997,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -25312,16 +28024,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -25358,6 +28071,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -25463,6 +28188,7 @@ new EfsFileSystemPercentIOLimitAlarm(scope: IConstruct, id: string, props: EfsFi
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -25479,6 +28205,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyRemovalPolicy"></a>
 
@@ -25591,7 +28336,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isConstruct"></a>
 
 ```typescript
 import { EfsFileSystemPercentIOLimitAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -25600,6 +28345,20 @@ EfsFileSystemPercentIOLimitAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.isConstruct.parameter.x"></a>
 
@@ -25714,10 +28473,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -25740,16 +28500,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -25786,6 +28547,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -25887,6 +28660,7 @@ new EfsFileSystemRecommendedAlarms(scope: Construct, id: string, props: EfsFileS
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -25898,6 +28672,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -25906,7 +28701,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { EfsFileSystemRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -25915,6 +28710,20 @@ EfsFileSystemRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -26022,6 +28831,7 @@ new ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm(scope: IConstruct, id: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -26038,6 +28848,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy"></a>
 
@@ -26150,7 +28979,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isConstruct"></a>
 
 ```typescript
 import { ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -26159,6 +28988,20 @@ ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.isConstruct.parameter.x"></a>
 
@@ -26273,10 +29116,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -26299,16 +29143,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -26345,6 +29190,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -26451,6 +29308,7 @@ new ElastiCacheClusterEngineCpuUtilizationAlarm(scope: IConstruct, id: string, p
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -26467,6 +29325,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyRemovalPolicy"></a>
 
@@ -26579,7 +29456,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isConstruct"></a>
 
 ```typescript
 import { ElastiCacheClusterEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -26588,6 +29465,20 @@ ElastiCacheClusterEngineCpuUtilizationAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.isConstruct.parameter.x"></a>
 
@@ -26702,10 +29593,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -26728,16 +29620,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -26774,6 +29667,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -26875,6 +29780,7 @@ new ElastiCacheClusterRecommendedAlarms(scope: Construct, id: string, props: Ela
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -26886,6 +29792,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -26894,7 +29821,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { ElastiCacheClusterRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -26903,6 +29830,20 @@ ElastiCacheClusterRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -27023,6 +29964,7 @@ new ElastiCacheClusterReplicationLagAlarm(scope: IConstruct, id: string, props: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -27039,6 +29981,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyRemovalPolicy"></a>
 
@@ -27151,7 +30112,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isConstruct"></a>
 
 ```typescript
 import { ElastiCacheClusterReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -27160,6 +30121,20 @@ ElastiCacheClusterReplicationLagAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.isConstruct.parameter.x"></a>
 
@@ -27274,10 +30249,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -27300,16 +30276,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -27346,6 +30323,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -27453,6 +30442,7 @@ new ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm(scope: IConstr
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -27469,6 +30459,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy"></a>
 
@@ -27581,7 +30590,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isConstruct"></a>
 
 ```typescript
 import { ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -27590,6 +30599,20 @@ ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isConstruct(x: any
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.isConstruct.parameter.x"></a>
 
@@ -27704,10 +30727,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -27730,16 +30754,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -27776,6 +30801,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -27882,6 +30919,7 @@ new ElastiCacheReplicationGroupEngineCpuUtilizationAlarm(scope: IConstruct, id: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -27898,6 +30936,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyRemovalPolicy"></a>
 
@@ -28010,7 +31067,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isConstruct"></a>
 
 ```typescript
 import { ElastiCacheReplicationGroupEngineCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -28019,6 +31076,20 @@ ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.isConstruct.parameter.x"></a>
 
@@ -28133,10 +31204,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -28159,16 +31231,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -28205,6 +31278,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -28306,6 +31391,7 @@ new ElastiCacheReplicationGroupRecommendedAlarms(scope: Construct, id: string, p
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -28317,6 +31403,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -28325,7 +31432,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { ElastiCacheReplicationGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -28334,6 +31441,20 @@ ElastiCacheReplicationGroupRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -28454,6 +31575,7 @@ new ElastiCacheReplicationGroupReplicationLagAlarm(scope: IConstruct, id: string
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -28470,6 +31592,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyRemovalPolicy"></a>
 
@@ -28582,7 +31723,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isConstruct"></a>
 
 ```typescript
 import { ElastiCacheReplicationGroupReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -28591,6 +31732,20 @@ ElastiCacheReplicationGroupReplicationLagAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.isConstruct.parameter.x"></a>
 
@@ -28705,10 +31860,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -28731,16 +31887,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -28777,6 +31934,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -28876,7 +32045,9 @@ new FargateService(scope: Construct, id: string, props: FargateServiceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.addLifecycleHook">addLifecycleHook</a></code> | Add a deployment lifecycle hook target. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.addVolume">addVolume</a></code> | Adds a volume to the Service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.associateCloudMapService">associateCloudMapService</a></code> | Associates this service with a CloudMap service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.attachToApplicationTargetGroup">attachToApplicationTargetGroup</a></code> | This method is called to attach this service to an Application Load Balancer. |
@@ -28886,6 +32057,7 @@ new FargateService(scope: Construct, id: string, props: FargateServiceProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.enableCloudMap">enableCloudMap</a></code> | Enable CloudMap service discovery for the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.enableDeploymentAlarms">enableDeploymentAlarms</a></code> | Enable Deployment Alarms which take advantage of arbitrary alarms and configure them after service initialization. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.enableServiceConnect">enableServiceConnect</a></code> | Enable Service Connect on this service. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.isUsingECSDeploymentController">isUsingECSDeploymentController</a></code> | Checks if the service is using the ECS deployment controller. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.loadBalancerTarget">loadBalancerTarget</a></code> | Return a load balancing target for a specific container and port. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.metric">metric</a></code> | This method returns the specified CloudWatch metric name for this service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.metricCpuUtilization">metricCpuUtilization</a></code> | This method returns the CloudWatch metric for this service's CPU utilization. |
@@ -28907,6 +32079,25 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.applyRemovalPolicy"></a>
 
 ```typescript
@@ -28926,6 +32117,22 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addLifecycleHook` <a name="addLifecycleHook" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.addLifecycleHook"></a>
+
+```typescript
+public addLifecycleHook(target: IDeploymentLifecycleHookTarget): void
+```
+
+Add a deployment lifecycle hook target.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.addLifecycleHook.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.aws_ecs.IDeploymentLifecycleHookTarget
+
+The lifecycle hook target to add.
 
 ---
 
@@ -29081,6 +32288,14 @@ Enable Service Connect on this service.
 - *Type:* aws-cdk-lib.aws_ecs.ServiceConnectProps
 
 ---
+
+##### `isUsingECSDeploymentController` <a name="isUsingECSDeploymentController" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.isUsingECSDeploymentController"></a>
+
+```typescript
+public isUsingECSDeploymentController(): boolean
+```
+
+Checks if the service is using the ECS deployment controller.
 
 ##### `loadBalancerTarget` <a name="loadBalancerTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.loadBalancerTarget"></a>
 
@@ -29285,7 +32500,7 @@ Creates the recommended alarms for the ECS service.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.isConstruct"></a>
 
 ```typescript
 import { FargateService } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -29294,6 +32509,20 @@ FargateService.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.isConstruct.parameter.x"></a>
 
@@ -29428,12 +32657,13 @@ Imports from the specified service attributes.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_ecs.ICluster</code> | The cluster that hosts the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The security groups which manage the allowed network traffic for the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.serviceArn">serviceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.serviceName">serviceName</a></code> | <code>string</code> | The name of the service. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.serviceRef">serviceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_ecs.ServiceReference</code> | A reference to this service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.taskDefinition">taskDefinition</a></code> | <code>aws-cdk-lib.aws_ecs.TaskDefinition</code> | The task definition to use for tasks in the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.cloudMapService">cloudMapService</a></code> | <code>aws-cdk-lib.aws_servicediscovery.IService</code> | The CloudMap service created for this service, if any. |
 
@@ -29457,16 +32687,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -29527,6 +32758,18 @@ public readonly serviceName: string;
 - *Type:* string
 
 The name of the service.
+
+---
+
+##### `serviceRef`<sup>Required</sup> <a name="serviceRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.serviceRef"></a>
+
+```typescript
+public readonly serviceRef: ServiceReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ecs.ServiceReference
+
+A reference to this service.
 
 ---
 
@@ -29617,6 +32860,7 @@ new FileSystem(scope: Construct, id: string, props: FileSystemProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addAccessPoint">addAccessPoint</a></code> | create access point from this filesystem. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this file system. |
@@ -29637,6 +32881,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRemovalPolicy"></a>
 
@@ -29708,6 +32971,8 @@ public grant(grantee: IGrantable, actions: ...string[]): Grant
 
 Grant the actions defined in actions to the given grantee on this File System resource.
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grant.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -29732,6 +32997,8 @@ public grantRead(grantee: IGrantable): Grant
 
 Grant read permissions for this file system to an IAM principal.
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantRead.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -29748,6 +33015,8 @@ public grantReadWrite(grantee: IGrantable): Grant
 
 Grant read and write permissions for this file system to an IAM principal.
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantReadWrite.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -29763,6 +33032,8 @@ public grantRootAccess(grantee: IGrantable): Grant
 ```
 
 As root user, grant read and write permissions for this file system to an IAM principal.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.grantRootAccess.parameter.grantee"></a>
 
@@ -29827,7 +33098,7 @@ Creates the recommended alarms for the EFS FileSystem.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isConstruct"></a>
 
 ```typescript
 import { FileSystem } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -29836,6 +33107,20 @@ FileSystem.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.isConstruct.parameter.x"></a>
 
@@ -29910,11 +33195,12 @@ Import an existing File System from the given properties.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The security groups/rules used to allow network connections to the file system. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.fileSystemArn">fileSystemArn</a></code> | <code>string</code> | The ARN of the file system. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.fileSystemId">fileSystemId</a></code> | <code>string</code> | The ID of the file system, assigned by Amazon EFS. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.fileSystemRef">fileSystemRef</a></code> | <code>aws-cdk-lib.interfaces.aws_efs.FileSystemReference</code> | A reference to a FileSystem resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.mountTargetsAvailable">mountTargetsAvailable</a></code> | <code>constructs.IDependable</code> | Dependable that can be depended upon to ensure the mount targets of the filesystem are ready. |
 
 ---
@@ -29937,16 +33223,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -29995,6 +33282,18 @@ public readonly fileSystemId: string;
 - *Type:* string
 
 The ID of the file system, assigned by Amazon EFS.
+
+---
+
+##### `fileSystemRef`<sup>Required</sup> <a name="fileSystemRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.property.fileSystemRef"></a>
+
+```typescript
+public readonly fileSystemRef: FileSystemReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_efs.FileSystemReference
+
+A reference to a FileSystem resource.
 
 ---
 
@@ -30086,6 +33385,7 @@ new Function(scope: Construct, id: string, props: FunctionProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.addEventSource">addEventSource</a></code> | Adds an event source to this function. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.addEventSourceMapping">addEventSourceMapping</a></code> | Adds an event source that maps to this AWS Lambda function. |
@@ -30123,6 +33423,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.applyRemovalPolicy"></a>
 
@@ -30289,6 +33608,8 @@ public grantInvoke(grantee: IGrantable): Grant
 
 Grant the given identity permissions to invoke this Lambda.
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.grantInvoke.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -30302,6 +33623,8 @@ public grantInvokeCompositePrincipal(compositePrincipal: CompositePrincipal): Gr
 ```
 
 Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
+
+[disable-awslint:no-grants]
 
 ###### `compositePrincipal`<sup>Required</sup> <a name="compositePrincipal" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.grantInvokeCompositePrincipal.parameter.compositePrincipal"></a>
 
@@ -30317,6 +33640,8 @@ public grantInvokeLatestVersion(grantee: IGrantable): Grant
 
 Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.grantInvokeLatestVersion.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -30331,6 +33656,8 @@ public grantInvokeUrl(grantee: IGrantable): Grant
 
 Grant the given identity permissions to invoke this Lambda Function URL.
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.grantInvokeUrl.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -30344,6 +33671,8 @@ public grantInvokeVersion(grantee: IGrantable, version: IVersion): Grant
 ```
 
 Grant the given identity permissions to invoke the given version of this Lambda.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.grantInvokeVersion.parameter.grantee"></a>
 
@@ -30653,7 +33982,7 @@ Creates recommended alarms for the Lambda function.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.isConstruct"></a>
 
 ```typescript
 import { Function } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -30662,6 +33991,20 @@ Function.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.isConstruct.parameter.x"></a>
 
@@ -30950,18 +34293,20 @@ Metric for the number of unreserved concurrent executions across all Lambdas.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.architecture">architecture</a></code> | <code>aws-cdk-lib.aws_lambda.Architecture</code> | The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access the Connections object. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.functionArn">functionArn</a></code> | <code>string</code> | ARN of this function. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.functionName">functionName</a></code> | <code>string</code> | Name of this function. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.functionRef">functionRef</a></code> | <code>aws-cdk-lib.interfaces.aws_lambda.FunctionReference</code> | A reference to a Function resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal this Lambda Function is running as. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.isBoundToVpc">isBoundToVpc</a></code> | <code>boolean</code> | Whether or not this Lambda function was bound to a VPC. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.latestVersion">latestVersion</a></code> | <code>aws-cdk-lib.aws_lambda.IVersion</code> | The `$LATEST` version of this function. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.permissionsNode">permissionsNode</a></code> | <code>constructs.Node</code> | The construct node where permissions are attached. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.resourceArnsForGrantInvoke">resourceArnsForGrantInvoke</a></code> | <code>string[]</code> | The ARN(s) to put into the resource field of the generated IAM policy for grantInvoke(). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role associated with this function. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.tenancyConfig">tenancyConfig</a></code> | <code>aws-cdk-lib.aws_lambda.TenancyConfig</code> | The tenancy configuration for this function. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.currentVersion">currentVersion</a></code> | <code>aws-cdk-lib.aws_lambda.Version</code> | Returns a `lambda.Version` which represents the current version of this Lambda function. A new version will be created every time the function's configuration changes. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The LogGroup where the Lambda function's logs are made available. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.runtime">runtime</a></code> | <code>aws-cdk-lib.aws_lambda.Runtime</code> | The runtime configured for this lambda. |
@@ -30989,16 +34334,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -31061,6 +34407,18 @@ public readonly functionName: string;
 - *Type:* string
 
 Name of this function.
+
+---
+
+##### `functionRef`<sup>Required</sup> <a name="functionRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.functionRef"></a>
+
+```typescript
+public readonly functionRef: FunctionReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_lambda.FunctionReference
+
+A reference to a Function resource.
 
 ---
 
@@ -31142,6 +34500,18 @@ public readonly role: IRole;
 - *Type:* aws-cdk-lib.aws_iam.IRole
 
 Execution role associated with this function.
+
+---
+
+##### `tenancyConfig`<sup>Optional</sup> <a name="tenancyConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.property.tenancyConfig"></a>
+
+```typescript
+public readonly tenancyConfig: TenancyConfig;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.TenancyConfig
+
+The tenancy configuration for this function.
 
 ---
 
@@ -31290,6 +34660,7 @@ new Instance(scope: Construct, id: string, props: InstanceProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.addSecurityGroup">addSecurityGroup</a></code> | Add the security group to the instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.addToRolePolicy">addToRolePolicy</a></code> | Adds a statement to the IAM role assumed by the instance. |
@@ -31308,6 +34679,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.applyRemovalPolicy"></a>
 
@@ -31457,7 +34847,7 @@ Creates the recommended alarms for the EC2 Instance.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.isConstruct"></a>
 
 ```typescript
 import { Instance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -31466,6 +34856,20 @@ Instance.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.isConstruct.parameter.x"></a>
 
@@ -31512,7 +34916,7 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Allows specify security group connections for the instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal to grant permissions to. |
@@ -31523,6 +34927,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.instancePrivateIp">instancePrivateIp</a></code> | <code>string</code> | Private IP for this instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.instancePublicDnsName">instancePublicDnsName</a></code> | <code>string</code> | Publicly-routable DNS name for this instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.instancePublicIp">instancePublicIp</a></code> | <code>string</code> | Publicly-routable IP  address for this instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.instanceRef">instanceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.InstanceReference</code> | A reference to a Instance resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.osType">osType</a></code> | <code>aws-cdk-lib.aws_ec2.OperatingSystemType</code> | The type of OS the instance is running. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The IAM role assumed by the instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.userData">userData</a></code> | <code>aws-cdk-lib.aws_ec2.UserData</code> | UserData for the instance. |
@@ -31547,16 +34952,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -31684,6 +35090,18 @@ Publicly-routable IP  address for this instance.
 
 ---
 
+##### `instanceRef`<sup>Required</sup> <a name="instanceRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.instanceRef"></a>
+
+```typescript
+public readonly instanceRef: InstanceReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.InstanceReference
+
+A reference to a Instance resource.
+
+---
+
 ##### `osType`<sup>Required</sup> <a name="osType" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.property.osType"></a>
 
 ```typescript
@@ -31783,6 +35201,7 @@ new InterfaceVpcEndpoint(scope: Construct, id: string, props: InterfaceVpcEndpoi
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.addToPolicy">addToPolicy</a></code> | Adds a statement to the policy document of the VPC endpoint. The statement must have a Principal. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.alarmPacketsDropped">alarmPacketsDropped</a></code> | Creates an alarm that monitors the PacketsDropped for the PrivateLink endpoint. |
@@ -31797,6 +35216,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRemovalPolicy"></a>
 
@@ -31880,7 +35318,7 @@ Creates the recommended alarms for the PrivateLink InterfaceVpcEndpoint.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isConstruct"></a>
 
 ```typescript
 import { InterfaceVpcEndpoint } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -31889,6 +35327,20 @@ InterfaceVpcEndpoint.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.isConstruct.parameter.x"></a>
 
@@ -31963,9 +35415,10 @@ Imports an existing interface VPC endpoint.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointId">vpcEndpointId</a></code> | <code>string</code> | The interface VPC endpoint identifier. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointRef">vpcEndpointRef</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.VPCEndpointReference</code> | A reference to a VPCEndpoint resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access to network connections. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointCreationTimestamp">vpcEndpointCreationTimestamp</a></code> | <code>string</code> | The date and time the interface VPC endpoint was created. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointDnsEntries">vpcEndpointDnsEntries</a></code> | <code>string[]</code> | The DNS entries for the interface VPC endpoint. |
@@ -31991,16 +35444,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -32025,6 +35479,18 @@ public readonly vpcEndpointId: string;
 - *Type:* string
 
 The interface VPC endpoint identifier.
+
+---
+
+##### `vpcEndpointRef`<sup>Required</sup> <a name="vpcEndpointRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.property.vpcEndpointRef"></a>
+
+```typescript
+public readonly vpcEndpointRef: VPCEndpointReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.VPCEndpointReference
+
+A reference to a VPCEndpoint resource.
 
 ---
 
@@ -32159,6 +35625,7 @@ new LambdaConcurrentExecutionsAlarm(scope: Construct, id: string, props: LambdaC
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -32175,6 +35642,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.applyRemovalPolicy"></a>
 
@@ -32287,7 +35773,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.isConstruct"></a>
 
 ```typescript
 import { LambdaConcurrentExecutionsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -32296,6 +35782,20 @@ LambdaConcurrentExecutionsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.isConstruct.parameter.x"></a>
 
@@ -32410,10 +35910,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -32436,16 +35937,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -32482,6 +35984,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -32591,6 +36105,7 @@ new LambdaDurationAlarm(scope: Construct, id: string, props: LambdaDurationAlarm
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -32607,6 +36122,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.applyRemovalPolicy"></a>
 
@@ -32719,7 +36253,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.isConstruct"></a>
 
 ```typescript
 import { LambdaDurationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -32728,6 +36262,20 @@ LambdaDurationAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.isConstruct.parameter.x"></a>
 
@@ -32842,10 +36390,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -32868,16 +36417,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -32914,6 +36464,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -33016,6 +36578,7 @@ new LambdaErrorsAlarm(scope: Construct, id: string, props: LambdaErrorsAlarmProp
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -33032,6 +36595,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.applyRemovalPolicy"></a>
 
@@ -33144,7 +36726,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.isConstruct"></a>
 
 ```typescript
 import { LambdaErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -33153,6 +36735,20 @@ LambdaErrorsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.isConstruct.parameter.x"></a>
 
@@ -33267,10 +36863,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -33293,16 +36890,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -33339,6 +36937,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -33440,6 +37050,7 @@ new LambdaRecommendedAlarms(scope: Construct, id: string, props: LambdaRecommend
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -33451,6 +37062,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -33459,7 +37091,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { LambdaRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -33468,6 +37100,20 @@ LambdaRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -33601,6 +37247,7 @@ new LambdaThrottlesAlarm(scope: Construct, id: string, props: LambdaThrottlesAla
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -33617,6 +37264,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.applyRemovalPolicy"></a>
 
@@ -33729,7 +37395,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.isConstruct"></a>
 
 ```typescript
 import { LambdaThrottlesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -33738,6 +37404,20 @@ LambdaThrottlesAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.isConstruct.parameter.x"></a>
 
@@ -33852,10 +37532,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -33878,16 +37559,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -33924,6 +37606,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -34023,6 +37717,7 @@ new NetworkLoadBalancer(scope: Construct, id: string, props: NetworkLoadBalancer
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.logAccessLogs">logAccessLogs</a></code> | Enable access logging for this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.removeAttribute">removeAttribute</a></code> | Remove an attribute from the load balancer. |
@@ -34050,6 +37745,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRemovalPolicy"></a>
 
@@ -34348,7 +38062,7 @@ Creates the recommended alarms for the NetworkLoadBalancer.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isConstruct"></a>
 
 ```typescript
 import { NetworkLoadBalancer } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -34357,6 +38071,20 @@ NetworkLoadBalancer.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.isConstruct.parameter.x"></a>
 
@@ -34457,13 +38185,14 @@ NetworkLoadBalancer.fromNetworkLoadBalancerAttributes(scope: Construct, id: stri
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerArn">loadBalancerArn</a></code> | <code>string</code> | The ARN of this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerCanonicalHostedZoneId">loadBalancerCanonicalHostedZoneId</a></code> | <code>string</code> | The canonical hosted zone ID of this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerDnsName">loadBalancerDnsName</a></code> | <code>string</code> | The DNS name of this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerFullName">loadBalancerFullName</a></code> | <code>string</code> | The full name of this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerName">loadBalancerName</a></code> | <code>string</code> | The name of this load balancer. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerRef">loadBalancerRef</a></code> | <code>aws-cdk-lib.interfaces.aws_elasticloadbalancingv2.LoadBalancerReference</code> | A reference to this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerSecurityGroups">loadBalancerSecurityGroups</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC this load balancer has been created in. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
@@ -34492,16 +38221,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -34584,6 +38314,18 @@ public readonly loadBalancerName: string;
 The name of this load balancer.
 
 Example value: `my-load-balancer`
+
+---
+
+##### `loadBalancerRef`<sup>Required</sup> <a name="loadBalancerRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.property.loadBalancerRef"></a>
+
+```typescript
+public readonly loadBalancerRef: LoadBalancerReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_elasticloadbalancingv2.LoadBalancerReference
+
+A reference to this load balancer.
 
 ---
 
@@ -34736,6 +38478,7 @@ new NetworkLoadBalancerRecommendedAlarms(scope: Construct, id: string, props: Ne
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -34747,6 +38490,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -34755,7 +38519,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { NetworkLoadBalancerRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -34764,6 +38528,20 @@ NetworkLoadBalancerRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -34867,6 +38645,7 @@ new NetworkLoadBalancerTcpElbResetCountAlarm(scope: IConstruct, id: string, prop
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -34883,6 +38662,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyRemovalPolicy"></a>
 
@@ -34995,7 +38793,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isConstruct"></a>
 
 ```typescript
 import { NetworkLoadBalancerTcpElbResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -35004,6 +38802,20 @@ NetworkLoadBalancerTcpElbResetCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.isConstruct.parameter.x"></a>
 
@@ -35118,10 +38930,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -35144,16 +38957,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -35190,6 +39004,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -35293,6 +39119,7 @@ new NetworkLoadBalancerTcpTargetResetCountAlarm(scope: IConstruct, id: string, p
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -35309,6 +39136,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyRemovalPolicy"></a>
 
@@ -35421,7 +39267,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isConstruct"></a>
 
 ```typescript
 import { NetworkLoadBalancerTcpTargetResetCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -35430,6 +39276,20 @@ NetworkLoadBalancerTcpTargetResetCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.isConstruct.parameter.x"></a>
 
@@ -35544,10 +39404,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -35570,16 +39431,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -35616,6 +39478,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -35715,6 +39589,7 @@ new NetworkTargetGroup(scope: Construct, id: string, props: NetworkTargetGroupPr
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.configureHealthCheck">configureHealthCheck</a></code> | Set/replace the target group's health check. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.setAttribute">setAttribute</a></code> | Set a non-standard attribute on the target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.addTarget">addTarget</a></code> | Add a load balancing target to this target group. |
@@ -35734,6 +39609,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `configureHealthCheck` <a name="configureHealthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.configureHealthCheck"></a>
 
@@ -35816,7 +39712,7 @@ The number of targets that are considered unhealthy.
 ##### `registerListener` <a name="registerListener" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.registerListener"></a>
 
 ```typescript
-public registerListener(listener: INetworkListener): void
+public registerListener(listener: INetworkListenerRef): void
 ```
 
 Register a listener that is load balancing to this target group.
@@ -35825,7 +39721,7 @@ Don't call this directly. It will be called by listeners.
 
 ###### `listener`<sup>Required</sup> <a name="listener" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.registerListener.parameter.listener"></a>
 
-- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkListener
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.INetworkListenerRef
 
 ---
 
@@ -35882,7 +39778,7 @@ Creates the recommended alarms for the NetworkTargetGroup.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.isConstruct"></a>
 
 ```typescript
 import { NetworkTargetGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -35891,6 +39787,20 @@ NetworkTargetGroup.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.isConstruct.parameter.x"></a>
 
@@ -35933,6 +39843,7 @@ Import an existing target group.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.firstLoadBalancerFullName">firstLoadBalancerFullName</a></code> | <code>string</code> | Full name of first load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.loadBalancerArns">loadBalancerArns</a></code> | <code>string</code> | A token representing a list of ARNs of the load balancers that route traffic to this target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.loadBalancerAttached">loadBalancerAttached</a></code> | <code>constructs.IDependable</code> | List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer. |
@@ -35940,7 +39851,9 @@ Import an existing target group.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupFullName">targetGroupFullName</a></code> | <code>string</code> | The full name of the target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupLoadBalancerArns">targetGroupLoadBalancerArns</a></code> | <code>string[]</code> | ARNs of load balancers load balancing to this TargetGroup. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupName">targetGroupName</a></code> | <code>string</code> | The name of the target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupRef">targetGroupRef</a></code> | <code>aws-cdk-lib.interfaces.aws_elasticloadbalancingv2.TargetGroupReference</code> | A reference to this target group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.healthCheck">healthCheck</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck</code> | Health check for the members of this target group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.isNetworkTargetGroup">isNetworkTargetGroup</a></code> | <code>boolean</code> | Indicates that this is a Network Target Group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroupMetrics</code> | All metrics available for this target group. |
 
 ---
@@ -35954,6 +39867,18 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
 
 ---
 
@@ -36041,6 +39966,18 @@ The name of the target group.
 
 ---
 
+##### `targetGroupRef`<sup>Required</sup> <a name="targetGroupRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.targetGroupRef"></a>
+
+```typescript
+public readonly targetGroupRef: TargetGroupReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_elasticloadbalancingv2.TargetGroupReference
+
+A reference to this target group.
+
+---
+
 ##### `healthCheck`<sup>Required</sup> <a name="healthCheck" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.healthCheck"></a>
 
 ```typescript
@@ -36050,6 +39987,21 @@ public readonly healthCheck: HealthCheck;
 - *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.HealthCheck
 
 Health check for the members of this target group.
+
+---
+
+##### `isNetworkTargetGroup`<sup>Required</sup> <a name="isNetworkTargetGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroup.property.isNetworkTargetGroup"></a>
+
+```typescript
+public readonly isNetworkTargetGroup: boolean;
+```
+
+- *Type:* boolean
+
+Indicates that this is a Network Target Group.
+
+Will always return true, but is necessary to prevent accidental structural
+equality in TypeScript.
 
 ---
 
@@ -36130,6 +40082,7 @@ new NetworkTargetGroupHealthyHostCountAlarm(scope: IConstruct, id: string, props
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -36146,6 +40099,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyRemovalPolicy"></a>
 
@@ -36258,7 +40230,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isConstruct"></a>
 
 ```typescript
 import { NetworkTargetGroupHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -36267,6 +40239,20 @@ NetworkTargetGroupHealthyHostCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.isConstruct.parameter.x"></a>
 
@@ -36381,10 +40367,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -36407,16 +40394,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -36453,6 +40441,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -36554,6 +40554,7 @@ new NetworkTargetGroupRecommendedAlarms(scope: Construct, id: string, props: Net
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -36565,6 +40566,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -36573,7 +40595,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { NetworkTargetGroupRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -36582,6 +40604,20 @@ NetworkTargetGroupRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -36683,6 +40719,7 @@ new NetworkTargetGroupUnHealthyHostCountAlarm(scope: IConstruct, id: string, pro
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -36699,6 +40736,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy"></a>
 
@@ -36811,7 +40867,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isConstruct"></a>
 
 ```typescript
 import { NetworkTargetGroupUnHealthyHostCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -36820,6 +40876,20 @@ NetworkTargetGroupUnHealthyHostCountAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.isConstruct.parameter.x"></a>
 
@@ -36934,10 +41004,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -36960,16 +41031,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -37006,6 +41078,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -37110,6 +41194,7 @@ new PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm(scope: IConstruc
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -37126,6 +41211,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyRemovalPolicy"></a>
 
@@ -37238,7 +41342,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isConstruct"></a>
 
 ```typescript
 import { PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -37247,6 +41351,20 @@ PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.isConstruct.parameter.x"></a>
 
@@ -37361,10 +41479,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -37387,16 +41506,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -37433,6 +41553,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -37534,6 +41666,7 @@ new PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms(scope: Construct, 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -37545,6 +41678,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -37553,7 +41707,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -37562,6 +41716,20 @@ PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -37650,6 +41818,7 @@ new PrivateLinkServicesVpcEndpointServiceRecommendedAlarms(scope: Construct, id:
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -37661,6 +41830,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -37669,7 +41859,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { PrivateLinkServicesVpcEndpointServiceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -37678,6 +41868,20 @@ PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -37769,6 +41973,7 @@ new PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm(scope: IConstruct, 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -37785,6 +41990,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyRemovalPolicy"></a>
 
@@ -37897,7 +42121,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isConstruct"></a>
 
 ```typescript
 import { PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -37906,6 +42130,20 @@ PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.isConstruct.parameter.x"></a>
 
@@ -38020,10 +42258,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -38046,16 +42285,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -38092,6 +42332,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -38191,10 +42443,12 @@ new Queue(scope: Construct, id: string, props?: QueueProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the IAM resource policy associated with this queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grant">grant</a></code> | Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantConsumeMessages">grantConsumeMessages</a></code> | Grant permissions to consume messages from a queue. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantOnKey">grantOnKey</a></code> | Gives permissions to a grantable entity to perform actions on the encryption key. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantPurge">grantPurge</a></code> | Grant an IAM principal permissions to purge all messages from the queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantSendMessages">grantSendMessages</a></code> | Grant access to send messages to a queue to the given identity. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metric">metric</a></code> | Return the given named metric for this Queue. |
@@ -38222,6 +42476,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.applyRemovalPolicy"></a>
 
@@ -38271,6 +42544,8 @@ public grant(grantee: IGrantable, actions: ...string[]): Grant
 
 Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grant.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -38309,11 +42584,36 @@ This will grant the following KMS permissions:
 
   - kms:Decrypt
 
+
+The use of this method is discouraged. Please use `grants.consumeMessages()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantConsumeMessages.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
 
 Principal to grant consume rights to.
+
+---
+
+##### `grantOnKey` <a name="grantOnKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantOnKey"></a>
+
+```typescript
+public grantOnKey(grantee: IGrantable, actions: ...string[]): GrantOnKeyResult
+```
+
+Gives permissions to a grantable entity to perform actions on the encryption key.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantOnKey.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantOnKey.parameter.actions"></a>
+
+- *Type:* ...string[]
 
 ---
 
@@ -38330,6 +42630,11 @@ This will grant the following permissions:
  - sqs:PurgeQueue
  - sqs:GetQueueAttributes
  - sqs:GetQueueUrl
+
+
+The use of this method is discouraged. Please use `grants.purge()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantPurge.parameter.grantee"></a>
 
@@ -38361,6 +42666,11 @@ This will grant the following KMS permissions:
  - kms:Encrypt
  - kms:ReEncrypt*
  - kms:GenerateDataKey*
+
+
+The use of this method is discouraged. Please use `grants.sendMessages()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grantSendMessages.parameter.grantee"></a>
 
@@ -38616,7 +42926,7 @@ Creates the recommended alarms for an SQS queue.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.isConstruct"></a>
 
 ```typescript
 import { Queue } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -38625,6 +42935,20 @@ Queue.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.isConstruct.parameter.x"></a>
 
@@ -38733,11 +43057,13 @@ Import an existing queue.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.fifo">fifo</a></code> | <code>boolean</code> | Whether this queue is an Amazon SQS FIFO queue. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_sqs.QueueGrants</code> | Collection of grant methods for a Queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.queueArn">queueArn</a></code> | <code>string</code> | The ARN of this queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.queueName">queueName</a></code> | <code>string</code> | The name of this queue. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.queueRef">queueRef</a></code> | <code>aws-cdk-lib.interfaces.aws_sqs.QueueReference</code> | A reference to a Queue resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.queueUrl">queueUrl</a></code> | <code>string</code> | The URL of this queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.encryptionMasterKey">encryptionMasterKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | If this queue is encrypted, this is the KMS key. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.encryptionType">encryptionType</a></code> | <code>aws-cdk-lib.aws_sqs.QueueEncryption</code> | Whether the contents of the queue are encrypted, and by what type of key. |
@@ -38763,16 +43089,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -38802,6 +43129,18 @@ If false, this is a standard queue.
 
 ---
 
+##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.grants"></a>
+
+```typescript
+public readonly grants: QueueGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_sqs.QueueGrants
+
+Collection of grant methods for a Queue.
+
+---
+
 ##### `queueArn`<sup>Required</sup> <a name="queueArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.queueArn"></a>
 
 ```typescript
@@ -38823,6 +43162,18 @@ public readonly queueName: string;
 - *Type:* string
 
 The name of this queue.
+
+---
+
+##### `queueRef`<sup>Required</sup> <a name="queueRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.property.queueRef"></a>
+
+```typescript
+public readonly queueRef: QueueReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_sqs.QueueReference
+
+A reference to a Queue resource.
 
 ---
 
@@ -38941,6 +43292,7 @@ new RdsAuroraBinLogReplicationLagAlarm(scope: Construct, id: string, props: RdsA
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -38957,6 +43309,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyRemovalPolicy"></a>
 
@@ -39069,7 +43440,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsAuroraBinLogReplicationLagAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -39078,6 +43449,20 @@ RdsAuroraBinLogReplicationLagAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.isConstruct.parameter.x"></a>
 
@@ -39192,10 +43577,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -39218,16 +43604,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -39264,6 +43651,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -39365,6 +43764,7 @@ new RdsAuroraRecommendedAlarms(scope: Construct, id: string, props: RdsAuroraRec
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -39376,6 +43776,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -39384,7 +43805,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { RdsAuroraRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -39393,6 +43814,20 @@ RdsAuroraRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -39497,6 +43932,7 @@ new RdsAuroraVolumeBytesLeftTotalAlarm(scope: Construct, id: string, props: RdsA
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -39513,6 +43949,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyRemovalPolicy"></a>
 
@@ -39625,7 +44080,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsAuroraVolumeBytesLeftTotalAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -39634,6 +44089,20 @@ RdsAuroraVolumeBytesLeftTotalAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.isConstruct.parameter.x"></a>
 
@@ -39748,10 +44217,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -39774,16 +44244,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -39820,6 +44291,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -39924,6 +44407,7 @@ new RdsInstanceCpuUtilizationAlarm(scope: Construct, id: string, props: RdsInsta
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -39940,6 +44424,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyRemovalPolicy"></a>
 
@@ -40052,7 +44555,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceCpuUtilizationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -40061,6 +44564,20 @@ RdsInstanceCpuUtilizationAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.isConstruct.parameter.x"></a>
 
@@ -40175,10 +44692,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -40201,16 +44719,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -40247,6 +44766,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -40351,6 +44882,7 @@ new RdsInstanceDatabaseConnectionsAlarm(scope: Construct, id: string, props: Rds
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -40367,6 +44899,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyRemovalPolicy"></a>
 
@@ -40479,7 +45030,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceDatabaseConnectionsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -40488,6 +45039,20 @@ RdsInstanceDatabaseConnectionsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.isConstruct.parameter.x"></a>
 
@@ -40602,10 +45167,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -40628,16 +45194,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -40674,6 +45241,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -40779,6 +45358,7 @@ new RdsInstanceDbLoadAlarm(scope: Construct, id: string, props: RdsInstanceDbLoa
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -40795,6 +45375,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyRemovalPolicy"></a>
 
@@ -40907,7 +45506,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceDbLoadAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -40916,6 +45515,20 @@ RdsInstanceDbLoadAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.isConstruct.parameter.x"></a>
 
@@ -41030,10 +45643,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -41056,16 +45670,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -41102,6 +45717,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -41205,6 +45832,7 @@ new RdsInstanceFreeableMemoryAlarm(scope: Construct, id: string, props: RdsInsta
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -41221,6 +45849,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyRemovalPolicy"></a>
 
@@ -41333,7 +45980,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceFreeableMemoryAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -41342,6 +45989,20 @@ RdsInstanceFreeableMemoryAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.isConstruct.parameter.x"></a>
 
@@ -41456,10 +46117,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -41482,16 +46144,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -41528,6 +46191,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -41632,6 +46307,7 @@ new RdsInstanceFreeLocalStorageAlarm(scope: Construct, id: string, props: RdsIns
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -41648,6 +46324,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyRemovalPolicy"></a>
 
@@ -41760,7 +46455,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceFreeLocalStorageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -41769,6 +46464,20 @@ RdsInstanceFreeLocalStorageAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.isConstruct.parameter.x"></a>
 
@@ -41883,10 +46592,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -41909,16 +46619,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -41955,6 +46666,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -42059,6 +46782,7 @@ new RdsInstanceFreeStorageSpaceAlarm(scope: Construct, id: string, props: RdsIns
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -42075,6 +46799,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyRemovalPolicy"></a>
 
@@ -42187,7 +46930,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceFreeStorageSpaceAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -42196,6 +46939,20 @@ RdsInstanceFreeStorageSpaceAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.isConstruct.parameter.x"></a>
 
@@ -42310,10 +47067,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -42336,16 +47094,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -42382,6 +47141,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -42487,6 +47258,7 @@ new RdsInstanceReadLatencyAlarm(scope: Construct, id: string, props: RdsInstance
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -42503,6 +47275,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyRemovalPolicy"></a>
 
@@ -42615,7 +47406,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceReadLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -42624,6 +47415,20 @@ RdsInstanceReadLatencyAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.isConstruct.parameter.x"></a>
 
@@ -42738,10 +47543,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -42764,16 +47570,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -42810,6 +47617,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -42911,6 +47730,7 @@ new RdsInstanceRecommendedAlarms(scope: Construct, id: string, props: RdsInstanc
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -42922,6 +47742,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -42930,7 +47771,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -42939,6 +47780,20 @@ RdsInstanceRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -43122,6 +47977,7 @@ new RdsInstanceWriteLatencyAlarm(scope: Construct, id: string, props: RdsInstanc
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -43138,6 +47994,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyRemovalPolicy"></a>
 
@@ -43250,7 +48125,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isConstruct"></a>
 
 ```typescript
 import { RdsInstanceWriteLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -43259,6 +48134,20 @@ RdsInstanceWriteLatencyAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.isConstruct.parameter.x"></a>
 
@@ -43373,10 +48262,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -43399,16 +48289,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -43445,6 +48336,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -43544,6 +48447,7 @@ new ReplicationInstance(scope: Construct, id: string, props: CfnReplicationInsta
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addDeletionOverride">addDeletionOverride</a></code> | Syntactic sugar for `addOverride(path, undefined)`. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addDependency">addDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
@@ -43576,6 +48480,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `overrideLogicalId` <a name="overrideLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.overrideLogicalId"></a>
 
@@ -43868,7 +48791,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): Stack | CfnResource[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -44034,10 +48957,11 @@ Creates the recommended alarms for the DMS Replication Instance.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isCfnElement">isCfnElement</a></code> | Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isCfnResource">isCfnResource</a></code> | Check whether the given object is a CfnResource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isCfnReplicationInstance">isCfnReplicationInstance</a></code> | Checks whether the given object is a CfnReplicationInstance. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isConstruct"></a>
 
 ```typescript
 import { ReplicationInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -44046,6 +48970,20 @@ ReplicationInstance.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isConstruct.parameter.x"></a>
 
@@ -44090,6 +49028,22 @@ Check whether the given object is a CfnResource.
 
 ---
 
+##### `isCfnReplicationInstance` <a name="isCfnReplicationInstance" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isCfnReplicationInstance"></a>
+
+```typescript
+import { ReplicationInstance } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ReplicationInstance.isCfnReplicationInstance(x: any)
+```
+
+Checks whether the given object is a CfnReplicationInstance.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.isCfnReplicationInstance.parameter.x"></a>
+
+- *Type:* any
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -44101,9 +49055,11 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.ref">ref</a></code> | <code>string</code> | Return a string that will be resolved to a CloudFormation `{ Ref }` for this element. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.attrId">attrId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.attrReplicationInstancePrivateIpAddresses">attrReplicationInstancePrivateIpAddresses</a></code> | <code>string</code> | One or more private IP addresses for the replication instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.attrReplicationInstancePublicIpAddresses">attrReplicationInstancePublicIpAddresses</a></code> | <code>string</code> | One or more public IP addresses for the replication instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.replicationInstanceRef">replicationInstanceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_dms.ReplicationInstanceReference</code> | A reference to a ReplicationInstance resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tag Manager which manages the tags for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.replicationInstanceClass">replicationInstanceClass</a></code> | <code>string</code> | The compute and memory capacity of the replication instance as defined for the specified replication instance class. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.allocatedStorage">allocatedStorage</a></code> | <code>number</code> | The amount of storage (in gigabytes) to be initially allocated for the replication instance. |
@@ -44112,7 +49068,7 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.availabilityZone">availabilityZone</a></code> | <code>string</code> | The Availability Zone that the replication instance will be created in. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.dnsNameServers">dnsNameServers</a></code> | <code>string</code> | A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.engineVersion">engineVersion</a></code> | <code>string</code> | The engine version number of the replication instance. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.kmsKeyId">kmsKeyId</a></code> | <code>string</code> | An AWS KMS key identifier that is used to encrypt the data on the replication instance. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.kmsKeyId">kmsKeyId</a></code> | <code>string</code> | An AWS  key identifier that is used to encrypt the data on the replication instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.multiAz">multiAz</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Specifies whether the replication instance is a Multi-AZ deployment. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.networkType">networkType</a></code> | <code>string</code> | The type of IP address protocol used by a replication instance, such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.preferredMaintenanceWindow">preferredMaintenanceWindow</a></code> | <code>string</code> | The weekly time range during which system maintenance can occur, in UTC. |
@@ -44217,6 +49173,16 @@ AWS resource type.
 
 ---
 
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+---
+
 ##### `attrId`<sup>Required</sup> <a name="attrId" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.attrId"></a>
 
 ```typescript
@@ -44248,6 +49214,18 @@ public readonly attrReplicationInstancePublicIpAddresses: string;
 - *Type:* string
 
 One or more public IP addresses for the replication instance.
+
+---
+
+##### `replicationInstanceRef`<sup>Required</sup> <a name="replicationInstanceRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.property.replicationInstanceRef"></a>
+
+```typescript
+public readonly replicationInstanceRef: ReplicationInstanceReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_dms.ReplicationInstanceReference
+
+A reference to a ReplicationInstance resource.
 
 ---
 
@@ -44355,7 +49333,7 @@ public readonly kmsKeyId: string;
 
 - *Type:* string
 
-An AWS KMS key identifier that is used to encrypt the data on the replication instance.
+An AWS  key identifier that is used to encrypt the data on the replication instance.
 
 ---
 
@@ -44532,6 +49510,7 @@ new ReplicationTask(scope: Construct, id: string, props: ReplicationTaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addDeletionOverride">addDeletionOverride</a></code> | Syntactic sugar for `addOverride(path, undefined)`. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addDependency">addDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
@@ -44561,6 +49540,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `overrideLogicalId` <a name="overrideLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.overrideLogicalId"></a>
 
@@ -44853,7 +49851,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): Stack | CfnResource[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -44977,10 +49975,11 @@ Creates the recommended alarms for the DMS Replication Task.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isCfnElement">isCfnElement</a></code> | Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isCfnResource">isCfnResource</a></code> | Check whether the given object is a CfnResource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isCfnReplicationTask">isCfnReplicationTask</a></code> | Checks whether the given object is a CfnReplicationTask. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isConstruct"></a>
 
 ```typescript
 import { ReplicationTask } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -44989,6 +49988,20 @@ ReplicationTask.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isConstruct.parameter.x"></a>
 
@@ -45033,6 +50046,22 @@ Check whether the given object is a CfnResource.
 
 ---
 
+##### `isCfnReplicationTask` <a name="isCfnReplicationTask" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isCfnReplicationTask"></a>
+
+```typescript
+import { ReplicationTask } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ReplicationTask.isCfnReplicationTask(x: any)
+```
+
+Checks whether the given object is a CfnReplicationTask.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.isCfnReplicationTask.parameter.x"></a>
+
+- *Type:* any
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -45044,7 +50073,9 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.ref">ref</a></code> | <code>string</code> | Return a string that will be resolved to a CloudFormation `{ Ref }` for this element. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.attrId">attrId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.replicationTaskRef">replicationTaskRef</a></code> | <code>aws-cdk-lib.interfaces.aws_dms.ReplicationTaskReference</code> | A reference to a ReplicationTask resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tag Manager which manages the tags for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.migrationType">migrationType</a></code> | <code>string</code> | The migration type. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.replicationInstanceArn">replicationInstanceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of a replication instance. |
@@ -45155,6 +50186,16 @@ AWS resource type.
 
 ---
 
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+---
+
 ##### `attrId`<sup>Required</sup> <a name="attrId" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.attrId"></a>
 
 ```typescript
@@ -45162,6 +50203,18 @@ public readonly attrId: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `replicationTaskRef`<sup>Required</sup> <a name="replicationTaskRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.property.replicationTaskRef"></a>
+
+```typescript
+public readonly replicationTaskRef: ReplicationTaskReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_dms.ReplicationTaskReference
+
+A reference to a ReplicationTask resource.
 
 ---
 
@@ -45406,6 +50459,7 @@ new RestApi(scope: Construct, id: string, props: RestApiBaseProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addApiKey">addApiKey</a></code> | Add an ApiKey to the deploymentStage. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addDomainName">addDomainName</a></code> | Defines an API Gateway domain name and maps it to this API. |
@@ -45440,6 +50494,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.applyRemovalPolicy"></a>
 
@@ -45886,7 +50959,7 @@ Creates the recommended alarms for the ApiGateway api.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.isConstruct"></a>
 
 ```typescript
 import { RestApi } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -45895,6 +50968,20 @@ RestApi.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.isConstruct.parameter.x"></a>
 
@@ -46013,10 +51100,11 @@ Return whether the given object is a `RestApi`.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.restApiId">restApiId</a></code> | <code>string</code> | The ID of this API Gateway RestApi. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.restApiName">restApiName</a></code> | <code>string</code> | A human friendly name for this Rest API. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.restApiRef">restApiRef</a></code> | <code>aws-cdk-lib.interfaces.aws_apigateway.RestApiReference</code> | A reference to a RestApi resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.restApiRootResourceId">restApiRootResourceId</a></code> | <code>string</code> | The resource ID of the root resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.root">root</a></code> | <code>aws-cdk-lib.aws_apigateway.IResource</code> | Represents the root resource of this API endpoint ('/'). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.url">url</a></code> | <code>string</code> | The deployed root URL of this REST API. |
@@ -46045,16 +51133,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -46093,6 +51182,18 @@ public readonly restApiName: string;
 A human friendly name for this Rest API.
 
 Note that this is different from `restApiId`.
+
+---
+
+##### `restApiRef`<sup>Required</sup> <a name="restApiRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.property.restApiRef"></a>
+
+```typescript
+public readonly restApiRef: RestApiReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_apigateway.RestApiReference
+
+A reference to a RestApi resource.
 
 ---
 
@@ -46257,6 +51358,7 @@ new S3Bucket4xxErrorsAlarm(scope: IConstruct, id: string, props: S3Bucket4xxErro
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -46273,6 +51375,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.applyRemovalPolicy"></a>
 
@@ -46385,7 +51506,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.isConstruct"></a>
 
 ```typescript
 import { S3Bucket4xxErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -46394,6 +51515,20 @@ S3Bucket4xxErrorsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.isConstruct.parameter.x"></a>
 
@@ -46508,10 +51643,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -46534,16 +51670,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -46580,6 +51717,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -46684,6 +51833,7 @@ new S3Bucket5xxErrorsAlarm(scope: IConstruct, id: string, props: S3Bucket5xxErro
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -46700,6 +51850,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.applyRemovalPolicy"></a>
 
@@ -46812,7 +51981,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.isConstruct"></a>
 
 ```typescript
 import { S3Bucket5xxErrorsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -46821,6 +51990,20 @@ S3Bucket5xxErrorsAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.isConstruct.parameter.x"></a>
 
@@ -46935,10 +52118,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -46961,16 +52145,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -47007,6 +52192,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -47108,6 +52305,7 @@ new S3RecommendedAlarms(scope: Construct, id: string, props: S3RecommendedAlarms
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -47119,6 +52317,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -47127,7 +52346,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { S3RecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -47136,6 +52355,20 @@ S3RecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -47243,6 +52476,7 @@ new SfStateMachineExecutionsFailedAlarm(scope: IConstruct, id: string, props: Sf
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -47259,6 +52493,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyRemovalPolicy"></a>
 
@@ -47371,7 +52624,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isConstruct"></a>
 
 ```typescript
 import { SfStateMachineExecutionsFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -47380,6 +52633,20 @@ SfStateMachineExecutionsFailedAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.isConstruct.parameter.x"></a>
 
@@ -47494,10 +52761,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -47520,16 +52788,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -47566,6 +52835,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -47669,6 +52950,7 @@ new SfStateMachineExecutionsTimedOutAlarm(scope: IConstruct, id: string, props: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -47685,6 +52967,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyRemovalPolicy"></a>
 
@@ -47797,7 +53098,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isConstruct"></a>
 
 ```typescript
 import { SfStateMachineExecutionsTimedOutAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -47806,6 +53107,20 @@ SfStateMachineExecutionsTimedOutAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.isConstruct.parameter.x"></a>
 
@@ -47920,10 +53235,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -47946,16 +53262,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -47992,6 +53309,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -48096,6 +53425,7 @@ new SfStateMachineExecutionThrottledAlarm(scope: IConstruct, id: string, props: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -48112,6 +53442,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyRemovalPolicy"></a>
 
@@ -48224,7 +53573,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isConstruct"></a>
 
 ```typescript
 import { SfStateMachineExecutionThrottledAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -48233,6 +53582,20 @@ SfStateMachineExecutionThrottledAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.isConstruct.parameter.x"></a>
 
@@ -48347,10 +53710,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -48373,16 +53737,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -48419,6 +53784,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -48522,6 +53899,7 @@ new SfStateMachineExecutionTimeAlarm(scope: IConstruct, id: string, props: SfSta
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -48538,6 +53916,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyRemovalPolicy"></a>
 
@@ -48650,7 +54047,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isConstruct"></a>
 
 ```typescript
 import { SfStateMachineExecutionTimeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -48659,6 +54056,20 @@ SfStateMachineExecutionTimeAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.isConstruct.parameter.x"></a>
 
@@ -48773,10 +54184,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -48799,16 +54211,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -48845,6 +54258,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -48944,6 +54369,7 @@ new SfStateMachineRecommendedAlarms(scope: Construct, id: string, props: SfState
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -48955,6 +54381,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -48963,7 +54410,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { SfStateMachineRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -48972,6 +54419,20 @@ SfStateMachineRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -49107,6 +54568,7 @@ new SnsNumberOfMessagesPublishedAlarm(scope: IConstruct, id: string, props: SnsN
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -49123,6 +54585,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.applyRemovalPolicy"></a>
 
@@ -49235,7 +54716,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.isConstruct"></a>
 
 ```typescript
 import { SnsNumberOfMessagesPublishedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -49244,6 +54725,20 @@ SnsNumberOfMessagesPublishedAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.isConstruct.parameter.x"></a>
 
@@ -49358,10 +54853,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -49384,16 +54880,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -49430,6 +54927,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -49536,6 +55045,7 @@ new SnsNumberOfNotificationsDeliveredAlarm(scope: IConstruct, id: string, props:
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -49552,6 +55062,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.applyRemovalPolicy"></a>
 
@@ -49664,7 +55193,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.isConstruct"></a>
 
 ```typescript
 import { SnsNumberOfNotificationsDeliveredAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -49673,6 +55202,20 @@ SnsNumberOfNotificationsDeliveredAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.isConstruct.parameter.x"></a>
 
@@ -49787,10 +55330,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -49813,16 +55357,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -49859,6 +55404,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -49964,6 +55521,7 @@ new SnsNumberOfNotificationsFailedAlarm(scope: IConstruct, id: string, props: Sn
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -49980,6 +55538,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.applyRemovalPolicy"></a>
 
@@ -50092,7 +55669,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.isConstruct"></a>
 
 ```typescript
 import { SnsNumberOfNotificationsFailedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -50101,6 +55678,20 @@ SnsNumberOfNotificationsFailedAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.isConstruct.parameter.x"></a>
 
@@ -50215,10 +55806,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -50241,16 +55833,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -50287,6 +55880,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -50392,6 +55997,7 @@ new SnsNumberOfNotificationsFailedToRedriveToDlqAlarm(scope: IConstruct, id: str
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -50408,6 +56014,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.applyRemovalPolicy"></a>
 
@@ -50520,7 +56145,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.isConstruct"></a>
 
 ```typescript
 import { SnsNumberOfNotificationsFailedToRedriveToDlqAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -50529,6 +56154,20 @@ SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.isConstruct.parameter.x"></a>
 
@@ -50643,10 +56282,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -50669,16 +56309,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -50715,6 +56356,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -50820,6 +56473,7 @@ new SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm(scope: IConstruct,
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -50836,6 +56490,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.applyRemovalPolicy"></a>
 
@@ -50948,7 +56621,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.isConstruct"></a>
 
 ```typescript
 import { SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -50957,6 +56630,20 @@ SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.isConstruct.parameter.x"></a>
 
@@ -51071,10 +56758,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -51097,16 +56785,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -51143,6 +56832,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -51248,6 +56949,7 @@ new SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm(scope: IConstruct
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -51264,6 +56966,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.applyRemovalPolicy"></a>
 
@@ -51376,7 +57097,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.isConstruct"></a>
 
 ```typescript
 import { SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -51385,6 +57106,20 @@ SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.isConstruct.parameter.x"></a>
 
@@ -51499,10 +57234,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -51525,16 +57261,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -51571,6 +57308,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -51677,6 +57426,7 @@ new SnsNumberOfNotificationsRedrivenToDlqAlarm(scope: IConstruct, id: string, pr
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -51693,6 +57443,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.applyRemovalPolicy"></a>
 
@@ -51805,7 +57574,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.isConstruct"></a>
 
 ```typescript
 import { SnsNumberOfNotificationsRedrivenToDlqAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -51814,6 +57583,20 @@ SnsNumberOfNotificationsRedrivenToDlqAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.isConstruct.parameter.x"></a>
 
@@ -51928,10 +57711,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -51954,16 +57738,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -52000,6 +57785,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -52101,6 +57898,7 @@ new SnsRecommendedAlarms(scope: Construct, id: string, props: SnsRecommendedAlar
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -52112,6 +57910,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -52120,7 +57939,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { SnsRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -52129,6 +57948,20 @@ SnsRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -52302,6 +58135,7 @@ new SqsApproximateAgeOfOldestMessageAlarm(scope: IConstruct, id: string, props: 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -52318,6 +58152,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.applyRemovalPolicy"></a>
 
@@ -52430,7 +58283,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.isConstruct"></a>
 
 ```typescript
 import { SqsApproximateAgeOfOldestMessageAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -52439,6 +58292,20 @@ SqsApproximateAgeOfOldestMessageAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.isConstruct.parameter.x"></a>
 
@@ -52553,10 +58420,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -52579,16 +58447,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -52625,6 +58494,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -52739,6 +58620,7 @@ new SqsApproximateNumberOfMessagesNotVisibleAlarm(scope: IConstruct, id: string,
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -52755,6 +58637,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.applyRemovalPolicy"></a>
 
@@ -52867,7 +58768,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.isConstruct"></a>
 
 ```typescript
 import { SqsApproximateNumberOfMessagesNotVisibleAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -52876,6 +58777,20 @@ SqsApproximateNumberOfMessagesNotVisibleAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.isConstruct.parameter.x"></a>
 
@@ -52990,10 +58905,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -53016,16 +58932,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -53062,6 +58979,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -53170,6 +59099,7 @@ new SqsApproximateNumberOfMessagesVisibleAlarm(scope: IConstruct, id: string, pr
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -53186,6 +59116,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.applyRemovalPolicy"></a>
 
@@ -53298,7 +59247,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.isConstruct"></a>
 
 ```typescript
 import { SqsApproximateNumberOfMessagesVisibleAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -53307,6 +59256,20 @@ SqsApproximateNumberOfMessagesVisibleAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.isConstruct.parameter.x"></a>
 
@@ -53421,10 +59384,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -53447,16 +59411,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -53493,6 +59458,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -53597,6 +59574,7 @@ new SqsNumberOfMessagesSentAlarm(scope: IConstruct, id: string, props: SqsNumber
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -53613,6 +59591,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.applyRemovalPolicy"></a>
 
@@ -53725,7 +59722,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.isConstruct"></a>
 
 ```typescript
 import { SqsNumberOfMessagesSentAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -53734,6 +59731,20 @@ SqsNumberOfMessagesSentAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.isConstruct.parameter.x"></a>
 
@@ -53848,10 +59859,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -53874,16 +59886,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -53920,6 +59933,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 
@@ -54017,6 +60042,7 @@ new SqsRecommendedAlarms(scope: Construct, id: string, props: SqsRecommendedAlar
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -54028,6 +60054,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -54036,7 +60083,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { SqsRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -54045,6 +60092,20 @@ SqsRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -54170,6 +60231,7 @@ new StateMachine(scope: Construct, id: string, props: StateMachineProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy">addToRolePolicy</a></code> | Add the given statement to the role's policy. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant">grant</a></code> | Grant the given identity custom permissions. |
@@ -54202,6 +60264,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy"></a>
 
@@ -54247,6 +60328,8 @@ public grant(identity: IGrantable, actions: ...string[]): Grant
 
 Grant the given identity custom permissions.
 
+[disable-awslint:no-grants]
+
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant.parameter.identity"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -54266,6 +60349,10 @@ public grantExecution(identity: IGrantable, actions: ...string[]): Grant
 ```
 
 Grant the given identity permissions on all executions of the state machine.
+
+The use of this method is discouraged. Please use `grants.execution()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantExecution.parameter.identity"></a>
 
@@ -54287,6 +60374,10 @@ public grantRead(identity: IGrantable): Grant
 
 Grant the given identity permissions to read results from state machine.
 
+The use of this method is discouraged. Please use `grants.read()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRead.parameter.identity"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -54300,6 +60391,10 @@ public grantRedriveExecution(identity: IGrantable): Grant
 ```
 
 Grant the given identity permission to redrive the execution of the state machine.
+
+The use of this method is discouraged. Please use `grants.redriveExecution()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantRedriveExecution.parameter.identity"></a>
 
@@ -54315,6 +60410,10 @@ public grantStartExecution(identity: IGrantable): Grant
 
 Grant the given identity permissions to start an execution of this state machine.
 
+The use of this method is discouraged. Please use `grants.startExecution()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartExecution.parameter.identity"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -54329,6 +60428,10 @@ public grantStartSyncExecution(identity: IGrantable): Grant
 
 Grant the given identity permissions to start a synchronous execution of this state machine.
 
+The use of this method is discouraged. Please use `grants.startSyncExecution()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantStartSyncExecution.parameter.identity"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -54342,6 +60445,10 @@ public grantTaskResponse(identity: IGrantable): Grant
 ```
 
 Grant the given identity task response permissions on a state machine.
+
+The use of this method is discouraged. Please use `grants.taskResponse()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grantTaskResponse.parameter.identity"></a>
 
@@ -54549,7 +60656,7 @@ Creates the recommended alarms for the StepFunctions StateMachine.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct"></a>
 
 ```typescript
 import { StateMachine } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -54558,6 +60665,20 @@ StateMachine.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.isConstruct.parameter.x"></a>
 
@@ -54660,14 +60781,16 @@ Import a state machine via resource name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal this state machine is running as. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | Execution role of this state machine. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineArn">stateMachineArn</a></code> | <code>string</code> | The ARN of the state machine. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineName">stateMachineName</a></code> | <code>string</code> | The name of the state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRef">stateMachineRef</a></code> | <code>aws-cdk-lib.interfaces.aws_stepfunctions.StateMachineReference</code> | A reference to a StateMachine resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRevisionId">stateMachineRevisionId</a></code> | <code>string</code> | Identifier for the state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineType">stateMachineType</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachineType</code> | Type of the state machine. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachineGrants</code> | Collection of grant methods for a StateMachine. |
 
 ---
 
@@ -54689,16 +60812,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -54762,6 +60886,18 @@ The name of the state machine.
 
 ---
 
+##### `stateMachineRef`<sup>Required</sup> <a name="stateMachineRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRef"></a>
+
+```typescript
+public readonly stateMachineRef: StateMachineReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_stepfunctions.StateMachineReference
+
+A reference to a StateMachine resource.
+
+---
+
 ##### `stateMachineRevisionId`<sup>Required</sup> <a name="stateMachineRevisionId" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.stateMachineRevisionId"></a>
 
 ```typescript
@@ -54783,6 +60919,18 @@ public readonly stateMachineType: StateMachineType;
 - *Type:* aws-cdk-lib.aws_stepfunctions.StateMachineType
 
 Type of the state machine.
+
+---
+
+##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.property.grants"></a>
+
+```typescript
+public readonly grants: StateMachineGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachineGrants
+
+Collection of grant methods for a StateMachine.
 
 ---
 
@@ -54849,10 +60997,12 @@ new Table(scope: Construct, id: string, props: TableProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this file system. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this table. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant">grant</a></code> | Adds an IAM policy statement associated with this table to an IAM principal's policy. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantFullAccess">grantFullAccess</a></code> | Permits all DynamoDB operations ("dynamodb:*") to an IAM principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantOnKey">grantOnKey</a></code> | Gives permissions to a grantable entity to perform actions on the encryption key. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadData">grantReadData</a></code> | Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan, DescribeTable. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadWriteData">grantReadWriteData</a></code> | Permits an IAM principal to all data read/write operations to this table. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStream">grantStream</a></code> | Adds an IAM policy statement associated with this table's stream to an IAM principal's policy. |
@@ -54877,6 +61027,7 @@ new Table(scope: Construct, id: string, props: TableProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleReadCapacity">autoScaleReadCapacity</a></code> | Enable read capacity scaling for this table. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.autoScaleWriteCapacity">autoScaleWriteCapacity</a></code> | Enable write capacity scaling for this table. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.schema">schema</a></code> | Get schema attributes of table or index. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.schemaV2">schemaV2</a></code> | Get schema attributes of table or index. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmAgeOfOldestUnreplicatedRecord">alarmAgeOfOldestUnreplicatedRecord</a></code> | Creates an alarm that monitors the AgeOfOldestUnreplicatedRecord for the DynamoDb table. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmFailedToReplicateRecordCount">alarmFailedToReplicateRecordCount</a></code> | Creates an alarm that monitors the FailedToReplicateRecordCount for the DynamoDb table. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.alarmReadThrottleEvents">alarmReadThrottleEvents</a></code> | Creates an alarm that monitors the ReadThrottleEvents for the DynamoDb table. |
@@ -54894,6 +61045,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRemovalPolicy"></a>
 
@@ -54923,11 +61093,11 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 public addToResourcePolicy(statement: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy associated with this file system.
+Adds a statement to the resource policy associated with this table.
 
 A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
 
-Note that this does not work with imported file systems.
+Note that this does not work with imported tables.
 
 ###### `statement`<sup>Required</sup> <a name="statement" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.addToResourcePolicy.parameter.statement"></a>
 
@@ -54947,6 +61117,7 @@ Adds an IAM policy statement associated with this table to an IAM principal's po
 
 If `encryptionKey` is present, appropriate grants to the key needs to be added
 separately using the `table.encryptionKey.grant*` methods.
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant.parameter.grantee"></a>
 
@@ -54975,11 +61146,36 @@ Permits all DynamoDB operations ("dynamodb:*") to an IAM principal.
 Appropriate grants will also be added to the customer-managed KMS key
 if one was configured.
 
+
+The use of this method is discouraged. Please use `grants.fullAccess()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantFullAccess.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
 
 The principal to grant access to.
+
+---
+
+##### `grantOnKey` <a name="grantOnKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantOnKey"></a>
+
+```typescript
+public grantOnKey(grantee: IGrantable, actions: ...string[]): GrantOnKeyResult
+```
+
+Gives permissions to a grantable entity to perform actions on the encryption key.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantOnKey.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantOnKey.parameter.actions"></a>
+
+- *Type:* ...string[]
 
 ---
 
@@ -54993,6 +61189,11 @@ Permits an IAM principal all data read operations from this table: BatchGetItem,
 
 Appropriate grants will also be added to the customer-managed KMS key
 if one was configured.
+
+
+The use of this method is discouraged. Please use `grants.readData()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadData.parameter.grantee"></a>
 
@@ -55016,6 +61217,11 @@ BatchWriteItem, PutItem, UpdateItem, DeleteItem, DescribeTable
 Appropriate grants will also be added to the customer-managed KMS key
 if one was configured.
 
+
+The use of this method is discouraged. Please use `grants.readWriteData()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantReadWriteData.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -55034,6 +61240,11 @@ Adds an IAM policy statement associated with this table's stream to an IAM princ
 
 If `encryptionKey` is present, appropriate grants to the key needs to be added
 separately using the `table.encryptionKey.grant*` methods.
+
+
+The use of this method is discouraged. Please use `streamGrants.stream()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStream.parameter.grantee"></a>
 
@@ -55062,6 +61273,11 @@ Permits an IAM principal all stream data read operations for this table's stream
 Appropriate grants will also be added to the customer-managed KMS key
 if one was configured.
 
+
+The use of this method is discouraged. Please use `streamGrants.streamRead()` instead.
+
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantStreamRead.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -55077,6 +61293,10 @@ public grantTableListStreams(grantee: IGrantable): Grant
 ```
 
 Permits an IAM Principal to list streams attached to current dynamodb table.
+
+The use of this method is discouraged. Please use `streamGrants.tableListStreams()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantTableListStreams.parameter.grantee"></a>
 
@@ -55096,6 +61316,11 @@ Permits an IAM principal all data write operations to this table: BatchWriteItem
 
 Appropriate grants will also be added to the customer-managed KMS key
 if one was configured.
+
+
+The use of this method is discouraged. Please use `grants.writeData()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.grantWriteData.parameter.grantee"></a>
 
@@ -55404,7 +61629,7 @@ Enable write capacity scaling for this table.
 
 ---
 
-##### `schema` <a name="schema" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.schema"></a>
+##### ~~`schema`~~ <a name="schema" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.schema"></a>
 
 ```typescript
 public schema(indexName?: string): SchemaOptions
@@ -55413,6 +61638,20 @@ public schema(indexName?: string): SchemaOptions
 Get schema attributes of table or index.
 
 ###### `indexName`<sup>Optional</sup> <a name="indexName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.schema.parameter.indexName"></a>
+
+- *Type:* string
+
+---
+
+##### `schemaV2` <a name="schemaV2" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.schemaV2"></a>
+
+```typescript
+public schemaV2(indexName?: string): KeySchema
+```
+
+Get schema attributes of table or index.
+
+###### `indexName`<sup>Optional</sup> <a name="indexName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.schemaV2.parameter.indexName"></a>
 
 - *Type:* string
 
@@ -55531,7 +61770,7 @@ Creates the recommended alarms for the DynamoDb Table.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isConstruct"></a>
 
 ```typescript
 import { Table } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -55540,6 +61779,20 @@ Table.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.isConstruct.parameter.x"></a>
 
@@ -55688,11 +61941,15 @@ The table's name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_dynamodb.TableGrants</code> | Grant a predefined set of permissions on this Table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.streamGrants">streamGrants</a></code> | <code>aws-cdk-lib.aws_dynamodb.StreamGrants</code> | Grant a predefined set of permissions on this Table's Stream, if present. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableArn">tableArn</a></code> | <code>string</code> | Arn of the dynamodb table. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableName">tableName</a></code> | <code>string</code> | Table name of the dynamodb table. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableRef">tableRef</a></code> | <code>aws-cdk-lib.interfaces.aws_dynamodb.TableReference</code> | A reference to a Table resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | KMS encryption key, if this table uses a customer-managed encryption key. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.regions">regions</a></code> | <code>string[]</code> | Additional regions other than the main one that this table is replicated to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableStreamArn">tableStreamArn</a></code> | <code>string</code> | ARN of the table's stream, if there is one. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.resourcePolicy">resourcePolicy</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | Resource policy to assign to DynamoDB Table. |
 
@@ -55716,16 +61973,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -55738,6 +61996,32 @@ public readonly stack: Stack;
 - *Type:* aws-cdk-lib.Stack
 
 The stack in which this resource is defined.
+
+---
+
+##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.grants"></a>
+
+```typescript
+public readonly grants: TableGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.TableGrants
+
+Grant a predefined set of permissions on this Table.
+
+---
+
+##### `streamGrants`<sup>Required</sup> <a name="streamGrants" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.streamGrants"></a>
+
+```typescript
+public readonly streamGrants: StreamGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_dynamodb.StreamGrants
+
+Grant a predefined set of permissions on this Table's Stream, if present.
+
+Will throw if the Table has not been configured for streaming.
 
 ---
 
@@ -55765,6 +62049,18 @@ Table name of the dynamodb table.
 
 ---
 
+##### `tableRef`<sup>Required</sup> <a name="tableRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.tableRef"></a>
+
+```typescript
+public readonly tableRef: TableReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_dynamodb.TableReference
+
+A reference to a Table resource.
+
+---
+
 ##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.encryptionKey"></a>
 
 ```typescript
@@ -55774,6 +62070,18 @@ public readonly encryptionKey: IKey;
 - *Type:* aws-cdk-lib.aws_kms.IKey
 
 KMS encryption key, if this table uses a customer-managed encryption key.
+
+---
+
+##### `regions`<sup>Optional</sup> <a name="regions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.property.regions"></a>
+
+```typescript
+public readonly regions: string[];
+```
+
+- *Type:* string[]
+
+Additional regions other than the main one that this table is replicated to.
 
 ---
 
@@ -55867,10 +62175,12 @@ new Topic(scope: Construct, id: string, props?: TopicProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.addSubscription">addSubscription</a></code> | Subscribe some endpoint to this topic. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the IAM resource policy associated with this topic. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.bindAsNotificationRuleTarget">bindAsNotificationRuleTarget</a></code> | Represents a notification target That allows SNS topic to associate with this rule target. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantOnKey">grantOnKey</a></code> | Gives permissions to a grantable entity to perform actions on the encryption key. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantPublish">grantPublish</a></code> | Grant topic publishing permissions to the given identity. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantSubscribe">grantSubscribe</a></code> | Grant topic subscribing permissions to the given identity. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.metric">metric</a></code> | Return the given named metric for this Topic. |
@@ -55902,6 +62212,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.applyRemovalPolicy"></a>
 
@@ -55974,6 +62303,26 @@ Represents a notification target That allows SNS topic to associate with this ru
 
 ---
 
+##### `grantOnKey` <a name="grantOnKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantOnKey"></a>
+
+```typescript
+public grantOnKey(grantee: IGrantable, actions: ...string[]): GrantOnKeyResult
+```
+
+Gives permissions to a grantable entity to perform actions on the encryption key.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantOnKey.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantOnKey.parameter.actions"></a>
+
+- *Type:* ...string[]
+
+---
+
 ##### `grantPublish` <a name="grantPublish" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantPublish"></a>
 
 ```typescript
@@ -55981,6 +62330,10 @@ public grantPublish(grantee: IGrantable): Grant
 ```
 
 Grant topic publishing permissions to the given identity.
+
+The use of this method is discouraged. Please use `grants.publish()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantPublish.parameter.grantee"></a>
 
@@ -55995,6 +62348,10 @@ public grantSubscribe(grantee: IGrantable): Grant
 ```
 
 Grant topic subscribing permissions to the given identity.
+
+The use of this method is discouraged. Please use `grants.subscribe()` instead.
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.grantSubscribe.parameter.grantee"></a>
 
@@ -56306,7 +62663,7 @@ Creates recommended alarms for the SNS topic.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.isConstruct"></a>
 
 ```typescript
 import { Topic } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -56315,6 +62672,20 @@ Topic.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.isConstruct.parameter.x"></a>
 
@@ -56429,12 +62800,14 @@ the attributes of the topic to import.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.contentBasedDeduplication">contentBasedDeduplication</a></code> | <code>boolean</code> | Enables content-based deduplication for FIFO topics. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.fifo">fifo</a></code> | <code>boolean</code> | Whether this topic is an Amazon SNS FIFO queue. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_sns.TopicGrants</code> | Collection of grant methods for a Topic. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.topicArn">topicArn</a></code> | <code>string</code> | The ARN of the topic. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.topicName">topicName</a></code> | <code>string</code> | The name of the topic. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.topicRef">topicRef</a></code> | <code>aws-cdk-lib.interfaces.aws_sns.TopicReference</code> | A reference to a Topic resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.masterKey">masterKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | A KMS Key, either managed by this CDK app, or imported. |
 
 ---
@@ -56457,16 +62830,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -56508,6 +62882,18 @@ If false, this is a standard topic.
 
 ---
 
+##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.grants"></a>
+
+```typescript
+public readonly grants: TopicGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_sns.TopicGrants
+
+Collection of grant methods for a Topic.
+
+---
+
 ##### `topicArn`<sup>Required</sup> <a name="topicArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.topicArn"></a>
 
 ```typescript
@@ -56529,6 +62915,18 @@ public readonly topicName: string;
 - *Type:* string
 
 The name of the topic.
+
+---
+
+##### `topicRef`<sup>Required</sup> <a name="topicRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.property.topicRef"></a>
+
+```typescript
+public readonly topicRef: TopicReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_sns.TopicReference
+
+A reference to a Topic resource.
 
 ---
 
@@ -56609,6 +63007,7 @@ new VpcEndpointService(scope: Construct, id: string, props: VpcEndpointServicePr
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.alarmRstPacketsSent">alarmRstPacketsSent</a></code> | Creates an alarm that monitors the RstPacketsSent for the PrivateLink endpoint. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the PrivateLink VpcEndpointService. |
@@ -56622,6 +63021,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRemovalPolicy"></a>
 
@@ -56685,7 +63103,7 @@ Creates the recommended alarms for the PrivateLink VpcEndpointService.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isConstruct"></a>
 
 ```typescript
 import { VpcEndpointService } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -56694,6 +63112,20 @@ VpcEndpointService.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.isConstruct.parameter.x"></a>
 
@@ -56740,13 +63172,14 @@ Check whether the given construct is a Resource.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.acceptanceRequired">acceptanceRequired</a></code> | <code>boolean</code> | Whether to require manual acceptance of new connections to the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.allowedPrincipals">allowedPrincipals</a></code> | <code>aws-cdk-lib.aws_iam.ArnPrincipal[]</code> | One or more Principal ARNs to allow inbound connections to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceId">vpcEndpointServiceId</a></code> | <code>string</code> | The id of the VPC Endpoint Service, like vpce-svc-xxxxxxxxxxxxxxxx. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceLoadBalancers">vpcEndpointServiceLoadBalancers</a></code> | <code>aws-cdk-lib.aws_ec2.IVpcEndpointServiceLoadBalancer[]</code> | One or more network load balancers to host the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceName">vpcEndpointServiceName</a></code> | <code>string</code> | The service name of the VPC Endpoint Service that clients use to connect to, like com.amazonaws.vpce.<region>.vpce-svc-xxxxxxxxxxxxxxxx. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceRef">vpcEndpointServiceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.VPCEndpointServiceReference</code> | A reference to a VPCEndpointService resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.contributorInsightsEnabled">contributorInsightsEnabled</a></code> | <code>boolean</code> | Whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink. |
 
 ---
@@ -56769,16 +63202,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -56851,6 +63285,18 @@ public readonly vpcEndpointServiceName: string;
 - *Type:* string
 
 The service name of the VPC Endpoint Service that clients use to connect to, like com.amazonaws.vpce.<region>.vpce-svc-xxxxxxxxxxxxxxxx.
+
+---
+
+##### `vpcEndpointServiceRef`<sup>Required</sup> <a name="vpcEndpointServiceRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.property.vpcEndpointServiceRef"></a>
+
+```typescript
+public readonly vpcEndpointServiceRef: VPCEndpointServiceReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.VPCEndpointServiceReference
+
+A reference to a VPCEndpointService resource.
 
 ---
 
@@ -56942,6 +63388,7 @@ new VpnConnection(scope: Construct, id: string, props: CfnVPNConnectionProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addDeletionOverride">addDeletionOverride</a></code> | Syntactic sugar for `addOverride(path, undefined)`. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addDependency">addDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
@@ -56970,6 +63417,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `overrideLogicalId` <a name="overrideLogicalId" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.overrideLogicalId"></a>
 
@@ -57262,7 +63728,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): Stack | CfnResource[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -57372,10 +63838,13 @@ Creates the recommended alarms for the VpnConnection.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isCfnElement">isCfnElement</a></code> | Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isCfnResource">isCfnResource</a></code> | Check whether the given object is a CfnResource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.arnForVPNConnection">arnForVPNConnection</a></code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.fromVpnConnectionId">fromVpnConnectionId</a></code> | Creates a new IVPNConnectionRef from a vpnConnectionId. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isCfnVPNConnection">isCfnVPNConnection</a></code> | Checks whether the given object is a CfnVPNConnection. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isConstruct"></a>
 
 ```typescript
 import { VpnConnection } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -57384,6 +63853,20 @@ VpnConnection.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isConstruct.parameter.x"></a>
 
@@ -57428,6 +63911,64 @@ Check whether the given object is a CfnResource.
 
 ---
 
+##### `arnForVPNConnection` <a name="arnForVPNConnection" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.arnForVPNConnection"></a>
+
+```typescript
+import { VpnConnection } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+VpnConnection.arnForVPNConnection(resource: IVPNConnectionRef)
+```
+
+###### `resource`<sup>Required</sup> <a name="resource" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.arnForVPNConnection.parameter.resource"></a>
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.IVPNConnectionRef
+
+---
+
+##### `fromVpnConnectionId` <a name="fromVpnConnectionId" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.fromVpnConnectionId"></a>
+
+```typescript
+import { VpnConnection } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+VpnConnection.fromVpnConnectionId(scope: Construct, id: string, vpnConnectionId: string)
+```
+
+Creates a new IVPNConnectionRef from a vpnConnectionId.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.fromVpnConnectionId.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.fromVpnConnectionId.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `vpnConnectionId`<sup>Required</sup> <a name="vpnConnectionId" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.fromVpnConnectionId.parameter.vpnConnectionId"></a>
+
+- *Type:* string
+
+---
+
+##### `isCfnVPNConnection` <a name="isCfnVPNConnection" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isCfnVPNConnection"></a>
+
+```typescript
+import { VpnConnection } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+VpnConnection.isCfnVPNConnection(x: any)
+```
+
+Checks whether the given object is a CfnVPNConnection.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.isCfnVPNConnection.parameter.x"></a>
+
+- *Type:* any
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -57439,21 +63980,26 @@ Check whether the given object is a CfnResource.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.ref">ref</a></code> | <code>string</code> | Return a string that will be resolved to a CloudFormation `{ Ref }` for this element. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.attrVpnConnectionId">attrVpnConnectionId</a></code> | <code>string</code> | The ID of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tag Manager which manages the tags for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.vpnConnectionRef">vpnConnectionRef</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.VPNConnectionReference</code> | A reference to a VPNConnection resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.customerGatewayId">customerGatewayId</a></code> | <code>string</code> | The ID of the customer gateway at your end of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.type">type</a></code> | <code>string</code> | The type of VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.enableAcceleration">enableAcceleration</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Indicate whether to enable acceleration for the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.localIpv4NetworkCidr">localIpv4NetworkCidr</a></code> | <code>string</code> | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.localIpv6NetworkCidr">localIpv6NetworkCidr</a></code> | <code>string</code> | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.outsideIpAddressType">outsideIpAddressType</a></code> | <code>string</code> | The type of IP address assigned to the outside interface of the customer gateway device. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.preSharedKeyStorage">preSharedKeyStorage</a></code> | <code>string</code> | Describes the storage location for an instance store-backed AMI. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.remoteIpv4NetworkCidr">remoteIpv4NetworkCidr</a></code> | <code>string</code> | The IPv4 CIDR on the AWS side of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.remoteIpv6NetworkCidr">remoteIpv6NetworkCidr</a></code> | <code>string</code> | The IPv6 CIDR on the AWS side of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.staticRoutesOnly">staticRoutesOnly</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Indicates whether the VPN connection uses static routes only. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.tagsRaw">tagsRaw</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | Any tags assigned to the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.transitGatewayId">transitGatewayId</a></code> | <code>string</code> | The ID of the transit gateway associated with the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.transportTransitGatewayAttachmentId">transportTransitGatewayAttachmentId</a></code> | <code>string</code> | The transit gateway attachment ID to use for the VPN tunnel. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.tunnelBandwidth">tunnelBandwidth</a></code> | <code>string</code> | The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.tunnelInsideIpVersion">tunnelInsideIpVersion</a></code> | <code>string</code> | Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.vpnConcentratorId">vpnConcentratorId</a></code> | <code>string</code> | The ID of the VPN concentrator to associate with the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | The ID of the virtual private gateway at the AWS side of the VPN connection. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.vpnTunnelOptionsSpecifications">vpnTunnelOptionsSpecifications</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_ec2.CfnVPNConnection.VpnTunnelOptionsSpecificationProperty[]</code> | The tunnel options for the VPN connection. |
 
@@ -57551,6 +64097,16 @@ AWS resource type.
 
 ---
 
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+---
+
 ##### `attrVpnConnectionId`<sup>Required</sup> <a name="attrVpnConnectionId" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.attrVpnConnectionId"></a>
 
 ```typescript
@@ -57572,6 +64128,18 @@ public readonly tags: TagManager;
 - *Type:* aws-cdk-lib.TagManager
 
 Tag Manager which manages the tags for this resource.
+
+---
+
+##### `vpnConnectionRef`<sup>Required</sup> <a name="vpnConnectionRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.vpnConnectionRef"></a>
+
+```typescript
+public readonly vpnConnectionRef: VPNConnectionReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.VPNConnectionReference
+
+A reference to a VPNConnection resource.
 
 ---
 
@@ -57647,6 +64215,18 @@ The type of IP address assigned to the outside interface of the customer gateway
 
 ---
 
+##### `preSharedKeyStorage`<sup>Optional</sup> <a name="preSharedKeyStorage" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.preSharedKeyStorage"></a>
+
+```typescript
+public readonly preSharedKeyStorage: string;
+```
+
+- *Type:* string
+
+Describes the storage location for an instance store-backed AMI.
+
+---
+
 ##### `remoteIpv4NetworkCidr`<sup>Optional</sup> <a name="remoteIpv4NetworkCidr" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.remoteIpv4NetworkCidr"></a>
 
 ```typescript
@@ -57719,6 +64299,18 @@ The transit gateway attachment ID to use for the VPN tunnel.
 
 ---
 
+##### `tunnelBandwidth`<sup>Optional</sup> <a name="tunnelBandwidth" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.tunnelBandwidth"></a>
+
+```typescript
+public readonly tunnelBandwidth: string;
+```
+
+- *Type:* string
+
+The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity.
+
+---
+
 ##### `tunnelInsideIpVersion`<sup>Optional</sup> <a name="tunnelInsideIpVersion" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.tunnelInsideIpVersion"></a>
 
 ```typescript
@@ -57728,6 +64320,18 @@ public readonly tunnelInsideIpVersion: string;
 - *Type:* string
 
 Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
+
+---
+
+##### `vpnConcentratorId`<sup>Optional</sup> <a name="vpnConcentratorId" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.vpnConcentratorId"></a>
+
+```typescript
+public readonly vpnConcentratorId: string;
+```
+
+- *Type:* string
+
+The ID of the VPN concentrator to associate with the VPN connection.
 
 ---
 
@@ -57746,7 +64350,7 @@ The ID of the virtual private gateway at the AWS side of the VPN connection.
 ##### `vpnTunnelOptionsSpecifications`<sup>Optional</sup> <a name="vpnTunnelOptionsSpecifications" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.property.vpnTunnelOptionsSpecifications"></a>
 
 ```typescript
-public readonly vpnTunnelOptionsSpecifications: IResolvable | IResolvable | VpnTunnelOptionsSpecificationProperty[];
+public readonly vpnTunnelOptionsSpecifications: IResolvable | (IResolvable | VpnTunnelOptionsSpecificationProperty)[];
 ```
 
 - *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_ec2.CfnVPNConnection.VpnTunnelOptionsSpecificationProperty[]
@@ -57820,6 +64424,7 @@ new VpnConnectionRecommendedAlarms(scope: Construct, id: string, props: VpnConne
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -57831,6 +64436,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -57839,7 +64465,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionRecommendedAlarms.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionRecommendedAlarms.isConstruct"></a>
 
 ```typescript
 import { VpnConnectionRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -57848,6 +64474,20 @@ VpnConnectionRecommendedAlarms.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionRecommendedAlarms.isConstruct.parameter.x"></a>
 
@@ -57938,6 +64578,7 @@ new VpnConnectionTunnelStateAlarm(scope: IConstruct, id: string, props: VpnConne
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -57954,6 +64595,25 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.applyRemovalPolicy"></a>
 
@@ -58066,7 +64726,7 @@ This might be useful if:
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.isConstruct"></a>
 
 ```typescript
 import { VpnConnectionTunnelStateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
@@ -58075,6 +64735,20 @@ VpnConnectionTunnelStateAlarm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.isConstruct.parameter.x"></a>
 
@@ -58189,10 +64863,11 @@ Alarm Name.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
 
 ---
@@ -58215,16 +64890,17 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
 
 ---
 
@@ -58261,6 +64937,18 @@ public readonly alarmName: string;
 - *Type:* string
 
 Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
 
 ---
 

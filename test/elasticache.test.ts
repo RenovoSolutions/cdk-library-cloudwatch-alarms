@@ -622,7 +622,7 @@ test('default Cluster alarm actions are overridden when individual alarm actions
   const topic = new sns.Topic(stack, 'Topic');
 
   const alarmLambda = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -680,7 +680,7 @@ test('default ReplicationGroup alarm actions are overridden when individual alar
   const topic = new sns.Topic(stack, 'Topic');
 
   const alarmLambda = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });

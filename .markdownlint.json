@@ -1,0 +1,11 @@
+{
+  "MD033": {
+    "allowed_elements": [
+      "br"
+    ]
+  },
+  "MD013": {
+    "tables": false,
+    "code_blocks": false
+  }
+}

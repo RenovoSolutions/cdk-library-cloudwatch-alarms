@@ -397,7 +397,7 @@ test('default alarm actions are used when provided in configuration', () => {
   const queue = new sqs.Queue(stack, 'Queue');
 
   const handler = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -489,7 +489,7 @@ test('default alarm actions are overridden when individual alarm actions are pro
   const alarmAction = new cloudwatch_actions.SnsAction(alarmTopic);
 
   const handler = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -539,7 +539,7 @@ test('default alarm actions are overridden when individual alarm actions are pro
   });
 });
 
-test('alarms can be applied individually to buckets using extended construct', () => {
+test('alarms can be applied individually to queues using extended construct', () => {
   const app = new App({
     context: {
       '@aws-cdk/aws-cloudwatch-actions:changeLambdaPermissionLogicalIdForLambdaAction': true,
@@ -897,21 +897,40 @@ test('DLQs get special alarms by default', () => {
     },
   });
 
+  // Lambda DLQ
+  const dlq3 = new sqs.Queue(stack, 'dlq3');
+  new lambda.Function(stack, 'Function1', {
+    runtime: lambda.Runtime.NODEJS_24_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async () => {}'),
+    deadLetterQueue: dlq3,
+  });
+
+  // SNS subscription DLQ
+  const dlq4 = new sqs.Queue(stack, 'dlq4');
+  const topic = new sns.Topic(stack, 'Topic1');
+  new sns.Subscription(stack, 'Subscription1', {
+    topic,
+    protocol: sns.SubscriptionProtocol.SQS,
+    endpoint: new sqs.Queue(stack, 'SubscriptionQueue').queueArn,
+    deadLetterQueue: dlq4,
+  });
+
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
   /**
-   * There are 4 queues, but only 2 should have full alarms
-   * - Queue1 and Queue2 will have 4 alarms each
-   * - dlq1 and dlq2 will have 1 alarm each (ApproximateNumberOfMessagesVisible)
+   * There are 7 queues (Queue1, Queue2, SubscriptionQueue get full alarms; dlq1-dlq4 get only ApproximateNumberOfMessagesVisible)
+   * - Queue1, Queue2, and SubscriptionQueue will have 4 alarms each
+   * - dlq1, dlq2, dlq3, dlq4 will have 1 alarm each (ApproximateNumberOfMessagesVisible)
    */
-  const numAlarms = Object.keys(sqsAlarms.SqsRecommendedAlarmsMetrics).length * 2 + 2;
+  const numAlarms = Object.keys(sqsAlarms.SqsRecommendedAlarmsMetrics).length * 3 + 4;
 
   template.resourceCountIs('AWS::CloudWatch::Alarm', numAlarms);
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
-  ['Queue1', 'Queue2', 'dlq1', 'dlq2'].forEach(queueName => {
+  ['Queue1', 'Queue2', 'SubscriptionQueue', 'dlq1', 'dlq2', 'dlq3', 'dlq4'].forEach(queueName => {
     Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
@@ -920,7 +939,7 @@ test('DLQs get special alarms by default', () => {
         return resourceName.startsWith(queueName) && resourceProperties.MetricName === metricName;
       });
 
-      if (['dlq1', 'dlq2'].includes(queueName) && metricName !== sqsAlarms.SqsRecommendedAlarmsMetrics.
+      if (['dlq1', 'dlq2', 'dlq3', 'dlq4'].includes(queueName) && metricName !== sqsAlarms.SqsRecommendedAlarmsMetrics.
         APPROXIMATE_NUMBER_OF_MESSAGES_VISIBLE) {
         expect(alarms.length).toBe(0);
       } else {
@@ -928,6 +947,62 @@ test('DLQs get special alarms by default', () => {
       }
     });
   });
+});
+
+test('DLQ special alarm receives default alarm actions', () => {
+  const app = new App({
+    context: {
+      '@aws-cdk/aws-cloudwatch-actions:changeLambdaPermissionLogicalIdForLambdaAction': true,
+    },
+  });
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+  const appAspects = Aspects.of(app);
+
+  const alarmTopic = new sns.Topic(stack, 'Topic');
+  const topicAction = new cloudwatch_actions.SnsAction(alarmTopic);
+
+  appAspects.add(
+    new sqsAlarms.SqsRecommendedAlarmsAspect({
+      defaultAlarmAction: topicAction,
+      defaultOkAction: topicAction,
+      defaultInsufficientDataAction: topicAction,
+      configApproximateAgeOfOldestMessageAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesNotVisibleAlarm: {
+        threshold: 0,
+      },
+      configApproximateNumberOfMessagesVisibleAlarm: {
+        threshold: 0,
+      },
+    }),
+  );
+
+  const dlq = new sqs.Queue(stack, 'dlq');
+  new sqs.Queue(stack, 'Queue', {
+    deadLetterQueue: {
+      queue: dlq,
+      maxReceiveCount: 1,
+    },
+  });
+
+  const template = Template.fromStack(stack);
+
+  // The DLQ's ApproximateNumberOfMessagesVisible alarm should have alarm actions
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+  const dlqAlarms = Object.keys(resources).filter(name => name.startsWith('dlq'));
+
+  expect(dlqAlarms.length).toBe(1);
+
+  const dlqAlarmProps = resources[dlqAlarms[0]].Properties;
+  expect(dlqAlarmProps.AlarmActions).toBeDefined();
+  expect(dlqAlarmProps.OKActions).toBeDefined();
+  expect(dlqAlarmProps.InsufficientDataActions).toBeDefined();
 });
 
 test('DLQs get normal alarms when dlqsGetFullRecommendedAlarms is true', () => {

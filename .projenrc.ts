@@ -3,8 +3,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  cdkVersion: '2.205.0',
-  jsiiVersion: '^5.8.0',
+  cdkVersion: '2.241.0',
+  constructsVersion: '10.5.1',
+  jsiiVersion: '^5.9',
   defaultReleaseBranch: 'master',
   name: '@renovosolutions/cdk-library-cloudwatch-alarms',
   description: 'AWS CDK Construct Library to automatically create CloudWatch Alarms for resources in a CDK app based on resource type.',
@@ -39,10 +40,19 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'renovosolutions.aws-cdk-cloudwatch-alarms',
     module: 'renovosolutions_recommended_cloudwatch_alarms',
   },
-  publishToNuget: {
-    dotNetNamespace: 'renovosolutions',
-    packageId: 'Renovo.AWSCDK.Cloudwatch.Alarms',
+  tsconfigDev: {
+    compilerOptions: {
+      isolatedModules: true,
+    },
   },
+});
+
+project.eslint?.addRules({
+  '@typescript-eslint/no-unused-vars': ['error', {
+    argsIgnorePattern: '^_',
+    varsIgnorePattern: '^_',
+    caughtErrorsIgnorePattern: '^_',
+  }],
 });
 
 new javascript.UpgradeDependencies(project, {

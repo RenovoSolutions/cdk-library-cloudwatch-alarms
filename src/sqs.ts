@@ -2,6 +2,8 @@ import {
   App,
   Stack,
   IAspect,
+  aws_lambda as lambda,
+  aws_sns as sns,
   aws_sqs as sqs,
   aws_cloudwatch as cloudwatch,
   Duration,
@@ -656,6 +658,20 @@ export class SqsRecommendedAlarmsAspect implements IAspect {
               this.deadLetterQueues.push(queue.deadLetterQueue.queue.node.id);
             }
           });
+
+          const fns = node.node.findAll().filter(n => n instanceof lambda.Function) as lambda.Function[];
+          fns.forEach(fn => {
+            if (fn.deadLetterQueue) {
+              this.deadLetterQueues.push(fn.deadLetterQueue.node.id);
+            }
+          });
+
+          const subscriptions = node.node.findAll().filter(n => n instanceof sns.Subscription) as sns.Subscription[];
+          subscriptions.forEach(sub => {
+            if (sub.deadLetterQueue) {
+              this.deadLetterQueues.push(sub.deadLetterQueue.node.id);
+            }
+          });
           /**
            * Mark that we have discovered dead letter queues
            * so we don't run this logic again.
@@ -711,12 +727,24 @@ export class SqsRecommendedAlarmsAspect implements IAspect {
          * This is because dead letter queues are not expected to have messages
          * in them, and if they do, it indicates a problem.
          */
-        new SqsApproximateNumberOfMessagesVisibleAlarm(node, 'SqsApproximateNumberOfMessagesVisibleAlarm', {
+        const dlqAlarm = new SqsApproximateNumberOfMessagesVisibleAlarm(node, 'SqsApproximateNumberOfMessagesVisibleAlarm', {
           queue: node,
           treatMissingData: this.props.treatMissingData,
           threshold: 0,
           ...this.props.configDlqApproximateNumberOfMessagesVisibleAlarm,
         });
+
+        if (this.props.defaultAlarmAction && !this.props.configDlqApproximateNumberOfMessagesVisibleAlarm?.alarmAction) {
+          dlqAlarm.addAlarmAction(this.props.defaultAlarmAction);
+        }
+
+        if (this.props.defaultOkAction && !this.props.configDlqApproximateNumberOfMessagesVisibleAlarm?.okAction) {
+          dlqAlarm.addOkAction(this.props.defaultOkAction);
+        }
+
+        if (this.props.defaultInsufficientDataAction && !this.props.configDlqApproximateNumberOfMessagesVisibleAlarm?.insufficientDataAction) {
+          dlqAlarm.addInsufficientDataAction(this.props.defaultInsufficientDataAction);
+        }
       }
     }
   }
