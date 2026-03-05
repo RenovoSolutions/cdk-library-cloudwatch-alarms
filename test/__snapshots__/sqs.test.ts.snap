@@ -923,6 +923,91 @@ exports[`DLQs get special alarms by default 1`] = `
     },
   },
   "Resources": {
+    "Function1904AA941": {
+      "DependsOn": [
+        "Function1ServiceRoleDefaultPolicyE89885AD",
+        "Function1ServiceRole16CD7E62",
+      ],
+      "Properties": {
+        "Code": {
+          "ZipFile": "exports.handler = async () => {}",
+        },
+        "DeadLetterConfig": {
+          "TargetArn": {
+            "Fn::GetAtt": [
+              "dlq39764BFE1",
+              "Arn",
+            ],
+          },
+        },
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "Function1ServiceRole16CD7E62",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs24.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "Function1ServiceRole16CD7E62": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "Function1ServiceRoleDefaultPolicyE89885AD": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sqs:SendMessage",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "dlq39764BFE1",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "Function1ServiceRoleDefaultPolicyE89885AD",
+        "Roles": [
+          {
+            "Ref": "Function1ServiceRole16CD7E62",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "Queue11B0C5920": {
       "DeletionPolicy": "Delete",
       "Properties": {
@@ -1267,6 +1352,193 @@ exports[`DLQs get special alarms by default 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "Subscription1502865EA": {
+      "Properties": {
+        "Endpoint": {
+          "Fn::GetAtt": [
+            "SubscriptionQueue3B4F110E",
+            "Arn",
+          ],
+        },
+        "Protocol": "sqs",
+        "RedrivePolicy": {
+          "deadLetterTargetArn": {
+            "Fn::GetAtt": [
+              "dlq42529664C",
+              "Arn",
+            ],
+          },
+        },
+        "TopicArn": {
+          "Ref": "Topic198E71B3E",
+        },
+      },
+      "Type": "AWS::SNS::Subscription",
+    },
+    "SubscriptionQueue3B4F110E": {
+      "DeletionPolicy": "Delete",
+      "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "SubscriptionQueueSqsRecommendedAlarmsFromAspectApproximateAgeOfOldestMessageAlarmDCEEAF5A": {
+      "Properties": {
+        "AlarmDescription": "This alarm watches the age of the oldest message in the queue. You can use this alarm to monitor if your consumers are processing SQS messages at the desired speed. Consider increasing the consumer count or consumer throughput to reduce message age. This metric can be used in combination with ApproximateNumberOfMessagesVisible to determine how big the queue backlog is and how quickly messages are being processed. To prevent messages from being deleted before processed, consider configuring the dead-letter queue to sideline potential poison pill messages.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "SubscriptionQueue3B4F110E",
+                  "QueueName",
+                ],
+              },
+              " - ApproximateAgeOfOldestMessage",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": {
+              "Fn::GetAtt": [
+                "SubscriptionQueue3B4F110E",
+                "QueueName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ApproximateAgeOfOldestMessage",
+        "Namespace": "AWS/SQS",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "SubscriptionQueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesNotVisibleAlarm229BD09D": {
+      "Properties": {
+        "AlarmDescription": "This alarm helps to detect a high number of in-flight messages with respect to QueueName. For troubleshooting, check message backlog decreasing (https://repost.aws/knowledge-center/sqs-message-backlog).",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "SubscriptionQueue3B4F110E",
+                  "QueueName",
+                ],
+              },
+              " - ApproximateNumberOfMessagesNotVisible",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": {
+              "Fn::GetAtt": [
+                "SubscriptionQueue3B4F110E",
+                "QueueName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ApproximateNumberOfMessagesNotVisible",
+        "Namespace": "AWS/SQS",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "SubscriptionQueueSqsRecommendedAlarmsFromAspectApproximateNumberOfMessagesVisibleAlarmFA81006D": {
+      "Properties": {
+        "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "SubscriptionQueue3B4F110E",
+                  "QueueName",
+                ],
+              },
+              " - ApproximateNumberOfMessagesVisible",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": {
+              "Fn::GetAtt": [
+                "SubscriptionQueue3B4F110E",
+                "QueueName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "SubscriptionQueueSqsRecommendedAlarmsFromAspectNumberOfMessagesSentAlarm2B4051C1": {
+      "Properties": {
+        "AlarmDescription": "This alarm helps to detect if there are no messages being sent from a producer with respect to QueueName.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "SubscriptionQueue3B4F110E",
+                  "QueueName",
+                ],
+              },
+              " - NumberOfMessagesSent",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanOrEqualToThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": {
+              "Fn::GetAtt": [
+                "SubscriptionQueue3B4F110E",
+                "QueueName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "NumberOfMessagesSent",
+        "Namespace": "AWS/SQS",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Topic198E71B3E": {
+      "Type": "AWS::SNS::Topic",
+    },
     "dlq1AE1423FE": {
       "DeletionPolicy": "Delete",
       "Type": "AWS::SQS::Queue",
@@ -1341,6 +1613,129 @@ exports[`DLQs get special alarms by default 1`] = `
             "Value": {
               "Fn::GetAtt": [
                 "dlq2F8ADABC8",
+                "QueueName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "dlq39764BFE1": {
+      "DeletionPolicy": "Delete",
+      "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "dlq3SqsApproximateNumberOfMessagesVisibleAlarm8A351A5D": {
+      "Properties": {
+        "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "dlq39764BFE1",
+                  "QueueName",
+                ],
+              },
+              " - ApproximateNumberOfMessagesVisible",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": {
+              "Fn::GetAtt": [
+                "dlq39764BFE1",
+                "QueueName",
+              ],
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 0,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "dlq42529664C": {
+      "DeletionPolicy": "Delete",
+      "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "dlq4PolicyAFE93682": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sqs:SendMessage",
+              "Condition": {
+                "ArnEquals": {
+                  "aws:SourceArn": {
+                    "Ref": "Topic198E71B3E",
+                  },
+                },
+              },
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "sns.amazonaws.com",
+              },
+              "Resource": {
+                "Fn::GetAtt": [
+                  "dlq42529664C",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Queues": [
+          {
+            "Ref": "dlq42529664C",
+          },
+        ],
+      },
+      "Type": "AWS::SQS::QueuePolicy",
+    },
+    "dlq4SqsApproximateNumberOfMessagesVisibleAlarm13F16CAA": {
+      "Properties": {
+        "AlarmDescription": "This alarm watches for the message queue backlog to be bigger than expected, indicating that consumers are too slow or there are not enough consumers.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "dlq42529664C",
+                  "QueueName",
+                ],
+              },
+              " - ApproximateNumberOfMessagesVisible",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": {
+              "Fn::GetAtt": [
+                "dlq42529664C",
                 "QueueName",
               ],
             },

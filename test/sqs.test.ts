@@ -897,21 +897,40 @@ test('DLQs get special alarms by default', () => {
     },
   });
 
+  // Lambda DLQ
+  const dlq3 = new sqs.Queue(stack, 'dlq3');
+  new lambda.Function(stack, 'Function1', {
+    runtime: lambda.Runtime.NODEJS_24_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async () => {}'),
+    deadLetterQueue: dlq3,
+  });
+
+  // SNS subscription DLQ
+  const dlq4 = new sqs.Queue(stack, 'dlq4');
+  const topic = new sns.Topic(stack, 'Topic1');
+  new sns.Subscription(stack, 'Subscription1', {
+    topic,
+    protocol: sns.SubscriptionProtocol.SQS,
+    endpoint: new sqs.Queue(stack, 'SubscriptionQueue').queueArn,
+    deadLetterQueue: dlq4,
+  });
+
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
   /**
-   * There are 4 queues, but only 2 should have full alarms
-   * - Queue1 and Queue2 will have 4 alarms each
-   * - dlq1 and dlq2 will have 1 alarm each (ApproximateNumberOfMessagesVisible)
+   * There are 7 queues (Queue1, Queue2, SubscriptionQueue get full alarms; dlq1-dlq4 get only ApproximateNumberOfMessagesVisible)
+   * - Queue1, Queue2, and SubscriptionQueue will have 4 alarms each
+   * - dlq1, dlq2, dlq3, dlq4 will have 1 alarm each (ApproximateNumberOfMessagesVisible)
    */
-  const numAlarms = Object.keys(sqsAlarms.SqsRecommendedAlarmsMetrics).length * 2 + 2;
+  const numAlarms = Object.keys(sqsAlarms.SqsRecommendedAlarmsMetrics).length * 3 + 4;
 
   template.resourceCountIs('AWS::CloudWatch::Alarm', numAlarms);
 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
-  ['Queue1', 'Queue2', 'dlq1', 'dlq2'].forEach(queueName => {
+  ['Queue1', 'Queue2', 'SubscriptionQueue', 'dlq1', 'dlq2', 'dlq3', 'dlq4'].forEach(queueName => {
     Object.values(sqsAlarms.SqsRecommendedAlarmsMetrics).forEach(metricName => {
       const alarms = Object.keys(resources).filter(resourceName => {
         const resource = resources[resourceName];
@@ -920,7 +939,7 @@ test('DLQs get special alarms by default', () => {
         return resourceName.startsWith(queueName) && resourceProperties.MetricName === metricName;
       });
 
-      if (['dlq1', 'dlq2'].includes(queueName) && metricName !== sqsAlarms.SqsRecommendedAlarmsMetrics.
+      if (['dlq1', 'dlq2', 'dlq3', 'dlq4'].includes(queueName) && metricName !== sqsAlarms.SqsRecommendedAlarmsMetrics.
         APPROXIMATE_NUMBER_OF_MESSAGES_VISIBLE) {
         expect(alarms.length).toBe(0);
       } else {

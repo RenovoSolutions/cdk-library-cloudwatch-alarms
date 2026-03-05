@@ -2,6 +2,8 @@ import {
   App,
   Stack,
   IAspect,
+  aws_lambda as lambda,
+  aws_sns as sns,
   aws_sqs as sqs,
   aws_cloudwatch as cloudwatch,
   Duration,
@@ -654,6 +656,20 @@ export class SqsRecommendedAlarmsAspect implements IAspect {
           queues.forEach(queue => {
             if (queue.deadLetterQueue) {
               this.deadLetterQueues.push(queue.deadLetterQueue.queue.node.id);
+            }
+          });
+
+          const fns = node.node.findAll().filter(n => n instanceof lambda.Function) as lambda.Function[];
+          fns.forEach(fn => {
+            if (fn.deadLetterQueue) {
+              this.deadLetterQueues.push(fn.deadLetterQueue.node.id);
+            }
+          });
+
+          const subscriptions = node.node.findAll().filter(n => n instanceof sns.Subscription) as sns.Subscription[];
+          subscriptions.forEach(sub => {
+            if (sub.deadLetterQueue) {
+              this.deadLetterQueues.push(sub.deadLetterQueue.node.id);
             }
           });
           /**
