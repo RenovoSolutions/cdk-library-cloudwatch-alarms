@@ -1,21 +1,27 @@
 # cdk-library-cloudwatch-alarms
 
-WIP - Library to provide constructs, aspects, and construct extensions to more easily set up alarms for AWS resources in CDK code based on AWS recommended alarms list. This project is still in early development so YMMV.
+WIP - Library to provide constructs, aspects, and construct extensions to more
+easily set up alarms for AWS resources in CDK code based on AWS recommended
+alarms list. This project is still in early development so YMMV.
 
 ## Usage
 
-This library is flexible in its approach and there are multiple paths to configuring alarms depending on how you'd like to work with the recommended alarms.
+This library is flexible in its approach and there are multiple paths to
+configuring alarms depending on how you'd like to work with the recommended
+alarms.
 
 ## Feature Availability
 
 Intended feature list as of Aug 2024
 
-- [x] Aspects to apply recommended alarms to a wide scope such as a whole CDK app
+- [x] Aspects to apply recommended alarms to a wide scope such as a whole CDK
+  app
   - [x] Ability to exclude specific alarms
   - [x] Ability to define a default set of alarm actions
   - [x] Ability to modify the configuration of each alarm type
   - [ ] Ability to exclude specific resources
-- [x] Constructs to ease alarm configuration for individual resources at a granular scope
+- [x] Constructs to ease alarm configuration for individual resources at a
+  granular scope
   - [x] Constructs for each available alarm according to the coverage table
   - [x] Constructs for applying all recommended alarms to a specific resource
   - [x] Ability to exclude specific alarms from the all recommended alarms construct
@@ -25,10 +31,10 @@ Intended feature list as of Aug 2024
 
 If it's not shown it hasn't been worked on.
 
-| Service   | Status | Notes |
+| Service | Status | Notes |
 | --- | --- | --- |
-| S3  | - [x] 4xxErrors<br>- [x] 5xxErrors<br>- [ ] OperationsFailedReplication | Replication errors are difficult to set up in CDK at the moment due to rule properties being IResolvables and replication rules not being available on the L2 Bucket construct |
-| SQS | - [x] ApproximateAgeOfOldestMessage<br>- [x] ApproximateNumberOfMessagesNotVisible<br>- [x] ApproximateNumberOfMessagesVisible<br>- [x] NumberOfMessagesSent |- All alarms with the exception of number of messages sent require a user defined threshold because its very use-case specific.<br>- The Aspect only assigns DLQs the `ApproximateNumberOfMessagesVisible` alarm with a default threshold of 0, unless `dlqsGetFullRecommendedAlarms` is `true`, in which case they get the same alarms as other queues. DLQs that belong to a main queue which isn't in the same scope as the Aspect is added to won't be detected as DLQs and they will be treated as normal queues. |
+| S3 | - [x] 4xxErrors<br>- [x] 5xxErrors<br>- [ ] OperationsFailedReplication | Replication errors are difficult to set up in CDK at the moment due to rule properties being IResolvables and replication rules not being available on the L2 Bucket construct |
+| SQS | - [x] ApproximateAgeOfOldestMessage<br>- [x] ApproximateNumberOfMessagesNotVisible<br>- [x] ApproximateNumberOfMessagesVisible<br>- [x] NumberOfMessagesSent | - All alarms with the exception of number of messages sent require a user defined threshold because its very use-case specific.<br>- The Aspect only assigns DLQs of other SQS queues, lambda functions, and SNS topics the `ApproximateNumberOfMessagesVisible` alarm with a default threshold of 0, unless `dlqsGetFullRecommendedAlarms` is `true`, in which case they get the same alarms as other queues. DLQs that belong to a resource which isn't in the same scope as the Aspect is added to, won't be detected as DLQs and they will be treated as normal queues. |
 | SNS | - [x] NumberOfMessagesPublished<br>- [x] NumberOfNotificationsDelivered<br>- [x] NumberOfNotificationsFailed<br>- [x] NumberOfNotificationsFilteredOut-InvalidAttributes<br>- [x] NumberOfNotificationsFilteredOut-InvalidMessageBody<br>- [x] NumberOfNotificationsRedrivenToDlq<br>- [x] NumberOfNotificationsFailedToRedriveToDlq<br>- [ ] SMSMonthToDateSpentUSD<br>- [ ] SMSSuccessRate | Some alarms require a threshold to be defined. SMS alarms are not implememented. |
 | Lambda | - [ ] ClaimedAccountConcurrency<br>- [x] Errors<br>- [x] Throttles<br>- [x] Duration<br>- [x] ConcurrentExecutions | ClaimedAccountConcurrency is account wide and one time so not covered by this library at this time |
 | RDS | **For database & cluster instances**<br>- [x] CPUUtilization<br>- [x] DatabaseConnections<br>- [x] FreeableMemory<br>- [x] FreeLocalStorage<br>- [x] FreeStorageSpace<br>- [x] ReadLatency<br>- [x] WriteLatency<br>- [x] DBLoad<br><br>**For clusters**<br>- [x] AuroraVolumeBytesLeftTotal<br>- [x] AuroraBinlogReplicaLag | Some alarms require a `threshold` to be defined. `AuroraVolumeBytesLeftTotal` and `AuroraBinlogReplicaLag` alarms are created only for Aurora MySQL clusters. |
@@ -39,15 +45,21 @@ If it's not shown it hasn't been worked on.
 | DynamoDB | **Mandatory alarms**<br>- [x] ReadThrottleEvents<br>- [x] SystemErrors<br>- [x] WriteThrottleEvents<br><br>**Replication alarms (optional)**<br>- [x] AgeOfOldestUnreplicatedRecord<br>- [x] FailedToReplicateRecordCount<br>- [x] ThrottledPutRecordCount | The alarms are applied to `Table` constructs only. All the mandatory alarms require a `threshold` to be defined.<br>Replication alarms are created only if the corresponding configuration is specified. Each replication alarm has a default `DelegatedOperation` dimension value:<br>- AgeOfOldestUnreplicatedRecord: `StreamRecords`<br>- FailedToReplicateRecordCount: `StreamRecords`<br>- ThrottledPutRecordCount: `PutItem` |
 | EC2 | <br>- [x] CPUUtilization<br>- [x] StatusCheckFailed<br><br> | The alarms are applied to `Instance` constructs. |
 | AutoScaling | <br>- [x] GroupInServiceCapacity<br><br> | The alarms are applied to `AutoScalingGroup` constructs. The alarm requires a `threshold` to be defined and the `AutoScalingGroup` should have this metric explicitly enabled. |
-| ElastiCache | <br>- [x] DatabaseMemoryUsagePercentage<br>- [x] EngineCPUUtilization<br>- [x] ReplicationLag<br> | The alarms are applied to `CfnCacheCluster` and `CfnReplicationGroup` constructs. `DatabaseMemoryUsagePercentage` and `ReplicationLag` require a `threshold` to be defined.|
+| ElastiCache | <br>- [x] DatabaseMemoryUsagePercentage<br>- [x] EngineCPUUtilization<br>- [x] ReplicationLag<br> | The alarms are applied to `CfnCacheCluster` and `CfnReplicationGroup` constructs. `DatabaseMemoryUsagePercentage` and `ReplicationLag` require a `threshold` to be defined. |
 | PrivateLink | **Endpoints**<br>- [x] PacketsDropped<br><br>**Endpoint Services**<br>- [x] RstPacketsSent<br> | The alarms are applied to `InterfaceVpcEndpoint` and `VpcEndpointService` constructs. Because these objects do not expose the attributes required by alarms, they cannot be implemented using the `Aspect`. In all cases, the `threshold` must be defined. |
 | VPN | <br>- [x] TunnelState<br><br> | The alarms are applied to `CfnVPNConnection` constructs. |
-| ELBv2 | **For ApplicationLoadBalancer**<br>- [x] RejectedConnectionCount<br>- [x] HTTPCode_ELB_4XX_Count<br>- [x] HTTPCode_ELB_5XX_Count<br>- [x] HTTPCode_Target_5XX_Count<br><br>**For ApplicationTargetGroup**<br>- [x] HealthyHostCount<br>- [x] UnHealthyHostCount<br><br>**For NetworkLoadBalancer**<br>- [x] TCP_ELB_Reset_Count<br>- [x] TCP_Target_Reset_Count<br><br>**For NetworkTargetGroup**<br>- [x] HealthyHostCount<br>- [x] UnHealthyHostCount |- For target groups, `HealthyHostCount` alarm triggers when count falls below threshold (default: 1) and `UnHealthyHostCount` alarm triggers when count exceeds threshold (default: 0). For load balancers, all alarms trigger when count exceeds threshold (default: 0).<br>- The `HTTPCode_ELB_4XX_Count` and `HTTPCode_ELB_5XX_Count` alarms are defined as anomaly detection alarms instead of flat counts, because there is normally a constant background of such errors. |
+| ELBv2 | **For ApplicationLoadBalancer**<br>- [x] RejectedConnectionCount<br>- [x] HTTPCode_ELB_4XX_Count<br>- [x] HTTPCode_ELB_5XX_Count<br>- [x] HTTPCode_Target_5XX_Count<br><br>**For ApplicationTargetGroup**<br>- [x] HealthyHostCount<br>- [x] UnHealthyHostCount<br><br>**For NetworkLoadBalancer**<br>- [x] TCP_ELB_Reset_Count<br>- [x] TCP_Target_Reset_Count<br><br>**For NetworkTargetGroup**<br>- [x] HealthyHostCount<br>- [x] UnHealthyHostCount | - For target groups, `HealthyHostCount` alarm triggers when count falls below threshold (default: 1) and `UnHealthyHostCount` alarm triggers when count exceeds threshold (default: 0). For load balancers, all alarms trigger when count exceeds threshold (default: 0).<br>- The `HTTPCode_ELB_4XX_Count` and `HTTPCode_ELB_5XX_Count` alarms are defined as anomaly detection alarms instead of flat counts, because there is normally a constant background of such errors. |
 | DMS | **For ReplicationInstances**<br>- [x] CPUUtilization<br>- [x] FreeableMemory<br>- [x] FreeStorageSpace<br>- [x] WriteIOPS<br>- [x] SwapUsage<br><br>**For Replication Tasks**<br>- [x] CDCLatencySource<br>- [x] CDCLatencyTarget | The alarms are applied to `CfnReplicationInstance` and `CfnReplicationTask` constructs. Extended versions `ReplicationInstance` and `ReplicationTask` are also available with alarm helper methods.<br><br>**Replication Instance Notes:**<br>- `FreeableMemory` and `FreeStorageSpace` alarms require a `threshold` to be defined.<br>- `SwapUsage` alarm uses anomaly detection with a fixed 5-minute period (as required by AWS CloudWatch) to detect high swap usage that may indicate memory pressure or performance issues. By default, it triggers when swap usage exceeds the upper threshold of the anomaly detection band, but the `comparisonOperator` can be configured to detect other patterns.<br><br>**Replication Task Notes:**<br>- Alarms are created and validated based on the `migrationType` of the ReplicationTask. CDC-related alarms can only be created for `cdc` or `full-load-and-cdc` migration types.<br>- CDC latency alarms (`CDCLatencySource` and `CDCLatencyTarget`) default to detecting high latency issues (threshold: 300 seconds, comparison: GREATER_THAN_THRESHOLD) which can indicate replication lag or database performance problems.<br>- The `CDCLatencySource` alarm monitors the gap between the last event captured from the source endpoint and current system time, while `CDCLatencyTarget` monitors the gap between a change committed to the source and the same change committed to the target. |
 
 ### Aspects
 
-Below is an example of configuring the Lambda aspect. You must configure non-defaults for alarms which is most cases is only a `threshold`. Since the aspect is applied at the `app` level it applies to both the `TestStack` and `TestStack2` lambda functions and will create all available recommended alarms for those functions. See references for additional details on Aspects which can be applied to the app, stack, or individual constructs depending on your use case.
+Below is an example of configuring the Lambda aspect. You must configure
+non-defaults for alarms which is most cases is only a `threshold`. Since the
+aspect is applied at the `app` level it applies to both the `TestStack` and
+`TestStack2` lambda functions and will create all available recommended alarms
+for those functions. See references for additional details on Aspects which
+can be applied to the app, stack, or individual constructs depending on your
+use case.
 
 ```typescript
 import { App, Stack, Aspects, aws_lambda as lambda } from 'aws-cdk-lib';
@@ -99,7 +111,10 @@ new lambda.Function(stack2, 'Lambda2', {
 
 ### Recommended Alarm Constructs
 
-You can also apply alarms to a specific resource using the recommended alarm construct for a given resource type. For example if you have an S3 Bucket you might do something like below. None of the S3 alarms require configuration so no config props are needed in this case:
+You can also apply alarms to a specific resource using the recommended alarm
+construct for a given resource type. For example if you have an S3 Bucket you
+might do something like below. None of the S3 alarms require configuration so
+no config props are needed in this case:
 
 ```typescript
 import { App, Stack, Aspects, aws_s3 as s3 } from 'aws-cdk-lib';
@@ -146,7 +161,9 @@ new recommendedalarms.S3Bucket5xxErrorsAlarm(stack, 'RecommendedAlarms', {
 
 ### Construct Extensions
 
-You can use extended versions of the constructs you are familiar with to expose helper methods for alarms if you'd like to keep alarms more tightly coupled to specific resources.
+You can use extended versions of the constructs you are familiar with to
+expose helper methods for alarms if you'd like to keep alarms more tightly
+coupled to specific resources.
 
 ```typescript
 import { App, Stack, Aspects, aws_s3 as s3 } from 'aws-cdk-lib';
@@ -167,7 +184,11 @@ const stack = new Stack(app, 'TestStack', {
 
 ### Alarm Actions
 
-You can apply alarm actions using the default actions on an aspect or all recommended alarms construct or you can apply individual alarm actions for helper methods of individual constructs. See below where default actions are set but an override is set for a specific alarm for the alarm action to use a different SNS topic.
+You can apply alarm actions using the default actions on an aspect or all
+recommended alarms construct or you can apply individual alarm actions for
+helper methods of individual constructs. See below where default actions are
+set but an override is set for a specific alarm for the alarm action to use a
+different SNS topic.
 
 ```typescript
 import { App, Stack, Aspects, aws_lambda as lambda } from 'aws-cdk-lib';
@@ -230,7 +251,10 @@ new lambda.Function(stack2, 'Lambda2', {
 
 ### Exclusions
 
-You can exclude specific alarms or specific resources. Alarms use the available metrics enums and resources use the string used for a resources id. For example below Lambda1 will not have alarms created and there will be no alarm for the Duration metric for either lambda function.
+You can exclude specific alarms or specific resources. Alarms use the
+available metrics enums and resources use the string used for a resources id.
+For example below Lambda1 will not have alarms created and there will be no
+alarm for the Duration metric for either lambda function.
 
 ```typescript
 import { App, Stack, Aspects, aws_lambda as lambda } from 'aws-cdk-lib';
