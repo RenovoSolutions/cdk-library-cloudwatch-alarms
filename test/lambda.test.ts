@@ -40,7 +40,7 @@ test('Snapshot', () => {
   );
 
   new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -77,7 +77,7 @@ test('SnapshotWithExclusion', () => {
   );
 
   new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -97,7 +97,7 @@ test('SnapshotForBucketConstruct', () => {
   });
 
   const handler = new lambdaAlarms.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -131,7 +131,7 @@ test('SnapshotDefaultActionsInUse', () => {
   const alarmTopic = new sns.Topic(stack, 'Topic');
 
   const handler = new lambdaAlarms.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -195,13 +195,13 @@ test('stack should contain recommended alarms for each function if recommended a
   );
 
   new lambdaAlarms.Function(stack, 'Lambda1', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
 
   new lambdaAlarms.Function(stack, 'Lambda2', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -255,13 +255,13 @@ test('stack should not include an alarm if its excluded when aspect is applied',
   );
 
   new lambdaAlarms.Function(stack, 'Lambda1', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
 
   new lambdaAlarms.Function(stack, 'Lambda2', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -302,13 +302,13 @@ test('stack should contain recommended alarms for functions where recommended al
   });
 
   new lambdaAlarms.Function(stack, 'Lambda1', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
 
   const handler2 = new lambdaAlarms.Function(stack, 'Lambda2', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -366,13 +366,13 @@ test('stack should contain recommended alarms for functions where recommended al
   });
 
   new lambdaAlarms.Function(stack, 'Lambda1', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
 
   const handler2 = new lambdaAlarms.Function(stack, 'Lambda2', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -435,7 +435,7 @@ test('default alarm actions are used when provided in configuration', () => {
   });
 
   const handler = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -484,7 +484,7 @@ test('No alarm actions are used when none provided in configuration', () => {
   });
 
   const handler = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -525,7 +525,7 @@ test('default alarm actions are overridden when individual alarm actions are pro
   });
 
   const handler = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -535,7 +535,7 @@ test('default alarm actions are overridden when individual alarm actions are pro
   const alarmAction = new cloudwatch_actions.SnsAction(alarmTopic);
 
   const alarmHandler = new lambda.Function(stack, 'Lambda2', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -599,7 +599,7 @@ test('alarms can be applied individually to buckets using extended construct', (
   });
 
   const handler = new lambdaAlarms.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -667,7 +667,7 @@ test('setting configuration for an alarm where it is not required configures the
   );
 
   new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -749,7 +749,7 @@ test('optional alarm configuration can be overwritten', () => {
   );
 
   new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -782,7 +782,7 @@ Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName =>
     });
 
     const handler = new lambda.Function(stack, 'Lambda', {
-      runtime: lambda.Runtime.NODEJS_20_X,
+      runtime: lambda.Runtime.NODEJS_24_X,
       handler: 'index.handler',
       code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
     });
@@ -847,13 +847,13 @@ test('when a resource is excluded from the aspect config it should not have alar
   );
 
   new lambda.Function(stack, 'Lambda1', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
 
   new lambda.Function(stack, 'Lambda2', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -908,7 +908,7 @@ test('AspectWithTreatMissingData', () => {
     }),
   );
   new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });

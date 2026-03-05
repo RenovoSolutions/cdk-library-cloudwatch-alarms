@@ -249,7 +249,7 @@ test('default alarm actions are overridden when individual alarm actions are pro
   const topic = new sns.Topic(stack, 'Topic');
 
   const alarmLambda = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });

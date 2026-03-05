@@ -397,7 +397,7 @@ test('default alarm actions are used when provided in configuration', () => {
   const queue = new sqs.Queue(stack, 'Queue');
 
   const handler = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
@@ -489,7 +489,7 @@ test('default alarm actions are overridden when individual alarm actions are pro
   const alarmAction = new cloudwatch_actions.SnsAction(alarmTopic);
 
   const handler = new lambda.Function(stack, 'Lambda', {
-    runtime: lambda.Runtime.NODEJS_20_X,
+    runtime: lambda.Runtime.NODEJS_24_X,
     handler: 'index.handler',
     code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
   });
