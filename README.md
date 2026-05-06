@@ -24,7 +24,8 @@ Intended feature list as of Aug 2024
   granular scope
   - [x] Constructs for each available alarm according to the coverage table
   - [x] Constructs for applying all recommended alarms to a specific resource
-  - [x] Ability to exclude specific alarms from the all recommended alarms construct
+  - [x] Ability to exclude specific alarms from the all recommended alarms
+        construct
 - [x] Extended versions of resource constructs with alarm helper methods
 
 ## Resource Coverage
