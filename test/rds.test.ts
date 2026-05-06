@@ -17,6 +17,14 @@ import {
 } from 'aws-cdk-lib/assertions';
 import * as rdsAlarms from '../src/rds';
 
+/**
+ * Shape of an entry in the synthesized `AWS::CloudWatch::Alarm` `Metrics` array
+ * for anomaly detection alarms. Typing this explicitly (instead of `any`) makes
+ * a CDK schema rename (e.g. `MetricStat`) surface as a compile error rather
+ * than a silent test miss.
+ */
+type AnomalyMetricEntry = { MetricStat?: { Metric?: { MetricName?: string } } };
+
 class AuroraMySQLClusterStack extends Stack {
 
   public readonly vpc: ec2.Vpc;
@@ -480,6 +488,7 @@ test('DatabaseClusterSnapshotDefaultActionsInUse', () => {
     configAuroraBinLogReplicationLagAlarm: {
       threshold: 20,
     },
+    configAuroraVolumeBytesUsedAlarm: {},
     defaultAlarmAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultOkAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(alarmTopic),
@@ -712,7 +721,8 @@ test('stack should contain cluster recommended alarms for the specific engine if
   expect(template).toMatchSnapshot();
 
   const numOfInstances = stack.databaseCluster.instanceIdentifiers.length;
-  const numClusterMetrics = Object.keys(rdsAlarms.RdsRecommendedAlarmsMetrics).filter(metric => metric.startsWith('AURORA_')).length - 2; // 2 metrics are not supported by Aurora Postgres
+  // AuroraVolumeBytesLeftTotal and AuroraBinLogReplicaLag are Aurora MySQL only.
+  const numClusterMetrics = Object.keys(rdsAlarms.RdsRecommendedAlarmsMetrics).filter(metric => metric.startsWith('AURORA_')).length - 2;
   const numInstanceMetrics = Object.keys(rdsAlarms.RdsRecommendedAlarmsMetrics).filter(metric => metric.startsWith('INSTANCE_')).length;
 
   template.resourceCountIs('AWS::CloudWatch::Alarm', numClusterMetrics + numInstanceMetrics * numOfInstances);
@@ -803,6 +813,7 @@ test('alarms can be applied individually to clusters using extended construct', 
 
   stack.databaseCluster.alarmAuroraVolumeBytesLeftTotal({ threshold: 20 });
   stack.databaseCluster.alarmAuroraBinLogReplicationLag();
+  stack.databaseCluster.alarmAuroraVolumeBytesUsed();
 
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
@@ -819,11 +830,102 @@ test('alarms can be applied individually to clusters using extended construct', 
       const resourceProperties = resource.Properties;
       const metricName = rdsAlarms.RdsRecommendedAlarmsMetrics[metricKey as keyof typeof rdsAlarms.RdsRecommendedAlarmsMetrics];
 
-      return resourceProperties.MetricName === metricName;
+      if (resourceProperties.MetricName === metricName) return true;
+      return resourceProperties.Metrics?.some((m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === metricName) ?? false;
     });
 
     expect(alarms.length).toBe(1);
   });
+});
+
+test('VolumeBytesUsed alarm is excluded when listed in excludeAlarms', () => {
+  const app = new App();
+  Aspects.of(app).add(new rdsAlarms.RdsAuroraRecommendedAlarmsAspect({
+    configDatabaseConnectionsAlarm: { threshold: 10 },
+    configFreeableMemoryAlarm: { threshold: 5 },
+    configFreeLocalStorageAlarm: { threshold: 20 },
+    configFreeStorageSpaceAlarm: { threshold: 20 },
+    configDbLoadAlarm: { threshold: 4 },
+    configReadLatencyAlarm: { threshold: 20 },
+    configWriteLatencyAlarm: { threshold: 20 },
+    configAuroraVolumeBytesLeftTotalAlarm: { threshold: 20 },
+    excludeAlarms: [rdsAlarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED],
+  }));
+
+  const stack = new AuroraMySQLClusterStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  const template = Template.fromStack(stack);
+  const volumeBytesUsedAlarms = Object.values(template.findResources('AWS::CloudWatch::Alarm')).filter(r =>
+    (r.Properties.Metrics ?? []).some((m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === 'VolumeBytesUsed'),
+  );
+  expect(volumeBytesUsedAlarms).toHaveLength(0);
+  // Other Aurora cluster alarms still exist.
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    MetricName: 'AuroraVolumeBytesLeftTotal',
+  }));
+});
+
+test('VolumeBytesUsed alarm defaults match documented values when created with no overrides', () => {
+  const app = new App();
+  const stack = new AuroraMySQLClusterStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  stack.databaseCluster.alarmAuroraVolumeBytesUsed();
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'GreaterThanUpperThreshold',
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 3,
+    TreatMissingData: 'missing',
+    Metrics: Match.arrayWith([
+      Match.objectLike({
+        Expression: 'ANOMALY_DETECTION_BAND(m0, 8)',
+        Label: 'Anomaly Detection Band',
+      }),
+      Match.objectLike({
+        MetricStat: Match.objectLike({
+          Metric: Match.objectLike({
+            MetricName: 'VolumeBytesUsed',
+            Namespace: 'AWS/RDS',
+            Dimensions: [{ Name: 'DBClusterIdentifier', Value: Match.anyValue() }],
+          }),
+          Period: 900,
+          Stat: 'Average',
+        }),
+      }),
+    ]),
+  }));
+});
+
+test('VolumeBytesUsed alarm is created on Aurora PostgreSQL clusters', () => {
+  const app = new App();
+  Aspects.of(app).add(
+    new rdsAlarms.RdsAuroraRecommendedAlarmsAspect({
+      configDatabaseConnectionsAlarm: { threshold: 10 },
+      configFreeableMemoryAlarm: { threshold: 5 },
+      configFreeLocalStorageAlarm: { threshold: 20 },
+      configFreeStorageSpaceAlarm: { threshold: 20 },
+      configDbLoadAlarm: { threshold: 4 },
+      configReadLatencyAlarm: { threshold: 20 },
+      configWriteLatencyAlarm: { threshold: 20 },
+    }),
+  );
+
+  const stack = new AuroraPostgresClusterStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  const template = Template.fromStack(stack);
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+  const volumeBytesUsedAlarms = Object.values(resources).filter(r =>
+    (r.Properties.Metrics ?? []).some((m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === 'VolumeBytesUsed'),
+  );
+  expect(volumeBytesUsedAlarms).toHaveLength(1);
 });
 
 test('alarms can be applied individually to instances using extended construct', () => {
@@ -987,7 +1089,9 @@ test('when a cluster is excluded from the aspect config it should not have alarm
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(clusterName) && resourceProperties.MetricName === metricName;
+        if (!resourceName.startsWith(clusterName)) return false;
+        if (resourceProperties.MetricName === metricName) return true;
+        return resourceProperties.Metrics?.some((m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === metricName) ?? false;
       });
 
       if (clusterName === 'AuroraMySQLCluster1') {
@@ -1404,6 +1508,19 @@ test('optional alarm configurations can be overwritten', () => {
         okAction: topicAction,
         insufficientDataAction: topicAction,
       },
+      configAuroraVolumeBytesUsedAlarm: {
+        alarmName: 'CustomAuroraVolumeBytesUsedAlarm',
+        period: Duration.minutes(5),
+        stdDevs: 4,
+        evaluationPeriods: 25,
+        datapointsToAlarm: 25,
+        comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD,
+        alarmDescription: 'Custom alarm description',
+        treatMissingData: cloudwatch.TreatMissingData.IGNORE,
+        alarmAction: topicAction,
+        okAction: topicAction,
+        insufficientDataAction: topicAction,
+      },
     }),
   );
 
@@ -1457,20 +1574,50 @@ test('optional alarm configurations can be overwritten', () => {
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
-  Object.values(rdsAlarms.RdsRecommendedAlarmsMetrics).forEach(metricName => {
-    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
-      AlarmName: Match.stringLikeRegexp('^Custom.*'),
-      Period: 300,
-      EvaluationPeriods: 25,
-      DatapointsToAlarm: 25,
-      AlarmDescription: 'Custom alarm description',
-      TreatMissingData: 'ignore',
-      AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-      OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-      InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-    }));
-  });
+  Object.values(rdsAlarms.RdsRecommendedAlarmsMetrics)
+    .filter(metricName => metricName !== rdsAlarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED)
+    .forEach(metricName => {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        AlarmName: Match.stringLikeRegexp('^Custom.*'),
+        Period: 300,
+        EvaluationPeriods: 25,
+        DatapointsToAlarm: 25,
+        AlarmDescription: 'Custom alarm description',
+        TreatMissingData: 'ignore',
+        AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      }));
+    });
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    AlarmName: 'CustomAuroraVolumeBytesUsedAlarm',
+    ComparisonOperator: 'LessThanLowerOrGreaterThanUpperThreshold',
+    EvaluationPeriods: 25,
+    DatapointsToAlarm: 25,
+    AlarmDescription: 'Custom alarm description',
+    TreatMissingData: 'ignore',
+    AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+    Metrics: Match.arrayWith([
+      Match.objectLike({
+        Expression: 'ANOMALY_DETECTION_BAND(m0, 4)',
+        Label: 'Anomaly Detection Band',
+      }),
+      Match.objectLike({
+        MetricStat: Match.objectLike({
+          Metric: Match.objectLike({
+            MetricName: 'VolumeBytesUsed',
+            Namespace: 'AWS/RDS',
+          }),
+          Period: 300,
+          Stat: 'Average',
+        }),
+      }),
+    ]),
+  }));
 });
 
 test('AspectWithTreatMissingData', () => {

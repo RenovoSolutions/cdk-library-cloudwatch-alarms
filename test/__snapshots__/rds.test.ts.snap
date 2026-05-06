@@ -653,6 +653,56 @@ exports[`DatabaseClusterSnapshot 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "AuroraMySQLClusterRdsAuroraRecommendedAlarmsFromAspectAuroraVolumeBytesUsedAlarm54677FE0": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuroraMySQLCluster07727989",
+              },
+              " - VolumeBytesUsed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraMySQLCluster07727989",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 900,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "AuroraMySQLClusterRdsAuroraRecommendedAlarmsFromAspectRdsInstanceRecommendedAlarmsFromAspect0InstanceCpuUtilizationAlarm4308392C": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect consistent high CPU utilization in order to prevent very high response time and time-outs. If you want to check micro-bursting of CPU utilization you can set a lower alarm evaluation time.",
@@ -1965,6 +2015,71 @@ exports[`DatabaseClusterSnapshotDefaultActionsInUse 1`] = `
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 20,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "rdsClusterAlarmsAuroraVolumeBytesUsedAlarm0312BC9C": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuroraMySQLCluster07727989",
+              },
+              " - VolumeBytesUsed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraMySQLCluster07727989",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 900,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -3298,6 +3413,56 @@ exports[`DatabaseClusterSnapshotWithExclusion 1`] = `
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 20,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AuroraMySQLClusterRdsAuroraRecommendedAlarmsFromAspectAuroraVolumeBytesUsedAlarm54677FE0": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuroraMySQLCluster07727989",
+              },
+              " - VolumeBytesUsed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraMySQLCluster07727989",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 900,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -7295,6 +7460,56 @@ exports[`SnapshotForDatabaseClusterConstruct 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "AuroraMySQLClusterRdsAuroraRecommendedAlarmsAuroraVolumeBytesUsedAlarmA875AC14": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuroraMySQLCluster07727989",
+              },
+              " - VolumeBytesUsed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraMySQLCluster07727989",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 900,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "AuroraMySQLClusterRdsAuroraRecommendedAlarmsRdsInstanceRecommendedAlarmsFromAspect0InstanceCpuUtilizationAlarm80C7F245": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect consistent high CPU utilization in order to prevent very high response time and time-outs. If you want to check micro-bursting of CPU utilization you can set a lower alarm evaluation time.",
@@ -9285,6 +9500,56 @@ exports[`alarms can be applied individually to clusters using extended construct
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 20,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AuroraMySQLClusterAuroraVolumeBytesUsedAlarm64183AC5": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuroraMySQLCluster07727989",
+              },
+              " - VolumeBytesUsed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraMySQLCluster07727989",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 900,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -11960,6 +12225,61 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "AuroraMySQLClusterRdsAuroraRecommendedAlarmsFromAspectAuroraVolumeBytesUsedAlarm54677FE0": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "CustomAuroraVolumeBytesUsedAlarm",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 25,
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 4)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraMySQLCluster07727989",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "AuroraMySQLClusterRdsAuroraRecommendedAlarmsFromAspectRdsInstanceRecommendedAlarmsFromAspect0InstanceCpuUtilizationAlarm4308392C": {
       "Properties": {
         "AlarmActions": [
@@ -13160,6 +13480,56 @@ exports[`stack should contain cluster recommended alarms for the specific engine
       "Type": "AWS::RDS::DBCluster",
       "UpdateReplacePolicy": "Snapshot",
     },
+    "AuroraPostgresClusterRdsAuroraRecommendedAlarmsFromAspectAuroraVolumeBytesUsedAlarmC43226B8": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuroraPostgresClusterFE4B644F",
+              },
+              " - VolumeBytesUsed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraPostgresClusterFE4B644F",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 900,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "AuroraPostgresClusterRdsAuroraRecommendedAlarmsFromAspectRdsInstanceRecommendedAlarmsFromAspect0InstanceCpuUtilizationAlarm84E5BA2C": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect consistent high CPU utilization in order to prevent very high response time and time-outs. If you want to check micro-bursting of CPU utilization you can set a lower alarm evaluation time.",
@@ -14344,6 +14714,56 @@ exports[`stack should contain cluster recommended alarms if cluster recommended 
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 20,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AuroraMySQLClusterRdsAuroraRecommendedAlarmsFromAspectAuroraVolumeBytesUsedAlarm54677FE0": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuroraMySQLCluster07727989",
+              },
+              " - VolumeBytesUsed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraMySQLCluster07727989",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 900,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -16445,6 +16865,56 @@ exports[`when a cluster is excluded from the aspect config it should not have al
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 20,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AuroraMySQLCluster2RdsAuroraRecommendedAlarmsFromAspectAuroraVolumeBytesUsedAlarm087DF803": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuroraMySQLCluster2CC71E932",
+              },
+              " - VolumeBytesUsed",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBClusterIdentifier",
+                    "Value": {
+                      "Ref": "AuroraMySQLCluster2CC71E932",
+                    },
+                  },
+                ],
+                "MetricName": "VolumeBytesUsed",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 900,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",

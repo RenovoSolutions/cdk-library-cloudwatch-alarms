@@ -51,6 +51,10 @@ export enum RdsRecommendedAlarmsMetrics {
    * The amount of time that a binary log replica DB cluster running on Aurora MySQL lags behind the binary log replication source.
    */
   AURORA_BIN_LOG_REPLICATION_LAG = 'AuroraBinLogReplicaLag',
+  /**
+   * The amount of storage used by the Aurora cluster volume.
+   */
+  AURORA_VOLUME_BYTES_USED = 'VolumeBytesUsed',
 }
 
 /**
@@ -1045,6 +1049,110 @@ export class RdsAuroraBinLogReplicationLagAlarm extends cloudwatch.Alarm {
 }
 
 /**
+ * Configuration for the VolumeBytesUsed anomaly detection alarm.
+ */
+export interface RdsAuroraVolumeBytesUsedAlarmConfig extends RdsAlarmBaseConfig {
+  /**
+   * The width of the anomaly detection band, expressed as a multiplier on the model's prediction interval.
+   *
+   * @default 8
+   */
+  readonly stdDevs?: number;
+  /**
+   * The number of periods over which data is compared to the anomaly detection band.
+   *
+   * @default 3
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 3
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The comparison operator used to compare the metric against the anomaly detection band.
+   *
+   * @default cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+   */
+  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - cluster.clusterIdentifier + ' - VolumeBytesUsed'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This alarm detects unusual growth in the amount of storage
+   * used by the Aurora cluster volume, which can indicate runaway storage
+   * usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path)
+   * that would otherwise go unnoticed because Aurora storage grows
+   * automatically.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the RdsAuroraVolumeBytesUsedAlarm construct.
+ */
+export interface RdsAuroraVolumeBytesUsedAlarmProps extends RdsAuroraVolumeBytesUsedAlarmConfig {
+  /**
+   * The database cluster to monitor.
+   */
+  readonly databaseCluster: rds.IDatabaseCluster;
+}
+
+/**
+ * An anomaly detection alarm on the Aurora cluster `VolumeBytesUsed` metric.
+ *
+ * Catches abnormally fast storage growth that static thresholds can't express
+ * (Aurora storage grows automatically; the Aurora MySQL volume cap is already
+ * covered by `AuroraVolumeBytesLeftTotal`). Applies to both Aurora MySQL and
+ * Aurora PostgreSQL.
+ */
+export class RdsAuroraVolumeBytesUsedAlarm extends cloudwatch.AnomalyDetectionAlarm {
+  constructor(scope: Construct, id: string, props: RdsAuroraVolumeBytesUsedAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.databaseCluster.clusterIdentifier} - ${RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED}`;
+    const period = props.period ?? Duration.minutes(15);
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 3;
+    const stdDevs = props.stdDevs ?? 8;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This alarm detects unusual growth in the amount of storage used'
+      + ' by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a'
+      + ' misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: new cloudwatch.Metric({
+        namespace: 'AWS/RDS',
+        metricName: RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED,
+        dimensionsMap: {
+          DBClusterIdentifier: props.databaseCluster.clusterIdentifier,
+        },
+        statistic: 'Average',
+        period,
+      }),
+      stdDevs,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+}
+
+/**
  * Configuration for RDS recommended alarms.
  *
  * Default actions are overridden by the actions specified in the
@@ -1133,6 +1241,10 @@ export interface RdsAuroraRecommendedAlarmsConfig extends RdsInstanceRecommended
    * The configuration for the AuroraBinLogReplicationLag alarm.
    */
   readonly configAuroraBinLogReplicationLagAlarm?: RdsAuroraBinLogReplicationLagAlarmConfig;
+  /**
+   * The configuration for the VolumeBytesUsed anomaly detection alarm.
+   */
+  readonly configAuroraVolumeBytesUsedAlarm?: RdsAuroraVolumeBytesUsedAlarmConfig;
 }
 
 export interface RdsInstanceRecommendedAlarmsProps extends RdsInstanceRecommendedAlarmsConfig {
@@ -1389,6 +1501,11 @@ export class RdsAuroraRecommendedAlarms extends Construct {
    */
   public readonly alarmAuroraBinLogReplicationLag?: RdsAuroraBinLogReplicationLagAlarm;
 
+  /**
+   * The VolumeBytesUsed anomaly detection alarm for the database cluster.
+   */
+  public readonly alarmAuroraVolumeBytesUsed?: RdsAuroraVolumeBytesUsedAlarm;
+
   constructor(scope: Construct, id: string, props: RdsAuroraRecommendedAlarmsProps) {
     super(scope, id);
 
@@ -1453,6 +1570,35 @@ export class RdsAuroraRecommendedAlarms extends Construct {
         (!props.configAuroraBinLogReplicationLagAlarm || !props.configAuroraBinLogReplicationLagAlarm.insufficientDataAction)
       ) {
         this.alarmAuroraBinLogReplicationLag.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
+    if (!props.excludeAlarms?.includes(RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED)) {
+      this.alarmAuroraVolumeBytesUsed = new RdsAuroraVolumeBytesUsedAlarm(this, 'AuroraVolumeBytesUsedAlarm', {
+        databaseCluster: props.databaseCluster,
+        treatMissingData: props.treatMissingData,
+        ...props.configAuroraVolumeBytesUsedAlarm,
+      });
+
+      if (
+        props.defaultAlarmAction &&
+        (!props.configAuroraVolumeBytesUsedAlarm || !props.configAuroraVolumeBytesUsedAlarm.alarmAction)
+      ) {
+        this.alarmAuroraVolumeBytesUsed.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (
+        props.defaultOkAction &&
+        (!props.configAuroraVolumeBytesUsedAlarm || !props.configAuroraVolumeBytesUsedAlarm.okAction)
+      ) {
+        this.alarmAuroraVolumeBytesUsed.addOkAction(props.defaultOkAction);
+      }
+
+      if (
+        props.defaultInsufficientDataAction &&
+        (!props.configAuroraVolumeBytesUsedAlarm || !props.configAuroraVolumeBytesUsedAlarm.insufficientDataAction)
+      ) {
+        this.alarmAuroraVolumeBytesUsed.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
 
@@ -1592,6 +1738,16 @@ export class DatabaseCluster extends rds.DatabaseCluster {
    */
   public alarmAuroraBinLogReplicationLag(props?: RdsAuroraBinLogReplicationLagAlarmConfig): RdsAuroraBinLogReplicationLagAlarm {
     return new RdsAuroraBinLogReplicationLagAlarm(this, 'AuroraBinLogReplicationLagAlarm', {
+      databaseCluster: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an anomaly detection alarm on the VolumeBytesUsed metric.
+   */
+  public alarmAuroraVolumeBytesUsed(props?: RdsAuroraVolumeBytesUsedAlarmConfig): RdsAuroraVolumeBytesUsedAlarm {
+    return new RdsAuroraVolumeBytesUsedAlarm(this, 'AuroraVolumeBytesUsedAlarm', {
       databaseCluster: this,
       ...props,
     });
