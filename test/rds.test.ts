@@ -488,7 +488,6 @@ test('DatabaseClusterSnapshotDefaultActionsInUse', () => {
     configAuroraBinLogReplicationLagAlarm: {
       threshold: 20,
     },
-    configAuroraVolumeBytesUsedAlarm: {},
     defaultAlarmAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultOkAction: new cloudwatch_actions.SnsAction(alarmTopic),
     defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(alarmTopic),

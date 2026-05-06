@@ -1129,13 +1129,7 @@ export class RdsAuroraVolumeBytesUsedAlarm extends cloudwatch.AnomalyDetectionAl
 
     super(scope, id, {
       alarmName,
-      metric: new cloudwatch.Metric({
-        namespace: 'AWS/RDS',
-        metricName: RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED,
-        dimensionsMap: {
-          DBClusterIdentifier: props.databaseCluster.clusterIdentifier,
-        },
-        statistic: 'Average',
+      metric: props.databaseCluster.metricVolumeBytesUsed({
         period,
       }),
       stdDevs,
