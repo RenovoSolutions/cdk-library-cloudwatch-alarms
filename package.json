@@ -64,6 +64,7 @@
     "aws-cdk-lib": "^2.241.0",
     "constructs": "^10.5.1"
   },
+  "pnpm": {},
   "keywords": [
     "alarms",
     "aws-cdk",

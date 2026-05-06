@@ -15067,6 +15067,7 @@ new DatabaseCluster(scope: Construct, id: string, props: DatabaseClusterProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.metricServerlessDatabaseCapacity">metricServerlessDatabaseCapacity</a></code> | As a cluster-level metric, it represents the average of the ServerlessDatabaseCapacity values of all the Aurora Serverless v2 DB instances in the cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraBinLogReplicationLag">alarmAuroraBinLogReplicationLag</a></code> | Creates an alarm that monitors the Bin Log Replication lag. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraVolumeBytesLeftTotal">alarmAuroraVolumeBytesLeftTotal</a></code> | Creates an alarm that monitors the AuroraVolumeBytesLeftTotal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraVolumeBytesUsed">alarmAuroraVolumeBytesUsed</a></code> | Creates an anomaly detection alarm on the VolumeBytesUsed metric. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates recommended alarms for the database cluster. |
 
 ---
@@ -15529,6 +15530,20 @@ Creates an alarm that monitors the AuroraVolumeBytesLeftTotal.
 ###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraVolumeBytesLeftTotal.parameter.props"></a>
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a>
+
+---
+
+##### `alarmAuroraVolumeBytesUsed` <a name="alarmAuroraVolumeBytesUsed" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraVolumeBytesUsed"></a>
+
+```typescript
+public alarmAuroraVolumeBytesUsed(props?: RdsAuroraVolumeBytesUsedAlarmConfig): RdsAuroraVolumeBytesUsedAlarm
+```
+
+Creates an anomaly detection alarm on the VolumeBytesUsed metric.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.alarmAuroraVolumeBytesUsed.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig">RdsAuroraVolumeBytesUsedAlarmConfig</a>
 
 ---
 
@@ -43844,6 +43859,7 @@ Any object.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.alarmAuroraBinLogReplicationLag">alarmAuroraBinLogReplicationLag</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm">RdsAuroraBinLogReplicationLagAlarm</a></code> | The Bin Log Replication lag alarm for the database cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.alarmAuroraVolumeBytesLeftTotal">alarmAuroraVolumeBytesLeftTotal</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm">RdsAuroraVolumeBytesLeftTotalAlarm</a></code> | The AuroraVolumeBytesLeftTotal alarm for the database cluster. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.alarmAuroraVolumeBytesUsed">alarmAuroraVolumeBytesUsed</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm">RdsAuroraVolumeBytesUsedAlarm</a></code> | The VolumeBytesUsed anomaly detection alarm for the database cluster. |
 
 ---
 
@@ -43880,6 +43896,18 @@ public readonly alarmAuroraVolumeBytesLeftTotal: RdsAuroraVolumeBytesLeftTotalAl
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm">RdsAuroraVolumeBytesLeftTotalAlarm</a>
 
 The AuroraVolumeBytesLeftTotal alarm for the database cluster.
+
+---
+
+##### `alarmAuroraVolumeBytesUsed`<sup>Optional</sup> <a name="alarmAuroraVolumeBytesUsed" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarms.property.alarmAuroraVolumeBytesUsed"></a>
+
+```typescript
+public readonly alarmAuroraVolumeBytesUsed: RdsAuroraVolumeBytesUsedAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm">RdsAuroraVolumeBytesUsedAlarm</a>
+
+The VolumeBytesUsed anomaly detection alarm for the database cluster.
 
 ---
 
@@ -44348,6 +44376,481 @@ the `threshold` property at all.
 ---
 
 ##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### RdsAuroraVolumeBytesUsedAlarm <a name="RdsAuroraVolumeBytesUsedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm"></a>
+
+An anomaly detection alarm on the Aurora cluster `VolumeBytesUsed` metric.
+
+Catches abnormally fast storage growth that static thresholds can't express
+(Aurora storage grows automatically; the Aurora MySQL volume cap is already
+covered by `AuroraVolumeBytesLeftTotal`). Applies to both Aurora MySQL and
+Aurora PostgreSQL.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.Initializer"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesUsedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new RdsAuroraVolumeBytesUsedAlarm(scope: Construct, id: string, props: RdsAuroraVolumeBytesUsedAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps">RdsAuroraVolumeBytesUsedAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps">RdsAuroraVolumeBytesUsedAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isConstruct"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesUsedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesUsedAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isOwnedResource"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesUsedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesUsedAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isResource"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesUsedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesUsedAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmArn"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesUsedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesUsedAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmName"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesUsedAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+RdsAuroraVolumeBytesUsedAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.property.PROPERTY_INJECTION_ID"></a>
 
 ```typescript
 public readonly PROPERTY_INJECTION_ID: string;
@@ -91529,6 +92032,7 @@ const rdsAuroraRecommendedAlarmsConfig: RdsAuroraRecommendedAlarmsConfig = { ...
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configCpuUtilizationAlarm">configCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a></code> | The configuration for the CpuUtilization alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configAuroraBinLogReplicationLagAlarm">configAuroraBinLogReplicationLagAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig">RdsAuroraBinLogReplicationLagAlarmConfig</a></code> | The configuration for the AuroraBinLogReplicationLag alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configAuroraVolumeBytesLeftTotalAlarm">configAuroraVolumeBytesLeftTotalAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a></code> | The configuration for the AuroraVolumeBytesLeftTotal alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configAuroraVolumeBytesUsedAlarm">configAuroraVolumeBytesUsedAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig">RdsAuroraVolumeBytesUsedAlarmConfig</a></code> | The configuration for the VolumeBytesUsed anomaly detection alarm. |
 
 ---
 
@@ -91731,6 +92235,18 @@ The configuration for the AuroraVolumeBytesLeftTotal alarm.
 
 ---
 
+##### `configAuroraVolumeBytesUsedAlarm`<sup>Optional</sup> <a name="configAuroraVolumeBytesUsedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsConfig.property.configAuroraVolumeBytesUsedAlarm"></a>
+
+```typescript
+public readonly configAuroraVolumeBytesUsedAlarm: RdsAuroraVolumeBytesUsedAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig">RdsAuroraVolumeBytesUsedAlarmConfig</a>
+
+The configuration for the VolumeBytesUsed anomaly detection alarm.
+
+---
+
 ### RdsAuroraRecommendedAlarmsProps <a name="RdsAuroraRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps"></a>
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.Initializer"></a>
@@ -91761,6 +92277,7 @@ const rdsAuroraRecommendedAlarmsProps: RdsAuroraRecommendedAlarmsProps = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configCpuUtilizationAlarm">configCpuUtilizationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsCpuUtilizationAlarmConfig">RdsCpuUtilizationAlarmConfig</a></code> | The configuration for the CpuUtilization alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configAuroraBinLogReplicationLagAlarm">configAuroraBinLogReplicationLagAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarmConfig">RdsAuroraBinLogReplicationLagAlarmConfig</a></code> | The configuration for the AuroraBinLogReplicationLag alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configAuroraVolumeBytesLeftTotalAlarm">configAuroraVolumeBytesLeftTotalAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a></code> | The configuration for the AuroraVolumeBytesLeftTotal alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configAuroraVolumeBytesUsedAlarm">configAuroraVolumeBytesUsedAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig">RdsAuroraVolumeBytesUsedAlarmConfig</a></code> | The configuration for the VolumeBytesUsed anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.databaseCluster">databaseCluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster</code> | The database cluster to apply the recommended alarms. |
 
 ---
@@ -91961,6 +92478,18 @@ public readonly configAuroraVolumeBytesLeftTotalAlarm: RdsAuroraVolumeBytesLeftT
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmConfig">RdsAuroraVolumeBytesLeftTotalAlarmConfig</a>
 
 The configuration for the AuroraVolumeBytesLeftTotal alarm.
+
+---
+
+##### `configAuroraVolumeBytesUsedAlarm`<sup>Optional</sup> <a name="configAuroraVolumeBytesUsedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraRecommendedAlarmsProps.property.configAuroraVolumeBytesUsedAlarm"></a>
+
+```typescript
+public readonly configAuroraVolumeBytesUsedAlarm: RdsAuroraVolumeBytesUsedAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig">RdsAuroraVolumeBytesUsedAlarmConfig</a>
+
+The configuration for the VolumeBytesUsed anomaly detection alarm.
 
 ---
 
@@ -92302,6 +92831,365 @@ to proactively take action before the volume reaches its limit.
 ---
 
 ##### `databaseCluster`<sup>Required</sup> <a name="databaseCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarmProps.property.databaseCluster"></a>
+
+```typescript
+public readonly databaseCluster: IDatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster
+
+The database cluster to monitor.
+
+---
+
+### RdsAuroraVolumeBytesUsedAlarmConfig <a name="RdsAuroraVolumeBytesUsedAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig"></a>
+
+Configuration for the VolumeBytesUsed anomaly detection alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.Initializer"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesUsedAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAuroraVolumeBytesUsedAlarmConfig: RdsAuroraVolumeBytesUsedAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a multiplier on the model's prediction interval. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* cluster.clusterIdentifier + ' - VolumeBytesUsed'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly detection band, expressed as a multiplier on the model's prediction interval.
+
+---
+
+### RdsAuroraVolumeBytesUsedAlarmProps <a name="RdsAuroraVolumeBytesUsedAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps"></a>
+
+The properties for the RdsAuroraVolumeBytesUsedAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.Initializer"></a>
+
+```typescript
+import { RdsAuroraVolumeBytesUsedAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const rdsAuroraVolumeBytesUsedAlarmProps: RdsAuroraVolumeBytesUsedAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a multiplier on the model's prediction interval. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.databaseCluster">databaseCluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster</code> | The database cluster to monitor. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This alarm detects unusual growth in the amount of storage used by the Aurora cluster volume, which can indicate runaway storage usage (e.g. missing autovacuum, bloat, or a misbehaving ingest path) that would otherwise go unnoticed because Aurora storage grows automatically.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* cluster.clusterIdentifier + ' - VolumeBytesUsed'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly detection band, expressed as a multiplier on the model's prediction interval.
+
+---
+
+##### `databaseCluster`<sup>Required</sup> <a name="databaseCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarmProps.property.databaseCluster"></a>
 
 ```typescript
 public readonly databaseCluster: IDatabaseCluster;
@@ -106224,6 +107112,7 @@ The recommended metrics for RDS alarms.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.INSTANCE_DB_LOAD">INSTANCE_DB_LOAD</a></code> | The average active sessions (AAS) for the DB instance which shows how many sessions are concurrently active on the database. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_LEFT_TOTAL">AURORA_VOLUME_BYTES_LEFT_TOTAL</a></code> | The remaining available space for the cluster volume. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_BIN_LOG_REPLICATION_LAG">AURORA_BIN_LOG_REPLICATION_LAG</a></code> | The amount of time that a binary log replica DB cluster running on Aurora MySQL lags behind the binary log replication source. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED">AURORA_VOLUME_BYTES_USED</a></code> | The amount of storage used by the Aurora cluster volume. |
 
 ---
 
@@ -106293,6 +107182,13 @@ The remaining available space for the cluster volume.
 ##### `AURORA_BIN_LOG_REPLICATION_LAG` <a name="AURORA_BIN_LOG_REPLICATION_LAG" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_BIN_LOG_REPLICATION_LAG"></a>
 
 The amount of time that a binary log replica DB cluster running on Aurora MySQL lags behind the binary log replication source.
+
+---
+
+
+##### `AURORA_VOLUME_BYTES_USED` <a name="AURORA_VOLUME_BYTES_USED" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED"></a>
+
+The amount of storage used by the Aurora cluster volume.
 
 ---
 
