@@ -92983,7 +92983,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* 3
+- *Default:* 5
 
 The number of data points that must be breaching to trigger the alarm.
 
@@ -92996,7 +92996,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* 3
+- *Default:* 5
 
 The number of periods over which data is compared to the anomaly detection band.
 
@@ -93157,7 +93157,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* 3
+- *Default:* 5
 
 The number of data points that must be breaching to trigger the alarm.
 
@@ -93170,7 +93170,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* 3
+- *Default:* 5
 
 The number of periods over which data is compared to the anomaly detection band.
 

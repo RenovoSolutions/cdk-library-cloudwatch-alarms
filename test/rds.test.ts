@@ -879,8 +879,8 @@ test('VolumeBytesUsed alarm defaults match documented values when created with n
 
   template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
     ComparisonOperator: 'GreaterThanUpperThreshold',
-    EvaluationPeriods: 3,
-    DatapointsToAlarm: 3,
+    EvaluationPeriods: 5,
+    DatapointsToAlarm: 5,
     TreatMissingData: 'missing',
     Metrics: Match.arrayWith([
       Match.objectLike({
@@ -894,7 +894,7 @@ test('VolumeBytesUsed alarm defaults match documented values when created with n
             Namespace: 'AWS/RDS',
             Dimensions: [{ Name: 'DBClusterIdentifier', Value: Match.anyValue() }],
           }),
-          Period: 900,
+          Period: 300,
           Stat: 'Average',
         }),
       }),

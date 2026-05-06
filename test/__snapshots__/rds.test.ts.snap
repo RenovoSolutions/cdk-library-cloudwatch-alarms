@@ -668,8 +668,8 @@ exports[`DatabaseClusterSnapshot 1`] = `
           ],
         },
         "ComparisonOperator": "GreaterThanUpperThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
         "Metrics": [
           {
             "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
@@ -692,7 +692,7 @@ exports[`DatabaseClusterSnapshot 1`] = `
                 "MetricName": "VolumeBytesUsed",
                 "Namespace": "AWS/RDS",
               },
-              "Period": 900,
+              "Period": 300,
               "Stat": "Average",
             },
             "ReturnData": true,
@@ -2039,8 +2039,8 @@ exports[`DatabaseClusterSnapshotDefaultActionsInUse 1`] = `
           ],
         },
         "ComparisonOperator": "GreaterThanUpperThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
         "InsufficientDataActions": [
           {
             "Ref": "TopicBFC7AF6E",
@@ -2068,7 +2068,7 @@ exports[`DatabaseClusterSnapshotDefaultActionsInUse 1`] = `
                 "MetricName": "VolumeBytesUsed",
                 "Namespace": "AWS/RDS",
               },
-              "Period": 900,
+              "Period": 300,
               "Stat": "Average",
             },
             "ReturnData": true,
@@ -3432,8 +3432,8 @@ exports[`DatabaseClusterSnapshotWithExclusion 1`] = `
           ],
         },
         "ComparisonOperator": "GreaterThanUpperThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
         "Metrics": [
           {
             "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
@@ -3456,7 +3456,7 @@ exports[`DatabaseClusterSnapshotWithExclusion 1`] = `
                 "MetricName": "VolumeBytesUsed",
                 "Namespace": "AWS/RDS",
               },
-              "Period": 900,
+              "Period": 300,
               "Stat": "Average",
             },
             "ReturnData": true,
@@ -7475,8 +7475,8 @@ exports[`SnapshotForDatabaseClusterConstruct 1`] = `
           ],
         },
         "ComparisonOperator": "GreaterThanUpperThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
         "Metrics": [
           {
             "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
@@ -7499,7 +7499,7 @@ exports[`SnapshotForDatabaseClusterConstruct 1`] = `
                 "MetricName": "VolumeBytesUsed",
                 "Namespace": "AWS/RDS",
               },
-              "Period": 900,
+              "Period": 300,
               "Stat": "Average",
             },
             "ReturnData": true,
@@ -9519,8 +9519,8 @@ exports[`alarms can be applied individually to clusters using extended construct
           ],
         },
         "ComparisonOperator": "GreaterThanUpperThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
         "Metrics": [
           {
             "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
@@ -9543,7 +9543,7 @@ exports[`alarms can be applied individually to clusters using extended construct
                 "MetricName": "VolumeBytesUsed",
                 "Namespace": "AWS/RDS",
               },
-              "Period": 900,
+              "Period": 300,
               "Stat": "Average",
             },
             "ReturnData": true,
@@ -13495,8 +13495,8 @@ exports[`stack should contain cluster recommended alarms for the specific engine
           ],
         },
         "ComparisonOperator": "GreaterThanUpperThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
         "Metrics": [
           {
             "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
@@ -13519,7 +13519,7 @@ exports[`stack should contain cluster recommended alarms for the specific engine
                 "MetricName": "VolumeBytesUsed",
                 "Namespace": "AWS/RDS",
               },
-              "Period": 900,
+              "Period": 300,
               "Stat": "Average",
             },
             "ReturnData": true,
@@ -14733,8 +14733,8 @@ exports[`stack should contain cluster recommended alarms if cluster recommended 
           ],
         },
         "ComparisonOperator": "GreaterThanUpperThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
         "Metrics": [
           {
             "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
@@ -14757,7 +14757,7 @@ exports[`stack should contain cluster recommended alarms if cluster recommended 
                 "MetricName": "VolumeBytesUsed",
                 "Namespace": "AWS/RDS",
               },
-              "Period": 900,
+              "Period": 300,
               "Stat": "Average",
             },
             "ReturnData": true,
@@ -16884,8 +16884,8 @@ exports[`when a cluster is excluded from the aspect config it should not have al
           ],
         },
         "ComparisonOperator": "GreaterThanUpperThreshold",
-        "DatapointsToAlarm": 3,
-        "EvaluationPeriods": 3,
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
         "Metrics": [
           {
             "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
@@ -16908,7 +16908,7 @@ exports[`when a cluster is excluded from the aspect config it should not have al
                 "MetricName": "VolumeBytesUsed",
                 "Namespace": "AWS/RDS",
               },
-              "Period": 900,
+              "Period": 300,
               "Stat": "Average",
             },
             "ReturnData": true,

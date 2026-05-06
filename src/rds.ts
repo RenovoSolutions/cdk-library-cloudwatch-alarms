@@ -1061,13 +1061,13 @@ export interface RdsAuroraVolumeBytesUsedAlarmConfig extends RdsAlarmBaseConfig 
   /**
    * The number of periods over which data is compared to the anomaly detection band.
    *
-   * @default 3
+   * @default 5
    */
   readonly evaluationPeriods?: number;
   /**
    * The number of data points that must be breaching to trigger the alarm.
    *
-   * @default 3
+   * @default 5
    */
   readonly datapointsToAlarm?: number;
   /**
@@ -1115,9 +1115,9 @@ export interface RdsAuroraVolumeBytesUsedAlarmProps extends RdsAuroraVolumeBytes
 export class RdsAuroraVolumeBytesUsedAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: Construct, id: string, props: RdsAuroraVolumeBytesUsedAlarmProps) {
     const alarmName = props.alarmName ?? `${props.databaseCluster.clusterIdentifier} - ${RdsRecommendedAlarmsMetrics.AURORA_VOLUME_BYTES_USED}`;
-    const period = props.period ?? Duration.minutes(15);
-    const evaluationPeriods = props.evaluationPeriods ?? 3;
-    const datapointsToAlarm = props.datapointsToAlarm ?? 3;
+    const period = props.period ?? Duration.minutes(5);
+    const evaluationPeriods = props.evaluationPeriods ?? 5;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 5;
     const stdDevs = props.stdDevs ?? 8;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
     const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD;
