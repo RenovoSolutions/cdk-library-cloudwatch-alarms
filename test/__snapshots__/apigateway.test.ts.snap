@@ -136,6 +136,94 @@ exports[`AspectWithTreatMissingData 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1CountAnomaly86766572": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi1 - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi1",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi1DeploymentStagelive146493FD",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1IntegrationLatencyAnomaly44A452D0": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi1 - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi1",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi1DeploymentStagelive146493FD",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1Latency38B1EC96": {
       "Properties": {
         "AlarmDescription": "This alarm can detect when the API Gateway requests in a stage have high latency.",
@@ -160,6 +248,50 @@ exports[`AspectWithTreatMissingData 1`] = `
         "Namespace": "AWS/ApiGateway",
         "Period": 60,
         "Threshold": 2500,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1LatencyAnomalyC8D05CEF": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi1 - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi1",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi1DeploymentStagelive146493FD",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -435,6 +567,138 @@ exports[`RestApiSnapshot 1`] = `
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountAnomaly71957243": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiIntegrationLatencyAnomalyB2018DB4": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiLatencyAnomaly5E2F2E09": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -910,6 +1174,183 @@ exports[`RestApiSnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "apiGatewayRestApiAlarmsRestApiCountAnomaly25ADF18A": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "apiGatewayRestApiAlarmsRestApiIntegrationLatencyAnomaly2EF6BF49": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "apiGatewayRestApiAlarmsRestApiLatencyAnomalyB0C84C3C": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "apiGatewayRestApiAlarmsRestApiLatencyCD758518": {
       "Properties": {
         "AlarmActions": [
@@ -1279,6 +1720,65 @@ exports[`RestApiSnapshotDefaultActionsInUseWithDetails 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "apiGatewayRestApiAlarmsRestApiCountAnomaly25ADF18A": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "apiGatewayRestApiAlarmsRestApiDetailedLatency03D52684B": {
       "Properties": {
         "AlarmActions": [
@@ -1377,6 +1877,124 @@ exports[`RestApiSnapshotDefaultActionsInUseWithDetails 1`] = `
         ],
         "Period": 60,
         "Threshold": 2500,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "apiGatewayRestApiAlarmsRestApiIntegrationLatencyAnomaly2EF6BF49": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "apiGatewayRestApiAlarmsRestApiLatencyAnomalyB0C84C3C": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1600,6 +2218,50 @@ exports[`RestApiSnapshotWithDetailedList 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountAnomaly71957243": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiDetailedLatency04C0BC17C": {
       "Properties": {
         "AlarmDescription": "This alarm can detect when the API Gateway requests for a resource and method in a stage have high latency.",
@@ -1632,6 +2294,94 @@ exports[`RestApiSnapshotWithDetailedList 1`] = `
         "Namespace": "AWS/ApiGateway",
         "Period": 60,
         "Threshold": 2500,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiIntegrationLatencyAnomalyB2018DB4": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiLatencyAnomaly5E2F2E09": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -1925,6 +2675,138 @@ exports[`RestApiSnapshotWithExclusion 1`] = `
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountAnomaly71957243": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiIntegrationLatencyAnomalyB2018DB4": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiLatencyAnomaly5E2F2E09": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -2246,6 +3128,138 @@ exports[`SnapshotForRestApiConstruct 1`] = `
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsRestApiCountAnomalyC39D63BA": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsRestApiIntegrationLatencyAnomaly14B0D3FF": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsRestApiLatencyAnomalyA2B649F7": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -2604,6 +3618,50 @@ exports[`alarms can be applied individually to services using extended construct
       "Type": "AWS::IAM::Role",
       "UpdateReplacePolicy": "Retain",
     },
+    "RestApiCountAnomalyAlarm4BA224A2": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApiDeployment180EC50302b1c063942af59f4edf9229b42bb78e": {
       "DependsOn": [
         "RestApiproxyANY1786B242",
@@ -2689,6 +3747,50 @@ exports[`alarms can be applied individually to services using extended construct
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApiIntegrationLatencyAnomalyAlarmAF03D3AD": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApiLatencyAlarmDFFFBED2": {
       "Properties": {
         "AlarmDescription": "This alarm can detect when the API Gateway requests in a stage have high latency.",
@@ -2713,6 +3815,50 @@ exports[`alarms can be applied individually to services using extended construct
         "Namespace": "AWS/ApiGateway",
         "Period": 60,
         "Threshold": 2500,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiLatencyAnomalyAlarm02E3EA76": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -3206,6 +4352,183 @@ exports[`default alarm actions are overridden when individual alarm actions are 
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "apiGatewayRestApiAlarmsRestApiCountAnomaly25ADF18A": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "apiGatewayRestApiAlarmsRestApiIntegrationLatencyAnomaly2EF6BF49": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "apiGatewayRestApiAlarmsRestApiLatencyAnomalyB0C84C3C": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "apiGatewayRestApiAlarmsRestApiLatencyCD758518": {
       "Properties": {
         "AlarmActions": [
@@ -3464,6 +4787,50 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1CountAnomaly86766572": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi1 - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi1",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi1DeploymentStagelive146493FD",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1DetailedLatency09F19D01C": {
       "Properties": {
         "AlarmActions": [
@@ -3515,6 +4882,50 @@ exports[`optional alarm configurations can be overwritten 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1IntegrationLatencyAnomaly44A452D0": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi1 - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi1",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi1DeploymentStagelive146493FD",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1Latency38B1EC96": {
       "Properties": {
         "AlarmActions": [
@@ -3555,6 +4966,50 @@ exports[`optional alarm configurations can be overwritten 1`] = `
         "Period": 300,
         "Threshold": 10,
         "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1LatencyAnomalyC8D05CEF": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi1 - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi1",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi1DeploymentStagelive146493FD",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -3832,6 +5287,138 @@ exports[`stack should contain service recommended alarms if recommended alarms a
         "Period": 60,
         "Statistic": "Average",
         "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountAnomaly71957243": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiIntegrationLatencyAnomalyB2018DB4": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiLatencyAnomaly5E2F2E09": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApiDeploymentStageliveE585F0C9",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -4322,6 +5909,94 @@ exports[`when a resource is excluded from the aspect config it should not have a
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi2CountAnomaly98CB141C": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmName": "TestApi2 - CountAnomaly",
+        "ComparisonOperator": "LessThanLowerThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi2",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi2DeploymentStagelive144C5CE7",
+                    },
+                  },
+                ],
+                "MetricName": "Count",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi2IntegrationLatencyAnomalyE438A696": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.",
+        "AlarmName": "TestApi2 - IntegrationLatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi2",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi2DeploymentStagelive144C5CE7",
+                    },
+                  },
+                ],
+                "MetricName": "IntegrationLatency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi2Latency3AA43266": {
       "Properties": {
         "AlarmDescription": "This alarm can detect when the API Gateway requests in a stage have high latency.",
@@ -4346,6 +6021,50 @@ exports[`when a resource is excluded from the aspect config it should not have a
         "Namespace": "AWS/ApiGateway",
         "Period": 60,
         "Threshold": 2500,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi2LatencyAnomaly6B697C2A": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.",
+        "AlarmName": "TestApi2 - LatencyAnomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ApiName",
+                    "Value": "TestApi2",
+                  },
+                  {
+                    "Name": "Stage",
+                    "Value": {
+                      "Ref": "RestApi2DeploymentStagelive144C5CE7",
+                    },
+                  },
+                ],
+                "MetricName": "Latency",
+                "Namespace": "AWS/ApiGateway",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",

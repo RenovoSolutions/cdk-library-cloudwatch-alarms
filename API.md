@@ -955,6 +955,489 @@ Uniquely identifies this class.
 
 ---
 
+### ApiGatewayRestApiCountAnomalyAlarm <a name="ApiGatewayRestApiCountAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm"></a>
+
+An anomaly detection alarm on the API Gateway `Count` metric.
+
+AWS recommends a static `Count` alarm with `LESS_THAN_THRESHOLD` to detect
+unexpected traffic drops, but says the threshold "Depends on your situation".
+This anomaly variant lets the band track historical traffic so the alarm
+fires on actual drops without picking a number that goes stale.
+
+Because anomaly detection requires the `Average` statistic, this alarm tracks the
+average request rate per period, not total request volume.
+
+Note: it detects partial drops below the expected band, not a complete outage.
+API Gateway does not publish `Count` when there are zero requests, so a full
+outage produces missing data (treated as not breaching) rather than a low value.
+To alarm on zero traffic, pair this with a static `Count` alarm or a canary.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.Initializer"></a>
+
+```typescript
+import { ApiGatewayRestApiCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApiGatewayRestApiCountAnomalyAlarm(scope: IConstruct, id: string, props: ApiGatewayRestApiCountAnomalyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps">ApiGatewayRestApiCountAnomalyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps">ApiGatewayRestApiCountAnomalyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isConstruct"></a>
+
+```typescript
+import { ApiGatewayRestApiCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiCountAnomalyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApiGatewayRestApiCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiCountAnomalyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isResource"></a>
+
+```typescript
+import { ApiGatewayRestApiCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiCountAnomalyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApiGatewayRestApiCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiCountAnomalyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApiGatewayRestApiCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiCountAnomalyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 ### ApiGatewayRestApiDetailedLatencyAlarm <a name="ApiGatewayRestApiDetailedLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm"></a>
 
 This alarm detects high latency for a resource and method in a stage.
@@ -1421,6 +1904,481 @@ the `threshold` property at all.
 ---
 
 ##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### ApiGatewayRestApiIntegrationLatencyAnomalyAlarm <a name="ApiGatewayRestApiIntegrationLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm"></a>
+
+An anomaly detection alarm on the API Gateway `IntegrationLatency` metric.
+
+Catches drift in backend latency separately from total request latency, so
+a slow backend integration shows up even when overall request latency is
+within normal range (e.g. because backend latency was always part of the
+baseline). This library has no static counterpart for this metric.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.Initializer"></a>
+
+```typescript
+import { ApiGatewayRestApiIntegrationLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApiGatewayRestApiIntegrationLatencyAnomalyAlarm(scope: IConstruct, id: string, props: ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps">ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps">ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isConstruct"></a>
+
+```typescript
+import { ApiGatewayRestApiIntegrationLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApiGatewayRestApiIntegrationLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isResource"></a>
+
+```typescript
+import { ApiGatewayRestApiIntegrationLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApiGatewayRestApiIntegrationLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApiGatewayRestApiIntegrationLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.property.PROPERTY_INJECTION_ID"></a>
 
 ```typescript
 public readonly PROPERTY_INJECTION_ID: string;
@@ -1908,6 +2866,482 @@ Uniquely identifies this class.
 
 ---
 
+### ApiGatewayRestApiLatencyAnomalyAlarm <a name="ApiGatewayRestApiLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm"></a>
+
+An anomaly detection alarm on the API Gateway `Latency` metric.
+
+Catches drift in total request latency without requiring a static threshold.
+The static `Latency` alarm uses the AWS-recommended `p90` statistic and a
+fixed threshold; this anomaly variant uses `Average` (required by anomaly
+detection) and a CloudWatch-fitted band. It is intended to coexist with the
+static alarm, not replace it.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.Initializer"></a>
+
+```typescript
+import { ApiGatewayRestApiLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ApiGatewayRestApiLatencyAnomalyAlarm(scope: IConstruct, id: string, props: ApiGatewayRestApiLatencyAnomalyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps">ApiGatewayRestApiLatencyAnomalyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps">ApiGatewayRestApiLatencyAnomalyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isConstruct"></a>
+
+```typescript
+import { ApiGatewayRestApiLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiLatencyAnomalyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isOwnedResource"></a>
+
+```typescript
+import { ApiGatewayRestApiLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiLatencyAnomalyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isResource"></a>
+
+```typescript
+import { ApiGatewayRestApiLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiLatencyAnomalyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { ApiGatewayRestApiLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmName"></a>
+
+```typescript
+import { ApiGatewayRestApiLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 ### ApiGatewayRestApiRecommendedAlarms <a name="ApiGatewayRestApiRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms"></a>
 
 A construct that creates the recommended alarms for an ApiGateway api.
@@ -1916,6 +3350,9 @@ The recommended alarms created by default for the ApiName and Stage are:
 - 4XXError alarm
 - 5XXError alarm
 - Latency alarm
+- Latency anomaly detection alarm (additional to the static Latency alarm)
+- Count anomaly detection alarm (drop detection for low-traffic APIs)
+- IntegrationLatency anomaly detection alarm (no static counterpart)
 
 In order to create the Latency alarms for the Resource and Method dimensions the
 configDetailedLatencyAlarmList must be specified.
@@ -2041,7 +3478,10 @@ Any object.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarm4XXError">alarm4XXError</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm">ApiGatewayRestApi4XXErrorAlarm</a></code> | The 4XXError alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarm5XXError">alarm5XXError</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm">ApiGatewayRestApi5XXErrorAlarm</a></code> | The 5XXError alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarmCountAnomaly">alarmCountAnomaly</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm">ApiGatewayRestApiCountAnomalyAlarm</a></code> | The Count anomaly detection alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarmIntegrationLatencyAnomaly">alarmIntegrationLatencyAnomaly</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm">ApiGatewayRestApiIntegrationLatencyAnomalyAlarm</a></code> | The IntegrationLatency anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarmLatency">alarmLatency</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm">ApiGatewayRestApiLatencyAlarm</a></code> | The Latency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarmLatencyAnomaly">alarmLatencyAnomaly</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm">ApiGatewayRestApiLatencyAnomalyAlarm</a></code> | The Latency anomaly detection alarm. |
 
 ---
 
@@ -2081,6 +3521,30 @@ The 5XXError alarm.
 
 ---
 
+##### `alarmCountAnomaly`<sup>Optional</sup> <a name="alarmCountAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarmCountAnomaly"></a>
+
+```typescript
+public readonly alarmCountAnomaly: ApiGatewayRestApiCountAnomalyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm">ApiGatewayRestApiCountAnomalyAlarm</a>
+
+The Count anomaly detection alarm.
+
+---
+
+##### `alarmIntegrationLatencyAnomaly`<sup>Optional</sup> <a name="alarmIntegrationLatencyAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarmIntegrationLatencyAnomaly"></a>
+
+```typescript
+public readonly alarmIntegrationLatencyAnomaly: ApiGatewayRestApiIntegrationLatencyAnomalyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm">ApiGatewayRestApiIntegrationLatencyAnomalyAlarm</a>
+
+The IntegrationLatency anomaly detection alarm.
+
+---
+
 ##### `alarmLatency`<sup>Optional</sup> <a name="alarmLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarmLatency"></a>
 
 ```typescript
@@ -2090,6 +3554,18 @@ public readonly alarmLatency: ApiGatewayRestApiLatencyAlarm;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm">ApiGatewayRestApiLatencyAlarm</a>
 
 The Latency alarm.
+
+---
+
+##### `alarmLatencyAnomaly`<sup>Optional</sup> <a name="alarmLatencyAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarms.property.alarmLatencyAnomaly"></a>
+
+```typescript
+public readonly alarmLatencyAnomaly: ApiGatewayRestApiLatencyAnomalyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm">ApiGatewayRestApiLatencyAnomalyAlarm</a>
+
+The Latency anomaly detection alarm.
 
 ---
 
@@ -50984,8 +52460,11 @@ new RestApi(scope: Construct, id: string, props: RestApiBaseProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addRequestValidator">addRequestValidator</a></code> | Adds a new request validator. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarm4XXError">alarm4XXError</a></code> | Creates an alarm that monitors the number of client-side errors captured in a given period. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarm5XXError">alarm5XXError</a></code> | Creates an alarm that monitors the number of server-side errors captured in a given period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmCountAnomaly">alarmCountAnomaly</a></code> | Creates an anomaly detection alarm on the Count metric. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmDetailedLatency">alarmDetailedLatency</a></code> | Creates a list of alarms the time between when API Gateway receives a request from a client and when it returns a response to the client for the methods and resources specified. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmIntegrationLatencyAnomaly">alarmIntegrationLatencyAnomaly</a></code> | Creates an anomaly detection alarm on the IntegrationLatency metric. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmLatency">alarmLatency</a></code> | Creates an alarm that monitors the time between when API Gateway receives a request from a client and when it returns a response to the client. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmLatencyAnomaly">alarmLatencyAnomaly</a></code> | Creates an anomaly detection alarm on the Latency metric. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the ApiGateway api. |
 
 ---
@@ -51405,6 +52884,24 @@ Creates an alarm that monitors the number of server-side errors captured in a gi
 
 ---
 
+##### `alarmCountAnomaly` <a name="alarmCountAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmCountAnomaly"></a>
+
+```typescript
+public alarmCountAnomaly(props?: ApiGatewayCountAnomalyAlarmConfig): ApiGatewayRestApiCountAnomalyAlarm
+```
+
+Creates an anomaly detection alarm on the Count metric.
+
+Detects unexpected
+traffic drops (the default) or spikes for low-traffic APIs where a static
+count threshold is hard to pick.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmCountAnomaly.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig">ApiGatewayCountAnomalyAlarmConfig</a>
+
+---
+
 ##### `alarmDetailedLatency` <a name="alarmDetailedLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmDetailedLatency"></a>
 
 ```typescript
@@ -51419,6 +52916,23 @@ Creates a list of alarms the time between when API Gateway receives a request fr
 
 ---
 
+##### `alarmIntegrationLatencyAnomaly` <a name="alarmIntegrationLatencyAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmIntegrationLatencyAnomaly"></a>
+
+```typescript
+public alarmIntegrationLatencyAnomaly(props?: ApiGatewayIntegrationLatencyAnomalyAlarmConfig): ApiGatewayRestApiIntegrationLatencyAnomalyAlarm
+```
+
+Creates an anomaly detection alarm on the IntegrationLatency metric.
+
+Catches backend integration latency drift independently of API Gateway
+overhead.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmIntegrationLatencyAnomaly.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig">ApiGatewayIntegrationLatencyAnomalyAlarmConfig</a>
+
+---
+
 ##### `alarmLatency` <a name="alarmLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmLatency"></a>
 
 ```typescript
@@ -51430,6 +52944,24 @@ Creates an alarm that monitors the time between when API Gateway receives a requ
 ###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmLatency.parameter.props"></a>
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAlarmConfig">ApiGatewayLatencyAlarmConfig</a>
+
+---
+
+##### `alarmLatencyAnomaly` <a name="alarmLatencyAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmLatencyAnomaly"></a>
+
+```typescript
+public alarmLatencyAnomaly(props?: ApiGatewayLatencyAnomalyAlarmConfig): ApiGatewayRestApiLatencyAnomalyAlarm
+```
+
+Creates an anomaly detection alarm on the Latency metric.
+
+Detects drift in
+total request latency without requiring a static threshold; intended to
+coexist with the static `Latency` alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmLatencyAnomaly.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig">ApiGatewayLatencyAnomalyAlarmConfig</a>
 
 ---
 
@@ -65689,6 +67221,8 @@ public readonly threshold: number;
 
 The threshold value against which the specified statistic is compared.
 
+The unit is an absolute count of errors, not a percentage.
+
 ---
 
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig.property.alarmDescription"></a>
@@ -65740,8 +67274,6 @@ public readonly evaluationPeriods: number;
 - *Default:* 5
 
 The number of periods over which data is compared to the specified threshold.
-
-The unit is an absolute count of errors, not a percentage.
 
 ---
 
@@ -65849,6 +67381,8 @@ public readonly threshold: number;
 
 The threshold value against which the specified statistic is compared.
 
+The unit is an absolute count of errors, not a percentage.
+
 ---
 
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig.property.alarmDescription"></a>
@@ -65900,8 +67434,6 @@ public readonly evaluationPeriods: number;
 - *Default:* 3
 
 The number of periods over which data is compared to the specified threshold.
-
-The unit is an absolute count of errors, not a percentage.
 
 ---
 
@@ -65994,6 +67526,261 @@ The period over which the specified statistic is applied.
 
 ---
 
+### ApiGatewayAnomalyAlarmBaseConfig <a name="ApiGatewayAnomalyAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig"></a>
+
+The common optional configuration for anomaly detection alarms.
+
+Anomaly detection alarms have a fixed period of 5 minutes as required by AWS CloudWatch,
+so the period property is not configurable.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { ApiGatewayAnomalyAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const apiGatewayAnomalyAlarmBaseConfig: ApiGatewayAnomalyAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+### ApiGatewayCountAnomalyAlarmConfig <a name="ApiGatewayCountAnomalyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig"></a>
+
+Configuration for the Count anomaly detection alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApiGatewayCountAnomalyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const apiGatewayCountAnomalyAlarmConfig: ApiGatewayCountAnomalyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* apiName + ' - CountAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.LESS_THAN_LOWER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+Defaults to `LESS_THAN_LOWER_THRESHOLD` to detect unexpected traffic drops, which
+is the main case AWS's recommended static `Count` alarm targets but cannot express
+with a fixed value.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 4
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
 ### ApiGatewayDetailedAlarmConfig <a name="ApiGatewayDetailedAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayDetailedAlarmConfig"></a>
 
 The common properties for the ApiGateway alarms when monitoring resource and method dimensions.
@@ -66049,6 +67836,165 @@ public readonly resource: string;
 - *Type:* string
 
 The resource to monitor.
+
+---
+
+### ApiGatewayIntegrationLatencyAnomalyAlarmConfig <a name="ApiGatewayIntegrationLatencyAnomalyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig"></a>
+
+Configuration for the IntegrationLatency anomaly detection alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApiGatewayIntegrationLatencyAnomalyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const apiGatewayIntegrationLatencyAnomalyAlarmConfig: ApiGatewayIntegrationLatencyAnomalyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* apiName + ' - IntegrationLatencyAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the anomaly detection band.
 
 ---
 
@@ -66220,6 +68166,165 @@ application workload and then tune the threshold value accordingly.
 
 ---
 
+### ApiGatewayLatencyAnomalyAlarmConfig <a name="ApiGatewayLatencyAnomalyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig"></a>
+
+Configuration for the Latency anomaly detection alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.Initializer"></a>
+
+```typescript
+import { ApiGatewayLatencyAnomalyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const apiGatewayLatencyAnomalyAlarmConfig: ApiGatewayLatencyAnomalyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* apiName + ' - LatencyAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
 ### ApiGatewayRestApi4XXErrorAlarmProps <a name="ApiGatewayRestApi4XXErrorAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps"></a>
 
 The properties for the ApiGatewayRestApi4XXErrorAlarm construct.
@@ -66337,6 +68442,8 @@ public readonly threshold: number;
 
 The threshold value against which the specified statistic is compared.
 
+The unit is an absolute count of errors, not a percentage.
+
 ---
 
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarmProps.property.alarmDescription"></a>
@@ -66388,8 +68495,6 @@ public readonly evaluationPeriods: number;
 - *Default:* 5
 
 The number of periods over which data is compared to the specified threshold.
-
-The unit is an absolute count of errors, not a percentage.
 
 ---
 
@@ -66510,6 +68615,8 @@ public readonly threshold: number;
 
 The threshold value against which the specified statistic is compared.
 
+The unit is an absolute count of errors, not a percentage.
+
 ---
 
 ##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarmProps.property.alarmDescription"></a>
@@ -66562,8 +68669,6 @@ public readonly evaluationPeriods: number;
 
 The number of periods over which data is compared to the specified threshold.
 
-The unit is an absolute count of errors, not a percentage.
-
 ---
 
 ### ApiGatewayRestApiAlarmProps <a name="ApiGatewayRestApiAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiAlarmProps"></a>
@@ -66595,6 +68700,182 @@ public readonly api: RestApi;
 - *Type:* aws-cdk-lib.aws_apigateway.RestApi
 
 The ApiGateway api to monitor.
+
+---
+
+### ApiGatewayRestApiCountAnomalyAlarmProps <a name="ApiGatewayRestApiCountAnomalyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps"></a>
+
+The properties for the ApiGatewayRestApiCountAnomalyAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.Initializer"></a>
+
+```typescript
+import { ApiGatewayRestApiCountAnomalyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const apiGatewayRestApiCountAnomalyAlarmProps: ApiGatewayRestApiCountAnomalyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.RestApi</code> | The ApiGateway api to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+
+---
+
+##### `api`<sup>Required</sup> <a name="api" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.api"></a>
+
+```typescript
+public readonly api: RestApi;
+```
+
+- *Type:* aws-cdk-lib.aws_apigateway.RestApi
+
+The ApiGateway api to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* apiName + ' - CountAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.LESS_THAN_LOWER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+Defaults to `LESS_THAN_LOWER_THRESHOLD` to detect unexpected traffic drops, which
+is the main case AWS's recommended static `Count` alarm targets but cannot express
+with a fixed value.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 4
+
+The number of periods over which data is compared to the anomaly detection band.
 
 ---
 
@@ -67025,6 +69306,178 @@ The resource to monitor.
 
 ---
 
+### ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps <a name="ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps"></a>
+
+The properties for the ApiGatewayRestApiIntegrationLatencyAnomalyAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.Initializer"></a>
+
+```typescript
+import { ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const apiGatewayRestApiIntegrationLatencyAnomalyAlarmProps: ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.RestApi</code> | The ApiGateway api to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+
+---
+
+##### `api`<sup>Required</sup> <a name="api" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.api"></a>
+
+```typescript
+public readonly api: RestApi;
+```
+
+- *Type:* aws-cdk-lib.aws_apigateway.RestApi
+
+The ApiGateway api to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unusual drift in the API Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway overhead.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* apiName + ' - IntegrationLatencyAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
 ### ApiGatewayRestApiLatencyAlarmProps <a name="ApiGatewayRestApiLatencyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarmProps"></a>
 
 The properties for the ApiGatewayRestApiLatencyAlarm construct.
@@ -67206,6 +69659,178 @@ application workload and then tune the threshold value accordingly.
 
 ---
 
+### ApiGatewayRestApiLatencyAnomalyAlarmProps <a name="ApiGatewayRestApiLatencyAnomalyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps"></a>
+
+The properties for the ApiGatewayRestApiLatencyAnomalyAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.Initializer"></a>
+
+```typescript
+import { ApiGatewayRestApiLatencyAnomalyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const apiGatewayRestApiLatencyAnomalyAlarmProps: ApiGatewayRestApiLatencyAnomalyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.api">api</a></code> | <code>aws-cdk-lib.aws_apigateway.RestApi</code> | The ApiGateway api to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+
+---
+
+##### `api`<sup>Required</sup> <a name="api" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.api"></a>
+
+```typescript
+public readonly api: RestApi;
+```
+
+- *Type:* aws-cdk-lib.aws_apigateway.RestApi
+
+The ApiGateway api to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8 (standard deviation for anomaly detection)
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unusual drift in the API Gateway request latency compared to the expected baseline.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* apiName + ' - LatencyAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
 ### ApiGatewayRestApiRecommendedAlarmsConfig <a name="ApiGatewayRestApiRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig"></a>
 
 Configurations for the recommended alarms for an ApiGateway RestApi.
@@ -67227,8 +69852,11 @@ const apiGatewayRestApiRecommendedAlarmsConfig: ApiGatewayRestApiRecommendedAlar
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.config4XXErrorAlarm">config4XXErrorAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig">ApiGateway4XXErrorAlarmConfig</a></code> | The configuration for the 4XXError alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.config5XXErrorAlarm">config5XXErrorAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig">ApiGateway5XXErrorAlarmConfig</a></code> | The configuration for the 5XXError alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configCountAnomalyAlarm">configCountAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig">ApiGatewayCountAnomalyAlarmConfig</a></code> | The configuration for the Count anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configDetailedLatencyAlarmList">configDetailedLatencyAlarmList</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarmConfig">ApiGatewayRestApiDetailedLatencyAlarmConfig</a>[]</code> | The configuration list for the detailed Latency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configIntegrationLatencyAnomalyAlarm">configIntegrationLatencyAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig">ApiGatewayIntegrationLatencyAnomalyAlarmConfig</a></code> | The configuration for the IntegrationLatency anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configLatencyAlarm">configLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAlarmConfig">ApiGatewayLatencyAlarmConfig</a></code> | The configuration for the Latency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configLatencyAnomalyAlarm">configLatencyAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig">ApiGatewayLatencyAnomalyAlarmConfig</a></code> | The configuration for the Latency anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
@@ -67262,6 +69890,18 @@ The configuration for the 5XXError alarm.
 
 ---
 
+##### `configCountAnomalyAlarm`<sup>Optional</sup> <a name="configCountAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configCountAnomalyAlarm"></a>
+
+```typescript
+public readonly configCountAnomalyAlarm: ApiGatewayCountAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig">ApiGatewayCountAnomalyAlarmConfig</a>
+
+The configuration for the Count anomaly detection alarm.
+
+---
+
 ##### `configDetailedLatencyAlarmList`<sup>Optional</sup> <a name="configDetailedLatencyAlarmList" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configDetailedLatencyAlarmList"></a>
 
 ```typescript
@@ -67274,6 +69914,18 @@ The configuration list for the detailed Latency alarm.
 
 ---
 
+##### `configIntegrationLatencyAnomalyAlarm`<sup>Optional</sup> <a name="configIntegrationLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configIntegrationLatencyAnomalyAlarm"></a>
+
+```typescript
+public readonly configIntegrationLatencyAnomalyAlarm: ApiGatewayIntegrationLatencyAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig">ApiGatewayIntegrationLatencyAnomalyAlarmConfig</a>
+
+The configuration for the IntegrationLatency anomaly detection alarm.
+
+---
+
 ##### `configLatencyAlarm`<sup>Optional</sup> <a name="configLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configLatencyAlarm"></a>
 
 ```typescript
@@ -67283,6 +69935,18 @@ public readonly configLatencyAlarm: ApiGatewayLatencyAlarmConfig;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAlarmConfig">ApiGatewayLatencyAlarmConfig</a>
 
 The configuration for the Latency alarm.
+
+---
+
+##### `configLatencyAnomalyAlarm`<sup>Optional</sup> <a name="configLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsConfig.property.configLatencyAnomalyAlarm"></a>
+
+```typescript
+public readonly configLatencyAnomalyAlarm: ApiGatewayLatencyAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig">ApiGatewayLatencyAnomalyAlarmConfig</a>
+
+The configuration for the Latency anomaly detection alarm.
 
 ---
 
@@ -67383,8 +70047,11 @@ const apiGatewayRestApiRecommendedAlarmsProps: ApiGatewayRestApiRecommendedAlarm
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.config4XXErrorAlarm">config4XXErrorAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway4XXErrorAlarmConfig">ApiGateway4XXErrorAlarmConfig</a></code> | The configuration for the 4XXError alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.config5XXErrorAlarm">config5XXErrorAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGateway5XXErrorAlarmConfig">ApiGateway5XXErrorAlarmConfig</a></code> | The configuration for the 5XXError alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configCountAnomalyAlarm">configCountAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig">ApiGatewayCountAnomalyAlarmConfig</a></code> | The configuration for the Count anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configDetailedLatencyAlarmList">configDetailedLatencyAlarmList</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarmConfig">ApiGatewayRestApiDetailedLatencyAlarmConfig</a>[]</code> | The configuration list for the detailed Latency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configIntegrationLatencyAnomalyAlarm">configIntegrationLatencyAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig">ApiGatewayIntegrationLatencyAnomalyAlarmConfig</a></code> | The configuration for the IntegrationLatency anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configLatencyAlarm">configLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAlarmConfig">ApiGatewayLatencyAlarmConfig</a></code> | The configuration for the Latency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configLatencyAnomalyAlarm">configLatencyAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig">ApiGatewayLatencyAnomalyAlarmConfig</a></code> | The configuration for the Latency anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
@@ -67419,6 +70086,18 @@ The configuration for the 5XXError alarm.
 
 ---
 
+##### `configCountAnomalyAlarm`<sup>Optional</sup> <a name="configCountAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configCountAnomalyAlarm"></a>
+
+```typescript
+public readonly configCountAnomalyAlarm: ApiGatewayCountAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayCountAnomalyAlarmConfig">ApiGatewayCountAnomalyAlarmConfig</a>
+
+The configuration for the Count anomaly detection alarm.
+
+---
+
 ##### `configDetailedLatencyAlarmList`<sup>Optional</sup> <a name="configDetailedLatencyAlarmList" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configDetailedLatencyAlarmList"></a>
 
 ```typescript
@@ -67431,6 +70110,18 @@ The configuration list for the detailed Latency alarm.
 
 ---
 
+##### `configIntegrationLatencyAnomalyAlarm`<sup>Optional</sup> <a name="configIntegrationLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configIntegrationLatencyAnomalyAlarm"></a>
+
+```typescript
+public readonly configIntegrationLatencyAnomalyAlarm: ApiGatewayIntegrationLatencyAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayIntegrationLatencyAnomalyAlarmConfig">ApiGatewayIntegrationLatencyAnomalyAlarmConfig</a>
+
+The configuration for the IntegrationLatency anomaly detection alarm.
+
+---
+
 ##### `configLatencyAlarm`<sup>Optional</sup> <a name="configLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configLatencyAlarm"></a>
 
 ```typescript
@@ -67440,6 +70131,18 @@ public readonly configLatencyAlarm: ApiGatewayLatencyAlarmConfig;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAlarmConfig">ApiGatewayLatencyAlarmConfig</a>
 
 The configuration for the Latency alarm.
+
+---
+
+##### `configLatencyAnomalyAlarm`<sup>Optional</sup> <a name="configLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiRecommendedAlarmsProps.property.configLatencyAnomalyAlarm"></a>
+
+```typescript
+public readonly configLatencyAnomalyAlarm: ApiGatewayLatencyAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayLatencyAnomalyAlarmConfig">ApiGatewayLatencyAnomalyAlarmConfig</a>
+
+The configuration for the Latency anomaly detection alarm.
 
 ---
 
@@ -106453,6 +109156,9 @@ The recommended metrics for ApiGateway alarms.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_4XX">ERROR_4XX</a></code> | The number of client-side errors captured in a given period. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_5XX">ERROR_5XX</a></code> | The number of server-side errors captured in a given period. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY">LATENCY</a></code> | The time (milliseconds) between when API Gateway receives a request from a client and when it returns a response to the client. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY_ANOMALY">LATENCY_ANOMALY</a></code> | Anomaly detection on the Latency metric. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.COUNT_ANOMALY">COUNT_ANOMALY</a></code> | Anomaly detection on the Count metric. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.INTEGRATION_LATENCY_ANOMALY">INTEGRATION_LATENCY_ANOMALY</a></code> | Anomaly detection on the IntegrationLatency metric. |
 
 ---
 
@@ -106476,6 +109182,38 @@ The time (milliseconds) between when API Gateway receives a request from a clien
 
 The latency includes the integration latency
 and other API Gateway overhead.
+
+---
+
+
+##### `LATENCY_ANOMALY` <a name="LATENCY_ANOMALY" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY_ANOMALY"></a>
+
+Anomaly detection on the Latency metric.
+
+Detects drift in total request latency
+(API Gateway overhead + backend integration) without requiring a static threshold.
+
+---
+
+
+##### `COUNT_ANOMALY` <a name="COUNT_ANOMALY" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.COUNT_ANOMALY"></a>
+
+Anomaly detection on the Count metric.
+
+Detects unexpected drops (or spikes) in
+traffic volume for low-traffic APIs where a static `LESS_THAN_THRESHOLD` value
+is hard to pick.
+
+---
+
+
+##### `INTEGRATION_LATENCY_ANOMALY` <a name="INTEGRATION_LATENCY_ANOMALY" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRecommendedAlarmsMetrics.INTEGRATION_LATENCY_ANOMALY"></a>
+
+Anomaly detection on the IntegrationLatency metric.
+
+Detects drift in backend
+latency independently of overall request latency. No static counterpart exists
+in this library.
 
 ---
 
