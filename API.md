@@ -106868,7 +106868,7 @@ public readonly configDlqApproximateNumberOfMessagesVisibleAlarm: SqsApproximate
 
 The configuration for the approximate number of messages visible alarm for DLQs.
 
-This is used for dead letter queues only. The threshold is set to 0 by default.
+This is used for dead letter queues only. The threshold is set to 1 by default.
 
 ---
 
@@ -106936,7 +106936,7 @@ Whether to apply the usual recommended alarms to dead letter queues.
 
 If true, the dead letter queues will have the same alarms as normal queues.
 If false, the dead letter queues will only have the ApproximateNumberOfMessagesVisible
-alarm with a default threshold of 0.
+alarm with a default threshold of 1.
 
 ---
 
@@ -107058,7 +107058,7 @@ public readonly configDlqApproximateNumberOfMessagesVisibleAlarm: SqsApproximate
 
 The configuration for the approximate number of messages visible alarm for DLQs.
 
-This is used for dead letter queues only. The threshold is set to 0 by default.
+This is used for dead letter queues only. The threshold is set to 1 by default.
 
 ---
 
@@ -107126,7 +107126,7 @@ Whether to apply the usual recommended alarms to dead letter queues.
 
 If true, the dead letter queues will have the same alarms as normal queues.
 If false, the dead letter queues will only have the ApproximateNumberOfMessagesVisible
-alarm with a default threshold of 0.
+alarm with a default threshold of 1.
 
 ---
 

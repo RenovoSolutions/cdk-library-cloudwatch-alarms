@@ -947,6 +947,17 @@ test('DLQs get special alarms by default', () => {
       }
     });
   });
+
+  /**
+   * DLQs are not expected to hold messages, so their ApproximateNumberOfMessagesVisible
+   * alarm fires at the first message (threshold of 1, not 0 which would alarm permanently).
+   * The regular queues in this test override the threshold to 0, so a threshold of 1 is
+   * unique to the DLQ alarms.
+   */
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    MetricName: sqsAlarms.SqsRecommendedAlarmsMetrics.APPROXIMATE_NUMBER_OF_MESSAGES_VISIBLE,
+    Threshold: 1,
+  }));
 });
 
 test('DLQ special alarm receives default alarm actions', () => {
