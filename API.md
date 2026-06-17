@@ -67530,8 +67530,8 @@ The period over which the specified statistic is applied.
 
 The common optional configuration for anomaly detection alarms.
 
-Anomaly detection alarms have a fixed period of 5 minutes as required by AWS CloudWatch,
-so the period property is not configurable.
+These alarms use a fixed 5-minute metric period and do not expose a configurable `period`,
+because finer periods produce noisier, less reliable anomaly detection bands.
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayAnomalyAlarmBaseConfig.Initializer"></a>
 
@@ -67612,7 +67612,7 @@ public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 8 (standard deviation for anomaly detection)
+- *Default:* 8
 
 The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
@@ -67706,7 +67706,7 @@ public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 8 (standard deviation for anomaly detection)
+- *Default:* 8
 
 The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
@@ -67927,7 +67927,7 @@ public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 8 (standard deviation for anomaly detection)
+- *Default:* 8
 
 The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
@@ -68254,7 +68254,7 @@ public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 8 (standard deviation for anomaly detection)
+- *Default:* 8
 
 The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
@@ -68804,7 +68804,7 @@ public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 8 (standard deviation for anomaly detection)
+- *Default:* 8
 
 The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
@@ -69407,7 +69407,7 @@ public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 8 (standard deviation for anomaly detection)
+- *Default:* 8
 
 The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 
@@ -69760,7 +69760,7 @@ public readonly stdDevs: number;
 ```
 
 - *Type:* number
-- *Default:* 8 (standard deviation for anomaly detection)
+- *Default:* 8
 
 The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
 

@@ -59,14 +59,14 @@ export interface ApiGatewayAlarmBaseConfig extends AlarmBaseProps {
 /**
  * The common optional configuration for anomaly detection alarms.
  *
- * Anomaly detection alarms have a fixed period of 5 minutes as required by AWS CloudWatch,
- * so the period property is not configurable.
+ * These alarms use a fixed 5-minute metric period and do not expose a configurable `period`,
+ * because finer periods produce noisier, less reliable anomaly detection bands.
  */
 export interface ApiGatewayAnomalyAlarmBaseConfig extends AlarmBaseProps {
   /**
    * The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
    *
-   * @default 8 (standard deviation for anomaly detection)
+   * @default 8
    */
   readonly stdDevs?: number;
 }
@@ -488,7 +488,7 @@ export interface ApiGatewayRestApiLatencyAnomalyAlarmProps extends
 export class ApiGatewayRestApiLatencyAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiLatencyAnomalyAlarmProps) {
     const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.LATENCY_ANOMALY}`;
-    // Anomaly bands use CloudWatch's default 5-minute metric period; a finer period produces noisier, less reliable bands.
+    // Anomaly bands use a fixed 5-minute metric period; a finer period produces noisier, less reliable bands.
     const period = Duration.minutes(5);
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 2;
@@ -508,6 +508,7 @@ export class ApiGatewayRestApiLatencyAnomalyAlarm extends cloudwatch.AnomalyDete
           Stage: props.api.deploymentStage.stageName,
         },
         statistic: 'Average',
+        period,
       }),
       stdDevs,
       evaluationPeriods,
@@ -590,7 +591,7 @@ export interface ApiGatewayRestApiCountAnomalyAlarmProps extends
 export class ApiGatewayRestApiCountAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiCountAnomalyAlarmProps) {
     const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.COUNT_ANOMALY}`;
-    // Anomaly bands use CloudWatch's default 5-minute metric period; a finer period produces noisier, less reliable bands.
+    // Anomaly bands use a fixed 5-minute metric period; a finer period produces noisier, less reliable bands.
     const period = Duration.minutes(5);
     const evaluationPeriods = props.evaluationPeriods ?? 4;
     const datapointsToAlarm = props.datapointsToAlarm ?? 3;
@@ -610,6 +611,7 @@ export class ApiGatewayRestApiCountAnomalyAlarm extends cloudwatch.AnomalyDetect
           Stage: props.api.deploymentStage.stageName,
         },
         statistic: 'Average',
+        period,
       }),
       stdDevs,
       evaluationPeriods,
@@ -680,7 +682,7 @@ export interface ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps extends
 export class ApiGatewayRestApiIntegrationLatencyAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps) {
     const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.INTEGRATION_LATENCY_ANOMALY}`;
-    // Anomaly bands use CloudWatch's default 5-minute metric period; a finer period produces noisier, less reliable bands.
+    // Anomaly bands use a fixed 5-minute metric period; a finer period produces noisier, less reliable bands.
     const period = Duration.minutes(5);
     const evaluationPeriods = props.evaluationPeriods ?? 3;
     const datapointsToAlarm = props.datapointsToAlarm ?? 2;
@@ -701,6 +703,7 @@ export class ApiGatewayRestApiIntegrationLatencyAnomalyAlarm extends cloudwatch.
           Stage: props.api.deploymentStage.stageName,
         },
         statistic: 'Average',
+        period,
       }),
       stdDevs,
       evaluationPeriods,
