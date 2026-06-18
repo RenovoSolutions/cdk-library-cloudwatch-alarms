@@ -21,7 +21,7 @@ class ElastiCacheClusterStack extends Stack {
 
   public readonly cacheCluster: elasticacheAlarms.CfnCacheCluster;
 
-  constructor(scope: App, id: string, props?: StackProps) {
+  constructor(scope: App, id: string, props?: StackProps, omitClusterName: boolean = false) {
     super(scope, id, props);
 
     const vpc = new ec2.Vpc(this, 'VPC');
@@ -30,7 +30,7 @@ class ElastiCacheClusterStack extends Stack {
       cacheNodeType: 'cache.t3.micro',
       engine: 'redis',
       numCacheNodes: 3,
-      clusterName: 'my-redis-cluster',
+      clusterName: omitClusterName ? undefined : 'my-redis-cluster',
       vpcSecurityGroupIds: [vpc.vpcDefaultSecurityGroup],
       cacheSubnetGroupName: new elasticache.CfnSubnetGroup(this, 'RedisSubnetGroup', {
         description: 'Subnet group for Redis cluster',
@@ -901,14 +901,17 @@ test('ClusterWithNoName', () => {
   const app = new App();
   const appAspects = Aspects.of(app);
 
+  /**
+   * Build the cluster without a name so the alarms fall back to the construct's logical ID.
+   * Newer aws-cdk-lib stores L1 properties via accessors, so deleting `clusterName` after
+   * construction is a no-op and would no longer exercise the fallback.
+   */
   const stack = new ElastiCacheClusterStack(app, 'TestStack', {
     env: {
       account: '123456789012', // not a real account
       region: 'us-east-1',
     },
-  });
-
-  delete stack.cacheCluster.clusterName; // Remove the cluster name to test using the logical ID instead
+  }, true);
 
   appAspects.add(
     new elasticacheAlarms.ElastiCacheClusterRecommendedAlarmsAspect({

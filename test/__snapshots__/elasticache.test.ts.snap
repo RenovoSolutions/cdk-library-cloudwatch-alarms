@@ -686,7 +686,6 @@ exports[`ClusterWithNoName 1`] = `
         "CacheSubnetGroupName": {
           "Ref": "RedisSubnetGroup",
         },
-        "ClusterName": "my-redis-cluster",
         "Engine": "redis",
         "NumCacheNodes": 3,
         "VpcSecurityGroupIds": [
@@ -703,13 +702,13 @@ exports[`ClusterWithNoName 1`] = `
     "RedisClusterElastiCacheClusterRecommendedAlarmsFromAspectRedisClusterDatabaseMemoryUsagePercentage4C8F0900": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect high memory utilization of your cluster so that you can avoid failures when writing to your cluster. It is useful to know when you will need to scale up your cluster if your application does not expect to experience evictions.",
-        "AlarmName": "my-redis-cluster - DatabaseMemoryUsagePercentage",
+        "AlarmName": "RedisCluster - DatabaseMemoryUsagePercentage",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
         "Dimensions": [
           {
             "Name": "CacheClusterId",
-            "Value": "my-redis-cluster",
+            "Value": "RedisCluster",
           },
         ],
         "EvaluationPeriods": 5,
@@ -725,13 +724,13 @@ exports[`ClusterWithNoName 1`] = `
     "RedisClusterElastiCacheClusterRecommendedAlarmsFromAspectRedisClusterEngineCPUUtilization0A455F66": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect high CPU utilization of the Redis OSS engine thread. It is useful if you want to monitor the CPU usage of the database engine itself.",
-        "AlarmName": "my-redis-cluster - EngineCPUUtilization",
+        "AlarmName": "RedisCluster - EngineCPUUtilization",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 5,
         "Dimensions": [
           {
             "Name": "CacheClusterId",
-            "Value": "my-redis-cluster",
+            "Value": "RedisCluster",
           },
         ],
         "EvaluationPeriods": 5,
@@ -747,13 +746,13 @@ exports[`ClusterWithNoName 1`] = `
     "RedisClusterElastiCacheClusterRecommendedAlarmsFromAspectRedisClusterReplicationLag9C5A0E17": {
       "Properties": {
         "AlarmDescription": "This alarm is used to detect a delay between data updates on the primary node and their synchronization to replica node. It helps to ensure data consistency of a read replica cluster node.",
-        "AlarmName": "my-redis-cluster - ReplicationLag",
+        "AlarmName": "RedisCluster - ReplicationLag",
         "ComparisonOperator": "GreaterThanThreshold",
         "DatapointsToAlarm": 15,
         "Dimensions": [
           {
             "Name": "CacheClusterId",
-            "Value": "my-redis-cluster",
+            "Value": "RedisCluster",
           },
         ],
         "EvaluationPeriods": 15,
