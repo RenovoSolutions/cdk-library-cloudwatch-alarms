@@ -32,6 +32,20 @@ const anomalyEnumToMetricName: Record<string, string> = {
   [apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.INTEGRATION_LATENCY_ANOMALY]: 'IntegrationLatency',
 };
 
+/**
+ * True if the alarm resource corresponds to the given recommended-alarm enum value.
+ * Static alarms match on the top-level `MetricName`; anomaly alarms have no top-level
+ * `MetricName` and instead wrap their metric in an `ANOMALY_DETECTION_BAND` expression,
+ * so they are matched by the underlying metric inside `Metrics[]`.
+ */
+function alarmMatchesMetric(properties: { MetricName?: string; Metrics?: AnomalyMetricEntry[] }, metricEnumValue: string): boolean {
+  const anomalyMetric = anomalyEnumToMetricName[metricEnumValue];
+  if (anomalyMetric) {
+    return (properties.Metrics ?? []).some(m => m.MetricStat?.Metric?.MetricName === anomalyMetric);
+  }
+  return properties.MetricName === metricEnumValue;
+}
+
 class ApiGatewayRestApiStack extends Stack {
 
   public readonly api: apiGatewayAlarms.RestApi;
@@ -319,16 +333,9 @@ test('stack should contain service recommended alarms if recommended alarms aspe
       metricKey as keyof typeof apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics
     ];
 
-    const alarms = Object.keys(resources).filter(resourceName => {
-      const resourceProperties = resources[resourceName].Properties;
-      const underlying = anomalyEnumToMetricName[metricName];
-      if (underlying) {
-        return (resourceProperties.Metrics ?? []).some(
-          (m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === underlying,
-        );
-      }
-      return resourceProperties.MetricName === metricName;
-    });
+    const alarms = Object.keys(resources).filter(resourceName =>
+      alarmMatchesMetric(resources[resourceName].Properties, metricName),
+    );
 
     expect(alarms.length).toEqual(1);
   });
@@ -368,16 +375,9 @@ test('alarms can be applied individually to services using extended construct', 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
   Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricName => {
-    const alarms = Object.keys(resources).filter(resourceName => {
-      const resource = resources[resourceName];
-      const underlying = anomalyEnumToMetricName[metricName];
-      if (underlying) {
-        return (resource.Properties.Metrics ?? []).some(
-          (m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === underlying,
-        );
-      }
-      return resource.Properties.MetricName === metricName;
-    });
+    const alarms = Object.keys(resources).filter(resourceName =>
+      alarmMatchesMetric(resources[resourceName].Properties, metricName),
+    );
     if (metricName === apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY) {
       expect(alarms.length).toBe(1 + alarmDetailLatencyConfig.length);
     } else {
@@ -462,17 +462,10 @@ test('when a resource is excluded from the aspect config it should not have alar
       const metricName = apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics[
         metricKey as keyof typeof apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics
       ];
-      const alarms = Object.keys(resources).filter(resourceName => {
-        const resourceProperties = resources[resourceName].Properties;
-        if (!resourceName.startsWith(instanceName)) return false;
-        const underlying = anomalyEnumToMetricName[metricName];
-        if (underlying) {
-          return (resourceProperties.Metrics ?? []).some(
-            (m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === underlying,
-          );
-        }
-        return resourceProperties.MetricName === metricName;
-      });
+      const alarms = Object.keys(resources).filter(resourceName =>
+        resourceName.startsWith(instanceName)
+        && alarmMatchesMetric(resources[resourceName].Properties, metricName),
+      );
       if (instanceName === 'RestApi1') {
         expect(alarms.length).toEqual(0);
       } else {
