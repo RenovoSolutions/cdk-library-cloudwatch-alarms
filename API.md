@@ -11056,9 +11056,9 @@ allow legacy bucket naming style, default is false.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_s3.BucketGrants</code> | Collection of grant methods for a Bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_s3.BucketGrants</code> | Collection of grant methods for a Bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.disallowPublicAccess">disallowPublicAccess</a></code> | <code>boolean</code> | Whether to disallow public access. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.replicationRoleArn">replicationRoleArn</a></code> | <code>string</code> | Role used to set up permissions on this bucket for replication. |
@@ -11205,6 +11205,18 @@ The URL of the static website.
 
 ---
 
+##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.grants"></a>
+
+```typescript
+public readonly grants: BucketGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketGrants
+
+Collection of grant methods for a Bucket.
+
+---
+
 ##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.encryptionKey"></a>
 
 ```typescript
@@ -11226,18 +11238,6 @@ public readonly isWebsite: boolean;
 - *Type:* boolean
 
 If this bucket has been configured for static website hosting.
-
----
-
-##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.property.grants"></a>
-
-```typescript
-public readonly grants: BucketGrants;
-```
-
-- *Type:* aws-cdk-lib.aws_s3.BucketGrants
-
-Collection of grant methods for a Bucket.
 
 ---
 
@@ -13133,14 +13133,18 @@ Checks whether the given object is a CfnReplicationGroup.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPoint">attrConfigurationEndPoint</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointAddress">attrConfigurationEndPointAddress</a></code> | <code>string</code> | The DNS hostname of the cache node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointPort">attrConfigurationEndPointPort</a></code> | <code>string</code> | The port number that the cache engine is listening on. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPoint">attrPrimaryEndPoint</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointAddress">attrPrimaryEndPointAddress</a></code> | <code>string</code> | The DNS address of the primary read-write cache node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointPort">attrPrimaryEndPointPort</a></code> | <code>string</code> | The number of the port that the primary read-write cache engine is listening on. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPoint">attrReadEndPoint</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointAddresses">attrReadEndPointAddresses</a></code> | <code>string</code> | A string with a list of endpoints for the primary and read-only replicas. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointAddressesList">attrReadEndPointAddressesList</a></code> | <code>string[]</code> | A string with a list of endpoints for the read-only replicas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointAddressesList">attrReadEndPointAddressesList</a></code> | <code>string[]</code> | A list of endpoints for the read-only replicas. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointPorts">attrReadEndPointPorts</a></code> | <code>string</code> | A string with a list of ports for the read-only replicas. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointPortsList">attrReadEndPointPortsList</a></code> | <code>string[]</code> | A string with a list of ports for the read-only replicas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointPortsList">attrReadEndPointPortsList</a></code> | <code>string[]</code> | A list of ports for the read-only replicas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPoint">attrReaderEndPoint</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPointAddress">attrReaderEndPointAddress</a></code> | <code>string</code> | The address of the reader endpoint. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPointPort">attrReaderEndPointPort</a></code> | <code>string</code> | The port used by the reader endpoint. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.replicationGroupRef">replicationGroupRef</a></code> | <code>aws-cdk-lib.interfaces.aws_elasticache.ReplicationGroupReference</code> | A reference to a ReplicationGroup resource. |
@@ -13289,6 +13293,16 @@ public readonly env: ResourceEnvironment;
 
 ---
 
+##### `attrConfigurationEndPoint`<sup>Required</sup> <a name="attrConfigurationEndPoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPoint"></a>
+
+```typescript
+public readonly attrConfigurationEndPoint: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+---
+
 ##### `attrConfigurationEndPointAddress`<sup>Required</sup> <a name="attrConfigurationEndPointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointAddress"></a>
 
 ```typescript
@@ -13312,6 +13326,16 @@ public readonly attrConfigurationEndPointPort: string;
 - *Type:* string
 
 The port number that the cache engine is listening on.
+
+---
+
+##### `attrPrimaryEndPoint`<sup>Required</sup> <a name="attrPrimaryEndPoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPoint"></a>
+
+```typescript
+public readonly attrPrimaryEndPoint: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
 
 ---
 
@@ -13339,6 +13363,16 @@ The number of the port that the primary read-write cache engine is listening on.
 
 ---
 
+##### `attrReadEndPoint`<sup>Required</sup> <a name="attrReadEndPoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPoint"></a>
+
+```typescript
+public readonly attrReadEndPoint: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+---
+
 ##### `attrReadEndPointAddresses`<sup>Required</sup> <a name="attrReadEndPointAddresses" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReadEndPointAddresses"></a>
 
 ```typescript
@@ -13361,9 +13395,9 @@ public readonly attrReadEndPointAddressesList: string[];
 
 - *Type:* string[]
 
-A string with a list of endpoints for the read-only replicas.
+A list of endpoints for the read-only replicas.
 
-The order of the addresses maps to the order of the ports from the `ReadEndPoint.Ports` attribute.
+The order of the addresses maps to the order of the ports from the ReadEndPoint.Ports attribute.
 
 ---
 
@@ -13389,9 +13423,19 @@ public readonly attrReadEndPointPortsList: string[];
 
 - *Type:* string[]
 
-A string with a list of ports for the read-only replicas.
+A list of ports for the read-only replicas.
 
 The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
+
+---
+
+##### `attrReaderEndPoint`<sup>Required</sup> <a name="attrReaderEndPoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrReaderEndPoint"></a>
+
+```typescript
+public readonly attrReaderEndPoint: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
 
 ---
 
@@ -13527,7 +13571,9 @@ The name of the parameter group to associate with this replication group.
 
 ---
 
-##### `cacheSecurityGroupNames`<sup>Optional</sup> <a name="cacheSecurityGroupNames" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheSecurityGroupNames"></a>
+##### ~~`cacheSecurityGroupNames`~~<sup>Optional</sup> <a name="cacheSecurityGroupNames" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheSecurityGroupNames"></a>
+
+- *Deprecated:* this property has been deprecated
 
 ```typescript
 public readonly cacheSecurityGroupNames: string[];
@@ -33548,6 +33594,7 @@ new FargateService(scope: Construct, id: string, props: FargateServiceProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.enableCloudMap">enableCloudMap</a></code> | Enable CloudMap service discovery for the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.enableDeploymentAlarms">enableDeploymentAlarms</a></code> | Enable Deployment Alarms which take advantage of arbitrary alarms and configure them after service initialization. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.enableServiceConnect">enableServiceConnect</a></code> | Enable Service Connect on this service. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.forceNewDeployment">forceNewDeployment</a></code> | Forces a new deployment of the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.isUsingECSDeploymentController">isUsingECSDeploymentController</a></code> | Checks if the service is using the ECS deployment controller. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.loadBalancerTarget">loadBalancerTarget</a></code> | Return a load balancing target for a specific container and port. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.metric">metric</a></code> | This method returns the specified CloudWatch metric name for this service. |
@@ -33777,6 +33824,32 @@ Enable Service Connect on this service.
 ###### `config`<sup>Optional</sup> <a name="config" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.enableServiceConnect.parameter.config"></a>
 
 - *Type:* aws-cdk-lib.aws_ecs.ServiceConnectProps
+
+---
+
+##### `forceNewDeployment` <a name="forceNewDeployment" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.forceNewDeployment"></a>
+
+```typescript
+public forceNewDeployment(nonce?: string): void
+```
+
+Forces a new deployment of the service.
+
+This can be used to trigger a deployment without changing the task definition or desired count.
+ECS will start a new deployment even if there are no changes to the service configuration.
+
+**Important:** When called without a nonce, a timestamp is generated automatically, which means
+every `cdk synth` produces a different template and every `cdk deploy` triggers a new deployment
+regardless of whether any code has changed. To avoid this, provide a stable nonce value that only
+changes when you intentionally want to force a redeployment (e.g., an image digest or a version string).
+
+###### `nonce`<sup>Optional</sup> <a name="nonce" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.forceNewDeployment.parameter.nonce"></a>
+
+- *Type:* string
+
+A unique string (1-255 characters) that signals ECS to start a new deployment.
+
+If not provided, a timestamp-based nonce is generated.
 
 ---
 
