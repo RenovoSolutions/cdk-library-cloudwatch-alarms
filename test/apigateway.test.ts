@@ -18,6 +18,34 @@ import {
 } from 'aws-cdk-lib/assertions';
 import * as apiGatewayAlarms from '../src/apigateway';
 
+/**
+ * Minimal shape of a `Metrics` array entry in an anomaly detection alarm CFN resource.
+ * Typing this explicitly (instead of `any`) makes a CDK schema rename surface as a
+ * compile error rather than a silent test miss.
+ */
+type AnomalyMetricEntry = { MetricStat?: { Metric?: { MetricName?: string } } };
+
+/** Maps each anomaly enum value to the underlying CloudWatch metric name it monitors. */
+const anomalyEnumToMetricName: Record<string, string> = {
+  [apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY_ANOMALY]: 'Latency',
+  [apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.COUNT_ANOMALY]: 'Count',
+  [apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.INTEGRATION_LATENCY_ANOMALY]: 'IntegrationLatency',
+};
+
+/**
+ * True if the alarm resource corresponds to the given recommended-alarm enum value.
+ * Static alarms match on the top-level `MetricName`; anomaly alarms have no top-level
+ * `MetricName` and instead wrap their metric in an `ANOMALY_DETECTION_BAND` expression,
+ * so they are matched by the underlying metric inside `Metrics[]`.
+ */
+function alarmMatchesMetric(properties: { MetricName?: string; Metrics?: AnomalyMetricEntry[] }, metricEnumValue: string): boolean {
+  const anomalyMetric = anomalyEnumToMetricName[metricEnumValue];
+  if (anomalyMetric) {
+    return (properties.Metrics ?? []).some(m => m.MetricStat?.Metric?.MetricName === anomalyMetric);
+  }
+  return properties.MetricName === metricEnumValue;
+}
+
 class ApiGatewayRestApiStack extends Stack {
 
   public readonly api: apiGatewayAlarms.RestApi;
@@ -301,16 +329,13 @@ test('stack should contain service recommended alarms if recommended alarms aspe
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
   Object.keys(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricKey => {
-    const alarms = Object.keys(resources).filter(resourceName => {
-      const resource =
-        resources[resourceName];
-      const resourceProperties = resource.Properties;
-      const metricName = apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics[
-        metricKey as keyof typeof apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics
-      ];
+    const metricName = apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics[
+      metricKey as keyof typeof apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics
+    ];
 
-      return resourceProperties.MetricName === metricName;
-    });
+    const alarms = Object.keys(resources).filter(resourceName =>
+      alarmMatchesMetric(resources[resourceName].Properties, metricName),
+    );
 
     expect(alarms.length).toEqual(1);
   });
@@ -336,6 +361,9 @@ test('alarms can be applied individually to services using extended construct', 
   stack.api.alarm5XXError({ threshold: 10 });
   stack.api.alarmLatency();
   stack.api.alarmDetailedLatency(alarmDetailLatencyConfig);
+  stack.api.alarmLatencyAnomaly();
+  stack.api.alarmCountAnomaly();
+  stack.api.alarmIntegrationLatencyAnomaly();
 
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
@@ -347,10 +375,9 @@ test('alarms can be applied individually to services using extended construct', 
   const resources = template.findResources('AWS::CloudWatch::Alarm');
 
   Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricName => {
-    const alarms = Object.keys(resources).filter(resourceName => {
-      const resource = resources[resourceName];
-      return resource.Properties.MetricName === metricName;
-    });
+    const alarms = Object.keys(resources).filter(resourceName =>
+      alarmMatchesMetric(resources[resourceName].Properties, metricName),
+    );
     if (metricName === apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY) {
       expect(alarms.length).toBe(1 + alarmDetailLatencyConfig.length);
     } else {
@@ -432,15 +459,13 @@ test('when a resource is excluded from the aspect config it should not have alar
 
   ['RestApi1', 'RestApi2'].forEach(instanceName => {
     Object.keys(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricKey => {
-      const alarms = Object.keys(resources).filter(resourceName => {
-        const resource = resources[resourceName];
-        const resourceProperties = resource.Properties;
-        const metricName = apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics[
-          metricKey as keyof typeof apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics
-        ];
-
-        return resourceName.startsWith(instanceName) && resourceProperties.MetricName === metricName;
-      });
+      const metricName = apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics[
+        metricKey as keyof typeof apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics
+      ];
+      const alarms = Object.keys(resources).filter(resourceName =>
+        resourceName.startsWith(instanceName)
+        && alarmMatchesMetric(resources[resourceName].Properties, metricName),
+      );
       if (instanceName === 'RestApi1') {
         expect(alarms.length).toEqual(0);
       } else {
@@ -498,14 +523,16 @@ test('default alarm actions are overridden when individual alarm actions are pro
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
-  Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricName => {
-    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
-      AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
-      OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
-      InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
-    }));
-  });
+  Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics)
+    .filter(metricName => !anomalyEnumToMetricName[metricName])
+    .forEach(metricName => {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+        OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+        InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+      }));
+    });
 });
 
 test('optional alarm configurations can be overwritten', () => {
@@ -602,20 +629,22 @@ test('optional alarm configurations can be overwritten', () => {
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
-  Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricName => {
-    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
-      AlarmName: Match.stringLikeRegexp('^Custom.*'),
-      Period: 300,
-      EvaluationPeriods: 25,
-      DatapointsToAlarm: 25,
-      AlarmDescription: 'Custom alarm description',
-      TreatMissingData: 'ignore',
-      AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-      OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-      InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
-    }));
-  });
+  Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics)
+    .filter(metricName => !anomalyEnumToMetricName[metricName])
+    .forEach(metricName => {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        AlarmName: Match.stringLikeRegexp('^Custom.*'),
+        Period: 300,
+        EvaluationPeriods: 25,
+        DatapointsToAlarm: 25,
+        AlarmDescription: 'Custom alarm description',
+        TreatMissingData: 'ignore',
+        AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      }));
+    });
 });
 
 test('AspectWithTreatMissingData', () => {
@@ -662,10 +691,232 @@ test('AspectWithTreatMissingData', () => {
 
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
-  Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics).forEach(metricName => {
+  Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics)
+    .filter(metricName => !anomalyEnumToMetricName[metricName])
+    .forEach(metricName => {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        TreatMissingData: 'notBreaching',
+      }));
+    });
+
+  Object.values(anomalyEnumToMetricName).forEach(underlying => {
     template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
       TreatMissingData: 'notBreaching',
+      Metrics: Match.arrayWith([
+        Match.objectLike({
+          MetricStat: Match.objectLike({
+            Metric: Match.objectLike({ MetricName: underlying }),
+          }),
+        }),
+      ]),
+    }));
+  });
+});
+
+test('anomaly alarms have correct default comparison operator, band width, and evaluation periods', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  stack.api.alarmLatencyAnomaly();
+  stack.api.alarmCountAnomaly();
+  stack.api.alarmIntegrationLatencyAnomaly();
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'GreaterThanUpperThreshold',
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 2,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 8)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Period: 300, Stat: 'Average', Metric: Match.objectLike({ MetricName: 'Latency' }) }) }),
+    ]),
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'LessThanLowerOrGreaterThanUpperThreshold',
+    EvaluationPeriods: 4,
+    DatapointsToAlarm: 3,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 8)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Period: 300, Stat: 'Average', Metric: Match.objectLike({ MetricName: 'Count' }) }) }),
+    ]),
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'GreaterThanUpperThreshold',
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 2,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 8)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Period: 300, Stat: 'Average', Metric: Match.objectLike({ MetricName: 'IntegrationLatency' }) }) }),
+    ]),
+  }));
+});
+
+test('anomaly alarm configuration can be overwritten', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  stack.api.alarmLatencyAnomaly({
+    stdDevs: 4,
+    evaluationPeriods: 3,
+    datapointsToAlarm: 2,
+    comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD,
+  });
+  stack.api.alarmCountAnomaly({
+    stdDevs: 5,
+    evaluationPeriods: 6,
+    datapointsToAlarm: 4,
+    comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD,
+  });
+  stack.api.alarmIntegrationLatencyAnomaly({
+    stdDevs: 3,
+    evaluationPeriods: 5,
+    datapointsToAlarm: 4,
+    comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_LOWER_THRESHOLD,
+  });
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'LessThanLowerOrGreaterThanUpperThreshold',
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 2,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 4)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Stat: 'Average', Metric: Match.objectLike({ MetricName: 'Latency' }) }) }),
+    ]),
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'GreaterThanUpperThreshold',
+    EvaluationPeriods: 6,
+    DatapointsToAlarm: 4,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 5)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Stat: 'Average', Metric: Match.objectLike({ MetricName: 'Count' }) }) }),
+    ]),
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'LessThanLowerThreshold',
+    EvaluationPeriods: 5,
+    DatapointsToAlarm: 4,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 3)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Stat: 'Average', Metric: Match.objectLike({ MetricName: 'IntegrationLatency' }) }) }),
+    ]),
+  }));
+});
+
+test('anomaly alarms can be excluded individually via excludeAlarms', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  new apiGatewayAlarms.ApiGatewayRestApiRecommendedAlarms(stack, 'alarms', {
+    api: stack.api,
+    config4XXErrorAlarm: { threshold: 10 },
+    config5XXErrorAlarm: { threshold: 10 },
+    excludeAlarms: [
+      apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.LATENCY_ANOMALY,
+      apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.COUNT_ANOMALY,
+      apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.INTEGRATION_LATENCY_ANOMALY,
+    ],
+  });
+
+  const template = Template.fromStack(stack);
+  template.resourceCountIs('AWS::CloudWatch::Alarm', 3); // 4XXError, 5XXError, Latency only
+
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+  Object.values(anomalyEnumToMetricName).forEach(underlying => {
+    const anomalyAlarms = Object.values(resources).filter(r =>
+      (r.Properties.Metrics ?? []).some(
+        (m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === underlying,
+      ),
+    );
+    expect(anomalyAlarms).toHaveLength(0);
+  });
+});
+
+test('anomaly alarm default actions are overridden when individual alarm actions are provided in configuration', () => {
+  const app = new App({
+    context: {
+      '@aws-cdk/aws-cloudwatch-actions:changeLambdaPermissionLogicalIdForLambdaAction': true,
+    },
+  });
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  const topic = new sns.Topic(stack, 'Topic');
+  const alarmLambda = new lambda.Function(stack, 'Lambda', {
+    runtime: lambda.Runtime.NODEJS_24_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+  });
+  const lambdaAction = new cloudwatch_actions.LambdaAction(alarmLambda);
+
+  new apiGatewayAlarms.ApiGatewayRestApiRecommendedAlarms(stack, 'apiGatewayRestApiAlarms', {
+    api: stack.api,
+    defaultAlarmAction: new cloudwatch_actions.SnsAction(topic),
+    defaultOkAction: new cloudwatch_actions.SnsAction(topic),
+    defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(topic),
+    config4XXErrorAlarm: { threshold: 10 },
+    config5XXErrorAlarm: { threshold: 10 },
+    configLatencyAnomalyAlarm: { alarmAction: lambdaAction, okAction: lambdaAction, insufficientDataAction: lambdaAction },
+    configCountAnomalyAlarm: { alarmAction: lambdaAction, okAction: lambdaAction, insufficientDataAction: lambdaAction },
+    configIntegrationLatencyAnomalyAlarm: { alarmAction: lambdaAction, okAction: lambdaAction, insufficientDataAction: lambdaAction },
+  });
+
+  const template = Template.fromStack(stack);
+
+  Object.values(anomalyEnumToMetricName).forEach(underlying => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      Metrics: Match.arrayWith([
+        Match.objectLike({ MetricStat: Match.objectLike({ Metric: Match.objectLike({ MetricName: underlying }) }) }),
+      ]),
+      AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+      OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+      InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+    }));
+  });
+});
+
+test('default actions are applied to anomaly alarms when no individual alarm actions are provided', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  const topic = new sns.Topic(stack, 'Topic');
+
+  new apiGatewayAlarms.ApiGatewayRestApiRecommendedAlarms(stack, 'apiGatewayRestApiAlarms', {
+    api: stack.api,
+    defaultAlarmAction: new cloudwatch_actions.SnsAction(topic),
+    defaultOkAction: new cloudwatch_actions.SnsAction(topic),
+    defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(topic),
+    config4XXErrorAlarm: { threshold: 10 },
+    config5XXErrorAlarm: { threshold: 10 },
+  });
+
+  const template = Template.fromStack(stack);
+
+  Object.values(anomalyEnumToMetricName).forEach(underlying => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      Metrics: Match.arrayWith([
+        Match.objectLike({ MetricStat: Match.objectLike({ Metric: Match.objectLike({ MetricName: underlying }) }) }),
+      ]),
+      AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
     }));
   });
 });

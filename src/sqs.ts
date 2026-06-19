@@ -426,7 +426,7 @@ export interface SqsRecommendedAlarmsConfig {
    *
    * If true, the dead letter queues will have the same alarms as normal queues.
    * If false, the dead letter queues will only have the ApproximateNumberOfMessagesVisible
-   * alarm with a default threshold of 0.
+   * alarm with a default threshold of 1.
    *
    * @default false
    */
@@ -434,7 +434,7 @@ export interface SqsRecommendedAlarmsConfig {
   /**
    * The configuration for the approximate number of messages visible alarm for DLQs.
    *
-   * This is used for dead letter queues only. The threshold is set to 0 by default.
+   * This is used for dead letter queues only. The threshold is set to 1 by default.
    */
   readonly configDlqApproximateNumberOfMessagesVisibleAlarm?: SqsApproximateNumberOfMessagesVisibleAlarmConfig;
 }
@@ -712,7 +712,7 @@ export class SqsRecommendedAlarmsAspect implements IAspect {
        * we apply the same recommended alarms as for normal queues and don't process them here.
        *
        * If the `dlqsGetFullRecommendedAlarms` prop is false,
-       * we only apply the ApproximateNumberOfMessagesVisible alarm with a default threshold of 0.
+       * we only apply the ApproximateNumberOfMessagesVisible alarm with a default threshold of 1.
        * But we still check if it's explicitly been excluded from the alarms, and we use the
        * original `excludeResources` prop to determine if we should skip it, not the list we
        * constructed above.
@@ -723,14 +723,14 @@ export class SqsRecommendedAlarmsAspect implements IAspect {
         /**
          * Apply only the recommended alarms that make sense for dead letter queues.
          * At this time, we only apply the ApproximateNumberOfMessagesVisible alarm,
-         * with a default threshold of 0.
+         * with a default threshold of 1.
          * This is because dead letter queues are not expected to have messages
          * in them, and if they do, it indicates a problem.
          */
         const dlqAlarm = new SqsApproximateNumberOfMessagesVisibleAlarm(node, 'SqsApproximateNumberOfMessagesVisibleAlarm', {
           queue: node,
           treatMissingData: this.props.treatMissingData,
-          threshold: 0,
+          threshold: 1,
           ...this.props.configDlqApproximateNumberOfMessagesVisibleAlarm,
         });
 

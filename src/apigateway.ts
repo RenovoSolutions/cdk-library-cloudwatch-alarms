@@ -25,6 +25,23 @@ export enum ApiGatewayRecommendedAlarmsMetrics {
    * and other API Gateway overhead.
    */
   LATENCY = 'Latency',
+  /**
+   * Anomaly detection on the Latency metric. Detects drift in total request latency
+   * (API Gateway overhead + backend integration) without requiring a static threshold.
+   */
+  LATENCY_ANOMALY = 'LatencyAnomaly',
+  /**
+   * Anomaly detection on the Count metric. Detects unexpected drops (or spikes) in
+   * traffic volume for low-traffic APIs where a static `LESS_THAN_THRESHOLD` value
+   * is hard to pick.
+   */
+  COUNT_ANOMALY = 'CountAnomaly',
+  /**
+   * Anomaly detection on the IntegrationLatency metric. Detects drift in backend
+   * latency independently of overall request latency. No static counterpart exists
+   * in this library.
+   */
+  INTEGRATION_LATENCY_ANOMALY = 'IntegrationLatencyAnomaly',
 }
 
 /**
@@ -37,6 +54,21 @@ export interface ApiGatewayAlarmBaseConfig extends AlarmBaseProps {
    * @default Duration.minutes(1)
    */
   readonly period?: Duration;
+}
+
+/**
+ * The common optional configuration for anomaly detection alarms.
+ *
+ * These alarms use a fixed 5-minute metric period and do not expose a configurable `period`,
+ * because finer periods produce noisier, less reliable anomaly detection bands.
+ */
+export interface ApiGatewayAnomalyAlarmBaseConfig extends AlarmBaseProps {
+  /**
+   * The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+   *
+   * @default 8
+   */
+  readonly stdDevs?: number;
 }
 
 /**
@@ -75,12 +107,11 @@ export interface ApiGatewayRestApiAlarmProps {
 export interface ApiGateway4XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig {
   /**
    * The threshold value against which the specified statistic is compared.
-   *
+   * The unit is an absolute count of errors, not a percentage.
    */
   readonly threshold: number;
   /**
    * The number of periods over which data is compared to the specified threshold.
-   * The unit is an absolute count of errors, not a percentage.
    *
    * @default 5
    */
@@ -164,11 +195,11 @@ export class ApiGatewayRestApi4XXErrorAlarm extends cloudwatch.Alarm {
 export interface ApiGateway5XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig {
   /**
    * The threshold value against which the specified statistic is compared.
+   * The unit is an absolute count of errors, not a percentage.
    */
   readonly threshold: number;
   /**
    * The number of periods over which data is compared to the specified threshold.
-   * The unit is an absolute count of errors, not a percentage.
    *
    * @default 3
    */
@@ -403,6 +434,294 @@ export class ApiGatewayRestApiDetailedLatencyAlarm extends cloudwatch.Alarm {
 };
 
 /**
+ * Configuration for the Latency anomaly detection alarm.
+ */
+export interface ApiGatewayLatencyAnomalyAlarmConfig extends ApiGatewayAnomalyAlarmBaseConfig {
+  /**
+   * The number of periods over which data is compared to the anomaly detection band.
+   *
+   * @default 3
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 2
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The comparison operator used to compare the metric against the anomaly detection band.
+   *
+   * @default cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+   */
+  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - apiName + ' - LatencyAnomaly'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This anomaly detection alarm detects unusual drift in the API Gateway
+   * request latency compared to the expected baseline.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the ApiGatewayRestApiLatencyAnomalyAlarm construct.
+ */
+export interface ApiGatewayRestApiLatencyAnomalyAlarmProps extends
+  ApiGatewayRestApiAlarmProps, ApiGatewayLatencyAnomalyAlarmConfig {}
+
+/**
+ * An anomaly detection alarm on the API Gateway `Latency` metric.
+ *
+ * Catches drift in total request latency without requiring a static threshold.
+ * The static `Latency` alarm uses the AWS-recommended `p90` statistic and a
+ * fixed threshold; this anomaly variant uses `Average` (required by anomaly
+ * detection) and a CloudWatch-fitted band. It is intended to coexist with the
+ * static alarm, not replace it.
+ */
+export class ApiGatewayRestApiLatencyAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
+  constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiLatencyAnomalyAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.LATENCY_ANOMALY}`;
+    // Anomaly bands use a fixed 5-minute metric period; a finer period produces noisier, less reliable bands.
+    const period = Duration.minutes(5);
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 2;
+    const stdDevs = props.stdDevs ?? 8;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This anomaly detection alarm detects unusual drift in the API'
+      + ' Gateway request latency compared to the expected baseline.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: props.api.metricLatency({
+        dimensionsMap: {
+          ApiName: props.api.restApiName,
+          Stage: props.api.deploymentStage.stageName,
+        },
+        statistic: 'Average',
+        period,
+      }),
+      stdDevs,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+};
+
+/**
+ * Configuration for the Count anomaly detection alarm.
+ */
+export interface ApiGatewayCountAnomalyAlarmConfig extends ApiGatewayAnomalyAlarmBaseConfig {
+  /**
+   * The number of periods over which data is compared to the anomaly detection band.
+   *
+   * @default 4
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 3
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The comparison operator used to compare the metric against the anomaly detection band.
+   *
+   * Defaults to `LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD` to catch both unexpected
+   * traffic drops (the main case AWS's recommended static `Count` alarm targets but cannot
+   * express with a fixed value) and unusual spikes (e.g. abuse or retry storms).
+   *
+   * @default cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD
+   */
+  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - apiName + ' - CountAnomaly'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This anomaly detection alarm detects unexpected drops in request volume
+   * for the API Gateway stage, which can indicate clients calling the wrong endpoints
+   * or an outage upstream.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the ApiGatewayRestApiCountAnomalyAlarm construct.
+ */
+export interface ApiGatewayRestApiCountAnomalyAlarmProps extends
+  ApiGatewayRestApiAlarmProps, ApiGatewayCountAnomalyAlarmConfig {}
+
+/**
+ * An anomaly detection alarm on the API Gateway `Count` metric.
+ *
+ * AWS recommends a static `Count` alarm with `LESS_THAN_THRESHOLD` to detect
+ * unexpected traffic drops, but says the threshold "Depends on your situation".
+ * This anomaly variant lets the band track historical traffic so the alarm
+ * fires on actual deviations without picking a number that goes stale. By default
+ * it flags both unexpected drops and unusual spikes (e.g. abuse or retry storms).
+ *
+ * Because anomaly detection requires the `Average` statistic, this alarm tracks the
+ * average request rate per period, not total request volume.
+ *
+ * Note: on the drop side it detects partial drops below the expected band, not a
+ * complete outage. API Gateway does not publish `Count` when there are zero requests,
+ * so a full outage produces missing data (treated as not breaching) rather than a low
+ * value. To alarm on zero traffic, pair this with a static `Count` alarm or a canary.
+ */
+export class ApiGatewayRestApiCountAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
+  constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiCountAnomalyAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.COUNT_ANOMALY}`;
+    // Anomaly bands use a fixed 5-minute metric period; a finer period produces noisier, less reliable bands.
+    const period = Duration.minutes(5);
+    const evaluationPeriods = props.evaluationPeriods ?? 4;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 3;
+    const stdDevs = props.stdDevs ?? 8;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This anomaly detection alarm detects unexpected drops or spikes in'
+      + ' request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage'
+      + ' upstream, or abusive traffic.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: props.api.metricCount({
+        dimensionsMap: {
+          ApiName: props.api.restApiName,
+          Stage: props.api.deploymentStage.stageName,
+        },
+        statistic: 'Average',
+        period,
+      }),
+      stdDevs,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+};
+
+/**
+ * Configuration for the IntegrationLatency anomaly detection alarm.
+ */
+export interface ApiGatewayIntegrationLatencyAnomalyAlarmConfig extends ApiGatewayAnomalyAlarmBaseConfig {
+  /**
+   * The number of periods over which data is compared to the anomaly detection band.
+   *
+   * @default 3
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 2
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The comparison operator used to compare the metric against the anomaly detection band.
+   *
+   * @default cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+   */
+  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - apiName + ' - IntegrationLatencyAnomaly'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This anomaly detection alarm detects unusual drift in the API Gateway
+   * backend integration latency, which can indicate backend performance issues
+   * independent of API Gateway overhead.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the ApiGatewayRestApiIntegrationLatencyAnomalyAlarm construct.
+ */
+export interface ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps extends
+  ApiGatewayRestApiAlarmProps, ApiGatewayIntegrationLatencyAnomalyAlarmConfig {}
+
+/**
+ * An anomaly detection alarm on the API Gateway `IntegrationLatency` metric.
+ *
+ * Catches drift in backend latency separately from total request latency, so
+ * a slow backend integration shows up even when overall request latency is
+ * within normal range (e.g. because backend latency was always part of the
+ * baseline). This library has no static counterpart for this metric.
+ */
+export class ApiGatewayRestApiIntegrationLatencyAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
+  constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiIntegrationLatencyAnomalyAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.INTEGRATION_LATENCY_ANOMALY}`;
+    // Anomaly bands use a fixed 5-minute metric period; a finer period produces noisier, less reliable bands.
+    const period = Duration.minutes(5);
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 2;
+    const stdDevs = props.stdDevs ?? 8;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This anomaly detection alarm detects unusual drift in the API'
+      + ' Gateway backend integration latency, which can indicate backend performance issues independent of API Gateway'
+      + ' overhead.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: props.api.metricIntegrationLatency({
+        dimensionsMap: {
+          ApiName: props.api.restApiName,
+          Stage: props.api.deploymentStage.stageName,
+        },
+        statistic: 'Average',
+        period,
+      }),
+      stdDevs,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+};
+
+/**
  * Configurations for the recommended alarms for an ApiGateway RestApi.
  *
  * Default actions are overridden by the actions specified in the
@@ -461,6 +780,18 @@ export interface ApiGatewayRestApiRecommendedAlarmsConfig {
    * The configuration list for the detailed Latency alarm.
    */
   readonly configDetailedLatencyAlarmList?: ApiGatewayRestApiDetailedLatencyAlarmConfig[];
+  /**
+   * The configuration for the Latency anomaly detection alarm.
+   */
+  readonly configLatencyAnomalyAlarm?: ApiGatewayLatencyAnomalyAlarmConfig;
+  /**
+   * The configuration for the Count anomaly detection alarm.
+   */
+  readonly configCountAnomalyAlarm?: ApiGatewayCountAnomalyAlarmConfig;
+  /**
+   * The configuration for the IntegrationLatency anomaly detection alarm.
+   */
+  readonly configIntegrationLatencyAnomalyAlarm?: ApiGatewayIntegrationLatencyAnomalyAlarmConfig;
 }
 
 /**
@@ -480,6 +811,9 @@ export interface ApiGatewayRestApiRecommendedAlarmsProps extends ApiGatewayRestA
  * - 4XXError alarm
  * - 5XXError alarm
  * - Latency alarm
+ * - Latency anomaly detection alarm (additional to the static Latency alarm)
+ * - Count anomaly detection alarm (drop detection for low-traffic APIs)
+ * - IntegrationLatency anomaly detection alarm (no static counterpart)
  *
  * In order to create the Latency alarms for the Resource and Method dimensions the
  * configDetailedLatencyAlarmList must be specified.
@@ -501,6 +835,21 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
    * The Latency alarm.
    */
   public readonly alarmLatency?: ApiGatewayRestApiLatencyAlarm;
+
+  /**
+   * The Latency anomaly detection alarm.
+   */
+  public readonly alarmLatencyAnomaly?: ApiGatewayRestApiLatencyAnomalyAlarm;
+
+  /**
+   * The Count anomaly detection alarm.
+   */
+  public readonly alarmCountAnomaly?: ApiGatewayRestApiCountAnomalyAlarm;
+
+  /**
+   * The IntegrationLatency anomaly detection alarm.
+   */
+  public readonly alarmIntegrationLatencyAnomaly?: ApiGatewayRestApiIntegrationLatencyAnomalyAlarm;
 
   constructor(scope: Construct, id: string, props: ApiGatewayRestApiRecommendedAlarmsProps) {
     super(scope, id);
@@ -584,6 +933,70 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
         new ApiGatewayRestApiDetailedLatencyAlarm(this, `${props.api.node.id}_DetailedLatency${index}`, alarmConfig);
       });
     }
+
+    if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.LATENCY_ANOMALY)) {
+      this.alarmLatencyAnomaly = new ApiGatewayRestApiLatencyAnomalyAlarm(this, `${props.api.node.id}_LatencyAnomaly`, {
+        api: props.api,
+        treatMissingData: props.treatMissingData,
+        ...props.configLatencyAnomalyAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.configLatencyAnomalyAlarm?.alarmAction) {
+        this.alarmLatencyAnomaly.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.configLatencyAnomalyAlarm?.okAction) {
+        this.alarmLatencyAnomaly.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.configLatencyAnomalyAlarm?.insufficientDataAction) {
+        this.alarmLatencyAnomaly.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
+    if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.COUNT_ANOMALY)) {
+      this.alarmCountAnomaly = new ApiGatewayRestApiCountAnomalyAlarm(this, `${props.api.node.id}_CountAnomaly`, {
+        api: props.api,
+        treatMissingData: props.treatMissingData,
+        ...props.configCountAnomalyAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.configCountAnomalyAlarm?.alarmAction) {
+        this.alarmCountAnomaly.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.configCountAnomalyAlarm?.okAction) {
+        this.alarmCountAnomaly.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.configCountAnomalyAlarm?.insufficientDataAction) {
+        this.alarmCountAnomaly.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
+    if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.INTEGRATION_LATENCY_ANOMALY)) {
+      this.alarmIntegrationLatencyAnomaly = new ApiGatewayRestApiIntegrationLatencyAnomalyAlarm(
+        this,
+        `${props.api.node.id}_IntegrationLatencyAnomaly`,
+        {
+          api: props.api,
+          treatMissingData: props.treatMissingData,
+          ...props.configIntegrationLatencyAnomalyAlarm,
+        },
+      );
+
+      if (props.defaultAlarmAction && !props.configIntegrationLatencyAnomalyAlarm?.alarmAction) {
+        this.alarmIntegrationLatencyAnomaly.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.configIntegrationLatencyAnomalyAlarm?.okAction) {
+        this.alarmIntegrationLatencyAnomaly.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.configIntegrationLatencyAnomalyAlarm?.insufficientDataAction) {
+        this.alarmIntegrationLatencyAnomaly.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
   }
 }
 
@@ -643,6 +1056,44 @@ export class RestApi extends apigateway.RestApi {
       alarmList.push(alarm);
     });
     return alarmList;
+  }
+
+  /**
+   * Creates an anomaly detection alarm on the Latency metric. Detects drift in
+   * total request latency without requiring a static threshold; intended to
+   * coexist with the static `Latency` alarm.
+   */
+  public alarmLatencyAnomaly(props?: ApiGatewayLatencyAnomalyAlarmConfig): ApiGatewayRestApiLatencyAnomalyAlarm {
+    return new ApiGatewayRestApiLatencyAnomalyAlarm(this, 'LatencyAnomalyAlarm', {
+      api: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an anomaly detection alarm on the Count metric. By default detects both
+   * unexpected traffic drops and spikes for low-traffic APIs where a static count
+   * threshold is hard to pick.
+   */
+  public alarmCountAnomaly(props?: ApiGatewayCountAnomalyAlarmConfig): ApiGatewayRestApiCountAnomalyAlarm {
+    return new ApiGatewayRestApiCountAnomalyAlarm(this, 'CountAnomalyAlarm', {
+      api: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an anomaly detection alarm on the IntegrationLatency metric.
+   * Catches backend integration latency drift independently of API Gateway
+   * overhead.
+   */
+  public alarmIntegrationLatencyAnomaly(
+    props?: ApiGatewayIntegrationLatencyAnomalyAlarmConfig,
+  ): ApiGatewayRestApiIntegrationLatencyAnomalyAlarm {
+    return new ApiGatewayRestApiIntegrationLatencyAnomalyAlarm(this, 'IntegrationLatencyAnomalyAlarm', {
+      api: this,
+      ...props,
+    });
   }
 
   /**
