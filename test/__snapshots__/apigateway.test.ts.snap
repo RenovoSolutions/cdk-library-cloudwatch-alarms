@@ -138,9 +138,9 @@ exports[`AspectWithTreatMissingData 1`] = `
     },
     "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1CountAnomaly86766572": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi1 - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [
@@ -573,9 +573,9 @@ exports[`RestApiSnapshot 1`] = `
     },
     "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountAnomaly71957243": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [
@@ -1181,9 +1181,9 @@ exports[`RestApiSnapshotDefaultActionsInUse 1`] = `
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "InsufficientDataActions": [
@@ -1727,9 +1727,9 @@ exports[`RestApiSnapshotDefaultActionsInUseWithDetails 1`] = `
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "InsufficientDataActions": [
@@ -2220,9 +2220,9 @@ exports[`RestApiSnapshotWithDetailedList 1`] = `
     },
     "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountAnomaly71957243": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [
@@ -2681,9 +2681,9 @@ exports[`RestApiSnapshotWithExclusion 1`] = `
     },
     "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountAnomaly71957243": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [
@@ -3134,9 +3134,9 @@ exports[`SnapshotForRestApiConstruct 1`] = `
     },
     "RestApiApiGatewayRestApiRecommendedAlarmsRestApiCountAnomalyC39D63BA": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [
@@ -3620,9 +3620,9 @@ exports[`alarms can be applied individually to services using extended construct
     },
     "RestApiCountAnomalyAlarm4BA224A2": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [
@@ -4359,9 +4359,9 @@ exports[`default alarm actions are overridden when individual alarm actions are 
             "Ref": "TopicBFC7AF6E",
           },
         ],
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "InsufficientDataActions": [
@@ -4789,9 +4789,9 @@ exports[`optional alarm configurations can be overwritten 1`] = `
     },
     "RestApi1ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi1CountAnomaly86766572": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi1 - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [
@@ -5293,9 +5293,9 @@ exports[`stack should contain service recommended alarms if recommended alarms a
     },
     "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApiCountAnomaly71957243": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [
@@ -5911,9 +5911,9 @@ exports[`when a resource is excluded from the aspect config it should not have a
     },
     "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi2CountAnomaly98CB141C": {
       "Properties": {
-        "AlarmDescription": "This anomaly detection alarm detects unexpected drops in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.",
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage upstream, or abusive traffic.",
         "AlarmName": "TestApi2 - CountAnomaly",
-        "ComparisonOperator": "LessThanLowerThreshold",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
         "DatapointsToAlarm": 3,
         "EvaluationPeriods": 4,
         "Metrics": [

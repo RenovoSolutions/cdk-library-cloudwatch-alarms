@@ -737,7 +737,7 @@ test('anomaly alarms have correct default comparison operator, band width, and e
   }));
 
   template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-    ComparisonOperator: 'LessThanLowerThreshold',
+    ComparisonOperator: 'LessThanLowerOrGreaterThanUpperThreshold',
     EvaluationPeriods: 4,
     DatapointsToAlarm: 3,
     Metrics: Match.arrayWith([

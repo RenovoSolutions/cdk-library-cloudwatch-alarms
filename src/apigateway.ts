@@ -543,11 +543,11 @@ export interface ApiGatewayCountAnomalyAlarmConfig extends ApiGatewayAnomalyAlar
   /**
    * The comparison operator used to compare the metric against the anomaly detection band.
    *
-   * Defaults to `LESS_THAN_LOWER_THRESHOLD` to detect unexpected traffic drops, which
-   * is the main case AWS's recommended static `Count` alarm targets but cannot express
-   * with a fixed value.
+   * Defaults to `LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD` to catch both unexpected
+   * traffic drops (the main case AWS's recommended static `Count` alarm targets but cannot
+   * express with a fixed value) and unusual spikes (e.g. abuse or retry storms).
    *
-   * @default cloudwatch.ComparisonOperator.LESS_THAN_LOWER_THRESHOLD
+   * @default cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD
    */
   readonly comparisonOperator?: cloudwatch.ComparisonOperator;
   /**
@@ -578,15 +578,16 @@ export interface ApiGatewayRestApiCountAnomalyAlarmProps extends
  * AWS recommends a static `Count` alarm with `LESS_THAN_THRESHOLD` to detect
  * unexpected traffic drops, but says the threshold "Depends on your situation".
  * This anomaly variant lets the band track historical traffic so the alarm
- * fires on actual drops without picking a number that goes stale.
+ * fires on actual deviations without picking a number that goes stale. By default
+ * it flags both unexpected drops and unusual spikes (e.g. abuse or retry storms).
  *
  * Because anomaly detection requires the `Average` statistic, this alarm tracks the
  * average request rate per period, not total request volume.
  *
- * Note: it detects partial drops below the expected band, not a complete outage.
- * API Gateway does not publish `Count` when there are zero requests, so a full
- * outage produces missing data (treated as not breaching) rather than a low value.
- * To alarm on zero traffic, pair this with a static `Count` alarm or a canary.
+ * Note: on the drop side it detects partial drops below the expected band, not a
+ * complete outage. API Gateway does not publish `Count` when there are zero requests,
+ * so a full outage produces missing data (treated as not breaching) rather than a low
+ * value. To alarm on zero traffic, pair this with a static `Count` alarm or a canary.
  */
 export class ApiGatewayRestApiCountAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: IConstruct, id: string, props: ApiGatewayRestApiCountAnomalyAlarmProps) {
@@ -597,9 +598,10 @@ export class ApiGatewayRestApiCountAnomalyAlarm extends cloudwatch.AnomalyDetect
     const datapointsToAlarm = props.datapointsToAlarm ?? 3;
     const stdDevs = props.stdDevs ?? 8;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
-    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.LESS_THAN_LOWER_THRESHOLD;
-    const alarmDescription = props.alarmDescription ?? 'This anomaly detection alarm detects unexpected drops in request'
-      + ' volume for the API Gateway stage, which can indicate clients calling the wrong endpoints or an outage upstream.';
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This anomaly detection alarm detects unexpected drops or spikes in'
+      + ' request volume for the API Gateway stage, which can indicate clients calling the wrong endpoints, an outage'
+      + ' upstream, or abusive traffic.';
 
     validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
 
@@ -1069,9 +1071,9 @@ export class RestApi extends apigateway.RestApi {
   }
 
   /**
-   * Creates an anomaly detection alarm on the Count metric. Detects unexpected
-   * traffic drops (the default) or spikes for low-traffic APIs where a static
-   * count threshold is hard to pick.
+   * Creates an anomaly detection alarm on the Count metric. By default detects both
+   * unexpected traffic drops and spikes for low-traffic APIs where a static count
+   * threshold is hard to pick.
    */
   public alarmCountAnomaly(props?: ApiGatewayCountAnomalyAlarmConfig): ApiGatewayRestApiCountAnomalyAlarm {
     return new ApiGatewayRestApiCountAnomalyAlarm(this, 'CountAnomalyAlarm', {

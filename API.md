@@ -962,15 +962,16 @@ An anomaly detection alarm on the API Gateway `Count` metric.
 AWS recommends a static `Count` alarm with `LESS_THAN_THRESHOLD` to detect
 unexpected traffic drops, but says the threshold "Depends on your situation".
 This anomaly variant lets the band track historical traffic so the alarm
-fires on actual drops without picking a number that goes stale.
+fires on actual deviations without picking a number that goes stale. By default
+it flags both unexpected drops and unusual spikes (e.g. abuse or retry storms).
 
 Because anomaly detection requires the `Average` statistic, this alarm tracks the
 average request rate per period, not total request volume.
 
-Note: it detects partial drops below the expected band, not a complete outage.
-API Gateway does not publish `Count` when there are zero requests, so a full
-outage produces missing data (treated as not breaching) rather than a low value.
-To alarm on zero traffic, pair this with a static `Count` alarm or a canary.
+Note: on the drop side it detects partial drops below the expected band, not a
+complete outage. API Gateway does not publish `Count` when there are zero requests,
+so a full outage produces missing data (treated as not breaching) rather than a low
+value. To alarm on zero traffic, pair this with a static `Count` alarm or a canary.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.Initializer"></a>
 
@@ -9986,7 +9987,7 @@ new Bucket(scope: Construct, id: string, props?: BucketProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantPutAcl">grantPutAcl</a></code> | The use of this method is discouraged. Please use `grants.putAcl()` instead. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and its contents to an IAM principal (Role/Group/User). |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReadWrite">grantReadWrite</a></code> | The use of this method is discouraged. Please use `grants.readWrite()` instead. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantReplicationPermission">grantReplicationPermission</a></code> | Grant replication permission to a principal. This method allows the principal to perform replication operations on this bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.grantWrite">grantWrite</a></code> | The use of this method is discouraged. Please use `grants.write()` instead. |
@@ -10411,7 +10412,7 @@ The use of this method is discouraged. Please use `grants.putAcl()` instead.
 public grantRead(identity: IGrantable, objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and its contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -52965,9 +52966,9 @@ public alarmCountAnomaly(props?: ApiGatewayCountAnomalyAlarmConfig): ApiGatewayR
 
 Creates an anomaly detection alarm on the Count metric.
 
-Detects unexpected
-traffic drops (the default) or spikes for low-traffic APIs where a static
-count threshold is hard to pick.
+By default detects both
+unexpected traffic drops and spikes for low-traffic APIs where a static count
+threshold is hard to pick.
 
 ###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.alarmCountAnomaly.parameter.props"></a>
 
@@ -67818,13 +67819,13 @@ public readonly comparisonOperator: ComparisonOperator;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
-- *Default:* cloudwatch.ComparisonOperator.LESS_THAN_LOWER_THRESHOLD
+- *Default:* cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD
 
 The comparison operator used to compare the metric against the anomaly detection band.
 
-Defaults to `LESS_THAN_LOWER_THRESHOLD` to detect unexpected traffic drops, which
-is the main case AWS's recommended static `Count` alarm targets but cannot express
-with a fixed value.
+Defaults to `LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD` to catch both unexpected
+traffic drops (the main case AWS's recommended static `Count` alarm targets but cannot
+express with a fixed value) and unusual spikes (e.g. abuse or retry storms).
 
 ---
 
@@ -68916,13 +68917,13 @@ public readonly comparisonOperator: ComparisonOperator;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
-- *Default:* cloudwatch.ComparisonOperator.LESS_THAN_LOWER_THRESHOLD
+- *Default:* cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD
 
 The comparison operator used to compare the metric against the anomaly detection band.
 
-Defaults to `LESS_THAN_LOWER_THRESHOLD` to detect unexpected traffic drops, which
-is the main case AWS's recommended static `Count` alarm targets but cannot express
-with a fixed value.
+Defaults to `LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD` to catch both unexpected
+traffic drops (the main case AWS's recommended static `Count` alarm targets but cannot
+express with a fixed value) and unusual spikes (e.g. abuse or retry storms).
 
 ---
 
