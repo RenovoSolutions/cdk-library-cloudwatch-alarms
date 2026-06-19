@@ -24,14 +24,14 @@ importers:
         specifier: ^8
         version: 8.56.1(eslint@9.39.3)(typescript@5.9.3)
       aws-cdk-lib:
-        specifier: 2.245.0
-        version: 2.245.0(constructs@10.5.1)
+        specifier: 2.246.0
+        version: 2.246.0(constructs@10.6.0)
       commit-and-tag-version:
         specifier: ^12
         version: 12.6.1
       constructs:
-        specifier: 10.5.1
-        version: 10.5.1
+        specifier: 10.6.0
+        version: 10.6.0
       eslint:
         specifier: ^9
         version: 9.39.3
@@ -64,7 +64,7 @@ importers:
         version: 5.9.33
       projen:
         specifier: ^0.99.18
-        version: 0.99.18(constructs@10.5.1)
+        version: 0.99.18(constructs@10.6.0)
       ts-jest:
         specifier: ^29.4.6
         version: 29.4.6(@babel/core@7.29.0)(@jest/transform@30.2.0)(@jest/types@30.2.0)(babel-jest@30.2.0(@babel/core@7.29.0))(jest-util@30.2.0)(jest@30.2.0(@types/node@25.3.3)(ts-node@10.9.2(@types/node@25.3.3)(typescript@5.9.3)))(typescript@5.9.3)
@@ -829,8 +829,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  aws-cdk-lib@2.245.0:
-    resolution: {integrity: sha512-Yfeb+wKC6s+Ttm/N93C6vY6ksyCh68WaG/j3N6dalJWTW/V4o6hUolHm+v2c2IofJEUS45c5AF/EEj24e9hfMA==}
+  aws-cdk-lib@2.246.0:
+    resolution: {integrity: sha512-7OtF95mss9dWohopCNQKAlNFrMJwgOIvNTNgoOWWcKhULBf6UxKCaf6ATlnuysIWRGf2DHgcval/4+yySOKRBw==}
     engines: {node: '>= 20.0.0'}
     peerDependencies:
       constructs: ^10.5.0
@@ -1022,8 +1022,8 @@ packages:
     resolution: {integrity: sha512-MWufYdFw53ccGjCA+Ol7XJYpAlW6/prSMzuPOTRnJGcGzuhLn4Scrz7qf6o8bROZ514ltazcIFJZevcfbo0x7A==}
     engines: {'0': node >= 6.0}
 
-  constructs@10.5.1:
-    resolution: {integrity: sha512-f/TfFXiS3G/yVIXDjOQn9oTlyu9Wo7Fxyjj7lb8r92iO81jR2uST+9MstxZTmDGx/CgIbxCXkFXgupnLTNxQZg==}
+  constructs@10.6.0:
+    resolution: {integrity: sha512-TxHOnBO5zMo/G76ykzGF/wMpEHu257TbWiIxP9K0Yv/+t70UzgBQiTqjkAsWOPC6jW91DzJI0+ehQV6xDRNBuQ==}
 
   conventional-changelog-angular@6.0.0:
     resolution: {integrity: sha512-6qLgrBF4gueoC7AFVHu51nHL9pF9FRjXrH+ceVf7WmAfH3gs+gEYOkvxhjMPjZu57I4AGUGoNTY8V7Hrgf1uqg==}
@@ -3921,12 +3921,12 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  aws-cdk-lib@2.245.0(constructs@10.5.1):
+  aws-cdk-lib@2.246.0(constructs@10.6.0):
     dependencies:
       '@aws-cdk/asset-awscli-v1': 2.2.263
       '@aws-cdk/asset-node-proxy-agent-v6': 2.1.1
       '@aws-cdk/cloud-assembly-schema': 53.28.0
-      constructs: 10.5.1
+      constructs: 10.6.0
 
   babel-jest@30.2.0(@babel/core@7.29.0):
     dependencies:
@@ -4145,7 +4145,7 @@ snapshots:
       readable-stream: 3.6.2
       typedarray: 0.0.6
 
-  constructs@10.5.1: {}
+  constructs@10.6.0: {}
 
   conventional-changelog-angular@6.0.0:
     dependencies:
@@ -5835,9 +5835,9 @@ snapshots:
 
   process-nextick-args@2.0.1: {}
 
-  projen@0.99.18(constructs@10.5.1):
+  projen@0.99.18(constructs@10.6.0):
     dependencies:
-      constructs: 10.5.1
+      constructs: 10.6.0
 
   punycode@2.3.1: {}
 
