@@ -920,3 +920,37 @@ test('default actions are applied to anomaly alarms when no individual alarm act
     }));
   });
 });
+
+test('4XXError and 5XXError alarms use statistic Sum and absolute-count wording, distinct from their *Rate counterparts', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  stack.api.alarm4XXError({ threshold: 10 });
+  stack.api.alarm5XXError({ threshold: 10 });
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    AlarmName: 'TestApi - 4XXError',
+    MetricName: '4XXError',
+    Statistic: 'Sum',
+    Threshold: 10,
+    AlarmDescription: Match.stringLikeRegexp('numbers'),
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    AlarmName: 'TestApi - 5XXError',
+    MetricName: '5XXError',
+    Statistic: 'Sum',
+    Threshold: 10,
+    AlarmDescription: Match.stringLikeRegexp('numbers'),
+  }));
+
+  // No alarm on this metric uses a percentage-of-requests wording; that is reserved
+  // for the *Rate counterparts below.
+  template.resourcePropertiesCountIs('AWS::CloudWatch::Alarm', {
+    AlarmDescription: Match.stringLikeRegexp('fraction'),
+  }, 0);
+});

@@ -131,7 +131,7 @@ export interface ApiGateway4XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig
   /**
    * The description of the alarm.
    *
-   * @default - This alarm can detect high rates of client-side errors for the API Gateway requests.
+   * @default - This alarm can detect high numbers of client-side errors for the API Gateway requests.
    */
   readonly alarmDescription?: string;
 }
@@ -160,7 +160,7 @@ export class ApiGatewayRestApi4XXErrorAlarm extends cloudwatch.Alarm {
     const datapointsToAlarm = props.datapointsToAlarm ?? 5;
     const threshold = props.threshold;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
-    const alarmDescription = props.alarmDescription ?? 'This alarm can detect high rates of client-side errors for the'
+    const alarmDescription = props.alarmDescription ?? 'This alarm can detect high numbers of client-side errors for the'
       + ' API Gateway requests.';
 
     validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
@@ -172,7 +172,7 @@ export class ApiGatewayRestApi4XXErrorAlarm extends cloudwatch.Alarm {
           ApiName: props.api.restApiName,
           Stage: props.api.deploymentStage.stageName,
         },
-        statistic: 'Average',
+        statistic: 'Sum',
         period,
       }),
       threshold,
@@ -219,7 +219,7 @@ export interface ApiGateway5XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig
   /**
    * The description of the alarm.
    *
-   * @default - This alarm can detect high rates of server-side errors for the API Gateway requests.
+   * @default - This alarm can detect high numbers of server-side errors for the API Gateway requests.
    */
   readonly alarmDescription?: string;
 }
@@ -245,7 +245,7 @@ export class ApiGatewayRestApi5XXErrorAlarm extends cloudwatch.Alarm {
     const datapointsToAlarm = props.datapointsToAlarm ?? 3;
     const threshold = props.threshold;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
-    const alarmDescription = props.alarmDescription ?? 'This alarm can detect high rates of server-side errors for the'
+    const alarmDescription = props.alarmDescription ?? 'This alarm can detect high numbers of server-side errors for the'
       + ' API Gateway requests.';
 
     validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
@@ -257,7 +257,7 @@ export class ApiGatewayRestApi5XXErrorAlarm extends cloudwatch.Alarm {
           ApiName: props.api.restApiName,
           Stage: props.api.deploymentStage.stageName,
         },
-        statistic: 'Average',
+        statistic: 'Sum',
         period,
       }),
       threshold,

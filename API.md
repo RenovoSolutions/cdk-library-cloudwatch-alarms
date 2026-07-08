@@ -69892,7 +69892,7 @@ public readonly alarmDescription: string;
 ```
 
 - *Type:* string
-- *Default:* This alarm can detect high rates of client-side errors for the API Gateway requests.
+- *Default:* This alarm can detect high numbers of client-side errors for the API Gateway requests.
 
 The description of the alarm.
 
@@ -70052,7 +70052,7 @@ public readonly alarmDescription: string;
 ```
 
 - *Type:* string
-- *Default:* This alarm can detect high rates of server-side errors for the API Gateway requests.
+- *Default:* This alarm can detect high numbers of server-side errors for the API Gateway requests.
 
 The description of the alarm.
 
@@ -71113,7 +71113,7 @@ public readonly alarmDescription: string;
 ```
 
 - *Type:* string
-- *Default:* This alarm can detect high rates of client-side errors for the API Gateway requests.
+- *Default:* This alarm can detect high numbers of client-side errors for the API Gateway requests.
 
 The description of the alarm.
 
@@ -71286,7 +71286,7 @@ public readonly alarmDescription: string;
 ```
 
 - *Type:* string
-- *Default:* This alarm can detect high rates of server-side errors for the API Gateway requests.
+- *Default:* This alarm can detect high numbers of server-side errors for the API Gateway requests.
 
 The description of the alarm.
 
