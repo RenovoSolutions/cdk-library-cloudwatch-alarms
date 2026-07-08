@@ -3522,6 +3522,34 @@ exports[`alarms can be applied individually to services using extended construct
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApi4XXErrorRateAlarm7C358EB7": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect a high fraction of client-side errors, as a percentage of total requests rather than an absolute count, for the API Gateway requests.",
+        "AlarmName": "TestApi - 4XXErrorRate",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "ApiName",
+            "Value": "TestApi",
+          },
+          {
+            "Name": "Stage",
+            "Value": {
+              "Ref": "RestApiDeploymentStageliveE585F0C9",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "4XXError",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApi5XXErrorAlarm51BA79BF": {
       "Properties": {
         "AlarmDescription": "This alarm can detect high numbers of server-side errors for the API Gateway requests.",
@@ -3546,6 +3574,34 @@ exports[`alarms can be applied individually to services using extended construct
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi5XXErrorRateAlarm5062A9E2": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect a high fraction of server-side errors, as a percentage of total requests rather than an absolute count, for the API Gateway requests.",
+        "AlarmName": "TestApi - 5XXErrorRate",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": [
+          {
+            "Name": "ApiName",
+            "Value": "TestApi",
+          },
+          {
+            "Name": "Stage",
+            "Value": {
+              "Ref": "RestApiDeploymentStageliveE585F0C9",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "5XXError",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -5263,6 +5319,34 @@ exports[`stack should contain service recommended alarms if recommended alarms a
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApi4XXErrorRate57D7A6C7": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect a high fraction of client-side errors, as a percentage of total requests rather than an absolute count, for the API Gateway requests.",
+        "AlarmName": "TestApi - 4XXErrorRate",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "ApiName",
+            "Value": "TestApi",
+          },
+          {
+            "Name": "Stage",
+            "Value": {
+              "Ref": "RestApiDeploymentStageliveE585F0C9",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "4XXError",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApi5XXErrorB8ED282A": {
       "Properties": {
         "AlarmDescription": "This alarm can detect high numbers of server-side errors for the API Gateway requests.",
@@ -5287,6 +5371,34 @@ exports[`stack should contain service recommended alarms if recommended alarms a
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApiApiGatewayRestApiRecommendedAlarmsFromAspectRestApi5XXErrorRate6B0296F0": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect a high fraction of server-side errors, as a percentage of total requests rather than an absolute count, for the API Gateway requests.",
+        "AlarmName": "TestApi - 5XXErrorRate",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": [
+          {
+            "Name": "ApiName",
+            "Value": "TestApi",
+          },
+          {
+            "Name": "Stage",
+            "Value": {
+              "Ref": "RestApiDeploymentStageliveE585F0C9",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "5XXError",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -5881,6 +5993,34 @@ exports[`when a resource is excluded from the aspect config it should not have a
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi24XXErrorRate14E04BFD": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect a high fraction of client-side errors, as a percentage of total requests rather than an absolute count, for the API Gateway requests.",
+        "AlarmName": "TestApi2 - 4XXErrorRate",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "ApiName",
+            "Value": "TestApi2",
+          },
+          {
+            "Name": "Stage",
+            "Value": {
+              "Ref": "RestApi2DeploymentStagelive144C5CE7",
+            },
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "4XXError",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi25XXError879C2770": {
       "Properties": {
         "AlarmDescription": "This alarm can detect high numbers of server-side errors for the API Gateway requests.",
@@ -5905,6 +6045,34 @@ exports[`when a resource is excluded from the aspect config it should not have a
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "RestApi2ApiGatewayRestApiRecommendedAlarmsFromAspectRestApi25XXErrorRateF0A7D8A6": {
+      "Properties": {
+        "AlarmDescription": "This alarm can detect a high fraction of server-side errors, as a percentage of total requests rather than an absolute count, for the API Gateway requests.",
+        "AlarmName": "TestApi2 - 5XXErrorRate",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 3,
+        "Dimensions": [
+          {
+            "Name": "ApiName",
+            "Value": "TestApi2",
+          },
+          {
+            "Name": "Stage",
+            "Value": {
+              "Ref": "RestApi2DeploymentStagelive144C5CE7",
+            },
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "5XXError",
+        "Namespace": "AWS/ApiGateway",
+        "Period": 60,
+        "Statistic": "Average",
+        "Threshold": 0.05,
         "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
