@@ -33,15 +33,47 @@ const anomalyEnumToMetricName: Record<string, string> = {
 };
 
 /**
+ * Maps each *Rate enum value to the real CloudWatch metric name it shares with its
+ * absolute-count counterpart (e.g. `4XXErrorRate` and `4XXError` are both the `4XXError`
+ * metric; only the `Statistic` differs). The enum value itself is a synthetic label, not
+ * a distinct CloudWatch metric name.
+ */
+const rateEnumToBaseMetricName: Record<string, string> = {
+  [apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_4XX_RATE]: '4XXError',
+  [apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_5XX_RATE]: '5XXError',
+};
+
+/** Enum values whose alarm resource cannot be matched by `MetricName` alone. */
+const nonDirectMetricNameEnumValues = new Set([
+  ...Object.keys(anomalyEnumToMetricName),
+  ...Object.keys(rateEnumToBaseMetricName),
+]);
+
+/**
  * True if the alarm resource corresponds to the given recommended-alarm enum value.
  * Static alarms match on the top-level `MetricName`; anomaly alarms have no top-level
  * `MetricName` and instead wrap their metric in an `ANOMALY_DETECTION_BAND` expression,
- * so they are matched by the underlying metric inside `Metrics[]`.
+ * so they are matched by the underlying metric inside `Metrics[]`. The 4XX/5XX absolute-count
+ * and rate alarms share the same `MetricName`, so they are disambiguated by `Statistic`
+ * (`Sum` for the count alarm, `Average` for the rate alarm).
  */
-function alarmMatchesMetric(properties: { MetricName?: string; Metrics?: AnomalyMetricEntry[] }, metricEnumValue: string): boolean {
+function alarmMatchesMetric(
+  properties: { MetricName?: string; Statistic?: string; Metrics?: AnomalyMetricEntry[] },
+  metricEnumValue: string,
+): boolean {
   const anomalyMetric = anomalyEnumToMetricName[metricEnumValue];
   if (anomalyMetric) {
     return (properties.Metrics ?? []).some(m => m.MetricStat?.Metric?.MetricName === anomalyMetric);
+  }
+  const rateBaseMetric = rateEnumToBaseMetricName[metricEnumValue];
+  if (rateBaseMetric) {
+    return properties.MetricName === rateBaseMetric && properties.Statistic === 'Average';
+  }
+  if (
+    metricEnumValue === apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_4XX
+    || metricEnumValue === apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_5XX
+  ) {
+    return properties.MetricName === metricEnumValue && properties.Statistic === 'Sum';
   }
   return properties.MetricName === metricEnumValue;
 }
@@ -306,8 +338,14 @@ test('stack should contain service recommended alarms if recommended alarms aspe
       config4XXErrorAlarm: {
         threshold: 10,
       },
+      config4XXErrorRateAlarm: {
+        threshold: 0.05,
+      },
       config5XXErrorAlarm: {
         threshold: 10,
+      },
+      config5XXErrorRateAlarm: {
+        threshold: 0.05,
       },
     }),
   );
@@ -358,7 +396,9 @@ test('alarms can be applied individually to services using extended construct', 
   ];
 
   stack.api.alarm4XXError({ threshold: 10 });
+  stack.api.alarm4XXErrorRate({ threshold: 0.05 });
   stack.api.alarm5XXError({ threshold: 10 });
+  stack.api.alarm5XXErrorRate({ threshold: 0.05 });
   stack.api.alarmLatency();
   stack.api.alarmDetailedLatency(alarmDetailLatencyConfig);
   stack.api.alarmLatencyAnomaly();
@@ -403,8 +443,14 @@ test('when a resource is excluded from the aspect config it should not have alar
       config4XXErrorAlarm: {
         threshold: 10,
       },
+      config4XXErrorRateAlarm: {
+        threshold: 0.05,
+      },
       config5XXErrorAlarm: {
         threshold: 10,
+      },
+      config5XXErrorRateAlarm: {
+        threshold: 0.05,
       },
     }),
   );
@@ -524,7 +570,7 @@ test('default alarm actions are overridden when individual alarm actions are pro
   expect(template).toMatchSnapshot();
 
   Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics)
-    .filter(metricName => !anomalyEnumToMetricName[metricName])
+    .filter(metricName => !nonDirectMetricNameEnumValues.has(metricName))
     .forEach(metricName => {
       template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
         MetricName: metricName,
@@ -630,7 +676,7 @@ test('optional alarm configurations can be overwritten', () => {
   expect(template).toMatchSnapshot();
 
   Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics)
-    .filter(metricName => !anomalyEnumToMetricName[metricName])
+    .filter(metricName => !nonDirectMetricNameEnumValues.has(metricName))
     .forEach(metricName => {
       template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
         MetricName: metricName,
@@ -692,7 +738,7 @@ test('AspectWithTreatMissingData', () => {
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
   Object.values(apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics)
-    .filter(metricName => !anomalyEnumToMetricName[metricName])
+    .filter(metricName => !nonDirectMetricNameEnumValues.has(metricName))
     .forEach(metricName => {
       template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
         MetricName: metricName,
@@ -710,6 +756,209 @@ test('AspectWithTreatMissingData', () => {
           }),
         }),
       ]),
+    }));
+  });
+});
+
+test('4XXError and 5XXError alarms use statistic Sum and absolute-count wording, distinct from their *Rate counterparts', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  stack.api.alarm4XXError({ threshold: 10 });
+  stack.api.alarm5XXError({ threshold: 10 });
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    AlarmName: 'TestApi - 4XXError',
+    MetricName: '4XXError',
+    Statistic: 'Sum',
+    Threshold: 10,
+    AlarmDescription: Match.stringLikeRegexp('numbers'),
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    AlarmName: 'TestApi - 5XXError',
+    MetricName: '5XXError',
+    Statistic: 'Sum',
+    Threshold: 10,
+    AlarmDescription: Match.stringLikeRegexp('numbers'),
+  }));
+
+  // No alarm on this metric uses a percentage-of-requests wording; that is reserved
+  // for the *Rate counterparts below.
+  template.resourcePropertiesCountIs('AWS::CloudWatch::Alarm', {
+    AlarmDescription: Match.stringLikeRegexp('fraction'),
+  }, 0);
+});
+
+test('4XXErrorRate and 5XXErrorRate alarms use statistic Average on the same metric as their absolute-count counterparts', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  stack.api.alarm4XXErrorRate({ threshold: 0.05 });
+  stack.api.alarm5XXErrorRate({ threshold: 0.1 });
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    AlarmName: 'TestApi - 4XXErrorRate',
+    MetricName: '4XXError',
+    Statistic: 'Average',
+    Threshold: 0.05,
+    EvaluationPeriods: 5,
+    DatapointsToAlarm: 5,
+    ComparisonOperator: 'GreaterThanThreshold',
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    AlarmName: 'TestApi - 5XXErrorRate',
+    MetricName: '5XXError',
+    Statistic: 'Average',
+    Threshold: 0.1,
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 3,
+    ComparisonOperator: 'GreaterThanThreshold',
+  }));
+
+  // The absolute-count alarms are not created by these calls, so there is exactly one
+  // alarm resource per underlying metric name.
+  template.resourceCountIs('AWS::CloudWatch::Alarm', 2);
+});
+
+test('4XXErrorRate and 5XXErrorRate alarm configuration can be overwritten', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  stack.api.alarm4XXErrorRate({
+    threshold: 0.2,
+    alarmName: 'Custom4XXErrorRateAlarm',
+    period: Duration.minutes(5),
+    evaluationPeriods: 10,
+    datapointsToAlarm: 8,
+    alarmDescription: 'Custom rate alarm description',
+    treatMissingData: cloudwatch.TreatMissingData.IGNORE,
+  });
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    AlarmName: 'Custom4XXErrorRateAlarm',
+    MetricName: '4XXError',
+    Statistic: 'Average',
+    Threshold: 0.2,
+    Period: 300,
+    EvaluationPeriods: 10,
+    DatapointsToAlarm: 8,
+    AlarmDescription: 'Custom rate alarm description',
+    TreatMissingData: 'ignore',
+  }));
+});
+
+test('4XXErrorRate and 5XXErrorRate alarms are opt-in on the recommended alarms bundle, unlike their absolute-count counterparts', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  const alarms = new apiGatewayAlarms.ApiGatewayRestApiRecommendedAlarms(stack, 'alarms', {
+    api: stack.api,
+    config4XXErrorAlarm: { threshold: 10 },
+    config5XXErrorAlarm: { threshold: 10 },
+  });
+
+  expect(alarms.alarm4XXErrorRate).toBeUndefined();
+  expect(alarms.alarm5XXErrorRate).toBeUndefined();
+
+  const template = Template.fromStack(stack);
+  template.resourcePropertiesCountIs('AWS::CloudWatch::Alarm', { Statistic: 'Average', MetricName: '4XXError' }, 0);
+  template.resourcePropertiesCountIs('AWS::CloudWatch::Alarm', { Statistic: 'Average', MetricName: '5XXError' }, 0);
+});
+
+test('4XXErrorRate and 5XXErrorRate alarms are created on the recommended alarms bundle when their config is supplied', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  const alarms = new apiGatewayAlarms.ApiGatewayRestApiRecommendedAlarms(stack, 'alarms', {
+    api: stack.api,
+    config4XXErrorAlarm: { threshold: 10 },
+    config4XXErrorRateAlarm: { threshold: 0.05 },
+    config5XXErrorAlarm: { threshold: 10 },
+    config5XXErrorRateAlarm: { threshold: 0.1 },
+  });
+
+  expect(alarms.alarm4XXErrorRate).toBeDefined();
+  expect(alarms.alarm5XXErrorRate).toBeDefined();
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    MetricName: '4XXError', Statistic: 'Average', Threshold: 0.05,
+  }));
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    MetricName: '5XXError', Statistic: 'Average', Threshold: 0.1,
+  }));
+});
+
+test('4XXErrorRate and 5XXErrorRate alarms can be excluded individually via excludeAlarms even when their config is supplied', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  const alarms = new apiGatewayAlarms.ApiGatewayRestApiRecommendedAlarms(stack, 'alarms', {
+    api: stack.api,
+    config4XXErrorAlarm: { threshold: 10 },
+    config4XXErrorRateAlarm: { threshold: 0.05 },
+    config5XXErrorAlarm: { threshold: 10 },
+    config5XXErrorRateAlarm: { threshold: 0.1 },
+    excludeAlarms: [
+      apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_4XX_RATE,
+      apiGatewayAlarms.ApiGatewayRecommendedAlarmsMetrics.ERROR_5XX_RATE,
+    ],
+  });
+
+  expect(alarms.alarm4XXErrorRate).toBeUndefined();
+  expect(alarms.alarm5XXErrorRate).toBeUndefined();
+  expect(alarms.alarm4XXError).toBeDefined();
+  expect(alarms.alarm5XXError).toBeDefined();
+});
+
+test('default actions are applied to 4XXErrorRate and 5XXErrorRate alarms when no individual alarm actions are provided', () => {
+  const app = new App();
+  const stack = new ApiGatewayRestApiStack(app, 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+
+  const topic = new sns.Topic(stack, 'Topic');
+
+  new apiGatewayAlarms.ApiGatewayRestApiRecommendedAlarms(stack, 'alarms', {
+    api: stack.api,
+    defaultAlarmAction: new cloudwatch_actions.SnsAction(topic),
+    defaultOkAction: new cloudwatch_actions.SnsAction(topic),
+    defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(topic),
+    config4XXErrorAlarm: { threshold: 10 },
+    config4XXErrorRateAlarm: { threshold: 0.05 },
+    config5XXErrorAlarm: { threshold: 10 },
+    config5XXErrorRateAlarm: { threshold: 0.1 },
+  });
+
+  const template = Template.fromStack(stack);
+
+  [{ metricName: '4XXError' }, { metricName: '5XXError' }].forEach(({ metricName }) => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      MetricName: metricName,
+      Statistic: 'Average',
+      AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
     }));
   });
 });

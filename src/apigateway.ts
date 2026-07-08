@@ -12,13 +12,29 @@ import { AlarmBaseProps, validateTotalAlarmPeriod } from './common';
  */
 export enum ApiGatewayRecommendedAlarmsMetrics {
   /**
-   * The number of client-side errors captured in a given period.
+   * The absolute number of client-side errors captured in a given period (statistic `Sum`).
+   * For the fraction of requests that are 4XX errors instead, see `ERROR_4XX_RATE`.
    */
   ERROR_4XX = '4XXError',
   /**
-   * The number of server-side errors captured in a given period.
+   * The fraction of requests that returned a client-side error in a given period, from
+   * 0.0 to 1.0 (statistic `Average` on the same underlying `4XXError` metric as `ERROR_4XX`).
+   * This is a synthetic label, not a distinct CloudWatch metric name. For the absolute count
+   * instead, see `ERROR_4XX`.
+   */
+  ERROR_4XX_RATE = '4XXErrorRate',
+  /**
+   * The absolute number of server-side errors captured in a given period (statistic `Sum`).
+   * For the fraction of requests that are 5XX errors instead, see `ERROR_5XX_RATE`.
    */
   ERROR_5XX = '5XXError',
+  /**
+   * The fraction of requests that returned a server-side error in a given period, from
+   * 0.0 to 1.0 (statistic `Average` on the same underlying `5XXError` metric as `ERROR_5XX`).
+   * This is a synthetic label, not a distinct CloudWatch metric name. For the absolute count
+   * instead, see `ERROR_5XX`.
+   */
+  ERROR_5XX_RATE = '5XXErrorRate',
   /**
    * The time (milliseconds) between when API Gateway receives a request from a client and
    * when it returns a response to the client. The latency includes the integration latency
@@ -103,6 +119,10 @@ export interface ApiGatewayRestApiAlarmProps {
 
 /**
  * Configuration for the 4XXError alarm.
+ *
+ * This alarm uses statistic `Sum`: the threshold is an absolute count of errors in the period,
+ * not a percentage. For a percentage-based alarm on the same underlying metric, use
+ * {@link ApiGateway4XXErrorRateAlarmConfig} / {@link ApiGatewayRestApi4XXErrorRateAlarm} instead.
  */
 export interface ApiGateway4XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig {
   /**
@@ -131,7 +151,7 @@ export interface ApiGateway4XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig
   /**
    * The description of the alarm.
    *
-   * @default - This alarm can detect high rates of client-side errors for the API Gateway requests.
+   * @default - This alarm can detect high numbers of client-side errors for the API Gateway requests.
    */
   readonly alarmDescription?: string;
 }
@@ -143,6 +163,10 @@ export interface ApiGatewayRestApi4XXErrorAlarmProps extends ApiGatewayRestApiAl
 
 /**
  * This alarm detects a high number of client-side errors.
+ *
+ * This uses statistic `Sum`, so the threshold is an **absolute count** of 4XX errors in the
+ * period, not a percentage of total requests. For a percentage-based alarm, use
+ * {@link ApiGatewayRestApi4XXErrorRateAlarm} instead.
  *
  * This can indicate an issue in the authorization or client request parameters. It could also mean that a resource was
  * removed or a client is requesting one that doesn't exist. Consider enabling CloudWatch Logs and checking for any errors
@@ -160,8 +184,108 @@ export class ApiGatewayRestApi4XXErrorAlarm extends cloudwatch.Alarm {
     const datapointsToAlarm = props.datapointsToAlarm ?? 5;
     const threshold = props.threshold;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
-    const alarmDescription = props.alarmDescription ?? 'This alarm can detect high rates of client-side errors for the'
+    const alarmDescription = props.alarmDescription ?? 'This alarm can detect high numbers of client-side errors for the'
       + ' API Gateway requests.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: props.api.metricClientError({
+        dimensionsMap: {
+          ApiName: props.api.restApiName,
+          Stage: props.api.deploymentStage.stageName,
+        },
+        statistic: 'Sum',
+        period,
+      }),
+      threshold,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+};
+
+/**
+ * Configuration for the 4XXErrorRate alarm.
+ *
+ * This alarm uses statistic `Average` on the same `4XXError` metric as
+ * {@link ApiGateway4XXErrorAlarmConfig}: CloudWatch documents `Average` on this metric as the
+ * fraction of requests that returned a 4XX error, from 0.0 to 1.0. For an absolute-count alarm
+ * on the same metric, use {@link ApiGateway4XXErrorAlarmConfig} / {@link ApiGatewayRestApi4XXErrorAlarm} instead.
+ */
+export interface ApiGateway4XXErrorRateAlarmConfig extends ApiGatewayAlarmBaseConfig {
+  /**
+   * The threshold value against which the specified statistic is compared.
+   * The unit is a fraction of requests, from 0.0 to 1.0 (e.g. 0.05 for 5%), not an absolute count.
+   */
+  readonly threshold: number;
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   *
+   * @default 5
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 5
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The alarm name.
+   *
+   * @default - apiName + ' - 4XXErrorRate'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This alarm can detect a high fraction of client-side errors, as a percentage of
+   * total requests rather than an absolute count, for the API Gateway requests.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the ApiGatewayRestApi4XXErrorRateAlarm construct.
+ */
+export interface ApiGatewayRestApi4XXErrorRateAlarmProps extends ApiGatewayRestApiAlarmProps, ApiGateway4XXErrorRateAlarmConfig {}
+
+/**
+ * This alarm detects a high fraction of client-side errors, as a percentage of total requests.
+ *
+ * This uses statistic `Average` on the same underlying `4XXError` metric as
+ * {@link ApiGatewayRestApi4XXErrorAlarm}. CloudWatch documents `Average` on this metric as
+ * delivering the fraction of requests that returned a 4XX error, from 0.0 to 1.0 (not an
+ * absolute count). For an absolute-count alarm on the same metric, use
+ * {@link ApiGatewayRestApi4XXErrorAlarm} instead.
+ *
+ * This can indicate an issue in the authorization or client request parameters. It could also mean that a resource was
+ * removed or a client is requesting one that doesn't exist. Consider enabling CloudWatch Logs and checking for any errors
+ * that may be causing the 4XX errors. Moreover, consider enabling detailed CloudWatch metrics to view this metric per
+ * resource and method and narrow down the source of the errors. Errors could also be caused by exceeding the configured
+ * throttling limit.
+ *
+ * The alarm is triggered when the fraction of client-errors exceeds the threshold.
+ */
+export class ApiGatewayRestApi4XXErrorRateAlarm extends cloudwatch.Alarm {
+  constructor(scope: IConstruct, id: string, props: ApiGatewayRestApi4XXErrorRateAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.ERROR_4XX_RATE}`;
+    const period = props.period ?? Duration.minutes(1);
+    const evaluationPeriods = props.evaluationPeriods ?? 5;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 5;
+    const threshold = props.threshold;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const alarmDescription = props.alarmDescription ?? 'This alarm can detect a high fraction of client-side errors, as a'
+      + ' percentage of total requests rather than an absolute count, for the API Gateway requests.';
 
     validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
 
@@ -191,6 +315,10 @@ export class ApiGatewayRestApi4XXErrorAlarm extends cloudwatch.Alarm {
 
 /**
  * Configuration for the 5XXError alarm.
+ *
+ * This alarm uses statistic `Sum`: the threshold is an absolute count of errors in the period,
+ * not a percentage. For a percentage-based alarm on the same underlying metric, use
+ * {@link ApiGateway5XXErrorRateAlarmConfig} / {@link ApiGatewayRestApi5XXErrorRateAlarm} instead.
  */
 export interface ApiGateway5XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig {
   /**
@@ -219,7 +347,7 @@ export interface ApiGateway5XXErrorAlarmConfig extends ApiGatewayAlarmBaseConfig
   /**
    * The description of the alarm.
    *
-   * @default - This alarm can detect high rates of server-side errors for the API Gateway requests.
+   * @default - This alarm can detect high numbers of server-side errors for the API Gateway requests.
    */
   readonly alarmDescription?: string;
 }
@@ -231,6 +359,10 @@ export interface ApiGatewayRestApi5XXErrorAlarmProps extends ApiGatewayRestApiAl
 
 /**
  * This alarm detects a high number of server-side errors.
+ *
+ * This uses statistic `Sum`, so the threshold is an **absolute count** of 5XX errors in the
+ * period, not a percentage of total requests. For a percentage-based alarm, use
+ * {@link ApiGatewayRestApi5XXErrorRateAlarm} instead.
  *
  * This can indicate that there is something wrong on the API backend, the network,
  * or the integration between the API gateway and the backend API.
@@ -245,8 +377,105 @@ export class ApiGatewayRestApi5XXErrorAlarm extends cloudwatch.Alarm {
     const datapointsToAlarm = props.datapointsToAlarm ?? 3;
     const threshold = props.threshold;
     const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
-    const alarmDescription = props.alarmDescription ?? 'This alarm can detect high rates of server-side errors for the'
+    const alarmDescription = props.alarmDescription ?? 'This alarm can detect high numbers of server-side errors for the'
       + ' API Gateway requests.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: props.api.metricServerError({
+        dimensionsMap: {
+          ApiName: props.api.restApiName,
+          Stage: props.api.deploymentStage.stageName,
+        },
+        statistic: 'Sum',
+        period,
+      }),
+      threshold,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+};
+
+/**
+ * Configuration for the 5XXErrorRate alarm.
+ *
+ * This alarm uses statistic `Average` on the same `5XXError` metric as
+ * {@link ApiGateway5XXErrorAlarmConfig}: CloudWatch documents `Average` on this metric as the
+ * fraction of requests that returned a 5XX error, from 0.0 to 1.0. For an absolute-count alarm
+ * on the same metric, use {@link ApiGateway5XXErrorAlarmConfig} / {@link ApiGatewayRestApi5XXErrorAlarm} instead.
+ */
+export interface ApiGateway5XXErrorRateAlarmConfig extends ApiGatewayAlarmBaseConfig {
+  /**
+   * The threshold value against which the specified statistic is compared.
+   * The unit is a fraction of requests, from 0.0 to 1.0 (e.g. 0.05 for 5%), not an absolute count.
+   */
+  readonly threshold: number;
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   *
+   * @default 3
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 3
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The alarm name.
+   *
+   * @default - apiName + ' - 5XXErrorRate'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This alarm can detect a high fraction of server-side errors, as a percentage of
+   * total requests rather than an absolute count, for the API Gateway requests.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the ApiGatewayRestApi5XXErrorRateAlarm construct.
+ */
+export interface ApiGatewayRestApi5XXErrorRateAlarmProps extends ApiGatewayRestApiAlarmProps, ApiGateway5XXErrorRateAlarmConfig {}
+
+/**
+ * This alarm detects a high fraction of server-side errors, as a percentage of total requests.
+ *
+ * This uses statistic `Average` on the same underlying `5XXError` metric as
+ * {@link ApiGatewayRestApi5XXErrorAlarm}. CloudWatch documents `Average` on this metric as
+ * delivering the fraction of requests that returned a 5XX error, from 0.0 to 1.0 (not an
+ * absolute count). For an absolute-count alarm on the same metric, use
+ * {@link ApiGatewayRestApi5XXErrorAlarm} instead.
+ *
+ * This can indicate that there is something wrong on the API backend, the network,
+ * or the integration between the API gateway and the backend API.
+ *
+ * The alarm is triggered when the fraction of server-errors exceeds the threshold.
+ */
+export class ApiGatewayRestApi5XXErrorRateAlarm extends cloudwatch.Alarm {
+  constructor(scope: IConstruct, id: string, props: ApiGatewayRestApi5XXErrorRateAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.api.restApiName} - ${ApiGatewayRecommendedAlarmsMetrics.ERROR_5XX_RATE}`;
+    const period = props.period ?? Duration.minutes(1);
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 3;
+    const threshold = props.threshold;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const alarmDescription = props.alarmDescription ?? 'This alarm can detect a high fraction of server-side errors, as a'
+      + ' percentage of total requests rather than an absolute count, for the API Gateway requests.';
 
     validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
 
@@ -765,13 +994,29 @@ export interface ApiGatewayRestApiRecommendedAlarmsConfig {
    */
   readonly excludeResources?: string[];
   /**
-   * The configuration for the 4XXError alarm.
+   * The configuration for the 4XXError alarm (absolute count of client-side errors).
    */
   readonly config4XXErrorAlarm: ApiGateway4XXErrorAlarmConfig;
   /**
-   * The configuration for the 5XXError alarm.
+   * The configuration for the 4XXErrorRate alarm (fraction of requests that are client-side
+   * errors, from 0.0 to 1.0). Unlike `config4XXErrorAlarm`, this alarm is not created unless
+   * this configuration is provided, since there is no sensible default fraction threshold.
+   *
+   * @default - None; the alarm is not created.
+   */
+  readonly config4XXErrorRateAlarm?: ApiGateway4XXErrorRateAlarmConfig;
+  /**
+   * The configuration for the 5XXError alarm (absolute count of server-side errors).
    */
   readonly config5XXErrorAlarm: ApiGateway5XXErrorAlarmConfig;
+  /**
+   * The configuration for the 5XXErrorRate alarm (fraction of requests that are server-side
+   * errors, from 0.0 to 1.0). Unlike `config5XXErrorAlarm`, this alarm is not created unless
+   * this configuration is provided, since there is no sensible default fraction threshold.
+   *
+   * @default - None; the alarm is not created.
+   */
+  readonly config5XXErrorRateAlarm?: ApiGateway5XXErrorRateAlarmConfig;
   /**
    * The configuration for the Latency alarm.
    */
@@ -808,8 +1053,8 @@ export interface ApiGatewayRestApiRecommendedAlarmsProps extends ApiGatewayRestA
  * A construct that creates the recommended alarms for an ApiGateway api.
  *
  * The recommended alarms created by default for the ApiName and Stage are:
- * - 4XXError alarm
- * - 5XXError alarm
+ * - 4XXError alarm (absolute count of client-side errors)
+ * - 5XXError alarm (absolute count of server-side errors)
  * - Latency alarm
  * - Latency anomaly detection alarm (additional to the static Latency alarm)
  * - Count anomaly detection alarm (drop detection for low-traffic APIs)
@@ -817,6 +1062,10 @@ export interface ApiGatewayRestApiRecommendedAlarmsProps extends ApiGatewayRestA
  *
  * In order to create the Latency alarms for the Resource and Method dimensions the
  * configDetailedLatencyAlarmList must be specified.
+ *
+ * The 4XXErrorRate and 5XXErrorRate alarms (fraction of requests that are errors, from 0.0 to
+ * 1.0) are opt-in: unlike the alarms above, they are only created when `config4XXErrorRateAlarm`
+ * / `config5XXErrorRateAlarm` is supplied, since there is no sensible default fraction threshold.
  *
  * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#ApiGateway
  */
@@ -827,9 +1076,19 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
   public readonly alarm4XXError?: ApiGatewayRestApi4XXErrorAlarm;
 
   /**
+   * The 4XXErrorRate alarm. Only created when `config4XXErrorRateAlarm` is supplied.
+   */
+  public readonly alarm4XXErrorRate?: ApiGatewayRestApi4XXErrorRateAlarm;
+
+  /**
    * The 5XXError alarm.
    */
   public readonly alarm5XXError?: ApiGatewayRestApi5XXErrorAlarm;
+
+  /**
+   * The 5XXErrorRate alarm. Only created when `config5XXErrorRateAlarm` is supplied.
+   */
+  public readonly alarm5XXErrorRate?: ApiGatewayRestApi5XXErrorRateAlarm;
 
   /**
    * The Latency alarm.
@@ -874,6 +1133,26 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
       }
     }
 
+    if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.ERROR_4XX_RATE) && props.config4XXErrorRateAlarm) {
+      this.alarm4XXErrorRate = new ApiGatewayRestApi4XXErrorRateAlarm(this, `${props.api.node.id}_4XXErrorRate`, {
+        api: props.api,
+        treatMissingData: props.treatMissingData,
+        ...props.config4XXErrorRateAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.config4XXErrorRateAlarm?.alarmAction) {
+        this.alarm4XXErrorRate.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.config4XXErrorRateAlarm?.okAction) {
+        this.alarm4XXErrorRate.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.config4XXErrorRateAlarm?.insufficientDataAction) {
+        this.alarm4XXErrorRate.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
     if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.ERROR_5XX)) {
       this.alarm5XXError = new ApiGatewayRestApi5XXErrorAlarm(this, `${props.api.node.id}_5XXError`, {
         api: props.api,
@@ -891,6 +1170,26 @@ export class ApiGatewayRestApiRecommendedAlarms extends Construct {
 
       if (props.defaultInsufficientDataAction && !props.config5XXErrorAlarm?.insufficientDataAction) {
         this.alarm5XXError.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
+    if (!props.excludeAlarms?.includes(ApiGatewayRecommendedAlarmsMetrics.ERROR_5XX_RATE) && props.config5XXErrorRateAlarm) {
+      this.alarm5XXErrorRate = new ApiGatewayRestApi5XXErrorRateAlarm(this, `${props.api.node.id}_5XXErrorRate`, {
+        api: props.api,
+        treatMissingData: props.treatMissingData,
+        ...props.config5XXErrorRateAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.config5XXErrorRateAlarm?.alarmAction) {
+        this.alarm5XXErrorRate.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.config5XXErrorRateAlarm?.okAction) {
+        this.alarm5XXErrorRate.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.config5XXErrorRateAlarm?.insufficientDataAction) {
+        this.alarm5XXErrorRate.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
 
@@ -1011,6 +1310,8 @@ export class RestApi extends apigateway.RestApi {
 
   /**
    * Creates an alarm that monitors the number of client-side errors captured in a given period.
+   * This is an absolute count, not a percentage; for the fraction of requests that are 4XX
+   * errors, use {@link alarm4XXErrorRate} instead.
    */
   public alarm4XXError(props: ApiGateway4XXErrorAlarmConfig): ApiGatewayRestApi4XXErrorAlarm {
     return new ApiGatewayRestApi4XXErrorAlarm(this, '4XXErrorAlarm', {
@@ -1020,10 +1321,36 @@ export class RestApi extends apigateway.RestApi {
   }
 
   /**
+   * Creates an alarm that monitors the fraction of requests that returned a client-side error
+   * in a given period, from 0.0 to 1.0. This is a percentage, not an absolute count; for the
+   * absolute number of 4XX errors, use {@link alarm4XXError} instead.
+   */
+  public alarm4XXErrorRate(props: ApiGateway4XXErrorRateAlarmConfig): ApiGatewayRestApi4XXErrorRateAlarm {
+    return new ApiGatewayRestApi4XXErrorRateAlarm(this, '4XXErrorRateAlarm', {
+      api: this,
+      ...props,
+    });
+  }
+
+  /**
    * Creates an alarm that monitors the number of server-side errors captured in a given period.
+   * This is an absolute count, not a percentage; for the fraction of requests that are 5XX
+   * errors, use {@link alarm5XXErrorRate} instead.
    */
   public alarm5XXError(props: ApiGateway5XXErrorAlarmConfig): ApiGatewayRestApi5XXErrorAlarm {
     return new ApiGatewayRestApi5XXErrorAlarm(this, '5XXErrorAlarm', {
+      api: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an alarm that monitors the fraction of requests that returned a server-side error
+   * in a given period, from 0.0 to 1.0. This is a percentage, not an absolute count; for the
+   * absolute number of 5XX errors, use {@link alarm5XXError} instead.
+   */
+  public alarm5XXErrorRate(props: ApiGateway5XXErrorRateAlarmConfig): ApiGatewayRestApi5XXErrorRateAlarm {
+    return new ApiGatewayRestApi5XXErrorRateAlarm(this, '5XXErrorRateAlarm', {
       api: this,
       ...props,
     });
