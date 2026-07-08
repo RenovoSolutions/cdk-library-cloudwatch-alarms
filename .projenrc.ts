@@ -3,7 +3,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  cdkVersion: '2.246.0',
+  cdkVersion: '2.260.0',
   constructsVersion: '10.6.0',
   jsiiVersion: '^5.9',
   defaultReleaseBranch: 'master',

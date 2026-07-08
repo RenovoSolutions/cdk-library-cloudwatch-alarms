@@ -54,6 +54,7 @@ new ApiGatewayRestApi4XXErrorAlarm(scope: IConstruct, id: string, props: ApiGate
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -87,6 +88,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -529,6 +552,7 @@ new ApiGatewayRestApi5XXErrorAlarm(scope: IConstruct, id: string, props: ApiGate
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -562,6 +586,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -1013,6 +1059,7 @@ new ApiGatewayRestApiCountAnomalyAlarm(scope: IConstruct, id: string, props: Api
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -1046,6 +1093,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -1490,6 +1559,7 @@ new ApiGatewayRestApiDetailedLatencyAlarm(scope: IConstruct, id: string, props: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -1523,6 +1593,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -1965,6 +2057,7 @@ new ApiGatewayRestApiIntegrationLatencyAnomalyAlarm(scope: IConstruct, id: strin
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -1998,6 +2091,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -2441,6 +2556,7 @@ new ApiGatewayRestApiLatencyAlarm(scope: IConstruct, id: string, props: ApiGatew
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -2474,6 +2590,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -2917,6 +3055,7 @@ new ApiGatewayRestApiLatencyAnomalyAlarm(scope: IConstruct, id: string, props: A
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -2950,6 +3089,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -3615,6 +3776,7 @@ new ApplicationLoadBalancer(scope: Construct, id: string, props: ApplicationLoad
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.logAccessLogs">logAccessLogs</a></code> | Enable access logging for this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.removeAttribute">removeAttribute</a></code> | Remove an attribute from the load balancer. |
@@ -3678,6 +3840,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancer.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -4715,6 +4899,7 @@ new ApplicationLoadBalancerHttpCode4xxCountAlarm(scope: IConstruct, id: string, 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -4748,6 +4933,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -5190,6 +5397,7 @@ new ApplicationLoadBalancerHttpCode5xxCountAlarm(scope: IConstruct, id: string, 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -5223,6 +5431,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -5664,6 +5894,7 @@ new ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm(scope: IConstruct, id: st
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -5697,6 +5928,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -6329,6 +6582,7 @@ new ApplicationLoadBalancerRejectedConnectionCountAlarm(scope: IConstruct, id: s
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -6362,6 +6616,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -7476,6 +7752,7 @@ new ApplicationTargetGroupHealthyHostCountAlarm(scope: IConstruct, id: string, p
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -7509,6 +7786,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -8113,6 +8412,7 @@ new ApplicationTargetGroupUnHealthyHostCountAlarm(scope: IConstruct, id: string,
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -8146,6 +8446,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -8583,6 +8905,7 @@ new AutoScalingGroup(scope: Construct, id: string, props: AutoScalingGroupProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.addLifecycleHook">addLifecycleHook</a></code> | Send a message to either an SQS queue or SNS topic when instances launch or terminate. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.addSecurityGroup">addSecurityGroup</a></code> | Add the security group to all instances via the launch template security groups array. |
@@ -8631,6 +8954,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroup.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -9352,6 +9697,7 @@ new AutoScalingGroupGroupInServiceCapacityAlarm(scope: IConstruct, id: string, p
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -9385,6 +9731,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -9974,6 +10342,7 @@ new Bucket(scope: Construct, id: string, props?: BucketProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
@@ -10032,6 +10401,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -11353,7 +11744,9 @@ new CfnCacheCluster(scope: Construct, id: string, props: CfnCacheClusterProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
@@ -11601,6 +11994,25 @@ The value.
 
 ---
 
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Sets the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+strength instead of the global default from the consuming stack's context.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRemovalPolicy"></a>
 
 ```typescript
@@ -11631,6 +12043,18 @@ can be found in the following link:
 ###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRemovalPolicy.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicyOptions
+
+---
+
+##### `cfnPropertyName` <a name="cfnPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.cfnPropertyName"></a>
+
+```typescript
+public cfnPropertyName(cdkPropertyName: string): string
+```
+
+###### `cdkPropertyName`<sup>Required</sup> <a name="cdkPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.cfnPropertyName.parameter.cdkPropertyName"></a>
+
+- *Type:* string
 
 ---
 
@@ -11686,7 +12110,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (Stack | CfnResource)[]
+public obtainDependencies(): (CfnResource | Stack)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -11923,9 +12347,10 @@ Checks whether the given object is a CfnCacheCluster.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cfnOptions">cfnOptions</a></code> | <code>aws-cdk-lib.ICfnResourceOptions</code> | Options for this resource, such as condition, update policy etc. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cfnResourceType">cfnResourceType</a></code> | <code>string</code> | AWS resource type. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpoint">attrConfigurationEndpoint</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointAddress">attrConfigurationEndpointAddress</a></code> | <code>string</code> | The DNS hostname of the cache node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointPort">attrConfigurationEndpointPort</a></code> | <code>string</code> | The port number of the configuration endpoint for the Memcached cache cluster. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrId">attrId</a></code> | <code>string</code> | The resource name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpoint">attrRedisEndpoint</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpointAddress">attrRedisEndpointAddress</a></code> | <code>string</code> | The DNS address of the configuration endpoint for the Valkey or Redis OSS cache cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpointPort">attrRedisEndpointPort</a></code> | <code>string</code> | The port number of the configuration endpoint for the Valkey or Redis OSS cache cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheClusterRef">cacheClusterRef</a></code> | <code>aws-cdk-lib.interfaces.aws_elasticache.CacheClusterReference</code> | A reference to a CacheCluster resource. |
@@ -12060,6 +12485,16 @@ public readonly env: ResourceEnvironment;
 
 ---
 
+##### `attrConfigurationEndpoint`<sup>Required</sup> <a name="attrConfigurationEndpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpoint"></a>
+
+```typescript
+public readonly attrConfigurationEndpoint: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+---
+
 ##### `attrConfigurationEndpointAddress`<sup>Required</sup> <a name="attrConfigurationEndpointAddress" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrConfigurationEndpointAddress"></a>
 
 ```typescript
@@ -12088,15 +12523,13 @@ The port number of the configuration endpoint for the Memcached cache cluster.
 
 ---
 
-##### `attrId`<sup>Required</sup> <a name="attrId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrId"></a>
+##### `attrRedisEndpoint`<sup>Required</sup> <a name="attrRedisEndpoint" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.attrRedisEndpoint"></a>
 
 ```typescript
-public readonly attrId: string;
+public readonly attrRedisEndpoint: IResolvable;
 ```
 
-- *Type:* string
-
-The resource name.
+- *Type:* aws-cdk-lib.IResolvable
 
 ---
 
@@ -12220,7 +12653,9 @@ The name of the parameter group to associate with this cluster.
 
 ---
 
-##### `cacheSecurityGroupNames`<sup>Optional</sup> <a name="cacheSecurityGroupNames" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheSecurityGroupNames"></a>
+##### ~~`cacheSecurityGroupNames`~~<sup>Optional</sup> <a name="cacheSecurityGroupNames" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.property.cacheSecurityGroupNames"></a>
+
+- *Deprecated:* this property has been deprecated
 
 ```typescript
 public readonly cacheSecurityGroupNames: string[];
@@ -12520,7 +12955,9 @@ new CfnReplicationGroup(scope: Construct, id: string, props: CfnReplicationGroup
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
@@ -12768,6 +13205,25 @@ The value.
 
 ---
 
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Sets the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+strength instead of the global default from the consuming stack's context.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRemovalPolicy"></a>
 
 ```typescript
@@ -12798,6 +13254,18 @@ can be found in the following link:
 ###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRemovalPolicy.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicyOptions
+
+---
+
+##### `cfnPropertyName` <a name="cfnPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.cfnPropertyName"></a>
+
+```typescript
+public cfnPropertyName(cdkPropertyName: string): string
+```
+
+###### `cdkPropertyName`<sup>Required</sup> <a name="cdkPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.cfnPropertyName.parameter.cdkPropertyName"></a>
+
+- *Type:* string
 
 ---
 
@@ -12853,7 +13321,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (Stack | CfnResource)[]
+public obtainDependencies(): (CfnResource | Stack)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -13137,6 +13605,7 @@ Checks whether the given object is a CfnReplicationGroup.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPoint">attrConfigurationEndPoint</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointAddress">attrConfigurationEndPointAddress</a></code> | <code>string</code> | The DNS hostname of the cache node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrConfigurationEndPointPort">attrConfigurationEndPointPort</a></code> | <code>string</code> | The port number that the cache engine is listening on. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrEffectiveDurability">attrEffectiveDurability</a></code> | <code>string</code> | The resolved durability state of the replication group after resolving the default value. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPoint">attrPrimaryEndPoint</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointAddress">attrPrimaryEndPointAddress</a></code> | <code>string</code> | The DNS address of the primary read-write cache node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrPrimaryEndPointPort">attrPrimaryEndPointPort</a></code> | <code>string</code> | The number of the port that the primary read-write cache engine is listening on. |
@@ -13161,6 +13630,7 @@ Checks whether the given object is a CfnReplicationGroup.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.cacheSubnetGroupName">cacheSubnetGroupName</a></code> | <code>string</code> | The name of the cache subnet group to be used for the replication group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.clusterMode">clusterMode</a></code> | <code>string</code> | The mode can be enabled or disabled. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.dataTieringEnabled">dataTieringEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Enables data tiering. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.durability">durability</a></code> | <code>string</code> | The durability setting for the replication group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.engine">engine</a></code> | <code>string</code> | The name of the cache engine to be used for the clusters in this replication group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.engineVersion">engineVersion</a></code> | <code>string</code> | The version number of the cache engine to be used for the clusters in this replication group. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.globalReplicationGroupId">globalReplicationGroupId</a></code> | <code>string</code> | The name of the Global datastore. |
@@ -13327,6 +13797,20 @@ public readonly attrConfigurationEndPointPort: string;
 - *Type:* string
 
 The port number that the cache engine is listening on.
+
+---
+
+##### `attrEffectiveDurability`<sup>Required</sup> <a name="attrEffectiveDurability" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.attrEffectiveDurability"></a>
+
+```typescript
+public readonly attrEffectiveDurability: string;
+```
+
+- *Type:* string
+
+The resolved durability state of the replication group after resolving the default value.
+
+This is a read-only property.
 
 ---
 
@@ -13619,6 +14103,18 @@ public readonly dataTieringEnabled: boolean | IResolvable;
 - *Type:* boolean | aws-cdk-lib.IResolvable
 
 Enables data tiering.
+
+---
+
+##### `durability`<sup>Optional</sup> <a name="durability" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.property.durability"></a>
+
+```typescript
+public readonly durability: string;
+```
+
+- *Type:* string
+
+The durability setting for the replication group.
 
 ---
 
@@ -14028,6 +14524,7 @@ new CloudFrontDistribution5xxErrorRateAlarm(scope: IConstruct, id: string, props
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -14061,6 +14558,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -14503,6 +15022,7 @@ new CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm(scope: IConstruct
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -14536,6 +15056,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -14978,6 +15520,7 @@ new CloudFrontDistributionDetailedFunctionThrottlesAlarm(scope: IConstruct, id: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -15011,6 +15554,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -15453,6 +16018,7 @@ new CloudFrontDistributionDetailedFunctionValidationErrorsAlarm(scope: IConstruc
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -15486,6 +16052,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -15929,6 +16517,7 @@ new CloudFrontDistributionOriginLatencyAlarm(scope: IConstruct, id: string, prop
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -15962,6 +16551,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -16564,6 +17175,7 @@ new DatabaseCluster(scope: Construct, id: string, props: DatabaseClusterProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.addProxy">addProxy</a></code> | Add a new db proxy to this cluster. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.asSecretAttachmentTarget">asSecretAttachmentTarget</a></code> | Renders the secret attachment target specifications. |
@@ -16619,6 +17231,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -17615,6 +18249,7 @@ new DatabaseInstance(scope: Construct, id: string, props: DatabaseInstanceProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.addProxy">addProxy</a></code> | Add a new db proxy to this instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.asSecretAttachmentTarget">asSecretAttachmentTarget</a></code> | Renders the secret attachment target specifications. |
@@ -17665,6 +18300,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseInstance.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -18460,6 +19117,7 @@ new Distribution(scope: Construct, id: string, props: DistributionProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.addBehavior">addBehavior</a></code> | Adds a new behavior to this distribution for the given pathPattern. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.attachWebAclId">attachWebAclId</a></code> | Attach WAF WebACL to this CloudFront distribution. |
@@ -18513,6 +19171,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Distribution.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -19258,6 +19938,7 @@ new DmsReplicationInstanceCpuUtilizationAlarm(scope: IConstruct, id: string, pro
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -19291,6 +19972,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -19732,6 +20435,7 @@ new DmsReplicationInstanceFreeableMemoryAlarm(scope: Construct, id: string, prop
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -19765,6 +20469,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -20207,6 +20933,7 @@ new DmsReplicationInstanceFreeStorageSpaceAlarm(scope: IConstruct, id: string, p
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -20240,6 +20967,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -20890,6 +21639,7 @@ new DmsReplicationInstanceSwapUsageAlarm(scope: IConstruct, id: string, props: D
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -20923,6 +21673,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -21365,6 +22137,7 @@ new DmsReplicationInstanceWriteIopsAlarm(scope: IConstruct, id: string, props: D
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -21398,6 +22171,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -21844,6 +22639,7 @@ new DmsReplicationTaskCdcLatencySourceAlarm(scope: IConstruct, id: string, props
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -21877,6 +22673,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -22323,6 +23141,7 @@ new DmsReplicationTaskCdcLatencyTargetAlarm(scope: IConstruct, id: string, props
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -22356,6 +23175,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -22967,6 +23808,7 @@ new DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm(scope: IConstruct, id: strin
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -23000,6 +23842,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -23446,6 +24310,7 @@ new DynamoDbTableFailedToReplicateRecordCountAlarm(scope: IConstruct, id: string
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -23479,6 +24344,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -23920,6 +24807,7 @@ new DynamoDbTableReadThrottleEventsAlarm(scope: IConstruct, id: string, props: D
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -23953,6 +24841,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -24614,6 +25524,7 @@ new DynamoDbTableSystemErrorsAlarm(scope: IConstruct, id: string, props: DynamoD
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -24647,6 +25558,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -25091,6 +26024,7 @@ new DynamoDbTableThrottledPutRecordCountAlarm(scope: IConstruct, id: string, pro
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -25124,6 +26058,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -25565,6 +26521,7 @@ new DynamoDbTableWriteThrottleEventsAlarm(scope: IConstruct, id: string, props: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -25598,6 +26555,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -26043,6 +27022,7 @@ new Ec2InstanceCpuUtilizationAlarm(scope: IConstruct, id: string, props: Ec2Inst
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -26076,6 +27056,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -26682,6 +27684,7 @@ new Ec2InstanceStatusCheckFailedAlarm(scope: IConstruct, id: string, props: Ec2I
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -26715,6 +27718,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -27157,6 +28182,7 @@ new EcsServiceCpuUtilizationAlarm(scope: IConstruct, id: string, props: EcsServi
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -27190,6 +28216,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -27632,6 +28680,7 @@ new EcsServiceEphemeralStorageUtilizedAlarm(scope: IConstruct, id: string, props
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -27665,6 +28714,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -28107,6 +29178,7 @@ new EcsServiceMemoryUtilizationAlarm(scope: IConstruct, id: string, props: EcsSe
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -28140,6 +29212,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -28776,6 +29870,7 @@ new EcsServiceRunningTaskCountAlarm(scope: IConstruct, id: string, props: EcsSer
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -28809,6 +29904,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -29251,6 +30368,7 @@ new EfsFileSystemBurstCreditBalanceAlarm(scope: IConstruct, id: string, props: E
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -29284,6 +30402,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -29727,6 +30867,7 @@ new EfsFileSystemPercentIOLimitAlarm(scope: IConstruct, id: string, props: EfsFi
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -29760,6 +30901,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -30370,6 +31533,7 @@ new ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm(scope: IConstruct, id: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -30403,6 +31567,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -30847,6 +32033,7 @@ new ElastiCacheClusterEngineCpuUtilizationAlarm(scope: IConstruct, id: string, p
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -30880,6 +32067,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -31503,6 +32712,7 @@ new ElastiCacheClusterReplicationLagAlarm(scope: IConstruct, id: string, props: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -31536,6 +32746,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -31981,6 +33213,7 @@ new ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm(scope: IConstr
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -32014,6 +33247,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -32458,6 +33713,7 @@ new ElastiCacheReplicationGroupEngineCpuUtilizationAlarm(scope: IConstruct, id: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -32491,6 +33747,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -33114,6 +34392,7 @@ new ElastiCacheReplicationGroupReplicationLagAlarm(scope: IConstruct, id: string
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -33147,6 +34426,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -33584,6 +34885,7 @@ new FargateService(scope: Construct, id: string, props: FargateServiceProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.addLifecycleHook">addLifecycleHook</a></code> | Add a deployment lifecycle hook target. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.addVolume">addVolume</a></code> | Adds a volume to the Service. |
@@ -33634,6 +34936,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -34231,6 +35555,7 @@ Imports from the specified service attributes.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.serviceRef">serviceRef</a></code> | <code>aws-cdk-lib.interfaces.aws_ecs.ServiceReference</code> | A reference to this service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.taskDefinition">taskDefinition</a></code> | <code>aws-cdk-lib.aws_ecs.TaskDefinition</code> | The task definition to use for tasks in the service. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.cloudMapService">cloudMapService</a></code> | <code>aws-cdk-lib.aws_servicediscovery.IService</code> | The CloudMap service created for this service, if any. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.loadBalancers">loadBalancers</a></code> | <code>aws-cdk-lib.aws_ecs.CfnService.LoadBalancerProperty[]</code> | A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer. |
 
 ---
 
@@ -34362,6 +35687,18 @@ The CloudMap service created for this service, if any.
 
 ---
 
+##### `loadBalancers`<sup>Required</sup> <a name="loadBalancers" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService.property.loadBalancers"></a>
+
+```typescript
+public readonly loadBalancers: LoadBalancerProperty[];
+```
+
+- *Type:* aws-cdk-lib.aws_ecs.CfnService.LoadBalancerProperty[]
+
+A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+
+---
+
 #### Constants <a name="Constants" id="Constants"></a>
 
 | **Name** | **Type** | **Description** |
@@ -34426,6 +35763,7 @@ new FileSystem(scope: Construct, id: string, props: FileSystemProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addAccessPoint">addAccessPoint</a></code> | create access point from this filesystem. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this file system. |
@@ -34463,6 +35801,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.FileSystem.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -34951,6 +36311,7 @@ new Function(scope: Construct, id: string, props: FunctionProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.addEventSource">addEventSource</a></code> | Adds an event source to this function. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.addEventSourceMapping">addEventSourceMapping</a></code> | Adds an event source that maps to this AWS Lambda function. |
@@ -35005,6 +36366,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -36226,6 +37609,7 @@ new Instance(scope: Construct, id: string, props: InstanceProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.addSecurityGroup">addSecurityGroup</a></code> | Add the security group to the instance. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Instance.addToRolePolicy">addToRolePolicy</a></code> | Adds a statement to the IAM role assumed by the instance. |
@@ -36261,6 +37645,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Instance.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -36767,6 +38173,7 @@ new InterfaceVpcEndpoint(scope: Construct, id: string, props: InterfaceVpcEndpoi
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.addToPolicy">addToPolicy</a></code> | Adds a statement to the policy document of the VPC endpoint. The statement must have a Principal. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.alarmPacketsDropped">alarmPacketsDropped</a></code> | Creates an alarm that monitors the PacketsDropped for the PrivateLink endpoint. |
@@ -36798,6 +38205,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.InterfaceVpcEndpoint.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -37191,6 +38620,7 @@ new LambdaConcurrentExecutionsAlarm(scope: Construct, id: string, props: LambdaC
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -37224,6 +38654,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -37671,6 +39123,7 @@ new LambdaDurationAlarm(scope: Construct, id: string, props: LambdaDurationAlarm
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -37704,6 +39157,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -38144,6 +39619,7 @@ new LambdaErrorsAlarm(scope: Construct, id: string, props: LambdaErrorsAlarmProp
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -38177,6 +39653,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -38813,6 +40311,7 @@ new LambdaThrottlesAlarm(scope: Construct, id: string, props: LambdaThrottlesAla
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -38846,6 +40345,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -39283,6 +40804,7 @@ new NetworkLoadBalancer(scope: Construct, id: string, props: NetworkLoadBalancer
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.logAccessLogs">logAccessLogs</a></code> | Enable access logging for this load balancer. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.removeAttribute">removeAttribute</a></code> | Remove an attribute from the load balancer. |
@@ -39327,6 +40849,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -40211,6 +41755,7 @@ new NetworkLoadBalancerTcpElbResetCountAlarm(scope: IConstruct, id: string, prop
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -40244,6 +41789,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -40685,6 +42252,7 @@ new NetworkLoadBalancerTcpTargetResetCountAlarm(scope: IConstruct, id: string, p
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -40718,6 +42286,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -41648,6 +43238,7 @@ new NetworkTargetGroupHealthyHostCountAlarm(scope: IConstruct, id: string, props
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -41681,6 +43272,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -42285,6 +43898,7 @@ new NetworkTargetGroupUnHealthyHostCountAlarm(scope: IConstruct, id: string, pro
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -42318,6 +43932,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -42760,6 +44396,7 @@ new PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm(scope: IConstruc
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -42793,6 +44430,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -43539,6 +45198,7 @@ new PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm(scope: IConstruct, 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -43572,6 +45232,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -44009,6 +45691,7 @@ new Queue(scope: Construct, id: string, props?: QueueProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the IAM resource policy associated with this queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.grant">grant</a></code> | Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource. |
@@ -44058,6 +45741,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -44858,6 +46563,7 @@ new RdsAuroraBinLogReplicationLagAlarm(scope: Construct, id: string, props: RdsA
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -44891,6 +46597,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -45511,6 +47239,7 @@ new RdsAuroraVolumeBytesLeftTotalAlarm(scope: Construct, id: string, props: RdsA
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -45544,6 +47273,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -45986,6 +47737,7 @@ new RdsAuroraVolumeBytesUsedAlarm(scope: Construct, id: string, props: RdsAurora
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -46019,6 +47771,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -46461,6 +48235,7 @@ new RdsInstanceCpuUtilizationAlarm(scope: Construct, id: string, props: RdsInsta
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -46494,6 +48269,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -46936,6 +48733,7 @@ new RdsInstanceDatabaseConnectionsAlarm(scope: Construct, id: string, props: Rds
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -46969,6 +48767,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -47412,6 +49232,7 @@ new RdsInstanceDbLoadAlarm(scope: Construct, id: string, props: RdsInstanceDbLoa
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -47445,6 +49266,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -47886,6 +49729,7 @@ new RdsInstanceFreeableMemoryAlarm(scope: Construct, id: string, props: RdsInsta
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -47919,6 +49763,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -48361,6 +50227,7 @@ new RdsInstanceFreeLocalStorageAlarm(scope: Construct, id: string, props: RdsIns
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -48394,6 +50261,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -48836,6 +50725,7 @@ new RdsInstanceFreeStorageSpaceAlarm(scope: Construct, id: string, props: RdsIns
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -48869,6 +50759,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -49312,6 +51224,7 @@ new RdsInstanceReadLatencyAlarm(scope: Construct, id: string, props: RdsInstance
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -49345,6 +51258,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -50031,6 +51966,7 @@ new RdsInstanceWriteLatencyAlarm(scope: Construct, id: string, props: RdsInstanc
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -50064,6 +52000,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -50509,7 +52467,9 @@ new ReplicationInstance(scope: Construct, id: string, props: CfnReplicationInsta
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
@@ -50759,6 +52719,25 @@ The value.
 
 ---
 
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Sets the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+strength instead of the global default from the consuming stack's context.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyRemovalPolicy"></a>
 
 ```typescript
@@ -50789,6 +52768,18 @@ can be found in the following link:
 ###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyRemovalPolicy.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicyOptions
+
+---
+
+##### `cfnPropertyName` <a name="cfnPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.cfnPropertyName"></a>
+
+```typescript
+public cfnPropertyName(cdkPropertyName: string): string
+```
+
+###### `cdkPropertyName`<sup>Required</sup> <a name="cdkPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.cfnPropertyName.parameter.cdkPropertyName"></a>
+
+- *Type:* string
 
 ---
 
@@ -50844,7 +52835,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (Stack | CfnResource)[]
+public obtainDependencies(): (CfnResource | Stack)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -51572,7 +53563,9 @@ new ReplicationTask(scope: Construct, id: string, props: ReplicationTaskProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
@@ -51819,6 +53812,25 @@ The value.
 
 ---
 
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Sets the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+strength instead of the global default from the consuming stack's context.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRemovalPolicy"></a>
 
 ```typescript
@@ -51849,6 +53861,18 @@ can be found in the following link:
 ###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRemovalPolicy.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicyOptions
+
+---
+
+##### `cfnPropertyName` <a name="cfnPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.cfnPropertyName"></a>
+
+```typescript
+public cfnPropertyName(cdkPropertyName: string): string
+```
+
+###### `cdkPropertyName`<sup>Required</sup> <a name="cdkPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.cfnPropertyName.parameter.cdkPropertyName"></a>
+
+- *Type:* string
 
 ---
 
@@ -51904,7 +53928,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (Stack | CfnResource)[]
+public obtainDependencies(): (CfnResource | Stack)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -52513,6 +54537,7 @@ new RestApi(scope: Construct, id: string, props: RestApiBaseProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addApiKey">addApiKey</a></code> | Add an ApiKey to the deploymentStage. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.addDomainName">addDomainName</a></code> | Defines an API Gateway domain name and maps it to this API. |
@@ -52567,6 +54592,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.RestApi.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -53468,6 +55515,7 @@ new S3Bucket4xxErrorsAlarm(scope: IConstruct, id: string, props: S3Bucket4xxErro
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -53501,6 +55549,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -53943,6 +56013,7 @@ new S3Bucket5xxErrorsAlarm(scope: IConstruct, id: string, props: S3Bucket5xxErro
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -53976,6 +56047,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -54586,6 +56679,7 @@ new SfStateMachineExecutionsFailedAlarm(scope: IConstruct, id: string, props: Sf
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -54619,6 +56713,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -55060,6 +57176,7 @@ new SfStateMachineExecutionsTimedOutAlarm(scope: IConstruct, id: string, props: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -55093,6 +57210,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -55535,6 +57674,7 @@ new SfStateMachineExecutionThrottledAlarm(scope: IConstruct, id: string, props: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -55568,6 +57708,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -56009,6 +58171,7 @@ new SfStateMachineExecutionTimeAlarm(scope: IConstruct, id: string, props: SfSta
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -56042,6 +58205,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -56678,6 +58863,7 @@ new SnsNumberOfMessagesPublishedAlarm(scope: IConstruct, id: string, props: SnsN
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -56711,6 +58897,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -57155,6 +59363,7 @@ new SnsNumberOfNotificationsDeliveredAlarm(scope: IConstruct, id: string, props:
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -57188,6 +59397,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -57631,6 +59862,7 @@ new SnsNumberOfNotificationsFailedAlarm(scope: IConstruct, id: string, props: Sn
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -57664,6 +59896,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -58107,6 +60361,7 @@ new SnsNumberOfNotificationsFailedToRedriveToDlqAlarm(scope: IConstruct, id: str
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -58140,6 +60395,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -58583,6 +60860,7 @@ new SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm(scope: IConstruct,
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -58616,6 +60894,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -59059,6 +61359,7 @@ new SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm(scope: IConstruct
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -59092,6 +61393,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -59536,6 +61859,7 @@ new SnsNumberOfNotificationsRedrivenToDlqAlarm(scope: IConstruct, id: string, pr
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -59569,6 +61893,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -60245,6 +62591,7 @@ new SqsApproximateAgeOfOldestMessageAlarm(scope: IConstruct, id: string, props: 
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -60278,6 +62625,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -60730,6 +63099,7 @@ new SqsApproximateNumberOfMessagesNotVisibleAlarm(scope: IConstruct, id: string,
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -60763,6 +63133,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -61209,6 +63601,7 @@ new SqsApproximateNumberOfMessagesVisibleAlarm(scope: IConstruct, id: string, pr
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -61242,6 +63635,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -61684,6 +64099,7 @@ new SqsNumberOfMessagesSentAlarm(scope: IConstruct, id: string, props: SqsNumber
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -61717,6 +64133,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -62341,6 +64779,7 @@ new StateMachine(scope: Construct, id: string, props: StateMachineProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.addToRolePolicy">addToRolePolicy</a></code> | Add the given statement to the role's policy. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.grant">grant</a></code> | Grant the given identity custom permissions. |
@@ -62390,6 +64829,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.StateMachine.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -63107,6 +65568,7 @@ new Table(scope: Construct, id: string, props: TableProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy associated with this table. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Table.grant">grant</a></code> | Adds an IAM policy statement associated with this table to an IAM principal's policy. |
@@ -63171,6 +65633,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Table.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -64285,6 +66769,7 @@ new Topic(scope: Construct, id: string, props?: TopicProps)
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.addSubscription">addSubscription</a></code> | Subscribe some endpoint to this topic. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Topic.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the IAM resource policy associated with this topic. |
@@ -64338,6 +66823,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Topic.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -65117,6 +67624,7 @@ new VpcEndpointService(scope: Construct, id: string, props: VpcEndpointServicePr
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.alarmRstPacketsSent">alarmRstPacketsSent</a></code> | Creates an alarm that monitors the RstPacketsSent for the PrivateLink endpoint. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates the recommended alarms for the PrivateLink VpcEndpointService. |
@@ -65147,6 +67655,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpcEndpointService.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
@@ -65506,7 +68036,9 @@ new VpnConnection(scope: Construct, id: string, props: CfnVPNConnectionProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
@@ -65752,6 +68284,25 @@ The value.
 
 ---
 
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Sets the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+strength instead of the global default from the consuming stack's context.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyRemovalPolicy"></a>
 
 ```typescript
@@ -65782,6 +68333,18 @@ can be found in the following link:
 ###### `options`<sup>Optional</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyRemovalPolicy.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicyOptions
+
+---
+
+##### `cfnPropertyName` <a name="cfnPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.cfnPropertyName"></a>
+
+```typescript
+public cfnPropertyName(cdkPropertyName: string): string
+```
+
+###### `cdkPropertyName`<sup>Required</sup> <a name="cdkPropertyName" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.cfnPropertyName.parameter.cdkPropertyName"></a>
+
+- *Type:* string
 
 ---
 
@@ -65837,7 +68400,7 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (Stack | CfnResource)[]
+public obtainDependencies(): (CfnResource | Stack)[]
 ```
 
 Retrieves an array of resources this resource depends on.
@@ -66688,6 +69251,7 @@ new VpnConnectionTunnelStateAlarm(scope: IConstruct, id: string, props: VpnConne
 | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
@@ -66721,6 +69285,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
