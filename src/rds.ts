@@ -5,7 +5,7 @@ import {
   Duration,
 } from 'aws-cdk-lib';
 import { IConstruct, Construct } from 'constructs';
-import { AlarmBaseProps, validateTotalAlarmPeriod } from './common';
+import { AlarmBaseProps, AnomalyComparisonOperator, validateTotalAlarmPeriod } from './common';
 
 /**
  * The recommended metrics for RDS alarms.
@@ -1075,7 +1075,7 @@ export interface RdsAuroraVolumeBytesUsedAlarmConfig extends RdsAlarmBaseConfig 
    *
    * @default cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
    */
-  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  readonly comparisonOperator?: AnomalyComparisonOperator;
   /**
    * The alarm name.
    *

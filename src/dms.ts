@@ -6,7 +6,7 @@ import {
   Fn,
 } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
-import { AlarmBaseProps, validateTotalAlarmPeriod } from './common';
+import { AlarmBaseProps, AnomalyComparisonOperator, validateTotalAlarmPeriod } from './common';
 
 /**
  * DMS Replication Task migration types.
@@ -504,7 +504,7 @@ export interface DmsSwapUsageAlarmConfig extends DmsAnomalyDetectionAlarmBaseCon
    *
    * @default GREATER_THAN_UPPER_THRESHOLD (for detecting high swap usage indicating memory pressure)
    */
-  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  readonly comparisonOperator?: AnomalyComparisonOperator;
   /**
    * The alarm name.
    *

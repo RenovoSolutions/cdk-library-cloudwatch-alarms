@@ -5,7 +5,7 @@ import {
   Duration,
 } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
-import { AlarmBaseProps, validateTotalAlarmPeriod } from './common';
+import { AlarmBaseProps, AnomalyComparisonOperator, validateTotalAlarmPeriod } from './common';
 
 /**
  * The recommended metrics for ApiGateway alarms.
@@ -683,7 +683,7 @@ export interface ApiGatewayLatencyAnomalyAlarmConfig extends ApiGatewayAnomalyAl
    *
    * @default cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
    */
-  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  readonly comparisonOperator?: AnomalyComparisonOperator;
   /**
    * The alarm name.
    *
@@ -778,7 +778,7 @@ export interface ApiGatewayCountAnomalyAlarmConfig extends ApiGatewayAnomalyAlar
    *
    * @default cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD
    */
-  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  readonly comparisonOperator?: AnomalyComparisonOperator;
   /**
    * The alarm name.
    *
@@ -879,7 +879,7 @@ export interface ApiGatewayIntegrationLatencyAnomalyAlarmConfig extends ApiGatew
    *
    * @default cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
    */
-  readonly comparisonOperator?: cloudwatch.ComparisonOperator;
+  readonly comparisonOperator?: AnomalyComparisonOperator;
   /**
    * The alarm name.
    *
