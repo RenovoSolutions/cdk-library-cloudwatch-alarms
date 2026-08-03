@@ -97,6 +97,56 @@ exports[`AspectWithTreatMissingData 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "LambdaLambdaRecommendedAlarmsFromAspectDurationAnomalyAlarm00254CD1": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the function's execution duration compared to the expected baseline.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - DurationAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Duration",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "LambdaLambdaRecommendedAlarmsFromAspectErrorsAlarm44478EB0": {
       "Properties": {
         "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
@@ -127,6 +177,56 @@ exports[`AspectWithTreatMissingData 1`] = `
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 1,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectInvocationsAnomalyAlarmC65DBC04": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in the function's invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - InvocationsAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
         "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
@@ -322,6 +422,56 @@ exports[`Snapshot 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "LambdaLambdaRecommendedAlarmsFromAspectDurationAnomalyAlarm00254CD1": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the function's execution duration compared to the expected baseline.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - DurationAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Duration",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "LambdaLambdaRecommendedAlarmsFromAspectErrorsAlarm44478EB0": {
       "Properties": {
         "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
@@ -352,6 +502,56 @@ exports[`Snapshot 1`] = `
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectInvocationsAnomalyAlarmC65DBC04": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in the function's invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - InvocationsAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -545,6 +745,56 @@ exports[`SnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "LambdaLambdaRecommendedAlarmsDurationAnomalyAlarmBAC781C5": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the function's execution duration compared to the expected baseline.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - DurationAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Duration",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "LambdaLambdaRecommendedAlarmsErrorsAlarm09735583": {
       "Properties": {
         "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
@@ -575,6 +825,56 @@ exports[`SnapshotDefaultActionsInUse 1`] = `
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsInvocationsAnomalyAlarm723CAD15": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in the function's invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - InvocationsAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -741,6 +1041,71 @@ exports[`SnapshotDefaultActionsInUse 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "lambdaAlarmsDurationAnomalyAlarm601A80A4": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the function's execution duration compared to the expected baseline.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - DurationAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Duration",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "lambdaAlarmsErrorsAlarm3E008CC0": {
       "Properties": {
         "AlarmActions": [
@@ -786,6 +1151,71 @@ exports[`SnapshotDefaultActionsInUse 1`] = `
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "lambdaAlarmsInvocationsAnomalyAlarm3B882250": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in the function's invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - InvocationsAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -963,6 +1393,56 @@ exports[`SnapshotForBucketConstruct 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "LambdaLambdaRecommendedAlarmsDurationAnomalyAlarmBAC781C5": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the function's execution duration compared to the expected baseline.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - DurationAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Duration",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "LambdaLambdaRecommendedAlarmsErrorsAlarm09735583": {
       "Properties": {
         "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
@@ -993,6 +1473,56 @@ exports[`SnapshotForBucketConstruct 1`] = `
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsInvocationsAnomalyAlarm723CAD15": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in the function's invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - InvocationsAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -1153,6 +1683,56 @@ exports[`SnapshotWithExclusion 1`] = `
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+    "LambdaLambdaRecommendedAlarmsFromAspectDurationAnomalyAlarm00254CD1": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unusual drift in the function's execution duration compared to the expected baseline.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - DurationAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Duration",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "LambdaLambdaRecommendedAlarmsFromAspectErrorsAlarm44478EB0": {
       "Properties": {
         "AlarmDescription": "This alarm detects high error counts. Errors includes the exceptions thrown by the code as well as exceptions thrown by the Lambda runtime. You can check the logs related to the function to diagnose the issue.",
@@ -1183,6 +1763,56 @@ exports[`SnapshotWithExclusion 1`] = `
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 1,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "LambdaLambdaRecommendedAlarmsFromAspectInvocationsAnomalyAlarmC65DBC04": {
+      "Properties": {
+        "AlarmDescription": "This anomaly detection alarm detects unexpected drops or spikes in the function's invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "LambdaD247545B",
+              },
+              " - InvocationsAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "FunctionName",
+                    "Value": {
+                      "Ref": "LambdaD247545B",
+                    },
+                  },
+                ],
+                "MetricName": "Invocations",
+                "Namespace": "AWS/Lambda",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },

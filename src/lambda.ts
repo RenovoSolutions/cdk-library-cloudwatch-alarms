@@ -5,7 +5,7 @@ import {
   Duration,
 } from 'aws-cdk-lib';
 import { IConstruct, Construct } from 'constructs';
-import { AlarmBaseProps, validateTotalAlarmPeriod } from './common';
+import { AlarmBaseProps, AnomalyComparisonOperator, validateTotalAlarmPeriod } from './common';
 
 /**
  * The recommended metrics for Lambda alarms.
@@ -27,6 +27,17 @@ export enum LambdaRecommendedAlarmsMetrics {
    * ConcurrentExecutions is the number of concurrent executions of the function.
    */
   CONCURRENT_EXECUTIONS = 'ConcurrentExecutions',
+  /**
+   * Anomaly detection on the Duration metric. Detects drift in execution duration
+   * without requiring a static threshold.
+   */
+  DURATION_ANOMALY = 'DurationAnomaly',
+  /**
+   * Anomaly detection on the Invocations metric. Detects unexpected drops (e.g. a
+   * broken trigger) or spikes (e.g. a retry storm) in invocation volume. No static
+   * counterpart exists in this library.
+   */
+  INVOCATIONS_ANOMALY = 'InvocationsAnomaly',
 }
 
 export interface LambdaAlarmBaseConfig extends AlarmBaseProps {
@@ -36,6 +47,21 @@ export interface LambdaAlarmBaseConfig extends AlarmBaseProps {
    * @default Duration.minutes(1)
    */
   readonly period?: Duration;
+}
+
+/**
+ * The common optional configuration for anomaly detection alarms.
+ *
+ * These alarms use a fixed 5-minute metric period and do not expose a configurable `period`,
+ * because finer periods produce noisier, less reliable anomaly detection bands.
+ */
+export interface LambdaAnomalyAlarmBaseConfig extends AlarmBaseProps {
+  /**
+   * The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+   *
+   * @default 8
+   */
+  readonly stdDevs?: number;
 }
 
 /**
@@ -317,6 +343,96 @@ export class LambdaDurationAlarm extends cloudwatch.Alarm {
 }
 
 /**
+ * Configuration for the Duration anomaly detection alarm.
+ */
+export interface LambdaDurationAnomalyAlarmConfig extends LambdaAnomalyAlarmBaseConfig {
+  /**
+   * The number of periods over which data is compared to the anomaly detection band.
+   *
+   * @default 3
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 2
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The comparison operator used to compare the metric against the anomaly detection band.
+   *
+   * @default cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+   */
+  readonly comparisonOperator?: AnomalyComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - lambdaFunction.functionName + ' - DurationAnomaly'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This anomaly detection alarm detects unusual drift in the function's execution
+   * duration compared to the expected baseline.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the LambdaDurationAnomalyAlarm construct.
+ */
+export interface LambdaDurationAnomalyAlarmProps extends LambdaDurationAnomalyAlarmConfig {
+  /**
+   * The Lambda function to monitor.
+   */
+  readonly lambdaFunction: lambda.IFunction;
+}
+
+/**
+ * An anomaly detection alarm on the Lambda `Duration` metric.
+ *
+ * The static `Duration` alarm requires a fixed threshold that AWS documents as depending
+ * entirely on the function's workload and performance SLA. This anomaly variant lets the
+ * band track historical duration so the alarm fires on actual drift without picking a
+ * number that goes stale. It is intended to coexist with the static alarm, not replace it.
+ */
+export class LambdaDurationAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
+  constructor(scope: Construct, id: string, props: LambdaDurationAnomalyAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.lambdaFunction.functionName} - ${LambdaRecommendedAlarmsMetrics.DURATION_ANOMALY}`;
+    // Anomaly bands use a fixed 5-minute metric period; a finer period produces noisier, less reliable bands.
+    const period = Duration.minutes(5);
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 2;
+    const stdDevs = props.stdDevs ?? 8;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This anomaly detection alarm detects unusual drift in the '
+      + 'function\'s execution duration compared to the expected baseline.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: props.lambdaFunction.metricDuration({
+        statistic: 'Average',
+        period,
+      }),
+      stdDevs,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+}
+
+/**
  * Configuration for the ConcurrentExecutions alarm.
  */
 export interface LambdaConcurrentExecutionsAlarmConfig extends LambdaAlarmBaseConfig {
@@ -415,6 +531,110 @@ export class LambdaConcurrentExecutionsAlarm extends cloudwatch.Alarm {
 }
 
 /**
+ * Configuration for the Invocations anomaly detection alarm.
+ */
+export interface LambdaInvocationsAnomalyAlarmConfig extends LambdaAnomalyAlarmBaseConfig {
+  /**
+   * The number of periods over which data is compared to the anomaly detection band.
+   *
+   * @default 4
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must be breaching to trigger the alarm.
+   *
+   * @default 3
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The comparison operator used to compare the metric against the anomaly detection band.
+   *
+   * Defaults to `LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD` to catch both unexpected
+   * drops in invocation volume (e.g. a disabled trigger or an upstream outage) and unusual
+   * spikes (e.g. a retry storm or duplicate-invocation misconfiguration).
+   *
+   * @default cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD
+   */
+  readonly comparisonOperator?: AnomalyComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - lambdaFunction.functionName + ' - InvocationsAnomaly'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This anomaly detection alarm detects unexpected drops or spikes in the
+   * function's invocation volume, which can indicate a broken trigger, an outage upstream,
+   * or a retry storm.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * The properties for the LambdaInvocationsAnomalyAlarm construct.
+ */
+export interface LambdaInvocationsAnomalyAlarmProps extends LambdaInvocationsAnomalyAlarmConfig {
+  /**
+   * The Lambda function to monitor.
+   */
+  readonly lambdaFunction: lambda.IFunction;
+}
+
+/**
+ * An anomaly detection alarm on the Lambda `Invocations` metric.
+ *
+ * This library has no static counterpart for this metric: a fixed count threshold is
+ * particularly hard to pick for invocation volume, since "normal" varies by time of day
+ * and traffic source. This alarm lets the band track historical invocation volume, catching
+ * silent traffic loss (a disabled trigger, a broken integration, a removed schedule) as well
+ * as unexpected spikes, without requiring a static value that goes stale.
+ *
+ * Because anomaly detection requires the `Average` statistic, this alarm tracks the average
+ * invocation rate per period, not total invocation volume.
+ *
+ * Note: on the drop side it detects partial drops below the expected band, not a complete
+ * outage. Lambda does not publish `Invocations` when there are zero invocations, so a full
+ * stop in traffic produces missing data (treated per `treatMissingData`) rather than a low
+ * value. To alarm on zero invocations, pair this with a canary or an upstream trigger alarm.
+ */
+export class LambdaInvocationsAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
+  constructor(scope: Construct, id: string, props: LambdaInvocationsAnomalyAlarmProps) {
+    const alarmName = props.alarmName ?? `${props.lambdaFunction.functionName} - ${LambdaRecommendedAlarmsMetrics.INVOCATIONS_ANOMALY}`;
+    // Anomaly bands use a fixed 5-minute metric period; a finer period produces noisier, less reliable bands.
+    const period = Duration.minutes(5);
+    const evaluationPeriods = props.evaluationPeriods ?? 4;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 3;
+    const stdDevs = props.stdDevs ?? 8;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This anomaly detection alarm detects unexpected drops or spikes'
+      + ' in the function\'s invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+
+    super(scope, id, {
+      alarmName,
+      metric: props.lambdaFunction.metricInvocations({
+        statistic: 'Average',
+        period,
+      }),
+      stdDevs,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+}
+
+/**
  * Configuration for Lambda recommended alarms.
  *
  * Default actions are overridden by the actions specified in the
@@ -473,6 +693,14 @@ export interface LambdaRecommendedAlarmsConfig {
    * The configuration for the ConcurrentExecutions alarm.
    */
   readonly configConcurrentExecutionsAlarm?: LambdaConcurrentExecutionsAlarmConfig;
+  /**
+   * The configuration for the Duration anomaly detection alarm.
+   */
+  readonly configDurationAnomalyAlarm?: LambdaDurationAnomalyAlarmConfig;
+  /**
+   * The configuration for the Invocations anomaly detection alarm.
+   */
+  readonly configInvocationsAnomalyAlarm?: LambdaInvocationsAnomalyAlarmConfig;
 }
 
 export interface LambdaRecommendedAlarmsProps extends LambdaRecommendedAlarmsConfig {
@@ -504,6 +732,14 @@ export class LambdaRecommendedAlarms extends Construct {
    * The concurrent executions alarm for the Lambda function.
    */
   public readonly alarmConcurrentExecutions?: LambdaConcurrentExecutionsAlarm;
+  /**
+   * The Duration anomaly detection alarm for the Lambda function.
+   */
+  public readonly alarmDurationAnomaly?: LambdaDurationAnomalyAlarm;
+  /**
+   * The Invocations anomaly detection alarm for the Lambda function.
+   */
+  public readonly alarmInvocationsAnomaly?: LambdaInvocationsAnomalyAlarm;
 
   constructor(scope: Construct, id: string, props: LambdaRecommendedAlarmsProps) {
     super(scope, id);
@@ -587,6 +823,46 @@ export class LambdaRecommendedAlarms extends Construct {
         this.alarmConcurrentExecutions.addInsufficientDataAction(props.defaultInsufficientDataAction);
       }
     }
+
+    if (!props.excludeAlarms?.includes(LambdaRecommendedAlarmsMetrics.DURATION_ANOMALY)) {
+      this.alarmDurationAnomaly = new LambdaDurationAnomalyAlarm(this, 'DurationAnomalyAlarm', {
+        lambdaFunction: props.lambdaFunction,
+        treatMissingData: props.treatMissingData,
+        ...props.configDurationAnomalyAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.configDurationAnomalyAlarm?.alarmAction) {
+        this.alarmDurationAnomaly.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.configDurationAnomalyAlarm?.okAction) {
+        this.alarmDurationAnomaly.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.configDurationAnomalyAlarm?.insufficientDataAction) {
+        this.alarmDurationAnomaly.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
+
+    if (!props.excludeAlarms?.includes(LambdaRecommendedAlarmsMetrics.INVOCATIONS_ANOMALY)) {
+      this.alarmInvocationsAnomaly = new LambdaInvocationsAnomalyAlarm(this, 'InvocationsAnomalyAlarm', {
+        lambdaFunction: props.lambdaFunction,
+        treatMissingData: props.treatMissingData,
+        ...props.configInvocationsAnomalyAlarm,
+      });
+
+      if (props.defaultAlarmAction && !props.configInvocationsAnomalyAlarm?.alarmAction) {
+        this.alarmInvocationsAnomaly.addAlarmAction(props.defaultAlarmAction);
+      }
+
+      if (props.defaultOkAction && !props.configInvocationsAnomalyAlarm?.okAction) {
+        this.alarmInvocationsAnomaly.addOkAction(props.defaultOkAction);
+      }
+
+      if (props.defaultInsufficientDataAction && !props.configInvocationsAnomalyAlarm?.insufficientDataAction) {
+        this.alarmInvocationsAnomaly.addInsufficientDataAction(props.defaultInsufficientDataAction);
+      }
+    }
   }
 }
 
@@ -634,6 +910,30 @@ export class Function extends lambda.Function {
    */
   public alarmConcurrentExecutions(props?: LambdaConcurrentExecutionsAlarmConfig): LambdaConcurrentExecutionsAlarm {
     return new LambdaConcurrentExecutionsAlarm(this, 'ConcurrentExecutionsAlarm', {
+      lambdaFunction: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an anomaly detection alarm on the Duration metric. Detects drift in execution
+   * duration without requiring a static threshold; intended to coexist with the static
+   * `Duration` alarm.
+   */
+  public alarmDurationAnomaly(props?: LambdaDurationAnomalyAlarmConfig): LambdaDurationAnomalyAlarm {
+    return new LambdaDurationAnomalyAlarm(this, 'DurationAnomalyAlarm', {
+      lambdaFunction: this,
+      ...props,
+    });
+  }
+
+  /**
+   * Creates an anomaly detection alarm on the Invocations metric. By default detects both
+   * unexpected drops (e.g. a broken trigger) and spikes (e.g. a retry storm) in invocation
+   * volume.
+   */
+  public alarmInvocationsAnomaly(props?: LambdaInvocationsAnomalyAlarmConfig): LambdaInvocationsAnomalyAlarm {
+    return new LambdaInvocationsAnomalyAlarm(this, 'InvocationsAnomalyAlarm', {
       lambdaFunction: this,
       ...props,
     });
