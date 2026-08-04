@@ -16,14 +16,8 @@ import {
   Template,
   Match,
 } from 'aws-cdk-lib/assertions';
+import { AnomalyMetricEntry, matchesAnomalyMetric } from './anomaly-test-helpers';
 import * as apiGatewayAlarms from '../src/apigateway';
-
-/**
- * Minimal shape of a `Metrics` array entry in an anomaly detection alarm CFN resource.
- * Typing this explicitly (instead of `any`) makes a CDK schema rename surface as a
- * compile error rather than a silent test miss.
- */
-type AnomalyMetricEntry = { MetricStat?: { Metric?: { MetricName?: string } } };
 
 /** Maps each anomaly enum value to the underlying CloudWatch metric name it monitors. */
 const anomalyEnumToMetricName: Record<string, string> = {
@@ -63,7 +57,7 @@ function alarmMatchesMetric(
 ): boolean {
   const anomalyMetric = anomalyEnumToMetricName[metricEnumValue];
   if (anomalyMetric) {
-    return (properties.Metrics ?? []).some(m => m.MetricStat?.Metric?.MetricName === anomalyMetric);
+    return matchesAnomalyMetric(properties, anomalyMetric);
   }
   const rateBaseMetric = rateEnumToBaseMetricName[metricEnumValue];
   if (rateBaseMetric) {
