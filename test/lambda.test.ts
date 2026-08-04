@@ -803,7 +803,7 @@ test('optional alarm configuration can be overwritten', () => {
       },
       configInvocationsAnomalyAlarm: {
         alarmName: 'CustomInvocationsAnomalyAlarm',
-        stdDevs: 4,
+        stdDevs: 5,
         evaluationPeriods: 25,
         datapointsToAlarm: 25,
         alarmDescription: 'Custom alarm description',
@@ -838,14 +838,21 @@ test('optional alarm configuration can be overwritten', () => {
       }));
     });
 
-  Object.values(anomalyEnumToMetricName).forEach(underlying => {
+  // stdDevs is deliberately distinct per alarm (Duration: 4, Invocations: 5) so a config
+  // cross-wire between the two anomaly alarms would fail here instead of passing silently.
+  const expectedStdDevsByAnomaly: Record<string, number> = {
+    [lambdaAlarms.LambdaRecommendedAlarmsMetrics.DURATION_ANOMALY]: 4,
+    [lambdaAlarms.LambdaRecommendedAlarmsMetrics.INVOCATIONS_ANOMALY]: 5,
+  };
+
+  Object.entries(anomalyEnumToMetricName).forEach(([enumValue, underlying]) => {
     template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      AlarmName: Match.stringLikeRegexp('^Custom.*'),
+      AlarmName: `Custom${enumValue}Alarm`,
       EvaluationPeriods: 25,
       DatapointsToAlarm: 25,
       AlarmDescription: 'Custom alarm description',
       Metrics: Match.arrayWith([
-        Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 4)' }),
+        Match.objectLike({ Expression: `ANOMALY_DETECTION_BAND(m0, ${expectedStdDevsByAnomaly[enumValue]})` }),
         Match.objectLike({ MetricStat: Match.objectLike({ Metric: Match.objectLike({ MetricName: underlying }) }) }),
       ]),
       AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
