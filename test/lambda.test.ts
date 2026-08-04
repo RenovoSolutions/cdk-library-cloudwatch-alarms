@@ -12,7 +12,34 @@ import {
   Template,
   Match,
 } from 'aws-cdk-lib/assertions';
+import { AnomalyMetricEntry, matchesAnomalyMetric } from './anomaly-test-helpers';
 import * as lambdaAlarms from '../src/lambda';
+
+/** Maps each anomaly enum value to the underlying CloudWatch metric name it monitors. */
+const anomalyEnumToMetricName: Record<string, string> = {
+  [lambdaAlarms.LambdaRecommendedAlarmsMetrics.DURATION_ANOMALY]: 'Duration',
+  [lambdaAlarms.LambdaRecommendedAlarmsMetrics.INVOCATIONS_ANOMALY]: 'Invocations',
+};
+
+/** Enum values whose alarm resource cannot be matched by `MetricName` alone. */
+const nonDirectMetricNameEnumValues = new Set(Object.keys(anomalyEnumToMetricName));
+
+/**
+ * True if the alarm resource corresponds to the given recommended-alarm enum value.
+ * Static alarms match on the top-level `MetricName`; anomaly alarms have no top-level
+ * `MetricName` and instead wrap their metric in an `ANOMALY_DETECTION_BAND` expression,
+ * so they are matched by the underlying metric inside `Metrics[]`.
+ */
+function alarmMatchesMetric(
+  properties: { MetricName?: string; Metrics?: AnomalyMetricEntry[] },
+  metricEnumValue: string,
+): boolean {
+  const anomalyMetric = anomalyEnumToMetricName[metricEnumValue];
+  if (anomalyMetric) {
+    return matchesAnomalyMetric(properties, anomalyMetric);
+  }
+  return properties.MetricName === metricEnumValue;
+}
 
 test('Snapshot', () => {
   const app = new App();
@@ -220,7 +247,7 @@ test('stack should contain recommended alarms for each function if recommended a
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(functionName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(functionName) && alarmMatchesMetric(resourceProperties, metricName);
       });
 
       expect(alarms.length).toBe(1);
@@ -280,7 +307,7 @@ test('stack should not include an alarm if its excluded when aspect is applied',
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(functionName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(functionName) && alarmMatchesMetric(resourceProperties, metricName);
       });
 
       if (metricName === lambdaAlarms.LambdaRecommendedAlarmsMetrics.DURATION) {
@@ -338,7 +365,7 @@ test('stack should contain recommended alarms for functions where recommended al
       const resource = resources[resourceName];
       const resourceProperties = resource.Properties;
 
-      return resourceName.startsWith('Lambda1') && resourceProperties.MetricName === metricName;
+      return resourceName.startsWith('Lambda1') && alarmMatchesMetric(resourceProperties, metricName);
     });
 
     expect(alarms.length).toBe(0);
@@ -349,7 +376,7 @@ test('stack should contain recommended alarms for functions where recommended al
       const resource = resources[resourceName];
       const resourceProperties = resource.Properties;
 
-      return resourceName.startsWith('Lambda2') && resourceProperties.MetricName === metricName;
+      return resourceName.startsWith('Lambda2') && alarmMatchesMetric(resourceProperties, metricName);
     });
 
     expect(alarms.length).toBe(1);
@@ -403,7 +430,7 @@ test('stack should contain recommended alarms for functions where recommended al
       const resource = resources[resourceName];
       const resourceProperties = resource.Properties;
 
-      return resourceName.startsWith('Lambda1') && resourceProperties.MetricName === metricName;
+      return resourceName.startsWith('Lambda1') && alarmMatchesMetric(resourceProperties, metricName);
     });
 
     expect(alarms.length).toBe(0);
@@ -414,7 +441,7 @@ test('stack should contain recommended alarms for functions where recommended al
       const resource = resources[resourceName];
       const resourceProperties = resource.Properties;
 
-      return resourceName.startsWith('Lambda2') && resourceProperties.MetricName === metricName;
+      return resourceName.startsWith('Lambda2') && alarmMatchesMetric(resourceProperties, metricName);
     });
 
     expect(alarms.length).toBe(1);
@@ -460,9 +487,22 @@ test('default alarm actions are used when provided in configuration', () => {
 
   const template = Template.fromStack(stack);
 
-  Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName => {
+  Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics)
+    .filter(metricName => !nonDirectMetricNameEnumValues.has(metricName))
+    .forEach(metricName => {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+        OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+        InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
+      }));
+    });
+
+  Object.values(anomalyEnumToMetricName).forEach(underlying => {
     template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
+      Metrics: Match.arrayWith([
+        Match.objectLike({ MetricStat: Match.objectLike({ Metric: Match.objectLike({ MetricName: underlying }) }) }),
+      ]),
       AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
       OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
       InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^Lambda.*'), 'Arn'] })],
@@ -575,14 +615,16 @@ test('default alarm actions are overridden when individual alarm actions are pro
 
   const template = Template.fromStack(stack);
 
-  Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName => {
-    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
-      AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^AlarmTopic.*') })],
-      OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^AlarmTopic.*') })],
-      InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^AlarmTopic.*') })],
-    }));
-  });
+  Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics)
+    .filter(metricName => !nonDirectMetricNameEnumValues.has(metricName))
+    .forEach(metricName => {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^AlarmTopic.*') })],
+        OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^AlarmTopic.*') })],
+        InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^AlarmTopic.*') })],
+      }));
+    });
 });
 
 test('alarms can be applied individually to buckets using extended construct', () => {
@@ -618,6 +660,10 @@ test('alarms can be applied individually to buckets using extended construct', (
 
   handler.alarmConcurrentExecutions();
 
+  handler.alarmDurationAnomaly();
+
+  handler.alarmInvocationsAnomaly();
+
   const template = Template.fromStack(stack);
 
   const numAlarms = Object.keys(lambdaAlarms.LambdaRecommendedAlarmsMetrics).length;
@@ -631,7 +677,7 @@ test('alarms can be applied individually to buckets using extended construct', (
       const resource = resources[resourceName];
       const resourceProperties = resource.Properties;
 
-      return resourceName.startsWith('Lambda') && resourceProperties.MetricName === metricName;
+      return resourceName.startsWith('Lambda') && alarmMatchesMetric(resourceProperties, metricName);
     });
 
     expect(bucketErrors.length).toBe(1);
@@ -745,6 +791,26 @@ test('optional alarm configuration can be overwritten', () => {
         okAction: topicAction,
         insufficientDataAction: topicAction,
       },
+      configDurationAnomalyAlarm: {
+        alarmName: 'CustomDurationAnomalyAlarm',
+        stdDevs: 4,
+        evaluationPeriods: 25,
+        datapointsToAlarm: 25,
+        alarmDescription: 'Custom alarm description',
+        alarmAction: topicAction,
+        okAction: topicAction,
+        insufficientDataAction: topicAction,
+      },
+      configInvocationsAnomalyAlarm: {
+        alarmName: 'CustomInvocationsAnomalyAlarm',
+        stdDevs: 5,
+        evaluationPeriods: 25,
+        datapointsToAlarm: 25,
+        alarmDescription: 'Custom alarm description',
+        alarmAction: topicAction,
+        okAction: topicAction,
+        insufficientDataAction: topicAction,
+      },
     }),
   );
 
@@ -756,14 +822,39 @@ test('optional alarm configuration can be overwritten', () => {
 
   const template = Template.fromStack(stack);
 
-  Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName => {
+  Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics)
+    .filter(metricName => !nonDirectMetricNameEnumValues.has(metricName))
+    .forEach(metricName => {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        AlarmName: Match.stringLikeRegexp('^Custom.*'),
+        Period: 300,
+        EvaluationPeriods: 25,
+        DatapointsToAlarm: 25,
+        AlarmDescription: 'Custom alarm description',
+        AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+        InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
+      }));
+    });
+
+  // stdDevs is deliberately distinct per alarm (Duration: 4, Invocations: 5) so a config
+  // cross-wire between the two anomaly alarms would fail here instead of passing silently.
+  const expectedStdDevsByAnomaly: Record<string, number> = {
+    [lambdaAlarms.LambdaRecommendedAlarmsMetrics.DURATION_ANOMALY]: 4,
+    [lambdaAlarms.LambdaRecommendedAlarmsMetrics.INVOCATIONS_ANOMALY]: 5,
+  };
+
+  Object.entries(anomalyEnumToMetricName).forEach(([enumValue, underlying]) => {
     template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
-      AlarmName: Match.stringLikeRegexp('^Custom.*'),
-      Period: 300,
+      AlarmName: `Custom${enumValue}Alarm`,
       EvaluationPeriods: 25,
       DatapointsToAlarm: 25,
       AlarmDescription: 'Custom alarm description',
+      Metrics: Match.arrayWith([
+        Match.objectLike({ Expression: `ANOMALY_DETECTION_BAND(m0, ${expectedStdDevsByAnomaly[enumValue]})` }),
+        Match.objectLike({ MetricStat: Match.objectLike({ Metric: Match.objectLike({ MetricName: underlying }) }) }),
+      ]),
       AlarmActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       OKActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
       InsufficientDataActions: [Match.objectLike({ Ref: Match.stringLikeRegexp('^Topic.*') })],
@@ -771,54 +862,58 @@ test('optional alarm configuration can be overwritten', () => {
   });
 });
 
-Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName => {
-  test(`alarm for ${metricName} should not exceed one day period`, () => {
-    const app = new App();
-    const stack = new Stack(app, 'TestStack', {
-      env: {
-        account: '123456789012', // not a real account
-        region: 'us-east-1',
-      },
-    });
-
-    const handler = new lambda.Function(stack, 'Lambda', {
-      runtime: lambda.Runtime.NODEJS_24_X,
-      handler: 'index.handler',
-      code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
-    });
-
-    const excludeAllButOneMetric = Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).filter(m => m !== metricName);
-
-    expect(() => {
-      new lambdaAlarms.LambdaRecommendedAlarms(stack, 'LambdaAlarms', {
-        lambdaFunction: handler,
-        excludeAlarms: excludeAllButOneMetric,
-        configDurationAlarm: {
-          threshold: 15,
-          period: Duration.days(1),
-          evaluationPeriods: 25,
-        },
-        configErrorsAlarm: {
-          threshold: 1,
-          period: Duration.days(1),
-          evaluationPeriods: 25,
-        },
-        configThrottlesAlarm: {
-          threshold: 0,
-          period: Duration.days(1),
-          evaluationPeriods: 25,
-        },
-        configConcurrentExecutionsAlarm: {
-          threshold: 25,
-          period: Duration.days(1),
-          evaluationPeriods: 25,
+// Anomaly alarms use a fixed 5-minute period with no configurable `period` prop, so they
+// can't be driven past the one-day limit the way the static alarms below can.
+Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics)
+  .filter(metricName => !nonDirectMetricNameEnumValues.has(metricName))
+  .forEach(metricName => {
+    test(`alarm for ${metricName} should not exceed one day period`, () => {
+      const app = new App();
+      const stack = new Stack(app, 'TestStack', {
+        env: {
+          account: '123456789012', // not a real account
+          region: 'us-east-1',
         },
       });
-    }).toThrow('The period (86400) over which'),
 
-    Template.fromStack(stack);
+      const handler = new lambda.Function(stack, 'Lambda', {
+        runtime: lambda.Runtime.NODEJS_24_X,
+        handler: 'index.handler',
+        code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+      });
+
+      const excludeAllButOneMetric = Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).filter(m => m !== metricName);
+
+      expect(() => {
+        new lambdaAlarms.LambdaRecommendedAlarms(stack, 'LambdaAlarms', {
+          lambdaFunction: handler,
+          excludeAlarms: excludeAllButOneMetric,
+          configDurationAlarm: {
+            threshold: 15,
+            period: Duration.days(1),
+            evaluationPeriods: 25,
+          },
+          configErrorsAlarm: {
+            threshold: 1,
+            period: Duration.days(1),
+            evaluationPeriods: 25,
+          },
+          configThrottlesAlarm: {
+            threshold: 0,
+            period: Duration.days(1),
+            evaluationPeriods: 25,
+          },
+          configConcurrentExecutionsAlarm: {
+            threshold: 25,
+            period: Duration.days(1),
+            evaluationPeriods: 25,
+          },
+        });
+      }).toThrow('The period (86400) over which'),
+
+      Template.fromStack(stack);
+    });
   });
-});
 
 test('when a resource is excluded from the aspect config it should not have alarms', () => {
   const app = new App();
@@ -872,7 +967,7 @@ test('when a resource is excluded from the aspect config it should not have alar
         const resource = resources[resourceName];
         const resourceProperties = resource.Properties;
 
-        return resourceName.startsWith(functionName) && resourceProperties.MetricName === metricName;
+        return resourceName.startsWith(functionName) && alarmMatchesMetric(resourceProperties, metricName);
       });
 
       if (functionName === 'Lambda1') {
@@ -915,10 +1010,206 @@ test('AspectWithTreatMissingData', () => {
   const template = Template.fromStack(stack);
   expect(template).toMatchSnapshot();
 
-  Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics).forEach(metricName => {
+  Object.values(lambdaAlarms.LambdaRecommendedAlarmsMetrics)
+    .filter(metricName => !nonDirectMetricNameEnumValues.has(metricName))
+    .forEach(metricName => {
+      template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+        MetricName: metricName,
+        TreatMissingData: 'notBreaching',
+      }));
+    });
+
+  Object.values(anomalyEnumToMetricName).forEach(underlying => {
     template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
-      MetricName: metricName,
       TreatMissingData: 'notBreaching',
+      Metrics: Match.arrayWith([
+        Match.objectLike({ MetricStat: Match.objectLike({ Metric: Match.objectLike({ MetricName: underlying }) }) }),
+      ]),
+    }));
+  });
+});
+
+test('anomaly alarms have correct default comparison operator, band width, and evaluation periods', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const handler = new lambdaAlarms.Function(stack, 'Lambda', {
+    runtime: lambda.Runtime.NODEJS_24_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+  });
+
+  handler.alarmDurationAnomaly();
+  handler.alarmInvocationsAnomaly();
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'GreaterThanUpperThreshold',
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 2,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 8)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Period: 300, Stat: 'Average', Metric: Match.objectLike({ MetricName: 'Duration' }) }) }),
+    ]),
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'LessThanLowerOrGreaterThanUpperThreshold',
+    EvaluationPeriods: 4,
+    DatapointsToAlarm: 3,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 8)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Period: 300, Stat: 'Average', Metric: Match.objectLike({ MetricName: 'Invocations' }) }) }),
+    ]),
+  }));
+});
+
+test('anomaly alarm configuration can be overwritten via convenience methods', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const handler = new lambdaAlarms.Function(stack, 'Lambda', {
+    runtime: lambda.Runtime.NODEJS_24_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+  });
+
+  handler.alarmDurationAnomaly({
+    stdDevs: 4,
+    evaluationPeriods: 3,
+    datapointsToAlarm: 2,
+    comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD,
+  });
+  handler.alarmInvocationsAnomaly({
+    stdDevs: 5,
+    evaluationPeriods: 6,
+    datapointsToAlarm: 4,
+    comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD,
+  });
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'LessThanLowerOrGreaterThanUpperThreshold',
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 2,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 4)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Stat: 'Average', Metric: Match.objectLike({ MetricName: 'Duration' }) }) }),
+    ]),
+  }));
+
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    ComparisonOperator: 'GreaterThanUpperThreshold',
+    EvaluationPeriods: 6,
+    DatapointsToAlarm: 4,
+    Metrics: Match.arrayWith([
+      Match.objectLike({ Expression: 'ANOMALY_DETECTION_BAND(m0, 5)' }),
+      Match.objectLike({ MetricStat: Match.objectLike({ Stat: 'Average', Metric: Match.objectLike({ MetricName: 'Invocations' }) }) }),
+    ]),
+  }));
+});
+
+test('lambda anomaly alarms can be excluded individually via excludeAlarms', () => {
+  const app = new App();
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const handler = new lambda.Function(stack, 'Lambda', {
+    runtime: lambda.Runtime.NODEJS_24_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+  });
+
+  new lambdaAlarms.LambdaRecommendedAlarms(stack, 'alarms', {
+    lambdaFunction: handler,
+    configDurationAlarm: { threshold: 15 },
+    configErrorsAlarm: { threshold: 1 },
+    configThrottlesAlarm: { threshold: 0 },
+    excludeAlarms: [
+      lambdaAlarms.LambdaRecommendedAlarmsMetrics.DURATION_ANOMALY,
+      lambdaAlarms.LambdaRecommendedAlarmsMetrics.INVOCATIONS_ANOMALY,
+    ],
+  });
+
+  const template = Template.fromStack(stack);
+  template.resourceCountIs('AWS::CloudWatch::Alarm', 4); // Duration, Errors, Throttles, ConcurrentExecutions only
+
+  const resources = template.findResources('AWS::CloudWatch::Alarm');
+  Object.values(anomalyEnumToMetricName).forEach(underlying => {
+    const anomalyAlarms = Object.values(resources).filter(r =>
+      (r.Properties.Metrics ?? []).some(
+        (m: AnomalyMetricEntry) => m.MetricStat?.Metric?.MetricName === underlying,
+      ),
+    );
+    expect(anomalyAlarms).toHaveLength(0);
+  });
+});
+
+test('anomaly alarm default actions are overridden when individual alarm actions are provided in configuration', () => {
+  const app = new App({
+    context: {
+      '@aws-cdk/aws-cloudwatch-actions:changeLambdaPermissionLogicalIdForLambdaAction': true,
+    },
+  });
+  const stack = new Stack(app, 'TestStack', {
+    env: {
+      account: '123456789012', // not a real account
+      region: 'us-east-1',
+    },
+  });
+
+  const topic = new sns.Topic(stack, 'Topic');
+  const alarmLambda = new lambda.Function(stack, 'AlarmLambda', {
+    runtime: lambda.Runtime.NODEJS_24_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+  });
+  const lambdaAction = new cloudwatch_actions.LambdaAction(alarmLambda);
+
+  const handler = new lambda.Function(stack, 'Lambda', {
+    runtime: lambda.Runtime.NODEJS_24_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
+  });
+
+  new lambdaAlarms.LambdaRecommendedAlarms(stack, 'lambdaAlarms', {
+    lambdaFunction: handler,
+    defaultAlarmAction: new cloudwatch_actions.SnsAction(topic),
+    defaultOkAction: new cloudwatch_actions.SnsAction(topic),
+    defaultInsufficientDataAction: new cloudwatch_actions.SnsAction(topic),
+    configDurationAlarm: { threshold: 15 },
+    configErrorsAlarm: { threshold: 1 },
+    configThrottlesAlarm: { threshold: 0 },
+    configDurationAnomalyAlarm: { alarmAction: lambdaAction, okAction: lambdaAction, insufficientDataAction: lambdaAction },
+    configInvocationsAnomalyAlarm: { alarmAction: lambdaAction, okAction: lambdaAction, insufficientDataAction: lambdaAction },
+  });
+
+  const template = Template.fromStack(stack);
+
+  Object.values(anomalyEnumToMetricName).forEach(underlying => {
+    template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+      Metrics: Match.arrayWith([
+        Match.objectLike({ MetricStat: Match.objectLike({ Metric: Match.objectLike({ MetricName: underlying }) }) }),
+      ]),
+      AlarmActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^AlarmLambda.*'), 'Arn'] })],
+      OKActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^AlarmLambda.*'), 'Arn'] })],
+      InsufficientDataActions: [Match.objectLike({ 'Fn::GetAtt': [Match.stringLikeRegexp('^AlarmLambda.*'), 'Arn'] })],
     }));
   });
 });

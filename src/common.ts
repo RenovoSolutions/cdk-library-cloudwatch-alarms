@@ -34,6 +34,16 @@ export interface AlarmBaseProps {
   readonly treatMissingData?: cloudwatch.TreatMissingData;
 }
 
+/**
+ * The comparison operators accepted by CloudWatch anomaly detection alarms.
+ *
+ * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-on-Anomaly-Detection.html
+ */
+export type AnomalyComparisonOperator =
+  | cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+  | cloudwatch.ComparisonOperator.LESS_THAN_LOWER_THRESHOLD
+  | cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD;
+
 export function validateTotalAlarmPeriod(period: Duration, evaluationPeriods: number, alarmName: string) {
   const totalSeconds = period.toSeconds() * evaluationPeriods;
   const oneDayInSeconds = 86400; // 1 day = 86400 seconds

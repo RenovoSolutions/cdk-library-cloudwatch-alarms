@@ -37389,7 +37389,9 @@ new Function(scope: Construct, id: string, props: FunctionProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.invalidateVersionBasedOn">invalidateVersionBasedOn</a></code> | Mix additional information into the hash of the Version object. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmConcurrentExecutions">alarmConcurrentExecutions</a></code> | Creates an alarm that monitors the number of concurrent executions. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmDuration">alarmDuration</a></code> | Creates an alarm that monitors the duration of the function invocations. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmDurationAnomaly">alarmDurationAnomaly</a></code> | Creates an anomaly detection alarm on the Duration metric. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmErrors">alarmErrors</a></code> | Creates an alarm that monitors the number of errors. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmInvocationsAnomaly">alarmInvocationsAnomaly</a></code> | Creates an anomaly detection alarm on the Invocations metric. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmThrottles">alarmThrottles</a></code> | Creates an alarm that monitors the number of throttles. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Function.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Creates recommended alarms for the Lambda function. |
 
@@ -37918,6 +37920,24 @@ Creates an alarm that monitors the duration of the function invocations.
 
 ---
 
+##### `alarmDurationAnomaly` <a name="alarmDurationAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmDurationAnomaly"></a>
+
+```typescript
+public alarmDurationAnomaly(props?: LambdaDurationAnomalyAlarmConfig): LambdaDurationAnomalyAlarm
+```
+
+Creates an anomaly detection alarm on the Duration metric.
+
+Detects drift in execution
+duration without requiring a static threshold; intended to coexist with the static
+`Duration` alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmDurationAnomaly.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig">LambdaDurationAnomalyAlarmConfig</a>
+
+---
+
 ##### `alarmErrors` <a name="alarmErrors" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmErrors"></a>
 
 ```typescript
@@ -37929,6 +37949,24 @@ Creates an alarm that monitors the number of errors.
 ###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmErrors.parameter.props"></a>
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig">LambdaErrorsAlarmConfig</a>
+
+---
+
+##### `alarmInvocationsAnomaly` <a name="alarmInvocationsAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmInvocationsAnomaly"></a>
+
+```typescript
+public alarmInvocationsAnomaly(props?: LambdaInvocationsAnomalyAlarmConfig): LambdaInvocationsAnomalyAlarm
+```
+
+Creates an anomaly detection alarm on the Invocations metric.
+
+By default detects both
+unexpected drops (e.g. a broken trigger) and spikes (e.g. a retry storm) in invocation
+volume.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Function.alarmInvocationsAnomaly.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig">LambdaInvocationsAnomalyAlarmConfig</a>
 
 ---
 
@@ -40625,6 +40663,504 @@ Uniquely identifies this class.
 
 ---
 
+### LambdaDurationAnomalyAlarm <a name="LambdaDurationAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm"></a>
+
+An anomaly detection alarm on the Lambda `Duration` metric.
+
+The static `Duration` alarm requires a fixed threshold that AWS documents as depending
+entirely on the function's workload and performance SLA. This anomaly variant lets the
+band track historical duration so the alarm fires on actual drift without picking a
+number that goes stale. It is intended to coexist with the static alarm, not replace it.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.Initializer"></a>
+
+```typescript
+import { LambdaDurationAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new LambdaDurationAnomalyAlarm(scope: Construct, id: string, props: LambdaDurationAnomalyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps">LambdaDurationAnomalyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps">LambdaDurationAnomalyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isConstruct"></a>
+
+```typescript
+import { LambdaDurationAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaDurationAnomalyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isOwnedResource"></a>
+
+```typescript
+import { LambdaDurationAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaDurationAnomalyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isResource"></a>
+
+```typescript
+import { LambdaDurationAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaDurationAnomalyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { LambdaDurationAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaDurationAnomalyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmName"></a>
+
+```typescript
+import { LambdaDurationAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaDurationAnomalyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 ### LambdaErrorsAlarm <a name="LambdaErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm"></a>
 
 The alarm helps detect high error counts in function invocations.
@@ -41121,6 +41657,513 @@ Uniquely identifies this class.
 
 ---
 
+### LambdaInvocationsAnomalyAlarm <a name="LambdaInvocationsAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm"></a>
+
+An anomaly detection alarm on the Lambda `Invocations` metric.
+
+This library has no static counterpart for this metric: a fixed count threshold is
+particularly hard to pick for invocation volume, since "normal" varies by time of day
+and traffic source. This alarm lets the band track historical invocation volume, catching
+silent traffic loss (a disabled trigger, a broken integration, a removed schedule) as well
+as unexpected spikes, without requiring a static value that goes stale.
+
+Because anomaly detection requires the `Average` statistic, this alarm tracks the average
+invocation rate per period, not total invocation volume.
+
+Note: on the drop side it detects partial drops below the expected band, not a complete
+outage. Lambda does not publish `Invocations` when there are zero invocations, so a full
+stop in traffic produces missing data (treated per `treatMissingData`) rather than a low
+value. To alarm on zero invocations, pair this with a canary or an upstream trigger alarm.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.Initializer"></a>
+
+```typescript
+import { LambdaInvocationsAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new LambdaInvocationsAnomalyAlarm(scope: Construct, id: string, props: LambdaInvocationsAnomalyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps">LambdaInvocationsAnomalyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps">LambdaInvocationsAnomalyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isConstruct"></a>
+
+```typescript
+import { LambdaInvocationsAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaInvocationsAnomalyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isOwnedResource"></a>
+
+```typescript
+import { LambdaInvocationsAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaInvocationsAnomalyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isResource"></a>
+
+```typescript
+import { LambdaInvocationsAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaInvocationsAnomalyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { LambdaInvocationsAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaInvocationsAnomalyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmName"></a>
+
+```typescript
+import { LambdaInvocationsAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+LambdaInvocationsAnomalyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 ### LambdaRecommendedAlarms <a name="LambdaRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms"></a>
 
 A construct that creates recommended alarms for a Lambda function.
@@ -41246,7 +42289,9 @@ Any object.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmConcurrentExecutions">alarmConcurrentExecutions</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm">LambdaConcurrentExecutionsAlarm</a></code> | The concurrent executions alarm for the Lambda function. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmDuration">alarmDuration</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm">LambdaDurationAlarm</a></code> | The duration alarm for the Lambda function. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmDurationAnomaly">alarmDurationAnomaly</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm">LambdaDurationAnomalyAlarm</a></code> | The Duration anomaly detection alarm for the Lambda function. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmErrors">alarmErrors</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm">LambdaErrorsAlarm</a></code> | The error alarm for the Lambda function. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmInvocationsAnomaly">alarmInvocationsAnomaly</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm">LambdaInvocationsAnomalyAlarm</a></code> | The Invocations anomaly detection alarm for the Lambda function. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmThrottles">alarmThrottles</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm">LambdaThrottlesAlarm</a></code> | The throttles alarm for the Lambda function. |
 
 ---
@@ -41287,6 +42332,18 @@ The duration alarm for the Lambda function.
 
 ---
 
+##### `alarmDurationAnomaly`<sup>Optional</sup> <a name="alarmDurationAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmDurationAnomaly"></a>
+
+```typescript
+public readonly alarmDurationAnomaly: LambdaDurationAnomalyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm">LambdaDurationAnomalyAlarm</a>
+
+The Duration anomaly detection alarm for the Lambda function.
+
+---
+
 ##### `alarmErrors`<sup>Optional</sup> <a name="alarmErrors" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmErrors"></a>
 
 ```typescript
@@ -41296,6 +42353,18 @@ public readonly alarmErrors: LambdaErrorsAlarm;
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm">LambdaErrorsAlarm</a>
 
 The error alarm for the Lambda function.
+
+---
+
+##### `alarmInvocationsAnomaly`<sup>Optional</sup> <a name="alarmInvocationsAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarms.property.alarmInvocationsAnomaly"></a>
+
+```typescript
+public readonly alarmInvocationsAnomaly: LambdaInvocationsAnomalyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm">LambdaInvocationsAnomalyAlarm</a>
+
+The Invocations anomaly detection alarm for the Lambda function.
 
 ---
 
@@ -93254,6 +94323,98 @@ The period over which the specified statistic is applied.
 
 ---
 
+### LambdaAnomalyAlarmBaseConfig <a name="LambdaAnomalyAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig"></a>
+
+The common optional configuration for anomaly detection alarms.
+
+These alarms use a fixed 5-minute metric period and do not expose a configurable `period`,
+because finer periods produce noisier, less reliable anomaly detection bands.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { LambdaAnomalyAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const lambdaAnomalyAlarmBaseConfig: LambdaAnomalyAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAnomalyAlarmBaseConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
 ### LambdaConcurrentExecutionsAlarmConfig <a name="LambdaConcurrentExecutionsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarmConfig"></a>
 
 Configuration for the ConcurrentExecutions alarm.
@@ -93948,6 +95109,337 @@ The Lambda function to monitor.
 
 ---
 
+### LambdaDurationAnomalyAlarmConfig <a name="LambdaDurationAnomalyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig"></a>
+
+Configuration for the Duration anomaly detection alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.Initializer"></a>
+
+```typescript
+import { LambdaDurationAnomalyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const lambdaDurationAnomalyAlarmConfig: LambdaDurationAnomalyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unusual drift in the function's execution duration compared to the expected baseline.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* lambdaFunction.functionName + ' - DurationAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
+### LambdaDurationAnomalyAlarmProps <a name="LambdaDurationAnomalyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps"></a>
+
+The properties for the LambdaDurationAnomalyAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.Initializer"></a>
+
+```typescript
+import { LambdaDurationAnomalyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const lambdaDurationAnomalyAlarmProps: LambdaDurationAnomalyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function to monitor. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unusual drift in the function's execution duration compared to the expected baseline.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* lambdaFunction.functionName + ' - DurationAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmProps.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function to monitor.
+
+---
+
 ### LambdaErrorsAlarmConfig <a name="LambdaErrorsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig"></a>
 
 Configuration for the Errors alarm.
@@ -94291,6 +95783,345 @@ The Lambda function to monitor.
 
 ---
 
+### LambdaInvocationsAnomalyAlarmConfig <a name="LambdaInvocationsAnomalyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig"></a>
+
+Configuration for the Invocations anomaly detection alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.Initializer"></a>
+
+```typescript
+import { LambdaInvocationsAnomalyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const lambdaInvocationsAnomalyAlarmConfig: LambdaInvocationsAnomalyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unexpected drops or spikes in the function's invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* lambdaFunction.functionName + ' - InvocationsAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+Defaults to `LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD` to catch both unexpected
+drops in invocation volume (e.g. a disabled trigger or an upstream outage) and unusual
+spikes (e.g. a retry storm or duplicate-invocation misconfiguration).
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 4
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
+### LambdaInvocationsAnomalyAlarmProps <a name="LambdaInvocationsAnomalyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps"></a>
+
+The properties for the LambdaInvocationsAnomalyAlarm construct.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.Initializer"></a>
+
+```typescript
+import { LambdaInvocationsAnomalyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const lambdaInvocationsAnomalyAlarmProps: LambdaInvocationsAnomalyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The comparison operator used to compare the metric against the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the anomaly detection band. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.lambdaFunction">lambdaFunction</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | The Lambda function to monitor. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly detection band, expressed as a number of standard deviations from the metric's mean.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* This anomaly detection alarm detects unexpected drops or spikes in the function's invocation volume, which can indicate a broken trigger, an outage upstream, or a retry storm.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* lambdaFunction.functionName + ' - InvocationsAnomaly'
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* cloudwatch.ComparisonOperator.LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD
+
+The comparison operator used to compare the metric against the anomaly detection band.
+
+Defaults to `LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD` to catch both unexpected
+drops in invocation volume (e.g. a disabled trigger or an upstream outage) and unusual
+spikes (e.g. a retry storm or duplicate-invocation misconfiguration).
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 4
+
+The number of periods over which data is compared to the anomaly detection band.
+
+---
+
+##### `lambdaFunction`<sup>Required</sup> <a name="lambdaFunction" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmProps.property.lambdaFunction"></a>
+
+```typescript
+public readonly lambdaFunction: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+The Lambda function to monitor.
+
+---
+
 ### LambdaRecommendedAlarmsConfig <a name="LambdaRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig"></a>
 
 Configuration for Lambda recommended alarms.
@@ -94314,6 +96145,8 @@ const lambdaRecommendedAlarmsConfig: LambdaRecommendedAlarmsConfig = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.configErrorsAlarm">configErrorsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig">LambdaErrorsAlarmConfig</a></code> | The configuration for the Errors alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.configThrottlesAlarm">configThrottlesAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarmConfig">LambdaThrottlesAlarmConfig</a></code> | The configuration for the Throttles alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.configConcurrentExecutionsAlarm">configConcurrentExecutionsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarmConfig">LambdaConcurrentExecutionsAlarmConfig</a></code> | The configuration for the ConcurrentExecutions alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.configDurationAnomalyAlarm">configDurationAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig">LambdaDurationAnomalyAlarmConfig</a></code> | The configuration for the Duration anomaly detection alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.configInvocationsAnomalyAlarm">configInvocationsAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig">LambdaInvocationsAnomalyAlarmConfig</a></code> | The configuration for the Invocations anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
@@ -94368,6 +96201,30 @@ public readonly configConcurrentExecutionsAlarm: LambdaConcurrentExecutionsAlarm
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarmConfig">LambdaConcurrentExecutionsAlarmConfig</a>
 
 The configuration for the ConcurrentExecutions alarm.
+
+---
+
+##### `configDurationAnomalyAlarm`<sup>Optional</sup> <a name="configDurationAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.configDurationAnomalyAlarm"></a>
+
+```typescript
+public readonly configDurationAnomalyAlarm: LambdaDurationAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig">LambdaDurationAnomalyAlarmConfig</a>
+
+The configuration for the Duration anomaly detection alarm.
+
+---
+
+##### `configInvocationsAnomalyAlarm`<sup>Optional</sup> <a name="configInvocationsAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsConfig.property.configInvocationsAnomalyAlarm"></a>
+
+```typescript
+public readonly configInvocationsAnomalyAlarm: LambdaInvocationsAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig">LambdaInvocationsAnomalyAlarmConfig</a>
+
+The configuration for the Invocations anomaly detection alarm.
 
 ---
 
@@ -94468,6 +96325,8 @@ const lambdaRecommendedAlarmsProps: LambdaRecommendedAlarmsProps = { ... }
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.configErrorsAlarm">configErrorsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarmConfig">LambdaErrorsAlarmConfig</a></code> | The configuration for the Errors alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.configThrottlesAlarm">configThrottlesAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarmConfig">LambdaThrottlesAlarmConfig</a></code> | The configuration for the Throttles alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.configConcurrentExecutionsAlarm">configConcurrentExecutionsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarmConfig">LambdaConcurrentExecutionsAlarmConfig</a></code> | The configuration for the ConcurrentExecutions alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.configDurationAnomalyAlarm">configDurationAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig">LambdaDurationAnomalyAlarmConfig</a></code> | The configuration for the Duration anomaly detection alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.configInvocationsAnomalyAlarm">configInvocationsAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig">LambdaInvocationsAnomalyAlarmConfig</a></code> | The configuration for the Invocations anomaly detection alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
@@ -94523,6 +96382,30 @@ public readonly configConcurrentExecutionsAlarm: LambdaConcurrentExecutionsAlarm
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarmConfig">LambdaConcurrentExecutionsAlarmConfig</a>
 
 The configuration for the ConcurrentExecutions alarm.
+
+---
+
+##### `configDurationAnomalyAlarm`<sup>Optional</sup> <a name="configDurationAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.configDurationAnomalyAlarm"></a>
+
+```typescript
+public readonly configDurationAnomalyAlarm: LambdaDurationAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarmConfig">LambdaDurationAnomalyAlarmConfig</a>
+
+The configuration for the Duration anomaly detection alarm.
+
+---
+
+##### `configInvocationsAnomalyAlarm`<sup>Optional</sup> <a name="configInvocationsAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsProps.property.configInvocationsAnomalyAlarm"></a>
+
+```typescript
+public readonly configInvocationsAnomalyAlarm: LambdaInvocationsAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarmConfig">LambdaInvocationsAnomalyAlarmConfig</a>
+
+The configuration for the Invocations anomaly detection alarm.
 
 ---
 
@@ -114215,6 +116098,8 @@ The recommended metrics for Lambda alarms.
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.THROTTLES">THROTTLES</a></code> | Throttles occur when there is no concurrency available for scale up. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.DURATION">DURATION</a></code> | Duration is the time taken for the function to process an event. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.CONCURRENT_EXECUTIONS">CONCURRENT_EXECUTIONS</a></code> | ConcurrentExecutions is the number of concurrent executions of the function. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.DURATION_ANOMALY">DURATION_ANOMALY</a></code> | Anomaly detection on the Duration metric. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.INVOCATIONS_ANOMALY">INVOCATIONS_ANOMALY</a></code> | Anomaly detection on the Invocations metric. |
 
 ---
 
@@ -114242,6 +116127,27 @@ Duration is the time taken for the function to process an event.
 ##### `CONCURRENT_EXECUTIONS` <a name="CONCURRENT_EXECUTIONS" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.CONCURRENT_EXECUTIONS"></a>
 
 ConcurrentExecutions is the number of concurrent executions of the function.
+
+---
+
+
+##### `DURATION_ANOMALY` <a name="DURATION_ANOMALY" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.DURATION_ANOMALY"></a>
+
+Anomaly detection on the Duration metric.
+
+Detects drift in execution duration
+without requiring a static threshold.
+
+---
+
+
+##### `INVOCATIONS_ANOMALY` <a name="INVOCATIONS_ANOMALY" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics.INVOCATIONS_ANOMALY"></a>
+
+Anomaly detection on the Invocations metric.
+
+Detects unexpected drops (e.g. a
+broken trigger) or spikes (e.g. a retry storm) in invocation volume. No static
+counterpart exists in this library.
 
 ---
 
