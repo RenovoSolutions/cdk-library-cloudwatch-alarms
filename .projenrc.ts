@@ -4,8 +4,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
   cdkVersion: '2.260.0',
+  cdkCliVersion: '2.1129.0',
   constructsVersion: '10.6.0',
-  jsiiVersion: '^5.9',
+  cdkVersionPinning: true,
+  jsiiVersion: '^6.0',
   defaultReleaseBranch: 'master',
   packageManager: javascript.NodePackageManager.PNPM,
   name: '@renovosolutions/cdk-library-cloudwatch-alarms',
@@ -41,12 +43,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'renovosolutions.aws-cdk-cloudwatch-alarms',
     module: 'renovosolutions_recommended_cloudwatch_alarms',
   },
+  tsconfig: {
+    compilerOptions: {
+      types: ['node', 'jest'],
+    },
+  },
   tsconfigDev: {
     compilerOptions: {
       isolatedModules: true,
+      sourceMap: false,
     },
   },
 });
+
+project.tsconfig?.file.addOverride('references', [{ path: './tsconfig.dev.json' }]);
+project.tsconfigDev?.file.addOverride('compilerOptions.composite', true);
 
 project.eslint?.addRules({
   '@typescript-eslint/no-unused-vars': ['error', {
