@@ -244,6 +244,57 @@ test('DatabaseClusterSnapshot', () => {
   expect(template).toMatchSnapshot();
 });
 
+test('ReplicaLag alarms use maximum RDS lag and 2-of-3 evaluation settings', () => {
+  const stack = new Stack();
+  new rdsAlarms.RdsReadReplicaLagAlarm(stack, 'ReplicaLag', {
+    instanceIdentifier: 'reader',
+  });
+  new rdsAlarms.RdsReadReplicaLagAnomalyAlarm(stack, 'ReplicaLagAnomaly', {
+    instanceIdentifier: 'reader',
+  });
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    MetricName: 'ReplicaLag',
+    Statistic: 'Maximum',
+    Period: 60,
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 2,
+    Threshold: 60,
+  }));
+  const alarms = template.findResources('AWS::CloudWatch::Alarm');
+  const anomalyAlarm = Object.values(alarms).find((alarm) => alarm.Properties.Metrics?.some(
+    (metric: AnomalyMetricEntry) => metric.MetricStat?.Metric?.MetricName === 'ReplicaLag',
+  ));
+  expect(anomalyAlarm).toBeDefined();
+  expect(anomalyAlarm?.Properties).toEqual(expect.objectContaining({
+    DatapointsToAlarm: 2,
+    EvaluationPeriods: 3,
+  }));
+  expect(template.toJSON()).toMatchSnapshot();
+});
+
+test('ReplicaLagAnomaly alarm honors explicit evaluationPeriods, datapointsToAlarm, and stdDevs overrides', () => {
+  const stack = new Stack();
+  new rdsAlarms.RdsReadReplicaLagAnomalyAlarm(stack, 'ReplicaLagAnomaly', {
+    instanceIdentifier: 'reader',
+    evaluationPeriods: 10,
+    datapointsToAlarm: 8,
+    stdDevs: 4,
+  });
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', Match.objectLike({
+    EvaluationPeriods: 10,
+    DatapointsToAlarm: 8,
+    Metrics: Match.arrayWith([
+      Match.objectLike({
+        Expression: 'ANOMALY_DETECTION_BAND(m0, 4)',
+      }),
+    ]),
+  }));
+});
+
 test('DatabaseInstanceSnapshot', () => {
   const app = new App();
   const appAspects = Aspects.of(app);

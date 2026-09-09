@@ -7341,6 +7341,107 @@ exports[`DatabaseInstanceSnapshotWithExclusion 1`] = `
 }
 `;
 
+exports[`ReplicaLag alarms use maximum RDS lag and 2-of-3 evaluation settings 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ReplicaLag841A2336": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects an RDS read replica falling behind its source.",
+        "AlarmName": "reader - ReplicaLag",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "DBInstanceIdentifier",
+            "Value": "reader",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "MetricName": "ReplicaLag",
+        "Namespace": "AWS/RDS",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 60,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ReplicaLagAnomaly83CA8813": {
+      "Properties": {
+        "AlarmDescription": "This alarm detects unusually high RDS read-replica lag.",
+        "AlarmName": "reader - ReplicaLag Anomaly",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 2)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "DBInstanceIdentifier",
+                    "Value": "reader",
+                  },
+                ],
+                "MetricName": "ReplicaLag",
+                "Namespace": "AWS/RDS",
+              },
+              "Period": 60,
+              "Stat": "Maximum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`SnapshotForDatabaseClusterConstruct 1`] = `
 {
   "Parameters": {

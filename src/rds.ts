@@ -58,6 +58,16 @@ export enum RdsRecommendedAlarmsMetrics {
 }
 
 /**
+ * The recommended metrics for RDS read-replica alarms.
+ */
+export enum RdsReadReplicaRecommendedAlarmsMetrics {
+  /**
+   * The maximum amount of time that a read replica lags behind its source instance.
+   */
+  REPLICA_LAG = 'ReplicaLag',
+}
+
+/**
  * The common optional configuration for the alarms.
  */
 export interface RdsAlarmBaseConfig extends AlarmBaseProps {
@@ -845,6 +855,167 @@ export class RdsInstanceDbLoadAlarm extends cloudwatch.Alarm {
       datapointsToAlarm,
       treatMissingData,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+}
+
+/**
+ * Configuration for the RDS read-replica lag alarm.
+ */
+export interface RdsReadReplicaLagAlarmConfig extends RdsAlarmBaseConfig {
+  /**
+   * The lag in seconds against which the metric is compared.
+   *
+   * @default 60
+   */
+  readonly threshold?: number;
+  /**
+   * The number of periods over which data is compared to the threshold.
+   *
+   * @default 3
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of data points that must breach the threshold to trigger the alarm.
+   *
+   * @default 2
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The alarm name.
+   *
+   * @default - database.instanceIdentifiers[*] + ' - ReplicaLag'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This alarm detects an RDS read replica falling behind its source.
+   */
+  readonly alarmDescription?: string;
+}
+
+/** Properties for the RdsReadReplicaLagAlarm construct. */
+export interface RdsReadReplicaLagAlarmProps extends RdsInstanceAlarmProps, RdsReadReplicaLagAlarmConfig {}
+
+/**
+ * An alarm that detects an RDS read replica falling behind its source.
+ */
+export class RdsReadReplicaLagAlarm extends cloudwatch.Alarm {
+  constructor(scope: Construct, id: string, props: RdsReadReplicaLagAlarmProps) {
+    const instanceIdentifier = props.instanceIdentifier ? props.instanceIdentifier : props.databaseInstance?.instanceIdentifier;
+    const alarmName = props.alarmName ?? `${instanceIdentifier} - ${RdsReadReplicaRecommendedAlarmsMetrics.REPLICA_LAG}`;
+    const period = props.period ?? Duration.minutes(1);
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 2;
+    const threshold = props.threshold ?? 60;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const alarmDescription = props.alarmDescription ?? 'This alarm detects an RDS read replica falling behind its source.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+    validateInstanceIdentifier(props);
+
+    super(scope, id, {
+      alarmName,
+      metric: new cloudwatch.Metric({
+        namespace: 'AWS/RDS',
+        metricName: RdsReadReplicaRecommendedAlarmsMetrics.REPLICA_LAG,
+        dimensionsMap: {
+          DBInstanceIdentifier: instanceIdentifier!,
+        },
+        statistic: 'Maximum',
+        period,
+      }),
+      threshold,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+      alarmDescription,
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+}
+
+/** Configuration for the RDS read-replica lag anomaly alarm. */
+export interface RdsReadReplicaLagAnomalyAlarmConfig extends RdsAlarmBaseConfig {
+  /**
+   * The number of periods over which the anomaly band is evaluated.
+   *
+   * @default 3
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of anomalous data points required to trigger the alarm.
+   *
+   * @default 2
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The number of standard deviations used to calculate the anomaly band.
+   *
+   * @default 2
+   */
+  readonly stdDevs?: number;
+  /** @default cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD */
+  readonly comparisonOperator?: AnomalyComparisonOperator;
+  /**
+   * The alarm name.
+   *
+   * @default - database.instanceIdentifiers[*] + ' - ReplicaLag Anomaly'
+   */
+  readonly alarmName?: string;
+  /**
+   * The description of the alarm.
+   *
+   * @default - This alarm detects unusually high RDS read-replica lag.
+   */
+  readonly alarmDescription?: string;
+}
+
+/** Properties for the RdsReadReplicaLagAnomalyAlarm construct. */
+export interface RdsReadReplicaLagAnomalyAlarmProps extends RdsInstanceAlarmProps, RdsReadReplicaLagAnomalyAlarmConfig {}
+
+/** An anomaly alarm that detects unusually high RDS read-replica lag. */
+export class RdsReadReplicaLagAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
+  constructor(scope: Construct, id: string, props: RdsReadReplicaLagAnomalyAlarmProps) {
+    const instanceIdentifier = props.instanceIdentifier ? props.instanceIdentifier : props.databaseInstance?.instanceIdentifier;
+    const alarmName = props.alarmName ?? `${instanceIdentifier} - ${RdsReadReplicaRecommendedAlarmsMetrics.REPLICA_LAG} Anomaly`;
+    const period = props.period ?? Duration.minutes(1);
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 2;
+    const stdDevs = props.stdDevs ?? 2;
+    const treatMissingData = props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING;
+    const comparisonOperator = props.comparisonOperator ?? cloudwatch.ComparisonOperator.GREATER_THAN_UPPER_THRESHOLD;
+    const alarmDescription = props.alarmDescription ?? 'This alarm detects unusually high RDS read-replica lag.';
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+    validateInstanceIdentifier(props);
+
+    super(scope, id, {
+      alarmName,
+      metric: new cloudwatch.Metric({
+        namespace: 'AWS/RDS',
+        metricName: RdsReadReplicaRecommendedAlarmsMetrics.REPLICA_LAG,
+        dimensionsMap: {
+          DBInstanceIdentifier: instanceIdentifier!,
+        },
+        statistic: 'Maximum',
+        period,
+      }),
+      stdDevs,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData,
+      comparisonOperator,
       alarmDescription,
     });
 
