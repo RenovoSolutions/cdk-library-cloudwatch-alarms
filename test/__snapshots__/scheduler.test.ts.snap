@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Scheduler follows AWS recommended metrics, thresholds, statistics and evaluation windows 1`] = `
+exports[`Scheduler bundle includes anomaly detection and AWS recommended static alarms 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -10,6 +10,44 @@ exports[`Scheduler follows AWS recommended metrics, thresholds, statistics and e
     },
   },
   "Resources": {
+    "AlarmsInvocationAttemptCountAnomalyAlarmB10A34DB": {
+      "Properties": {
+        "AlarmDescription": "Detects unexpected changes in Scheduler invocation-attempt volume. Check schedule configuration, retries, and upstream provisioning.",
+        "AlarmName": "test-group - InvocationAttemptCountAnomaly",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ScheduleGroup",
+                    "Value": "test-group",
+                  },
+                ],
+                "MetricName": "InvocationAttemptCount",
+                "Namespace": "AWS/Scheduler",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
     "AlarmsInvocationDroppedCountAlarm624944BD": {
       "Properties": {
         "AlarmDescription": "Detects invocations dropped by EventBridge Scheduler. Investigate the target and schedule retry policy.",
@@ -785,7 +823,7 @@ exports[`bundle defaults and individual overrides have the same precedence as ot
 }
 `;
 
-exports[`imported groups and opt-in invocation anomalies use group metrics 1`] = `
+exports[`imported groups use group metrics for default invocation anomalies 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {

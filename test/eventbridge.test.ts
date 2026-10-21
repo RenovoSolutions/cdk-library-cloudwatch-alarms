@@ -34,12 +34,12 @@ function rule(scope: Stack, eventBus?: events.IEventBus): events.Rule {
   return new events.Rule(scope, 'Rule', { ruleName: 'test-rule', eventBus, eventPattern: { source: ['test.source'] } });
 }
 
-test('default rule bundle creates static delivery alarms, not traffic assumptions', () => {
+test('default rule bundle includes delivery and anomaly alarms', () => {
   const scope = stack();
   const bundle = new alarms.EventBridgeRuleRecommendedAlarms(scope, 'Alarms', { rule: rule(scope) });
   const template = Template.fromStack(scope);
   expect(template.toJSON()).toMatchSnapshot();
-  template.resourceCountIs('AWS::CloudWatch::Alarm', 3);
+  template.resourceCountIs('AWS::CloudWatch::Alarm', 5);
   template.hasResourceProperties('AWS::CloudWatch::Alarm', {
     MetricName: 'FailedInvocations',
     Namespace: 'AWS/Events',
@@ -50,7 +50,9 @@ test('default rule bundle creates static delivery alarms, not traffic assumption
     TreatMissingData: 'notBreaching',
     Dimensions: [{ Name: 'RuleName', Value: { Ref: 'Rule4C995B7F' } }],
   });
-  expect(bundle.alarmTriggeredRulesAnomaly).toBeUndefined();
+  expect(bundle.alarmTriggeredRulesAnomaly).toBeDefined();
+  expect(bundle.alarmIngestionToInvocationSuccessLatencyAnomaly).toBeDefined();
+  expect(bundle.alarmIngestionToInvocationSuccessLatency).toBeUndefined();
   expect(bundle.alarmSuccessfulInvocationRate).toBeUndefined();
 });
 
@@ -182,6 +184,20 @@ test('bundle defaults are applied unless an individual action or missing-data se
   expect(template.toJSON()).toMatchSnapshot();
 });
 
+test('default rule anomaly alarms can be excluded without configuration', () => {
+  const scope = stack();
+  const bundle = new alarms.EventBridgeRuleRecommendedAlarms(scope, 'Alarms', {
+    rule: rule(scope),
+    excludeAlarms: [
+      alarms.EventBridgeRecommendedAlarmsMetrics.TRIGGERED_RULES_ANOMALY,
+      alarms.EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY_ANOMALY,
+    ],
+  });
+  Template.fromStack(scope).resourceCountIs('AWS::CloudWatch::Alarm', 3);
+  expect(bundle.alarmTriggeredRulesAnomaly).toBeUndefined();
+  expect(bundle.alarmIngestionToInvocationSuccessLatencyAnomaly).toBeUndefined();
+});
+
 test('all metrics can be excluded, including configured optional alarms', () => {
   const scope = stack();
   new alarms.EventBridgeRuleRecommendedAlarms(scope, 'Excluded', {
@@ -215,7 +231,7 @@ test('extended rules create alarms only through convenience methods or an explic
   monitored.alarmIngestionToInvocationSuccessLatencyAnomaly();
   new alarms.Rule(scope, 'BundleRule', { eventPattern: { source: ['test.source'] } }).applyRecommendedAlarms();
   new alarms.EventBridgeRecommendedAlarmsAspect().visit(new events.Rule(scope, 'Plain', { eventPattern: { source: ['test.source'] } }));
-  Template.fromStack(scope).resourceCountIs('AWS::CloudWatch::Alarm', 13);
+  Template.fromStack(scope).resourceCountIs('AWS::CloudWatch::Alarm', 17);
 });
 
 /** Rules with identical names are valid when they belong to different event buses. */

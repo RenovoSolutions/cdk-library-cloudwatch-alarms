@@ -478,7 +478,7 @@ export class EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm exte
  * Configuration for EventBridgeRule recommended alarms.
  *
  * Individual alarm actions and missing-data settings override the bundle defaults.
- * Anomaly alarms and fixed latency/success-rate alarms are opt-in through their configuration properties.
+ * Anomaly alarms are included unless excluded. Fixed latency/success-rate alarms require configuration.
  */
 export interface EventBridgeRuleRecommendedAlarmsConfig {
   /**
@@ -538,12 +538,12 @@ export interface EventBridgeRuleRecommendedAlarmsConfig {
   readonly configSuccessfulInvocationRateAlarm?: EventBridgeRuleSuccessfulInvocationRateAlarmConfig;
   /**
    * Configuration for TriggeredRulesAnomaly.
-   * @default - Not created unless configured.
+   * @default - Alarm defaults; created unless excluded.
    */
   readonly configTriggeredRulesAnomalyAlarm?: EventBridgeRuleTriggeredRulesAnomalyAlarmConfig;
   /**
    * Configuration for IngestionToInvocationSuccessLatencyAnomaly.
-   * @default - Not created unless configured.
+   * @default - Alarm defaults; created unless excluded.
    */
   readonly configIngestionToInvocationSuccessLatencyAnomalyAlarm?: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig;
 }
@@ -680,7 +680,7 @@ export class EventBridgeRuleRecommendedAlarms extends Construct {
       }
     }
 
-    if (props.configTriggeredRulesAnomalyAlarm && !props.excludeAlarms?.includes(EventBridgeRecommendedAlarmsMetrics.TRIGGERED_RULES_ANOMALY)) {
+    if (!props.excludeAlarms?.includes(EventBridgeRecommendedAlarmsMetrics.TRIGGERED_RULES_ANOMALY)) {
       this.alarmTriggeredRulesAnomaly = new EventBridgeRuleTriggeredRulesAnomalyAlarm(this, 'TriggeredRulesAnomalyAlarm', {
         rule: props.rule,
         eventBus: props.eventBus,
@@ -698,8 +698,7 @@ export class EventBridgeRuleRecommendedAlarms extends Construct {
       }
     }
 
-    if (props.configIngestionToInvocationSuccessLatencyAnomalyAlarm &&
-      !props.excludeAlarms?.includes(EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY_ANOMALY)) {
+    if (!props.excludeAlarms?.includes(EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY_ANOMALY)) {
       this.alarmIngestionToInvocationSuccessLatencyAnomaly = new EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm(this, 'IngestionToInvocationSuccessLatencyAnomalyAlarm', {
         rule: props.rule,
         eventBus: props.eventBus,

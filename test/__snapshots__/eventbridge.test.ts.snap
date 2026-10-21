@@ -3433,7 +3433,7 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
 }
 `;
 
-exports[`default rule bundle creates static delivery alarms, not traffic assumptions 1`] = `
+exports[`default rule bundle includes delivery and anomaly alarms 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -3497,6 +3497,79 @@ exports[`default rule bundle creates static delivery alarms, not traffic assumpt
         "Statistic": "Sum",
         "Threshold": 0,
         "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsIngestionToInvocationSuccessLatencyAnomalyAlarmD0B1D3C4": {
+      "Properties": {
+        "AlarmDescription": "Detects unusual increases in EventBridge target delivery latency relative to its historical baseline.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::Select": [
+                  1,
+                  {
+                    "Fn::Split": [
+                      "/",
+                      {
+                        "Fn::Select": [
+                          5,
+                          {
+                            "Fn::Split": [
+                              ":",
+                              {
+                                "Fn::GetAtt": [
+                                  "Rule4C995B7F",
+                                  "Arn",
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              " - IngestionToInvocationSuccessLatencyAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "RuleName",
+                    "Value": {
+                      "Ref": "Rule4C995B7F",
+                    },
+                  },
+                ],
+                "MetricName": "IngestionToInvocationSuccessLatency",
+                "Namespace": "AWS/Events",
+              },
+              "Period": 300,
+              "Stat": "Average",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -3611,6 +3684,79 @@ exports[`default rule bundle creates static delivery alarms, not traffic assumpt
         "Statistic": "Sum",
         "Threshold": 0,
         "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsTriggeredRulesAnomalyAlarm7B09BF94": {
+      "Properties": {
+        "AlarmDescription": "Detects unexpected changes in EventBridge rule execution volume. Review publishers and event patterns.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::Select": [
+                  1,
+                  {
+                    "Fn::Split": [
+                      "/",
+                      {
+                        "Fn::Select": [
+                          5,
+                          {
+                            "Fn::Split": [
+                              ":",
+                              {
+                                "Fn::GetAtt": [
+                                  "Rule4C995B7F",
+                                  "Arn",
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              " - TriggeredRulesAnomaly",
+            ],
+          ],
+        },
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "RuleName",
+                    "Value": {
+                      "Ref": "Rule4C995B7F",
+                    },
+                  },
+                ],
+                "MetricName": "TriggeredRules",
+                "Namespace": "AWS/Events",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },

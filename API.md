@@ -107574,7 +107574,7 @@ Zero detects any occurrence.
 Configuration for EventBridgeRule recommended alarms.
 
 Individual alarm actions and missing-data settings override the bundle defaults.
-Anomaly alarms and fixed latency/success-rate alarms are opt-in through their configuration properties.
+Anomaly alarms are included unless excluded. Fixed latency/success-rate alarms require configuration.
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.Initializer"></a>
 
@@ -107637,7 +107637,7 @@ public readonly configIngestionToInvocationSuccessLatencyAnomalyAlarm: EventBrid
 ```
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig</a>
-- *Default:* Not created unless configured.
+- *Default:* Alarm defaults; created unless excluded.
 
 Configuration for IngestionToInvocationSuccessLatencyAnomaly.
 
@@ -107689,7 +107689,7 @@ public readonly configTriggeredRulesAnomalyAlarm: EventBridgeRuleTriggeredRulesA
 ```
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig">EventBridgeRuleTriggeredRulesAnomalyAlarmConfig</a>
-- *Default:* Not created unless configured.
+- *Default:* Alarm defaults; created unless excluded.
 
 Configuration for TriggeredRulesAnomaly.
 
@@ -107867,7 +107867,7 @@ public readonly configIngestionToInvocationSuccessLatencyAnomalyAlarm: EventBrid
 ```
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig</a>
-- *Default:* Not created unless configured.
+- *Default:* Alarm defaults; created unless excluded.
 
 Configuration for IngestionToInvocationSuccessLatencyAnomaly.
 
@@ -107919,7 +107919,7 @@ public readonly configTriggeredRulesAnomalyAlarm: EventBridgeRuleTriggeredRulesA
 ```
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig">EventBridgeRuleTriggeredRulesAnomalyAlarmConfig</a>
-- *Default:* Not created unless configured.
+- *Default:* Alarm defaults; created unless excluded.
 
 Configuration for TriggeredRulesAnomaly.
 
@@ -124536,7 +124536,7 @@ Zero detects any occurrence.
 Configuration for Scheduler recommended alarms.
 
 Individual alarm actions and missing-data settings override the bundle defaults.
-Anomaly alarms are opt-in through their configuration properties.
+Anomaly alarms are included unless excluded.
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.Initializer"></a>
 
@@ -124571,7 +124571,7 @@ public readonly configInvocationAttemptCountAnomalyAlarm: SchedulerInvocationAtt
 ```
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig">SchedulerInvocationAttemptCountAnomalyAlarmConfig</a>
-- *Default:* Not created unless configured.
+- *Default:* Alarm defaults; created unless excluded.
 
 Configuration for InvocationAttemptCountAnomaly.
 
@@ -124757,7 +124757,7 @@ public readonly configInvocationAttemptCountAnomalyAlarm: SchedulerInvocationAtt
 ```
 
 - *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig">SchedulerInvocationAttemptCountAnomalyAlarmConfig</a>
-- *Default:* Not created unless configured.
+- *Default:* Alarm defaults; created unless excluded.
 
 Configuration for InvocationAttemptCountAnomaly.
 

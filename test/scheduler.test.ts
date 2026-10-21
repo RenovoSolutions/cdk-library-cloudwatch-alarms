@@ -20,13 +20,13 @@ function stack(): Stack {
   return new Stack(new App(), 'Test', { env: { account: '123456789012', region: 'us-east-1' } });
 }
 
-test('Scheduler follows AWS recommended metrics, thresholds, statistics and evaluation windows', () => {
+test('Scheduler bundle includes anomaly detection and AWS recommended static alarms', () => {
   const scope = stack();
   const group = new scheduler.ScheduleGroup(scope, 'Group', { scheduleGroupName: 'test-group' });
   new alarms.SchedulerRecommendedAlarms(scope, 'Alarms', { scheduleGroup: group });
   const template = Template.fromStack(scope);
   expect(template.toJSON()).toMatchSnapshot();
-  template.resourceCountIs('AWS::CloudWatch::Alarm', 4);
+  template.resourceCountIs('AWS::CloudWatch::Alarm', 5);
   for (const [metric, periods] of [
     ['TargetErrorThrottledCount', 15], ['InvocationThrottleCount', 15],
     ['InvocationDroppedCount', 1], ['InvocationsFailedToBeSentToDeadLetterCount', 15],
@@ -46,10 +46,10 @@ test('Scheduler follows AWS recommended metrics, thresholds, statistics and eval
   }
 });
 
-test('imported groups and opt-in invocation anomalies use group metrics', () => {
+test('imported groups use group metrics for default invocation anomalies', () => {
   const scope = stack();
   const group = scheduler.ScheduleGroup.fromScheduleGroupName(scope, 'Group', 'default');
-  new alarms.SchedulerRecommendedAlarms(scope, 'Alarms', { scheduleGroup: group, configInvocationAttemptCountAnomalyAlarm: {} });
+  new alarms.SchedulerRecommendedAlarms(scope, 'Alarms', { scheduleGroup: group });
   const template = Template.fromStack(scope);
   template.resourceCountIs('AWS::CloudWatch::Alarm', 5);
   template.hasResourceProperties('AWS::CloudWatch::Alarm', {
@@ -143,6 +143,16 @@ test('bundle defaults and individual overrides have the same precedence as other
   expect(template.toJSON()).toMatchSnapshot();
 });
 
+test('default Scheduler anomaly alarm can be excluded without configuration', () => {
+  const scope = stack();
+  const bundle = new alarms.SchedulerRecommendedAlarms(scope, 'Alarms', {
+    scheduleGroup: new scheduler.ScheduleGroup(scope, 'Group'),
+    excludeAlarms: [alarms.SchedulerRecommendedAlarmsMetrics.INVOCATION_ATTEMPT_COUNT_ANOMALY],
+  });
+  Template.fromStack(scope).resourceCountIs('AWS::CloudWatch::Alarm', 4);
+  expect(bundle.alarmInvocationAttemptCountAnomaly).toBeUndefined();
+});
+
 test('all alarms can be excluded', () => {
   const scope = stack();
   new alarms.SchedulerRecommendedAlarms(scope, 'Alarms', {
@@ -165,7 +175,7 @@ test('aspect applies once per owned schedule group and supports exclusions', () 
   expect(template.toJSON()).toMatchSnapshot();
 });
 
-test('default aspect and extended group are opt-in', () => {
+test('extended groups create alarms only through convenience methods or an explicit Aspect', () => {
   const scope = stack();
   const group = new alarms.ScheduleGroup(scope, 'Group');
   expect(group.node.children.filter(c => c instanceof cloudwatch.Alarm)).toHaveLength(0);
@@ -176,5 +186,5 @@ test('default aspect and extended group are opt-in', () => {
   group.alarmInvocationAttemptCountAnomaly();
   new alarms.ScheduleGroup(scope, 'BundleGroup').applyRecommendedAlarms();
   new alarms.SchedulerRecommendedAlarmsAspect().visit(new scheduler.ScheduleGroup(scope, 'Plain'));
-  Template.fromStack(scope).resourceCountIs('AWS::CloudWatch::Alarm', 13);
+  Template.fromStack(scope).resourceCountIs('AWS::CloudWatch::Alarm', 15);
 });

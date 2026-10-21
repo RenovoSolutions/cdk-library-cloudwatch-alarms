@@ -337,7 +337,7 @@ export class SchedulerInvocationAttemptCountAnomalyAlarm extends cloudwatch.Anom
  * Configuration for Scheduler recommended alarms.
  *
  * Individual alarm actions and missing-data settings override the bundle defaults.
- * Anomaly alarms are opt-in through their configuration properties.
+ * Anomaly alarms are included unless excluded.
  */
 export interface SchedulerRecommendedAlarmsConfig {
   /**
@@ -392,7 +392,7 @@ export interface SchedulerRecommendedAlarmsConfig {
   readonly configInvocationsFailedToBeSentToDeadLetterCountAlarm?: SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig;
   /**
    * Configuration for InvocationAttemptCountAnomaly.
-   * @default - Not created unless configured.
+   * @default - Alarm defaults; created unless excluded.
    */
   readonly configInvocationAttemptCountAnomalyAlarm?: SchedulerInvocationAttemptCountAnomalyAlarmConfig;
 }
@@ -498,8 +498,7 @@ export class SchedulerRecommendedAlarms extends Construct {
       }
     }
 
-    if (props.configInvocationAttemptCountAnomalyAlarm &&
-      !props.excludeAlarms?.includes(SchedulerRecommendedAlarmsMetrics.INVOCATION_ATTEMPT_COUNT_ANOMALY)) {
+    if (!props.excludeAlarms?.includes(SchedulerRecommendedAlarmsMetrics.INVOCATION_ATTEMPT_COUNT_ANOMALY)) {
       this.alarmInvocationAttemptCountAnomaly = new SchedulerInvocationAttemptCountAnomalyAlarm(this, 'InvocationAttemptCountAnomalyAlarm', {
         scheduleGroup: props.scheduleGroup,
         treatMissingData: props.treatMissingData,
