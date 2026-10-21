@@ -1,0 +1,1206 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Scheduler follows AWS recommended metrics, thresholds, statistics and evaluation windows 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsInvocationDroppedCountAlarm624944BD": {
+      "Properties": {
+        "AlarmDescription": "Detects invocations dropped by EventBridge Scheduler. Investigate the target and schedule retry policy.",
+        "AlarmName": "test-group - InvocationDroppedCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 1,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "test-group",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "InvocationDroppedCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsInvocationThrottleCountAlarm66C8B8F0": {
+      "Properties": {
+        "AlarmDescription": "Detects persistent EventBridge Scheduler invocation throttling. Review flexible time windows and invocation quotas.",
+        "AlarmName": "test-group - InvocationThrottleCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "test-group",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "InvocationThrottleCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsInvocationsFailedToBeSentToDeadLetterCountAlarm3A2EA5D7": {
+      "Properties": {
+        "AlarmDescription": "Detects EventBridge Scheduler failures to retain invocations in a dead-letter queue. Check queue permissions and availability.",
+        "AlarmName": "test-group - InvocationsFailedToBeSentToDeadLetterCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "test-group",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "InvocationsFailedToBeSentToDeadLetterCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsTargetErrorThrottledCountAlarm5A57A933": {
+      "Properties": {
+        "AlarmDescription": "Detects persistent throttling by Scheduler targets. Spread invocations with flexible time windows or increase target capacity.",
+        "AlarmName": "test-group - TargetErrorThrottledCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "test-group",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "TargetErrorThrottledCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "GroupC77FDACD": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "Name": "test-group",
+      },
+      "Type": "AWS::Scheduler::ScheduleGroup",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`aspect applies once per owned schedule group and supports exclusions 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ExcludedA50860A4": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "Name": "Test-Excluded-48BB5DF8",
+      },
+      "Type": "AWS::Scheduler::ScheduleGroup",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "IncludedA7F53226": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "Name": "Test-Included-9EA81AF5",
+      },
+      "Type": "AWS::Scheduler::ScheduleGroup",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "IncludedSchedulerRecommendedAlarmsFromAspectInvocationAttemptCountAnomalyAlarmA8D0BA42": {
+      "Properties": {
+        "AlarmDescription": "Detects unexpected changes in Scheduler invocation-attempt volume. Check schedule configuration, retries, and upstream provisioning.",
+        "AlarmName": "Test-Included-9EA81AF5 - InvocationAttemptCountAnomaly",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ScheduleGroup",
+                    "Value": "Test-Included-9EA81AF5",
+                  },
+                ],
+                "MetricName": "InvocationAttemptCount",
+                "Namespace": "AWS/Scheduler",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "IncludedSchedulerRecommendedAlarmsFromAspectInvocationDroppedCountAlarm078788FF": {
+      "Properties": {
+        "AlarmDescription": "Detects invocations dropped by EventBridge Scheduler. Investigate the target and schedule retry policy.",
+        "AlarmName": "Test-Included-9EA81AF5 - InvocationDroppedCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 1,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Included-9EA81AF5",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "InvocationDroppedCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "IncludedSchedulerRecommendedAlarmsFromAspectInvocationThrottleCountAlarmDCB2B6F7": {
+      "Properties": {
+        "AlarmDescription": "Detects persistent EventBridge Scheduler invocation throttling. Review flexible time windows and invocation quotas.",
+        "AlarmName": "Test-Included-9EA81AF5 - InvocationThrottleCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Included-9EA81AF5",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "InvocationThrottleCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "IncludedSchedulerRecommendedAlarmsFromAspectInvocationsFailedToBeSentToDeadLetterCountAlarmF59BA808": {
+      "Properties": {
+        "AlarmDescription": "Detects EventBridge Scheduler failures to retain invocations in a dead-letter queue. Check queue permissions and availability.",
+        "AlarmName": "Test-Included-9EA81AF5 - InvocationsFailedToBeSentToDeadLetterCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Included-9EA81AF5",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "InvocationsFailedToBeSentToDeadLetterCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "IncludedSchedulerRecommendedAlarmsFromAspectTargetErrorThrottledCountAlarm40915FFD": {
+      "Properties": {
+        "AlarmDescription": "Detects persistent throttling by Scheduler targets. Spread invocations with flexible time windows or increase target capacity.",
+        "AlarmName": "Test-Included-9EA81AF5 - TargetErrorThrottledCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Included-9EA81AF5",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "TargetErrorThrottledCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`bundle defaults and individual overrides have the same precedence as other services 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "DefaultTopicC4DC856F": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "DefaultsInvocationAttemptCountAnomalyAlarm2D069146": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "AlarmDescription": "Detects unexpected changes in Scheduler invocation-attempt volume. Check schedule configuration, retries, and upstream provisioning.",
+        "AlarmName": "Test-Group-BE90EC8C - InvocationAttemptCountAnomaly",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "InsufficientDataActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ScheduleGroup",
+                    "Value": "Test-Group-BE90EC8C",
+                  },
+                ],
+                "MetricName": "InvocationAttemptCount",
+                "Namespace": "AWS/Scheduler",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DefaultsInvocationDroppedCountAlarm582C7EE2": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "AlarmDescription": "Detects invocations dropped by EventBridge Scheduler. Investigate the target and schedule retry policy.",
+        "AlarmName": "Test-Group-BE90EC8C - InvocationDroppedCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 1,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Group-BE90EC8C",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "InsufficientDataActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "MetricName": "InvocationDroppedCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DefaultsInvocationThrottleCountAlarmCE32D26A": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "AlarmDescription": "Detects persistent EventBridge Scheduler invocation throttling. Review flexible time windows and invocation quotas.",
+        "AlarmName": "Test-Group-BE90EC8C - InvocationThrottleCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Group-BE90EC8C",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "MetricName": "InvocationThrottleCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DefaultsInvocationsFailedToBeSentToDeadLetterCountAlarm119335CF": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "AlarmDescription": "Detects EventBridge Scheduler failures to retain invocations in a dead-letter queue. Check queue permissions and availability.",
+        "AlarmName": "Test-Group-BE90EC8C - InvocationsFailedToBeSentToDeadLetterCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Group-BE90EC8C",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "MetricName": "InvocationsFailedToBeSentToDeadLetterCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DefaultsTargetErrorThrottledCountAlarmED7DA8D1": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "AlarmDescription": "Detects persistent throttling by Scheduler targets. Spread invocations with flexible time windows or increase target capacity.",
+        "AlarmName": "Test-Group-BE90EC8C - TargetErrorThrottledCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Group-BE90EC8C",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "MetricName": "TargetErrorThrottledCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "DefaultTopicC4DC856F",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "GroupC77FDACD": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "Name": "Test-Group-BE90EC8C",
+      },
+      "Type": "AWS::Scheduler::ScheduleGroup",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "OtherGroup85E5C653": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "Name": "Test-OtherGroup-87369432",
+      },
+      "Type": "AWS::Scheduler::ScheduleGroup",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "OverrideTopicDAEAFDB7": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "OverridesInvocationAttemptCountAnomalyAlarm0D7E7AB5": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Detects unexpected changes in Scheduler invocation-attempt volume. Check schedule configuration, retries, and upstream provisioning.",
+        "AlarmName": "Test-OtherGroup-87369432 - InvocationAttemptCountAnomaly",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ScheduleGroup",
+                    "Value": "Test-OtherGroup-87369432",
+                  },
+                ],
+                "MetricName": "InvocationAttemptCount",
+                "Namespace": "AWS/Scheduler",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OverridesInvocationDroppedCountAlarmCAB7D7A6": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Detects invocations dropped by EventBridge Scheduler. Investigate the target and schedule retry policy.",
+        "AlarmName": "Test-OtherGroup-87369432 - InvocationDroppedCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 1,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-OtherGroup-87369432",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "MetricName": "InvocationDroppedCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OverridesInvocationThrottleCountAlarmB17F4E60": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Detects persistent EventBridge Scheduler invocation throttling. Review flexible time windows and invocation quotas.",
+        "AlarmName": "Test-OtherGroup-87369432 - InvocationThrottleCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-OtherGroup-87369432",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "MetricName": "InvocationThrottleCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OverridesInvocationsFailedToBeSentToDeadLetterCountAlarmAB67F029": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Detects EventBridge Scheduler failures to retain invocations in a dead-letter queue. Check queue permissions and availability.",
+        "AlarmName": "Test-OtherGroup-87369432 - InvocationsFailedToBeSentToDeadLetterCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-OtherGroup-87369432",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "MetricName": "InvocationsFailedToBeSentToDeadLetterCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "OverridesTargetErrorThrottledCountAlarm725C47AB": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Detects persistent throttling by Scheduler targets. Spread invocations with flexible time windows or increase target capacity.",
+        "AlarmName": "Test-OtherGroup-87369432 - TargetErrorThrottledCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-OtherGroup-87369432",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "MetricName": "TargetErrorThrottledCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`imported groups and opt-in invocation anomalies use group metrics 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsInvocationAttemptCountAnomalyAlarmB10A34DB": {
+      "Properties": {
+        "AlarmDescription": "Detects unexpected changes in Scheduler invocation-attempt volume. Check schedule configuration, retries, and upstream provisioning.",
+        "AlarmName": "default - InvocationAttemptCountAnomaly",
+        "ComparisonOperator": "LessThanLowerOrGreaterThanUpperThreshold",
+        "DatapointsToAlarm": 3,
+        "EvaluationPeriods": 4,
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 8)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ScheduleGroup",
+                    "Value": "default",
+                  },
+                ],
+                "MetricName": "InvocationAttemptCount",
+                "Namespace": "AWS/Scheduler",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsInvocationDroppedCountAlarm624944BD": {
+      "Properties": {
+        "AlarmDescription": "Detects invocations dropped by EventBridge Scheduler. Investigate the target and schedule retry policy.",
+        "AlarmName": "default - InvocationDroppedCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 1,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "default",
+          },
+        ],
+        "EvaluationPeriods": 1,
+        "MetricName": "InvocationDroppedCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsInvocationThrottleCountAlarm66C8B8F0": {
+      "Properties": {
+        "AlarmDescription": "Detects persistent EventBridge Scheduler invocation throttling. Review flexible time windows and invocation quotas.",
+        "AlarmName": "default - InvocationThrottleCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "default",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "InvocationThrottleCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsInvocationsFailedToBeSentToDeadLetterCountAlarm3A2EA5D7": {
+      "Properties": {
+        "AlarmDescription": "Detects EventBridge Scheduler failures to retain invocations in a dead-letter queue. Check queue permissions and availability.",
+        "AlarmName": "default - InvocationsFailedToBeSentToDeadLetterCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "default",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "InvocationsFailedToBeSentToDeadLetterCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsTargetErrorThrottledCountAlarm5A57A933": {
+      "Properties": {
+        "AlarmDescription": "Detects persistent throttling by Scheduler targets. Spread invocations with flexible time windows or increase target capacity.",
+        "AlarmName": "default - TargetErrorThrottledCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "default",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "TargetErrorThrottledCount",
+        "Namespace": "AWS/Scheduler",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`individual alarms honor all configurable values and all three actions 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "Alarm0597960BB": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "custom description",
+        "AlarmName": "custom-0",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Group-BE90EC8C",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "TargetErrorThrottledCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 120,
+        "Statistic": "Sum",
+        "Threshold": 2,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Alarm1F9009D71": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "custom description",
+        "AlarmName": "custom-1",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Group-BE90EC8C",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "InvocationThrottleCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 120,
+        "Statistic": "Sum",
+        "Threshold": 2,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Alarm2A7122E13": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "custom description",
+        "AlarmName": "custom-2",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Group-BE90EC8C",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "InvocationDroppedCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 120,
+        "Statistic": "Sum",
+        "Threshold": 2,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Alarm32341D8D9": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "custom description",
+        "AlarmName": "custom-3",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 2,
+        "Dimensions": [
+          {
+            "Name": "ScheduleGroup",
+            "Value": "Test-Group-BE90EC8C",
+          },
+        ],
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "InvocationsFailedToBeSentToDeadLetterCount",
+        "Namespace": "AWS/Scheduler",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 120,
+        "Statistic": "Sum",
+        "Threshold": 2,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Alarm4671832C8": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "custom description",
+        "AlarmName": "custom-4",
+        "ComparisonOperator": "GreaterThanUpperThreshold",
+        "DatapointsToAlarm": 2,
+        "EvaluationPeriods": 3,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "ANOMALY_DETECTION_BAND(m0, 3)",
+            "Id": "expr_1",
+            "Label": "Anomaly Detection Band",
+            "ReturnData": true,
+          },
+          {
+            "Id": "m0",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "ScheduleGroup",
+                    "Value": "Test-Group-BE90EC8C",
+                  },
+                ],
+                "MetricName": "InvocationAttemptCount",
+                "Namespace": "AWS/Scheduler",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": true,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "ThresholdMetricId": "expr_1",
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "GroupC77FDACD": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "Name": "Test-Group-BE90EC8C",
+      },
+      "Type": "AWS::Scheduler::ScheduleGroup",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "TopicBFC7AF6E": {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

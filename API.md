@@ -37007,6 +37007,3855 @@ Uniquely identifies this class.
 
 ---
 
+### EventBridgeRuleFailedInvocationsAlarm <a name="EventBridgeRuleFailedInvocationsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm"></a>
+
+Permanently failed target invocations, after delivery retries are exhausted.
+
+AWS recommends monitoring this metric for rule delivery health.
+Library defaults detect any occurrence and treat missing data as not breaching.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleFailedInvocationsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRuleFailedInvocationsAlarm(scope: Construct, id: string, props: EventBridgeRuleFailedInvocationsAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps">EventBridgeRuleFailedInvocationsAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps">EventBridgeRuleFailedInvocationsAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isConstruct"></a>
+
+```typescript
+import { EventBridgeRuleFailedInvocationsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleFailedInvocationsAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isOwnedResource"></a>
+
+```typescript
+import { EventBridgeRuleFailedInvocationsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleFailedInvocationsAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isResource"></a>
+
+```typescript
+import { EventBridgeRuleFailedInvocationsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleFailedInvocationsAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EventBridgeRuleFailedInvocationsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleFailedInvocationsAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmName"></a>
+
+```typescript
+import { EventBridgeRuleFailedInvocationsAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleFailedInvocationsAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm <a name="EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm"></a>
+
+Time in milliseconds from ingestion to successful target delivery, including retries.
+
+AWS recommends monitoring this metric for rule delivery health.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm(scope: Construct, id: string, props: EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isConstruct"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isOwnedResource"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isResource"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmName"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm <a name="EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm"></a>
+
+Successful target delivery latency anomaly detection.
+
+Uses a five-minute Average metric and the historical target delivery latency.
+Use only for workloads with enough regular observations to train a useful band.
+A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
+Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm(scope: Construct, id: string, props: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isConstruct"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isOwnedResource"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isResource"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmName"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### EventBridgeRuleInvocationsSentToDlqAlarm <a name="EventBridgeRuleInvocationsSentToDlqAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm"></a>
+
+Undelivered events retained in a target dead-letter queue.
+
+AWS recommends monitoring this metric for rule delivery health.
+Library defaults detect any occurrence and treat missing data as not breaching.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleInvocationsSentToDlqAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRuleInvocationsSentToDlqAlarm(scope: Construct, id: string, props: EventBridgeRuleInvocationsSentToDlqAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps">EventBridgeRuleInvocationsSentToDlqAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps">EventBridgeRuleInvocationsSentToDlqAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isConstruct"></a>
+
+```typescript
+import { EventBridgeRuleInvocationsSentToDlqAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleInvocationsSentToDlqAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isOwnedResource"></a>
+
+```typescript
+import { EventBridgeRuleInvocationsSentToDlqAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleInvocationsSentToDlqAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isResource"></a>
+
+```typescript
+import { EventBridgeRuleInvocationsSentToDlqAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleInvocationsSentToDlqAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EventBridgeRuleInvocationsSentToDlqAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmName"></a>
+
+```typescript
+import { EventBridgeRuleInvocationsSentToDlqAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### EventBridgeRuleRecommendedAlarms <a name="EventBridgeRuleRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms"></a>
+
+Creates the configured alarms for a rule.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRuleRecommendedAlarms(scope: Construct, id: string, props: EventBridgeRuleRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps">EventBridgeRuleRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps">EventBridgeRuleRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { EventBridgeRuleRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmFailedInvocations">alarmFailedInvocations</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm">EventBridgeRuleFailedInvocationsAlarm</a></code> | The FailedInvocations alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmIngestionToInvocationSuccessLatency">alarmIngestionToInvocationSuccessLatency</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm</a></code> | The IngestionToInvocationSuccessLatency alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmIngestionToInvocationSuccessLatencyAnomaly">alarmIngestionToInvocationSuccessLatencyAnomaly</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm</a></code> | The IngestionToInvocationSuccessLatencyAnomaly alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmInvocationsSentToDlq">alarmInvocationsSentToDlq</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm">EventBridgeRuleInvocationsSentToDlqAlarm</a></code> | The InvocationsSentToDlq alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmSuccessfulInvocationRate">alarmSuccessfulInvocationRate</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm">EventBridgeRuleSuccessfulInvocationRateAlarm</a></code> | The SuccessfulInvocationRate alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmThrottledRules">alarmThrottledRules</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm">EventBridgeRuleThrottledRulesAlarm</a></code> | The ThrottledRules alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmTriggeredRulesAnomaly">alarmTriggeredRulesAnomaly</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm">EventBridgeRuleTriggeredRulesAnomalyAlarm</a></code> | The TriggeredRulesAnomaly alarm, if enabled. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmFailedInvocations`<sup>Optional</sup> <a name="alarmFailedInvocations" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmFailedInvocations"></a>
+
+```typescript
+public readonly alarmFailedInvocations: EventBridgeRuleFailedInvocationsAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm">EventBridgeRuleFailedInvocationsAlarm</a>
+
+The FailedInvocations alarm, if enabled.
+
+---
+
+##### `alarmIngestionToInvocationSuccessLatency`<sup>Optional</sup> <a name="alarmIngestionToInvocationSuccessLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmIngestionToInvocationSuccessLatency"></a>
+
+```typescript
+public readonly alarmIngestionToInvocationSuccessLatency: EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm</a>
+
+The IngestionToInvocationSuccessLatency alarm, if enabled.
+
+---
+
+##### `alarmIngestionToInvocationSuccessLatencyAnomaly`<sup>Optional</sup> <a name="alarmIngestionToInvocationSuccessLatencyAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmIngestionToInvocationSuccessLatencyAnomaly"></a>
+
+```typescript
+public readonly alarmIngestionToInvocationSuccessLatencyAnomaly: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm</a>
+
+The IngestionToInvocationSuccessLatencyAnomaly alarm, if enabled.
+
+---
+
+##### `alarmInvocationsSentToDlq`<sup>Optional</sup> <a name="alarmInvocationsSentToDlq" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmInvocationsSentToDlq"></a>
+
+```typescript
+public readonly alarmInvocationsSentToDlq: EventBridgeRuleInvocationsSentToDlqAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm">EventBridgeRuleInvocationsSentToDlqAlarm</a>
+
+The InvocationsSentToDlq alarm, if enabled.
+
+---
+
+##### `alarmSuccessfulInvocationRate`<sup>Optional</sup> <a name="alarmSuccessfulInvocationRate" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmSuccessfulInvocationRate"></a>
+
+```typescript
+public readonly alarmSuccessfulInvocationRate: EventBridgeRuleSuccessfulInvocationRateAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm">EventBridgeRuleSuccessfulInvocationRateAlarm</a>
+
+The SuccessfulInvocationRate alarm, if enabled.
+
+---
+
+##### `alarmThrottledRules`<sup>Optional</sup> <a name="alarmThrottledRules" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmThrottledRules"></a>
+
+```typescript
+public readonly alarmThrottledRules: EventBridgeRuleThrottledRulesAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm">EventBridgeRuleThrottledRulesAlarm</a>
+
+The ThrottledRules alarm, if enabled.
+
+---
+
+##### `alarmTriggeredRulesAnomaly`<sup>Optional</sup> <a name="alarmTriggeredRulesAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarms.property.alarmTriggeredRulesAnomaly"></a>
+
+```typescript
+public readonly alarmTriggeredRulesAnomaly: EventBridgeRuleTriggeredRulesAnomalyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm">EventBridgeRuleTriggeredRulesAnomalyAlarm</a>
+
+The TriggeredRulesAnomaly alarm, if enabled.
+
+---
+
+
+### EventBridgeRuleSuccessfulInvocationRateAlarm <a name="EventBridgeRuleSuccessfulInvocationRateAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm"></a>
+
+Fraction of target invocation attempts that succeed, from zero to one.
+
+AWS recommends monitoring this metric for rule delivery health.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleSuccessfulInvocationRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRuleSuccessfulInvocationRateAlarm(scope: Construct, id: string, props: EventBridgeRuleSuccessfulInvocationRateAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps">EventBridgeRuleSuccessfulInvocationRateAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps">EventBridgeRuleSuccessfulInvocationRateAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isConstruct"></a>
+
+```typescript
+import { EventBridgeRuleSuccessfulInvocationRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleSuccessfulInvocationRateAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isOwnedResource"></a>
+
+```typescript
+import { EventBridgeRuleSuccessfulInvocationRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleSuccessfulInvocationRateAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isResource"></a>
+
+```typescript
+import { EventBridgeRuleSuccessfulInvocationRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleSuccessfulInvocationRateAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EventBridgeRuleSuccessfulInvocationRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmName"></a>
+
+```typescript
+import { EventBridgeRuleSuccessfulInvocationRateAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### EventBridgeRuleThrottledRulesAlarm <a name="EventBridgeRuleThrottledRulesAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm"></a>
+
+Rule executions delayed by EventBridge invocation throttling.
+
+AWS recommends monitoring this metric for rule delivery health.
+Library defaults detect any occurrence and treat missing data as not breaching.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleThrottledRulesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRuleThrottledRulesAlarm(scope: Construct, id: string, props: EventBridgeRuleThrottledRulesAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps">EventBridgeRuleThrottledRulesAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps">EventBridgeRuleThrottledRulesAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isConstruct"></a>
+
+```typescript
+import { EventBridgeRuleThrottledRulesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleThrottledRulesAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isOwnedResource"></a>
+
+```typescript
+import { EventBridgeRuleThrottledRulesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleThrottledRulesAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isResource"></a>
+
+```typescript
+import { EventBridgeRuleThrottledRulesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleThrottledRulesAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EventBridgeRuleThrottledRulesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleThrottledRulesAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmName"></a>
+
+```typescript
+import { EventBridgeRuleThrottledRulesAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleThrottledRulesAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### EventBridgeRuleTriggeredRulesAnomalyAlarm <a name="EventBridgeRuleTriggeredRulesAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm"></a>
+
+Rule execution volume anomaly detection.
+
+Uses a five-minute Sum metric and the historical rule execution volume.
+Use only for workloads with enough regular observations to train a useful band.
+A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
+Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleTriggeredRulesAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRuleTriggeredRulesAnomalyAlarm(scope: Construct, id: string, props: EventBridgeRuleTriggeredRulesAnomalyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps">EventBridgeRuleTriggeredRulesAnomalyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps">EventBridgeRuleTriggeredRulesAnomalyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isConstruct"></a>
+
+```typescript
+import { EventBridgeRuleTriggeredRulesAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleTriggeredRulesAnomalyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isOwnedResource"></a>
+
+```typescript
+import { EventBridgeRuleTriggeredRulesAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleTriggeredRulesAnomalyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isResource"></a>
+
+```typescript
+import { EventBridgeRuleTriggeredRulesAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleTriggeredRulesAnomalyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { EventBridgeRuleTriggeredRulesAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmName"></a>
+
+```typescript
+import { EventBridgeRuleTriggeredRulesAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 ### FargateService <a name="FargateService" id="@renovosolutions/cdk-library-cloudwatch-alarms.FargateService"></a>
 
 An extension for the FargateService construct that provides methods to create recommended alarms.
@@ -60364,6 +64213,533 @@ Uniquely identifies this class.
 
 ---
 
+### Rule <a name="Rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule"></a>
+
+An opt-in Rule extension with alarm convenience methods.
+
+Creating the resource alone does not create any alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.Initializer"></a>
+
+```typescript
+import { Rule } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new Rule(scope: Construct, id: string, props?: RuleProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_events.RuleProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_events.RuleProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.addEventPattern">addEventPattern</a></code> | Adds an event pattern filter to this rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.addTarget">addTarget</a></code> | Adds a target to the rule. The abstract class RuleTarget can be extended to define new targets. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmFailedInvocations">alarmFailedInvocations</a></code> | Creates the FailedInvocations alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmIngestionToInvocationSuccessLatency">alarmIngestionToInvocationSuccessLatency</a></code> | Creates the IngestionToInvocationSuccessLatency alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmIngestionToInvocationSuccessLatencyAnomaly">alarmIngestionToInvocationSuccessLatencyAnomaly</a></code> | Creates the IngestionToInvocationSuccessLatencyAnomaly alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmInvocationsSentToDlq">alarmInvocationsSentToDlq</a></code> | Creates the InvocationsSentToDlq alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmSuccessfulInvocationRate">alarmSuccessfulInvocationRate</a></code> | Creates the SuccessfulInvocationRate alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmThrottledRules">alarmThrottledRules</a></code> | Creates the ThrottledRules alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmTriggeredRulesAnomaly">alarmTriggeredRulesAnomaly</a></code> | Creates the TriggeredRulesAnomaly alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Applies the configured alarm bundle to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventPattern` <a name="addEventPattern" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.addEventPattern"></a>
+
+```typescript
+public addEventPattern(eventPattern?: EventPattern): void
+```
+
+Adds an event pattern filter to this rule.
+
+If a pattern was already specified,
+these values are merged into the existing pattern.
+
+For example, if the rule already contains the pattern:
+
+   {
+     "resources": [ "r1" ],
+     "detail": {
+       "hello": [ 1 ]
+     }
+   }
+
+And `addEventPattern` is called with the pattern:
+
+   {
+     "resources": [ "r2" ],
+     "detail": {
+       "foo": [ "bar" ]
+     }
+   }
+
+The resulting event pattern will be:
+
+   {
+     "resources": [ "r1", "r2" ],
+     "detail": {
+       "hello": [ 1 ],
+       "foo": [ "bar" ]
+     }
+   }
+
+###### `eventPattern`<sup>Optional</sup> <a name="eventPattern" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.addEventPattern.parameter.eventPattern"></a>
+
+- *Type:* aws-cdk-lib.aws_events.EventPattern
+
+---
+
+##### `addTarget` <a name="addTarget" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.addTarget"></a>
+
+```typescript
+public addTarget(target?: IRuleTarget): void
+```
+
+Adds a target to the rule. The abstract class RuleTarget can be extended to define new targets.
+
+No-op if target is undefined.
+
+###### `target`<sup>Optional</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.addTarget.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.aws_events.IRuleTarget
+
+---
+
+##### `alarmFailedInvocations` <a name="alarmFailedInvocations" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmFailedInvocations"></a>
+
+```typescript
+public alarmFailedInvocations(props?: EventBridgeRuleFailedInvocationsAlarmConfig): EventBridgeRuleFailedInvocationsAlarm
+```
+
+Creates the FailedInvocations alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmFailedInvocations.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig">EventBridgeRuleFailedInvocationsAlarmConfig</a>
+
+---
+
+##### `alarmIngestionToInvocationSuccessLatency` <a name="alarmIngestionToInvocationSuccessLatency" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmIngestionToInvocationSuccessLatency"></a>
+
+```typescript
+public alarmIngestionToInvocationSuccessLatency(props: EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig): EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm
+```
+
+Creates the IngestionToInvocationSuccessLatency alarm.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmIngestionToInvocationSuccessLatency.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig</a>
+
+---
+
+##### `alarmIngestionToInvocationSuccessLatencyAnomaly` <a name="alarmIngestionToInvocationSuccessLatencyAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmIngestionToInvocationSuccessLatencyAnomaly"></a>
+
+```typescript
+public alarmIngestionToInvocationSuccessLatencyAnomaly(props?: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig): EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm
+```
+
+Creates the IngestionToInvocationSuccessLatencyAnomaly alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmIngestionToInvocationSuccessLatencyAnomaly.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig</a>
+
+---
+
+##### `alarmInvocationsSentToDlq` <a name="alarmInvocationsSentToDlq" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmInvocationsSentToDlq"></a>
+
+```typescript
+public alarmInvocationsSentToDlq(props?: EventBridgeRuleInvocationsSentToDlqAlarmConfig): EventBridgeRuleInvocationsSentToDlqAlarm
+```
+
+Creates the InvocationsSentToDlq alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmInvocationsSentToDlq.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig">EventBridgeRuleInvocationsSentToDlqAlarmConfig</a>
+
+---
+
+##### `alarmSuccessfulInvocationRate` <a name="alarmSuccessfulInvocationRate" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmSuccessfulInvocationRate"></a>
+
+```typescript
+public alarmSuccessfulInvocationRate(props: EventBridgeRuleSuccessfulInvocationRateAlarmConfig): EventBridgeRuleSuccessfulInvocationRateAlarm
+```
+
+Creates the SuccessfulInvocationRate alarm.
+
+###### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmSuccessfulInvocationRate.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig">EventBridgeRuleSuccessfulInvocationRateAlarmConfig</a>
+
+---
+
+##### `alarmThrottledRules` <a name="alarmThrottledRules" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmThrottledRules"></a>
+
+```typescript
+public alarmThrottledRules(props?: EventBridgeRuleThrottledRulesAlarmConfig): EventBridgeRuleThrottledRulesAlarm
+```
+
+Creates the ThrottledRules alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmThrottledRules.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig">EventBridgeRuleThrottledRulesAlarmConfig</a>
+
+---
+
+##### `alarmTriggeredRulesAnomaly` <a name="alarmTriggeredRulesAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmTriggeredRulesAnomaly"></a>
+
+```typescript
+public alarmTriggeredRulesAnomaly(props?: EventBridgeRuleTriggeredRulesAnomalyAlarmConfig): EventBridgeRuleTriggeredRulesAnomalyAlarm
+```
+
+Creates the TriggeredRulesAnomaly alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.alarmTriggeredRulesAnomaly.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig">EventBridgeRuleTriggeredRulesAnomalyAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props?: EventBridgeRuleRecommendedAlarmsConfig): EventBridgeRuleRecommendedAlarms
+```
+
+Applies the configured alarm bundle to this resource.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig">EventBridgeRuleRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.fromEventRuleArn">fromEventRuleArn</a></code> | Import an existing EventBridge Rule provided an ARN. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isConstruct"></a>
+
+```typescript
+import { Rule } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Rule.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isOwnedResource"></a>
+
+```typescript
+import { Rule } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Rule.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isResource"></a>
+
+```typescript
+import { Rule } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Rule.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromEventRuleArn` <a name="fromEventRuleArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.fromEventRuleArn"></a>
+
+```typescript
+import { Rule } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+Rule.fromEventRuleArn(scope: Construct, id: string, eventRuleArn: string)
+```
+
+Import an existing EventBridge Rule provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.fromEventRuleArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.fromEventRuleArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `eventRuleArn`<sup>Required</sup> <a name="eventRuleArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.fromEventRuleArn.parameter.eventRuleArn"></a>
+
+- *Type:* string
+
+Event Rule ARN (i.e. arn:aws:events:<region>:<account-id>:rule/MyScheduledRule).
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.ruleArn">ruleArn</a></code> | <code>string</code> | The value of the event rule Amazon Resource Name (ARN), such as arn:aws:events:us-east-2:123456789012:rule/example. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.ruleName">ruleName</a></code> | <code>string</code> | The name event rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.ruleRef">ruleRef</a></code> | <code>aws-cdk-lib.interfaces.aws_events.RuleReference</code> | A reference to a Rule resource. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `ruleArn`<sup>Required</sup> <a name="ruleArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.ruleArn"></a>
+
+```typescript
+public readonly ruleArn: string;
+```
+
+- *Type:* string
+
+The value of the event rule Amazon Resource Name (ARN), such as arn:aws:events:us-east-2:123456789012:rule/example.
+
+---
+
+##### `ruleName`<sup>Required</sup> <a name="ruleName" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.ruleName"></a>
+
+```typescript
+public readonly ruleName: string;
+```
+
+- *Type:* string
+
+The name event rule.
+
+---
+
+##### `ruleRef`<sup>Required</sup> <a name="ruleRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.ruleRef"></a>
+
+```typescript
+public readonly ruleRef: RuleReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_events.RuleReference
+
+A reference to a Rule resource.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.Rule.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
 ### S3Bucket4xxErrorsAlarm <a name="S3Bucket4xxErrorsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm"></a>
 
 An alarm that monitors the 4xx errors for an S3 bucket.
@@ -61567,6 +65943,3527 @@ The 5xx errors alarm.
 
 ---
 
+
+### ScheduleGroup <a name="ScheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup"></a>
+
+An opt-in ScheduleGroup extension with alarm convenience methods.
+
+Creating the resource alone does not create any alarms.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.Initializer"></a>
+
+```typescript
+import { ScheduleGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new ScheduleGroup(scope: Construct, id: string, props?: ScheduleGroupProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.aws_scheduler.ScheduleGroupProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_scheduler.ScheduleGroupProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grant">grant</a></code> | Grant the indicated permissions on this schedule group to the given principal [disable-awslint:no-grants]. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantDeleteSchedules">grantDeleteSchedules</a></code> | Grant delete schedule permission for schedules in this group to the given principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantReadSchedules">grantReadSchedules</a></code> | Grant list and get schedule permissions for schedules in this group to the given principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantWriteSchedules">grantWriteSchedules</a></code> | Grant create and update schedule permissions for schedules in this group to the given principal. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metric">metric</a></code> | Return the given named metric for this schedule group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricAttempts">metricAttempts</a></code> | Metric for all invocation attempts. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricDropped">metricDropped</a></code> | Metric for dropped invocations when EventBridge Scheduler stops attempting to invoke the target after a schedule's retry policy has been exhausted. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricFailedToBeSentToDLQ">metricFailedToBeSentToDLQ</a></code> | Metric for failed invocations that also failed to deliver to DLQ. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricSentToDLQ">metricSentToDLQ</a></code> | Metric for invocations delivered to the DLQ. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricSentToDLQTruncated">metricSentToDLQTruncated</a></code> | Metric for delivery of failed invocations to DLQ when the payload of the event sent to the DLQ exceeds the maximum size allowed by Amazon SQS. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricTargetErrors">metricTargetErrors</a></code> | Emitted when the target returns an exception after EventBridge Scheduler calls the target API. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricTargetThrottled">metricTargetThrottled</a></code> | Metric for invocation failures due to API throttling by the target. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricThrottled">metricThrottled</a></code> | Metric for the number of invocations that were throttled because it exceeds your service quotas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationAttemptCountAnomaly">alarmInvocationAttemptCountAnomaly</a></code> | Creates the InvocationAttemptCountAnomaly alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationDroppedCount">alarmInvocationDroppedCount</a></code> | Creates the InvocationDroppedCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationsFailedToBeSentToDeadLetterCount">alarmInvocationsFailedToBeSentToDeadLetterCount</a></code> | Creates the InvocationsFailedToBeSentToDeadLetterCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationThrottleCount">alarmInvocationThrottleCount</a></code> | Creates the InvocationThrottleCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmTargetErrorThrottledCount">alarmTargetErrorThrottledCount</a></code> | Creates the TargetErrorThrottledCount alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyRecommendedAlarms">applyRecommendedAlarms</a></code> | Applies the configured alarm bundle to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `grant` <a name="grant" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grant"></a>
+
+```typescript
+public grant(grantee: IGrantable, actions: ...string[]): Grant
+```
+
+Grant the indicated permissions on this schedule group to the given principal [disable-awslint:no-grants].
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grant.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grant.parameter.actions"></a>
+
+- *Type:* ...string[]
+
+---
+
+##### `grantDeleteSchedules` <a name="grantDeleteSchedules" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantDeleteSchedules"></a>
+
+```typescript
+public grantDeleteSchedules(identity: IGrantable): Grant
+```
+
+Grant delete schedule permission for schedules in this group to the given principal.
+
+The use of this method is discouraged. Please use `grants.deleteSchedules()` instead.
+
+[disable-awslint:no-grants]
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantDeleteSchedules.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantReadSchedules` <a name="grantReadSchedules" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantReadSchedules"></a>
+
+```typescript
+public grantReadSchedules(identity: IGrantable): Grant
+```
+
+Grant list and get schedule permissions for schedules in this group to the given principal.
+
+The use of this method is discouraged. Please use `grants.readSchedules()` instead.
+
+[disable-awslint:no-grants]
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantReadSchedules.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `grantWriteSchedules` <a name="grantWriteSchedules" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantWriteSchedules"></a>
+
+```typescript
+public grantWriteSchedules(identity: IGrantable): Grant
+```
+
+Grant create and update schedule permissions for schedules in this group to the given principal.
+
+The use of this method is discouraged. Please use `grants.writeSchedules()` instead.
+
+[disable-awslint:no-grants]
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.grantWriteSchedules.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+##### `metric` <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this schedule group.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricAttempts` <a name="metricAttempts" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricAttempts"></a>
+
+```typescript
+public metricAttempts(props?: MetricOptions): Metric
+```
+
+Metric for all invocation attempts.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricAttempts.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricDropped` <a name="metricDropped" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricDropped"></a>
+
+```typescript
+public metricDropped(props?: MetricOptions): Metric
+```
+
+Metric for dropped invocations when EventBridge Scheduler stops attempting to invoke the target after a schedule's retry policy has been exhausted.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricDropped.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricFailedToBeSentToDLQ` <a name="metricFailedToBeSentToDLQ" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricFailedToBeSentToDLQ"></a>
+
+```typescript
+public metricFailedToBeSentToDLQ(errorCode?: string, props?: MetricOptions): Metric
+```
+
+Metric for failed invocations that also failed to deliver to DLQ.
+
+###### `errorCode`<sup>Optional</sup> <a name="errorCode" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricFailedToBeSentToDLQ.parameter.errorCode"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricFailedToBeSentToDLQ.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricSentToDLQ` <a name="metricSentToDLQ" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricSentToDLQ"></a>
+
+```typescript
+public metricSentToDLQ(props?: MetricOptions): Metric
+```
+
+Metric for invocations delivered to the DLQ.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricSentToDLQ.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricSentToDLQTruncated` <a name="metricSentToDLQTruncated" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricSentToDLQTruncated"></a>
+
+```typescript
+public metricSentToDLQTruncated(props?: MetricOptions): Metric
+```
+
+Metric for delivery of failed invocations to DLQ when the payload of the event sent to the DLQ exceeds the maximum size allowed by Amazon SQS.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricSentToDLQTruncated.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTargetErrors` <a name="metricTargetErrors" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricTargetErrors"></a>
+
+```typescript
+public metricTargetErrors(props?: MetricOptions): Metric
+```
+
+Emitted when the target returns an exception after EventBridge Scheduler calls the target API.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricTargetErrors.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTargetThrottled` <a name="metricTargetThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricTargetThrottled"></a>
+
+```typescript
+public metricTargetThrottled(props?: MetricOptions): Metric
+```
+
+Metric for invocation failures due to API throttling by the target.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricTargetThrottled.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricThrottled` <a name="metricThrottled" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricThrottled"></a>
+
+```typescript
+public metricThrottled(props?: MetricOptions): Metric
+```
+
+Metric for the number of invocations that were throttled because it exceeds your service quotas.
+
+> [https://docs.aws.amazon.com/scheduler/latest/UserGuide/scheduler-quotas.html](https://docs.aws.amazon.com/scheduler/latest/UserGuide/scheduler-quotas.html)
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.metricThrottled.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `alarmInvocationAttemptCountAnomaly` <a name="alarmInvocationAttemptCountAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationAttemptCountAnomaly"></a>
+
+```typescript
+public alarmInvocationAttemptCountAnomaly(props?: SchedulerInvocationAttemptCountAnomalyAlarmConfig): SchedulerInvocationAttemptCountAnomalyAlarm
+```
+
+Creates the InvocationAttemptCountAnomaly alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationAttemptCountAnomaly.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig">SchedulerInvocationAttemptCountAnomalyAlarmConfig</a>
+
+---
+
+##### `alarmInvocationDroppedCount` <a name="alarmInvocationDroppedCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationDroppedCount"></a>
+
+```typescript
+public alarmInvocationDroppedCount(props?: SchedulerInvocationDroppedCountAlarmConfig): SchedulerInvocationDroppedCountAlarm
+```
+
+Creates the InvocationDroppedCount alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationDroppedCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig">SchedulerInvocationDroppedCountAlarmConfig</a>
+
+---
+
+##### `alarmInvocationsFailedToBeSentToDeadLetterCount` <a name="alarmInvocationsFailedToBeSentToDeadLetterCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationsFailedToBeSentToDeadLetterCount"></a>
+
+```typescript
+public alarmInvocationsFailedToBeSentToDeadLetterCount(props?: SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig): SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm
+```
+
+Creates the InvocationsFailedToBeSentToDeadLetterCount alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationsFailedToBeSentToDeadLetterCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig</a>
+
+---
+
+##### `alarmInvocationThrottleCount` <a name="alarmInvocationThrottleCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationThrottleCount"></a>
+
+```typescript
+public alarmInvocationThrottleCount(props?: SchedulerInvocationThrottleCountAlarmConfig): SchedulerInvocationThrottleCountAlarm
+```
+
+Creates the InvocationThrottleCount alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmInvocationThrottleCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig">SchedulerInvocationThrottleCountAlarmConfig</a>
+
+---
+
+##### `alarmTargetErrorThrottledCount` <a name="alarmTargetErrorThrottledCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmTargetErrorThrottledCount"></a>
+
+```typescript
+public alarmTargetErrorThrottledCount(props?: SchedulerTargetErrorThrottledCountAlarmConfig): SchedulerTargetErrorThrottledCountAlarm
+```
+
+Creates the TargetErrorThrottledCount alarm.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.alarmTargetErrorThrottledCount.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig">SchedulerTargetErrorThrottledCountAlarmConfig</a>
+
+---
+
+##### `applyRecommendedAlarms` <a name="applyRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyRecommendedAlarms"></a>
+
+```typescript
+public applyRecommendedAlarms(props?: SchedulerRecommendedAlarmsConfig): SchedulerRecommendedAlarms
+```
+
+Applies the configured alarm bundle to this resource.
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.applyRecommendedAlarms.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig">SchedulerRecommendedAlarmsConfig</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromDefaultScheduleGroup">fromDefaultScheduleGroup</a></code> | Import a default schedule group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupArn">fromScheduleGroupArn</a></code> | Import an external schedule group by ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupName">fromScheduleGroupName</a></code> | Import an existing schedule group with a given name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isConstruct"></a>
+
+```typescript
+import { ScheduleGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ScheduleGroup.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isOwnedResource"></a>
+
+```typescript
+import { ScheduleGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ScheduleGroup.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isResource"></a>
+
+```typescript
+import { ScheduleGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ScheduleGroup.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromDefaultScheduleGroup` <a name="fromDefaultScheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromDefaultScheduleGroup"></a>
+
+```typescript
+import { ScheduleGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ScheduleGroup.fromDefaultScheduleGroup(scope: Construct, id: string)
+```
+
+Import a default schedule group.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromDefaultScheduleGroup.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+construct scope.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromDefaultScheduleGroup.parameter.id"></a>
+
+- *Type:* string
+
+construct id.
+
+---
+
+##### `fromScheduleGroupArn` <a name="fromScheduleGroupArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupArn"></a>
+
+```typescript
+import { ScheduleGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ScheduleGroup.fromScheduleGroupArn(scope: Construct, id: string, scheduleGroupArn: string)
+```
+
+Import an external schedule group by ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+construct scope.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupArn.parameter.id"></a>
+
+- *Type:* string
+
+construct id.
+
+---
+
+###### `scheduleGroupArn`<sup>Required</sup> <a name="scheduleGroupArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupArn.parameter.scheduleGroupArn"></a>
+
+- *Type:* string
+
+the ARN of the schedule group to import (e.g. `arn:aws:scheduler:region:account-id:schedule-group/group-name`).
+
+---
+
+##### `fromScheduleGroupName` <a name="fromScheduleGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupName"></a>
+
+```typescript
+import { ScheduleGroup } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+ScheduleGroup.fromScheduleGroupName(scope: Construct, id: string, scheduleGroupName: string)
+```
+
+Import an existing schedule group with a given name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+construct scope.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupName.parameter.id"></a>
+
+- *Type:* string
+
+construct id.
+
+---
+
+###### `scheduleGroupName`<sup>Required</sup> <a name="scheduleGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.fromScheduleGroupName.parameter.scheduleGroupName"></a>
+
+- *Type:* string
+
+the name of the existing schedule group to import.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_scheduler.ScheduleGroupGrants</code> | Collection of grant methods for a ScheduleGroup. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.scheduleGroupArn">scheduleGroupArn</a></code> | <code>string</code> | The arn of the schedule group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.scheduleGroupName">scheduleGroupName</a></code> | <code>string</code> | The name of the schedule group. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.scheduleGroupRef">scheduleGroupRef</a></code> | <code>aws-cdk-lib.interfaces.aws_scheduler.ScheduleGroupReference</code> | A reference to a ScheduleGroup resource. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `grants`<sup>Required</sup> <a name="grants" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.grants"></a>
+
+```typescript
+public readonly grants: ScheduleGroupGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_scheduler.ScheduleGroupGrants
+
+Collection of grant methods for a ScheduleGroup.
+
+---
+
+##### `scheduleGroupArn`<sup>Required</sup> <a name="scheduleGroupArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.scheduleGroupArn"></a>
+
+```typescript
+public readonly scheduleGroupArn: string;
+```
+
+- *Type:* string
+
+The arn of the schedule group.
+
+---
+
+##### `scheduleGroupName`<sup>Required</sup> <a name="scheduleGroupName" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.scheduleGroupName"></a>
+
+```typescript
+public readonly scheduleGroupName: string;
+```
+
+- *Type:* string
+
+The name of the schedule group.
+
+---
+
+##### `scheduleGroupRef`<sup>Required</sup> <a name="scheduleGroupRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.scheduleGroupRef"></a>
+
+```typescript
+public readonly scheduleGroupRef: ScheduleGroupReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_scheduler.ScheduleGroupReference
+
+A reference to a ScheduleGroup resource.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.ScheduleGroup.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### SchedulerInvocationAttemptCountAnomalyAlarm <a name="SchedulerInvocationAttemptCountAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm"></a>
+
+Schedule invocation-attempt volume anomaly detection.
+
+Uses a five-minute Sum metric and the historical invocation-attempt volume.
+Use only for workloads with enough regular observations to train a useful band.
+A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
+Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationAttemptCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SchedulerInvocationAttemptCountAnomalyAlarm(scope: Construct, id: string, props: SchedulerInvocationAttemptCountAnomalyAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps">SchedulerInvocationAttemptCountAnomalyAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps">SchedulerInvocationAttemptCountAnomalyAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isConstruct"></a>
+
+```typescript
+import { SchedulerInvocationAttemptCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationAttemptCountAnomalyAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isOwnedResource"></a>
+
+```typescript
+import { SchedulerInvocationAttemptCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationAttemptCountAnomalyAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isResource"></a>
+
+```typescript
+import { SchedulerInvocationAttemptCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationAttemptCountAnomalyAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SchedulerInvocationAttemptCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmName"></a>
+
+```typescript
+import { SchedulerInvocationAttemptCountAnomalyAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### SchedulerInvocationDroppedCountAlarm <a name="SchedulerInvocationDroppedCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm"></a>
+
+Invocations abandoned after the schedule retry policy is exhausted.
+
+Follows the AWS recommended Scheduler alarm evaluation window.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationDroppedCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SchedulerInvocationDroppedCountAlarm(scope: Construct, id: string, props: SchedulerInvocationDroppedCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps">SchedulerInvocationDroppedCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps">SchedulerInvocationDroppedCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isConstruct"></a>
+
+```typescript
+import { SchedulerInvocationDroppedCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationDroppedCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { SchedulerInvocationDroppedCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationDroppedCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isResource"></a>
+
+```typescript
+import { SchedulerInvocationDroppedCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationDroppedCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SchedulerInvocationDroppedCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationDroppedCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { SchedulerInvocationDroppedCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationDroppedCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm <a name="SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm"></a>
+
+Failed attempts to send an exhausted invocation to its dead-letter queue.
+
+Follows the AWS recommended Scheduler alarm evaluation window.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm(scope: Construct, id: string, props: SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isConstruct"></a>
+
+```typescript
+import { SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isResource"></a>
+
+```typescript
+import { SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### SchedulerInvocationThrottleCountAlarm <a name="SchedulerInvocationThrottleCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm"></a>
+
+Invocations throttled by EventBridge Scheduler service quotas.
+
+Follows the AWS recommended Scheduler alarm evaluation window.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationThrottleCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SchedulerInvocationThrottleCountAlarm(scope: Construct, id: string, props: SchedulerInvocationThrottleCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps">SchedulerInvocationThrottleCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps">SchedulerInvocationThrottleCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isConstruct"></a>
+
+```typescript
+import { SchedulerInvocationThrottleCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationThrottleCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { SchedulerInvocationThrottleCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationThrottleCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isResource"></a>
+
+```typescript
+import { SchedulerInvocationThrottleCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationThrottleCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SchedulerInvocationThrottleCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationThrottleCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { SchedulerInvocationThrottleCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerInvocationThrottleCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### SchedulerRecommendedAlarms <a name="SchedulerRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms"></a>
+
+Creates the configured alarms for a schedule group.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { SchedulerRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SchedulerRecommendedAlarms(scope: Construct, id: string, props: SchedulerRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps">SchedulerRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps">SchedulerRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { SchedulerRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmInvocationAttemptCountAnomaly">alarmInvocationAttemptCountAnomaly</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm">SchedulerInvocationAttemptCountAnomalyAlarm</a></code> | The InvocationAttemptCountAnomaly alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmInvocationDroppedCount">alarmInvocationDroppedCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm">SchedulerInvocationDroppedCountAlarm</a></code> | The InvocationDroppedCount alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmInvocationsFailedToBeSentToDeadLetterCount">alarmInvocationsFailedToBeSentToDeadLetterCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm</a></code> | The InvocationsFailedToBeSentToDeadLetterCount alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmInvocationThrottleCount">alarmInvocationThrottleCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm">SchedulerInvocationThrottleCountAlarm</a></code> | The InvocationThrottleCount alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmTargetErrorThrottledCount">alarmTargetErrorThrottledCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm">SchedulerTargetErrorThrottledCountAlarm</a></code> | The TargetErrorThrottledCount alarm, if enabled. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmInvocationAttemptCountAnomaly`<sup>Optional</sup> <a name="alarmInvocationAttemptCountAnomaly" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmInvocationAttemptCountAnomaly"></a>
+
+```typescript
+public readonly alarmInvocationAttemptCountAnomaly: SchedulerInvocationAttemptCountAnomalyAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm">SchedulerInvocationAttemptCountAnomalyAlarm</a>
+
+The InvocationAttemptCountAnomaly alarm, if enabled.
+
+---
+
+##### `alarmInvocationDroppedCount`<sup>Optional</sup> <a name="alarmInvocationDroppedCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmInvocationDroppedCount"></a>
+
+```typescript
+public readonly alarmInvocationDroppedCount: SchedulerInvocationDroppedCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarm">SchedulerInvocationDroppedCountAlarm</a>
+
+The InvocationDroppedCount alarm, if enabled.
+
+---
+
+##### `alarmInvocationsFailedToBeSentToDeadLetterCount`<sup>Optional</sup> <a name="alarmInvocationsFailedToBeSentToDeadLetterCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmInvocationsFailedToBeSentToDeadLetterCount"></a>
+
+```typescript
+public readonly alarmInvocationsFailedToBeSentToDeadLetterCount: SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm</a>
+
+The InvocationsFailedToBeSentToDeadLetterCount alarm, if enabled.
+
+---
+
+##### `alarmInvocationThrottleCount`<sup>Optional</sup> <a name="alarmInvocationThrottleCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmInvocationThrottleCount"></a>
+
+```typescript
+public readonly alarmInvocationThrottleCount: SchedulerInvocationThrottleCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarm">SchedulerInvocationThrottleCountAlarm</a>
+
+The InvocationThrottleCount alarm, if enabled.
+
+---
+
+##### `alarmTargetErrorThrottledCount`<sup>Optional</sup> <a name="alarmTargetErrorThrottledCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarms.property.alarmTargetErrorThrottledCount"></a>
+
+```typescript
+public readonly alarmTargetErrorThrottledCount: SchedulerTargetErrorThrottledCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm">SchedulerTargetErrorThrottledCountAlarm</a>
+
+The TargetErrorThrottledCount alarm, if enabled.
+
+---
+
+
+### SchedulerTargetErrorThrottledCountAlarm <a name="SchedulerTargetErrorThrottledCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm"></a>
+
+Target invocations rejected because the target API is throttling.
+
+Follows the AWS recommended Scheduler alarm evaluation window.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.Initializer"></a>
+
+```typescript
+import { SchedulerTargetErrorThrottledCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SchedulerTargetErrorThrottledCountAlarm(scope: Construct, id: string, props: SchedulerTargetErrorThrottledCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps">SchedulerTargetErrorThrottledCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps">SchedulerTargetErrorThrottledCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isConstruct"></a>
+
+```typescript
+import { SchedulerTargetErrorThrottledCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerTargetErrorThrottledCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { SchedulerTargetErrorThrottledCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerTargetErrorThrottledCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isResource"></a>
+
+```typescript
+import { SchedulerTargetErrorThrottledCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerTargetErrorThrottledCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { SchedulerTargetErrorThrottledCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerTargetErrorThrottledCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { SchedulerTargetErrorThrottledCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+SchedulerTargetErrorThrottledCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
 
 ### SfStateMachineExecutionsFailedAlarm <a name="SfStateMachineExecutionsFailedAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm"></a>
 
@@ -97401,6 +105298,3237 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
+### EventBridgeAlarmBaseConfig <a name="EventBridgeAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig"></a>
+
+Configuration for EventBridgeAlarmBase.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeAlarmBaseConfig: EventBridgeAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+### EventBridgeAnomalyAlarmBaseConfig <a name="EventBridgeAnomalyAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig"></a>
+
+Configuration for EventBridgeAnomalyAlarmBase.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeAnomalyAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeAnomalyAlarmBaseConfig: EventBridgeAnomalyAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The anomaly-band comparison operator. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of five-minute periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly band in standard deviations. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the anomaly and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name and Anomaly.
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* Upper band for latency; both bands for traffic.
+
+The anomaly-band comparison operator.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* One fewer than evaluationPeriods, with a minimum of one.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific evaluation window.
+
+The number of five-minute periods evaluated.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeAnomalyAlarmBaseConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly band in standard deviations.
+
+---
+
+### EventBridgeRuleAlarmProps <a name="EventBridgeRuleAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps"></a>
+
+The resource monitored by the EventBridge alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleAlarmProps: EventBridgeRuleAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+### EventBridgeRuleFailedInvocationsAlarmConfig <a name="EventBridgeRuleFailedInvocationsAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig"></a>
+
+Configuration for EventBridgeRuleFailedInvocationsAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleFailedInvocationsAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleFailedInvocationsAlarmConfig: EventBridgeRuleFailedInvocationsAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### EventBridgeRuleFailedInvocationsAlarmProps <a name="EventBridgeRuleFailedInvocationsAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps"></a>
+
+Properties for EventBridgeRuleFailedInvocationsAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleFailedInvocationsAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleFailedInvocationsAlarmProps: EventBridgeRuleFailedInvocationsAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig <a name="EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig"></a>
+
+Configuration for EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig: EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Maximum acceptable successful-delivery latency, in milliseconds. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Maximum acceptable successful-delivery latency, in milliseconds.
+
+Choose this from the application delivery-latency requirement.
+
+---
+
+### EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps <a name="EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps"></a>
+
+Properties for EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps: EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Maximum acceptable successful-delivery latency, in milliseconds. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Maximum acceptable successful-delivery latency, in milliseconds.
+
+Choose this from the application delivery-latency requirement.
+
+---
+
+### EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig <a name="EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig"></a>
+
+Configuration for EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The anomaly-band comparison operator. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of five-minute periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly band in standard deviations. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the anomaly and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name and Anomaly.
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* Upper band for latency; both bands for traffic.
+
+The anomaly-band comparison operator.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* One fewer than evaluationPeriods, with a minimum of one.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific evaluation window.
+
+The number of five-minute periods evaluated.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly band in standard deviations.
+
+---
+
+### EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps <a name="EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps"></a>
+
+Properties for EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The anomaly-band comparison operator. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of five-minute periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly band in standard deviations. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the anomaly and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name and Anomaly.
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* Upper band for latency; both bands for traffic.
+
+The anomaly-band comparison operator.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* One fewer than evaluationPeriods, with a minimum of one.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific evaluation window.
+
+The number of five-minute periods evaluated.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly band in standard deviations.
+
+---
+
+### EventBridgeRuleInvocationsSentToDlqAlarmConfig <a name="EventBridgeRuleInvocationsSentToDlqAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig"></a>
+
+Configuration for EventBridgeRuleInvocationsSentToDlqAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleInvocationsSentToDlqAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleInvocationsSentToDlqAlarmConfig: EventBridgeRuleInvocationsSentToDlqAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### EventBridgeRuleInvocationsSentToDlqAlarmProps <a name="EventBridgeRuleInvocationsSentToDlqAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps"></a>
+
+Properties for EventBridgeRuleInvocationsSentToDlqAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleInvocationsSentToDlqAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleInvocationsSentToDlqAlarmProps: EventBridgeRuleInvocationsSentToDlqAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### EventBridgeRuleRecommendedAlarmsConfig <a name="EventBridgeRuleRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig"></a>
+
+Configuration for EventBridgeRule recommended alarms.
+
+Individual alarm actions and missing-data settings override the bundle defaults.
+Anomaly alarms and fixed latency/success-rate alarms are opt-in through their configuration properties.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleRecommendedAlarmsConfig: EventBridgeRuleRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configFailedInvocationsAlarm">configFailedInvocationsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig">EventBridgeRuleFailedInvocationsAlarmConfig</a></code> | Configuration for FailedInvocations. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configIngestionToInvocationSuccessLatencyAlarm">configIngestionToInvocationSuccessLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig</a></code> | Configuration for IngestionToInvocationSuccessLatency. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configIngestionToInvocationSuccessLatencyAnomalyAlarm">configIngestionToInvocationSuccessLatencyAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig</a></code> | Configuration for IngestionToInvocationSuccessLatencyAnomaly. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configInvocationsSentToDlqAlarm">configInvocationsSentToDlqAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig">EventBridgeRuleInvocationsSentToDlqAlarmConfig</a></code> | Configuration for InvocationsSentToDlq. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configSuccessfulInvocationRateAlarm">configSuccessfulInvocationRateAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig">EventBridgeRuleSuccessfulInvocationRateAlarmConfig</a></code> | Configuration for SuccessfulInvocationRate. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configThrottledRulesAlarm">configThrottledRulesAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig">EventBridgeRuleThrottledRulesAlarmConfig</a></code> | Configuration for ThrottledRules. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configTriggeredRulesAnomalyAlarm">configTriggeredRulesAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig">EventBridgeRuleTriggeredRulesAnomalyAlarmConfig</a></code> | Configuration for TriggeredRulesAnomaly. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default Alarm action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default InsufficientData action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default Ok action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics">EventBridgeRecommendedAlarmsMetrics</a>[]</code> | Metrics to exclude. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | Resource construct IDs excluded by the Aspect. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Default missing-data behavior, overridden by individual configurations. |
+
+---
+
+##### `configFailedInvocationsAlarm`<sup>Optional</sup> <a name="configFailedInvocationsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configFailedInvocationsAlarm"></a>
+
+```typescript
+public readonly configFailedInvocationsAlarm: EventBridgeRuleFailedInvocationsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig">EventBridgeRuleFailedInvocationsAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for FailedInvocations.
+
+---
+
+##### `configIngestionToInvocationSuccessLatencyAlarm`<sup>Optional</sup> <a name="configIngestionToInvocationSuccessLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configIngestionToInvocationSuccessLatencyAlarm"></a>
+
+```typescript
+public readonly configIngestionToInvocationSuccessLatencyAlarm: EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for IngestionToInvocationSuccessLatency.
+
+---
+
+##### `configIngestionToInvocationSuccessLatencyAnomalyAlarm`<sup>Optional</sup> <a name="configIngestionToInvocationSuccessLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configIngestionToInvocationSuccessLatencyAnomalyAlarm"></a>
+
+```typescript
+public readonly configIngestionToInvocationSuccessLatencyAnomalyAlarm: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for IngestionToInvocationSuccessLatencyAnomaly.
+
+---
+
+##### `configInvocationsSentToDlqAlarm`<sup>Optional</sup> <a name="configInvocationsSentToDlqAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configInvocationsSentToDlqAlarm"></a>
+
+```typescript
+public readonly configInvocationsSentToDlqAlarm: EventBridgeRuleInvocationsSentToDlqAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig">EventBridgeRuleInvocationsSentToDlqAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for InvocationsSentToDlq.
+
+---
+
+##### `configSuccessfulInvocationRateAlarm`<sup>Optional</sup> <a name="configSuccessfulInvocationRateAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configSuccessfulInvocationRateAlarm"></a>
+
+```typescript
+public readonly configSuccessfulInvocationRateAlarm: EventBridgeRuleSuccessfulInvocationRateAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig">EventBridgeRuleSuccessfulInvocationRateAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for SuccessfulInvocationRate.
+
+---
+
+##### `configThrottledRulesAlarm`<sup>Optional</sup> <a name="configThrottledRulesAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configThrottledRulesAlarm"></a>
+
+```typescript
+public readonly configThrottledRulesAlarm: EventBridgeRuleThrottledRulesAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig">EventBridgeRuleThrottledRulesAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for ThrottledRules.
+
+---
+
+##### `configTriggeredRulesAnomalyAlarm`<sup>Optional</sup> <a name="configTriggeredRulesAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.configTriggeredRulesAnomalyAlarm"></a>
+
+```typescript
+public readonly configTriggeredRulesAnomalyAlarm: EventBridgeRuleTriggeredRulesAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig">EventBridgeRuleTriggeredRulesAnomalyAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for TriggeredRulesAnomaly.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default Alarm action.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default InsufficientData action.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default Ok action.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: EventBridgeRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics">EventBridgeRecommendedAlarmsMetrics</a>[]
+- *Default:* None.
+
+Metrics to exclude.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+- *Default:* None.
+
+Resource construct IDs excluded by the Aspect.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* Not breaching for failure counters; missing for latency and anomalies.
+
+Default missing-data behavior, overridden by individual configurations.
+
+---
+
+### EventBridgeRuleRecommendedAlarmsProps <a name="EventBridgeRuleRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps"></a>
+
+Properties for EventBridgeRuleRecommendedAlarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleRecommendedAlarmsProps: EventBridgeRuleRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configFailedInvocationsAlarm">configFailedInvocationsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig">EventBridgeRuleFailedInvocationsAlarmConfig</a></code> | Configuration for FailedInvocations. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configIngestionToInvocationSuccessLatencyAlarm">configIngestionToInvocationSuccessLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig</a></code> | Configuration for IngestionToInvocationSuccessLatency. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configIngestionToInvocationSuccessLatencyAnomalyAlarm">configIngestionToInvocationSuccessLatencyAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig</a></code> | Configuration for IngestionToInvocationSuccessLatencyAnomaly. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configInvocationsSentToDlqAlarm">configInvocationsSentToDlqAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig">EventBridgeRuleInvocationsSentToDlqAlarmConfig</a></code> | Configuration for InvocationsSentToDlq. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configSuccessfulInvocationRateAlarm">configSuccessfulInvocationRateAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig">EventBridgeRuleSuccessfulInvocationRateAlarmConfig</a></code> | Configuration for SuccessfulInvocationRate. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configThrottledRulesAlarm">configThrottledRulesAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig">EventBridgeRuleThrottledRulesAlarmConfig</a></code> | Configuration for ThrottledRules. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configTriggeredRulesAnomalyAlarm">configTriggeredRulesAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig">EventBridgeRuleTriggeredRulesAnomalyAlarmConfig</a></code> | Configuration for TriggeredRulesAnomaly. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default Alarm action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default InsufficientData action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default Ok action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics">EventBridgeRecommendedAlarmsMetrics</a>[]</code> | Metrics to exclude. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | Resource construct IDs excluded by the Aspect. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Default missing-data behavior, overridden by individual configurations. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+##### `configFailedInvocationsAlarm`<sup>Optional</sup> <a name="configFailedInvocationsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configFailedInvocationsAlarm"></a>
+
+```typescript
+public readonly configFailedInvocationsAlarm: EventBridgeRuleFailedInvocationsAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig">EventBridgeRuleFailedInvocationsAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for FailedInvocations.
+
+---
+
+##### `configIngestionToInvocationSuccessLatencyAlarm`<sup>Optional</sup> <a name="configIngestionToInvocationSuccessLatencyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configIngestionToInvocationSuccessLatencyAlarm"></a>
+
+```typescript
+public readonly configIngestionToInvocationSuccessLatencyAlarm: EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for IngestionToInvocationSuccessLatency.
+
+---
+
+##### `configIngestionToInvocationSuccessLatencyAnomalyAlarm`<sup>Optional</sup> <a name="configIngestionToInvocationSuccessLatencyAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configIngestionToInvocationSuccessLatencyAnomalyAlarm"></a>
+
+```typescript
+public readonly configIngestionToInvocationSuccessLatencyAnomalyAlarm: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for IngestionToInvocationSuccessLatencyAnomaly.
+
+---
+
+##### `configInvocationsSentToDlqAlarm`<sup>Optional</sup> <a name="configInvocationsSentToDlqAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configInvocationsSentToDlqAlarm"></a>
+
+```typescript
+public readonly configInvocationsSentToDlqAlarm: EventBridgeRuleInvocationsSentToDlqAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig">EventBridgeRuleInvocationsSentToDlqAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for InvocationsSentToDlq.
+
+---
+
+##### `configSuccessfulInvocationRateAlarm`<sup>Optional</sup> <a name="configSuccessfulInvocationRateAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configSuccessfulInvocationRateAlarm"></a>
+
+```typescript
+public readonly configSuccessfulInvocationRateAlarm: EventBridgeRuleSuccessfulInvocationRateAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig">EventBridgeRuleSuccessfulInvocationRateAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for SuccessfulInvocationRate.
+
+---
+
+##### `configThrottledRulesAlarm`<sup>Optional</sup> <a name="configThrottledRulesAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configThrottledRulesAlarm"></a>
+
+```typescript
+public readonly configThrottledRulesAlarm: EventBridgeRuleThrottledRulesAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig">EventBridgeRuleThrottledRulesAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for ThrottledRules.
+
+---
+
+##### `configTriggeredRulesAnomalyAlarm`<sup>Optional</sup> <a name="configTriggeredRulesAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configTriggeredRulesAnomalyAlarm"></a>
+
+```typescript
+public readonly configTriggeredRulesAnomalyAlarm: EventBridgeRuleTriggeredRulesAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig">EventBridgeRuleTriggeredRulesAnomalyAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for TriggeredRulesAnomaly.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default Alarm action.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default InsufficientData action.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default Ok action.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: EventBridgeRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics">EventBridgeRecommendedAlarmsMetrics</a>[]
+- *Default:* None.
+
+Metrics to exclude.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+- *Default:* None.
+
+Resource construct IDs excluded by the Aspect.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* Not breaching for failure counters; missing for latency and anomalies.
+
+Default missing-data behavior, overridden by individual configurations.
+
+---
+
+### EventBridgeRuleSuccessfulInvocationRateAlarmConfig <a name="EventBridgeRuleSuccessfulInvocationRateAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig"></a>
+
+Configuration for EventBridgeRuleSuccessfulInvocationRateAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleSuccessfulInvocationRateAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleSuccessfulInvocationRateAlarmConfig: EventBridgeRuleSuccessfulInvocationRateAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Minimum acceptable fraction of successful attempts, from zero to one. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Minimum acceptable fraction of successful attempts, from zero to one.
+
+Choose this from the application delivery-success requirement.
+
+---
+
+### EventBridgeRuleSuccessfulInvocationRateAlarmProps <a name="EventBridgeRuleSuccessfulInvocationRateAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps"></a>
+
+Properties for EventBridgeRuleSuccessfulInvocationRateAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleSuccessfulInvocationRateAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleSuccessfulInvocationRateAlarmProps: EventBridgeRuleSuccessfulInvocationRateAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Minimum acceptable fraction of successful attempts, from zero to one. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+Minimum acceptable fraction of successful attempts, from zero to one.
+
+Choose this from the application delivery-success requirement.
+
+---
+
+### EventBridgeRuleThrottledRulesAlarmConfig <a name="EventBridgeRuleThrottledRulesAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig"></a>
+
+Configuration for EventBridgeRuleThrottledRulesAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleThrottledRulesAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleThrottledRulesAlarmConfig: EventBridgeRuleThrottledRulesAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### EventBridgeRuleThrottledRulesAlarmProps <a name="EventBridgeRuleThrottledRulesAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps"></a>
+
+Properties for EventBridgeRuleThrottledRulesAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleThrottledRulesAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleThrottledRulesAlarmProps: EventBridgeRuleThrottledRulesAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### EventBridgeRuleTriggeredRulesAnomalyAlarmConfig <a name="EventBridgeRuleTriggeredRulesAnomalyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig"></a>
+
+Configuration for EventBridgeRuleTriggeredRulesAnomalyAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleTriggeredRulesAnomalyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleTriggeredRulesAnomalyAlarmConfig: EventBridgeRuleTriggeredRulesAnomalyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The anomaly-band comparison operator. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of five-minute periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly band in standard deviations. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the anomaly and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name and Anomaly.
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* Upper band for latency; both bands for traffic.
+
+The anomaly-band comparison operator.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* One fewer than evaluationPeriods, with a minimum of one.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific evaluation window.
+
+The number of five-minute periods evaluated.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly band in standard deviations.
+
+---
+
+### EventBridgeRuleTriggeredRulesAnomalyAlarmProps <a name="EventBridgeRuleTriggeredRulesAnomalyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps"></a>
+
+Properties for EventBridgeRuleTriggeredRulesAnomalyAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.Initializer"></a>
+
+```typescript
+import { EventBridgeRuleTriggeredRulesAnomalyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const eventBridgeRuleTriggeredRulesAnomalyAlarmProps: EventBridgeRuleTriggeredRulesAnomalyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The anomaly-band comparison operator. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of five-minute periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly band in standard deviations. |
+
+---
+
+##### `rule`<sup>Required</sup> <a name="rule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.rule"></a>
+
+```typescript
+public readonly rule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IRule
+
+The EventBridge rule to monitor.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+- *Default:* Inferred from owned rules or resolved rule ARN paths.
+
+The event bus when an imported rule ARN is unresolved.
+
+When supplied, this takes precedence over the inferred bus.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the anomaly and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Rule ARN path (including a custom-bus prefix) followed by the metric name and Anomaly.
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* Upper band for latency; both bands for traffic.
+
+The anomaly-band comparison operator.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* One fewer than evaluationPeriods, with a minimum of one.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific evaluation window.
+
+The number of five-minute periods evaluated.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly band in standard deviations.
+
+---
+
 ### LambdaAlarmBaseConfig <a name="LambdaAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAlarmBaseConfig"></a>
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaAlarmBaseConfig.Initializer"></a>
@@ -110892,6 +122020,2375 @@ The S3 bucket to apply the recommended alarms to.
 
 ---
 
+### SchedulerAlarmBaseConfig <a name="SchedulerAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig"></a>
+
+Configuration for SchedulerAlarmBase.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { SchedulerAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerAlarmBaseConfig: SchedulerAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+### SchedulerAlarmProps <a name="SchedulerAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmProps"></a>
+
+The resource monitored by the Scheduler alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmProps.Initializer"></a>
+
+```typescript
+import { SchedulerAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerAlarmProps: SchedulerAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmProps.property.scheduleGroup">scheduleGroup</a></code> | <code>aws-cdk-lib.aws_scheduler.IScheduleGroup</code> | The Scheduler schedule group to monitor. |
+
+---
+
+##### `scheduleGroup`<sup>Required</sup> <a name="scheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmProps.property.scheduleGroup"></a>
+
+```typescript
+public readonly scheduleGroup: IScheduleGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_scheduler.IScheduleGroup
+
+The Scheduler schedule group to monitor.
+
+---
+
+### SchedulerAnomalyAlarmBaseConfig <a name="SchedulerAnomalyAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig"></a>
+
+Configuration for SchedulerAnomalyAlarmBase.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { SchedulerAnomalyAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerAnomalyAlarmBaseConfig: SchedulerAnomalyAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The anomaly-band comparison operator. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of five-minute periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly band in standard deviations. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the anomaly and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name and Anomaly.
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* Both bands for invocation-attempt volume.
+
+The anomaly-band comparison operator.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* One fewer than evaluationPeriods, with a minimum of one.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific evaluation window.
+
+The number of five-minute periods evaluated.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAnomalyAlarmBaseConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly band in standard deviations.
+
+---
+
+### SchedulerInvocationAttemptCountAnomalyAlarmConfig <a name="SchedulerInvocationAttemptCountAnomalyAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig"></a>
+
+Configuration for SchedulerInvocationAttemptCountAnomalyAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationAttemptCountAnomalyAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerInvocationAttemptCountAnomalyAlarmConfig: SchedulerInvocationAttemptCountAnomalyAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The anomaly-band comparison operator. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of five-minute periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly band in standard deviations. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the anomaly and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name and Anomaly.
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* Both bands for invocation-attempt volume.
+
+The anomaly-band comparison operator.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* One fewer than evaluationPeriods, with a minimum of one.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific evaluation window.
+
+The number of five-minute periods evaluated.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly band in standard deviations.
+
+---
+
+### SchedulerInvocationAttemptCountAnomalyAlarmProps <a name="SchedulerInvocationAttemptCountAnomalyAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps"></a>
+
+Properties for SchedulerInvocationAttemptCountAnomalyAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationAttemptCountAnomalyAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerInvocationAttemptCountAnomalyAlarmProps: SchedulerInvocationAttemptCountAnomalyAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.scheduleGroup">scheduleGroup</a></code> | <code>aws-cdk-lib.aws_scheduler.IScheduleGroup</code> | The Scheduler schedule group to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.comparisonOperator">comparisonOperator</a></code> | <code>aws-cdk-lib.aws_cloudwatch.ComparisonOperator</code> | The anomaly-band comparison operator. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of five-minute periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.stdDevs">stdDevs</a></code> | <code>number</code> | The width of the anomaly band in standard deviations. |
+
+---
+
+##### `scheduleGroup`<sup>Required</sup> <a name="scheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.scheduleGroup"></a>
+
+```typescript
+public readonly scheduleGroup: IScheduleGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_scheduler.IScheduleGroup
+
+The Scheduler schedule group to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the anomaly and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name and Anomaly.
+
+The alarm name.
+
+---
+
+##### `comparisonOperator`<sup>Optional</sup> <a name="comparisonOperator" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.comparisonOperator"></a>
+
+```typescript
+public readonly comparisonOperator: ComparisonOperator;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.ComparisonOperator
+- *Default:* Both bands for invocation-attempt volume.
+
+The anomaly-band comparison operator.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* One fewer than evaluationPeriods, with a minimum of one.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific evaluation window.
+
+The number of five-minute periods evaluated.
+
+---
+
+##### `stdDevs`<sup>Optional</sup> <a name="stdDevs" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmProps.property.stdDevs"></a>
+
+```typescript
+public readonly stdDevs: number;
+```
+
+- *Type:* number
+- *Default:* 8
+
+The width of the anomaly band in standard deviations.
+
+---
+
+### SchedulerInvocationDroppedCountAlarmConfig <a name="SchedulerInvocationDroppedCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig"></a>
+
+Configuration for SchedulerInvocationDroppedCountAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationDroppedCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerInvocationDroppedCountAlarmConfig: SchedulerInvocationDroppedCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### SchedulerInvocationDroppedCountAlarmProps <a name="SchedulerInvocationDroppedCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps"></a>
+
+Properties for SchedulerInvocationDroppedCountAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationDroppedCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerInvocationDroppedCountAlarmProps: SchedulerInvocationDroppedCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.scheduleGroup">scheduleGroup</a></code> | <code>aws-cdk-lib.aws_scheduler.IScheduleGroup</code> | The Scheduler schedule group to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `scheduleGroup`<sup>Required</sup> <a name="scheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.scheduleGroup"></a>
+
+```typescript
+public readonly scheduleGroup: IScheduleGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_scheduler.IScheduleGroup
+
+The Scheduler schedule group to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig <a name="SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig"></a>
+
+Configuration for SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig: SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps <a name="SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps"></a>
+
+Properties for SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps: SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.scheduleGroup">scheduleGroup</a></code> | <code>aws-cdk-lib.aws_scheduler.IScheduleGroup</code> | The Scheduler schedule group to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `scheduleGroup`<sup>Required</sup> <a name="scheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.scheduleGroup"></a>
+
+```typescript
+public readonly scheduleGroup: IScheduleGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_scheduler.IScheduleGroup
+
+The Scheduler schedule group to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### SchedulerInvocationThrottleCountAlarmConfig <a name="SchedulerInvocationThrottleCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig"></a>
+
+Configuration for SchedulerInvocationThrottleCountAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationThrottleCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerInvocationThrottleCountAlarmConfig: SchedulerInvocationThrottleCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### SchedulerInvocationThrottleCountAlarmProps <a name="SchedulerInvocationThrottleCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps"></a>
+
+Properties for SchedulerInvocationThrottleCountAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.Initializer"></a>
+
+```typescript
+import { SchedulerInvocationThrottleCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerInvocationThrottleCountAlarmProps: SchedulerInvocationThrottleCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.scheduleGroup">scheduleGroup</a></code> | <code>aws-cdk-lib.aws_scheduler.IScheduleGroup</code> | The Scheduler schedule group to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `scheduleGroup`<sup>Required</sup> <a name="scheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.scheduleGroup"></a>
+
+```typescript
+public readonly scheduleGroup: IScheduleGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_scheduler.IScheduleGroup
+
+The Scheduler schedule group to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### SchedulerRecommendedAlarmsConfig <a name="SchedulerRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig"></a>
+
+Configuration for Scheduler recommended alarms.
+
+Individual alarm actions and missing-data settings override the bundle defaults.
+Anomaly alarms are opt-in through their configuration properties.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { SchedulerRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerRecommendedAlarmsConfig: SchedulerRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configInvocationAttemptCountAnomalyAlarm">configInvocationAttemptCountAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig">SchedulerInvocationAttemptCountAnomalyAlarmConfig</a></code> | Configuration for InvocationAttemptCountAnomaly. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configInvocationDroppedCountAlarm">configInvocationDroppedCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig">SchedulerInvocationDroppedCountAlarmConfig</a></code> | Configuration for InvocationDroppedCount. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configInvocationsFailedToBeSentToDeadLetterCountAlarm">configInvocationsFailedToBeSentToDeadLetterCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig</a></code> | Configuration for InvocationsFailedToBeSentToDeadLetterCount. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configInvocationThrottleCountAlarm">configInvocationThrottleCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig">SchedulerInvocationThrottleCountAlarmConfig</a></code> | Configuration for InvocationThrottleCount. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configTargetErrorThrottledCountAlarm">configTargetErrorThrottledCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig">SchedulerTargetErrorThrottledCountAlarmConfig</a></code> | Configuration for TargetErrorThrottledCount. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default Alarm action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default InsufficientData action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default Ok action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics">SchedulerRecommendedAlarmsMetrics</a>[]</code> | Metrics to exclude. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | Resource construct IDs excluded by the Aspect. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Default missing-data behavior, overridden by individual configurations. |
+
+---
+
+##### `configInvocationAttemptCountAnomalyAlarm`<sup>Optional</sup> <a name="configInvocationAttemptCountAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configInvocationAttemptCountAnomalyAlarm"></a>
+
+```typescript
+public readonly configInvocationAttemptCountAnomalyAlarm: SchedulerInvocationAttemptCountAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig">SchedulerInvocationAttemptCountAnomalyAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for InvocationAttemptCountAnomaly.
+
+---
+
+##### `configInvocationDroppedCountAlarm`<sup>Optional</sup> <a name="configInvocationDroppedCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configInvocationDroppedCountAlarm"></a>
+
+```typescript
+public readonly configInvocationDroppedCountAlarm: SchedulerInvocationDroppedCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig">SchedulerInvocationDroppedCountAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for InvocationDroppedCount.
+
+---
+
+##### `configInvocationsFailedToBeSentToDeadLetterCountAlarm`<sup>Optional</sup> <a name="configInvocationsFailedToBeSentToDeadLetterCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configInvocationsFailedToBeSentToDeadLetterCountAlarm"></a>
+
+```typescript
+public readonly configInvocationsFailedToBeSentToDeadLetterCountAlarm: SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for InvocationsFailedToBeSentToDeadLetterCount.
+
+---
+
+##### `configInvocationThrottleCountAlarm`<sup>Optional</sup> <a name="configInvocationThrottleCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configInvocationThrottleCountAlarm"></a>
+
+```typescript
+public readonly configInvocationThrottleCountAlarm: SchedulerInvocationThrottleCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig">SchedulerInvocationThrottleCountAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for InvocationThrottleCount.
+
+---
+
+##### `configTargetErrorThrottledCountAlarm`<sup>Optional</sup> <a name="configTargetErrorThrottledCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.configTargetErrorThrottledCountAlarm"></a>
+
+```typescript
+public readonly configTargetErrorThrottledCountAlarm: SchedulerTargetErrorThrottledCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig">SchedulerTargetErrorThrottledCountAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for TargetErrorThrottledCount.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default Alarm action.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default InsufficientData action.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default Ok action.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: SchedulerRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics">SchedulerRecommendedAlarmsMetrics</a>[]
+- *Default:* None.
+
+Metrics to exclude.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+- *Default:* None.
+
+Resource construct IDs excluded by the Aspect.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* Not breaching for failure counters; missing for anomalies.
+
+Default missing-data behavior, overridden by individual configurations.
+
+---
+
+### SchedulerRecommendedAlarmsProps <a name="SchedulerRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps"></a>
+
+Properties for SchedulerRecommendedAlarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { SchedulerRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerRecommendedAlarmsProps: SchedulerRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.scheduleGroup">scheduleGroup</a></code> | <code>aws-cdk-lib.aws_scheduler.IScheduleGroup</code> | The Scheduler schedule group to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configInvocationAttemptCountAnomalyAlarm">configInvocationAttemptCountAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig">SchedulerInvocationAttemptCountAnomalyAlarmConfig</a></code> | Configuration for InvocationAttemptCountAnomaly. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configInvocationDroppedCountAlarm">configInvocationDroppedCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig">SchedulerInvocationDroppedCountAlarmConfig</a></code> | Configuration for InvocationDroppedCount. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configInvocationsFailedToBeSentToDeadLetterCountAlarm">configInvocationsFailedToBeSentToDeadLetterCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig</a></code> | Configuration for InvocationsFailedToBeSentToDeadLetterCount. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configInvocationThrottleCountAlarm">configInvocationThrottleCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig">SchedulerInvocationThrottleCountAlarmConfig</a></code> | Configuration for InvocationThrottleCount. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configTargetErrorThrottledCountAlarm">configTargetErrorThrottledCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig">SchedulerTargetErrorThrottledCountAlarmConfig</a></code> | Configuration for TargetErrorThrottledCount. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default Alarm action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default InsufficientData action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default Ok action. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics">SchedulerRecommendedAlarmsMetrics</a>[]</code> | Metrics to exclude. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | Resource construct IDs excluded by the Aspect. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | Default missing-data behavior, overridden by individual configurations. |
+
+---
+
+##### `scheduleGroup`<sup>Required</sup> <a name="scheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.scheduleGroup"></a>
+
+```typescript
+public readonly scheduleGroup: IScheduleGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_scheduler.IScheduleGroup
+
+The Scheduler schedule group to monitor.
+
+---
+
+##### `configInvocationAttemptCountAnomalyAlarm`<sup>Optional</sup> <a name="configInvocationAttemptCountAnomalyAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configInvocationAttemptCountAnomalyAlarm"></a>
+
+```typescript
+public readonly configInvocationAttemptCountAnomalyAlarm: SchedulerInvocationAttemptCountAnomalyAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarmConfig">SchedulerInvocationAttemptCountAnomalyAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+Configuration for InvocationAttemptCountAnomaly.
+
+---
+
+##### `configInvocationDroppedCountAlarm`<sup>Optional</sup> <a name="configInvocationDroppedCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configInvocationDroppedCountAlarm"></a>
+
+```typescript
+public readonly configInvocationDroppedCountAlarm: SchedulerInvocationDroppedCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationDroppedCountAlarmConfig">SchedulerInvocationDroppedCountAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for InvocationDroppedCount.
+
+---
+
+##### `configInvocationsFailedToBeSentToDeadLetterCountAlarm`<sup>Optional</sup> <a name="configInvocationsFailedToBeSentToDeadLetterCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configInvocationsFailedToBeSentToDeadLetterCountAlarm"></a>
+
+```typescript
+public readonly configInvocationsFailedToBeSentToDeadLetterCountAlarm: SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig">SchedulerInvocationsFailedToBeSentToDeadLetterCountAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for InvocationsFailedToBeSentToDeadLetterCount.
+
+---
+
+##### `configInvocationThrottleCountAlarm`<sup>Optional</sup> <a name="configInvocationThrottleCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configInvocationThrottleCountAlarm"></a>
+
+```typescript
+public readonly configInvocationThrottleCountAlarm: SchedulerInvocationThrottleCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationThrottleCountAlarmConfig">SchedulerInvocationThrottleCountAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for InvocationThrottleCount.
+
+---
+
+##### `configTargetErrorThrottledCountAlarm`<sup>Optional</sup> <a name="configTargetErrorThrottledCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.configTargetErrorThrottledCountAlarm"></a>
+
+```typescript
+public readonly configTargetErrorThrottledCountAlarm: SchedulerTargetErrorThrottledCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig">SchedulerTargetErrorThrottledCountAlarmConfig</a>
+- *Default:* Alarm defaults.
+
+Configuration for TargetErrorThrottledCount.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default Alarm action.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default InsufficientData action.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* No action.
+
+The default Ok action.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: SchedulerRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics">SchedulerRecommendedAlarmsMetrics</a>[]
+- *Default:* None.
+
+Metrics to exclude.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+- *Default:* None.
+
+Resource construct IDs excluded by the Aspect.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* Not breaching for failure counters; missing for anomalies.
+
+Default missing-data behavior, overridden by individual configurations.
+
+---
+
+### SchedulerTargetErrorThrottledCountAlarmConfig <a name="SchedulerTargetErrorThrottledCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig"></a>
+
+Configuration for SchedulerTargetErrorThrottledCountAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { SchedulerTargetErrorThrottledCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerTargetErrorThrottledCountAlarmConfig: SchedulerTargetErrorThrottledCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
+### SchedulerTargetErrorThrottledCountAlarmProps <a name="SchedulerTargetErrorThrottledCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps"></a>
+
+Properties for SchedulerTargetErrorThrottledCountAlarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.Initializer"></a>
+
+```typescript
+import { SchedulerTargetErrorThrottledCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const schedulerTargetErrorThrottledCountAlarmProps: SchedulerTargetErrorThrottledCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.scheduleGroup">scheduleGroup</a></code> | <code>aws-cdk-lib.aws_scheduler.IScheduleGroup</code> | The Scheduler schedule group to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching periods required. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods evaluated. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The metric period. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | Count above which the alarm fires. |
+
+---
+
+##### `scheduleGroup`<sup>Required</sup> <a name="scheduleGroup" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.scheduleGroup"></a>
+
+```typescript
+public readonly scheduleGroup: IScheduleGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_scheduler.IScheduleGroup
+
+The Scheduler schedule group to monitor.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Resource name followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* The same as evaluationPeriods.
+
+The number of breaching periods required.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* The alarm-specific AWS guidance or library default.
+
+The number of periods evaluated.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The metric period.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerTargetErrorThrottledCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Count above which the alarm fires.
+
+Zero detects any occurrence.
+
+---
+
 ### SfAlarmBaseConfig <a name="SfAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfAlarmBaseConfig"></a>
 
 The common optional configuration for the alarms.
@@ -118824,6 +132321,57 @@ All aspects can visit an IConstruct.
 
 
 
+### EventBridgeRecommendedAlarmsAspect <a name="EventBridgeRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Applies the configured alarms to owned EventBridge rules.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { EventBridgeRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new EventBridgeRecommendedAlarmsAspect(props?: EventBridgeRuleRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig">EventBridgeRuleRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsConfig">EventBridgeRuleRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### LambdaRecommendedAlarmsAspect <a name="LambdaRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
@@ -119134,6 +132682,57 @@ public visit(node: IConstruct): void
 All aspects can visit an IConstruct.
 
 ###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
+### SchedulerRecommendedAlarmsAspect <a name="SchedulerRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Applies the configured alarms to owned Scheduler schedule groups.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { SchedulerRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new SchedulerRecommendedAlarmsAspect(props?: SchedulerRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig">SchedulerRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsConfig">SchedulerRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsAspect.visit.parameter.node"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -119963,6 +133562,73 @@ and Redis OSS engine version 5.0.6 onwards, the lag can be measured in milliseco
 ---
 
 
+### EventBridgeRecommendedAlarmsMetrics <a name="EventBridgeRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics"></a>
+
+Metrics supported by the EventBridge alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.FAILED_INVOCATIONS">FAILED_INVOCATIONS</a></code> | Permanently failed target invocations, after delivery retries are exhausted. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.INVOCATIONS_SENT_TO_DLQ">INVOCATIONS_SENT_TO_DLQ</a></code> | Undelivered events retained in a target dead-letter queue. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.THROTTLED_RULES">THROTTLED_RULES</a></code> | Rule executions delayed by EventBridge invocation throttling. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY">INGESTION_TO_INVOCATION_SUCCESS_LATENCY</a></code> | Time in milliseconds from ingestion to successful target delivery, including retries. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.SUCCESSFUL_INVOCATION_RATE">SUCCESSFUL_INVOCATION_RATE</a></code> | Fraction of target invocation attempts that succeed, from zero to one. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.TRIGGERED_RULES_ANOMALY">TRIGGERED_RULES_ANOMALY</a></code> | Rule execution volume anomaly detection. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY_ANOMALY">INGESTION_TO_INVOCATION_SUCCESS_LATENCY_ANOMALY</a></code> | Successful target delivery latency anomaly detection. |
+
+---
+
+##### `FAILED_INVOCATIONS` <a name="FAILED_INVOCATIONS" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.FAILED_INVOCATIONS"></a>
+
+Permanently failed target invocations, after delivery retries are exhausted.
+
+---
+
+
+##### `INVOCATIONS_SENT_TO_DLQ` <a name="INVOCATIONS_SENT_TO_DLQ" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.INVOCATIONS_SENT_TO_DLQ"></a>
+
+Undelivered events retained in a target dead-letter queue.
+
+---
+
+
+##### `THROTTLED_RULES` <a name="THROTTLED_RULES" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.THROTTLED_RULES"></a>
+
+Rule executions delayed by EventBridge invocation throttling.
+
+---
+
+
+##### `INGESTION_TO_INVOCATION_SUCCESS_LATENCY` <a name="INGESTION_TO_INVOCATION_SUCCESS_LATENCY" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY"></a>
+
+Time in milliseconds from ingestion to successful target delivery, including retries.
+
+---
+
+
+##### `SUCCESSFUL_INVOCATION_RATE` <a name="SUCCESSFUL_INVOCATION_RATE" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.SUCCESSFUL_INVOCATION_RATE"></a>
+
+Fraction of target invocation attempts that succeed, from zero to one.
+
+---
+
+
+##### `TRIGGERED_RULES_ANOMALY` <a name="TRIGGERED_RULES_ANOMALY" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.TRIGGERED_RULES_ANOMALY"></a>
+
+Rule execution volume anomaly detection.
+
+---
+
+
+##### `INGESTION_TO_INVOCATION_SUCCESS_LATENCY_ANOMALY` <a name="INGESTION_TO_INVOCATION_SUCCESS_LATENCY_ANOMALY" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY_ANOMALY"></a>
+
+Successful target delivery latency anomaly detection.
+
+---
+
+
 ### LambdaRecommendedAlarmsMetrics <a name="LambdaRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaRecommendedAlarmsMetrics"></a>
 
 The recommended metrics for Lambda alarms.
@@ -120265,6 +133931,57 @@ The recommended metrics for S3 bucket alarms.
 ##### `ERRORS_5XX` <a name="ERRORS_5XX" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3RecommendedAlarmsMetrics.ERRORS_5XX"></a>
 
 5xxErrors are server errors (5xx error codes) that are made in response to client requests.
+
+---
+
+
+### SchedulerRecommendedAlarmsMetrics <a name="SchedulerRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics"></a>
+
+Metrics supported by the Scheduler alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.TARGET_ERROR_THROTTLED_COUNT">TARGET_ERROR_THROTTLED_COUNT</a></code> | Target invocations rejected because the target API is throttling. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.INVOCATION_THROTTLE_COUNT">INVOCATION_THROTTLE_COUNT</a></code> | Invocations throttled by EventBridge Scheduler service quotas. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.INVOCATION_DROPPED_COUNT">INVOCATION_DROPPED_COUNT</a></code> | Invocations abandoned after the schedule retry policy is exhausted. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.INVOCATIONS_FAILED_TO_BE_SENT_TO_DEAD_LETTER_COUNT">INVOCATIONS_FAILED_TO_BE_SENT_TO_DEAD_LETTER_COUNT</a></code> | Failed attempts to send an exhausted invocation to its dead-letter queue. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.INVOCATION_ATTEMPT_COUNT_ANOMALY">INVOCATION_ATTEMPT_COUNT_ANOMALY</a></code> | Schedule invocation-attempt volume anomaly detection. |
+
+---
+
+##### `TARGET_ERROR_THROTTLED_COUNT` <a name="TARGET_ERROR_THROTTLED_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.TARGET_ERROR_THROTTLED_COUNT"></a>
+
+Target invocations rejected because the target API is throttling.
+
+---
+
+
+##### `INVOCATION_THROTTLE_COUNT` <a name="INVOCATION_THROTTLE_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.INVOCATION_THROTTLE_COUNT"></a>
+
+Invocations throttled by EventBridge Scheduler service quotas.
+
+---
+
+
+##### `INVOCATION_DROPPED_COUNT` <a name="INVOCATION_DROPPED_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.INVOCATION_DROPPED_COUNT"></a>
+
+Invocations abandoned after the schedule retry policy is exhausted.
+
+---
+
+
+##### `INVOCATIONS_FAILED_TO_BE_SENT_TO_DEAD_LETTER_COUNT` <a name="INVOCATIONS_FAILED_TO_BE_SENT_TO_DEAD_LETTER_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.INVOCATIONS_FAILED_TO_BE_SENT_TO_DEAD_LETTER_COUNT"></a>
+
+Failed attempts to send an exhausted invocation to its dead-letter queue.
+
+---
+
+
+##### `INVOCATION_ATTEMPT_COUNT_ANOMALY` <a name="INVOCATION_ATTEMPT_COUNT_ANOMALY" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerRecommendedAlarmsMetrics.INVOCATION_ATTEMPT_COUNT_ANOMALY"></a>
+
+Schedule invocation-attempt volume anomaly detection.
 
 ---
 
