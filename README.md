@@ -302,6 +302,15 @@ new lambda.Function(stack, 'Lambda2', {
 });
 ```
 
+## RDS read-replica lag availability
+
+`RdsReadReplicaLagUnavailableAlarm` is an opt-in alarm on `ReplicaLag < 0`, using
+`Minimum` and a configurable three-of-five one-minute window. These defaults are
+library choices. AWS documents `-1` as inactive replication for MariaDB/MySQL and
+unknown lag for SQL Server, including during setup or an error. See
+[AWS read-replication monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Monitoring.html).
+It complements `RdsReadReplicaLagAlarm`; no existing alarm or bundle changes.
+
 ## EventBridge alarms
 
 Rule alarms use `AWS/Events` for default and classic custom event buses, following
