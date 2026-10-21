@@ -3,10 +3,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  cdkVersion: '2.260.0',
+  cdkVersion: '2.267.0',
   cdkCliVersion: '2.1129.0',
   constructsVersion: '10.6.0',
   cdkVersionPinning: true,
+  projenVersion: '0.104.4',
+  addPackageManagerToDevEngines: false,
   jsiiVersion: '^6.0',
   defaultReleaseBranch: 'master',
   packageManager: javascript.NodePackageManager.PNPM,
@@ -56,8 +58,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
 });
 
-project.tsconfig?.file.addOverride('references', [{ path: './tsconfig.dev.json' }]);
-project.tsconfigDev?.file.addOverride('compilerOptions.composite', true);
+project.addPeerDeps(`aws-cdk-lib@^${project.cdkVersion}`);
+project.package.file.addDeletionOverride('packageManager');
 
 project.eslint?.addRules({
   '@typescript-eslint/no-unused-vars': ['error', {

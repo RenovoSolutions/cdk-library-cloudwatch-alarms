@@ -61,6 +61,7 @@ new ApiGatewayRestApi4XXErrorAlarm(scope: IConstruct, id: string, props: ApiGate
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -152,6 +153,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -568,6 +589,7 @@ new ApiGatewayRestApi4XXErrorRateAlarm(scope: IConstruct, id: string, props: Api
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -659,6 +681,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi4XXErrorRateAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -1070,6 +1112,7 @@ new ApiGatewayRestApi5XXErrorAlarm(scope: IConstruct, id: string, props: ApiGate
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -1161,6 +1204,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -1574,6 +1637,7 @@ new ApiGatewayRestApi5XXErrorRateAlarm(scope: IConstruct, id: string, props: Api
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -1665,6 +1729,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApi5XXErrorRateAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -2081,6 +2165,7 @@ new ApiGatewayRestApiCountAnomalyAlarm(scope: IConstruct, id: string, props: Api
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -2172,6 +2257,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiCountAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -2581,6 +2686,7 @@ new ApiGatewayRestApiDetailedLatencyAlarm(scope: IConstruct, id: string, props: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -2672,6 +2778,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiDetailedLatencyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -3079,6 +3205,7 @@ new ApiGatewayRestApiIntegrationLatencyAnomalyAlarm(scope: IConstruct, id: strin
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -3170,6 +3297,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiIntegrationLatencyAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -3578,6 +3725,7 @@ new ApiGatewayRestApiLatencyAlarm(scope: IConstruct, id: string, props: ApiGatew
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -3669,6 +3817,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -4077,6 +4245,7 @@ new ApiGatewayRestApiLatencyAnomalyAlarm(scope: IConstruct, id: string, props: A
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -4168,6 +4337,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApiGatewayRestApiLatencyAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -5955,6 +6144,7 @@ new ApplicationLoadBalancerHttpCode4xxCountAlarm(scope: IConstruct, id: string, 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -6046,6 +6236,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode4xxCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -6453,6 +6663,7 @@ new ApplicationLoadBalancerHttpCode5xxCountAlarm(scope: IConstruct, id: string, 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -6544,6 +6755,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCode5xxCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -6950,6 +7181,7 @@ new ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm(scope: IConstruct, id: st
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -7041,6 +7273,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerHttpCodeTarget5xxCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -7638,6 +7890,7 @@ new ApplicationLoadBalancerRejectedConnectionCountAlarm(scope: IConstruct, id: s
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -7729,6 +7982,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationLoadBalancerRejectedConnectionCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -8808,6 +9081,7 @@ new ApplicationTargetGroupHealthyHostCountAlarm(scope: IConstruct, id: string, p
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -8899,6 +9173,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupHealthyHostCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -9468,6 +9762,7 @@ new ApplicationTargetGroupUnHealthyHostCountAlarm(scope: IConstruct, id: string,
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -9559,6 +9854,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ApplicationTargetGroupUnHealthyHostCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -10753,6 +11068,7 @@ new AutoScalingGroupGroupInServiceCapacityAlarm(scope: IConstruct, id: string, p
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -10844,6 +11160,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.AutoScalingGroupGroupInServiceCapacityAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -11400,7 +11736,7 @@ new Bucket(scope: Construct, id: string, props?: BucketProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy">addReplicationPolicy</a></code> | Function to add required permissions to the destination bucket for cross account replication. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy">addReplicationPolicy</a></code> | Adds resource policy statements to this bucket that permit cross-account replication. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
@@ -11609,15 +11945,22 @@ Filters (see onEvent).
 public addReplicationPolicy(roleArn: string, accessControlTransition?: boolean, account?: string): void
 ```
 
-Function to add required permissions to the destination bucket for cross account replication.
+Adds resource policy statements to this bucket that permit cross-account replication.
 
-These permissions will be added as a resource based policy on the bucket
+Call this method on the destination bucket. If the destination bucket is a referenced bucket,
+its policy cannot be modified by CDK and the permissions must be added in the destination
+account.
 
-> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html)
+To change replica ownership to the destination bucket owner, set `accessControlTransition` to
+true and provide the source bucket owner's account ID.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-change-owner.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-change-owner.html)
 
 ###### `roleArn`<sup>Required</sup> <a name="roleArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy.parameter.roleArn"></a>
 
 - *Type:* string
+
+The ARN of the source bucket's replication role.
 
 ---
 
@@ -11625,11 +11968,17 @@ These permissions will be added as a resource based policy on the bucket
 
 - *Type:* boolean
 
+Whether to change replica ownership to the destination bucket owner.
+
 ---
 
 ###### `account`<sup>Optional</sup> <a name="account" id="@renovosolutions/cdk-library-cloudwatch-alarms.Bucket.addReplicationPolicy.parameter.account"></a>
 
 - *Type:* string
+
+The source bucket owner's AWS account ID.
+
+Required when `accessControlTransition` is true.
 
 ---
 
@@ -12797,14 +13146,15 @@ new CfnCacheCluster(scope: Construct, id: string, props: CfnCacheClusterProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addResourceDependency">addResourceDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainResourceDependencies">obtainResourceDependencies</a></code> | Get a shallow copy of dependencies between this resource and other resources in the same stack. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources and stacks this resource depends on. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeDependency">removeDependency</a></code> | Indicates that this resource no longer depends on another resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeResourceDependency">removeResourceDependency</a></code> | Indicates that this resource no longer depends on another resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.replaceDependency">replaceDependency</a></code> | Replaces one dependency with another. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.inspect">inspect</a></code> | Examines the CloudFormation resource and discloses attributes. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.alarmDatabaseMemoryUsagePercentage">alarmDatabaseMemoryUsagePercentage</a></code> | Creates an alarm that monitors the DatabaseMemoryUsagePercentage for the ElastiCache cacheCluster. |
@@ -12873,7 +13223,7 @@ The path of the value to delete.
 
 ---
 
-##### `addDependency` <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependency"></a>
+##### ~~`addDependency`~~ <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependency"></a>
 
 ```typescript
 public addDependency(target: CfnResource): void
@@ -12881,8 +13231,9 @@ public addDependency(target: CfnResource): void
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 
-This can be used for resources across stacks (or nested stack) boundaries
-and the dependency will automatically be transferred to the relevant scope.
+This method has been renamed to `addResourceDependency` to more clearly
+set it apart from `construct.node.addDependency`. See the documentation
+of that function for more details.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependency.parameter.target"></a>
 
@@ -12897,6 +13248,13 @@ public addDependsOn(target: CfnResource): void
 ```
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method has been renamed to `addResourceDependency`, which makes it
+more clear that this method operates at a different level from the
+construct-level `construct.node.addDependency()` mechanism.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addDependsOn.parameter.target"></a>
 
@@ -13047,6 +13405,33 @@ The value.
 
 ---
 
+##### `addResourceDependency` <a name="addResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addResourceDependency"></a>
+
+```typescript
+public addResourceDependency(target: CfnResource, reason?: string): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method only adds dependencies between L1 resources. If you are
+looking for a generic construct-to-construct dependency mechanism that works
+for all constructs including L2s, use `construct.node.addDependency` instead.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addResourceDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+###### `reason`<sup>Optional</sup> <a name="reason" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.addResourceDependency.parameter.reason"></a>
+
+- *Type:* string
+
+---
+
 ##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.applyCrossStackReferenceStrength"></a>
 
 ```typescript
@@ -13163,23 +13548,16 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (CfnResource | Stack)[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
-Retrieves an array of resources this resource depends on.
+Retrieves an array of resources and stacks this resource depends on.
 
-This assembles dependencies on resources across stacks (including nested stacks)
-automatically.
+For resources depended on directly, returns the `CfnResource` object. For
+dependencies on other stacks, returns the `Stack` object. The order of the
+array is not guaranteed.
 
-##### `obtainResourceDependencies` <a name="obtainResourceDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.obtainResourceDependencies"></a>
-
-```typescript
-public obtainResourceDependencies(): CfnResource[]
-```
-
-Get a shallow copy of dependencies between this resource and other resources in the same stack.
-
-##### `removeDependency` <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeDependency"></a>
+##### ~~`removeDependency`~~ <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeDependency"></a>
 
 ```typescript
 public removeDependency(target: CfnResource): void
@@ -13191,6 +13569,23 @@ This can be used for resources across stacks (including nested stacks)
 and the dependency will automatically be removed from the relevant scope.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `removeResourceDependency` <a name="removeResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeResourceDependency"></a>
+
+```typescript
+public removeResourceDependency(target: CfnResource): void
+```
+
+Indicates that this resource no longer depends on another resource.
+
+This can be used for resources across stacks (including nested stacks)
+and the dependency will automatically be removed from the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnCacheCluster.removeResourceDependency.parameter.target"></a>
 
 - *Type:* aws-cdk-lib.CfnResource
 
@@ -14008,14 +14403,15 @@ new CfnReplicationGroup(scope: Construct, id: string, props: CfnReplicationGroup
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addResourceDependency">addResourceDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainResourceDependencies">obtainResourceDependencies</a></code> | Get a shallow copy of dependencies between this resource and other resources in the same stack. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources and stacks this resource depends on. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeDependency">removeDependency</a></code> | Indicates that this resource no longer depends on another resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeResourceDependency">removeResourceDependency</a></code> | Indicates that this resource no longer depends on another resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.replaceDependency">replaceDependency</a></code> | Replaces one dependency with another. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.inspect">inspect</a></code> | Examines the CloudFormation resource and discloses attributes. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.alarmDatabaseMemoryUsagePercentage">alarmDatabaseMemoryUsagePercentage</a></code> | Creates an alarm that monitors the DatabaseMemoryUsagePercentage for the ElastiCache cacheReplicationGroup. |
@@ -14084,7 +14480,7 @@ The path of the value to delete.
 
 ---
 
-##### `addDependency` <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependency"></a>
+##### ~~`addDependency`~~ <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependency"></a>
 
 ```typescript
 public addDependency(target: CfnResource): void
@@ -14092,8 +14488,9 @@ public addDependency(target: CfnResource): void
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 
-This can be used for resources across stacks (or nested stack) boundaries
-and the dependency will automatically be transferred to the relevant scope.
+This method has been renamed to `addResourceDependency` to more clearly
+set it apart from `construct.node.addDependency`. See the documentation
+of that function for more details.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependency.parameter.target"></a>
 
@@ -14108,6 +14505,13 @@ public addDependsOn(target: CfnResource): void
 ```
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method has been renamed to `addResourceDependency`, which makes it
+more clear that this method operates at a different level from the
+construct-level `construct.node.addDependency()` mechanism.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addDependsOn.parameter.target"></a>
 
@@ -14258,6 +14662,33 @@ The value.
 
 ---
 
+##### `addResourceDependency` <a name="addResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addResourceDependency"></a>
+
+```typescript
+public addResourceDependency(target: CfnResource, reason?: string): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method only adds dependencies between L1 resources. If you are
+looking for a generic construct-to-construct dependency mechanism that works
+for all constructs including L2s, use `construct.node.addDependency` instead.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addResourceDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+###### `reason`<sup>Optional</sup> <a name="reason" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.addResourceDependency.parameter.reason"></a>
+
+- *Type:* string
+
+---
+
 ##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.applyCrossStackReferenceStrength"></a>
 
 ```typescript
@@ -14374,23 +14805,16 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (CfnResource | Stack)[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
-Retrieves an array of resources this resource depends on.
+Retrieves an array of resources and stacks this resource depends on.
 
-This assembles dependencies on resources across stacks (including nested stacks)
-automatically.
+For resources depended on directly, returns the `CfnResource` object. For
+dependencies on other stacks, returns the `Stack` object. The order of the
+array is not guaranteed.
 
-##### `obtainResourceDependencies` <a name="obtainResourceDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.obtainResourceDependencies"></a>
-
-```typescript
-public obtainResourceDependencies(): CfnResource[]
-```
-
-Get a shallow copy of dependencies between this resource and other resources in the same stack.
-
-##### `removeDependency` <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeDependency"></a>
+##### ~~`removeDependency`~~ <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeDependency"></a>
 
 ```typescript
 public removeDependency(target: CfnResource): void
@@ -14402,6 +14826,23 @@ This can be used for resources across stacks (including nested stacks)
 and the dependency will automatically be removed from the relevant scope.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `removeResourceDependency` <a name="removeResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeResourceDependency"></a>
+
+```typescript
+public removeResourceDependency(target: CfnResource): void
+```
+
+Indicates that this resource no longer depends on another resource.
+
+This can be used for resources across stacks (including nested stacks)
+and the dependency will automatically be removed from the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.CfnReplicationGroup.removeResourceDependency.parameter.target"></a>
 
 - *Type:* aws-cdk-lib.CfnResource
 
@@ -15580,6 +16021,7 @@ new CloudFrontDistribution5xxErrorRateAlarm(scope: IConstruct, id: string, props
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -15671,6 +16113,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistribution5xxErrorRateAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -16078,6 +16540,7 @@ new CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm(scope: IConstruct
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -16169,6 +16632,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionExecutionErrorsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -16576,6 +17059,7 @@ new CloudFrontDistributionDetailedFunctionThrottlesAlarm(scope: IConstruct, id: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -16667,6 +17151,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionThrottlesAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -17074,6 +17578,7 @@ new CloudFrontDistributionDetailedFunctionValidationErrorsAlarm(scope: IConstruc
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -17165,6 +17670,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionDetailedFunctionValidationErrorsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -17573,6 +18098,7 @@ new CloudFrontDistributionOriginLatencyAlarm(scope: IConstruct, id: string, prop
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -17664,6 +18190,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudFrontDistributionOriginLatencyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -20994,6 +21540,7 @@ new DmsReplicationInstanceCpuUtilizationAlarm(scope: IConstruct, id: string, pro
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -21085,6 +21632,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceCpuUtilizationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -21491,6 +22058,7 @@ new DmsReplicationInstanceFreeableMemoryAlarm(scope: Construct, id: string, prop
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -21582,6 +22150,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeableMemoryAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -21989,6 +22577,7 @@ new DmsReplicationInstanceFreeStorageSpaceAlarm(scope: IConstruct, id: string, p
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -22080,6 +22669,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceFreeStorageSpaceAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -22695,6 +23304,7 @@ new DmsReplicationInstanceSwapUsageAlarm(scope: IConstruct, id: string, props: D
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -22786,6 +23396,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceSwapUsageAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -23193,6 +23823,7 @@ new DmsReplicationInstanceWriteIopsAlarm(scope: IConstruct, id: string, props: D
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -23284,6 +23915,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationInstanceWriteIopsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -23695,6 +24346,7 @@ new DmsReplicationTaskCdcLatencySourceAlarm(scope: IConstruct, id: string, props
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -23786,6 +24438,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencySourceAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -24197,6 +24869,7 @@ new DmsReplicationTaskCdcLatencyTargetAlarm(scope: IConstruct, id: string, props
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -24288,6 +24961,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsReplicationTaskCdcLatencyTargetAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -24864,6 +25557,7 @@ new DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm(scope: IConstruct, id: strin
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -24955,6 +25649,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -25366,6 +26080,7 @@ new DynamoDbTableFailedToReplicateRecordCountAlarm(scope: IConstruct, id: string
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -25457,6 +26172,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -25863,6 +26598,7 @@ new DynamoDbTableReadThrottleEventsAlarm(scope: IConstruct, id: string, props: D
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -25954,6 +26690,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -26580,6 +27336,7 @@ new DynamoDbTableSystemErrorsAlarm(scope: IConstruct, id: string, props: DynamoD
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -26671,6 +27428,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -27080,6 +27857,7 @@ new DynamoDbTableThrottledPutRecordCountAlarm(scope: IConstruct, id: string, pro
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -27171,6 +27949,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -27577,6 +28375,7 @@ new DynamoDbTableWriteThrottleEventsAlarm(scope: IConstruct, id: string, props: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -27668,6 +28467,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -28078,6 +28897,7 @@ new Ec2InstanceCpuUtilizationAlarm(scope: IConstruct, id: string, props: Ec2Inst
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -28169,6 +28989,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceCpuUtilizationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -28740,6 +29580,7 @@ new Ec2InstanceStatusCheckFailedAlarm(scope: IConstruct, id: string, props: Ec2I
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -28831,6 +29672,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.Ec2InstanceStatusCheckFailedAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -29238,6 +30099,7 @@ new EcsServiceCpuUtilizationAlarm(scope: IConstruct, id: string, props: EcsServi
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -29329,6 +30191,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceCpuUtilizationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -29736,6 +30618,7 @@ new EcsServiceEphemeralStorageUtilizedAlarm(scope: IConstruct, id: string, props
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -29827,6 +30710,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceEphemeralStorageUtilizedAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -30234,6 +31137,7 @@ new EcsServiceMemoryUtilizationAlarm(scope: IConstruct, id: string, props: EcsSe
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -30325,6 +31229,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceMemoryUtilizationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -30926,6 +31850,7 @@ new EcsServiceRunningTaskCountAlarm(scope: IConstruct, id: string, props: EcsSer
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -31017,6 +31942,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EcsServiceRunningTaskCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -31424,6 +32369,7 @@ new EfsFileSystemBurstCreditBalanceAlarm(scope: IConstruct, id: string, props: E
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -31515,6 +32461,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemBurstCreditBalanceAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -31923,6 +32889,7 @@ new EfsFileSystemPercentIOLimitAlarm(scope: IConstruct, id: string, props: EfsFi
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -32014,6 +32981,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.EfsFileSystemPercentIOLimitAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -32589,6 +33576,7 @@ new ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm(scope: IConstruct, id: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -32680,6 +33668,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterDatabaseMemoryUsagePercentageAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -33089,6 +34097,7 @@ new ElastiCacheClusterEngineCpuUtilizationAlarm(scope: IConstruct, id: string, p
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -33180,6 +34189,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterEngineCpuUtilizationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -33768,6 +34797,7 @@ new ElastiCacheClusterReplicationLagAlarm(scope: IConstruct, id: string, props: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -33859,6 +34889,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheClusterReplicationLagAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -34269,6 +35319,7 @@ new ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm(scope: IConstr
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -34360,6 +35411,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupDatabaseMemoryUsagePercentageAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -34769,6 +35840,7 @@ new ElastiCacheReplicationGroupEngineCpuUtilizationAlarm(scope: IConstruct, id: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -34860,6 +35932,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupEngineCpuUtilizationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -35448,6 +36540,7 @@ new ElastiCacheReplicationGroupReplicationLagAlarm(scope: IConstruct, id: string
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -35539,6 +36632,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.ElastiCacheReplicationGroupReplicationLagAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -38483,7 +39596,7 @@ public readonly isBoundToVpc: boolean;
 
 Whether or not this Lambda function was bound to a VPC.
 
-If this is is `false`, trying to access the `connections` object will fail.
+If this is `false`, trying to access the `connections` object will fail.
 
 ---
 
@@ -39714,6 +40827,7 @@ new LambdaConcurrentExecutionsAlarm(scope: Construct, id: string, props: LambdaC
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -39805,6 +40919,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaConcurrentExecutionsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -40217,6 +41351,7 @@ new LambdaDurationAlarm(scope: Construct, id: string, props: LambdaDurationAlarm
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -40308,6 +41443,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -40715,6 +41870,7 @@ new LambdaDurationAnomalyAlarm(scope: Construct, id: string, props: LambdaDurati
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -40806,6 +41962,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaDurationAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -41211,6 +42387,7 @@ new LambdaErrorsAlarm(scope: Construct, id: string, props: LambdaErrorsAlarmProp
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -41302,6 +42479,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaErrorsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -41718,6 +42915,7 @@ new LambdaInvocationsAnomalyAlarm(scope: Construct, id: string, props: LambdaInv
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -41809,6 +43007,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaInvocationsAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -42436,6 +43654,7 @@ new LambdaThrottlesAlarm(scope: Construct, id: string, props: LambdaThrottlesAla
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -42527,6 +43746,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.LambdaThrottlesAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -43880,6 +45119,7 @@ new NetworkLoadBalancerTcpElbResetCountAlarm(scope: IConstruct, id: string, prop
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -43971,6 +45211,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpElbResetCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -44377,6 +45637,7 @@ new NetworkLoadBalancerTcpTargetResetCountAlarm(scope: IConstruct, id: string, p
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -44468,6 +45729,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerTcpTargetResetCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -45363,6 +46644,7 @@ new NetworkTargetGroupHealthyHostCountAlarm(scope: IConstruct, id: string, props
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -45454,6 +46736,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupHealthyHostCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -46023,6 +47325,7 @@ new NetworkTargetGroupUnHealthyHostCountAlarm(scope: IConstruct, id: string, pro
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -46114,6 +47417,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkTargetGroupUnHealthyHostCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -46521,6 +47844,7 @@ new PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm(scope: IConstruc
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -46612,6 +47936,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkEndpointsInterfaceVpcEndpointPacketsDroppedAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -47323,6 +48667,7 @@ new PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm(scope: IConstruct, 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -47414,6 +48759,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.PrivateLinkServicesVpcEndpointServiceRstPacketsSentAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -47825,6 +49190,7 @@ new Queue(scope: Construct, id: string, props?: QueueProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricApproximateAgeOfOldestMessage">metricApproximateAgeOfOldestMessage</a></code> | The approximate age of the oldest non-deleted message in the queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricApproximateNumberOfMessagesDelayed">metricApproximateNumberOfMessagesDelayed</a></code> | The number of messages in the queue that are delayed and not available for reading immediately. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricApproximateNumberOfMessagesNotVisible">metricApproximateNumberOfMessagesNotVisible</a></code> | The number of messages that are in flight. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricApproximateNumberOfMessagesOutstanding">metricApproximateNumberOfMessagesOutstanding</a></code> | The number of messages waiting to be picked up plus the number in flight. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricApproximateNumberOfMessagesVisible">metricApproximateNumberOfMessagesVisible</a></code> | The number of messages available for retrieval from the queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricNumberOfEmptyReceives">metricNumberOfEmptyReceives</a></code> | The number of ReceiveMessage API calls that did not return a message. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricNumberOfMessagesDeleted">metricNumberOfMessagesDeleted</a></code> | The number of messages deleted from the queue. |
@@ -48135,6 +49501,30 @@ The number of messages that are in flight.
 Maximum over 5 minutes
 
 ###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricApproximateNumberOfMessagesNotVisible.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricApproximateNumberOfMessagesOutstanding` <a name="metricApproximateNumberOfMessagesOutstanding" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricApproximateNumberOfMessagesOutstanding"></a>
+
+```typescript
+public metricApproximateNumberOfMessagesOutstanding(props?: MetricOptions): MathExpression
+```
+
+The number of messages waiting to be picked up plus the number in flight.
+
+`ApproximateNumberOfMessagesVisible + ApproximateNumberOfMessagesNotVisible`, as a metric math
+expression. Prefer this over `metricApproximateNumberOfMessagesVisible` when scaling consumers
+in: receiving a message lowers `Visible`, so a policy watching only `Visible` cannot tell a
+consumer that just picked up work from one that finished it.
+
+`statistic`, `unit` and dimensions apply to both underlying metrics, `label`, `color` and
+`period` to the expression.
+
+Maximum over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.Queue.metricApproximateNumberOfMessagesOutstanding.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
@@ -48688,6 +50078,7 @@ new RdsAuroraBinLogReplicationLagAlarm(scope: Construct, id: string, props: RdsA
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -48779,6 +50170,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraBinLogReplicationLagAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -49364,6 +50775,7 @@ new RdsAuroraVolumeBytesLeftTotalAlarm(scope: Construct, id: string, props: RdsA
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -49455,6 +50867,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesLeftTotalAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -49862,6 +51294,7 @@ new RdsAuroraVolumeBytesUsedAlarm(scope: Construct, id: string, props: RdsAurora
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -49953,6 +51386,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsAuroraVolumeBytesUsedAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -50360,6 +51813,7 @@ new RdsInstanceCpuUtilizationAlarm(scope: Construct, id: string, props: RdsInsta
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -50451,6 +51905,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceCpuUtilizationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -50858,6 +52332,7 @@ new RdsInstanceDatabaseConnectionsAlarm(scope: Construct, id: string, props: Rds
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -50949,6 +52424,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDatabaseConnectionsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -51357,6 +52852,7 @@ new RdsInstanceDbLoadAlarm(scope: Construct, id: string, props: RdsInstanceDbLoa
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -51448,6 +52944,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceDbLoadAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -51854,6 +53370,7 @@ new RdsInstanceFreeableMemoryAlarm(scope: Construct, id: string, props: RdsInsta
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -51945,6 +53462,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeableMemoryAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -52352,6 +53889,7 @@ new RdsInstanceFreeLocalStorageAlarm(scope: Construct, id: string, props: RdsIns
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -52443,6 +53981,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeLocalStorageAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -52850,6 +54408,7 @@ new RdsInstanceFreeStorageSpaceAlarm(scope: Construct, id: string, props: RdsIns
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -52941,6 +54500,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceFreeStorageSpaceAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -53349,6 +54928,7 @@ new RdsInstanceReadLatencyAlarm(scope: Construct, id: string, props: RdsInstance
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -53440,6 +55020,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceReadLatencyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -54091,6 +55691,7 @@ new RdsInstanceWriteLatencyAlarm(scope: Construct, id: string, props: RdsInstanc
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -54182,6 +55783,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsInstanceWriteLatencyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -54584,6 +56205,7 @@ new RdsReadReplicaLagAlarm(scope: Construct, id: string, props: RdsReadReplicaLa
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -54675,6 +56297,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -55077,6 +56719,7 @@ new RdsReadReplicaLagAnomalyAlarm(scope: Construct, id: string, props: RdsReadRe
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -55168,6 +56811,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagAnomalyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -55575,14 +57238,15 @@ new ReplicationInstance(scope: Construct, id: string, props: CfnReplicationInsta
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addResourceDependency">addResourceDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.obtainResourceDependencies">obtainResourceDependencies</a></code> | Get a shallow copy of dependencies between this resource and other resources in the same stack. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources and stacks this resource depends on. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.removeDependency">removeDependency</a></code> | Indicates that this resource no longer depends on another resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.removeResourceDependency">removeResourceDependency</a></code> | Indicates that this resource no longer depends on another resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.replaceDependency">replaceDependency</a></code> | Replaces one dependency with another. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.inspect">inspect</a></code> | Examines the CloudFormation resource and discloses attributes. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.alarmCpuUtilization">alarmCpuUtilization</a></code> | Creates an alarm that monitors the CPU utilization for the Replication Instance. |
@@ -55653,7 +57317,7 @@ The path of the value to delete.
 
 ---
 
-##### `addDependency` <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addDependency"></a>
+##### ~~`addDependency`~~ <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addDependency"></a>
 
 ```typescript
 public addDependency(target: CfnResource): void
@@ -55661,8 +57325,9 @@ public addDependency(target: CfnResource): void
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 
-This can be used for resources across stacks (or nested stack) boundaries
-and the dependency will automatically be transferred to the relevant scope.
+This method has been renamed to `addResourceDependency` to more clearly
+set it apart from `construct.node.addDependency`. See the documentation
+of that function for more details.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addDependency.parameter.target"></a>
 
@@ -55677,6 +57342,13 @@ public addDependsOn(target: CfnResource): void
 ```
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method has been renamed to `addResourceDependency`, which makes it
+more clear that this method operates at a different level from the
+construct-level `construct.node.addDependency()` mechanism.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addDependsOn.parameter.target"></a>
 
@@ -55827,6 +57499,33 @@ The value.
 
 ---
 
+##### `addResourceDependency` <a name="addResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addResourceDependency"></a>
+
+```typescript
+public addResourceDependency(target: CfnResource, reason?: string): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method only adds dependencies between L1 resources. If you are
+looking for a generic construct-to-construct dependency mechanism that works
+for all constructs including L2s, use `construct.node.addDependency` instead.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addResourceDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+###### `reason`<sup>Optional</sup> <a name="reason" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.addResourceDependency.parameter.reason"></a>
+
+- *Type:* string
+
+---
+
 ##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.applyCrossStackReferenceStrength"></a>
 
 ```typescript
@@ -55943,23 +57642,16 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (CfnResource | Stack)[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
-Retrieves an array of resources this resource depends on.
+Retrieves an array of resources and stacks this resource depends on.
 
-This assembles dependencies on resources across stacks (including nested stacks)
-automatically.
+For resources depended on directly, returns the `CfnResource` object. For
+dependencies on other stacks, returns the `Stack` object. The order of the
+array is not guaranteed.
 
-##### `obtainResourceDependencies` <a name="obtainResourceDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.obtainResourceDependencies"></a>
-
-```typescript
-public obtainResourceDependencies(): CfnResource[]
-```
-
-Get a shallow copy of dependencies between this resource and other resources in the same stack.
-
-##### `removeDependency` <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.removeDependency"></a>
+##### ~~`removeDependency`~~ <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.removeDependency"></a>
 
 ```typescript
 public removeDependency(target: CfnResource): void
@@ -55971,6 +57663,23 @@ This can be used for resources across stacks (including nested stacks)
 and the dependency will automatically be removed from the relevant scope.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.removeDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `removeResourceDependency` <a name="removeResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.removeResourceDependency"></a>
+
+```typescript
+public removeResourceDependency(target: CfnResource): void
+```
+
+Indicates that this resource no longer depends on another resource.
+
+This can be used for resources across stacks (including nested stacks)
+and the dependency will automatically be removed from the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationInstance.removeResourceDependency.parameter.target"></a>
 
 - *Type:* aws-cdk-lib.CfnResource
 
@@ -56671,14 +58380,15 @@ new ReplicationTask(scope: Construct, id: string, props: ReplicationTaskProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addResourceDependency">addResourceDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.obtainResourceDependencies">obtainResourceDependencies</a></code> | Get a shallow copy of dependencies between this resource and other resources in the same stack. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources and stacks this resource depends on. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.removeDependency">removeDependency</a></code> | Indicates that this resource no longer depends on another resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.removeResourceDependency">removeResourceDependency</a></code> | Indicates that this resource no longer depends on another resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.replaceDependency">replaceDependency</a></code> | Replaces one dependency with another. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.inspect">inspect</a></code> | Examines the CloudFormation resource and discloses attributes. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.alarmCdcLatencySource">alarmCdcLatencySource</a></code> | Creates an alarm that monitors the CDC latency from the source for the Replication Task. |
@@ -56746,7 +58456,7 @@ The path of the value to delete.
 
 ---
 
-##### `addDependency` <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addDependency"></a>
+##### ~~`addDependency`~~ <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addDependency"></a>
 
 ```typescript
 public addDependency(target: CfnResource): void
@@ -56754,8 +58464,9 @@ public addDependency(target: CfnResource): void
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 
-This can be used for resources across stacks (or nested stack) boundaries
-and the dependency will automatically be transferred to the relevant scope.
+This method has been renamed to `addResourceDependency` to more clearly
+set it apart from `construct.node.addDependency`. See the documentation
+of that function for more details.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addDependency.parameter.target"></a>
 
@@ -56770,6 +58481,13 @@ public addDependsOn(target: CfnResource): void
 ```
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method has been renamed to `addResourceDependency`, which makes it
+more clear that this method operates at a different level from the
+construct-level `construct.node.addDependency()` mechanism.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addDependsOn.parameter.target"></a>
 
@@ -56920,6 +58638,33 @@ The value.
 
 ---
 
+##### `addResourceDependency` <a name="addResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addResourceDependency"></a>
+
+```typescript
+public addResourceDependency(target: CfnResource, reason?: string): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method only adds dependencies between L1 resources. If you are
+looking for a generic construct-to-construct dependency mechanism that works
+for all constructs including L2s, use `construct.node.addDependency` instead.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addResourceDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+###### `reason`<sup>Optional</sup> <a name="reason" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.addResourceDependency.parameter.reason"></a>
+
+- *Type:* string
+
+---
+
 ##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.applyCrossStackReferenceStrength"></a>
 
 ```typescript
@@ -57036,23 +58781,16 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (CfnResource | Stack)[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
-Retrieves an array of resources this resource depends on.
+Retrieves an array of resources and stacks this resource depends on.
 
-This assembles dependencies on resources across stacks (including nested stacks)
-automatically.
+For resources depended on directly, returns the `CfnResource` object. For
+dependencies on other stacks, returns the `Stack` object. The order of the
+array is not guaranteed.
 
-##### `obtainResourceDependencies` <a name="obtainResourceDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.obtainResourceDependencies"></a>
-
-```typescript
-public obtainResourceDependencies(): CfnResource[]
-```
-
-Get a shallow copy of dependencies between this resource and other resources in the same stack.
-
-##### `removeDependency` <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.removeDependency"></a>
+##### ~~`removeDependency`~~ <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.removeDependency"></a>
 
 ```typescript
 public removeDependency(target: CfnResource): void
@@ -57064,6 +58802,23 @@ This can be used for resources across stacks (including nested stacks)
 and the dependency will automatically be removed from the relevant scope.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.removeDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `removeResourceDependency` <a name="removeResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.removeResourceDependency"></a>
+
+```typescript
+public removeResourceDependency(target: CfnResource): void
+```
+
+Indicates that this resource no longer depends on another resource.
+
+This can be used for resources across stacks (including nested stacks)
+and the dependency will automatically be removed from the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.ReplicationTask.removeResourceDependency.parameter.target"></a>
 
 - *Type:* aws-cdk-lib.CfnResource
 
@@ -58662,6 +60417,7 @@ new S3Bucket4xxErrorsAlarm(scope: IConstruct, id: string, props: S3Bucket4xxErro
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -58753,6 +60509,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket4xxErrorsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -59160,6 +60936,7 @@ new S3Bucket5xxErrorsAlarm(scope: IConstruct, id: string, props: S3Bucket5xxErro
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -59251,6 +61028,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.S3Bucket5xxErrorsAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -59826,6 +61623,7 @@ new SfStateMachineExecutionsFailedAlarm(scope: IConstruct, id: string, props: Sf
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -59917,6 +61715,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsFailedAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -60323,6 +62141,7 @@ new SfStateMachineExecutionsTimedOutAlarm(scope: IConstruct, id: string, props: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -60414,6 +62233,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionsTimedOutAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -60821,6 +62660,7 @@ new SfStateMachineExecutionThrottledAlarm(scope: IConstruct, id: string, props: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -60912,6 +62752,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionThrottledAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -61318,6 +63178,7 @@ new SfStateMachineExecutionTimeAlarm(scope: IConstruct, id: string, props: SfSta
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -61409,6 +63270,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SfStateMachineExecutionTimeAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -62010,6 +63891,7 @@ new SnsNumberOfMessagesPublishedAlarm(scope: IConstruct, id: string, props: SnsN
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -62101,6 +63983,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfMessagesPublishedAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -62510,6 +64412,7 @@ new SnsNumberOfNotificationsDeliveredAlarm(scope: IConstruct, id: string, props:
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -62601,6 +64504,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsDeliveredAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -63009,6 +64932,7 @@ new SnsNumberOfNotificationsFailedAlarm(scope: IConstruct, id: string, props: Sn
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -63100,6 +65024,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -63508,6 +65452,7 @@ new SnsNumberOfNotificationsFailedToRedriveToDlqAlarm(scope: IConstruct, id: str
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -63599,6 +65544,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFailedToRedriveToDlqAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -64007,6 +65972,7 @@ new SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm(scope: IConstruct,
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -64098,6 +66064,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidAttributesAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -64506,6 +66492,7 @@ new SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm(scope: IConstruct
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -64597,6 +66584,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsFilteredOutInvalidMessageBodyAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -65006,6 +67013,7 @@ new SnsNumberOfNotificationsRedrivenToDlqAlarm(scope: IConstruct, id: string, pr
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -65097,6 +67105,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SnsNumberOfNotificationsRedrivenToDlqAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -65738,6 +67766,7 @@ new SqsApproximateAgeOfOldestMessageAlarm(scope: IConstruct, id: string, props: 
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -65829,6 +67858,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateAgeOfOldestMessageAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -66246,6 +68295,7 @@ new SqsApproximateNumberOfMessagesNotVisibleAlarm(scope: IConstruct, id: string,
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -66337,6 +68387,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesNotVisibleAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -66748,6 +68818,7 @@ new SqsApproximateNumberOfMessagesVisibleAlarm(scope: IConstruct, id: string, pr
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -66839,6 +68910,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsApproximateNumberOfMessagesVisibleAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -67246,6 +69337,7 @@ new SqsNumberOfMessagesSentAlarm(scope: IConstruct, id: string, props: SqsNumber
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -67337,6 +69429,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.SqsNumberOfMessagesSentAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
@@ -71180,14 +73292,15 @@ new VpnConnection(scope: Construct, id: string, props: CfnVPNConnectionProps)
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addOverride">addOverride</a></code> | Adds an override to the synthesized CloudFormation resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addPropertyDeletionOverride">addPropertyDeletionOverride</a></code> | Adds an override that deletes the value of a property from the resource definition. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addPropertyOverride">addPropertyOverride</a></code> | Adds an override to a resource property. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addResourceDependency">addResourceDependency</a></code> | Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Sets the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyRemovalPolicy">applyRemovalPolicy</a></code> | Sets the deletion policy of the resource based on the removal policy specified. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.cfnPropertyName">cfnPropertyName</a></code> | *No description.* |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.getAtt">getAtt</a></code> | Returns a token for an runtime attribute of this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.getMetadata">getMetadata</a></code> | Retrieve a value value from the CloudFormation Resource Metadata. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources this resource depends on. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.obtainResourceDependencies">obtainResourceDependencies</a></code> | Get a shallow copy of dependencies between this resource and other resources in the same stack. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.obtainDependencies">obtainDependencies</a></code> | Retrieves an array of resources and stacks this resource depends on. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.removeDependency">removeDependency</a></code> | Indicates that this resource no longer depends on another resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.removeResourceDependency">removeResourceDependency</a></code> | Indicates that this resource no longer depends on another resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.replaceDependency">replaceDependency</a></code> | Replaces one dependency with another. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.inspect">inspect</a></code> | Examines the CloudFormation resource and discloses attributes. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.alarmTunnelState">alarmTunnelState</a></code> | Creates an alarm that monitors the TunnelState for the VPN vpnConnection. |
@@ -71254,7 +73367,7 @@ The path of the value to delete.
 
 ---
 
-##### `addDependency` <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addDependency"></a>
+##### ~~`addDependency`~~ <a name="addDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addDependency"></a>
 
 ```typescript
 public addDependency(target: CfnResource): void
@@ -71262,8 +73375,9 @@ public addDependency(target: CfnResource): void
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 
-This can be used for resources across stacks (or nested stack) boundaries
-and the dependency will automatically be transferred to the relevant scope.
+This method has been renamed to `addResourceDependency` to more clearly
+set it apart from `construct.node.addDependency`. See the documentation
+of that function for more details.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addDependency.parameter.target"></a>
 
@@ -71278,6 +73392,13 @@ public addDependsOn(target: CfnResource): void
 ```
 
 Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method has been renamed to `addResourceDependency`, which makes it
+more clear that this method operates at a different level from the
+construct-level `construct.node.addDependency()` mechanism.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addDependsOn.parameter.target"></a>
 
@@ -71428,6 +73549,33 @@ The value.
 
 ---
 
+##### `addResourceDependency` <a name="addResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addResourceDependency"></a>
+
+```typescript
+public addResourceDependency(target: CfnResource, reason?: string): void
+```
+
+Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+
+This can be used for resources across stacks (or nested stack) boundaries
+and the dependency will automatically be transferred to the relevant scope.
+
+This method only adds dependencies between L1 resources. If you are
+looking for a generic construct-to-construct dependency mechanism that works
+for all constructs including L2s, use `construct.node.addDependency` instead.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addResourceDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+###### `reason`<sup>Optional</sup> <a name="reason" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.addResourceDependency.parameter.reason"></a>
+
+- *Type:* string
+
+---
+
 ##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.applyCrossStackReferenceStrength"></a>
 
 ```typescript
@@ -71544,23 +73692,16 @@ node metadata ends up in the Cloud Assembly.)
 ##### `obtainDependencies` <a name="obtainDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.obtainDependencies"></a>
 
 ```typescript
-public obtainDependencies(): (CfnResource | Stack)[]
+public obtainDependencies(): (Stack | CfnResource)[]
 ```
 
-Retrieves an array of resources this resource depends on.
+Retrieves an array of resources and stacks this resource depends on.
 
-This assembles dependencies on resources across stacks (including nested stacks)
-automatically.
+For resources depended on directly, returns the `CfnResource` object. For
+dependencies on other stacks, returns the `Stack` object. The order of the
+array is not guaranteed.
 
-##### `obtainResourceDependencies` <a name="obtainResourceDependencies" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.obtainResourceDependencies"></a>
-
-```typescript
-public obtainResourceDependencies(): CfnResource[]
-```
-
-Get a shallow copy of dependencies between this resource and other resources in the same stack.
-
-##### `removeDependency` <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.removeDependency"></a>
+##### ~~`removeDependency`~~ <a name="removeDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.removeDependency"></a>
 
 ```typescript
 public removeDependency(target: CfnResource): void
@@ -71572,6 +73713,23 @@ This can be used for resources across stacks (including nested stacks)
 and the dependency will automatically be removed from the relevant scope.
 
 ###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.removeDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.CfnResource
+
+---
+
+##### `removeResourceDependency` <a name="removeResourceDependency" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.removeResourceDependency"></a>
+
+```typescript
+public removeResourceDependency(target: CfnResource): void
+```
+
+Indicates that this resource no longer depends on another resource.
+
+This can be used for resources across stacks (including nested stacks)
+and the dependency will automatically be removed from the relevant scope.
+
+###### `target`<sup>Required</sup> <a name="target" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnection.removeResourceDependency.parameter.target"></a>
 
 - *Type:* aws-cdk-lib.CfnResource
 
@@ -72398,6 +74556,7 @@ new VpnConnectionTunnelStateAlarm(scope: IConstruct, id: string, props: VpnConne
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
@@ -72489,6 +74648,26 @@ Typically SnsAction or AutoScalingAction.
 ###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addAlarmAction.parameter.actions"></a>
 
 - *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.VpnConnectionTunnelStateAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
 
 ---
 
