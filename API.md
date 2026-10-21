@@ -97274,7 +97274,7 @@ const dynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps: DynamoDbTableAgeOfOl
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | The DynamoDB table to monitor, including `TableV2` and imported tables. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -97291,12 +97291,12 @@ const dynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps: DynamoDbTableAgeOfOl
 ##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAgeOfOldestUnreplicatedRecordAlarmProps.property.table"></a>
 
 ```typescript
-public readonly table: Table;
+public readonly table: ITable;
 ```
 
-- *Type:* aws-cdk-lib.aws_dynamodb.Table
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
-The DynamoDb Table to monitor.
+The DynamoDB table to monitor, including `TableV2` and imported tables.
 
 ---
 
@@ -97447,19 +97447,19 @@ const dynamoDbTableAlarmProps: DynamoDbTableAlarmProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | The DynamoDB table to monitor, including `TableV2` and imported tables. |
 
 ---
 
 ##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableAlarmProps.property.table"></a>
 
 ```typescript
-public readonly table: Table;
+public readonly table: ITable;
 ```
 
-- *Type:* aws-cdk-lib.aws_dynamodb.Table
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
-The DynamoDb Table to monitor.
+The DynamoDB table to monitor, including `TableV2` and imported tables.
 
 ---
 
@@ -97479,7 +97479,7 @@ const dynamoDbTableFailedToReplicateRecordCountAlarmProps: DynamoDbTableFailedTo
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | The DynamoDB table to monitor, including `TableV2` and imported tables. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -97496,12 +97496,12 @@ const dynamoDbTableFailedToReplicateRecordCountAlarmProps: DynamoDbTableFailedTo
 ##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableFailedToReplicateRecordCountAlarmProps.property.table"></a>
 
 ```typescript
-public readonly table: Table;
+public readonly table: ITable;
 ```
 
-- *Type:* aws-cdk-lib.aws_dynamodb.Table
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
-The DynamoDb Table to monitor.
+The DynamoDB table to monitor, including `TableV2` and imported tables.
 
 ---
 
@@ -97650,7 +97650,7 @@ const dynamoDbTableReadThrottleEventsAlarmProps: DynamoDbTableReadThrottleEvents
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | The DynamoDB table to monitor, including `TableV2` and imported tables. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -97667,12 +97667,12 @@ const dynamoDbTableReadThrottleEventsAlarmProps: DynamoDbTableReadThrottleEvents
 ##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableReadThrottleEventsAlarmProps.property.table"></a>
 
 ```typescript
-public readonly table: Table;
+public readonly table: ITable;
 ```
 
-- *Type:* aws-cdk-lib.aws_dynamodb.Table
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
-The DynamoDb Table to monitor.
+The DynamoDB table to monitor, including `TableV2` and imported tables.
 
 ---
 
@@ -98025,7 +98025,7 @@ const dynamoDbTableRecommendedAlarmsProps: DynamoDbTableRecommendedAlarmsProps =
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbRecommendedAlarmsMetrics">DynamoDbRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | The resources to exclude from the recommended alarms. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | The DynamoDB table to monitor, including `TableV2` and imported tables. |
 
 ---
 
@@ -98183,12 +98183,12 @@ How to handle missing data for this alarm.
 ##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableRecommendedAlarmsProps.property.table"></a>
 
 ```typescript
-public readonly table: Table;
+public readonly table: ITable;
 ```
 
-- *Type:* aws-cdk-lib.aws_dynamodb.Table
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
-The DynamoDb Table to monitor.
+The DynamoDB table to monitor, including `TableV2` and imported tables.
 
 ---
 
@@ -98208,7 +98208,7 @@ const dynamoDbTableSystemErrorsAlarmProps: DynamoDbTableSystemErrorsAlarmProps =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | The DynamoDB table to monitor, including `TableV2` and imported tables. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -98225,12 +98225,12 @@ const dynamoDbTableSystemErrorsAlarmProps: DynamoDbTableSystemErrorsAlarmProps =
 ##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableSystemErrorsAlarmProps.property.table"></a>
 
 ```typescript
-public readonly table: Table;
+public readonly table: ITable;
 ```
 
-- *Type:* aws-cdk-lib.aws_dynamodb.Table
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
-The DynamoDb Table to monitor.
+The DynamoDB table to monitor, including `TableV2` and imported tables.
 
 ---
 
@@ -98384,7 +98384,7 @@ const dynamoDbTableThrottledPutRecordCountAlarmProps: DynamoDbTableThrottledPutR
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | The DynamoDB table to monitor, including `TableV2` and imported tables. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -98401,12 +98401,12 @@ const dynamoDbTableThrottledPutRecordCountAlarmProps: DynamoDbTableThrottledPutR
 ##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableThrottledPutRecordCountAlarmProps.property.table"></a>
 
 ```typescript
-public readonly table: Table;
+public readonly table: ITable;
 ```
 
-- *Type:* aws-cdk-lib.aws_dynamodb.Table
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
-The DynamoDb Table to monitor.
+The DynamoDB table to monitor, including `TableV2` and imported tables.
 
 ---
 
@@ -98560,7 +98560,7 @@ const dynamoDbTableWriteThrottleEventsAlarmProps: DynamoDbTableWriteThrottleEven
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.Table</code> | The DynamoDb Table to monitor. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.table">table</a></code> | <code>aws-cdk-lib.aws_dynamodb.ITable</code> | The DynamoDB table to monitor, including `TableV2` and imported tables. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -98577,12 +98577,12 @@ const dynamoDbTableWriteThrottleEventsAlarmProps: DynamoDbTableWriteThrottleEven
 ##### `table`<sup>Required</sup> <a name="table" id="@renovosolutions/cdk-library-cloudwatch-alarms.DynamoDbTableWriteThrottleEventsAlarmProps.property.table"></a>
 
 ```typescript
-public readonly table: Table;
+public readonly table: ITable;
 ```
 
-- *Type:* aws-cdk-lib.aws_dynamodb.Table
+- *Type:* aws-cdk-lib.aws_dynamodb.ITable
 
-The DynamoDb Table to monitor.
+The DynamoDB table to monitor, including `TableV2` and imported tables.
 
 ---
 
@@ -132007,7 +132007,7 @@ All aspects can visit an IConstruct.
 
 - *Implements:* aws-cdk-lib.IAspect
 
-Configures the recommended alarms for an DynamoDb Table.
+Configures recommended alarms for owned DynamoDB `Table` and `TableV2` constructs.
 
 > [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB)
 
