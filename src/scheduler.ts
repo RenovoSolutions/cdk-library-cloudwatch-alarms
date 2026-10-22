@@ -45,6 +45,7 @@ export interface SchedulerAlarmProps {
 
 /**
  * Configuration for SchedulerAlarmBase.
+ * Missing data defaults to `TreatMissingData.NOT_BREACHING` for all static alarms.
  */
 export interface SchedulerAlarmBaseConfig extends AlarmBaseProps {
   /**

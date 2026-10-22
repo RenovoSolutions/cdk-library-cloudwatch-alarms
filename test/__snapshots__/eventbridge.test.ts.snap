@@ -45,21 +45,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -102,21 +92,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -128,7 +108,7 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "RuleName",
@@ -159,21 +139,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -232,21 +202,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -289,21 +249,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -315,7 +265,7 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
           ],
         },
         "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "EvaluationPeriods": 3,
         "Metrics": [
           {
@@ -381,21 +331,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -407,7 +347,7 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 1,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "RuleName",
@@ -416,7 +356,7 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
             },
           },
         ],
-        "EvaluationPeriods": 1,
+        "EvaluationPeriods": 3,
         "MetricName": "ThrottledRules",
         "Namespace": "AWS/Events",
         "Period": 60,
@@ -438,21 +378,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -584,21 +514,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -631,21 +551,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                         1,
                         {
                           "Fn::Split": [
-                            "/",
+                            ":rule/",
                             {
-                              "Fn::Select": [
-                                5,
-                                {
-                                  "Fn::Split": [
-                                    ":",
-                                    {
-                                      "Fn::GetAtt": [
-                                        "Rule4C995B7F",
-                                        "Arn",
-                                      ],
-                                    },
-                                  ],
-                                },
+                              "Fn::GetAtt": [
+                                "Rule4C995B7F",
+                                "Arn",
                               ],
                             },
                           ],
@@ -680,21 +590,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -706,7 +606,7 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "EventBusName",
@@ -727,21 +627,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                         1,
                         {
                           "Fn::Split": [
-                            "/",
+                            ":rule/",
                             {
-                              "Fn::Select": [
-                                5,
-                                {
-                                  "Fn::Split": [
-                                    ":",
-                                    {
-                                      "Fn::GetAtt": [
-                                        "Rule4C995B7F",
-                                        "Arn",
-                                      ],
-                                    },
-                                  ],
-                                },
+                              "Fn::GetAtt": [
+                                "Rule4C995B7F",
+                                "Arn",
                               ],
                             },
                           ],
@@ -776,21 +666,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -835,21 +715,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                                 1,
                                 {
                                   "Fn::Split": [
-                                    "/",
+                                    ":rule/",
                                     {
-                                      "Fn::Select": [
-                                        5,
-                                        {
-                                          "Fn::Split": [
-                                            ":",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "Rule4C995B7F",
-                                                "Arn",
-                                              ],
-                                            },
-                                          ],
-                                        },
+                                      "Fn::GetAtt": [
+                                        "Rule4C995B7F",
+                                        "Arn",
                                       ],
                                     },
                                   ],
@@ -888,21 +758,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -935,21 +795,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                         1,
                         {
                           "Fn::Split": [
-                            "/",
+                            ":rule/",
                             {
-                              "Fn::Select": [
-                                5,
-                                {
-                                  "Fn::Split": [
-                                    ":",
-                                    {
-                                      "Fn::GetAtt": [
-                                        "Rule4C995B7F",
-                                        "Arn",
-                                      ],
-                                    },
-                                  ],
-                                },
+                              "Fn::GetAtt": [
+                                "Rule4C995B7F",
+                                "Arn",
                               ],
                             },
                           ],
@@ -984,21 +834,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1010,7 +850,7 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
           ],
         },
         "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "EvaluationPeriods": 3,
         "Metrics": [
           {
@@ -1042,21 +882,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                                 1,
                                 {
                                   "Fn::Split": [
-                                    "/",
+                                    ":rule/",
                                     {
-                                      "Fn::Select": [
-                                        5,
-                                        {
-                                          "Fn::Split": [
-                                            ":",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "Rule4C995B7F",
-                                                "Arn",
-                                              ],
-                                            },
-                                          ],
-                                        },
+                                      "Fn::GetAtt": [
+                                        "Rule4C995B7F",
+                                        "Arn",
                                       ],
                                     },
                                   ],
@@ -1101,21 +931,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                                 1,
                                 {
                                   "Fn::Split": [
-                                    "/",
+                                    ":rule/",
                                     {
-                                      "Fn::Select": [
-                                        5,
-                                        {
-                                          "Fn::Split": [
-                                            ":",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "Rule4C995B7F",
-                                                "Arn",
-                                              ],
-                                            },
-                                          ],
-                                        },
+                                      "Fn::GetAtt": [
+                                        "Rule4C995B7F",
+                                        "Arn",
                                       ],
                                     },
                                   ],
@@ -1154,21 +974,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1180,7 +990,7 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 1,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "EventBusName",
@@ -1201,21 +1011,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                         1,
                         {
                           "Fn::Split": [
-                            "/",
+                            ":rule/",
                             {
-                              "Fn::Select": [
-                                5,
-                                {
-                                  "Fn::Split": [
-                                    ":",
-                                    {
-                                      "Fn::GetAtt": [
-                                        "Rule4C995B7F",
-                                        "Arn",
-                                      ],
-                                    },
-                                  ],
-                                },
+                              "Fn::GetAtt": [
+                                "Rule4C995B7F",
+                                "Arn",
                               ],
                             },
                           ],
@@ -1228,7 +1028,7 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
             },
           },
         ],
-        "EvaluationPeriods": 1,
+        "EvaluationPeriods": 3,
         "MetricName": "ThrottledRules",
         "Namespace": "AWS/Events",
         "Period": 60,
@@ -1250,21 +1050,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1309,21 +1099,11 @@ exports[`aspect discovers owned default/custom-bus rules and respects resource e
                                 1,
                                 {
                                   "Fn::Split": [
-                                    "/",
+                                    ":rule/",
                                     {
-                                      "Fn::Select": [
-                                        5,
-                                        {
-                                          "Fn::Split": [
-                                            ":",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "Rule4C995B7F",
-                                                "Arn",
-                                              ],
-                                            },
-                                          ],
-                                        },
+                                      "Fn::GetAtt": [
+                                        "Rule4C995B7F",
+                                        "Arn",
                                       ],
                                     },
                                   ],
@@ -1411,21 +1191,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1483,21 +1253,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1509,7 +1269,7 @@ exports[`bundle defaults are applied unless an individual action or missing-data
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "RuleName",
@@ -1555,21 +1315,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1643,21 +1393,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1715,21 +1455,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1741,7 +1471,7 @@ exports[`bundle defaults are applied unless an individual action or missing-data
           ],
         },
         "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "EvaluationPeriods": 3,
         "InsufficientDataActions": [
           {
@@ -1822,21 +1552,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1848,7 +1568,7 @@ exports[`bundle defaults are applied unless an individual action or missing-data
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 1,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "RuleName",
@@ -1857,7 +1577,7 @@ exports[`bundle defaults are applied unless an individual action or missing-data
             },
           },
         ],
-        "EvaluationPeriods": 1,
+        "EvaluationPeriods": 3,
         "InsufficientDataActions": [
           {
             "Ref": "DefaultTopicC4DC856F",
@@ -1894,21 +1614,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -1996,21 +1706,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "OtherRuleE4438629",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "OtherRuleE4438629",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2068,21 +1768,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "OtherRuleE4438629",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "OtherRuleE4438629",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2094,7 +1784,7 @@ exports[`bundle defaults are applied unless an individual action or missing-data
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "RuleName",
@@ -2140,21 +1830,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "OtherRuleE4438629",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "OtherRuleE4438629",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2228,21 +1908,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "OtherRuleE4438629",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "OtherRuleE4438629",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2300,21 +1970,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "OtherRuleE4438629",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "OtherRuleE4438629",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2326,7 +1986,7 @@ exports[`bundle defaults are applied unless an individual action or missing-data
           ],
         },
         "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "EvaluationPeriods": 3,
         "InsufficientDataActions": [
           {
@@ -2407,21 +2067,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "OtherRuleE4438629",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "OtherRuleE4438629",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2433,7 +2083,7 @@ exports[`bundle defaults are applied unless an individual action or missing-data
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 1,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "RuleName",
@@ -2442,7 +2092,7 @@ exports[`bundle defaults are applied unless an individual action or missing-data
             },
           },
         ],
-        "EvaluationPeriods": 1,
+        "EvaluationPeriods": 3,
         "InsufficientDataActions": [
           {
             "Ref": "OverrideTopicDAEAFDB7",
@@ -2479,21 +2129,11 @@ exports[`bundle defaults are applied unless an individual action or missing-data
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "OtherRuleE4438629",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "OtherRuleE4438629",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2615,21 +2255,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2662,21 +2292,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                         1,
                         {
                           "Fn::Split": [
-                            "/",
+                            ":rule/",
                             {
-                              "Fn::Select": [
-                                5,
-                                {
-                                  "Fn::Split": [
-                                    ":",
-                                    {
-                                      "Fn::GetAtt": [
-                                        "Rule4C995B7F",
-                                        "Arn",
-                                      ],
-                                    },
-                                  ],
-                                },
+                              "Fn::GetAtt": [
+                                "Rule4C995B7F",
+                                "Arn",
                               ],
                             },
                           ],
@@ -2711,21 +2331,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2737,7 +2347,7 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "EventBusName",
@@ -2758,21 +2368,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                         1,
                         {
                           "Fn::Split": [
-                            "/",
+                            ":rule/",
                             {
-                              "Fn::Select": [
-                                5,
-                                {
-                                  "Fn::Split": [
-                                    ":",
-                                    {
-                                      "Fn::GetAtt": [
-                                        "Rule4C995B7F",
-                                        "Arn",
-                                      ],
-                                    },
-                                  ],
-                                },
+                              "Fn::GetAtt": [
+                                "Rule4C995B7F",
+                                "Arn",
                               ],
                             },
                           ],
@@ -2807,21 +2407,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2866,21 +2456,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                                 1,
                                 {
                                   "Fn::Split": [
-                                    "/",
+                                    ":rule/",
                                     {
-                                      "Fn::Select": [
-                                        5,
-                                        {
-                                          "Fn::Split": [
-                                            ":",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "Rule4C995B7F",
-                                                "Arn",
-                                              ],
-                                            },
-                                          ],
-                                        },
+                                      "Fn::GetAtt": [
+                                        "Rule4C995B7F",
+                                        "Arn",
                                       ],
                                     },
                                   ],
@@ -2919,21 +2499,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -2966,21 +2536,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                         1,
                         {
                           "Fn::Split": [
-                            "/",
+                            ":rule/",
                             {
-                              "Fn::Select": [
-                                5,
-                                {
-                                  "Fn::Split": [
-                                    ":",
-                                    {
-                                      "Fn::GetAtt": [
-                                        "Rule4C995B7F",
-                                        "Arn",
-                                      ],
-                                    },
-                                  ],
-                                },
+                              "Fn::GetAtt": [
+                                "Rule4C995B7F",
+                                "Arn",
                               ],
                             },
                           ],
@@ -3015,21 +2575,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -3041,7 +2591,7 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
           ],
         },
         "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 2,
         "EvaluationPeriods": 3,
         "Metrics": [
           {
@@ -3073,21 +2623,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                                 1,
                                 {
                                   "Fn::Split": [
-                                    "/",
+                                    ":rule/",
                                     {
-                                      "Fn::Select": [
-                                        5,
-                                        {
-                                          "Fn::Split": [
-                                            ":",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "Rule4C995B7F",
-                                                "Arn",
-                                              ],
-                                            },
-                                          ],
-                                        },
+                                      "Fn::GetAtt": [
+                                        "Rule4C995B7F",
+                                        "Arn",
                                       ],
                                     },
                                   ],
@@ -3132,21 +2672,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                                 1,
                                 {
                                   "Fn::Split": [
-                                    "/",
+                                    ":rule/",
                                     {
-                                      "Fn::Select": [
-                                        5,
-                                        {
-                                          "Fn::Split": [
-                                            ":",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "Rule4C995B7F",
-                                                "Arn",
-                                              ],
-                                            },
-                                          ],
-                                        },
+                                      "Fn::GetAtt": [
+                                        "Rule4C995B7F",
+                                        "Arn",
                                       ],
                                     },
                                   ],
@@ -3185,21 +2715,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -3211,7 +2731,7 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 1,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "EventBusName",
@@ -3232,21 +2752,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                         1,
                         {
                           "Fn::Split": [
-                            "/",
+                            ":rule/",
                             {
-                              "Fn::Select": [
-                                5,
-                                {
-                                  "Fn::Split": [
-                                    ":",
-                                    {
-                                      "Fn::GetAtt": [
-                                        "Rule4C995B7F",
-                                        "Arn",
-                                      ],
-                                    },
-                                  ],
-                                },
+                              "Fn::GetAtt": [
+                                "Rule4C995B7F",
+                                "Arn",
                               ],
                             },
                           ],
@@ -3259,7 +2769,7 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
             },
           },
         ],
-        "EvaluationPeriods": 1,
+        "EvaluationPeriods": 3,
         "MetricName": "ThrottledRules",
         "Namespace": "AWS/Events",
         "Period": 60,
@@ -3281,21 +2791,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -3340,21 +2840,11 @@ exports[`custom bus dimensions use the bus and the unprefixed rule name 1`] = `
                                 1,
                                 {
                                   "Fn::Split": [
-                                    "/",
+                                    ":rule/",
                                     {
-                                      "Fn::Select": [
-                                        5,
-                                        {
-                                          "Fn::Split": [
-                                            ":",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "Rule4C995B7F",
-                                                "Arn",
-                                              ],
-                                            },
-                                          ],
-                                        },
+                                      "Fn::GetAtt": [
+                                        "Rule4C995B7F",
+                                        "Arn",
                                       ],
                                     },
                                   ],
@@ -3455,21 +2945,11 @@ exports[`default rule bundle includes delivery and anomaly alarms 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -3512,21 +2992,11 @@ exports[`default rule bundle includes delivery and anomaly alarms 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -3585,21 +3055,11 @@ exports[`default rule bundle includes delivery and anomaly alarms 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -3642,21 +3102,11 @@ exports[`default rule bundle includes delivery and anomaly alarms 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],
@@ -3668,7 +3118,7 @@ exports[`default rule bundle includes delivery and anomaly alarms 1`] = `
           ],
         },
         "ComparisonOperator": "GreaterThanThreshold",
-        "DatapointsToAlarm": 1,
+        "DatapointsToAlarm": 2,
         "Dimensions": [
           {
             "Name": "RuleName",
@@ -3677,7 +3127,7 @@ exports[`default rule bundle includes delivery and anomaly alarms 1`] = `
             },
           },
         ],
-        "EvaluationPeriods": 1,
+        "EvaluationPeriods": 3,
         "MetricName": "ThrottledRules",
         "Namespace": "AWS/Events",
         "Period": 60,
@@ -3699,21 +3149,11 @@ exports[`default rule bundle includes delivery and anomaly alarms 1`] = `
                   1,
                   {
                     "Fn::Split": [
-                      "/",
+                      ":rule/",
                       {
-                        "Fn::Select": [
-                          5,
-                          {
-                            "Fn::Split": [
-                              ":",
-                              {
-                                "Fn::GetAtt": [
-                                  "Rule4C995B7F",
-                                  "Arn",
-                                ],
-                              },
-                            ],
-                          },
+                        "Fn::GetAtt": [
+                          "Rule4C995B7F",
+                          "Arn",
                         ],
                       },
                     ],

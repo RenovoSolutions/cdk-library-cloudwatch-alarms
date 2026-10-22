@@ -7454,23 +7454,23 @@ exports[`ReplicaLagUnavailableSnapshot 1`] = `
   "Resources": {
     "Unavailable9F58CC55": {
       "Properties": {
-        "AlarmDescription": "Detects unavailable RDS read-replica lag (ReplicaLag < 0). Check replication status; -1 can occur during setup or an error.",
+        "AlarmDescription": "Detects sustained negative RDS read-replica lag (ReplicaLag < 0). Check the replica replication status.",
         "AlarmName": "reader - ReplicaLag Unavailable",
         "ComparisonOperator": "LessThanThreshold",
-        "DatapointsToAlarm": 3,
+        "DatapointsToAlarm": 108,
         "Dimensions": [
           {
             "Name": "DBInstanceIdentifier",
             "Value": "reader",
           },
         ],
-        "EvaluationPeriods": 5,
+        "EvaluationPeriods": 120,
         "MetricName": "ReplicaLag",
         "Namespace": "AWS/RDS",
         "Period": 60,
-        "Statistic": "Minimum",
+        "Statistic": "Maximum",
         "Threshold": 0,
-        "TreatMissingData": "missing",
+        "TreatMissingData": "notBreaching",
       },
       "Type": "AWS::CloudWatch::Alarm",
     },

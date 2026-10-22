@@ -50,6 +50,12 @@ test('default rule bundle includes delivery and anomaly alarms', () => {
     TreatMissingData: 'notBreaching',
     Dimensions: [{ Name: 'RuleName', Value: { Ref: 'Rule4C995B7F' } }],
   });
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', {
+    MetricName: 'InvocationsSentToDlq', EvaluationPeriods: 1, DatapointsToAlarm: 1,
+  });
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', {
+    MetricName: 'ThrottledRules', Period: 60, EvaluationPeriods: 3, DatapointsToAlarm: 2,
+  });
   expect(bundle.alarmTriggeredRulesAnomaly).toBeDefined();
   expect(bundle.alarmIngestionToInvocationSuccessLatencyAnomaly).toBeDefined();
   expect(bundle.alarmIngestionToInvocationSuccessLatency).toBeUndefined();
@@ -65,11 +71,33 @@ test('custom bus dimensions use the bus and the unprefixed rule name', () => {
   template.resourceCountIs('AWS::CloudWatch::Alarm', 7);
   template.hasResourceProperties('AWS::CloudWatch::Alarm', {
     MetricName: 'FailedInvocations',
-    Dimensions: Match.arrayWith([{ Name: 'EventBusName', Value: { Ref: 'BusEA82B648' } }]),
+    AlarmName: {
+      'Fn::Join': ['', [
+        { 'Fn::Select': [1, { 'Fn::Split': [':rule/', { 'Fn::GetAtt': ['Rule4C995B7F', 'Arn'] }] }] },
+        ' - FailedInvocations',
+      ]],
+    },
+    Dimensions: [
+      { Name: 'EventBusName', Value: { Ref: 'BusEA82B648' } },
+      {
+        Name: 'RuleName',
+        Value: {
+          'Fn::Select': [1, {
+            'Fn::Split': ['/',
+              { 'Fn::Select': [1, { 'Fn::Split': [':rule/', { 'Fn::GetAtt': ['Rule4C995B7F', 'Arn'] }] }] }],
+          }],
+        },
+      },
+    ],
   });
   template.hasResourceProperties('AWS::CloudWatch::Alarm', {
     ComparisonOperator: 'LessThanThreshold',
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 2,
     Metrics: Match.arrayWith([{ Expression: 'successful / attempts', Id: 'expr_1', ReturnData: true }]),
+  });
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', {
+    MetricName: 'IngestionToInvocationSuccessLatency', Period: 60, EvaluationPeriods: 3, DatapointsToAlarm: 2,
   });
   template.hasResourceProperties('AWS::CloudWatch::Alarm', {
     ComparisonOperator: 'LessThanLowerOrGreaterThanUpperThreshold',

@@ -304,18 +304,21 @@ new lambda.Function(stack, 'Lambda2', {
 
 ## RDS read-replica lag availability
 
-`RdsReadReplicaLagUnavailableAlarm` is an opt-in alarm on `ReplicaLag < 0`, using
-`Minimum` and a configurable three-of-five one-minute window. These defaults are
-library choices. AWS documents `-1` as inactive replication for MariaDB/MySQL and
-unknown lag for SQL Server, including during setup or an error. See
-[AWS read-replication monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Monitoring.html).
-It complements `RdsReadReplicaLagAlarm`; no existing alarm or bundle changes.
+`RdsReadReplicaLagUnavailableAlarm` is an opt-in alarm for sustained
+`ReplicaLag < 0`.
+It uses `Maximum` and defaults to negative readings for 90% of a rolling
+two-hour window.
+See [AWS read-replication monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Monitoring.html).
 
 ## EventBridge alarms
 
 Rule alarms use `AWS/Events` for default and classic custom event buses, following
 the [EventBridge delivery-monitoring guidance][eventbridge-monitoring]. Rule alarm
-thresholds and evaluation windows are library defaults. `AWS/EventsV2` is not covered.
+timing defaults are one breaching one-minute period for exhausted delivery failures
+and DLQ deliveries: even one undelivered event needs investigation. Throttling,
+latency, and success-rate alarms default to two of three one-minute periods to
+filter transient conditions. These timings are not prescribed by AWS; thresholds
+and timings are configurable. `AWS/EventsV2` is not covered.
 Scheduler's four static alarms use the AWS
 [recommended settings][recommended-alarms],
 narrowed from account-wide metrics to a schedule group, including an imported `default`

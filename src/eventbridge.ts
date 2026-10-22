@@ -1,9 +1,8 @@
 import {
   IAspect,
   Duration,
-  ArnFormat,
+  Arn,
   Fn,
-  Stack,
   Token,
   aws_events as events,
   aws_cloudwatch as cloudwatch,
@@ -73,12 +72,12 @@ export interface EventBridgeAlarmBaseConfig extends AlarmBaseProps {
   readonly period?: Duration;
   /**
    * The number of periods evaluated.
-   * @default - The alarm-specific AWS guidance or library default.
+   * @default - One for failed invocations and DLQ deliveries; three otherwise.
    */
   readonly evaluationPeriods?: number;
   /**
    * The number of breaching periods required.
-   * @default - The same as evaluationPeriods.
+   * @default - One for failed invocations and DLQ deliveries; two otherwise.
    */
   readonly datapointsToAlarm?: number;
   /**
@@ -95,7 +94,7 @@ export interface EventBridgeAlarmBaseConfig extends AlarmBaseProps {
 
 /** The ARN path includes the event-bus name for custom-bus rules. */
 function rulePath(rule: events.IRule): string {
-  return Stack.of(rule).splitArn(rule.ruleArn, ArnFormat.SLASH_RESOURCE_NAME).resourceName!;
+  return Arn.extractResourceName(rule.ruleArn, 'rule');
 }
 
 /** Creates rule metrics with the dimensions published for the rule's event bus. */
@@ -109,7 +108,7 @@ function ruleMetric(props: EventBridgeRuleAlarmProps, metricName: string, option
     namespace: 'AWS/Events',
     metricName,
     dimensionsMap: {
-      RuleName: customBus ? Fn.select(1, Fn.split('/', rulePath(props.rule))) : props.rule.ruleName,
+      RuleName: customBus ? Fn.select(1, Fn.split('/', path)) : props.rule.ruleName,
       ...(customBus ? { EventBusName: eventBusName } : {}),
     },
     ...options,
@@ -118,6 +117,7 @@ function ruleMetric(props: EventBridgeRuleAlarmProps, metricName: string, option
 
 /**
  * Configuration for EventBridgeRuleFailedInvocationsAlarm.
+ * Missing data defaults to `TreatMissingData.NOT_BREACHING`.
  */
 export interface EventBridgeRuleFailedInvocationsAlarmConfig extends EventBridgeAlarmBaseConfig {
   /**
@@ -136,7 +136,8 @@ export interface EventBridgeRuleFailedInvocationsAlarmProps extends EventBridgeR
  * Permanently failed target invocations, after delivery retries are exhausted.
  *
  * AWS recommends monitoring this metric for rule delivery health.
- * Library defaults detect any occurrence and treat missing data as not breaching.
+ * Defaults to one breaching one-minute period: retries have already been exhausted,
+ * so even one failed event warrants investigation. This timing is not prescribed by AWS.
  */
 export class EventBridgeRuleFailedInvocationsAlarm extends cloudwatch.Alarm {
   constructor(scope: Construct, id: string, props: EventBridgeRuleFailedInvocationsAlarmProps) {
@@ -164,6 +165,7 @@ export class EventBridgeRuleFailedInvocationsAlarm extends cloudwatch.Alarm {
 
 /**
  * Configuration for EventBridgeRuleInvocationsSentToDlqAlarm.
+ * Missing data defaults to `TreatMissingData.NOT_BREACHING`.
  */
 export interface EventBridgeRuleInvocationsSentToDlqAlarmConfig extends EventBridgeAlarmBaseConfig {
   /**
@@ -182,7 +184,8 @@ export interface EventBridgeRuleInvocationsSentToDlqAlarmProps extends EventBrid
  * Undelivered events retained in a target dead-letter queue.
  *
  * AWS recommends monitoring this metric for rule delivery health.
- * Library defaults detect any occurrence and treat missing data as not breaching.
+ * Defaults to one breaching one-minute period: even one retained event needs
+ * investigation and recovery. This timing is not prescribed by AWS.
  */
 export class EventBridgeRuleInvocationsSentToDlqAlarm extends cloudwatch.Alarm {
   constructor(scope: Construct, id: string, props: EventBridgeRuleInvocationsSentToDlqAlarmProps) {
@@ -210,6 +213,7 @@ export class EventBridgeRuleInvocationsSentToDlqAlarm extends cloudwatch.Alarm {
 
 /**
  * Configuration for EventBridgeRuleThrottledRulesAlarm.
+ * Missing data defaults to `TreatMissingData.NOT_BREACHING`.
  */
 export interface EventBridgeRuleThrottledRulesAlarmConfig extends EventBridgeAlarmBaseConfig {
   /**
@@ -228,13 +232,13 @@ export interface EventBridgeRuleThrottledRulesAlarmProps extends EventBridgeRule
  * Rule executions delayed by EventBridge invocation throttling.
  *
  * AWS recommends monitoring this metric for rule delivery health.
- * Library defaults detect any occurrence and treat missing data as not breaching.
+ * Defaults to two breaching one-minute periods out of three to tolerate brief throttling.
  */
 export class EventBridgeRuleThrottledRulesAlarm extends cloudwatch.Alarm {
   constructor(scope: Construct, id: string, props: EventBridgeRuleThrottledRulesAlarmProps) {
     const alarmName = props.alarmName ?? `${rulePath(props.rule)} - ${EventBridgeRecommendedAlarmsMetrics.THROTTLED_RULES}`;
     const period = props.period ?? Duration.minutes(1);
-    const evaluationPeriods = props.evaluationPeriods ?? 1;
+    const evaluationPeriods = props.evaluationPeriods ?? 3;
     validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
 
     super(scope, id, {
@@ -242,7 +246,7 @@ export class EventBridgeRuleThrottledRulesAlarm extends cloudwatch.Alarm {
       metric: ruleMetric(props, EventBridgeRecommendedAlarmsMetrics.THROTTLED_RULES, { period, statistic: 'Sum' }),
       threshold: props.threshold ?? 0,
       evaluationPeriods,
-      datapointsToAlarm: props.datapointsToAlarm ?? evaluationPeriods,
+      datapointsToAlarm: props.datapointsToAlarm ?? 2,
       treatMissingData: props.treatMissingData ?? cloudwatch.TreatMissingData.NOT_BREACHING,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'Detects EventBridge rule throttling that delays target delivery. Review invocation quotas and target capacity.',
@@ -288,7 +292,7 @@ export class EventBridgeRuleIngestionToInvocationSuccessLatencyAlarm extends clo
       metric: ruleMetric(props, EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY, { period, statistic: 'Average' }),
       threshold: props.threshold,
       evaluationPeriods,
-      datapointsToAlarm: props.datapointsToAlarm ?? evaluationPeriods,
+      datapointsToAlarm: props.datapointsToAlarm ?? 2,
       treatMissingData: props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING,
       comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'Detects slow EventBridge target delivery, including delays caused by retries. Investigate target response times and throttling.',
@@ -341,7 +345,7 @@ export class EventBridgeRuleSuccessfulInvocationRateAlarm extends cloudwatch.Ala
       }),
       threshold: props.threshold,
       evaluationPeriods,
-      datapointsToAlarm: props.datapointsToAlarm ?? evaluationPeriods,
+      datapointsToAlarm: props.datapointsToAlarm ?? 2,
       treatMissingData: props.treatMissingData ?? cloudwatch.TreatMissingData.MISSING,
       comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
       alarmDescription: props.alarmDescription ?? 'Detects a low fraction of successful EventBridge invocation attempts. Investigate retries, target capacity, and permissions.',

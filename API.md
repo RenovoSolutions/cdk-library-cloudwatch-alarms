@@ -37012,7 +37012,8 @@ Uniquely identifies this class.
 Permanently failed target invocations, after delivery retries are exhausted.
 
 AWS recommends monitoring this metric for rule delivery health.
-Library defaults detect any occurrence and treat missing data as not breaching.
+Defaults to one breaching one-minute period: retries have already been exhausted,
+so even one failed event warrants investigation. This timing is not prescribed by AWS.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer"></a>
 
@@ -38564,7 +38565,8 @@ Uniquely identifies this class.
 Undelivered events retained in a target dead-letter queue.
 
 AWS recommends monitoring this metric for rule delivery health.
-Library defaults detect any occurrence and treat missing data as not breaching.
+Defaults to one breaching one-minute period: even one retained event needs
+investigation and recovery. This timing is not prescribed by AWS.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarm.Initializer"></a>
 
@@ -39825,7 +39827,7 @@ Uniquely identifies this class.
 Rule executions delayed by EventBridge invocation throttling.
 
 AWS recommends monitoring this metric for rule delivery health.
-Library defaults detect any occurrence and treat missing data as not breaching.
+Defaults to two breaching one-minute periods out of three to tolerate brief throttling.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarm.Initializer"></a>
 
@@ -61037,12 +61039,9 @@ Uniquely identifies this class.
 
 ### RdsReadReplicaLagUnavailableAlarm <a name="RdsReadReplicaLagUnavailableAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagUnavailableAlarm"></a>
 
-An opt-in alarm for negative `ReplicaLag` values, using the Minimum statistic.
+An opt-in alarm for sustained negative `ReplicaLag` values.
 
-For MariaDB and MySQL, `-1` indicates inactive replication. For SQL Server,
-it means RDS cannot determine lag, including during replica setup or an error.
-The default three-of-five one-minute window is a library choice, not an AWS recommendation.
-This alarm is not added by the recommended-alarm bundles or Aspects.
+Defaults to negative readings for 90% of a rolling two-hour window.
 
 > [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Monitoring.html](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Monitoring.html)
 
@@ -105932,7 +105931,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -105945,7 +105944,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -106175,6 +106174,8 @@ When supplied, this takes precedence over the inferred bus.
 
 Configuration for EventBridgeRuleFailedInvocationsAlarm.
 
+Missing data defaults to `TreatMissingData.NOT_BREACHING`.
+
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig.Initializer"></a>
 
 ```typescript
@@ -106285,7 +106286,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -106298,7 +106299,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -106475,7 +106476,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -106488,7 +106489,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -106636,7 +106637,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -106649,7 +106650,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -106825,7 +106826,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -106838,7 +106839,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -107222,6 +107223,8 @@ The width of the anomaly band in standard deviations.
 
 Configuration for EventBridgeRuleInvocationsSentToDlqAlarm.
 
+Missing data defaults to `TreatMissingData.NOT_BREACHING`.
+
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmConfig.Initializer"></a>
 
 ```typescript
@@ -107332,7 +107335,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -107345,7 +107348,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -107522,7 +107525,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -107535,7 +107538,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -108117,7 +108120,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -108130,7 +108133,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -108306,7 +108309,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -108319,7 +108322,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -108355,6 +108358,8 @@ Choose this from the application delivery-success requirement.
 ### EventBridgeRuleThrottledRulesAlarmConfig <a name="EventBridgeRuleThrottledRulesAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig"></a>
 
 Configuration for EventBridgeRuleThrottledRulesAlarm.
+
+Missing data defaults to `TreatMissingData.NOT_BREACHING`.
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmConfig.Initializer"></a>
 
@@ -108466,7 +108471,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -108479,7 +108484,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -108656,7 +108661,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* The same as evaluationPeriods.
+- *Default:* One for failed invocations and DLQ deliveries; two otherwise.
 
 The number of breaching periods required.
 
@@ -108669,7 +108674,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific AWS guidance or library default.
+- *Default:* One for failed invocations and DLQ deliveries; three otherwise.
 
 The number of periods evaluated.
 
@@ -120946,6 +120951,8 @@ The number of standard deviations used to calculate the anomaly band.
 
 Configuration for the RDS read-replica lag-unavailable alarm.
 
+Missing data defaults to `TreatMissingData.NOT_BREACHING`.
+
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.RdsReadReplicaLagUnavailableAlarmConfig.Initializer"></a>
 
 ```typescript
@@ -121068,7 +121075,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* 3
+- *Default:* 108
 
 The number of periods with negative lag required to trigger the alarm.
 
@@ -121081,7 +121088,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* 5
+- *Default:* 120
 
 The number of periods evaluated.
 
@@ -121241,7 +121248,7 @@ public readonly datapointsToAlarm: number;
 ```
 
 - *Type:* number
-- *Default:* 3
+- *Default:* 108
 
 The number of periods with negative lag required to trigger the alarm.
 
@@ -121254,7 +121261,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* 5
+- *Default:* 120
 
 The number of periods evaluated.
 
@@ -122862,6 +122869,8 @@ The S3 bucket to apply the recommended alarms to.
 ### SchedulerAlarmBaseConfig <a name="SchedulerAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig"></a>
 
 Configuration for SchedulerAlarmBase.
+
+Missing data defaults to `TreatMissingData.NOT_BREACHING` for all static alarms.
 
 #### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerAlarmBaseConfig.Initializer"></a>
 
