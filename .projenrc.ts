@@ -9,6 +9,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkVersionPinning: true,
   projenVersion: '0.104.4',
   addPackageManagerToDevEngines: false,
+  pnpmOptions: {
+    workspaceYamlOptions: {
+      minimumReleaseAgeExclude: ['@renovolive/*', '@renovosolutions/*'],
+    },
+  },
   jsiiVersion: '^6.0',
   defaultReleaseBranch: 'master',
   packageManager: javascript.NodePackageManager.PNPM,
@@ -60,6 +65,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
 project.addPeerDeps(`aws-cdk-lib@^${project.cdkVersion}`);
 project.package.file.addDeletionOverride('packageManager');
+project.testTask.env('CDK_VALIDATION', 'false');
 
 project.eslint?.addRules({
   '@typescript-eslint/no-unused-vars': ['error', {

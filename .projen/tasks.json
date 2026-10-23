@@ -327,6 +327,9 @@
     "test": {
       "name": "test",
       "description": "Run tests",
+      "env": {
+        "CDK_VALIDATION": "false"
+      },
       "steps": [
         {
           "execArgs": [
