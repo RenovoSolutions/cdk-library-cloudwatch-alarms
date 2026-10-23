@@ -945,6 +945,79 @@ export class RdsReadReplicaLagAlarm extends cloudwatch.Alarm {
   }
 }
 
+/**
+ * Configuration for the RDS read-replica lag-unavailable alarm.
+ * Missing data defaults to `TreatMissingData.NOT_BREACHING`.
+ */
+export interface RdsReadReplicaLagUnavailableAlarmConfig extends RdsAlarmBaseConfig {
+  /**
+   * The number of periods evaluated.
+   * @default 120
+   */
+  readonly evaluationPeriods?: number;
+  /**
+   * The number of periods with negative lag required to trigger the alarm.
+   * @default 108
+   */
+  readonly datapointsToAlarm?: number;
+  /**
+   * The alarm name.
+   * @default - Instance identifier followed by ' - ReplicaLag Unavailable'.
+   */
+  readonly alarmName?: string;
+  /**
+   * The alarm description.
+   * @default - Describes unavailable lag and suggests checking replication status.
+   */
+  readonly alarmDescription?: string;
+}
+
+/**
+ * Properties for the RdsReadReplicaLagUnavailableAlarm construct.
+ * `instanceIdentifier` takes precedence when both instance properties are supplied.
+ */
+export interface RdsReadReplicaLagUnavailableAlarmProps extends RdsInstanceAlarmProps, RdsReadReplicaLagUnavailableAlarmConfig {}
+
+/**
+ * An opt-in alarm for sustained negative `ReplicaLag` values.
+ * Defaults to negative readings for 90% of a rolling two-hour window.
+ *
+ * @see https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Monitoring.html
+ */
+export class RdsReadReplicaLagUnavailableAlarm extends cloudwatch.Alarm {
+  constructor(scope: Construct, id: string, props: RdsReadReplicaLagUnavailableAlarmProps) {
+    const instanceIdentifier = props.instanceIdentifier ? props.instanceIdentifier : props.databaseInstance?.instanceIdentifier;
+    const alarmName = props.alarmName ?? `${instanceIdentifier} - ${RdsReadReplicaRecommendedAlarmsMetrics.REPLICA_LAG} Unavailable`;
+    const period = props.period ?? Duration.minutes(1);
+    const evaluationPeriods = props.evaluationPeriods ?? 120;
+    const datapointsToAlarm = props.datapointsToAlarm ?? 108;
+
+    validateTotalAlarmPeriod(period, evaluationPeriods, alarmName);
+    validateInstanceIdentifier(props);
+
+    super(scope, id, {
+      alarmName,
+      metric: new cloudwatch.Metric({
+        namespace: 'AWS/RDS',
+        metricName: RdsReadReplicaRecommendedAlarmsMetrics.REPLICA_LAG,
+        dimensionsMap: { DBInstanceIdentifier: instanceIdentifier! },
+        statistic: 'Maximum',
+        period,
+      }),
+      threshold: 0,
+      evaluationPeriods,
+      datapointsToAlarm,
+      treatMissingData: props.treatMissingData ?? cloudwatch.TreatMissingData.NOT_BREACHING,
+      comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
+      alarmDescription: props.alarmDescription ?? 'Detects sustained negative RDS read-replica lag (ReplicaLag < 0). Check the replica replication status.',
+    });
+
+    if (props.alarmAction) this.addAlarmAction(props.alarmAction);
+    if (props.okAction) this.addOkAction(props.okAction);
+    if (props.insufficientDataAction) this.addInsufficientDataAction(props.insufficientDataAction);
+  }
+}
+
 /** Configuration for the RDS read-replica lag anomaly alarm. */
 export interface RdsReadReplicaLagAnomalyAlarmConfig extends RdsAlarmBaseConfig {
   /**

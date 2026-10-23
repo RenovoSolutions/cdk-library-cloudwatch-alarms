@@ -835,3 +835,34 @@ test('AspectWithTreatMissingData', () => {
     }));
   });
 });
+
+test('TableV2Snapshot', () => {
+  const stack = new Stack(new App(), 'TestStack', {
+    env: { account: '123456789012', region: 'us-east-1' },
+  });
+  new dynamodb.TableV2(stack, 'Table', {
+    partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
+    replicas: [{ region: 'us-west-2' }],
+  });
+  Aspects.of(stack).add(new dynamodbAlarms.DynamoDbRecommendedAlarmsAspect({
+    configReadThrottleEventsAlarm: { threshold: 1 },
+    configSystemErrorsAlarm: { threshold: 1 },
+    configWriteThrottleEventsAlarm: { threshold: 1 },
+  }));
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+  template.resourceCountIs('AWS::CloudWatch::Alarm', mandatoryMetricsList.length);
+});
+
+test('ImportedTableSnapshot', () => {
+  const stack = new Stack(new App(), 'TestStack');
+  const table = dynamodb.Table.fromTableArn(stack, 'Table', 'arn:aws:dynamodb:us-east-1:123456789012:table/existing-table');
+  new dynamodbAlarms.DynamoDbTableReadThrottleEventsAlarm(stack, 'Alarm', { table, threshold: 1 });
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+  template.resourceCountIs('AWS::CloudWatch::Alarm', 1);
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', {
+    MetricName: 'ReadThrottleEvents',
+    Dimensions: [{ Name: 'TableName', Value: 'existing-table' }],
+  });
+});

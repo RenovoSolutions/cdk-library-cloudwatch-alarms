@@ -7442,6 +7442,69 @@ exports[`ReplicaLag alarms use maximum RDS lag and 2-of-3 evaluation settings 1`
 }
 `;
 
+exports[`ReplicaLagUnavailableSnapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "Unavailable9F58CC55": {
+      "Properties": {
+        "AlarmDescription": "Detects sustained negative RDS read-replica lag (ReplicaLag < 0). Check the replica replication status.",
+        "AlarmName": "reader - ReplicaLag Unavailable",
+        "ComparisonOperator": "LessThanThreshold",
+        "DatapointsToAlarm": 108,
+        "Dimensions": [
+          {
+            "Name": "DBInstanceIdentifier",
+            "Value": "reader",
+          },
+        ],
+        "EvaluationPeriods": 120,
+        "MetricName": "ReplicaLag",
+        "Namespace": "AWS/RDS",
+        "Period": 60,
+        "Statistic": "Maximum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
 exports[`SnapshotForDatabaseClusterConstruct 1`] = `
 {
   "Parameters": {

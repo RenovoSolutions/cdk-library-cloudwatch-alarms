@@ -37,13 +37,15 @@ If it's not shown it hasn't been worked on.
 | S3 | - [x] 4xxErrors<br>- [x] 5xxErrors<br>- [ ] OperationsFailedReplication | Replication errors are difficult to set up in CDK at the moment due to rule properties being IResolvables and replication rules not being available on the L2 Bucket construct |
 | SQS | - [x] ApproximateAgeOfOldestMessage<br>- [x] ApproximateNumberOfMessagesNotVisible<br>- [x] ApproximateNumberOfMessagesVisible<br>- [x] NumberOfMessagesSent | - All alarms with the exception of number of messages sent require a user defined threshold because its very use-case specific.<br>- The Aspect only assigns DLQs of other SQS queues, lambda functions, and SNS topics the `ApproximateNumberOfMessagesVisible` alarm with a default threshold of 0, unless `dlqsGetFullRecommendedAlarms` is `true`, in which case they get the same alarms as other queues. DLQs that belong to a resource which isn't in the same scope as the Aspect is added to, won't be detected as DLQs and they will be treated as normal queues. |
 | SNS | - [x] NumberOfMessagesPublished<br>- [x] NumberOfNotificationsDelivered<br>- [x] NumberOfNotificationsFailed<br>- [x] NumberOfNotificationsFilteredOut-InvalidAttributes<br>- [x] NumberOfNotificationsFilteredOut-InvalidMessageBody<br>- [x] NumberOfNotificationsRedrivenToDlq<br>- [x] NumberOfNotificationsFailedToRedriveToDlq<br>- [ ] SMSMonthToDateSpentUSD<br>- [ ] SMSSuccessRate | Some alarms require a threshold to be defined. SMS alarms are not implememented. |
+| EventBridge rules | - [x] FailedInvocations<br>- [x] InvocationsSentToDlq<br>- [x] ThrottledRules<br>- [x] IngestionToInvocationSuccessLatency<br>- [x] SuccessfulInvocationRate<br>- [x] TriggeredRules (anomaly detection)<br>- [x] IngestionToInvocationSuccessLatency (anomaly detection) | Uses the `AWS/Events` rule metrics on default and classic custom event buses. Fixed latency and success-rate alarms require thresholds. Anomaly alarms are included unless excluded. |
+| EventBridge Scheduler | - [x] TargetErrorThrottledCount<br>- [x] InvocationThrottleCount<br>- [x] InvocationDroppedCount<br>- [x] InvocationsFailedToBeSentToDeadLetterCount<br>- [x] InvocationAttemptCount (anomaly detection) | Uses `AWS/Scheduler` metrics per schedule group, not per schedule. Static alarms follow AWS recommended thresholds and evaluation windows. The invocation-volume anomaly alarm is included unless excluded. |
 | Lambda | - [ ] ClaimedAccountConcurrency<br>- [x] Errors<br>- [x] Throttles<br>- [x] Duration<br>- [x] Duration (anomaly detection)<br>- [x] ConcurrentExecutions<br>- [x] Invocations (anomaly detection) | ClaimedAccountConcurrency is account wide and one time so not covered by this library at this time. `Duration` (anomaly) coexists with the static `Duration` alarm. `Invocations` (anomaly) has no static counterpart in this library; it detects unexpected drops (e.g. a disabled trigger) or spikes (e.g. a retry storm) in invocation volume, catching partial drops in the average invocation rate, not a complete outage — Lambda publishes no `Invocations` data at zero traffic, so a full stop reads as missing data; pair it with a canary or an upstream trigger alarm to catch zero invocations. `Errors` and `Throttles` do not have anomaly variants: both are defect/event counters that should sit near zero, so a self-calibrating band risks quietly absorbing a creeping error or throttle rate instead of catching it. |
 | RDS | **For database & cluster instances**<br>- [x] CPUUtilization<br>- [x] DatabaseConnections<br>- [x] FreeableMemory<br>- [x] FreeLocalStorage<br>- [x] FreeStorageSpace<br>- [x] ReadLatency<br>- [x] WriteLatency<br>- [x] DBLoad<br><br>**For clusters**<br>- [x] AuroraVolumeBytesLeftTotal<br>- [x] AuroraBinlogReplicaLag<br>- [x] VolumeBytesUsed (anomaly detection) | Some alarms require a `threshold` to be defined. `AuroraVolumeBytesLeftTotal` and `AuroraBinlogReplicaLag` alarms are created only for Aurora MySQL clusters. `VolumeBytesUsed` is an anomaly detection alarm that flags abnormal growth of the cluster volume on both Aurora MySQL and PostgreSQL; it is not part of the AWS recommended alarms list but is included because static-threshold alarms cannot detect runaway storage growth on automatically-scaling Aurora volumes. |
 | ECS | - [x] CPUUtilization<br>- [x] MemoryUtilization<br>- [x] EphemeralStorageUtilized<br>- [x] RunningTaskCount | The alarms are applied to `FargateService` constructs only. `EphemeralStorageUtilized` requires a `threshold` to be defined. |
 | EFS | - [x] PercentIOLimit<br>- [x] BurstCreditBalance | The alarms are applied to `FileSystem` constructs. |
 | ApiGateway | - [x] 4XXError<br>- [x] 4XXErrorRate<br>- [x] 5XXError<br>- [x] 5XXErrorRate<br>- [x] Latency<br>- [x] Latency (anomaly detection)<br>- [x] Count (anomaly detection)<br>- [x] IntegrationLatency (anomaly detection) | The alarms are applied to `RestApi` constructs only. Alarms are automatically created using the `ApiName` and `Stage` dimensions. To create Latency alarms using the `Resource` and `Method` dimensions, the corresponding properties must be explicitly specified. Anomaly detection alarms complement the static alarms: `Latency` (anomaly) coexists with the static `Latency` alarm; `Count` (anomaly) detects unexpected traffic drops; `IntegrationLatency` (anomaly) detects backend latency drift. The `Count` anomaly alarm detects partial drops in the average request rate, not a complete outage — API Gateway publishes no `Count` data at zero traffic, so a full outage reads as missing data; pair it with a static `Count` alarm or a canary to catch zero traffic. `4XXErrorRate` and `5XXErrorRate` monitor the same `4XXError`/`5XXError` metrics as their counterparts but with statistic `Average`, which CloudWatch documents as the fraction of requests in that error class (0.0–1.0) rather than an absolute count; unlike `4XXError`/`5XXError`, they are opt-in on the recommended-alarms construct/aspect and are only created when their config is supplied, since there is no sensible default fraction threshold. |
 | CloudFront | - [x] 5xxErrorRate<br>- [x] OriginLatency<br>- [x] FunctionValidationErrors<br>- [x] FunctionExecutionErrors<br>- [x] FunctionThrottles | The alarms are applied to `Distribution` constructs only. Both `5xxErrorRate` and `OriginLatency` require a `threshold` to be defined. To create `Function` level alarms using the `FunctionName` dimension, the corresponding properties must be explicitly specified. |
-| DynamoDB | **Mandatory alarms**<br>- [x] ReadThrottleEvents<br>- [x] SystemErrors<br>- [x] WriteThrottleEvents<br><br>**Replication alarms (optional)**<br>- [x] AgeOfOldestUnreplicatedRecord<br>- [x] FailedToReplicateRecordCount<br>- [x] ThrottledPutRecordCount | The alarms are applied to `Table` constructs only. All the mandatory alarms require a `threshold` to be defined.<br>Replication alarms are created only if the corresponding configuration is specified. Each replication alarm has a default `DelegatedOperation` dimension value:<br>- AgeOfOldestUnreplicatedRecord: `StreamRecords`<br>- FailedToReplicateRecordCount: `StreamRecords`<br>- ThrottledPutRecordCount: `PutItem` |
+| DynamoDB | **Mandatory alarms**<br>- [x] ReadThrottleEvents<br>- [x] SystemErrors<br>- [x] WriteThrottleEvents<br><br>**Replication alarms (optional)**<br>- [x] AgeOfOldestUnreplicatedRecord<br>- [x] FailedToReplicateRecordCount<br>- [x] ThrottledPutRecordCount | The Aspect supports owned `Table` and `TableV2` constructs. Individual alarms and the bundle accept `ITable`, including imported tables. All the mandatory alarms require a `threshold` to be defined.<br>Replication alarms are created only if the corresponding configuration is specified. Each replication alarm has a default `DelegatedOperation` dimension value:<br>- AgeOfOldestUnreplicatedRecord: `StreamRecords`<br>- FailedToReplicateRecordCount: `StreamRecords`<br>- ThrottledPutRecordCount: `PutItem` |
 | EC2 | <br>- [x] CPUUtilization<br>- [x] StatusCheckFailed<br><br> | The alarms are applied to `Instance` constructs. |
 | AutoScaling | <br>- [x] GroupInServiceCapacity<br><br> | The alarms are applied to `AutoScalingGroup` constructs. The alarm requires a `threshold` to be defined and the `AutoScalingGroup` should have this metric explicitly enabled. |
 | ElastiCache | <br>- [x] DatabaseMemoryUsagePercentage<br>- [x] EngineCPUUtilization<br>- [x] ReplicationLag<br> | The alarms are applied to `CfnCacheCluster` and `CfnReplicationGroup` constructs. `DatabaseMemoryUsagePercentage` and `ReplicationLag` require a `threshold` to be defined. |
@@ -299,6 +301,66 @@ new lambda.Function(stack, 'Lambda2', {
   code: lambda.Code.fromInline('exports.handler = async (event) => { console.log(event); }'),
 });
 ```
+
+## RDS read-replica lag availability
+
+`RdsReadReplicaLagUnavailableAlarm` is an opt-in alarm for sustained
+`ReplicaLag < 0`.
+It uses `Maximum` and defaults to negative readings for 90% of a rolling
+two-hour window.
+See [AWS read-replication monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Monitoring.html).
+
+## EventBridge alarms
+
+Rule alarms use `AWS/Events` for default and classic custom event buses, following
+the [EventBridge delivery-monitoring guidance][eventbridge-monitoring]. Rule alarm
+timing defaults are one breaching one-minute period for permanent delivery failures
+and DLQ deliveries: even one undelivered event needs investigation. Throttling,
+latency, and success-rate alarms default to two of three one-minute periods to
+filter transient conditions. These timings are not prescribed by AWS; thresholds
+and timings are configurable. `AWS/EventsV2` is not covered.
+Scheduler's four static alarms use the AWS
+[recommended settings][recommended-alarms],
+narrowed from account-wide metrics to a schedule group, including an imported `default`
+group. You can exclude `InvocationDroppedCount` when all schedules have
+monitored DLQs.
+
+The rule bundle creates failure, DLQ, throttling, and anomaly alarms by default.
+Scheduler bundles also include their anomaly alarm. Use `excludeAlarms` to disable
+individual alarms; optional anomaly configuration overrides their defaults. Fixed
+latency and success-rate alarms require thresholds. Creating an extended resource
+alone adds no alarms.
+
+```typescript
+const rule = new recommendedalarms.Rule(stack, 'Rule', {
+  eventPattern: { source: ['example.orders'] },
+});
+rule.applyRecommendedAlarms({
+  configIngestionToInvocationSuccessLatencyAlarm: { threshold: 5000 },
+  configSuccessfulInvocationRateAlarm: { threshold: 0.99 },
+});
+
+const group = new recommendedalarms.ScheduleGroup(stack, 'Schedules');
+group.applyRecommendedAlarms();
+```
+
+Owned rules and resolved imported rule ARNs infer their event bus. For an imported
+custom-bus rule with an unresolved ARN, pass its `eventBus` to the individual alarm
+or bundle. Alarm names include the custom-bus path to distinguish equal rule names.
+
+```typescript
+const imported = events.Rule.fromEventRuleArn(stack, 'ImportedRule', ruleArn);
+new recommendedalarms.EventBridgeRuleFailedInvocationsAlarm(stack, 'DeliveryFailures', {
+  rule: imported,
+  eventBus: events.EventBus.fromEventBusName(stack, 'ImportedBus', 'orders'),
+});
+```
+
+Anomaly alarms use five-minute metrics. Missing datapoints do not count as zero
+traffic, so these alarms do not guarantee detection of a complete traffic stop.
+
+[eventbridge-monitoring]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-monitoring-events-best-practices.html
+[recommended-alarms]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html
 
 ## References
 

@@ -20,3 +20,5 @@ export * from './sns';
 export * from './sqs';
 export * from './vpn';
 export * from './states';
+export * from './eventbridge';
+export * from './scheduler';

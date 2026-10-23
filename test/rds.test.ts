@@ -274,6 +274,67 @@ test('ReplicaLag alarms use maximum RDS lag and 2-of-3 evaluation settings', () 
   expect(template.toJSON()).toMatchSnapshot();
 });
 
+test('ReplicaLagUnavailableSnapshot', () => {
+  const stack = new Stack();
+  new rdsAlarms.RdsReadReplicaLagUnavailableAlarm(stack, 'Unavailable', { instanceIdentifier: 'reader' });
+  const template = Template.fromStack(stack);
+  expect(template).toMatchSnapshot();
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', {
+    Namespace: 'AWS/RDS',
+    MetricName: 'ReplicaLag',
+    Dimensions: [{ Name: 'DBInstanceIdentifier', Value: 'reader' }],
+    Statistic: 'Maximum',
+    Period: 60,
+    EvaluationPeriods: 120,
+    DatapointsToAlarm: 108,
+    Threshold: 0,
+    ComparisonOperator: 'LessThanThreshold',
+    TreatMissingData: 'notBreaching',
+  });
+});
+
+test('ReplicaLagUnavailable honors configuration and all three actions', () => {
+  const stack = new Stack();
+  const databaseInstance = rds.DatabaseInstance.fromDatabaseInstanceAttributes(stack, 'Replica', {
+    instanceIdentifier: 'reader', instanceEndpointAddress: 'reader.example.com', port: 1433, securityGroups: [],
+  });
+  const action = new cloudwatch_actions.SnsAction(new sns.Topic(stack, 'Topic'));
+  new rdsAlarms.RdsReadReplicaLagUnavailableAlarm(stack, 'Unavailable', {
+    databaseInstance,
+    period: Duration.minutes(2),
+    evaluationPeriods: 3,
+    datapointsToAlarm: 2,
+    alarmName: 'custom-unavailable',
+    alarmDescription: 'Custom description',
+    treatMissingData: cloudwatch.TreatMissingData.MISSING,
+    alarmAction: action,
+    okAction: action,
+    insufficientDataAction: action,
+  });
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties('AWS::CloudWatch::Alarm', {
+    AlarmName: 'custom-unavailable',
+    AlarmDescription: 'Custom description',
+    Dimensions: [{ Name: 'DBInstanceIdentifier', Value: 'reader' }],
+    Period: 120,
+    EvaluationPeriods: 3,
+    DatapointsToAlarm: 2,
+    TreatMissingData: 'missing',
+    AlarmActions: Match.anyValue(),
+    OKActions: Match.anyValue(),
+    InsufficientDataActions: Match.anyValue(),
+  });
+});
+
+test('ReplicaLagUnavailable validates the instance identifier and evaluation window', () => {
+  const stack = new Stack();
+  expect(() => new rdsAlarms.RdsReadReplicaLagUnavailableAlarm(stack, 'MissingInstance', {}))
+    .toThrow('Either instanceIdentifier or databaseInstance must be specified.');
+  expect(() => new rdsAlarms.RdsReadReplicaLagUnavailableAlarm(stack, 'LongWindow', {
+    instanceIdentifier: 'reader', period: Duration.days(2),
+  })).toThrow('exceeds one day');
+});
+
 test('ReplicaLagAnomaly alarm honors explicit evaluationPeriods, datapointsToAlarm, and stdDevs overrides', () => {
   const stack = new Stack();
   new rdsAlarms.RdsReadReplicaLagAnomalyAlarm(stack, 'ReplicaLagAnomaly', {

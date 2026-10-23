@@ -25,7 +25,7 @@
     },
     {
       "name": "commit-and-tag-version",
-      "version": "^12",
+      "version": "^13",
       "type": "build"
     },
     {
@@ -75,6 +75,7 @@
     },
     {
       "name": "projen",
+      "version": "0.104.4",
       "type": "build"
     },
     {
@@ -91,7 +92,7 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "2.260.0",
+      "version": "^2.267.0",
       "type": "peer"
     },
     {

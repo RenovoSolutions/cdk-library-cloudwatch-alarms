@@ -58,9 +58,9 @@ export interface DynamoDbAlarmBaseConfig extends AlarmBaseProps {
  */
 export interface DynamoDbTableAlarmProps {
   /**
-   * The DynamoDb Table to monitor.
+   * The DynamoDB table to monitor, including `TableV2` and imported tables.
    */
-  readonly table: dynamodb.Table;
+  readonly table: dynamodb.ITable;
 }
 
 /**
@@ -702,9 +702,9 @@ export interface DynamoDbTableRecommendedAlarmsConfig {
  */
 export interface DynamoDbTableRecommendedAlarmsProps extends DynamoDbTableRecommendedAlarmsConfig {
   /**
-   * The DynamoDb Table to monitor.
+   * The DynamoDB table to monitor, including `TableV2` and imported tables.
    */
-  readonly table: dynamodb.Table;
+  readonly table: dynamodb.ITable;
 }
 
 /**
@@ -966,7 +966,7 @@ export class Table extends dynamodb.Table {
 }
 
 /**
- * Configures the recommended alarms for an DynamoDb Table.
+ * Configures recommended alarms for owned DynamoDB `Table` and `TableV2` constructs.
  *
  * @see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB
  */
@@ -974,11 +974,11 @@ export class DynamoDbRecommendedAlarmsAspect implements IAspect {
   constructor(private readonly props: DynamoDbTableRecommendedAlarmsConfig) {}
 
   public visit(node: IConstruct): void {
-    if (node instanceof dynamodb.Table) {
+    if (node instanceof dynamodb.Table || node instanceof dynamodb.TableV2) {
       if (this.props.excludeResources && this.props.excludeResources.includes(node.node.id)) {
         return;
       } else {
-        const table = node as dynamodb.Table;
+        const table = node as dynamodb.ITable;
 
         new DynamoDbTableRecommendedAlarms(table, 'DynamoDbTableRecommendedAlarmsFromAspect', {
           table,
