@@ -314,7 +314,7 @@ See [AWS read-replication monitoring](https://docs.aws.amazon.com/AmazonRDS/late
 
 Rule alarms use `AWS/Events` for default and classic custom event buses, following
 the [EventBridge delivery-monitoring guidance][eventbridge-monitoring]. Rule alarm
-timing defaults are one breaching one-minute period for exhausted delivery failures
+timing defaults are one breaching one-minute period for permanent delivery failures
 and DLQ deliveries: even one undelivered event needs investigation. Throttling,
 latency, and success-rate alarms default to two of three one-minute periods to
 filter transient conditions. These timings are not prescribed by AWS; thresholds
@@ -356,11 +356,8 @@ new recommendedalarms.EventBridgeRuleFailedInvocationsAlarm(stack, 'DeliveryFail
 });
 ```
 
-Traffic and latency anomalies use five-minute metrics and need regular observations.
-They do not guarantee detection of a complete traffic stop: no events can mean
-missing data, not zero. Failure and throttle counts use static thresholds because
-anomaly bands could learn persistent failures as normal. These alarms detect
-delivery problems; they neither retain events nor monitor work after target acceptance.
+Anomaly alarms use five-minute metrics. Missing datapoints do not count as zero
+traffic, so these alarms do not guarantee detection of a complete traffic stop.
 
 [eventbridge-monitoring]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-monitoring-events-best-practices.html
 [recommended-alarms]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html

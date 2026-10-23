@@ -37009,10 +37009,10 @@ Uniquely identifies this class.
 
 ### EventBridgeRuleFailedInvocationsAlarm <a name="EventBridgeRuleFailedInvocationsAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm"></a>
 
-Permanently failed target invocations, after delivery retries are exhausted.
+Permanently failed target invocations.
 
 AWS recommends monitoring this metric for rule delivery health.
-Defaults to one breaching one-minute period: retries have already been exhausted,
+Defaults to one breaching one-minute period: delivery has failed permanently,
 so even one failed event warrants investigation. This timing is not prescribed by AWS.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarm.Initializer"></a>
@@ -38045,10 +38045,7 @@ Uniquely identifies this class.
 
 Successful target delivery latency anomaly detection.
 
-Uses a five-minute Average metric and the historical target delivery latency.
-Use only for workloads with enough regular observations to train a useful band.
-A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
-Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+Uses five-minute `Average` values for successful target deliveries.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm.Initializer"></a>
 
@@ -40343,10 +40340,7 @@ Uniquely identifies this class.
 
 Rule execution volume anomaly detection.
 
-Uses a five-minute Sum metric and the historical rule execution volume.
-Use only for workloads with enough regular observations to train a useful band.
-A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
-Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+Uses five-minute `Sum` values. Missing datapoints do not count as zero traffic.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarm.Initializer"></a>
 
@@ -67204,10 +67198,7 @@ Uniquely identifies this class.
 
 Schedule invocation-attempt volume anomaly detection.
 
-Uses a five-minute Sum metric and the historical invocation-attempt volume.
-Use only for workloads with enough regular observations to train a useful band.
-A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
-Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+Uses five-minute `Sum` values. Missing datapoints do not count as zero traffic.
 
 #### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.SchedulerInvocationAttemptCountAnomalyAlarm.Initializer"></a>
 
@@ -106103,7 +106094,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific evaluation window.
+- *Default:* Four periods for traffic; three for latency.
 
 The number of five-minute periods evaluated.
 
@@ -106139,7 +106130,7 @@ const eventBridgeRuleAlarmProps: EventBridgeRuleAlarmProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 
 ---
 
@@ -106162,10 +106153,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -106350,7 +106342,7 @@ const eventBridgeRuleFailedInvocationsAlarmProps: EventBridgeRuleFailedInvocatio
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -106383,10 +106375,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -106700,7 +106693,7 @@ const eventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps: EventBridgeR
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -106733,10 +106726,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -107012,7 +107006,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific evaluation window.
+- *Default:* Four periods for traffic; three for latency.
 
 The number of five-minute periods evaluated.
 
@@ -107048,7 +107042,7 @@ const eventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps: Event
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -107081,10 +107075,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -107200,7 +107195,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific evaluation window.
+- *Default:* Four periods for traffic; three for latency.
 
 The number of five-minute periods evaluated.
 
@@ -107399,7 +107394,7 @@ const eventBridgeRuleInvocationsSentToDlqAlarmProps: EventBridgeRuleInvocationsS
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleInvocationsSentToDlqAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -107432,10 +107427,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -107770,7 +107766,7 @@ public readonly treatMissingData: TreatMissingData;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* Not breaching for failure counters; missing for latency and anomalies.
+- *Default:* Not breaching for failure counters; missing for latency, success-rate, and anomaly alarms.
 
 Default missing-data behavior, overridden by individual configurations.
 
@@ -107793,7 +107789,7 @@ const eventBridgeRuleRecommendedAlarmsProps: EventBridgeRuleRecommendedAlarmsPro
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configFailedInvocationsAlarm">configFailedInvocationsAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleFailedInvocationsAlarmConfig">EventBridgeRuleFailedInvocationsAlarmConfig</a></code> | Configuration for FailedInvocations. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configIngestionToInvocationSuccessLatencyAlarm">configIngestionToInvocationSuccessLatencyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAlarmConfig</a></code> | Configuration for IngestionToInvocationSuccessLatency. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleRecommendedAlarmsProps.property.configIngestionToInvocationSuccessLatencyAnomalyAlarm">configIngestionToInvocationSuccessLatencyAnomalyAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig">EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmConfig</a></code> | Configuration for IngestionToInvocationSuccessLatencyAnomaly. |
@@ -107829,10 +107825,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -108000,7 +107997,7 @@ public readonly treatMissingData: TreatMissingData;
 ```
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
-- *Default:* Not breaching for failure counters; missing for latency and anomalies.
+- *Default:* Not breaching for failure counters; missing for latency, success-rate, and anomaly alarms.
 
 Default missing-data behavior, overridden by individual configurations.
 
@@ -108183,7 +108180,7 @@ const eventBridgeRuleSuccessfulInvocationRateAlarmProps: EventBridgeRuleSuccessf
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleSuccessfulInvocationRateAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -108216,10 +108213,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -108535,7 +108533,7 @@ const eventBridgeRuleThrottledRulesAlarmProps: EventBridgeRuleThrottledRulesAlar
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleThrottledRulesAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -108568,10 +108566,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -108848,7 +108847,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific evaluation window.
+- *Default:* Four periods for traffic; three for latency.
 
 The number of five-minute periods evaluated.
 
@@ -108884,7 +108883,7 @@ const eventBridgeRuleTriggeredRulesAnomalyAlarmProps: EventBridgeRuleTriggeredRu
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.IRule</code> | The EventBridge rule to monitor. |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus when an imported rule ARN is unresolved. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRuleTriggeredRulesAnomalyAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
@@ -108917,10 +108916,11 @@ public readonly eventBus: IEventBus;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.IEventBus
-- *Default:* Inferred from owned rules or resolved rule ARN paths.
+- *Default:* Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
 
-The event bus when an imported rule ARN is unresolved.
+The event bus.
 
+Required for imported custom-bus rules with unresolved ARNs.
 When supplied, this takes precedence over the inferred bus.
 
 ---
@@ -109036,7 +109036,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific evaluation window.
+- *Default:* Four periods for traffic; three for latency.
 
 The number of five-minute periods evaluated.
 
@@ -123185,7 +123185,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific evaluation window.
+- *Default:* 4
 
 The number of five-minute periods evaluated.
 
@@ -123344,7 +123344,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific evaluation window.
+- *Default:* 4
 
 The number of five-minute periods evaluated.
 
@@ -123516,7 +123516,7 @@ public readonly evaluationPeriods: number;
 ```
 
 - *Type:* number
-- *Default:* The alarm-specific evaluation window.
+- *Default:* 4
 
 The number of five-minute periods evaluated.
 
@@ -134418,7 +134418,7 @@ Metrics supported by the EventBridge alarms.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.FAILED_INVOCATIONS">FAILED_INVOCATIONS</a></code> | Permanently failed target invocations, after delivery retries are exhausted. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.FAILED_INVOCATIONS">FAILED_INVOCATIONS</a></code> | Permanently failed target invocations. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.INVOCATIONS_SENT_TO_DLQ">INVOCATIONS_SENT_TO_DLQ</a></code> | Undelivered events retained in a target dead-letter queue. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.THROTTLED_RULES">THROTTLED_RULES</a></code> | Rule executions delayed by EventBridge invocation throttling. |
 | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.INGESTION_TO_INVOCATION_SUCCESS_LATENCY">INGESTION_TO_INVOCATION_SUCCESS_LATENCY</a></code> | Time in milliseconds from ingestion to successful target delivery, including retries. |
@@ -134430,7 +134430,7 @@ Metrics supported by the EventBridge alarms.
 
 ##### `FAILED_INVOCATIONS` <a name="FAILED_INVOCATIONS" id="@renovosolutions/cdk-library-cloudwatch-alarms.EventBridgeRecommendedAlarmsMetrics.FAILED_INVOCATIONS"></a>
 
-Permanently failed target invocations, after delivery retries are exhausted.
+Permanently failed target invocations.
 
 ---
 

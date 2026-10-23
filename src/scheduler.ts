@@ -267,7 +267,7 @@ export interface SchedulerAnomalyAlarmBaseConfig extends AlarmBaseProps {
   readonly stdDevs?: number;
   /**
    * The number of five-minute periods evaluated.
-   * @default - The alarm-specific evaluation window.
+   * @default 4
    */
   readonly evaluationPeriods?: number;
   /**
@@ -305,10 +305,7 @@ export interface SchedulerInvocationAttemptCountAnomalyAlarmProps extends Schedu
 /**
  * Schedule invocation-attempt volume anomaly detection.
  *
- * Uses a five-minute Sum metric and the historical invocation-attempt volume.
- * Use only for workloads with enough regular observations to train a useful band.
- * A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
- * Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+ * Uses five-minute `Sum` values. Missing datapoints do not count as zero traffic.
  */
 export class SchedulerInvocationAttemptCountAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: Construct, id: string, props: SchedulerInvocationAttemptCountAnomalyAlarmProps) {

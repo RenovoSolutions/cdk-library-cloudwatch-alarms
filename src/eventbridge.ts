@@ -15,7 +15,7 @@ import { AlarmBaseProps, AnomalyComparisonOperator, validateTotalAlarmPeriod } f
  */
 export enum EventBridgeRecommendedAlarmsMetrics {
   /**
-   * Permanently failed target invocations, after delivery retries are exhausted.
+   * Permanently failed target invocations.
    */
   FAILED_INVOCATIONS = 'FailedInvocations',
   /**
@@ -53,10 +53,9 @@ export interface EventBridgeRuleAlarmProps {
    */
   readonly rule: events.IRule;
   /**
-   * The event bus when an imported rule ARN is unresolved.
-   *
+   * The event bus. Required for imported custom-bus rules with unresolved ARNs.
    * When supplied, this takes precedence over the inferred bus.
-   * @default - Inferred from owned rules or resolved rule ARN paths.
+   * @default - Inferred from owned rules or resolved ARN paths; otherwise assumes the default bus.
    */
   readonly eventBus?: events.IEventBus;
 }
@@ -133,10 +132,10 @@ export interface EventBridgeRuleFailedInvocationsAlarmConfig extends EventBridge
 export interface EventBridgeRuleFailedInvocationsAlarmProps extends EventBridgeRuleAlarmProps, EventBridgeRuleFailedInvocationsAlarmConfig {}
 
 /**
- * Permanently failed target invocations, after delivery retries are exhausted.
+ * Permanently failed target invocations.
  *
  * AWS recommends monitoring this metric for rule delivery health.
- * Defaults to one breaching one-minute period: retries have already been exhausted,
+ * Defaults to one breaching one-minute period: delivery has failed permanently,
  * so even one failed event warrants investigation. This timing is not prescribed by AWS.
  */
 export class EventBridgeRuleFailedInvocationsAlarm extends cloudwatch.Alarm {
@@ -368,7 +367,7 @@ export interface EventBridgeAnomalyAlarmBaseConfig extends AlarmBaseProps {
   readonly stdDevs?: number;
   /**
    * The number of five-minute periods evaluated.
-   * @default - The alarm-specific evaluation window.
+   * @default - Four periods for traffic; three for latency.
    */
   readonly evaluationPeriods?: number;
   /**
@@ -406,10 +405,7 @@ export interface EventBridgeRuleTriggeredRulesAnomalyAlarmProps extends EventBri
 /**
  * Rule execution volume anomaly detection.
  *
- * Uses a five-minute Sum metric and the historical rule execution volume.
- * Use only for workloads with enough regular observations to train a useful band.
- * A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
- * Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+ * Uses five-minute `Sum` values. Missing datapoints do not count as zero traffic.
  */
 export class EventBridgeRuleTriggeredRulesAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: Construct, id: string, props: EventBridgeRuleTriggeredRulesAnomalyAlarmProps) {
@@ -449,10 +445,7 @@ export interface EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmP
 /**
  * Successful target delivery latency anomaly detection.
  *
- * Uses a five-minute Average metric and the historical target delivery latency.
- * Use only for workloads with enough regular observations to train a useful band.
- * A full traffic stop can produce missing data rather than a zero; this is not a heartbeat.
- * Failure and throttle counters remain static alarms, not self-learning failure thresholds.
+ * Uses five-minute `Average` values for successful target deliveries.
  */
 export class EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarm extends cloudwatch.AnomalyDetectionAlarm {
   constructor(scope: Construct, id: string, props: EventBridgeRuleIngestionToInvocationSuccessLatencyAnomalyAlarmProps) {
@@ -502,7 +495,7 @@ export interface EventBridgeRuleRecommendedAlarmsConfig {
   readonly defaultInsufficientDataAction?: cloudwatch.IAlarmAction;
   /**
    * Default missing-data behavior, overridden by individual configurations.
-   * @default - Not breaching for failure counters; missing for latency and anomalies.
+   * @default - Not breaching for failure counters; missing for latency, success-rate, and anomaly alarms.
    */
   readonly treatMissingData?: cloudwatch.TreatMissingData;
   /**
