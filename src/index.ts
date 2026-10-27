@@ -11,6 +11,7 @@ export * from './ecs';
 export * from './efs';
 export * from './elasticache';
 export * from './lambda';
+export * from './natgateway';
 export * from './privatelink';
 export * from './networkloadbalancer';
 export * from './networktargetgroup';

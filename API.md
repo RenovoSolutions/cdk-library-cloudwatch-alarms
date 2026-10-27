@@ -47966,6 +47966,1205 @@ Uniquely identifies this class.
 
 ---
 
+### NatGatewayErrorPortAllocationAlarm <a name="NatGatewayErrorPortAllocationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm"></a>
+
+Detects when a zonal NAT gateway cannot allocate source ports for new connections.
+
+Defaults to fifteen breaching one-minute periods, following AWS recommendations.
+
+> [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.Initializer"></a>
+
+```typescript
+import { NatGatewayErrorPortAllocationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NatGatewayErrorPortAllocationAlarm(scope: Construct, id: string, props: NatGatewayErrorPortAllocationAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps">NatGatewayErrorPortAllocationAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps">NatGatewayErrorPortAllocationAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isConstruct"></a>
+
+```typescript
+import { NatGatewayErrorPortAllocationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayErrorPortAllocationAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isOwnedResource"></a>
+
+```typescript
+import { NatGatewayErrorPortAllocationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayErrorPortAllocationAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isResource"></a>
+
+```typescript
+import { NatGatewayErrorPortAllocationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayErrorPortAllocationAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmArn"></a>
+
+```typescript
+import { NatGatewayErrorPortAllocationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayErrorPortAllocationAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmName"></a>
+
+```typescript
+import { NatGatewayErrorPortAllocationAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayErrorPortAllocationAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### NatGatewayPacketsDropCountAlarm <a name="NatGatewayPacketsDropCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm"></a>
+
+Detects packet drops using `100 * PacketsDropCount / (PacketsInFromSource + PacketsInFromDestination)`.
+
+Defaults to five breaching one-minute periods. A zero denominator produces missing data.
+
+> [https://docs.aws.amazon.com/vpc/latest/userguide/metrics-dimensions-nat-gateway.html](https://docs.aws.amazon.com/vpc/latest/userguide/metrics-dimensions-nat-gateway.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.Initializer"></a>
+
+```typescript
+import { NatGatewayPacketsDropCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NatGatewayPacketsDropCountAlarm(scope: Construct, id: string, props: NatGatewayPacketsDropCountAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps">NatGatewayPacketsDropCountAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps">NatGatewayPacketsDropCountAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isConstruct"></a>
+
+```typescript
+import { NatGatewayPacketsDropCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayPacketsDropCountAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isOwnedResource"></a>
+
+```typescript
+import { NatGatewayPacketsDropCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayPacketsDropCountAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isResource"></a>
+
+```typescript
+import { NatGatewayPacketsDropCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayPacketsDropCountAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmArn"></a>
+
+```typescript
+import { NatGatewayPacketsDropCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayPacketsDropCountAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmName"></a>
+
+```typescript
+import { NatGatewayPacketsDropCountAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayPacketsDropCountAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### NatGatewayRecommendedAlarms <a name="NatGatewayRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms"></a>
+
+Creates the configured alarms for a zonal NAT gateway.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { NatGatewayRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NatGatewayRecommendedAlarms(scope: Construct, id: string, props: NatGatewayRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps">NatGatewayRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps">NatGatewayRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { NatGatewayRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+NatGatewayRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.property.alarmErrorPortAllocation">alarmErrorPortAllocation</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm">NatGatewayErrorPortAllocationAlarm</a></code> | The `ErrorPortAllocation` alarm, if enabled. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.property.alarmPacketsDropCount">alarmPacketsDropCount</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm">NatGatewayPacketsDropCountAlarm</a></code> | The `PacketsDropCount` percentage alarm, if configured and not excluded. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmErrorPortAllocation`<sup>Optional</sup> <a name="alarmErrorPortAllocation" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.property.alarmErrorPortAllocation"></a>
+
+```typescript
+public readonly alarmErrorPortAllocation: NatGatewayErrorPortAllocationAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarm">NatGatewayErrorPortAllocationAlarm</a>
+
+The `ErrorPortAllocation` alarm, if enabled.
+
+---
+
+##### `alarmPacketsDropCount`<sup>Optional</sup> <a name="alarmPacketsDropCount" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarms.property.alarmPacketsDropCount"></a>
+
+```typescript
+public readonly alarmPacketsDropCount: NatGatewayPacketsDropCountAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarm">NatGatewayPacketsDropCountAlarm</a>
+
+The `PacketsDropCount` percentage alarm, if configured and not excluded.
+
+---
+
+
 ### NetworkLoadBalancer <a name="NetworkLoadBalancer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancer"></a>
 
 An extension for the NetworkLoadBalancer construct that provides methods to create recommended alarms.
@@ -111658,6 +112857,1126 @@ The Lambda function to monitor.
 
 ---
 
+### NatGatewayAlarmBaseConfig <a name="NatGatewayAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig"></a>
+
+The common optional configuration for NAT gateway alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { NatGatewayAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const natGatewayAlarmBaseConfig: NatGatewayAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* NAT gateway ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* Same as `evaluationPeriods`.
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* Fifteen for port allocation errors; five for packet drops.
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+### NatGatewayAlarmProps <a name="NatGatewayAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmProps"></a>
+
+The resource monitored by the NAT gateway alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmProps.Initializer"></a>
+
+```typescript
+import { NatGatewayAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const natGatewayAlarmProps: NatGatewayAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmProps.property.natGateway">natGateway</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.INatGatewayRef</code> | The zonal NAT gateway to monitor, including imported gateways. |
+
+---
+
+##### `natGateway`<sup>Required</sup> <a name="natGateway" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayAlarmProps.property.natGateway"></a>
+
+```typescript
+public readonly natGateway: INatGatewayRef;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.INatGatewayRef
+
+The zonal NAT gateway to monitor, including imported gateways.
+
+---
+
+### NatGatewayErrorPortAllocationAlarmConfig <a name="NatGatewayErrorPortAllocationAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig"></a>
+
+Configuration for the `ErrorPortAllocation` alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.Initializer"></a>
+
+```typescript
+import { NatGatewayErrorPortAllocationAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const natGatewayErrorPortAllocationAlarmConfig: NatGatewayErrorPortAllocationAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The port allocation error count above which the alarm triggers. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* NAT gateway ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* Same as `evaluationPeriods`.
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* Fifteen for port allocation errors; five for packet drops.
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The port allocation error count above which the alarm triggers.
+
+---
+
+### NatGatewayErrorPortAllocationAlarmProps <a name="NatGatewayErrorPortAllocationAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps"></a>
+
+Properties for `NatGatewayErrorPortAllocationAlarm`.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.Initializer"></a>
+
+```typescript
+import { NatGatewayErrorPortAllocationAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const natGatewayErrorPortAllocationAlarmProps: NatGatewayErrorPortAllocationAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.natGateway">natGateway</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.INatGatewayRef</code> | The zonal NAT gateway to monitor, including imported gateways. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The port allocation error count above which the alarm triggers. |
+
+---
+
+##### `natGateway`<sup>Required</sup> <a name="natGateway" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.natGateway"></a>
+
+```typescript
+public readonly natGateway: INatGatewayRef;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.INatGatewayRef
+
+The zonal NAT gateway to monitor, including imported gateways.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* NAT gateway ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* Same as `evaluationPeriods`.
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* Fifteen for port allocation errors; five for packet drops.
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+The port allocation error count above which the alarm triggers.
+
+---
+
+### NatGatewayPacketsDropCountAlarmConfig <a name="NatGatewayPacketsDropCountAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig"></a>
+
+Configuration for the `PacketsDropCount` percentage alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.Initializer"></a>
+
+```typescript
+import { NatGatewayPacketsDropCountAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const natGatewayPacketsDropCountAlarmConfig: NatGatewayPacketsDropCountAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The percentage of received packets dropped above which the alarm triggers. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* NAT gateway ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* Same as `evaluationPeriods`.
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* Fifteen for port allocation errors; five for packet drops.
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0.01
+
+The percentage of received packets dropped above which the alarm triggers.
+
+A value of `0.01` means `0.01%`, not a fraction of `0.01`.
+
+---
+
+### NatGatewayPacketsDropCountAlarmProps <a name="NatGatewayPacketsDropCountAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps"></a>
+
+Properties for `NatGatewayPacketsDropCountAlarm`.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.Initializer"></a>
+
+```typescript
+import { NatGatewayPacketsDropCountAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const natGatewayPacketsDropCountAlarmProps: NatGatewayPacketsDropCountAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.natGateway">natGateway</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.INatGatewayRef</code> | The zonal NAT gateway to monitor, including imported gateways. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The description of the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of data points that must be breaching to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the specified threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the specified statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The percentage of received packets dropped above which the alarm triggers. |
+
+---
+
+##### `natGateway`<sup>Required</sup> <a name="natGateway" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.natGateway"></a>
+
+```typescript
+public readonly natGateway: INatGatewayRef;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.INatGatewayRef
+
+The zonal NAT gateway to monitor, including imported gateways.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the metric and troubleshooting steps.
+
+The description of the alarm.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* NAT gateway ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* Same as `evaluationPeriods`.
+
+The number of data points that must be breaching to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* Fifteen for port allocation errors; five for packet drops.
+
+The number of periods over which data is compared to the specified threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the specified statistic is applied.
+
+---
+
+##### `threshold`<sup>Optional</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+- *Default:* 0.01
+
+The percentage of received packets dropped above which the alarm triggers.
+
+A value of `0.01` means `0.01%`, not a fraction of `0.01`.
+
+---
+
+### NatGatewayRecommendedAlarmsConfig <a name="NatGatewayRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig"></a>
+
+Configurations for the recommended NAT gateway alarms.
+
+Individual alarm actions and missing-data settings override the defaults.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { NatGatewayRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const natGatewayRecommendedAlarmsConfig: NatGatewayRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.configErrorPortAllocationAlarm">configErrorPortAllocationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig">NatGatewayErrorPortAllocationAlarmConfig</a></code> | The configuration for the `ErrorPortAllocation` alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.configPacketsDropCountAlarm">configPacketsDropCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig">NatGatewayPacketsDropCountAlarmConfig</a></code> | The configuration for the `PacketsDropCount` percentage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics">NatGatewayRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude, including configured optional alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | Resource construct IDs excluded by the Aspect. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data, unless overridden by an individual alarm. |
+
+---
+
+##### `configErrorPortAllocationAlarm`<sup>Optional</sup> <a name="configErrorPortAllocationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.configErrorPortAllocationAlarm"></a>
+
+```typescript
+public readonly configErrorPortAllocationAlarm: NatGatewayErrorPortAllocationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig">NatGatewayErrorPortAllocationAlarmConfig</a>
+- *Default:* Alarm defaults; created unless excluded.
+
+The configuration for the `ErrorPortAllocation` alarm.
+
+---
+
+##### `configPacketsDropCountAlarm`<sup>Optional</sup> <a name="configPacketsDropCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.configPacketsDropCountAlarm"></a>
+
+```typescript
+public readonly configPacketsDropCountAlarm: NatGatewayPacketsDropCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig">NatGatewayPacketsDropCountAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+The configuration for the `PacketsDropCount` percentage alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: NatGatewayRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics">NatGatewayRecommendedAlarmsMetrics</a>[]
+- *Default:* None.
+
+Alarm metrics to exclude, including configured optional alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+- *Default:* None.
+
+Resource construct IDs excluded by the Aspect.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data, unless overridden by an individual alarm.
+
+---
+
+### NatGatewayRecommendedAlarmsProps <a name="NatGatewayRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps"></a>
+
+Properties for `NatGatewayRecommendedAlarms`.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { NatGatewayRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const natGatewayRecommendedAlarmsProps: NatGatewayRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.natGateway">natGateway</a></code> | <code>aws-cdk-lib.interfaces.aws_ec2.INatGatewayRef</code> | The zonal NAT gateway to monitor, including imported gateways. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.configErrorPortAllocationAlarm">configErrorPortAllocationAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig">NatGatewayErrorPortAllocationAlarmConfig</a></code> | The configuration for the `ErrorPortAllocation` alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.configPacketsDropCountAlarm">configPacketsDropCountAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig">NatGatewayPacketsDropCountAlarmConfig</a></code> | The configuration for the `PacketsDropCount` percentage alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics">NatGatewayRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude, including configured optional alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.excludeResources">excludeResources</a></code> | <code>string[]</code> | Resource construct IDs excluded by the Aspect. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data, unless overridden by an individual alarm. |
+
+---
+
+##### `natGateway`<sup>Required</sup> <a name="natGateway" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.natGateway"></a>
+
+```typescript
+public readonly natGateway: INatGatewayRef;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_ec2.INatGatewayRef
+
+The zonal NAT gateway to monitor, including imported gateways.
+
+---
+
+##### `configErrorPortAllocationAlarm`<sup>Optional</sup> <a name="configErrorPortAllocationAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.configErrorPortAllocationAlarm"></a>
+
+```typescript
+public readonly configErrorPortAllocationAlarm: NatGatewayErrorPortAllocationAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayErrorPortAllocationAlarmConfig">NatGatewayErrorPortAllocationAlarmConfig</a>
+- *Default:* Alarm defaults; created unless excluded.
+
+The configuration for the `ErrorPortAllocation` alarm.
+
+---
+
+##### `configPacketsDropCountAlarm`<sup>Optional</sup> <a name="configPacketsDropCountAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.configPacketsDropCountAlarm"></a>
+
+```typescript
+public readonly configPacketsDropCountAlarm: NatGatewayPacketsDropCountAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayPacketsDropCountAlarmConfig">NatGatewayPacketsDropCountAlarmConfig</a>
+- *Default:* Not created unless configured.
+
+The configuration for the `PacketsDropCount` percentage alarm.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action to take when an alarm is triggered.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action to take when an alarm has insufficient data.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action to take when an alarm enters the ok state.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: NatGatewayRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics">NatGatewayRecommendedAlarmsMetrics</a>[]
+- *Default:* None.
+
+Alarm metrics to exclude, including configured optional alarms.
+
+---
+
+##### `excludeResources`<sup>Optional</sup> <a name="excludeResources" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.excludeResources"></a>
+
+```typescript
+public readonly excludeResources: string[];
+```
+
+- *Type:* string[]
+- *Default:* None.
+
+Resource construct IDs excluded by the Aspect.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data, unless overridden by an individual alarm.
+
+---
+
 ### NetworkLoadBalancerAlarmBaseConfig <a name="NetworkLoadBalancerAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerAlarmBaseConfig"></a>
 
 The common optional configuration for the alarms.
@@ -133273,6 +135592,57 @@ All aspects can visit an IConstruct.
 
 
 
+### NatGatewayRecommendedAlarmsAspect <a name="NatGatewayRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsAspect"></a>
+
+- *Implements:* aws-cdk-lib.IAspect
+
+Applies recommended alarms to zonal `ec2.CfnNatGateway` resources. Regional gateways and gateways without a subnet are skipped with a warning.
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsAspect.Initializer"></a>
+
+```typescript
+import { NatGatewayRecommendedAlarmsAspect } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new NatGatewayRecommendedAlarmsAspect(props?: NatGatewayRecommendedAlarmsConfig)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsAspect.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig">NatGatewayRecommendedAlarmsConfig</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsAspect.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsConfig">NatGatewayRecommendedAlarmsConfig</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsAspect.visit">visit</a></code> | All aspects can visit an IConstruct. |
+
+---
+
+##### `visit` <a name="visit" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsAspect.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+All aspects can visit an IConstruct.
+
+###### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsAspect.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+
 ### NetworkLoadBalancerRecommendedAlarmsAspect <a name="NetworkLoadBalancerRecommendedAlarmsAspect" id="@renovosolutions/cdk-library-cloudwatch-alarms.NetworkLoadBalancerRecommendedAlarmsAspect"></a>
 
 - *Implements:* aws-cdk-lib.IAspect
@@ -134539,6 +136909,33 @@ Anomaly detection on the Invocations metric.
 Detects unexpected drops (e.g. a
 broken trigger) or spikes (e.g. a retry storm) in invocation volume. No static
 counterpart exists in this library.
+
+---
+
+
+### NatGatewayRecommendedAlarmsMetrics <a name="NatGatewayRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics"></a>
+
+Metrics supported by the NAT gateway alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics.ERROR_PORT_ALLOCATION">ERROR_PORT_ALLOCATION</a></code> | The number of times the NAT gateway could not allocate a source port. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics.PACKETS_DROP_COUNT">PACKETS_DROP_COUNT</a></code> | Dropped packets as a percentage of packets received by the NAT gateway. |
+
+---
+
+##### `ERROR_PORT_ALLOCATION` <a name="ERROR_PORT_ALLOCATION" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics.ERROR_PORT_ALLOCATION"></a>
+
+The number of times the NAT gateway could not allocate a source port.
+
+---
+
+
+##### `PACKETS_DROP_COUNT` <a name="PACKETS_DROP_COUNT" id="@renovosolutions/cdk-library-cloudwatch-alarms.NatGatewayRecommendedAlarmsMetrics.PACKETS_DROP_COUNT"></a>
+
+Dropped packets as a percentage of packets received by the NAT gateway.
 
 ---
 

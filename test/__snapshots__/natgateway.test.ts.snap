@@ -1,0 +1,2167 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`NatGatewayAlarmsWithCustomConfiguration 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ErrorPortAllocationAlarm432C72EE": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "Custom alarm name",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 20,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "NatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Sum",
+        "Threshold": 5,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "OtherNatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "PacketsDropCountAlarm1B59FD74": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom alarm description",
+        "AlarmName": "Custom packets drop alarm name",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 20,
+        "EvaluationPeriods": 25,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "100 * packetsDropCount / (packetsInFromSource + packetsInFromDestination)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          {
+            "Id": "packetsDropCount",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "OtherNatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsDropCount",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromSource",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "OtherNatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromSource",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromDestination",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "OtherNatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromDestination",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 300,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Threshold": 5,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicBFC7AF6E": {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayAlarmsWithImportedNatGateway 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ErrorPortAllocationAlarm432C72EE": {
+      "Properties": {
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": "nat-0123456789abcdef0 - ErrorPortAllocation",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": "nat-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "PacketsDropCountAlarm1B59FD74": {
+      "Properties": {
+        "AlarmDescription": "Detects when the percentage of packets dropped by the NAT gateway exceeds the threshold. Check AWS service health for NAT gateway issues in the Region.",
+        "AlarmName": "nat-0123456789abcdef0 - PacketsDropCount",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": [
+          {
+            "Expression": "100 * packetsDropCount / (packetsInFromSource + packetsInFromDestination)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          {
+            "Id": "packetsDropCount",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": "nat-0123456789abcdef0",
+                  },
+                ],
+                "MetricName": "PacketsDropCount",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromSource",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": "nat-0123456789abcdef0",
+                  },
+                ],
+                "MetricName": "PacketsInFromSource",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromDestination",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": "nat-0123456789abcdef0",
+                  },
+                ],
+                "MetricName": "PacketsInFromDestination",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.01,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayErrorPortAllocationAlarmSnapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "Alarm7103F465": {
+      "Properties": {
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "NatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayPacketsDropCountAlarmSnapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "Alarm7103F465": {
+      "Properties": {
+        "AlarmDescription": "Detects when the percentage of packets dropped by the NAT gateway exceeds the threshold. Check AWS service health for NAT gateway issues in the Region.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - PacketsDropCount",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": [
+          {
+            "Expression": "100 * packetsDropCount / (packetsInFromSource + packetsInFromDestination)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          {
+            "Id": "packetsDropCount",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsDropCount",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromSource",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromSource",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromDestination",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromDestination",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.01,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayRecommendedAlarmsAspectSkipsRegionalNatGateways 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "NoSubnetNatGateway": {
+      "Properties": {
+        "VpcId": "vpc-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "RegionalNatGateway": {
+      "Properties": {
+        "AvailabilityMode": "regional",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayRecommendedAlarmsAspectSnapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "NatGatewayNatGatewayRecommendedAlarmsFromAspectErrorPortAllocationAlarm639E08AB": {
+      "Properties": {
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "NatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "Vpc8378EB38": {
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::VPC",
+    },
+    "VpcIGWD7BA715C": {
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::InternetGateway",
+    },
+    "VpcPrivateSubnet1DefaultRouteBE02A9ED": {
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "VpcPublicSubnet1NATGateway4D7517AA",
+        },
+        "RouteTableId": {
+          "Ref": "VpcPrivateSubnet1RouteTableB2C5B500",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPrivateSubnet1RouteTableAssociation70C59FA6": {
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "VpcPrivateSubnet1RouteTableB2C5B500",
+        },
+        "SubnetId": {
+          "Ref": "VpcPrivateSubnet1Subnet536B997A",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPrivateSubnet1RouteTableB2C5B500": {
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PrivateSubnet1",
+          },
+        ],
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPrivateSubnet1Subnet536B997A": {
+      "Properties": {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.128.0/18",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PrivateSubnet1",
+          },
+        ],
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPrivateSubnet2DefaultRoute060D2087": {
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "VpcPublicSubnet2NATGateway9182C01D",
+        },
+        "RouteTableId": {
+          "Ref": "VpcPrivateSubnet2RouteTableA678073B",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPrivateSubnet2RouteTableA678073B": {
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PrivateSubnet2",
+          },
+        ],
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPrivateSubnet2RouteTableAssociationA89CAD56": {
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "VpcPrivateSubnet2RouteTableA678073B",
+        },
+        "SubnetId": {
+          "Ref": "VpcPrivateSubnet2Subnet3788AAA1",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPrivateSubnet2Subnet3788AAA1": {
+      "Properties": {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.192.0/18",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private",
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private",
+          },
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PrivateSubnet2",
+          },
+        ],
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPublicSubnet1DefaultRoute3DA9E72A": {
+      "DependsOn": [
+        "VpcVPCGWBF912B6E",
+      ],
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "RouteTableId": {
+          "Ref": "VpcPublicSubnet1RouteTable6C95E38E",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPublicSubnet1EIPD7E02669": {
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VpcPublicSubnet1NATGateway4D7517AA": {
+      "DependsOn": [
+        "VpcPublicSubnet1DefaultRoute3DA9E72A",
+        "VpcPublicSubnet1RouteTableAssociation97140677",
+      ],
+      "Properties": {
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "VpcPublicSubnet1EIPD7E02669",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": {
+          "Ref": "VpcPublicSubnet1Subnet5C2D37C4",
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet1",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VpcPublicSubnet1NATGatewayNatGatewayRecommendedAlarmsFromAspectErrorPortAllocationAlarm6FAA681C": {
+      "DependsOn": [
+        "VpcPublicSubnet1DefaultRoute3DA9E72A",
+        "VpcPublicSubnet1RouteTableAssociation97140677",
+      ],
+      "Properties": {
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "VpcPublicSubnet1NATGateway4D7517AA",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "VpcPublicSubnet1NATGateway4D7517AA",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet1",
+          },
+        ],
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "VpcPublicSubnet1RouteTable6C95E38E": {
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet1",
+          },
+        ],
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPublicSubnet1RouteTableAssociation97140677": {
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "VpcPublicSubnet1RouteTable6C95E38E",
+        },
+        "SubnetId": {
+          "Ref": "VpcPublicSubnet1Subnet5C2D37C4",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPublicSubnet1Subnet5C2D37C4": {
+      "Properties": {
+        "AvailabilityZone": "dummy1a",
+        "CidrBlock": "10.0.0.0/18",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet1",
+          },
+        ],
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcPublicSubnet2DefaultRoute97F91067": {
+      "DependsOn": [
+        "VpcVPCGWBF912B6E",
+      ],
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "RouteTableId": {
+          "Ref": "VpcPublicSubnet2RouteTable94F7E489",
+        },
+      },
+      "Type": "AWS::EC2::Route",
+    },
+    "VpcPublicSubnet2EIP3C605A87": {
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::EIP",
+    },
+    "VpcPublicSubnet2NATGateway9182C01D": {
+      "DependsOn": [
+        "VpcPublicSubnet2DefaultRoute97F91067",
+        "VpcPublicSubnet2RouteTableAssociationDD5762D8",
+      ],
+      "Properties": {
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "VpcPublicSubnet2EIP3C605A87",
+            "AllocationId",
+          ],
+        },
+        "SubnetId": {
+          "Ref": "VpcPublicSubnet2Subnet691E08A3",
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet2",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "VpcPublicSubnet2NATGatewayNatGatewayRecommendedAlarmsFromAspectErrorPortAllocationAlarm06E017CB": {
+      "DependsOn": [
+        "VpcPublicSubnet2DefaultRoute97F91067",
+        "VpcPublicSubnet2RouteTableAssociationDD5762D8",
+      ],
+      "Properties": {
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "VpcPublicSubnet2NATGateway9182C01D",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "VpcPublicSubnet2NATGateway9182C01D",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet2",
+          },
+        ],
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "VpcPublicSubnet2RouteTable94F7E489": {
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet2",
+          },
+        ],
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::RouteTable",
+    },
+    "VpcPublicSubnet2RouteTableAssociationDD5762D8": {
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "VpcPublicSubnet2RouteTable94F7E489",
+        },
+        "SubnetId": {
+          "Ref": "VpcPublicSubnet2Subnet691E08A3",
+        },
+      },
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+    },
+    "VpcPublicSubnet2Subnet691E08A3": {
+      "Properties": {
+        "AvailabilityZone": "dummy1b",
+        "CidrBlock": "10.0.64.0/18",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public",
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public",
+          },
+          {
+            "Key": "Name",
+            "Value": "TestStack/Vpc/PublicSubnet2",
+          },
+        ],
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::Subnet",
+    },
+    "VpcVPCGWBF912B6E": {
+      "Properties": {
+        "InternetGatewayId": {
+          "Ref": "VpcIGWD7BA715C",
+        },
+        "VpcId": {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayRecommendedAlarmsAspectWithConfiguration 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ExcludedNatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "NatGatewayNatGatewayRecommendedAlarmsFromAspectErrorPortAllocationAlarm639E08AB": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "NatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NatGatewayNatGatewayRecommendedAlarmsFromAspectPacketsDropCountAlarmA33C9909": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Detects when the percentage of packets dropped by the NAT gateway exceeds the threshold. Check AWS service health for NAT gateway issues in the Region.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - PacketsDropCount",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": [
+          {
+            "Expression": "100 * packetsDropCount / (packetsInFromSource + packetsInFromDestination)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          {
+            "Id": "packetsDropCount",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsDropCount",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromSource",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromSource",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromDestination",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromDestination",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.01,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicBFC7AF6E": {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayRecommendedAlarmsSnapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsErrorPortAllocationAlarm2A46925A": {
+      "Properties": {
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "NatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayRecommendedAlarmsWithDefaultActions 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsErrorPortAllocationAlarm2A46925A": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "NatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsPacketsDropCountAlarm7936E7D1": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Detects when the percentage of packets dropped by the NAT gateway exceeds the threshold. Check AWS service health for NAT gateway issues in the Region.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - PacketsDropCount",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "100 * packetsDropCount / (packetsInFromSource + packetsInFromDestination)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          {
+            "Id": "packetsDropCount",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsDropCount",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromSource",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromSource",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromDestination",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromDestination",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Threshold": 0.01,
+        "TreatMissingData": "breaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "TopicBFC7AF6E": {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayRecommendedAlarmsWithExclusions 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ExcludePacketsDropErrorPortAllocationAlarm004723A9": {
+      "Properties": {
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "OtherNatGateway",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "OtherNatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ExcludePortAllocationPacketsDropCountAlarm249BC8E9": {
+      "Properties": {
+        "AlarmDescription": "Detects when the percentage of packets dropped by the NAT gateway exceeds the threshold. Check AWS service health for NAT gateway issues in the Region.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - PacketsDropCount",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": [
+          {
+            "Expression": "100 * packetsDropCount / (packetsInFromSource + packetsInFromDestination)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          {
+            "Id": "packetsDropCount",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsDropCount",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromSource",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromSource",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromDestination",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromDestination",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.01,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "OtherNatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayRecommendedAlarmsWithOverriddenActions 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsErrorPortAllocationAlarm2A46925A": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "NatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsPacketsDropCountAlarm7936E7D1": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Detects when the percentage of packets dropped by the NAT gateway exceeds the threshold. Check AWS service health for NAT gateway issues in the Region.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - PacketsDropCount",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Metrics": [
+          {
+            "Expression": "100 * packetsDropCount / (packetsInFromSource + packetsInFromDestination)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          {
+            "Id": "packetsDropCount",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsDropCount",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromSource",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromSource",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromDestination",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromDestination",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Threshold": 0.01,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DefaultTopicC4DC856F": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+    "OverrideTopicDAEAFDB7": {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`NatGatewayRecommendedAlarmsWithPacketsDropCount 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsErrorPortAllocationAlarm2A46925A": {
+      "Properties": {
+        "AlarmDescription": "Detects when the NAT gateway cannot allocate source ports for new connections. Review concurrent connections to popular destinations and NAT gateway address capacity.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - ErrorPortAllocation",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 15,
+        "Dimensions": [
+          {
+            "Name": "NatGatewayId",
+            "Value": {
+              "Ref": "NatGateway",
+            },
+          },
+        ],
+        "EvaluationPeriods": 15,
+        "MetricName": "ErrorPortAllocation",
+        "Namespace": "AWS/NATGateway",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsPacketsDropCountAlarm7936E7D1": {
+      "Properties": {
+        "AlarmDescription": "Detects when the percentage of packets dropped by the NAT gateway exceeds the threshold. Check AWS service health for NAT gateway issues in the Region.",
+        "AlarmName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "NatGateway",
+              },
+              " - PacketsDropCount",
+            ],
+          ],
+        },
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "EvaluationPeriods": 5,
+        "Metrics": [
+          {
+            "Expression": "100 * packetsDropCount / (packetsInFromSource + packetsInFromDestination)",
+            "Id": "expr_1",
+            "ReturnData": true,
+          },
+          {
+            "Id": "packetsDropCount",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsDropCount",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromSource",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromSource",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+          {
+            "Id": "packetsInFromDestination",
+            "MetricStat": {
+              "Metric": {
+                "Dimensions": [
+                  {
+                    "Name": "NatGatewayId",
+                    "Value": {
+                      "Ref": "NatGateway",
+                    },
+                  },
+                ],
+                "MetricName": "PacketsInFromDestination",
+                "Namespace": "AWS/NATGateway",
+              },
+              "Period": 60,
+              "Stat": "Sum",
+            },
+            "ReturnData": false,
+          },
+        ],
+        "Threshold": 0.01,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NatGateway": {
+      "Properties": {
+        "AllocationId": "eipalloc-0123456789abcdef0",
+        "SubnetId": "subnet-0123456789abcdef0",
+      },
+      "Type": "AWS::EC2::NatGateway",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
