@@ -1,0 +1,702 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CloudWanAttachmentAlarmsWithCustomConfiguration 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "BlackholeAlarmCC3BEC22": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom packet drop alarm description",
+        "AlarmName": "Custom blackhole alarm",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "PacketDropCountBlackhole",
+        "Namespace": "AWS/Network Manager",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Sum",
+        "Threshold": 50,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "NoRouteAlarm6039D2C5": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Custom packet drop alarm description",
+        "AlarmName": "Custom no route alarm",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 8,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 10,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "PacketDropCountNoRoute",
+        "Namespace": "AWS/Network Manager",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Sum",
+        "Threshold": 50,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicBFC7AF6E": {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`CloudWanAttachmentPacketDropCountBlackholeAlarmSnapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "Alarm7103F465": {
+      "Properties": {
+        "AlarmDescription": "Detects packets dropped because they matched a blackhole route. Check core network blackhole routes and whether the dropped traffic is expected.",
+        "AlarmName": "attachment-0123456789abcdef0 - PacketDropCountBlackhole",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "PacketDropCountBlackhole",
+        "Namespace": "AWS/Network Manager",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`CloudWanAttachmentPacketDropCountNoRouteAlarmSnapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "Alarm7103F465": {
+      "Properties": {
+        "AlarmDescription": "Detects packets dropped because they did not match a route. Check attachment route propagation and core network routing policies.",
+        "AlarmName": "attachment-0123456789abcdef0 - PacketDropCountNoRoute",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "PacketDropCountNoRoute",
+        "Namespace": "AWS/Network Manager",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`CloudWanAttachmentRecommendedAlarmsSnapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsPacketDropCountBlackholeAlarm7BCDEE9C": {
+      "Properties": {
+        "AlarmDescription": "Detects packets dropped because they matched a blackhole route. Check core network blackhole routes and whether the dropped traffic is expected.",
+        "AlarmName": "attachment-0123456789abcdef0 - PacketDropCountBlackhole",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "PacketDropCountBlackhole",
+        "Namespace": "AWS/Network Manager",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsPacketDropCountNoRouteAlarm27C0B29D": {
+      "Properties": {
+        "AlarmDescription": "Detects packets dropped because they did not match a route. Check attachment route propagation and core network routing policies.",
+        "AlarmName": "attachment-0123456789abcdef0 - PacketDropCountNoRoute",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "PacketDropCountNoRoute",
+        "Namespace": "AWS/Network Manager",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`CloudWanAttachmentRecommendedAlarmsWithDefaultActions 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsPacketDropCountBlackholeAlarm7BCDEE9C": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Detects packets dropped because they matched a blackhole route. Check core network blackhole routes and whether the dropped traffic is expected.",
+        "AlarmName": "attachment-0123456789abcdef0 - PacketDropCountBlackhole",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "PacketDropCountBlackhole",
+        "Namespace": "AWS/Network Manager",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 10,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsPacketDropCountNoRouteAlarm27C0B29D": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "AlarmDescription": "Detects packets dropped because they did not match a route. Check attachment route propagation and core network routing policies.",
+        "AlarmName": "attachment-0123456789abcdef0 - PacketDropCountNoRoute",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "InsufficientDataActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "MetricName": "PacketDropCountNoRoute",
+        "Namespace": "AWS/Network Manager",
+        "OKActions": [
+          {
+            "Ref": "TopicBFC7AF6E",
+          },
+        ],
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "notBreaching",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "TopicBFC7AF6E": {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`CloudWanAttachmentRecommendedAlarmsWithExclusions 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ExcludeBlackholePacketDropCountNoRouteAlarm024FFF86": {
+      "Properties": {
+        "AlarmDescription": "Detects packets dropped because they did not match a route. Check attachment route propagation and core network routing policies.",
+        "AlarmName": "attachment-0123456789abcdef1 - PacketDropCountNoRoute",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef1",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "PacketDropCountNoRoute",
+        "Namespace": "AWS/Network Manager",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 0,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "ExcludeNoRoutePacketDropCountBlackholeAlarm28E9FE90": {
+      "Properties": {
+        "AlarmDescription": "Detects packets dropped because they matched a blackhole route. Check core network blackhole routes and whether the dropped traffic is expected.",
+        "AlarmName": "attachment-0123456789abcdef0 - PacketDropCountBlackhole",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 5,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 5,
+        "MetricName": "PacketDropCountBlackhole",
+        "Namespace": "AWS/Network Manager",
+        "Period": 60,
+        "Statistic": "Sum",
+        "Threshold": 10,
+        "TreatMissingData": "missing",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`CloudWanAttachmentRecommendedAlarmsWithOverriddenConfiguration 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AlarmsPacketDropCountBlackholeAlarm7BCDEE9C": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Custom bundle alarm description",
+        "AlarmName": "Overridden blackhole alarm",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 12,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "MetricName": "PacketDropCountBlackhole",
+        "Namespace": "AWS/Network Manager",
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Sum",
+        "Threshold": 100,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "AlarmsPacketDropCountNoRouteAlarm27C0B29D": {
+      "Properties": {
+        "AlarmActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "AlarmDescription": "Custom bundle alarm description",
+        "AlarmName": "Overridden no route alarm",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "DatapointsToAlarm": 10,
+        "Dimensions": [
+          {
+            "Name": "Attachment",
+            "Value": "attachment-0123456789abcdef0",
+          },
+          {
+            "Name": "CoreNetwork",
+            "Value": "core-network-0123456789abcdef0",
+          },
+        ],
+        "EvaluationPeriods": 12,
+        "InsufficientDataActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "MetricName": "PacketDropCountNoRoute",
+        "Namespace": "AWS/Network Manager",
+        "OKActions": [
+          {
+            "Ref": "OverrideTopicDAEAFDB7",
+          },
+        ],
+        "Period": 300,
+        "Statistic": "Sum",
+        "Threshold": 100,
+        "TreatMissingData": "ignore",
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "DefaultTopicC4DC856F": {
+      "Type": "AWS::SNS::Topic",
+    },
+    "OverrideTopicDAEAFDB7": {
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
