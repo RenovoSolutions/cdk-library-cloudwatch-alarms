@@ -18730,6 +18730,1215 @@ The OriginLatency alarm.
 ---
 
 
+### CloudWanAttachmentPacketDropCountBlackholeAlarm <a name="CloudWanAttachmentPacketDropCountBlackholeAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm"></a>
+
+Detects packets dropped because they matched a `blackhole` route.
+
+Defaults to five breaching one-minute periods, matching the library's PrivateLink packet-drop timing.
+Create this alarm in the Region where Cloud WAN publishes metrics (`us-west-2` for commercial Regions),
+with alarm actions in the same Region.
+
+> [https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-cloudwatch-metrics.html](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-cloudwatch-metrics.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountBlackholeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudWanAttachmentPacketDropCountBlackholeAlarm(scope: Construct, id: string, props: CloudWanAttachmentPacketDropCountBlackholeAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps">CloudWanAttachmentPacketDropCountBlackholeAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps">CloudWanAttachmentPacketDropCountBlackholeAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isConstruct"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountBlackholeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountBlackholeAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isOwnedResource"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountBlackholeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountBlackholeAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isResource"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountBlackholeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountBlackholeAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmArn"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountBlackholeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmName"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountBlackholeAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### CloudWanAttachmentPacketDropCountNoRouteAlarm <a name="CloudWanAttachmentPacketDropCountNoRouteAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm"></a>
+
+Detects packets dropped because they did not match a route.
+
+Defaults to five breaching one-minute periods, matching the library's PrivateLink packet-drop timing.
+Create this alarm in the Region where Cloud WAN publishes metrics (`us-west-2` for commercial Regions),
+with alarm actions in the same Region.
+
+> [https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-cloudwatch-metrics.html](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-cloudwatch-metrics.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountNoRouteAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudWanAttachmentPacketDropCountNoRouteAlarm(scope: Construct, id: string, props: CloudWanAttachmentPacketDropCountNoRouteAlarmProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps">CloudWanAttachmentPacketDropCountNoRouteAlarmProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps">CloudWanAttachmentPacketDropCountNoRouteAlarmProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addAlarmAction">addAlarmAction</a></code> | Trigger this action if the alarm fires. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addAlarmMuteRule">addAlarmMuteRule</a></code> | Add an alarm mute rule. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addInsufficientDataAction">addInsufficientDataAction</a></code> | Trigger this action if there is insufficient data to evaluate the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addOkAction">addOkAction</a></code> | Trigger this action if the alarm returns from breaching state into ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.renderAlarmRule">renderAlarmRule</a></code> | AlarmRule indicating ALARM state for Alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.toAnnotation">toAnnotation</a></code> | Turn this alarm into a horizontal annotation. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
+
+---
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAlarmAction` <a name="addAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addAlarmAction"></a>
+
+```typescript
+public addAlarmAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm fires.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addAlarmAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addAlarmMuteRule` <a name="addAlarmMuteRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addAlarmMuteRule"></a>
+
+```typescript
+public addAlarmMuteRule(id: string, options: AlarmMuteRuleOptions): AlarmMuteRule
+```
+
+Add an alarm mute rule.
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addAlarmMuteRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addAlarmMuteRule.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions
+
+---
+
+##### `addInsufficientDataAction` <a name="addInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addInsufficientDataAction"></a>
+
+```typescript
+public addInsufficientDataAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if there is insufficient data to evaluate the alarm.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addInsufficientDataAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `addOkAction` <a name="addOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addOkAction"></a>
+
+```typescript
+public addOkAction(actions: ...IAlarmAction[]): void
+```
+
+Trigger this action if the alarm returns from breaching state into ok state.
+
+Typically SnsAction or AutoScalingAction.
+
+###### `actions`<sup>Required</sup> <a name="actions" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.addOkAction.parameter.actions"></a>
+
+- *Type:* ...aws-cdk-lib.aws_cloudwatch.IAlarmAction[]
+
+---
+
+##### `renderAlarmRule` <a name="renderAlarmRule" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.renderAlarmRule"></a>
+
+```typescript
+public renderAlarmRule(): string
+```
+
+AlarmRule indicating ALARM state for Alarm.
+
+##### `toAnnotation` <a name="toAnnotation" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.toAnnotation"></a>
+
+```typescript
+public toAnnotation(): HorizontalAnnotation
+```
+
+Turn this alarm into a horizontal annotation.
+
+This is useful if you want to represent an Alarm in a non-AlarmWidget.
+An `AlarmWidget` can directly show an alarm, but it can only show a
+single alarm and no other metrics. Instead, you can convert the alarm to
+a HorizontalAnnotation and add it as an annotation to another graph.
+
+This might be useful if:
+
+- You want to show multiple alarms inside a single graph, for example if
+  you have both a "small margin/long period" alarm as well as a
+  "large margin/short period" alarm.
+
+- You want to show an Alarm line in a graph with multiple metrics in it.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmArn">fromAlarmArn</a></code> | Import an existing CloudWatch alarm provided an ARN. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmName">fromAlarmName</a></code> | Import an existing CloudWatch alarm provided an Name. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isConstruct"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountNoRouteAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountNoRouteAlarm.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isOwnedResource"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountNoRouteAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountNoRouteAlarm.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isResource"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountNoRouteAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountNoRouteAlarm.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromAlarmArn` <a name="fromAlarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmArn"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountNoRouteAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmArn(scope: Construct, id: string, alarmArn: string)
+```
+
+Import an existing CloudWatch alarm provided an ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmArn.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmArn.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmArn.parameter.alarmArn"></a>
+
+- *Type:* string
+
+Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
+
+---
+
+##### `fromAlarmName` <a name="fromAlarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmName"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountNoRouteAlarm } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmName(scope: Construct, id: string, alarmName: string)
+```
+
+Import an existing CloudWatch alarm provided an Name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+The parent creating construct (usually `this`).
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmName.parameter.id"></a>
+
+- *Type:* string
+
+The construct's name.
+
+---
+
+###### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.fromAlarmName.parameter.alarmName"></a>
+
+- *Type:* string
+
+Alarm Name.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.alarmArn">alarmArn</a></code> | <code>string</code> | ARN of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.alarmName">alarmName</a></code> | <code>string</code> | Name of this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.alarmRef">alarmRef</a></code> | <code>aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference</code> | A reference to a Alarm resource. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.metric">metric</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IMetric</code> | The metric object this alarm was based on. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed in a Stack (those created by
+creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+is always the same as the environment of the stack they belong to.
+
+For referenced resources (those obtained from referencing methods like
+`Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `alarmArn`<sup>Required</sup> <a name="alarmArn" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.alarmArn"></a>
+
+```typescript
+public readonly alarmArn: string;
+```
+
+- *Type:* string
+
+ARN of this alarm.
+
+---
+
+##### `alarmName`<sup>Required</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+
+Name of this alarm.
+
+---
+
+##### `alarmRef`<sup>Required</sup> <a name="alarmRef" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.alarmRef"></a>
+
+```typescript
+public readonly alarmRef: AlarmReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_cloudwatch.AlarmReference
+
+A reference to a Alarm resource.
+
+---
+
+##### `metric`<sup>Required</sup> <a name="metric" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.metric"></a>
+
+```typescript
+public readonly metric: IMetric;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IMetric
+
+The metric object this alarm was based on.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD">ANOMALY_DETECTION_NO_THRESHOLD</a></code> | <code>number</code> | Conventional value for the threshold property when creating anomaly detection alarms. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.PROPERTY_INJECTION_ID">PROPERTY_INJECTION_ID</a></code> | <code>string</code> | Uniquely identifies this class. |
+
+---
+
+##### `ANOMALY_DETECTION_NO_THRESHOLD`<sup>Required</sup> <a name="ANOMALY_DETECTION_NO_THRESHOLD" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.ANOMALY_DETECTION_NO_THRESHOLD"></a>
+
+```typescript
+public readonly ANOMALY_DETECTION_NO_THRESHOLD: number;
+```
+
+- *Type:* number
+
+Conventional value for the threshold property when creating anomaly detection alarms.
+
+Anomaly detection alarms don't have numbered threshold. Instead, they have a dynamically
+calculated threshold based on the metric math expression that contains a metric expression.
+
+The `threshold` property is required, but the value is ignored. This
+constant has the value 0, and has a symbolic name to indicate why the
+threshold is 0. You can use `new AnomalyDetectionAlarm()` to avoid having to pass
+the `threshold` property at all.
+
+---
+
+##### `PROPERTY_INJECTION_ID`<sup>Required</sup> <a name="PROPERTY_INJECTION_ID" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm.property.PROPERTY_INJECTION_ID"></a>
+
+```typescript
+public readonly PROPERTY_INJECTION_ID: string;
+```
+
+- *Type:* string
+
+Uniquely identifies this class.
+
+---
+
+### CloudWanAttachmentRecommendedAlarms <a name="CloudWanAttachmentRecommendedAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms"></a>
+
+Creates both Cloud WAN attachment packet-drop alarms unless excluded.
+
+Create this construct in the Region where Cloud WAN publishes metrics (`us-west-2` for commercial Regions),
+with alarm actions in the same Region.
+No Aspect is provided because the attachment can be in a different Region.
+
+> [https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-cloudwatch-metrics.html](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-cloudwatch-metrics.html)
+
+#### Initializers <a name="Initializers" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+new CloudWanAttachmentRecommendedAlarms(scope: Construct, id: string, props: CloudWanAttachmentRecommendedAlarmsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.Initializer.parameter.props">props</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps">CloudWanAttachmentRecommendedAlarmsProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps">CloudWanAttachmentRecommendedAlarmsProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.with">with</a></code> | Applies one or more mixins to this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.isConstruct"></a>
+
+```typescript
+import { CloudWanAttachmentRecommendedAlarms } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+CloudWanAttachmentRecommendedAlarms.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.property.alarmPacketDropCountBlackhole">alarmPacketDropCountBlackhole</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm">CloudWanAttachmentPacketDropCountBlackholeAlarm</a></code> | The `PacketDropCountBlackhole` alarm, unless excluded. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.property.alarmPacketDropCountNoRoute">alarmPacketDropCountNoRoute</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm">CloudWanAttachmentPacketDropCountNoRouteAlarm</a></code> | The `PacketDropCountNoRoute` alarm, unless excluded. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `alarmPacketDropCountBlackhole`<sup>Optional</sup> <a name="alarmPacketDropCountBlackhole" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.property.alarmPacketDropCountBlackhole"></a>
+
+```typescript
+public readonly alarmPacketDropCountBlackhole: CloudWanAttachmentPacketDropCountBlackholeAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarm">CloudWanAttachmentPacketDropCountBlackholeAlarm</a>
+
+The `PacketDropCountBlackhole` alarm, unless excluded.
+
+---
+
+##### `alarmPacketDropCountNoRoute`<sup>Optional</sup> <a name="alarmPacketDropCountNoRoute" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarms.property.alarmPacketDropCountNoRoute"></a>
+
+```typescript
+public readonly alarmPacketDropCountNoRoute: CloudWanAttachmentPacketDropCountNoRouteAlarm;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarm">CloudWanAttachmentPacketDropCountNoRouteAlarm</a>
+
+The `PacketDropCountNoRoute` alarm, unless excluded.
+
+---
+
+
 ### DatabaseCluster <a name="DatabaseCluster" id="@renovosolutions/cdk-library-cloudwatch-alarms.DatabaseCluster"></a>
 
 An extension of the database cluster construct that provides methods to create recommended alarms.
@@ -94870,6 +96079,1164 @@ The number of periods over which data is compared to the specified threshold.
 
 ---
 
+### CloudWanAttachmentAlarmBaseConfig <a name="CloudWanAttachmentAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig"></a>
+
+Common optional configuration for Cloud WAN attachment alarms.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentAlarmBaseConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const cloudWanAttachmentAlarmBaseConfig: CloudWanAttachmentAlarmBaseConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching data points required to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the `Sum` statistic is applied. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the packet drop reason and routing checks.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Attachment ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of breaching data points required to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmBaseConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the `Sum` statistic is applied.
+
+---
+
+### CloudWanAttachmentAlarmProps <a name="CloudWanAttachmentAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmProps"></a>
+
+Identifies the Cloud WAN attachment to monitor.
+
+Cloud WAN publishes attachment metrics with `CoreNetwork` and `Attachment` dimensions whose values are the bare IDs, not ARNs.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmProps.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const cloudWanAttachmentAlarmProps: CloudWanAttachmentAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmProps.property.attachmentId">attachmentId</a></code> | <code>string</code> | The attachment ID, such as `attachment-0123456789abcdef0`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmProps.property.coreNetworkId">coreNetworkId</a></code> | <code>string</code> | The core network ID, such as `core-network-0123456789abcdef0`. |
+
+---
+
+##### `attachmentId`<sup>Required</sup> <a name="attachmentId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmProps.property.attachmentId"></a>
+
+```typescript
+public readonly attachmentId: string;
+```
+
+- *Type:* string
+
+The attachment ID, such as `attachment-0123456789abcdef0`.
+
+CDK exposes this as `CfnVpcAttachment.attrAttachmentId`.
+
+---
+
+##### `coreNetworkId`<sup>Required</sup> <a name="coreNetworkId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentAlarmProps.property.coreNetworkId"></a>
+
+```typescript
+public readonly coreNetworkId: string;
+```
+
+- *Type:* string
+
+The core network ID, such as `core-network-0123456789abcdef0`.
+
+CDK exposes this as `CfnCoreNetwork.attrCoreNetworkId`.
+
+---
+
+### CloudWanAttachmentPacketDropCountBlackholeAlarmConfig <a name="CloudWanAttachmentPacketDropCountBlackholeAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig"></a>
+
+Configuration for the `PacketDropCountBlackhole` alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountBlackholeAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const cloudWanAttachmentPacketDropCountBlackholeAlarmConfig: CloudWanAttachmentPacketDropCountBlackholeAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching data points required to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the `Sum` statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The dropped packet count above which the alarm triggers. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the packet drop reason and routing checks.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Attachment ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of breaching data points required to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the `Sum` statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The dropped packet count above which the alarm triggers.
+
+Set this from the attachment's traffic baseline; AWS recommends no fixed threshold.
+
+---
+
+### CloudWanAttachmentPacketDropCountBlackholeAlarmProps <a name="CloudWanAttachmentPacketDropCountBlackholeAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps"></a>
+
+Properties for `CloudWanAttachmentPacketDropCountBlackholeAlarm`.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountBlackholeAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const cloudWanAttachmentPacketDropCountBlackholeAlarmProps: CloudWanAttachmentPacketDropCountBlackholeAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.attachmentId">attachmentId</a></code> | <code>string</code> | The attachment ID, such as `attachment-0123456789abcdef0`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.coreNetworkId">coreNetworkId</a></code> | <code>string</code> | The core network ID, such as `core-network-0123456789abcdef0`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching data points required to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the `Sum` statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The dropped packet count above which the alarm triggers. |
+
+---
+
+##### `attachmentId`<sup>Required</sup> <a name="attachmentId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.attachmentId"></a>
+
+```typescript
+public readonly attachmentId: string;
+```
+
+- *Type:* string
+
+The attachment ID, such as `attachment-0123456789abcdef0`.
+
+CDK exposes this as `CfnVpcAttachment.attrAttachmentId`.
+
+---
+
+##### `coreNetworkId`<sup>Required</sup> <a name="coreNetworkId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.coreNetworkId"></a>
+
+```typescript
+public readonly coreNetworkId: string;
+```
+
+- *Type:* string
+
+The core network ID, such as `core-network-0123456789abcdef0`.
+
+CDK exposes this as `CfnCoreNetwork.attrCoreNetworkId`.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the packet drop reason and routing checks.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Attachment ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of breaching data points required to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the `Sum` statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The dropped packet count above which the alarm triggers.
+
+Set this from the attachment's traffic baseline; AWS recommends no fixed threshold.
+
+---
+
+### CloudWanAttachmentPacketDropCountNoRouteAlarmConfig <a name="CloudWanAttachmentPacketDropCountNoRouteAlarmConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig"></a>
+
+Configuration for the `PacketDropCountNoRoute` alarm.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountNoRouteAlarmConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const cloudWanAttachmentPacketDropCountNoRouteAlarmConfig: CloudWanAttachmentPacketDropCountNoRouteAlarmConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching data points required to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the `Sum` statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.threshold">threshold</a></code> | <code>number</code> | The dropped packet count above which the alarm triggers. |
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the packet drop reason and routing checks.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Attachment ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of breaching data points required to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the `Sum` statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The dropped packet count above which the alarm triggers.
+
+Set this from the attachment's traffic baseline; AWS recommends no fixed threshold.
+
+---
+
+### CloudWanAttachmentPacketDropCountNoRouteAlarmProps <a name="CloudWanAttachmentPacketDropCountNoRouteAlarmProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps"></a>
+
+Properties for `CloudWanAttachmentPacketDropCountNoRouteAlarm`.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentPacketDropCountNoRouteAlarmProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const cloudWanAttachmentPacketDropCountNoRouteAlarmProps: CloudWanAttachmentPacketDropCountNoRouteAlarmProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.attachmentId">attachmentId</a></code> | <code>string</code> | The attachment ID, such as `attachment-0123456789abcdef0`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.coreNetworkId">coreNetworkId</a></code> | <code>string</code> | The core network ID, such as `core-network-0123456789abcdef0`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.alarmAction">alarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm is triggered. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.insufficientDataAction">insufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm has insufficient data. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.okAction">okAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The action to take when an alarm enters the ok state. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data for this alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.alarmDescription">alarmDescription</a></code> | <code>string</code> | The alarm description. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.alarmName">alarmName</a></code> | <code>string</code> | The alarm name. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.datapointsToAlarm">datapointsToAlarm</a></code> | <code>number</code> | The number of breaching data points required to trigger the alarm. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.evaluationPeriods">evaluationPeriods</a></code> | <code>number</code> | The number of periods over which data is compared to the threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | The period over which the `Sum` statistic is applied. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.threshold">threshold</a></code> | <code>number</code> | The dropped packet count above which the alarm triggers. |
+
+---
+
+##### `attachmentId`<sup>Required</sup> <a name="attachmentId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.attachmentId"></a>
+
+```typescript
+public readonly attachmentId: string;
+```
+
+- *Type:* string
+
+The attachment ID, such as `attachment-0123456789abcdef0`.
+
+CDK exposes this as `CfnVpcAttachment.attrAttachmentId`.
+
+---
+
+##### `coreNetworkId`<sup>Required</sup> <a name="coreNetworkId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.coreNetworkId"></a>
+
+```typescript
+public readonly coreNetworkId: string;
+```
+
+- *Type:* string
+
+The core network ID, such as `core-network-0123456789abcdef0`.
+
+CDK exposes this as `CfnCoreNetwork.attrCoreNetworkId`.
+
+---
+
+##### `alarmAction`<sup>Optional</sup> <a name="alarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.alarmAction"></a>
+
+```typescript
+public readonly alarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm is triggered.
+
+---
+
+##### `insufficientDataAction`<sup>Optional</sup> <a name="insufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.insufficientDataAction"></a>
+
+```typescript
+public readonly insufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm has insufficient data.
+
+---
+
+##### `okAction`<sup>Optional</sup> <a name="okAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.okAction"></a>
+
+```typescript
+public readonly okAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None
+
+The action to take when an alarm enters the ok state.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data for this alarm.
+
+---
+
+##### `alarmDescription`<sup>Optional</sup> <a name="alarmDescription" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.alarmDescription"></a>
+
+```typescript
+public readonly alarmDescription: string;
+```
+
+- *Type:* string
+- *Default:* Describes the packet drop reason and routing checks.
+
+The alarm description.
+
+---
+
+##### `alarmName`<sup>Optional</sup> <a name="alarmName" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.alarmName"></a>
+
+```typescript
+public readonly alarmName: string;
+```
+
+- *Type:* string
+- *Default:* Attachment ID followed by the metric name.
+
+The alarm name.
+
+---
+
+##### `datapointsToAlarm`<sup>Optional</sup> <a name="datapointsToAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.datapointsToAlarm"></a>
+
+```typescript
+public readonly datapointsToAlarm: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of breaching data points required to trigger the alarm.
+
+---
+
+##### `evaluationPeriods`<sup>Optional</sup> <a name="evaluationPeriods" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.evaluationPeriods"></a>
+
+```typescript
+public readonly evaluationPeriods: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+The number of periods over which data is compared to the threshold.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* Duration.minutes(1)
+
+The period over which the `Sum` statistic is applied.
+
+---
+
+##### `threshold`<sup>Required</sup> <a name="threshold" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmProps.property.threshold"></a>
+
+```typescript
+public readonly threshold: number;
+```
+
+- *Type:* number
+
+The dropped packet count above which the alarm triggers.
+
+Set this from the attachment's traffic baseline; AWS recommends no fixed threshold.
+
+---
+
+### CloudWanAttachmentRecommendedAlarmsConfig <a name="CloudWanAttachmentRecommendedAlarmsConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig"></a>
+
+Configurations for Cloud WAN attachment alarms.
+
+Individual alarm actions and `treatMissingData` override the bundle defaults.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentRecommendedAlarmsConfig } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const cloudWanAttachmentRecommendedAlarmsConfig: CloudWanAttachmentRecommendedAlarmsConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.configPacketDropCountBlackholeAlarm">configPacketDropCountBlackholeAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig">CloudWanAttachmentPacketDropCountBlackholeAlarmConfig</a></code> | Configuration for the `PacketDropCountBlackhole` alarm, including its required threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.configPacketDropCountNoRouteAlarm">configPacketDropCountNoRouteAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig">CloudWanAttachmentPacketDropCountNoRouteAlarmConfig</a></code> | Configuration for the `PacketDropCountNoRoute` alarm, including its required threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action when an alarm is triggered, in the alarm's Region. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action when an alarm has insufficient data, in the alarm's Region. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action when an alarm enters the OK state, in the alarm's Region. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics">CloudWanAttachmentRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data, unless overridden by an individual alarm. |
+
+---
+
+##### `configPacketDropCountBlackholeAlarm`<sup>Required</sup> <a name="configPacketDropCountBlackholeAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.configPacketDropCountBlackholeAlarm"></a>
+
+```typescript
+public readonly configPacketDropCountBlackholeAlarm: CloudWanAttachmentPacketDropCountBlackholeAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig">CloudWanAttachmentPacketDropCountBlackholeAlarmConfig</a>
+
+Configuration for the `PacketDropCountBlackhole` alarm, including its required threshold.
+
+---
+
+##### `configPacketDropCountNoRouteAlarm`<sup>Required</sup> <a name="configPacketDropCountNoRouteAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.configPacketDropCountNoRouteAlarm"></a>
+
+```typescript
+public readonly configPacketDropCountNoRouteAlarm: CloudWanAttachmentPacketDropCountNoRouteAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig">CloudWanAttachmentPacketDropCountNoRouteAlarmConfig</a>
+
+Configuration for the `PacketDropCountNoRoute` alarm, including its required threshold.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action when an alarm is triggered, in the alarm's Region.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action when an alarm has insufficient data, in the alarm's Region.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action when an alarm enters the OK state, in the alarm's Region.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: CloudWanAttachmentRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics">CloudWanAttachmentRecommendedAlarmsMetrics</a>[]
+- *Default:* None.
+
+Alarm metrics to exclude.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsConfig.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data, unless overridden by an individual alarm.
+
+---
+
+### CloudWanAttachmentRecommendedAlarmsProps <a name="CloudWanAttachmentRecommendedAlarmsProps" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps"></a>
+
+Properties for `CloudWanAttachmentRecommendedAlarms`.
+
+#### Initializer <a name="Initializer" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.Initializer"></a>
+
+```typescript
+import { CloudWanAttachmentRecommendedAlarmsProps } from '@renovosolutions/cdk-library-cloudwatch-alarms'
+
+const cloudWanAttachmentRecommendedAlarmsProps: CloudWanAttachmentRecommendedAlarmsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.attachmentId">attachmentId</a></code> | <code>string</code> | The attachment ID, such as `attachment-0123456789abcdef0`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.coreNetworkId">coreNetworkId</a></code> | <code>string</code> | The core network ID, such as `core-network-0123456789abcdef0`. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.configPacketDropCountBlackholeAlarm">configPacketDropCountBlackholeAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig">CloudWanAttachmentPacketDropCountBlackholeAlarmConfig</a></code> | Configuration for the `PacketDropCountBlackhole` alarm, including its required threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.configPacketDropCountNoRouteAlarm">configPacketDropCountNoRouteAlarm</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig">CloudWanAttachmentPacketDropCountNoRouteAlarmConfig</a></code> | Configuration for the `PacketDropCountNoRoute` alarm, including its required threshold. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.defaultAlarmAction">defaultAlarmAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action when an alarm is triggered, in the alarm's Region. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.defaultInsufficientDataAction">defaultInsufficientDataAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action when an alarm has insufficient data, in the alarm's Region. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.defaultOkAction">defaultOkAction</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IAlarmAction</code> | The default action when an alarm enters the OK state, in the alarm's Region. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.excludeAlarms">excludeAlarms</a></code> | <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics">CloudWanAttachmentRecommendedAlarmsMetrics</a>[]</code> | Alarm metrics to exclude. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.treatMissingData">treatMissingData</a></code> | <code>aws-cdk-lib.aws_cloudwatch.TreatMissingData</code> | How to handle missing data, unless overridden by an individual alarm. |
+
+---
+
+##### `attachmentId`<sup>Required</sup> <a name="attachmentId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.attachmentId"></a>
+
+```typescript
+public readonly attachmentId: string;
+```
+
+- *Type:* string
+
+The attachment ID, such as `attachment-0123456789abcdef0`.
+
+CDK exposes this as `CfnVpcAttachment.attrAttachmentId`.
+
+---
+
+##### `coreNetworkId`<sup>Required</sup> <a name="coreNetworkId" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.coreNetworkId"></a>
+
+```typescript
+public readonly coreNetworkId: string;
+```
+
+- *Type:* string
+
+The core network ID, such as `core-network-0123456789abcdef0`.
+
+CDK exposes this as `CfnCoreNetwork.attrCoreNetworkId`.
+
+---
+
+##### `configPacketDropCountBlackholeAlarm`<sup>Required</sup> <a name="configPacketDropCountBlackholeAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.configPacketDropCountBlackholeAlarm"></a>
+
+```typescript
+public readonly configPacketDropCountBlackholeAlarm: CloudWanAttachmentPacketDropCountBlackholeAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountBlackholeAlarmConfig">CloudWanAttachmentPacketDropCountBlackholeAlarmConfig</a>
+
+Configuration for the `PacketDropCountBlackhole` alarm, including its required threshold.
+
+---
+
+##### `configPacketDropCountNoRouteAlarm`<sup>Required</sup> <a name="configPacketDropCountNoRouteAlarm" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.configPacketDropCountNoRouteAlarm"></a>
+
+```typescript
+public readonly configPacketDropCountNoRouteAlarm: CloudWanAttachmentPacketDropCountNoRouteAlarmConfig;
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentPacketDropCountNoRouteAlarmConfig">CloudWanAttachmentPacketDropCountNoRouteAlarmConfig</a>
+
+Configuration for the `PacketDropCountNoRoute` alarm, including its required threshold.
+
+---
+
+##### `defaultAlarmAction`<sup>Optional</sup> <a name="defaultAlarmAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.defaultAlarmAction"></a>
+
+```typescript
+public readonly defaultAlarmAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action when an alarm is triggered, in the alarm's Region.
+
+---
+
+##### `defaultInsufficientDataAction`<sup>Optional</sup> <a name="defaultInsufficientDataAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.defaultInsufficientDataAction"></a>
+
+```typescript
+public readonly defaultInsufficientDataAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action when an alarm has insufficient data, in the alarm's Region.
+
+---
+
+##### `defaultOkAction`<sup>Optional</sup> <a name="defaultOkAction" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.defaultOkAction"></a>
+
+```typescript
+public readonly defaultOkAction: IAlarmAction;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.IAlarmAction
+- *Default:* None.
+
+The default action when an alarm enters the OK state, in the alarm's Region.
+
+---
+
+##### `excludeAlarms`<sup>Optional</sup> <a name="excludeAlarms" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.excludeAlarms"></a>
+
+```typescript
+public readonly excludeAlarms: CloudWanAttachmentRecommendedAlarmsMetrics[];
+```
+
+- *Type:* <a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics">CloudWanAttachmentRecommendedAlarmsMetrics</a>[]
+- *Default:* None.
+
+Alarm metrics to exclude.
+
+---
+
+##### `treatMissingData`<sup>Optional</sup> <a name="treatMissingData" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsProps.property.treatMissingData"></a>
+
+```typescript
+public readonly treatMissingData: TreatMissingData;
+```
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.TreatMissingData
+- *Default:* TreatMissingData.MISSING
+
+How to handle missing data, unless overridden by an individual alarm.
+
+---
+
 ### DmsAlarmBaseConfig <a name="DmsAlarmBaseConfig" id="@renovosolutions/cdk-library-cloudwatch-alarms.DmsAlarmBaseConfig"></a>
 
 The common optional configuration for the alarms.
@@ -136453,6 +138820,33 @@ Functions can be throttled for the following reasons:
 - The function continuously exceeds the maximum time allowed for execution
 - The function results in compilation errors
 - There is an unusually high number of requests per second
+
+---
+
+
+### CloudWanAttachmentRecommendedAlarmsMetrics <a name="CloudWanAttachmentRecommendedAlarmsMetrics" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics"></a>
+
+Metrics supported by the Cloud WAN attachment alarms.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics.PACKET_DROP_COUNT_NO_ROUTE">PACKET_DROP_COUNT_NO_ROUTE</a></code> | Packets dropped because they did not match a route. |
+| <code><a href="#@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics.PACKET_DROP_COUNT_BLACKHOLE">PACKET_DROP_COUNT_BLACKHOLE</a></code> | Packets dropped because they matched a `blackhole` route. |
+
+---
+
+##### `PACKET_DROP_COUNT_NO_ROUTE` <a name="PACKET_DROP_COUNT_NO_ROUTE" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics.PACKET_DROP_COUNT_NO_ROUTE"></a>
+
+Packets dropped because they did not match a route.
+
+---
+
+
+##### `PACKET_DROP_COUNT_BLACKHOLE` <a name="PACKET_DROP_COUNT_BLACKHOLE" id="@renovosolutions/cdk-library-cloudwatch-alarms.CloudWanAttachmentRecommendedAlarmsMetrics.PACKET_DROP_COUNT_BLACKHOLE"></a>
+
+Packets dropped because they matched a `blackhole` route.
 
 ---
 
